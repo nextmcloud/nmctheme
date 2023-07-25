@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>nmctheme</id>
+	<name>MagentaCLOUD Telekom branding</name>
+	<summary>Telekom branding theme for MagentaCLOUD</summary>
+	<description>Flexible theme customisation for Magentacloud 
+    implementing Telekom Scale branding system
+    supporting refactored style system since Nextcloud V25
+    </description>
+	<version>0.0.1</version>
+	<licence>agpl</licence>
+	<author>T-Systems International</author>
+	<namespace>NMCTheme</namespace>
+
+	<types>
+		<logging/>
+	</types>
+
+	<category>customization</category>
+	<bugs>https://github.com/nextcloud/server/issues</bugs>
+	<dependencies>
+		<nextcloud min-version="25" max-version="28"/>
+	</dependencies>
+</info>

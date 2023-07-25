@@ -1,0 +1,31 @@
+{
+  "name": "nextmcloud/nmctheme",
+  "description": "MagentaCLOUD theme for NC25 ff.",
+  "license": "AGPL3",
+  "config": {
+    "optimize-autoloader": true,
+    "classmap-authoritative": true
+  },
+  "scripts": {
+    "cs:fix": "php-cs-fixer fix",
+    "cs:check": "php-cs-fixer fix --dry-run --diff",
+    "lint": "find . -name \\*.php -not -path './vendor/*' -exec php -l \"{}\" \\;",
+    "test:unit": "phpunit -c tests/phpunit.xml",
+    "post-install-cmd": [
+      "@composer bin all install --ansi",
+      "composer dump-autoload"
+    ],
+    "post-update-cmd": [
+      "@composer bin all install --ansi",
+      "composer dump-autoload"
+    ]
+  },
+  "require": {
+    "php": "^8.0"
+  },
+  "require-dev": {
+    "nextcloud/coding-standard": "^0.5.0"
+  },
+  "extra": {
+  }
+}
