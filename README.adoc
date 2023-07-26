@@ -1,0 +1,64 @@
+= MagentaCLOUD theme for Nextcloud 25+
+This is the MagentaCLOUD "modernized" theme for the new stylesheet/theming system since Nextcloud 25.
+
+
+== Overall changes to Nextcloud standard themes
+
+1. The theme uses Telekom branding standards that are in the
+   https://github.com/telekom/design-tokens[*github.com/telekom/design_token*] repo
+   available as OpenSource
+
+2. The _TeleNeoWeb_ are forced to be the enabled in Nextcloud installation as soon as this app is installed.
+   (Note the Telekom branding license restriction!)
+
+3. Nextcloud icons are replaced by Telekom or MagentaCLOUD standard icons.
+   (Note the Telekom branding license restriction!)
+
+
+== Configuration
+This is the recommended configuration for the installation of this theme:
+
+.Nextcloud server `config/theme.config.php`
+----
+<?php
+$CONFIG = array (
+    'enforce_theme' => 'magenta25',  // or any other theme contained in the app
+    'theme' => ''                    // disable old themeing
+);
+----
+
+.Nextcloud standard *theming* app configs
+----
+# Set base url of the installation
+/usr/bin/php occ theming:config url <baseurl of your installation, e.g. https://magentacloud.de>
+
+# disable user themeing
+/usr/bin/php occ theming:config disable-user-theming yes
+
+# "Organisational" setting
+/usr/bin/php occ theming:config color "#e20074"   # don't use uppercase letters!
+/usr/bin/php occ theming:config name MagentaCLOUD
+/usr/bin/php occ theming:config slogan "Alle Dateien sicher an einem Ort"
+/usr/bin/php occ theming:config imprintUrl "http://www.telekom.de/impressum"
+/usr/bin/php occ theming:config privacyUrl "https://static.magentacloud.de/Datenschutz"
+
+# Organisational "product" icons - 
+# they are stored in ROOT filesystem and kept in distributed cache = no performance issue
+/usr/bin/php occ theming:config faviconMime \
+    /<absolute path to appdir>/nmctheme/lib/icons/favicon.ico
+/usr/bin/php occ theming:config logo \
+    /<absolute path to appdir>/nmctheme/lib/icons/tlogocarrier.svg
+/usr/bin/php occ theming:config background \
+    /<absolute path to appdir>/nmctheme/lib/icons/background_consent.svg 
+
+# application ids for mobile apps (with real MagentaCLOUD ids)
+/usr/bin/php occ config:app:set theming AndroidClientUrl --value \
+    "https://play.google.com/store/apps/details?=com.t_systems.android.webdav"
+/usr/bin/php occ config:app:set theming iTunesAppId --value "312838242"
+/usr/bin/php occ config:app:set theming iOSClientUrl --value \
+    "https://apps.apple.com/us/app/magentacloud-cloud-speicher/id312838242"
+----
+
+NOTE: The theming icons are not directly exposed by the `nmctheme`app, but delivered for
+upload under `lib/icons/*.*`. You need to use absolute path for the occ theming upload command.
+   
