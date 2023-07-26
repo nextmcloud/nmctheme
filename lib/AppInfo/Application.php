@@ -15,6 +15,11 @@ use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 
+use OCA\Theming\Service\ThemesService;
+use OCA\Theming\ITheme;
+use OCA\NMCTheme\Themes\Magenta;
+use OCA\NMCTheme\Themes\MagentaDark;
+
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'nmctheme';
 
@@ -23,10 +28,20 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
-        // register the additional stylesheets, language files, etc.
-        $context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
+        // the listener could be helpful to inject additional scripts
+        //$context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
     }
 
 	public function boot(IBootContext $context): void {
+        /** @var ThemesService $themesService */
+        $themesService = $this->getContainer()->get(ThemesService::class);
+
+        /** @var Magenta $magentaDefault */
+        $magentaDefault = $this->getContainer()->get(Magenta::class);
+
+        /** @var MagentaDark $magentaDark */
+        $magentaDark = $this->getContainer()->get(MagentaDark::class);
+        
+        $themesService->registerThemes([$magentaDefault, $magentaDark]);
     }
 }

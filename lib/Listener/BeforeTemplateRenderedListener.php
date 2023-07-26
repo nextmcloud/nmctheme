@@ -59,6 +59,6 @@ class BeforeTemplateRenderedListener implements IEventListener {
      */
 	public function handle(Event $event): void {
         // add Magenta theme modes
-        $this->themesService->registerThemes([$this->magentaDefault, $this->magentaDark]); 
+        // $this->themesService->registerThemes([$this->magentaDefault, $this->magentaDark]); 
 	}
 }

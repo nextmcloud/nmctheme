@@ -69,7 +69,7 @@ class MagentaDark implements ITheme {
 
 	public function getCustomCss(): string {
 		$telekomTokens  = $this->urlGenerator->linkTo('nmctheme', 'css/telekom-design-tokens.all.css');
-		$themeVariables = $this->urlGenerator->linkTo('nmctheme', 'css/dark.css');
+		$themeVariables = $this->urlGenerator->linkTo('nmctheme', 'css/nmcdark.css');
 		
         return "
             @import url('$telekomTokens');
