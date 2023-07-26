@@ -1,6 +1,6 @@
 /* The MagentaCLOUD default settings that are always used as baseline fallback */
 :root {
-   --color-main-background: var(--telekom-color-background-canvas);
+  --color-main-background: var(--telekom-color-background-canvas);
   --color-main-background-rgb: 255,255,255;
   --color-main-background-translucent: rgba(var(--color-main-background-rgb), .97);
   --color-main-background-blur: rgba(var(--color-main-background-rgb), .8);
@@ -41,7 +41,7 @@
   --color-border: #ededed;
   --color-border-dark: #dbdbdb;
   --color-border-maxcontrast: #949494;
-  --font-face: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Cantarell, Ubuntu, 'Helvetica Neue', Arial, sans-serif, 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-face: TeleNeoWeb, sans-serif, Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Cantarell, Ubuntu, 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --default-font-size: 15px;
   --animation-quick: 100ms;
   --animation-slow: 300ms;
