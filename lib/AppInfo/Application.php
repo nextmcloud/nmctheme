@@ -44,7 +44,7 @@ class Application extends App implements IBootstrap {
 			$container = \OC::$server->getRegisteredAppContainer($appName);
 		} catch (QueryException $e) {
 			$container = new DIContainer($appName);
-            \OC::$server->getRegisteredAppContainer($appName);
+            \OC::$server->registerAppContainer($appName, $container);
         }
 
         return $container;
