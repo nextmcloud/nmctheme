@@ -85,13 +85,13 @@ class NMCThemesService extends ThemesService {
         $this->default = $default;
         $this->staticThemeIds = array_map($mapThemeIds, $staticThemes);
         $nonStaticThemes = array_merge([$default], $selectableThemes);
-        $nonStaticThemeIds = array_map($mapThemeIds, $nonStaticThemes);
+        $nonStaticThemeIds = array_merge(['default'], array_map($mapThemeIds, $selectableThemes));
 		$this->selectableThemeIds = array_map($mapThemeIds,
-                                              array_filter($selectableThemes, function(ITheme $theme) { 
+                                              array_filter($nonStaticThemes, function(ITheme $theme) { 
                                                 return $theme->getType() == ITheme::TYPE_THEME; 
                                               }));
         $this->selectableFontIds = array_map($mapThemeIds,
-                                              array_filter($selectableThemes, function(ITheme $theme) { 
+                                              array_filter($nonStaticThemes, function(ITheme $theme) { 
                                                 return $theme->getType() == ITheme::TYPE_FONT; 
                                               }));
         $this->themeClasses = array_merge( array_combine($nonStaticThemeIds, $nonStaticThemes),
