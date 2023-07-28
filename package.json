@@ -3,13 +3,15 @@
     "version": "0.0.1",
     "description": "MagentaCLOUD theme for Nextcloud",
     "author": "T-Systems International",
+    "type": "module",
     "devDependencies": {
         "prettier": "^2.5.1",
         "stylelint": "^13.13.1",
         "stylelint-config-prettier": "^8.0.2",
         "stylelint-config-sass-guidelines": "^7.1.0",
         "stylelint-prettier": "^1.2.0",
-        "sass": "^1.54.9"
+        "sass": "^1.54.9",
+        "nextcloud": "file:../../server"
     },
     "scripts": {
         "watch": "sass --poll --watch css/server.scss:css/server.css css/server-automatic.scss:css/server-automatic.css",
@@ -17,6 +19,7 @@
         "prettier": "prettier --check css js",
         "prettier:fix": "prettier --write css js",
         "stylelint": "stylelint css",
-        "stylelint:fix": "stylelint css --fix"
+        "stylelint:fix": "stylelint css --fix",
+        "sass:icons": "node core/js/icons.js"
     }
 }
