@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff339c"/>
+      <stop offset="1" stop-color="#e20074"/>
+    </linearGradient>
+    <clipPath id="clip-memory-consumption-display">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="memory-consumption-display" clip-path="url(#clip-memory-consumption-display)">
+    <g id="Gruppe_684" data-name="Gruppe 684">
+      <path id="Pfad_499" data-name="Pfad 499" d="M1.707,0H30.293A1.707,1.707,0,0,1,32,1.707V30.293A1.707,1.707,0,0,1,30.293,32H1.707A1.707,1.707,0,0,1,0,30.293V1.707A1.707,1.707,0,0,1,1.707,0Z" fill="url(#linear-gradient)"/>
+      <path id="Differenzmenge_9" data-name="Differenzmenge 9" d="M10.69,17.182a7.909,7.909,0,0,1-5.449-2.165,4.324,4.324,0,0,1-.95.106A4.289,4.289,0,0,1,.958,8.129a4.307,4.307,0,0,1,2.4-1.486A4.263,4.263,0,0,1,8.822,2.805,7.207,7.207,0,0,1,11.281.763a7.132,7.132,0,0,1,7.856.951,7.143,7.143,0,0,1,2.4,4.252A4.587,4.587,0,0,1,20.1,15.015a4.263,4.263,0,0,1-5.037.979V10.626H18.6L13.215,5.115,7.8,10.626h3.57v6.528C11.143,17.173,10.915,17.182,10.69,17.182Z" transform="translate(3.414 7.253)" fill="#fff"/>
+      <path id="Differenzmenge_10" data-name="Differenzmenge 10" d="M10.834,1.232H7.3V0H9.63l1.2,1.232Zm-7.233,0H0L1.218,0H3.6V1.232Z" transform="translate(11.18 17.879)" fill="rgba(226,0,116,0.2)"/>
+    </g>
+  </g>
+</svg>
