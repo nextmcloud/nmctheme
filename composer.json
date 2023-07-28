@@ -1,31 +1,42 @@
 {
   "name": "nextmcloud/nmctheme",
   "description": "MagentaCLOUD theme for NC25 ff.",
+  "type": "project",
   "license": "AGPL3",
-  "config": {
-    "optimize-autoloader": true,
-    "classmap-authoritative": true
-  },
-  "scripts": {
-    "cs:fix": "php-cs-fixer fix",
-    "cs:check": "php-cs-fixer fix --dry-run --diff",
-    "lint": "find . -name \\*.php -not -path './vendor/*' -exec php -l \"{}\" \\;",
-    "test:unit": "phpunit -c tests/phpunit.xml",
-    "post-install-cmd": [
-      "@composer bin all install --ansi",
-      "composer dump-autoload"
-    ],
-    "post-update-cmd": [
-      "@composer bin all install --ansi",
-      "composer dump-autoload"
-    ]
-  },
+  "authors": [
+    {
+        "name": "B. Rederlechner",
+        "email": "bernd.rederlechner@t-systems.com"
+    }
+  ],
   "require": {
     "php": "^8.0"
   },
   "require-dev": {
-    "nextcloud/coding-standard": "^0.5.0"
+    "roave/security-advisories": "dev-master",
+    "nextcloud/coding-standard": "^1.0.0",
+    "psalm/phar": "^5.4",
+    "phpunit/phpunit": "^9.5",
+    "ext-mbstring": "*",
+    "nextcloud/ocp": "dev-master"
   },
-  "extra": {
+  "config": {
+    "optimize-autoloader": true,
+    "classmap-authoritative": true,
+    "platform": {
+        "php": "8.0"
+    }
+  },
+  "scripts": {
+    "lint": "find . -name \\*.php -not -path './vendor/*' -print0 | xargs -0 -n1 php -l",
+    "cs:check": "php-cs-fixer fix --dry-run --diff",
+    "cs:fix": "php-cs-fixer fix",
+    "psalm": "psalm.phar",
+    "test:unit": "phpunit -c tests/phpunit.xml"
+  },
+  "autoload-dev": {
+    "psr-4": {
+        "OCP\\": "vendor/nextcloud/ocp/OCP"
+    }
   }
 }
