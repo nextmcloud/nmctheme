@@ -8,18 +8,12 @@
  */
 namespace OCA\NMCTheme\AppInfo;
 
-use OCP\IUserSession;
-use OCP\IConfig;
 use OC\AppFramework\DependencyInjection\DIContainer;
-use OC\AppFramework\Utility\SimpleContainer;
-use OCP\AppFramework\QueryException;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\Service\NMCThemesService;
-use OCP\AppFramework\App;
-use OCP\AppFramework\Bootstrap\IBootContext;
-use OCP\AppFramework\Bootstrap\IBootstrap;
-use OCP\AppFramework\Bootstrap\IRegistrationContext;
-use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
+use OCA\NMCTheme\Themes\Magenta;
+use OCA\NMCTheme\Themes\MagentaDark;
+use OCA\NMCTheme\Themes\TeleNeoWebFont;
 use OCA\Theming\Service\ThemesService;
 use OCA\Theming\Themes\DarkHighContrastTheme;
 use OCA\Theming\Themes\DarkTheme;
@@ -27,9 +21,14 @@ use OCA\Theming\Themes\DefaultTheme;
 use OCA\Theming\Themes\DyslexiaFont;
 use OCA\Theming\Themes\HighContrastTheme;
 use OCA\Theming\Themes\LightTheme;
-use OCA\NMCTheme\Themes\Magenta;
-use OCA\NMCTheme\Themes\MagentaDark;
-use OCA\NMCTheme\Themes\TeleNeoWebFont;
+use OCP\AppFramework\App;
+use OCP\AppFramework\Bootstrap\IBootContext;
+use OCP\AppFramework\Bootstrap\IBootstrap;
+use OCP\AppFramework\Bootstrap\IRegistrationContext;
+use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
+use OCP\AppFramework\QueryException;
+use OCP\IConfig;
+use OCP\IUserSession;
 
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'nmctheme';
@@ -38,54 +37,53 @@ class Application extends App implements IBootstrap {
 		parent::__construct(self::APP_ID);
 	}
 
-    public function getCapturedThemeingContainer() {
-        $appName = "theming";
+	/**
+	 * Services are aquired by DI with priority for registrations for the own app.
+	 * As ThemesService is registered before or after nmctheme, and we want to
+	 * register NMCTheme version instead we either have to:
+	 * - register a theming app container early if nmctheme is registered before
+	 *   theming
+	 * - use the already registered container if theming is registered before
+	 *   nmctheme
+	 *
+	 * The "foreign" theming container can the be used for enforcing the registration
+	 * of the NMCThemesService factory method.
+	 */
+	public function getCapturedThemeingContainer() {
+		$appName = "theming";
 		try {
 			$container = \OC::$server->getRegisteredAppContainer($appName);
 		} catch (QueryException $e) {
 			$container = new DIContainer($appName);
-            \OC::$server->registerAppContainer($appName, $container);
-        }
+			\OC::$server->registerAppContainer($appName, $container);
+		}
 
-        return $container;
-    }
+		return $container;
+	}
 
 	public function register(IRegistrationContext $context): void {
-        // getRegisteredAppContainer("theming")
+		// getRegisteredAppContainer("theming")
 		// explicitly register own NMCThemesManager to override the Nextcloud standard
-        $this->getCapturedThemeingContainer()->registerService(ThemesService::class, function($c) {
-            return new NMCThemesService(
-                $c->get(IUserSession::class),
-                $c->get(IConfig::class),
-                $c->get(Magenta::class),        
-                [$c->get(MagentaDark::class)],
-                [$c->get(TeleNeoWebFont::class)],
-                $c->get(DefaultTheme::class),   // the rest is overhead due to undefined interface (yet)
-                $c->get(LightTheme::class),
-                $c->get(DarkTheme::class),
-                $c->get(HighContrastTheme::class),
-                $c->get(DarkHighContrastTheme::class),
-                $c->get(DyslexiaFont::class)
-            );
-        });
-        
-        // the listener is helpful to enforce theme constraints and inject additional parts
+		$this->getCapturedThemeingContainer()->registerService(ThemesService::class, function ($c) {
+			return new NMCThemesService(
+				$c->get(IUserSession::class),
+				$c->get(IConfig::class),
+				$c->get(Magenta::class),
+				[$c->get(MagentaDark::class)],
+				[$c->get(TeleNeoWebFont::class)],
+				$c->get(DefaultTheme::class),   // the rest is overhead due to undefined interface (yet)
+				$c->get(LightTheme::class),
+				$c->get(DarkTheme::class),
+				$c->get(HighContrastTheme::class),
+				$c->get(DarkHighContrastTheme::class),
+				$c->get(DyslexiaFont::class)
+			);
+		});
+		
+		// the listener is helpful to enforce theme constraints and inject additional parts
 		// $context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
 	}
 
 	public function boot(IBootContext $context): void {
-		// /** @var ThemesService $themesService */
-		// $themesService = $this->getContainer()->get(ThemesService::class);
-
-		// /** @var Magenta $magentaDefault */
-		// $magentaDefault = $this->getContainer()->get(Magenta::class);
-
-		// /** @var MagentaDark $magentaDark */
-		// $magentaDark = $this->getContainer()->get(MagentaDark::class);
-
-		// /** @var TeleNeoWebFont $teleNeoWebFont */
-		// $teleNeoWebFont = $this->getContainer()->get(TeleNeoWebFont::class);
-
-		// $themesService->registerThemes([$teleNeoWebFont, $magentaDefault, $magentaDark], true);
 	}
 }
