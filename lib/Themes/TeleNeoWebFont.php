@@ -18,16 +18,20 @@ declare(strict_types=1);
 namespace OCA\NMCTheme\Themes;
 
 use OCA\Theming\ITheme;
-use OCP\IL10N;
 use OCP\App\IAppManager;
+use OCP\IL10N;
+use OCP\IURLGenerator;
 
 class TeleNeoWebFont implements ITheme {
 	private IAppManager $appManager;
+	private IURLGenerator $urlGenerator;
 	private IL10N $l;
 
 	public function __construct(IAppManager $appManager,
-								IL10N $l) {
-        $this->appManager = $appManager;
+		IURLGenerator $urlGenerator,
+		IL10N $l) {
+		$this->appManager = $appManager;
+		$this->urlGenerator = $urlGenerator;
 		$this->l = $l;
 	}
 
@@ -61,7 +65,8 @@ class TeleNeoWebFont implements ITheme {
 	}
 
 	public function getCustomCss(): string {
-		$fontPrefixUrl = $this->appManager->getAppWebPath("nmctheme") . "/fonts/TeleNeoWeb/TeleNeoWeb"; 
+		// avoid existence check of each file
+		$fontPrefixUrl = $this->appManager->getAppWebPath("nmctheme") . "/fonts/TeleNeoWeb/TeleNeoWeb";
 
 		// TODO: may reduce the delivered fonts to only those actually used in the design
 		return "
