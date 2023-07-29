@@ -45,10 +45,10 @@
   --default-font-size: 15px;
   --animation-quick: 100ms;
   --animation-slow: 300ms;
-  --border-radius: 3px;
-  --border-radius-large: 10px;
-  --border-radius-rounded: 28px;
-  --border-radius-pill: 100px;
+  --border-radius: var(--telekom-radius-standard);
+  --border-radius-large: var(--telekom-radius-large);
+  --border-radius-rounded: 0px;
+  --border-radius-pill: var(--telekom-radius-pill);
   --default-clickable-area: 44px;
   --default-line-height: 24px;
   --default-grid-baseline: 4px;
@@ -80,6 +80,6 @@
   --color-primary-element-light-text: #002a41;
   --color-primary-element-text-dark: #ededed;
   --gradient-primary-background: linear-gradient(40deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
-  --image-background-default: url('/apps/theming/img/background/kamil-porembinski-clouds.jpg');
-  --color-background-plain: var(--telekom-color-primary-standard);
+  /* --image-background-default: url('/apps/theming/img/background/kamil-porembinski-clouds.jpg'); */
+  --color-background-plain: var(--telekom-color-background-canvas);
 }
