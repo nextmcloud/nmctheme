@@ -28,11 +28,11 @@ class NMCThemesServiceTest extends NMCThemesServiceTestCase {
 		$this->assertEquals($this->staticThemes[2], $themeClasses['static2']);
 	}
 
-    /**
-     * Test situation is
-     * - anonymous page, no login
-     * - no enforced theme in server config
-     */
+	/**
+	 * Test situation is
+	 * - anonymous page, no login
+	 * - no enforced theme in server config
+	 */
 	public function testAnonymousDefault() {
 		$this->config->expects($this->never())->method('getUserValue');
 		$this->userSession->expects($this->once())->method('getUser')->willReturn(null);
@@ -48,11 +48,11 @@ class NMCThemesServiceTest extends NMCThemesServiceTestCase {
  
 	}
 
-    /**
-     * Test situation is
-     * - anonymous page, no login
-     * - enforced theme in server config
-     */
+	/**
+	 * Test situation is
+	 * - anonymous page, no login
+	 * - enforced theme in server config
+	 */
 	public function testAnonymousDefaultEnforced() {
 		$this->config->expects($this->never())->method('getUserValue');
 		$this->userSession->expects($this->never())->method('getUser');
@@ -68,12 +68,12 @@ class NMCThemesServiceTest extends NMCThemesServiceTestCase {
 		$this->assertContains('static2', $enabledThemes);
 	}
 
-    /**
-     * Test situation is
-     * - user logged in
-     * - enforced theme in server config
-     * - enforcement uses the real name of the default theme
-     */
+	/**
+	 * Test situation is
+	 * - user logged in
+	 * - enforced theme in server config
+	 * - enforcement uses the real name of the default theme
+	 */
 	public function testUserDefaultEnforced() {
 		$this->config->expects($this->never())->method('getUserValue');
 		$this->userSession->expects($this->never())->method('getUser');
@@ -89,11 +89,11 @@ class NMCThemesServiceTest extends NMCThemesServiceTestCase {
 		$this->assertContains('static2', $enabledThemes);
 	}
 
-    /**
-     * Test situation is
-     * - user logged in
-     * - user has no perferences set yet for themes
-     */
+	/**
+	 * Test situation is
+	 * - user logged in
+	 * - user has no perferences set yet for themes
+	 */
 	public function testUnthemedUser() {
 		$this->config->expects($this->any())->method('getUserValue')->willReturn('[]');
 		$this->config->expects($this->once())->method('getSystemValueString')->willReturn('');
@@ -101,26 +101,26 @@ class NMCThemesServiceTest extends NMCThemesServiceTestCase {
 		$this->user->expects($this->any())->method('getUID')->willReturn('0815user');
 
 		$enabledThemes = $this->themesService->getEnabledThemes();
-        $this->assertCount(4, $enabledThemes);
+		$this->assertCount(4, $enabledThemes);
 		$this->assertContains('default', $enabledThemes);
 		$this->assertContains('teleneoweb', $enabledThemes);
 		$this->assertContains('static1', $enabledThemes);
 		$this->assertContains('static2', $enabledThemes);
 	}
 
-    /**
-     * Test situation is
-     * - user logged in
-     * - user has only non-existing preferences set
-     */
-    public function testUserObsoleteOnly() {
+	/**
+	 * Test situation is
+	 * - user logged in
+	 * - user has only non-existing preferences set
+	 */
+	public function testUserObsoleteOnly() {
 		$this->config->expects($this->any())->method('getUserValue')->willReturn('["blackbeard","sparrow"]');
 		$this->config->expects($this->once())->method('getSystemValueString')->willReturn('');
 		$this->userSession->expects($this->any())->method('getUser')->willReturn($this->user);
 		$this->user->expects($this->any())->method('getUID')->willReturn('0815user');
 
 		$enabledThemes = $this->themesService->getEnabledThemes();
-        $this->assertCount(4, $enabledThemes);
+		$this->assertCount(4, $enabledThemes);
 		$this->assertContains('default', $enabledThemes);
 		$this->assertContains('teleneoweb', $enabledThemes);
 		$this->assertContains('static1', $enabledThemes);
@@ -128,49 +128,49 @@ class NMCThemesServiceTest extends NMCThemesServiceTestCase {
 	}
 
 
-    /**
-     * Test situation is
-     * - user logged in
-     * - user has a mix of existing and non-existing set, but none is a selectable theme
-     *   (default is then the main theme to use)
-     */
+	/**
+	 * Test situation is
+	 * - user logged in
+	 * - user has a mix of existing and non-existing set, but none is a selectable theme
+	 *   (default is then the main theme to use)
+	 */
 	public function testObsoleteAndActualNoUserThemeSelected() {
 		$this->config->expects($this->once())->method('getSystemValueString')->willReturn('');
 		$this->userSession->expects($this->any())->method('getUser')->willReturn($this->user);
 		$this->user->expects($this->any())->method('getUID')->willReturn('0815user');
 		$this->config->expects($this->any())->method('getUserValue')
-            ->with($this->equalTo('0815user'), $this->equalTo('nmctheme'),
-                    $this->equalTo('enabled-themes'), $this->equalTo('[]'))
-            ->willReturn('["darkforce","selectable1","teleneoweb","bluebay","static1"]');
+			->with($this->equalTo('0815user'), $this->equalTo('nmctheme'),
+				$this->equalTo('enabled-themes'), $this->equalTo('[]'))
+			->willReturn('["darkforce","selectable1","teleneoweb","bluebay","static1"]');
 
 		$enabledThemes = $this->themesService->getEnabledThemes();
-        $this->assertCount(5, $enabledThemes);
-        $this->assertContains('default', $enabledThemes);
-        $this->assertContains('selectable1', $enabledThemes);
+		$this->assertCount(5, $enabledThemes);
+		$this->assertContains('default', $enabledThemes);
+		$this->assertContains('selectable1', $enabledThemes);
 		$this->assertContains('teleneoweb', $enabledThemes);
 		$this->assertContains('static1', $enabledThemes);
 		$this->assertContains('static2', $enabledThemes);
 	}
 
-    /**
-     * Test situation is
-     * - user logged in
-     * - user has a mix of existing and non-existing set
-     * - selection contains a main theme
-     */
+	/**
+	 * Test situation is
+	 * - user logged in
+	 * - user has a mix of existing and non-existing set
+	 * - selection contains a main theme
+	 */
 	public function testObsoleteAndActualUserThemeSelected() {
 		$this->config->expects($this->once())->method('getSystemValueString')->willReturn('');
 		$this->userSession->expects($this->any())->method('getUser')->willReturn($this->user);
 		$this->user->expects($this->any())->method('getUID')->willReturn('0815user');
 		$this->config->expects($this->any())->method('getUserValue')
-            ->with($this->equalTo('0815user'), $this->equalTo('nmctheme'),
-                    $this->equalTo('enabled-themes'), $this->equalTo('[]'))
-            ->willReturn('["selectable2","selectable1","teleneoweb","bluebay","static1"]');
+			->with($this->equalTo('0815user'), $this->equalTo('nmctheme'),
+				$this->equalTo('enabled-themes'), $this->equalTo('[]'))
+			->willReturn('["selectable2","selectable1","teleneoweb","bluebay","static1"]');
 
 		$enabledThemes = $this->themesService->getEnabledThemes();
-        $this->assertCount(5, $enabledThemes);
-        $this->assertContains('selectable1', $enabledThemes);
-        $this->assertContains('selectable2', $enabledThemes);
+		$this->assertCount(5, $enabledThemes);
+		$this->assertContains('selectable1', $enabledThemes);
+		$this->assertContains('selectable2', $enabledThemes);
 		$this->assertContains('teleneoweb', $enabledThemes);
 		$this->assertContains('static1', $enabledThemes);
 		$this->assertContains('static2', $enabledThemes);

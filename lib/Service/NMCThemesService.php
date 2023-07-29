@@ -91,7 +91,7 @@ class NMCThemesService extends ThemesService {
 			array_filter($nonStaticThemes, function (ITheme $theme) {
 				return $theme->getType() == ITheme::TYPE_THEME;
 			}));
-        $this->selectableThemeIds[0] = 'default'; // this is duplicate getId() value, so first is inteneded as default   
+		$this->selectableThemeIds[0] = 'default'; // this is duplicate getId() value, so first is inteneded as default
 		$this->selectableFontIds = array_map($mapThemeIds,
 			array_filter($nonStaticThemes, function (ITheme $theme) {
 				return $theme->getType() == ITheme::TYPE_FONT;
@@ -127,10 +127,10 @@ class NMCThemesService extends ThemesService {
 		}
 
 		// a user selected page setup
-        $userValues = $this->config->getUserValue($user->getUID(), Application::APP_ID, 'enabled-themes', '[]');
+		$userValues = $this->config->getUserValue($user->getUID(), Application::APP_ID, 'enabled-themes', '[]');
 		$enabledThemeIds = json_decode($userValues);
 		$selectedThemeIds = array_intersect($this->selectableThemeIds, $enabledThemeIds);
-        $selectedFontIds = array_intersect($this->selectableFontIds, $enabledThemeIds);
+		$selectedFontIds = array_intersect($this->selectableFontIds, $enabledThemeIds);
 		if (empty($selectedThemeIds)) {
 			// add default to the enabled fonts adn statics (as there is no selected theme)
 			return array_unique(array_merge(['default'], $selectedFontIds, $this->staticThemeIds));
