@@ -32,6 +32,8 @@ use OCP\AppFramework\QueryException;
 use OCP\IConfig;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
+use OCP\L10N\IFactory;
+use OCA\NMCTheme\L10N\FactoryDecorator;
 
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'nmctheme';
@@ -105,17 +107,25 @@ class Application extends App implements IBootstrap {
 				$c->get(DyslexiaFont::class)
 			);
 		});
-		
-		// intercept requests for favicons to enforce own behavior
-		$this->registerURLGeneratorDecorator($context);
-
-		/**
-		 * Add listeners that can inject additional information or scripts before rendering
-		 */
-
+        $this->registerIFactoryDecorator($context);
+	
 		// the listener is helpful to enforce theme constraints and inject additional parts
-		$context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
-	}
+		// $context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
+    }
+    
+    /**
+     * Decorate the L10N IFactory of server with the L10N theming factory
+     * so that any request for translation is either overridden by a value
+     * from this app or delegated to the original factory
+     */
+    protected function registerIFactoryDecorator(IRegistrationContext $context) {
+        $this->getContainer()->getServer()->registerService(IFactory::class, function ($c) {
+            $callableFactoryMethod = $c->get(IFactory::class);
+            return new FactoryDecorator(
+                $callableFactoryMethod,
+            );
+        });
+    }
 
 	public function boot(IBootContext $context): void {
 	}
