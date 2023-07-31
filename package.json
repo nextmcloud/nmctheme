@@ -20,6 +20,6 @@
         "prettier:fix": "prettier --write css js",
         "stylelint": "stylelint css",
         "stylelint:fix": "stylelint css --fix",
-        "sass:icons": "node core/js/icons.js"
+        "sass:icons": "node js/icons.js"
     }
 }

@@ -11,26 +11,26 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const variables = {}
 
 const icons = {
-  "add": path.join(__dirname, '../../lib/icons', 'actions', 'add.svg'),
-  "address": path.join(__dirname, '../../lib/icons', 'actions', 'address.svg'),
-  "download": path.join(__dirname, '../../lib/icons', 'actions', 'download.svg'),
-  "logout": path.join(__dirname, '../../lib/icons', 'actions', 'logout.svg'),
-  "share": path.join(__dirname, '../../lib/icons', 'actions', 'share.svg'),
-  "star": path.join(__dirname, '../../lib/icons', 'actions', 'star.svg'),
-  "starred": path.join(__dirname, '../../lib/icons', 'actions', 'starred.svg'),
-  "upload": path.join(__dirname, '../../lib/icons', 'actions', 'upload.svg'),
-  "user": path.join(__dirname, '../../lib/icons', 'actions', 'user.svg'),
-  "folder": path.join(__dirname, '../../lib/icons', 'filetypes', 'folder.svg'),
-  'files': path.join(__dirname, '../../lib/icons', 'places', 'files.svg'),
+  "add": path.join(__dirname, '../img', 'actions', 'add.svg'),
+  "address": path.join(__dirname, '../img', 'actions', 'address.svg'),
+  "download": path.join(__dirname, '../img', 'actions', 'download.svg'),
+  "logout": path.join(__dirname, '../img', 'actions', 'logout.svg'),
+  "share": path.join(__dirname, '../img', 'actions', 'share.svg'),
+  "star": path.join(__dirname, '../img', 'actions', 'star.svg'),
+  "starred": path.join(__dirname, '../img', 'actions', 'starred.svg'),
+  "upload": path.join(__dirname, '../img', 'actions', 'upload.svg'),
+  "user": path.join(__dirname, '../img', 'actions', 'user.svg'),
+  "folder": path.join(__dirname, '../img', 'filetypes', 'folder.svg'),
+  'files': path.join(__dirname, '../img', 'places', 'files.svg'),
 }
 
 const iconsColor = {
   'starred': {
-		path: path.join(__dirname, '../../lib/icons', 'actions', 'star-dark.svg'),
+		path: path.join(__dirname, '../img', 'actions', 'star-dark.svg'),
 		color: 'yellow',
 	},
 	'file': {
-		path: path.join(__dirname, '../../lib/icons', 'filetypes', 'text.svg'),
+		path: path.join(__dirname, '../img', 'filetypes', 'text.svg'),
 		color: 'grey',
 	},
 }
@@ -90,4 +90,4 @@ css += '[data-themes*=dark] {'
 css += generateVariablesAliases(true)
 css += '}'
 
-fs.writeFileSync(path.join(__dirname, '../../dist', 'icons.css'), sass.compileString(css).css)
+fs.writeFileSync(path.join(__dirname, '../dist', 'icons.css'), sass.compileString(css).css)

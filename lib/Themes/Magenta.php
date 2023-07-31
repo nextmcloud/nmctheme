@@ -64,7 +64,7 @@ class Magenta implements ITheme {
 		return "
         @import url('{$telekomVariables}');
         @import url('{$themeVariables}');        
-				@import url('$iconsVariables');
+		@import url('$iconsVariables');
     ";
 	}
 }
