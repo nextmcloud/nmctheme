@@ -11,19 +11,23 @@ declare(strict_types=1);
 namespace OCA\NMCTheme\Themes;
 
 use OCA\Theming\ITheme;
+use OCP\App\IAppManager;
 use OCP\IL10N;
 use OCP\IURLGenerator;
 
 class MagentaDark implements ITheme {
-	public IURLGenerator $urlGenerator;
-	public IL10N $l;
+	private IAppManager $appManager;
+	private IURLGenerator $urlGenerator;
+	private IL10N $l;
 
-	public function __construct(IURLGenerator $urlGenerator,
-								IL10N $l) {
+	public function __construct(IAppManager $appManager,
+		IURLGenerator $urlGenerator,
+		IL10N $l) {
+		$this->appManager = $appManager;
 		$this->urlGenerator = $urlGenerator;
 		$this->l = $l;
 	}
-
+	
 	public function getId(): string {
 		return 'magenta25dark';
 	}
@@ -53,12 +57,14 @@ class MagentaDark implements ITheme {
 	}
 
 	public function getCustomCss(): string {
-		$telekomTokens = $this->urlGenerator->linkTo('nmctheme', 'css/telekom-design-tokens.all.css');
-		$themeVariables = $this->urlGenerator->linkTo('nmctheme', 'css/nmcdark.css');
-		
+		$telekomVariables =
+			$this->urlGenerator->linkTo('nmctheme', 'css/telekom-design-tokens.all.css');
+		$themeVariables =
+			$this->urlGenerator->linkTo('nmctheme', 'css/nmcdark.css');
+
 		return "
-            @import url('$telekomTokens');
-            @import url('$themeVariables');        
+            @import url('{$telekomVariables}');
+            @import url('{$themeVariables}');        
         ";
 	}
 }

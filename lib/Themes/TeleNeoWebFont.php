@@ -18,15 +18,19 @@ declare(strict_types=1);
 namespace OCA\NMCTheme\Themes;
 
 use OCA\Theming\ITheme;
+use OCP\App\IAppManager;
 use OCP\IL10N;
 use OCP\IURLGenerator;
 
 class TeleNeoWebFont implements ITheme {
-	public IURLGenerator $urlGenerator;
-	public IL10N $l;
+	private IAppManager $appManager;
+	private IURLGenerator $urlGenerator;
+	private IL10N $l;
 
-	public function __construct(IURLGenerator $urlGenerator,
-								IL10N $l) {
+	public function __construct(IAppManager $appManager,
+		IURLGenerator $urlGenerator,
+		IL10N $l) {
+		$this->appManager = $appManager;
 		$this->urlGenerator = $urlGenerator;
 		$this->l = $l;
 	}
@@ -61,105 +65,106 @@ class TeleNeoWebFont implements ITheme {
 	}
 
 	public function getCustomCss(): string {
-		// TODO: may reduce the delivered fonts to only those actually used in the design
-		$fontPrefixUrl = $this->urlGenerator->linkTo('nmctheme', 'fonts/TeleNeoWeb');
+		// avoid existence check of each file
+		$fontPrefixUrl = $this->appManager->getAppWebPath("nmctheme") . "/fonts/TeleNeoWeb/TeleNeoWeb";
 
+		// TODO: may reduce the delivered fonts to only those actually used in the design
 		return "
           @font-face {
             font-family: 'TeleNeoWeb';
             font-weight: 900;
             font-style: normal;
-            src: url('${fontPrefixUrl}-Ultra.eot');
-            src: url('${fontPrefixUrl}-Ultra.woff') format('woff'),
-                 url('${fontPrefixUrl}-Ultra.woff2') format('woff2');
+            src: url('{$fontPrefixUrl}-Ultra.eot');
+            src: url('{$fontPrefixUrl}-Ultra.woff') format('woff'),
+                 url('{$fontPrefixUrl}-Ultra.woff2') format('woff2');
           }
           @font-face {
             font-family: 'TeleNeoWeb';
             font-weight: 900;
             font-style: italic;
-            src: url('${fontPrefixUrl}-UltraItalic.eot');
-            src: url('${fontPrefixUrl}-UltraItalic.woff') format('woff'),
-                 url('${fontPrefixUrl}-UltraItalic.woff2') format('woff2');
+            src: url('{$fontPrefixUrl}-UltraItalic.eot');
+            src: url('{$fontPrefixUrl}-UltraItalic.woff') format('woff'),
+                 url('{$fontPrefixUrl}-UltraItalic.woff2') format('woff2');
           }
           @font-face {
             font-family: 'TeleNeoWeb';
             font-weight: 800;
             font-style: normal;
-            src: url('${fontPrefixUrl}-ExtraBold.eot');
-            src: url('${fontPrefixUrl}-ExtraBold.woff') format('woff'),
-                 url('${fontPrefixUrl}-ExtraBold.woff2') format('woff2');
+            src: url('{$fontPrefixUrl}-ExtraBold.eot');
+            src: url('{$fontPrefixUrl}-ExtraBold.woff') format('woff'),
+                 url('{$fontPrefixUrl}-ExtraBold.woff2') format('woff2');
           }
           @font-face {
             font-family: 'TeleNeoWeb';
             font-weight: 800;
             font-style: italic;
-            src: url('${fontPrefixUrl}-ExtraBoldItalic.eot');
-            src: url('${fontPrefixUrl}-ExtraBoldItalic.woff') format('woff'),
-                 url('${fontPrefixUrl}-ExtraBoldItalic.woff2') format('woff2');
+            src: url('{$fontPrefixUrl}-ExtraBoldItalic.eot');
+            src: url('{$fontPrefixUrl}-ExtraBoldItalic.woff') format('woff'),
+                 url('{$fontPrefixUrl}-ExtraBoldItalic.woff2') format('woff2');
           }
           @font-face {
             font-family: 'TeleNeoWeb';
             font-weight: 700;
             font-style: normal;
-            src: url('${fontPrefixUrl}-Bold.eot');
-            src: url('${fontPrefixUrl}-Bold.woff') format('woff'),
-                 url('${fontPrefixUrl}-Bold.woff2') format('woff2');
+            src: url('{$fontPrefixUrl}-Bold.eot');
+            src: url('{$fontPrefixUrl}-Bold.woff') format('woff'),
+                 url('{$fontPrefixUrl}-Bold.woff2') format('woff2');
           }
           @font-face {
             font-family: 'TeleNeoWeb';
             font-weight: 700;
             font-style: italic;
-            src: url('${fontPrefixUrl}-BoldItalic.eot');
-            src: url('${fontPrefixUrl}-BoldItalic.woff') format('woff'),
-                 url('${fontPrefixUrl}-BoldItalic.woff2') format('woff2');
+            src: url('{$fontPrefixUrl}-BoldItalic.eot');
+            src: url('{$fontPrefixUrl}-BoldItalic.woff') format('woff'),
+                 url('{$fontPrefixUrl}-BoldItalic.woff2') format('woff2');
           }
           @font-face {
             font-family: 'TeleNeoWeb';
             font-weight: 500;
             font-style: normal;
-            src: url('${fontPrefixUrl}-Medium.eot');
-            src: url('${fontPrefixUrl}-Medium.woff') format('woff'),
-                 url('${fontPrefixUrl}-Medium.woff2') format('woff2');
+            src: url('{$fontPrefixUrl}-Medium.eot');
+            src: url('{$fontPrefixUrl}-Medium.woff') format('woff'),
+                 url('{$fontPrefixUrl}-Medium.woff2') format('woff2');
           }
           @font-face {
             font-family: 'TeleNeoWeb';
             font-weight: 500;
             font-style: italic;
-            src: url('${fontPrefixUrl}-MediumItalic.eot');
-            src: url('${fontPrefixUrl}-MediumItalic.woff') format('woff'),
-                 url('${fontPrefixUrl}-MediumItalic.woff2') format('woff2');
+            src: url('{$fontPrefixUrl}-MediumItalic.eot');
+            src: url('{$fontPrefixUrl}-MediumItalic.woff') format('woff'),
+                 url('{$fontPrefixUrl}-MediumItalic.woff2') format('woff2');
           }
           @font-face {
             font-family: 'TeleNeoWeb';
             font-weight: 400;
             font-style: normal;
-            src: url('${fontPrefixUrl}-Regular.eot');
-            src: url('${fontPrefixUrl}-Regular.woff') format('woff'),
-              url('${fontPrefixUrl}-Regular.woff2') format('woff2');
+            src: url('{$fontPrefixUrl}-Regular.eot');
+            src: url('{$fontPrefixUrl}-Regular.woff') format('woff'),
+              url('{$fontPrefixUrl}-Regular.woff2') format('woff2');
           }
           @font-face {
             font-family: 'TeleNeoWeb';
             font-weight: 400;
             font-style: italic;
-            src: url('${fontPrefixUrl}-RegularItalic.eot');
-            src: url('${fontPrefixUrl}-RegularItalic.woff') format('woff'),
-              url('${fontPrefixUrl}-RegularItalic.woff2') format('woff2');
+            src: url('{$fontPrefixUrl}-RegularItalic.eot');
+            src: url('{$fontPrefixUrl}-RegularItalic.woff') format('woff'),
+              url('{$fontPrefixUrl}-RegularItalic.woff2') format('woff2');
           }
           @font-face {
             font-family: 'TeleNeoWeb';
             font-weight: 200;
             font-style: normal;
-            src: url('${fontPrefixUrl}-Thin.eot');
-            src: url('${fontPrefixUrl}-Thin.woff') format('woff'),
-              url('${fontPrefixUrl}-Thin.woff2') format('woff2');
+            src: url('{$fontPrefixUrl}-Thin.eot');
+            src: url('{$fontPrefixUrl}-Thin.woff') format('woff'),
+              url('{$fontPrefixUrl}-Thin.woff2') format('woff2');
           }
           @font-face {
             font-family: 'TeleNeoWeb';
             font-weight: 200;
             font-style: italic;
-            src: url('${fontPrefixUrl}-ThinItalic.eot');
-            src: url('${fontPrefixUrl}-ThinItalic.woff') format('woff'),
-              url('${fontPrefixUrl}-ThinItalic.woff2') format('woff2');
+            src: url('{$fontPrefixUrl}-ThinItalic.eot');
+            src: url('{$fontPrefixUrl}-ThinItalic.woff') format('woff'),
+              url('{$fontPrefixUrl}-ThinItalic.woff2') format('woff2');
           }";
 	}
 }

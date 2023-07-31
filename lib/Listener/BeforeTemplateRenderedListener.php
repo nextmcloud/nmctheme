@@ -11,20 +11,18 @@ declare(strict_types=1);
  */
 namespace OCA\NMCTheme\Listener;
 
+use OCP\AppFramework\Http\TemplateResponse;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
-use OCA\Theming\Service\ThemesService;
-use OCA\NMCTheme\Themes\TeleNeoWebFont;
+use OCP\IURLGenerator;
 
 class BeforeTemplateRenderedListener implements IEventListener {
-	private ThemesService $themesService;
-	private TeleNeoWebFont $teleNeoWebFont;
+	private IURLGenerator $urlGenerator;
 
 	public function __construct(
-		ThemesService $themesService,
-		TeleNeoWebFont $teleNeoWebFont) {
-		$this->themesService = $themesService;
-		$this->teleNeoWebFont = $teleNeoWebFont;
+		IURLGenerator $urlGenerator
+	) {
+		$this->urlGenerator = $urlGenerator;
 	}
 
 	/**
@@ -33,7 +31,9 @@ class BeforeTemplateRenderedListener implements IEventListener {
 	 * application bootstrapping).
 	 */
 	public function handle(Event $event): void {
-		// always enable TeleNeoWebFonts if this theme is installed
-		$this->themesService->enableTheme($this->teleNeoWebFont);
+		// you can add extra styles depending on situation
+		// if ($event->getResponse()->getRenderAs() === TemplateResponse::RENDER_AS_USER) {
+		//     \OCP\Util::addStyle("nmctheme", "some_extra_xxx");
+		// }
 	}
 }
