@@ -7,7 +7,7 @@
         "prettier": "^2.5.1",
         "stylelint": "^13.13.1",
         "stylelint-config-prettier": "^8.0.2",
-        "stylelint-config-sass-guidelines": "^7.1.0",
+        "stylelint-config-sass-guidelines": "^8.0.0",
         "stylelint-prettier": "^1.2.0",
         "sass": "^1.54.9"
     },
