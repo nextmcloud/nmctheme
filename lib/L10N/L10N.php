@@ -34,6 +34,7 @@ use Symfony\Component\Translation\IdentityTranslator;
  * design anyway).
  * 
  * TODO: Introduce the modification as upstream standard.
+ * TODO: Diff in detail: core, lib, nmc-firstrunwizard,settings,
  */
 class L10N implements IL10N {
 	/** @var IFactory */

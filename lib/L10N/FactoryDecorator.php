@@ -39,7 +39,7 @@ class FactoryDecorator implements IFactory {
      * but for spurious adoptions of wordings.
      * 
 	 * @var string[][][]: Translation matrix in the form
-     *                    translations[$lang][$app][$msg] => $translation
+     *                    overrides[$lang][$app][$msg] => $translation
      */
     protected array $overrides = [];
 
@@ -64,7 +64,7 @@ class FactoryDecorator implements IFactory {
 	 * @param string $lang
 	 * @return string[]
 	 */
-	protected function readL10NJSONForApp($app, $lang) {
+	protected function readL10NJsonForApp($app, $lang) {
 		$languageFiles = [];
 
 		$i18nDir = $this->findL10nDir($app);
@@ -75,11 +75,15 @@ class FactoryDecorator implements IFactory {
 				|| $this->isSubDirectory($transFile, \OC_App::getAppPath($app) . '/l10n/'))
 			&& file_exists($transFile)
 		) {
-			// load the translations file
-			// JSON
+            $json = json_decode(file_get_contents($translationFile), true);
+            if (!\is_array($json)) {
+                $jsonError = json_last_error();
+                \OC::$server->getLogger()->warning("Failed to load $translationFile - json error code: $jsonError", ['app' => 'l10n']);
+                return [];
+            }
+            return json;
 		}
-
-		return $languageFiles;
+		return [];
 	}
 
 	/**
@@ -120,13 +124,17 @@ class FactoryDecorator implements IFactory {
                 // lazy load theme overrides map once. We need the modified $lang.
                 if (!isset($this->overrides[$lang])) {
                     // read the combined JSON from
-                    $allAppOverrides = $this->readL10NJSONForApp("nmctheme", $lang);
+                    $allAppOverrides = $this->readL10NJson("nmctheme", $lang);
                     // FIXME need to map values of "translations" key for each app
-                    $this->overrides[$lang] = ...
+                    foreach ($allAppOverrides as $app => $appOverride) {
+                        $allAppOverrides[$app] = $appOverride['translations'];
+                    }
+                    
+                    $this->overrides[$lang] = $allAppOverrides;
                 }
 
                 if (!isset($this->instances[$lang][$app])) {
-                    $translations = $this->readL10NJSONForApp($app, $lang)["translations"];
+                    $translations = $this->readL10NJson($app, $lang)["translations"];
                     $overrides = $this->overrides[$lang][$app] ?? [];
 
                     $this->instances[$lang][$app] = new L10N(
@@ -142,22 +150,6 @@ class FactoryDecorator implements IFactory {
             return $this->instances[$lang][$app];
         });
     }
-
-	/**
-	 * @param string $translationFile
-	 * @return bool
-	 */
-	private function load(string $translationFile): bool {
-		$json = json_decode(file_get_contents($translationFile), true);
-		if (!\is_array($json)) {
-			$jsonError = json_last_error();
-			\OC::$server->getLogger()->warning("Failed to load $translationFile - json error code: $jsonError", ['app' => 'l10n']);
-			return false;
-		}
-
-		$this->translations = array_merge($this->translations, $json['translations']);
-		return true;
-	}
 
 	/**
 	 * No decoration, just pass on to original IFactory

@@ -1,0 +1,101 @@
+{ "dav":{ "translations": {
+    "Expected filesize of %1$s but read (from Nextcloud client) and wrote (to Nextcloud storage) %2$s. Could either be a network problem on the sending side or a problem writing to the storage on the server side." : "Erwartete Dateigröße von %1$s, aber %2$s gelesen (vom MagentaCLOUD-Client) und geschrieben (in den MagentaCLOUD-Speicher). Dies kann entweder ein Netzwerkproblem auf der sendenden Seite oder ein Problem beim Schreiben in den Speicher auf der Serverseite sein."
+  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+  "end_to_end_encryption": { "translations": {
+    "End to end encryption is currently enabled." : "Die Ende-zu-Ende Verschlüsselung ist derzeit aktiviert.",
+    "Reset encryption" : "Verschlüsselung zurücksetzen",
+    "Please read carefully before resetting your end-to-end encryption keys" : "Bitte vor der Zurücksetzung der Ende-zu-Ende Verschlüsselung aufmerksam lesen",
+    "Once your encryption keys are reset, all encrypted data will be inaccessible and will be also deleted." : "Sobald die Verschlüsselung zurückgesetzt wird, werden sämtliche verschlüsselten Dateien/Ordner gelöscht.",
+    "Before you reset your encryption, check your apps and desktop clients to make sure you really can not access your keys anywhere." : "Sofern die Passphrase vergessen wurde, kann diese in den Apps oder Desktop Clients der MagentaCLOUD ausgelesen werden. Eine Zurücksetzung ist nicht zwingend notwendig.",
+    "If you want to reset the encryption even though your keys are still available in the apps or desktop clients, then delete the keys locally on the other devices. Alternatively, you can reset the apps or reconnect the desktop clients to your account." : "Sollten Sie die Verschlüsselung zurücksetzen wollen, obwohl ihre Passphrase in den Apps oder Desktop Clients der MagentaCLOUD noch vorhanden sind, entfernen Sie die Passphrase anschließend auch lokal auf den anderen Endgeräten. Alternativ können Sie die Apps auch zurücksetzen und sich erneut mit ihrer MagentaCLOUD verbinden.",
+    "Confirm and reset" : "Bestätigen und zurücksetzen",
+    "This the final warning: Do you really want to reset your encryption. Encrypted data are lost and will be deleted." : "Das ist die letzte Warnung: Möchten Sie wirklich die Verschlüsselung zurücksetzen? Verschlüsselte Daten gehen dabei verloren und werden gelöscht.",
+    "Cancel" : "Abbrechen",
+    "Confirm" : "Bestätigen",
+    "End to end encryption is currently disabled. You can set it up with the {productName} clients." : "Die Ende-zu-Ende Verschlüsselung ist deaktiviert. Sie können sie in den Apps oder Desktop Clients einrichten."
+  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+  "files": { "translations": {
+    "Crop image previews": "Vorschaubilder  beschneiden",
+    "My shares": "Meine geteilten Inhalte",
+    "Shared with me": "Mit mir geteilt",
+    "All": "Alle",
+    "Toggle grid view" : "Ansicht ändern",
+    "Display settings": "Anzeigeeinstellungen",
+    "Expand storage"  : "Speicherplatz erweitern",
+    "Memory used up to %s%%": "Speicher zu %s%% belegt ",
+    "of" : "von"
+  },"pluralForm": "nplurals=2; plural=(n != 1);" },
+  "files_sharing": { "translations": {
+    "Cancel" : "Abbrechen",
+    "Next" : "Weiter",
+    "Confirm" : "Übernehmen",
+    "Send share" : "Freigabe senden",
+    "Send email" : "Email senden",
+    "Send new mail" : "Neue Email verfassen",
+    "Read only" : "Nur lesen",
+    "Read, write and upload" : "Kann bearbeiten",
+    "File drop (upload only)" : "Sammelbox",
+    "Read and write" : "Kann bearbeiten",
+    "Add link" : "Link erstellen",
+    "Personal sharing via email" : "Persönliche Freigabe per Mail",
+    "Resharing is not allowed" : "Weiterteilen ist nicht erlaubt",
+    "Resharing is allowed." : "Erneutes Teilen ist erlaubt.",
+    "You can create links or send shares by mail. If you invite MagentaCLOUD users, you have more opportunities for collaboration." : "Sie können Links erstellen oder Freigaben per Mail versenden. Wenn Sie MagentaCLOUD Nutzer einladen, bieten sich Ihnen mehr Möglichkeiten der Zusammenarbeit.",
+    "Your shares" : "Ihre Freigaben",
+    "No shares created yet." : "Noch keine Freigaben erstellt.",
+    "Advanced permission" : "Erweiterte Berechtigungen",
+    "Advanced" : "Erweiterte",
+    "Permissions" : "Berechtigungen",
+    "Shared by {owner}": "Geteilt von {owner}",
+    "With File drop, only uploading is allowed. Only you can see files and folders that have been uploaded." : "Bei der Sammelbox ist nur das Hochladen erlaubt. Nur Sie sehen Dateien und Ordner die hochgeladen worden sind.",
+    "There are no editing functions for files shared with non-MagentaCLOUD users." : "Der Empfänger ist noch kein Nutzer der MagentaCLOUD, daher können keine Rechte zum Bearbeiten vergeben werden.",
+    "The password is not sent with the email to maintain confidentiality." : "Das Passwort wird nicht mit der E-Mail verschickt, um die Vertraulichkeit zu wahren.",
+    "Received": "Empfangen",
+    "is Telekom's secure and free online storage. Ideal for your photos, videos and any other files you want to store securely. You can upload your data directly from your smartphone, tablet or PC, access it from anywhere and easily share it with family and friends.": "ist der sichere und kostenlose Online-Speicher der Telekom. Ideal für Ihre Fotos, Videos und alle anderen Dateien, die Sie sicher speichern wollen. Sie können Ihre Daten direkt vom Smartphone, Tablet oder PC hochladen, von überall abrufen und ganz einfach mit Familie und Freunden teilen.",
+    "Inform Now": "Jetzt informieren",
+    "The": "Die",
+    "Shared by": "Geteilt von",
+    "Add Link": "Link erstellen",
+    "Your Message": "Ihre Nachricht",
+    "Your message": "Ihre Nachricht",
+    "You can attach a message to the share.": "Sie können der Freigabe eine Nachricht anhängen.",
+    "Share label": "Label teilen",
+    "The password must contain 10 characters and will not be sent with the mail to maintain confidentiality.": "Das Passwort muss 10 Zeichen enthalten und wird nicht mit der E-Mail verschickt, um die Vertraulichkeit zu wahren.",
+    "Link to file": "Link zur Datei",
+    "Link to folder": "Link zum Ordner",
+    "No recommendations. Start typing.": "Keine Empfehlungen.Beginnen..."
+},"pluralForm": "nplurals=2; plural=(n != 1);"},
+"files_trashbin": { "translations": {
+    "All": "Alle"
+  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+  "files_zip": { "translations": {
+    "Compress to Zip": "Zip-Datei erstellen",
+    "Archive": "Archiv",
+    "Select a name for the Zip archive": "Bitte wählen Sie einen Dateinamen für das Zip-Archiv",
+    "Compress files": "Archiv erstellen",
+    "File name": "Dateiname",
+    "Cancel": "Abbrechen",
+    "Compress {files} file": "{files} Dateien komprimieren",
+    "_Compress {files} file_::_Compress {files} files_" : ["{files} Element komprimieren","{files} Elemente komprimieren"],
+    "Creating Zip archive started. We will notify you as soon as the archive is available.": "Erstellen des Zip-Archivs gestartet. Die Dauer der Erstellung kann je nach Umfang variieren.",
+    "An error happened when trying to compress the file.": "Beim Komprimieren der Datei ist ein Fehler aufgetreten.",
+    "Your files have been stored as a Zip archive in {path}." : "Ihre Dateien wurden als Zip-Archiv in {path} gespeichert."
+  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+  "monthly_status_email": { "translations": {
+    "Regular mails": "Regelmäßige Mails",
+    "Monthly Status Report": "Monatlicher Statusbericht",
+    "Activity Report": "Aktivitätsbericht",
+    "The status report informs you monthly by email about storage space, your shares and gives you useful tips about the MagentaCLOUD.": "Der Status-Bericht informiert Sie monatlich per E-Mail über Speicherplatz, Ihre Freigaben und gibt Ihnen nützliche Tipps rund um die MagentaCLOUD."
+  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+  "richdocuments": { "translations": {
+    "Edit with {productName}" : "Mit Office bearbeiten",
+    "Open with {productName}" : "Mit Office öffnen"
+  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+  "sharebymail": { "translations": {
+    "%1$s shared »%2$s« with you and wants to add" : "%1$s hat '%2$s' mit Ihnen geteilt und möchte folgendes hinzufügen",
+    "»%s« added a note to a file shared with you" : "%s hat eine Nachricht zu einer mit Ihnen geteilten Datei hinzugfügt"
+  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+  "text": { "translations": {
+    "Add Link": "Link hinzufügen"
+  },"pluralForm" :"nplurals=2; plural=(n != 1);"}
+}
