@@ -4,7 +4,7 @@
     "description": "MagentaCLOUD theme for Nextcloud",
     "author": "T-Systems International",
     "devDependencies": {
-        "prettier": "^2.5.1",
+        "prettier": "^3.0.0",
         "stylelint": "^13.13.1",
         "stylelint-config-prettier": "^8.0.2",
         "stylelint-config-sass-guidelines": "^7.1.0",
