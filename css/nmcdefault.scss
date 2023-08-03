@@ -10,6 +10,7 @@
 
 :root {
   --color-main-background: var(--telekom-color-background-canvas);
+  --color-main-background-rgb: rgb(var(--telekom-color-background-canvas));
   --color-main-background-translucent: rgba(var(--telekom-color-background-canvas), .97); /* only works in scss */
   --color-main-background-blur: rgba(var(--telekom-color-background-canvas), .8);
   --filter-background-blur: blur(25px);
@@ -88,6 +89,9 @@
   --color-primary-element-light-text: #002a41;
   --color-primary-element-text-dark: #ededed;
   --gradient-primary-background: linear-gradient(40deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
-  /* --image-background-default: url('/apps/theming/img/background/kamil-porembinski-clouds.jpg'); */
+  --image-background: none;
+  --image-background-default: none;
+  --image-logoheader: url('/apps/nmctheme/img/tlogocarrier.svg');
+  --image-logoheader-custom: url('/apps/nmctheme/img/tlogocarrier.svg');
   --color-background-plain: var(--telekom-color-background-canvas);
 }

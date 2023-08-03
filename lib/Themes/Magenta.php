@@ -21,8 +21,9 @@ class Magenta implements ITheme {
 	private IL10N $l;
 
 	public function __construct(IAppManager $appManager,
-		IURLGenerator $urlGenerator,
-		IL10N $l) {
+								IURLGenerator $urlGenerator,
+								IL10N $l) 
+	{
 		$this->appManager = $appManager;
 		$this->urlGenerator = $urlGenerator;
 		$this->l = $l;
@@ -61,8 +62,8 @@ class Magenta implements ITheme {
 		$themeVariables = $this->urlGenerator->linkTo('nmctheme', 'css/nmcdefault.css');
 
 		return "
-        @import url('{$telekomVariables}');
-        @import url('{$themeVariables}');        
-    ";
+			@import url('{$telekomVariables}');
+			@import url('{$themeVariables}');        
+		";
 	}
 }

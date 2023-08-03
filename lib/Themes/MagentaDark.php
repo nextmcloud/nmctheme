@@ -21,8 +21,9 @@ class MagentaDark implements ITheme {
 	private IL10N $l;
 
 	public function __construct(IAppManager $appManager,
-		IURLGenerator $urlGenerator,
-		IL10N $l) {
+								IURLGenerator $urlGenerator,
+								IL10N $l) 
+	{
 		$this->appManager = $appManager;
 		$this->urlGenerator = $urlGenerator;
 		$this->l = $l;
@@ -57,10 +58,8 @@ class MagentaDark implements ITheme {
 	}
 
 	public function getCustomCss(): string {
-		$telekomVariables =
-			$this->urlGenerator->linkTo('nmctheme', 'css/telekom-design-tokens.all.css');
-		$themeVariables =
-			$this->urlGenerator->linkTo('nmctheme', 'css/nmcdark.css');
+		$telekomVariables = $this->urlGenerator->linkTo('nmctheme', 'css/telekom-design-tokens.all.css');
+		$themeVariables = $this->urlGenerator->linkTo('nmctheme', 'css/nmcdark.css');
 
 		return "
             @import url('{$telekomVariables}');
