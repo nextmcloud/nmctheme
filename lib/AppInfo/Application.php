@@ -69,7 +69,7 @@ class Application extends App implements IBootstrap {
 				$c->get(IUserSession::class),
 				$c->get(IConfig::class),
 				$c->get(Magenta::class),
-				[],
+				[$c->get(MagentaDark::class)],
 				[$c->get(TeleNeoWebFont::class)],
 				$c->get(DefaultTheme::class),   // the rest is overhead due to undefined interface (yet)
 				$c->get(LightTheme::class),
