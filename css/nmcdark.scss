@@ -6,6 +6,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  * Note: Take care of Telekom branding restrictions!
  */
+@use "sass:color";
+
 :root {
   --color-main-background: var(--telekom-color-background-canvas);
   --color-main-background-rgb: rgb(var(--telekom-color-background-canvas));
@@ -48,7 +50,7 @@
   --color-border: #ededed;
   --color-border-dark: #dbdbdb;
   --color-border-maxcontrast: #949494;
-  --font-face: TeleNeoWeb, sans-serif, Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Cantarell, Ubuntu, "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-face: TeleNeoWeb, sans-serif, Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Cantarell, Ubuntu, 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --default-font-size: 15px;
   --animation-quick: 100ms;
   --animation-slow: 300ms;
@@ -89,7 +91,7 @@
   --gradient-primary-background: linear-gradient(40deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
   --image-background: none;
   --image-background-default: none;
-  --image-logoheader: url("/apps/nmctheme/img/tlogocarrier.svg");
-  --image-logoheader-custom: url("/apps/nmctheme/img/tlogocarrier.svg");
+  --image-logoheader: url('/apps/nmctheme/img/tlogocarrier.svg');
+  --image-logoheader-custom: url('/apps/nmctheme/img/tlogocarrier.svg');
   --color-background-plain: var(--telekom-color-background-canvas);
-}/*# sourceMappingURL=nmcdark.css.map */
+}
