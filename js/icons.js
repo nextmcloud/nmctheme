@@ -1,10 +1,56 @@
-import iconsPkg from 'nextcloud/core/src/icons.js'
 import path from 'path'
 import * as sass from 'sass'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
 
-const { colors, colorSvg } = iconsPkg;
+// TODO ----- this part is copied from nextcloud/server/core/src/icons.js
+//      and should be taken from there as soon as it is accepted
+const colors = {
+	dark: '000',
+	white: 'fff',
+	// gold but for backwards compatibility called yellow
+	yellow: 'a08b00',
+	red: 'e9322d',
+	orange: 'eca700',
+	green: '46ba61',
+	grey: '969696',
+}
+
+const colorSvg = function(svg = '', color = '000') {
+	if (!color.match(/^[0-9a-f]{3,6}$/i)) {
+		// Prevent not-sane colors from being written into the SVG
+		console.warn(color, 'does not match the required format')
+		color = '000'
+	}
+
+	// add fill (fill is not present on black elements)
+	const fillRe = /<((circle|rect|path)((?!fill)[a-z0-9 =".\-#():;,])+)\/>/gmi
+	svg = svg.replace(fillRe, '<$1 fill="#' + color + '"/>')
+
+	// replace any fill or stroke colors
+	svg = svg.replace(/stroke="#([a-z0-9]{3,6})"/gmi, 'stroke="#' + color + '"')
+	svg = svg.replace(/fill="#([a-z0-9]{3,6})"/gmi, 'fill="#' + color + '"')
+
+	return svg
+}
+
+const generateVariablesAliases = function(variables, invert = false) {
+	let css = ''
+	Object.keys(variables).forEach(variable => {
+		if (variable.indexOf('original-') !== -1) {
+			let finalVariable = variable.replace('original-', '')
+			if (invert) {
+				finalVariable = finalVariable.replace('white', 'tempwhite')
+					.replace('dark', 'white')
+					.replace('tempwhite', 'dark')
+			}
+			css += `${finalVariable}: var(${variable});`
+		}
+	})
+	return css
+}
+// ----- this end copy from nextcloud/server/core/src/icons.js
+
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -35,22 +81,6 @@ const iconsColor = {
 	},
 }
 
-const generateVariablesAliases = function(invert = false) {
-	let css = ''
-	Object.keys(variables).forEach(variable => {
-		if (variable.indexOf('original-') !== -1) {
-			let finalVariable = variable.replace('original-', '')
-			if (invert) {
-				finalVariable = finalVariable.replace('white', 'tempwhite')
-					.replace('dark', 'white')
-					.replace('tempwhite', 'dark')
-			}
-			css += `${finalVariable}: var(${variable});`
-		}
-	})
-	return css
-}
-
 let css = ''
 Object.keys(icons).forEach(icon => {
 	const path = icons[icon]
@@ -79,15 +109,17 @@ Object.keys(variables).forEach(variable => {
 css += '}'
 
 css += '@media (prefers-color-scheme: dark) { body {'
-css += generateVariablesAliases(true)
+css += generateVariablesAliases(variables, true)
 css += '}}'
 
 css += '[data-themes*=light] {'
-css += generateVariablesAliases()
+css += generateVariablesAliases(variables)
 css += '}'
 
 css += '[data-themes*=dark] {'
-css += generateVariablesAliases(true)
+css += generateVariablesAliases(variables, true)
 css += '}'
 
-fs.writeFileSync(path.join(__dirname, '../dist', 'icons.css'), sass.compileString(css).css)
+const distFolder = path.join(__dirname, "../dist");
+fs.mkdirSync(distFolder, { recursive: true });
+fs.writeFileSync(path.join(distFolder, 'icons.css'), sass.compileString(css).css)
