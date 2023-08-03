@@ -16,7 +16,8 @@ declare(strict_types=1);
 
 namespace OCA\NMCTheme\Test\L10N;
 
-use OCA\NMCTheme\L10N\Factory;
+use OCA\NMCTheme\L10N\FactoryDecorator;
+use OC\L10N\Factory;
 use OC\L10N\LanguageNotFoundException;
 use OCP\ICacheFactory;
 use OCP\IConfig;
@@ -86,7 +87,7 @@ class FactoryTest extends TestCase {
 				->getMock();
 		}
 
-		return new Factory($this->config, $this->request, $this->userSession, $this->cacheFactory, $this->serverRoot);
+		return new FactoryDecorator($this->config, new Factory($this->config, $this->request, $this->userSession, $this->cacheFactory, $this->serverRoot));
 	}
 
 	public function dataFindAvailableLanguages(): array {

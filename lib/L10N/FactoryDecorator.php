@@ -11,9 +11,13 @@ declare(strict_types=1);
  */
 namespace OCA\NMCTheme\L10N;
 
-use OCP\L10N\IFactory;
+
 use OCP\IConfig;
-use OCP\IL10N;
+use OCA\NMCTheme\IL10N;
+use OCP\IUser;
+use OCP\L10N\IFactory;
+use OCP\L10N\ILanguageIterator;
+use OC\L10N\LazyL10N;
 
 use OCA\NMCTheme\L10N\L10NDecorator;
 use OCA\NMCTheme\L10N\L10N;
@@ -51,7 +55,7 @@ class FactoryDecorator implements IFactory {
         IFactory $decoratedFactory
 	) {
 		$this->config = $config;
-        $this->$decoratedFactory = $decoratedFactory;
+        $this->decoratedFactory = $decoratedFactory;
 	}
 
     /**
@@ -64,7 +68,7 @@ class FactoryDecorator implements IFactory {
 	 * @param string $lang
 	 * @return string[]
 	 */
-	protected function readL10NJsonForApp($app, $lang) {
+	protected function readL10NJson($app, $lang) {
 		$languageFiles = [];
 
 		$i18nDir = $this->findL10nDir($app);
@@ -168,6 +172,7 @@ class FactoryDecorator implements IFactory {
 	public function findGenericLanguage(string $appId = null): string {
         return $this->decoratedFactory->findGenericLanguage($appId);
     }
+    
 	/**
 	 * No decoration, just pass on to original IFactory
      * @see public\L10N\IFactory

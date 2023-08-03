@@ -9,9 +9,11 @@
 namespace OCA\NMCTheme\Tests\L10N;
 
 use DateTime;
-use OCA\NMCTheme\L10N\Factory;
+use OC\L10N\Factory;
+use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\L10N\L10N;
 use OCP\App\IAppManager;
+use OCA\NMCTheme\AppInfo\Application;
 use OCP\ICacheFactory;
 use OCP\IConfig;
 use OCP\IRequest;
@@ -24,14 +26,16 @@ use Test\TestCase;
  * @package Test\L10N
  */
 class L10nTest extends TestCase {
-
+    private IAppManager $appMgr;
     private string $l10nPath;
+
 
 	protected function setUp(): void {
 		parent::setUp();
 
-        $app = new \OCP\AppFramework\App(Application::APP_ID);
-        $this->l10nPath = $app->getAppWebPath("nmctheme") . '/tests/data/l10n/';
+        $app = new \OCP\AppFramework\App("nmctheme");
+		$this->appMgr = $app->getContainer()->get(IAppManager::class);
+        $this->l10nPath = $this->appMgr->getAppPath("nmctheme") . '/tests/data/l10n/';
     }
 
     /**
@@ -45,7 +49,8 @@ class L10nTest extends TestCase {
 		/** @var IUserSession $userSession */
 		$userSession = $this->createMock(IUserSession::class);
 		$cacheFactory = $this->createMock(ICacheFactory::class);
-		return new Factory($config, $request, $userSession, $cacheFactory, \OC::$SERVERROOT);
+		return new FactoryDecorator($config, 
+            new Factory($config, $request, $userSession, $cacheFactory, \OC::$SERVERROOT));
 	}
 
 	public function testSimpleTranslationWithTrailingColon(): void {

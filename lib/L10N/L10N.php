@@ -21,12 +21,13 @@ declare(strict_types=1);
  * @license AGPL-3.0
  *
  */
-namespace OC\L10N;
+namespace OCA\NMCTheme\L10N;
 
+use OC\L10N\L10NString;
 use OCP\IL10N;
 use OCP\L10N\IFactory;
 use Symfony\Component\Translation\IdentityTranslator;
-
+use Punic\Calendar;
 
 /**
  * This is a slightly modified version from the class in core.

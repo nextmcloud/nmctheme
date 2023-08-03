@@ -97,7 +97,8 @@ class Application extends App implements IBootstrap {
 				$c->get(IUserSession::class),
 				$c->get(IConfig::class),
 				$c->get(Magenta::class),
-				[$c->get(MagentaDark::class)],
+				//[$c->get(MagentaDark::class)],    // FIXME  
+				[],
 				[$c->get(TeleNeoWebFont::class)],
 				$c->get(DefaultTheme::class),   // the rest is overhead due to undefined interface (yet)
 				$c->get(LightTheme::class),
@@ -107,7 +108,7 @@ class Application extends App implements IBootstrap {
 				$c->get(DyslexiaFont::class)
 			);
 		});
-        $this->registerIFactoryDecorator($context);
+        //$this->registerIFactoryDecorator($context);
 	
 		// the listener is helpful to enforce theme constraints and inject additional parts
 		// $context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);

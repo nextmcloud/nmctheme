@@ -22,6 +22,7 @@ use OCA\Theming\Themes\DyslexiaFont;
 use OCA\Theming\Themes\HighContrastTheme;
 use OCA\Theming\Themes\LightTheme;
 use OCP\IConfig;
+use OCP\IUser;
 use OCP\IUserSession;
 
 /**
