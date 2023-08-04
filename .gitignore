@@ -1,6 +1,5 @@
 .idea
 *.iml
-/js
 /vendor/
 /build/
 node_modules/
