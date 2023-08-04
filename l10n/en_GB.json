@@ -4,7 +4,7 @@
   "end_to_end_encryption": { "translations": {
     "End to end encryption is currently enabled." : "End to end encryption is currently enabled.",
     "Reset encryption" : "Reset encryption",
-    "Please read carefully before resetting your end-​to-​end encryption keys" : "Please read carefully before resetting your end-​to-​end encryption keys",
+    "Please read carefully before resetting your end-to-end encryption keys" : "Please read carefully before resetting your end-​to-​end encryption keys",
     "Once your encryption keys are reset, all encrypted data will be inaccessible and will be also deleted." : "Once your encryption keys are reset, all encrypted data will be inaccessible and will be also deleted.",
     "Before you reset your encryption, check your apps and desktop clients to make sure you really can not access your keys anywhere." : "Before you reset your encryption, check your apps and desktop clients to make sure you really can not access your keys anywhere.",
     "If you want to reset the encryption even though your keys are still available in the apps or desktop clients, then delete the keys locally on the other devices. Alternatively, you can reset the apps or reconnect the desktop clients to your account." : "If you want to reset the encryption even though your keys are still available in the apps or desktop clients, then delete the keys locally on the other devices. Alternatively, you can reset the apps or reconnect the desktop clients to your account.",
@@ -22,7 +22,8 @@
     "Toggle grid view" : "Toggle grid view",
     "Display settings": "Display settings",
     "Expand storage"  : "Expand storage",
-    "Memory used up to %s%%": "Memory used up to %s%%"
+    "Memory used up to %s%%": "Memory used up to %s%%",
+    "of" : "von"
     },"pluralForm" :"nplurals=2; plural=(n != 1);"},
   "files_sharing": { "translations": {
         "Cancel" : "Cancel",
@@ -45,11 +46,15 @@
         "Advanced permission" : "Advanced permission",
         "Advanced" : "Advanced",
         "Permissions" : "Permissions",
+        "Shared by {owner}": "Shared by {owner}",
         "With File drop, only uploading is allowed. Only you can see files and folders that have been uploaded." : "With File drop, only uploading is allowed. Only you can see files and folders that have been uploaded.",
         "There are no editing functions for files shared with non-MagentaCLOUD users." : "There are no editing functions for files shared with non-MagentaCLOUD users.",
         "The password is not sent with the email to maintain confidentiality." : "The password is not sent with the email to maintain confidentiality.",
         "Received": "Received",
         "Shared by": "Shared by",
+        "is Telekom's secure and free online storage. Ideal for your photos, videos and any other files you want to store securely. You can upload your data directly from your smartphone, tablet or PC, access it from anywhere and easily share it with family and friends.": "is Telekom's secure and free online storage. Ideal for your photos, videos and any other files you want to store securely. You can upload your data directly from your smartphone, tablet or PC, access it from anywhere and easily share it with family and friends.",
+        "Inform Now": "Get your information now!",
+        "The": "The",
         "Add Link": "Add Link",
         "Your Message": "Your Message",
         "Your message": "Your message",
@@ -71,7 +76,7 @@
         "File name": "File name",
         "Cancel": "Cancel",
         "Compress {files} file": "Compress {files} element",
-        "Compress {files} files": "Compress {files} elements",
+        "_Compress {files} file_::_Compress {files} files_" : ["{files} element to compress","{files} elements to compress"],
         "Creating Zip archive started. We will notify you as soon as the archive is available.": "Creating zip archive started. The duration can differ depending on the volume.",
         "An error happened when trying to compress the file.": "An error happened when trying to compress the file.",
         "Your files have been stored as a Zip archive in {path}." : "Your files have been stored as a Zip archive in {path}."
