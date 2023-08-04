@@ -62,9 +62,9 @@ class Magenta implements ITheme {
 		$iconsVariables = $this->urlGenerator->linkTo('nmctheme', 'dist/icons.css');
 		
 		return "
-        @import url('{$telekomVariables}');
-        @import url('{$themeVariables}');
-        @import url('{$iconsVariables}');
-    ";
+			@import url('{$telekomVariables}');
+			@import url('{$themeVariables}');
+			@import url('{$iconsVariables}');
+		";
 	}
 }

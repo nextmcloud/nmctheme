@@ -59,7 +59,8 @@ class NMCThemesService extends ThemesService {
 	 *                                   as the user theme
 	 * @param ITheme[] $staticThemes     a list of themes to always include
 	 */
-	public function __construct(IUserSession $userSession,
+	public function __construct(
+		IUserSession $userSession,
 		IConfig $config,
 		ITheme $default,
 		array $selectableThemes,
@@ -72,6 +73,7 @@ class NMCThemesService extends ThemesService {
 		DyslexiaFont $dyslexiaFont) {
 		parent::__construct($userSession, $config, $defaultTheme, $lightTheme,
 			$darkTheme, $highContrastTheme, $darkHighContrastTheme, $dyslexiaFont);
+
 		$this->userSession = $userSession;
 		$this->config = $config;
 
@@ -83,14 +85,18 @@ class NMCThemesService extends ThemesService {
 		$this->default = $default;
 		$this->staticThemeIds = array_map($mapThemeIds, $staticThemes); // TODO: check that default theme is not a font theme
 		// the default theme is registered dual: with identifier 'default' and with its self-given name
+
 		$nonStaticThemes = array_merge([$default, $default], $selectableThemes);
 		$nonStaticThemeIds = array_merge(['default', $default->getId()], array_map($mapThemeIds, $selectableThemes));
+
 		$this->themeClasses = array_merge(array_combine($nonStaticThemeIds, $nonStaticThemes),
 			array_combine($this->staticThemeIds, $staticThemes));
+
 		$this->selectableThemeIds = array_map($mapThemeIds,
 			array_filter($nonStaticThemes, function (ITheme $theme) {
 				return $theme->getType() == ITheme::TYPE_THEME;
 			}));
+			
 		$this->selectableThemeIds[0] = 'default'; // this is duplicate getId() value, so first is inteneded as default
 		$this->selectableFontIds = array_map($mapThemeIds,
 			array_filter($nonStaticThemes, function (ITheme $theme) {

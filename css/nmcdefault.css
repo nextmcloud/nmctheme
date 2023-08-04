@@ -1,9 +1,16 @@
-/* The MagentaCLOUD default settings that are always used as baseline fallback */
+/**
+ * The MagentaCLOUD default settings that are always used as baseline fallback
+ *
+ * @copyright Copyright (c) 2023 T-Systems International
+ * @author Bernd Rederlechner <bernd.rederlechner@t-systems.com>
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ * Note: Take care of Telekom branding restrictions!
+ */
 :root {
   --color-main-background: var(--telekom-color-background-canvas);
-  --color-main-background-rgb: 255,255,255;
-  --color-main-background-translucent: rgba(var(--color-main-background-rgb), .97);
-  --color-main-background-blur: rgba(var(--color-main-background-rgb), .8);
+  --color-main-background-rgb: rgb(var(--telekom-color-background-canvas));
+  --color-main-background-translucent: rgba(var(--telekom-color-background-canvas), .97); /* only works in scss */
+  --color-main-background-blur: rgba(var(--telekom-color-background-canvas), .8);
   --filter-background-blur: blur(25px);
   --gradient-main-background: var(--color-main-background) 0%, var(--color-main-background-translucent) 85%, transparent 100%;
   --color-background-hover: #f5f5f5;
@@ -41,7 +48,7 @@
   --color-border: #ededed;
   --color-border-dark: #dbdbdb;
   --color-border-maxcontrast: #949494;
-  --font-face: TeleNeoWeb, sans-serif, Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Cantarell, Ubuntu, 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-face: TeleNeoWeb, sans-serif, Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Cantarell, Ubuntu, "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --default-font-size: 15px;
   --animation-quick: 100ms;
   --animation-slow: 300ms;
@@ -80,6 +87,9 @@
   --color-primary-element-light-text: #002a41;
   --color-primary-element-text-dark: #ededed;
   --gradient-primary-background: linear-gradient(40deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
-  /* --image-background-default: url('/apps/theming/img/background/kamil-porembinski-clouds.jpg'); */
+  --image-background: none;
+  --image-background-default: none;
+  --image-logoheader: url("/apps/nmctheme/img/tlogocarrier.svg");
+  --image-logoheader-custom: url("/apps/nmctheme/img/tlogocarrier.svg");
   --color-background-plain: var(--telekom-color-background-canvas);
-}
+}/*# sourceMappingURL=nmcdefault.css.map */
