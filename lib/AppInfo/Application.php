@@ -34,6 +34,7 @@ use OCP\IURLGenerator;
 use OCP\IUserSession;
 use OCP\L10N\IFactory;
 use OCA\NMCTheme\L10N\FactoryDecorator;
+use OC\L10N\Factory;
 
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'nmctheme';
@@ -108,7 +109,7 @@ class Application extends App implements IBootstrap {
 				$c->get(DyslexiaFont::class)
 			);
 		});
-        //$this->registerIFactoryDecorator($context);
+        $this->registerIFactoryDecorator($context);
 	
 		// the listener is helpful to enforce theme constraints and inject additional parts
 		// $context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
@@ -121,9 +122,9 @@ class Application extends App implements IBootstrap {
      */
     protected function registerIFactoryDecorator(IRegistrationContext $context) {
         $this->getContainer()->getServer()->registerService(IFactory::class, function ($c) {
-            $callableFactoryMethod = $c->get(IFactory::class);
             return new FactoryDecorator(
-                $callableFactoryMethod,
+                $c->get(IConfig::class),
+                $this->getContainer()->getServer()->query(Factory::class)
             );
         });
     }

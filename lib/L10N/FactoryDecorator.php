@@ -94,7 +94,7 @@ class FactoryDecorator implements IFactory {
 
         $l10nFilenames = $this->decoratedFactory->getL10nFilesForApp("nmctheme", $lang);
         if (!empty($l10nFilenames)) {
-            $json = json_decode(file_get_contents($filename), true);
+            $json = json_decode(file_get_contents($l10nFilenames[0]), true);
             if (!\is_array($json)) {
                 $jsonError = json_last_error();
                 \OC::$server->getLogger()->warning("Failed to load $filename - json error code: $jsonError", ['app' => 'l10n']);
@@ -104,7 +104,7 @@ class FactoryDecorator implements IFactory {
         }
 
         foreach ($overrides as $app => $appOverride) {
-            $overrides[$app] = $overrides['translations'];
+            $overrides[$app] = $overrides[$app]['translations'];
         }
 		return $overrides;
     }
