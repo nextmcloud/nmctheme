@@ -87,7 +87,8 @@ class FactoryTest extends TestCase {
 				->getMock();
 		}
 
-		return new FactoryDecorator($this->config, new Factory($this->config, $this->request, $this->userSession, $this->cacheFactory, $this->serverRoot));
+		return new FactoryDecorator($this->config,
+                    new Factory($this->config, $this->request, $this->userSession, $this->cacheFactory, $this->serverRoot));
 	}
 
 	public function dataFindAvailableLanguages(): array {
@@ -416,39 +417,6 @@ class FactoryTest extends TestCase {
 			['files', '_lang_never_exists_', []],
 			['_app_never_exists_', 'de', [\OC::$SERVERROOT . '/core/l10n/de.json']],
 		];
-	}
-
-	/**
-	 * @dataProvider dataGetL10nFilesForApp
-	 *
-	 * @param string|null $app
-	 * @param string $expected
-	 */
-	public function testGetL10nFilesForApp($app, $lang, $expected): void {
-		$factory = $this->getFactory();
-		self::assertSame($expected, $this->invokePrivate($factory, 'getL10nFilesForApp', [$app, $lang]));
-	}
-
-	public function dataFindL10NDir(): array {
-		return [
-			[null, \OC::$SERVERROOT . '/core/l10n/'],
-			['core', \OC::$SERVERROOT . '/core/l10n/'],
-			['lib', \OC::$SERVERROOT . '/lib/l10n/'],
-			['settings', \OC::$SERVERROOT . '/apps/settings/l10n/'],
-			['files', \OC::$SERVERROOT . '/apps/files/l10n/'],
-			['_app_never_exists_', \OC::$SERVERROOT . '/core/l10n/'],
-		];
-	}
-
-	/**
-	 * @dataProvider dataFindL10NDir
-	 *
-	 * @param string|null $app
-	 * @param string $expected
-	 */
-	public function testFindL10NDir($app, $expected): void {
-		$factory = $this->getFactory();
-		self::assertSame($expected, $this->invokePrivate($factory, 'findL10nDir', [$app]));
 	}
 
 	public function dataFindLanguage(): array {

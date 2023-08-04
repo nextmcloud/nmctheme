@@ -18,12 +18,13 @@ use OCP\IUser;
 use OCP\L10N\IFactory;
 use OCP\L10N\ILanguageIterator;
 use OC\L10N\LazyL10N;
+use OC\L10N\Factory;
 
 use OCA\NMCTheme\L10N\L10NDecorator;
 use OCA\NMCTheme\L10N\L10N;
 
 class FactoryDecorator implements IFactory {
-    private IFactory $decoratedFactory;
+    private Factory $decoratedFactory;
 
     /**
 	 * cached instances
@@ -52,43 +53,63 @@ class FactoryDecorator implements IFactory {
 	 */
 	public function __construct(
 		IConfig $config,
-        IFactory $decoratedFactory
+        Factory $decoratedFactory,
 	) {
 		$this->config = $config;
         $this->decoratedFactory = $decoratedFactory;
 	}
 
     /**
-	 * Collect relevant translations from core or app files
+	 * Read all the available translation jsons for app.
 	 *
-     * NOTE: the old themeing support is removed as it is not used anymore
-     * in out theming approach
      * 
 	 * @param string $app
 	 * @param string $lang
 	 * @return string[]
 	 */
-	protected function readL10NJson($app, $lang) {
-		$languageFiles = [];
-
-		$i18nDir = $this->findL10nDir($app);
-		$transFile = strip_tags($i18nDir) . strip_tags($lang) . '.json';
-
-		if (($this->isSubDirectory($transFile, $this->serverRoot . '/core/l10n/')
-				|| $this->isSubDirectory($transFile, $this->serverRoot . '/lib/l10n/')
-				|| $this->isSubDirectory($transFile, \OC_App::getAppPath($app) . '/l10n/'))
-			&& file_exists($transFile)
-		) {
-            $json = json_decode(file_get_contents($translationFile), true);
+	public function getTranslationsForApp($app, $lang) {
+		$translations = [];
+        $l10nFilenames = $this->decoratedFactory->getL10nFilesForApp($app, $lang);
+        foreach ($l10nFilenames as $filename) {
+            $json = json_decode(file_get_contents($filename), true);
             if (!\is_array($json)) {
                 $jsonError = json_last_error();
-                \OC::$server->getLogger()->warning("Failed to load $translationFile - json error code: $jsonError", ['app' => 'l10n']);
-                return [];
+                \OC::$server->getLogger()->warning("Failed to load $filename - json error code: $jsonError", ['app' => 'l10n']);
+            } else {
+                $translations = array_merge($translations, $json['translations']);
             }
-            return json;
-		}
-		return [];
-	}
+        }
+		return $translations;
+    }
+
+    /**
+	 * Read all the available theme translation overrides.
+	 *
+	 * @param string $app
+	 * @param string $lang
+	 * @return string[]
+	 */
+	public function getOverrides($lang) {
+        $overrides = [];
+
+        $l10nFilenames = $this->decoratedFactory->getL10nFilesForApp("nmctheme", $lang);
+        if (!empty($l10nFilenames)) {
+            $json = json_decode(file_get_contents($filename), true);
+            if (!\is_array($json)) {
+                $jsonError = json_last_error();
+                \OC::$server->getLogger()->warning("Failed to load $filename - json error code: $jsonError", ['app' => 'l10n']);
+            } else {
+                $overrides = $json;
+            }
+        }
+
+        foreach ($overrides as $app => $appOverride) {
+            $overrides[$app] = $overrides['translations'];
+        }
+		return $overrides;
+    }
+
+
 
 	/**
 	 * Get a language instance
@@ -127,18 +148,12 @@ class FactoryDecorator implements IFactory {
                 // load the multi-app json for lang if not loaded yet
                 // lazy load theme overrides map once. We need the modified $lang.
                 if (!isset($this->overrides[$lang])) {
-                    // read the combined JSON from
-                    $allAppOverrides = $this->readL10NJson("nmctheme", $lang);
-                    // FIXME need to map values of "translations" key for each app
-                    foreach ($allAppOverrides as $app => $appOverride) {
-                        $allAppOverrides[$app] = $appOverride['translations'];
-                    }
-                    
-                    $this->overrides[$lang] = $allAppOverrides;
+                    // FIXME  this could break as  is marked obsolete
+                    $this->overrides[$lang] = $this->getOverrides($lang);
                 }
 
                 if (!isset($this->instances[$lang][$app])) {
-                    $translations = $this->readL10NJson($app, $lang)["translations"];
+                    $translations = $this->getTranslationsForApp($app, $lang);
                     $overrides = $this->overrides[$lang][$app] ?? [];
 
                     $this->instances[$lang][$app] = new L10N(

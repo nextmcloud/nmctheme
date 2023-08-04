@@ -23,11 +23,12 @@ declare(strict_types=1);
  */
 namespace OCA\NMCTheme\L10N;
 
-use OC\L10N\L10NString;
 use OCP\IL10N;
 use OCP\L10N\IFactory;
 use Symfony\Component\Translation\IdentityTranslator;
 use Punic\Calendar;
+
+use OCA\NMCTheme\L10N\L10NString;
 
 /**
  * This is a slightly modified version from the class in core.
