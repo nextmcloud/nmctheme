@@ -70,8 +70,7 @@ class NMCThemesService extends ThemesService {
 		DarkTheme $darkTheme,
 		HighContrastTheme $highContrastTheme,
 		DarkHighContrastTheme $darkHighContrastTheme,
-		DyslexiaFont $dyslexiaFont) 
-	{
+		DyslexiaFont $dyslexiaFont) {
 		parent::__construct($userSession, $config, $defaultTheme, $lightTheme,
 			$darkTheme, $highContrastTheme, $darkHighContrastTheme, $dyslexiaFont);
 

@@ -21,9 +21,8 @@ class Magenta implements ITheme {
 	private IL10N $l;
 
 	public function __construct(IAppManager $appManager,
-								IURLGenerator $urlGenerator,
-								IL10N $l) 
-	{
+		IURLGenerator $urlGenerator,
+		IL10N $l) {
 		$this->appManager = $appManager;
 		$this->urlGenerator = $urlGenerator;
 		$this->l = $l;
