@@ -230,32 +230,36 @@ class L10nTest extends TestCase {
 		$this->assertEquals('de', $l->getLanguageCode());
 	}
 
-	/*
-     * as soon as registration works:
-     * 
+
+    /**
+     * This work s only with registration
+     */
     public function testServiceGetLanguageCode() {
 		$l = \OC::$server->getL10N('lib', 'de');
 		$this->assertEquals('de', $l->getLanguageCode());
 	}
 
+    /**
+     * This work s only with registration
+     */
 	public function testWeekdayName() {
 		$l = \OC::$server->getL10N('lib', 'de');
 		$this->assertEquals('Mo.', $l->l('weekdayName', new \DateTime('2017-11-6'), ['width' => 'abbreviated']));
 	}
-    */
 
 	/**
 	 * @dataProvider findLanguageFromLocaleData
+     * This work s only with registration
+     * 
 	 * @param $locale
 	 * @param $language
 	 */
-	/*
      public function testFindLanguageFromLocale($locale, $language) {
 		$this->assertEquals(
 			$language,
 			\OC::$server->getL10NFactory()->findLanguageFromLocale('lib', $locale)
 		);
-	} */
+	}
 
 	/**
 	 * @return array
