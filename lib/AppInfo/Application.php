@@ -9,7 +9,8 @@
 namespace OCA\NMCTheme\AppInfo;
 
 use OC\AppFramework\DependencyInjection\DIContainer;
-use OC\URLGenerator;
+use OC\L10N\Factory;
+use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Themes\Magenta;
@@ -33,8 +34,6 @@ use OCP\IConfig;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
 use OCP\L10N\IFactory;
-use OCA\NMCTheme\L10N\FactoryDecorator;
-use OC\L10N\Factory;
 
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'nmctheme';
@@ -98,7 +97,7 @@ class Application extends App implements IBootstrap {
 				$c->get(IUserSession::class),
 				$c->get(IConfig::class),
 				$c->get(Magenta::class),
-				//[$c->get(MagentaDark::class)],    // FIXME  
+				//[$c->get(MagentaDark::class)],    // FIXME
 				[],
 				[$c->get(TeleNeoWebFont::class)],
 				$c->get(DefaultTheme::class),   // the rest is overhead due to undefined interface (yet)
@@ -109,25 +108,25 @@ class Application extends App implements IBootstrap {
 				$c->get(DyslexiaFont::class)
 			);
 		});
-        $this->registerIFactoryDecorator($context);
+		$this->registerIFactoryDecorator($context);
 	
 		// the listener is helpful to enforce theme constraints and inject additional parts
 		// $context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
-    }
-    
-    /**
-     * Decorate the L10N IFactory of server with the L10N theming factory
-     * so that any request for translation is either overridden by a value
-     * from this app or delegated to the original factory
-     */
-    protected function registerIFactoryDecorator(IRegistrationContext $context) {
-        $this->getContainer()->getServer()->registerService(IFactory::class, function ($c) {
-            return new FactoryDecorator(
-                $c->get(IConfig::class),
-                $this->getContainer()->getServer()->query(Factory::class)
-            );
-        });
-    }
+	}
+	
+	/**
+	 * Decorate the L10N IFactory of server with the L10N theming factory
+	 * so that any request for translation is either overridden by a value
+	 * from this app or delegated to the original factory
+	 */
+	protected function registerIFactoryDecorator(IRegistrationContext $context) {
+		$this->getContainer()->getServer()->registerService(IFactory::class, function ($c) {
+			return new FactoryDecorator(
+				$c->get(IConfig::class),
+				$this->getContainer()->getServer()->query(Factory::class)
+			);
+		});
+	}
 
 	public function boot(IBootContext $context): void {
 	}

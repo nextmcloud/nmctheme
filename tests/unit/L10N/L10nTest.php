@@ -13,7 +13,6 @@ use OC\L10N\Factory;
 use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\L10N\L10N;
 use OCP\App\IAppManager;
-use OCA\NMCTheme\AppInfo\Application;
 use OCP\ICacheFactory;
 use OCP\IConfig;
 use OCP\IRequest;
@@ -26,34 +25,34 @@ use Test\TestCase;
  * @package Test\L10N
  */
 class L10nTest extends TestCase {
-    private IAppManager $appMgr;
-    private string $l10nPath;
+	private IAppManager $appMgr;
+	private string $l10nPath;
 
 
 	protected function setUp(): void {
 		parent::setUp();
 
-        $app = new \OCP\AppFramework\App("nmctheme");
+		$app = new \OCP\AppFramework\App("nmctheme");
 		$this->appMgr = $app->getContainer()->get(IAppManager::class);
-        $this->l10nPath = $this->appMgr->getAppPath("nmctheme") . '/tests/data/l10n/';
-    }
+		$this->l10nPath = $this->appMgr->getAppPath("nmctheme") . '/tests/data/l10n/';
+	}
 
-    /**
+	/**
 	 * @return translation array
 	 */
 	protected function readLangJson(string $lang) {
 		$translations = [];
-        $json = json_decode(file_get_contents($this->l10nPath . $lang . ".json"), true);
-        if (!\is_array($json)) {
-            $jsonError = json_last_error();
-            \OC::$server->getLogger()->warning("Failed to load $filename - json error code: $jsonError", ['app' => 'l10n']);
-        } else {
-            $translations = array_merge($translations, $json['translations']);
-        }
-        return $translations;
-    }
+		$json = json_decode(file_get_contents($this->l10nPath . $lang . ".json"), true);
+		if (!\is_array($json)) {
+			$jsonError = json_last_error();
+			\OC::$server->getLogger()->warning("Failed to load $filename - json error code: $jsonError", ['app' => 'l10n']);
+		} else {
+			$translations = array_merge($translations, $json['translations']);
+		}
+		return $translations;
+	}
 
-    /**
+	/**
 	 * @return Factory
 	 */
 	protected function getFactory() {
@@ -65,17 +64,17 @@ class L10nTest extends TestCase {
 		$userSession = $this->createMock(IUserSession::class);
 		$cacheFactory = $this->createMock(ICacheFactory::class);
 		return new FactoryDecorator($config,
-            new Factory($config, $request, $userSession, $cacheFactory, \OC::$SERVERROOT));
+			new Factory($config, $request, $userSession, $cacheFactory, \OC::$SERVERROOT));
 	}
 
 	public function testSimpleTranslationWithTrailingColon(): void {
-        $fac=$this->getFactory();
+		$fac = $this->getFactory();
 		$l = new L10N($fac, 'test', 'de', 'de_AT', $this->readLangJson('de'));
 		$this->assertEquals('Files:', $l->t('Files:'));
 	}
 
 	public function testGermanPluralTranslations() {
-        $fac=$this->getFactory();
+		$fac = $this->getFactory();
 		$l = new L10N($fac, 'test', 'de', 'de_AT', $this->readLangJson('de'));
 
 		$this->assertEquals('1 Datei', (string) $l->n('%n file', '%n files', 1));
@@ -83,7 +82,7 @@ class L10nTest extends TestCase {
 	}
 
 	public function testRussianPluralTranslations() {
-        $fac=$this->getFactory();
+		$fac = $this->getFactory();
 		$l = new L10N($fac, 'test', 'ru', 'ru_UA', $this->readLangJson('ru'));
 
 		$this->assertEquals('1 файл', (string)$l->n('%n file', '%n files', 1));
@@ -107,7 +106,7 @@ class L10nTest extends TestCase {
 	}
 
 	public function testCzechPluralTranslations() {
-        $fac=$this->getFactory();
+		$fac = $this->getFactory();
 		$l = new L10N($fac, 'test', 'cs', 'cs_CZ', $this->readLangJson('cs'));
 
 		$this->assertEquals('1 okno', (string)$l->n('%n window', '%n windows', 1));
@@ -116,7 +115,7 @@ class L10nTest extends TestCase {
 	}
 
 	public function testGermanPluralWithCzechLocaleTranslations() {
-        $fac=$this->getFactory();
+		$fac = $this->getFactory();
 		$l = new L10N($fac, 'test', 'de', 'cs_CZ', $this->readLangJson('de'));
 
 		$this->assertEquals('1 Datei', (string) $l->n('%n file', '%n files', 1));
@@ -139,7 +138,7 @@ class L10nTest extends TestCase {
 	 * @param $expected
 	 */
 	public function testPlaceholders($string, $expected): void {
-        $fac=$this->getFactory();
+		$fac = $this->getFactory();
 		$l = new L10N($fac, 'test', 'de', 'de_AT', $this->readLangJson('de'));
 
 		$this->assertEquals($expected, $l->t($string, ['1', '2']));
@@ -231,17 +230,17 @@ class L10nTest extends TestCase {
 	}
 
 
-    /**
-     * This work s only with registration
-     */
-    public function testServiceGetLanguageCode() {
+	/**
+	 * This work s only with registration
+	 */
+	public function testServiceGetLanguageCode() {
 		$l = \OC::$server->getL10N('lib', 'de');
 		$this->assertEquals('de', $l->getLanguageCode());
 	}
 
-    /**
-     * This work s only with registration
-     */
+	/**
+	 * This work s only with registration
+	 */
 	public function testWeekdayName() {
 		$l = \OC::$server->getL10N('lib', 'de');
 		$this->assertEquals('Mo.', $l->l('weekdayName', new \DateTime('2017-11-6'), ['width' => 'abbreviated']));
@@ -249,12 +248,12 @@ class L10nTest extends TestCase {
 
 	/**
 	 * @dataProvider findLanguageFromLocaleData
-     * This work s only with registration
-     * 
+	 * This work s only with registration
+	 *
 	 * @param $locale
 	 * @param $language
 	 */
-     public function testFindLanguageFromLocale($locale, $language) {
+	public function testFindLanguageFromLocale($locale, $language) {
 		$this->assertEquals(
 			$language,
 			\OC::$server->getL10NFactory()->findLanguageFromLocale('lib', $locale)

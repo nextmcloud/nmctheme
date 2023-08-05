@@ -7,18 +7,18 @@ declare(strict_types=1);
  * This file is licensed under the Affero General Public License version 3 or
  * later.
  * See the COPYING-README file.
- * 
+ *
  * All tests from server are copies and repeated to make sure that the
  * decoration works properly.
- * 
+ *
  * TODO: Find a way to inherit the tests from server instead of copying it
  */
 
 namespace OCA\NMCTheme\Test\L10N;
 
-use OCA\NMCTheme\L10N\FactoryDecorator;
 use OC\L10N\Factory;
 use OC\L10N\LanguageNotFoundException;
+use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCP\ICacheFactory;
 use OCP\IConfig;
 use OCP\IRequest;
@@ -88,7 +88,7 @@ class FactoryTest extends TestCase {
 		}
 
 		return new FactoryDecorator($this->config,
-                    new Factory($this->config, $this->request, $this->userSession, $this->cacheFactory, $this->serverRoot));
+			new Factory($this->config, $this->request, $this->userSession, $this->cacheFactory, $this->serverRoot));
 	}
 
 	public function dataFindAvailableLanguages(): array {

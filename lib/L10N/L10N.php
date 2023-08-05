@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * This is a modification of the original L10N file
  * in nextcloud lib.
- * 
+ *
  * The reading of the files is moves to the lazy initialisation
  * of the L10N instances so that the translation map could be constructed
  * with different strategies. We need this to merge overrides with the
@@ -25,16 +25,14 @@ namespace OCA\NMCTheme\L10N;
 
 use OCP\IL10N;
 use OCP\L10N\IFactory;
-use Symfony\Component\Translation\IdentityTranslator;
 use Punic\Calendar;
-
-use OCA\NMCTheme\L10N\L10NString;
+use Symfony\Component\Translation\IdentityTranslator;
 
 /**
  * This is a slightly modified version from the class in core.
  * that externalizes reading json files to factory (a cleaner
  * design anyway).
- * 
+ *
  * TODO: Introduce the modification as upstream standard.
  * TODO: Diff in detail: core, lib, nmc-firstrunwizard,settings,
  */
@@ -62,15 +60,15 @@ class L10N implements IL10N {
 	 * @param string $app
 	 * @param string $lang
 	 * @param string $locale
-     * @param array $translations
-     * @obsolete array $files
+	 * @param array $translations
+	 * @obsolete array $files
 	 */
 	public function __construct(IFactory $factory, $app, $lang, $locale, array $translations) {
 		$this->factory = $factory;
 		$this->app = $app;
 		$this->lang = $lang;
 		$this->locale = $locale;
-        $this->translations = $translations;
+		$this->translations = $translations;
 	}
 
 	/**
