@@ -63,7 +63,7 @@
         "The password must contain 10 characters and will not be sent with the mail to maintain confidentiality.": "The password must contain 10 characters and will not be sent with the mail to maintain confidentiality.",
         "Link to file": "Link to file",
         "Link to folder": "Link to folder",
-        "No recommendations. Start typing.": "No recommendations.Start typi.."
+        "No recommendations. Start typing.": "No recommendation. Type.."
     },"pluralForm" :"nplurals=2; plural=(n != 1);"},
     "files_trashbin": { "translations": {
         "All": "All"
