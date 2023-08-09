@@ -1,0 +1,46 @@
+header {
+  --external-margin: 8px;
+}
+
+@media screen and (max-width: 1024px) {
+  header {
+    --external-margin: 4px;
+  }
+}
+.header-menu {
+  width: 48px !important;
+}
+.header-menu__trigger {
+  width: 48px !important;
+}
+.header-menu__trigger:hover span {
+  color: var(--color-primary-hover);
+}
+.header-menu__trigger:hover:not([aria-expanded=true])::before {
+  background-color: var(--color-primary);
+  border-bottom-color: var(--color-main-background);
+  bottom: 0;
+  content: " ";
+  display: block;
+  height: 2px;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: all 0.1s ease-in-out;
+  width: 50%;
+}
+.header-menu__wrapper {
+  background-color: var(--telekom-color-background-surface) !important;
+  box-shadow: var(--telekom-shadow-raised-standard);
+  filter: none !important;
+  margin: 0 var(--external-margin) !important;
+  top: calc(var(--header-height) + var(--external-margin)) !important;
+}
+.header-menu__carret {
+  border-bottom-color: var(--telekom-color-background-surface) !important;
+  bottom: calc(var(--external-margin) * -1) !important;
+}
+.header-menu__content {
+  max-width: calc(100vw - 6 * var(--external-margin)) !important;
+}/*# sourceMappingURL=NcHeaderMenu.css.map */
