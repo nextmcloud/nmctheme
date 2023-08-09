@@ -14,8 +14,8 @@
     "scripts": {
         "stylelint": "stylelint css",
         "stylelint:fix": "stylelint css --fix",
-        "sass": "sass --style compressed --load-path css/",
-        "sass:watch": "sass --watch --load-path css/",
+        "sass": "sass --style compressed --load-path css css/",
+        "sass:watch": "sass --watch --load-path css css/",
         "sass:icons": "node js/icons.js"
     }
 }

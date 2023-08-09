@@ -1,0 +1,36 @@
+.breadcrumb {
+	// root crumb - hide icon and display 'Home' text
+	.crumbhome > .icon-home {
+		text-indent: 0;
+		background-image: none;
+		width: auto;
+		padding: 12px;
+	}
+
+	li.crumb {
+		// change arrow icon
+		background-image: url(../img/breadcrumb-arrow.svg);
+		background-size: auto 12px;
+		background-position: right 55%;
+		// link text styling
+		& > a {
+			font-size: var(--telekom-typography-font-size-caption);
+			opacity: 1;
+			color: var(--telekom-color-text-and-icon-standart);
+			&:hover {
+				color: var(--color-hover);
+			}
+		}
+	}
+
+	// style flyout menu
+	.crumbmenu .crumblist {
+		a {
+			opacity: 1;
+		}
+		&:hover > a {
+			background-color: var(--color-main-background);
+			color: var(--color-hover);
+		}	
+	}
+}
