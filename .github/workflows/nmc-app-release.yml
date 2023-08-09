@@ -43,9 +43,9 @@ jobs:
     uses: nextmcloud/.github/.github/workflows/nmc-app-build.yml@master
     needs: check-app
     with:
-      appname: ${{ jobs.check-app.appname }}
+      appname: ${{ needs.check-app.outputs.appname }}
       branch: ${{ inputs.branch }}
-      tag: ${{ jobs.check-app.tag }}
+      tag: ${{ needs.check-app.outputs.tag }}
       prerelease: ${{ inputs.branch == 'main' && true || false }}
     secrets: inherit
 
