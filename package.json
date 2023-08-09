@@ -15,7 +15,7 @@
         "stylelint": "stylelint css",
         "stylelint:fix": "stylelint css --fix",
         "sass": "sass --style compressed --load-path css/",
-        "sass:watch": "sass --watch --load-path css/",
+        "sass:watch": "sass --watch css/ncomponents.scss:css/ncomponents.css",
         "sass:icons": "node js/icons.js"
     }
 }
