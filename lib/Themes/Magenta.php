@@ -11,18 +11,22 @@ declare(strict_types=1);
 namespace OCA\NMCTheme\Themes;
 
 use OCA\Theming\ITheme;
+use OCA\Theming\ThemingDefaults;
 use OCP\App\IAppManager;
 use OCP\IL10N;
 use OCP\IURLGenerator;
 
 class Magenta implements ITheme {
+	private ThemingDefaults $themingDefaults;
 	private IAppManager $appManager;
 	private IURLGenerator $urlGenerator;
 	private IL10N $l;
 
-	public function __construct(IAppManager $appManager,
+	public function __construct(ThemingDefaults $themingDefaults,
+		IAppManager $appManager,
 		IURLGenerator $urlGenerator,
 		IL10N $l) {
+		$this->themingDefaults = $themingDefaults;
 		$this->appManager = $appManager;
 		$this->urlGenerator = $urlGenerator;
 		$this->l = $l;
@@ -60,19 +64,15 @@ class Magenta implements ITheme {
 		$telekomVariables = $this->urlGenerator->linkTo('nmctheme', 'css/telekom-design-tokens.all.css');
 		$themeVariables = $this->urlGenerator->linkTo('nmctheme', 'css/nmcdefault.css');
 		$iconsVariables = $this->urlGenerator->linkTo('nmctheme', 'dist/icons.css');
-		$ncbreadcrumb = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncbreadcrumb.css');
-		$ncappnavigation = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncappnavigation.css');
 		$apps = $this->urlGenerator->linkTo('nmctheme', 'css/apps/apps.css');
 		$header = $this->urlGenerator->linkTo('nmctheme', 'css/core/header.css');
-		$appMenu = $this->urlGenerator->linkTo('nmctheme', 'css/components/appMenu.css');
-		$ncHeaderMenu = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncHeaderMenu.css');
+		$appMenu = $this->urlGenerator->linkTo('nmctheme', 'css/components/AppMenu.css');
+		$ncHeaderMenu = $this->urlGenerator->linkTo('nmctheme', 'css/components/NcHeaderMenu.css');
 		
 		return "
 			@import url('{$telekomVariables}');
 			@import url('{$themeVariables}');
 			@import url('{$iconsVariables}');
-            @import url('{$ncbreadcrumb}');
-            @import url('{$ncappnavigation}');
 			@import url('{$apps}');
 			@import url('{$header}');
 			@import url('{$appMenu}');
