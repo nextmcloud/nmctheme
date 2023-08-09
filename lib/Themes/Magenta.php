@@ -64,8 +64,8 @@ class Magenta implements ITheme {
 		$ncappnavigation = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncappnavigation.css');
 		$apps = $this->urlGenerator->linkTo('nmctheme', 'css/apps/apps.css');
 		$header = $this->urlGenerator->linkTo('nmctheme', 'css/core/header.css');
-		$appMenu = $this->urlGenerator->linkTo('nmctheme', 'css/components/AppMenu.css');
-		$ncHeaderMenu = $this->urlGenerator->linkTo('nmctheme', 'css/components/NcHeaderMenu.css');
+		$appMenu = $this->urlGenerator->linkTo('nmctheme', 'css/components/appMenu.css');
+		$ncHeaderMenu = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncHeaderMenu.css');
 		
 		return "
 			@import url('{$telekomVariables}');
