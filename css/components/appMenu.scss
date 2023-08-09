@@ -5,7 +5,7 @@
 
 		// visuals for navigation entries
 		.app-menu-entry {
-			height: 60px !important;
+			height: var(--header-height) !important;
 			margin-right: var(--telekom-spacing-composition-space-10);
 			width: auto !important;
 	
