@@ -34,7 +34,7 @@ on:
 
 jobs:
   check-app:
-    uses: nextmcloud/.github/.github/workflows/nmc-custom-app-precond.yml@master
+    uses: nextmcloud/.github/.github/workflows/nmc-app-precond.yml@master
     with:
       versionbranch: ${{ inputs.branch }}
       increment: ${{ inputs.increment }}
