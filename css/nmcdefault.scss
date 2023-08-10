@@ -93,7 +93,6 @@
   --gradient-primary-background: linear-gradient(40deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
   --image-background: none;
   --image-background-default: none;
-  --image-logoheader: url('/apps/nmctheme/img/tlogocarrier.svg');
-  --image-logoheader-custom: url('/apps/nmctheme/img/tlogocarrier.svg');
+  --image-logoheader-custom: var(--image-logoheader);
   --color-background-plain: var(--telekom-color-background-canvas);
 }
