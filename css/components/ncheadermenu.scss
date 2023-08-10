@@ -1,62 +1,62 @@
 $breakpoint-mobile: 1024px;
 
 header {
-    --external-margin: 8px;
+	--external-margin: 8px;
 }
 
 @media screen and (max-width: $breakpoint-mobile) {
-    header {
-        --external-margin: 4px;
-    }
+	header {
+		--external-margin: 4px;
+	}
 }
 
 // header function menu styles
 .header-menu {
-    width: 48px !important;
+	width: 48px !important;
 
 	&__trigger {
-        opacity: 1 !important;
+		opacity: 1 !important;
 		width: 48px !important;
-       
-        // hover effect for function entries
-        &:hover {
+	   
+		// hover effect for function entries
+		&:hover {
 
-            span {
-                color: var(--color-primary-hover);
-            }
+			span {
+				color: var(--color-primary-hover);
+			}
 
-            &:not([aria-expanded="true"]) {
+			&:not([aria-expanded="true"]) {
 
-                &::before {
-                    background-color: var(--color-primary);
-                    border-bottom-color: var(--color-main-background);
-                    bottom: 0;
-                    content: " ";
-                    display: block;
-                    height: 2px;
-                    left: 50%;
-                    pointer-events: none;
-                    position: absolute;
-                    transform: translateX(-50%);
-                    transition: all .1s ease-in-out;
-                    width: 50%;
-                }
-            }
-        }
+				&::before {
+					background-color: var(--color-primary);
+					border-bottom-color: var(--color-main-background);
+					bottom: 0;
+					content: " ";
+					display: block;
+					height: 2px;
+					left: 50%;
+					pointer-events: none;
+					position: absolute;
+					transform: translateX(-50%);
+					transition: all .1s ease-in-out;
+					width: 50%;
+				}
+			}
+		}
 	}
 
-    // reposition flyout menus
+	// reposition flyout menus
 	&__wrapper {
 		background-color: var(--telekom-color-background-surface) !important;
-        box-shadow: var(--telekom-shadow-raised-standard);
-        filter: none !important;
+		box-shadow: var(--telekom-shadow-raised-standard);
+		filter: none !important;
 		margin: 0 var(--external-margin) !important;
 		top: calc(var(--header-height) + var(--external-margin)) !important;
 	}
 
 	&__carret {
 		border-bottom-color: var(--telekom-color-background-surface) !important;
-        bottom: calc(var(--external-margin) * -1) !important;
+		bottom: calc(var(--external-margin) * -1) !important;
 	}
 
 	&__content {

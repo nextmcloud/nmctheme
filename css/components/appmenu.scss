@@ -1,13 +1,13 @@
 header {
-    --icon-menu: var(--original-icon-menu-dark);
-    --icon-close: var(--original-icon-close-dark);
+	--icon-menu: var(--original-icon-menu-dark);
+	--icon-close: var(--original-icon-close-dark);
 }
 
 @media (prefers-color-scheme: dark) {
-    header {
-        --icon-menu: var(--original-icon-menu-white);
-        --icon-close: var(--original-icon-close-white);
-    }
+	header {
+		--icon-menu: var(--original-icon-menu-white);
+		--icon-close: var(--original-icon-close-white);
+	}
 }
 
 // main navigation menu styles
@@ -131,7 +131,7 @@ header {
 	margin: 0 4px;
 	position: fixed !important;
 	top: 64px !important;
-    transform: unset !important;
+	transform: unset !important;
 	width: calc(100% - 8px);
 	
 	&.action-item__popper {
@@ -154,12 +154,12 @@ header {
 					}
 
 					.action-link {
-						padding-right: var(--telekom-spacing-composition-space-07);
+						padding: 0 var(--telekom-spacing-composition-space-07);
 					}
 
 					&[aria-current="page"] {
 						.action-link {
-							border-bottom: 2px solid var(--color-primary);
+							border-left: 2px solid var(--color-primary);
 						}
 					}
 				}

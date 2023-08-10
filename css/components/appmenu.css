@@ -107,8 +107,8 @@ header {
   background: var(--color-main-background);
 }
 .v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner .app-menu-popover-entry .action-link {
-  padding-right: var(--telekom-spacing-composition-space-07);
+  padding: 0 var(--telekom-spacing-composition-space-07);
 }
 .v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner .app-menu-popover-entry[aria-current=page] .action-link {
-  border-bottom: 2px solid var(--color-primary);
+  border-left: 2px solid var(--color-primary);
 }/*# sourceMappingURL=appmenu.css.map */
