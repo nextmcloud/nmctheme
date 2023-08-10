@@ -113,11 +113,11 @@ header {
 #user-menu .header-menu__trigger:hover {
   filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
 }
-#user-menu .header-menu__content {
-  width: 350px !important;
-}
 #user-menu .user-menu__avatar {
   display: none;
+}
+#user-menu .header-menu__content {
+  width: 350px !important;
 }
 #user-menu .user-menu__nav ul {
   width: 100%;
