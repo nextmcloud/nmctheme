@@ -9,11 +9,13 @@
 namespace OCA\NMCTheme\AppInfo;
 
 use OC\AppFramework\DependencyInjection\DIContainer;
+use OC\URLGenerator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Themes\Magenta;
 use OCA\NMCTheme\Themes\MagentaDark;
 use OCA\NMCTheme\Themes\TeleNeoWebFont;
+use OCA\NMCTheme\URLGeneratorDecorator;
 use OCA\Theming\Service\ThemesService;
 use OCA\Theming\Themes\DarkHighContrastTheme;
 use OCA\Theming\Themes\DarkTheme;
@@ -28,6 +30,7 @@ use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\AppFramework\QueryException;
 use OCP\IConfig;
+use OCP\IURLGenerator;
 use OCP\IUserSession;
 
 class Application extends App implements IBootstrap {
@@ -61,6 +64,25 @@ class Application extends App implements IBootstrap {
 		return $container;
 	}
 
+	/**
+	 * Decorate the IURLGenerator to intercept request for theming favicons.
+	 */
+	protected function registerURLGeneratorDecorator(IRegistrationContext $context) {
+		$this->getContainer()->getServer()->registerService(IURLGenerator::class, function ($c) {
+			return new URLGeneratorDecorator(
+				$this->getContainer()->getServer()->query(URLGenerator::class)
+			);
+		});
+	}
+
+
+	/**
+	 * Register all kind of decorators so that the theme is in control
+	 * of:
+	 * - the set of available themes
+	 * - the translations (to be overridden)
+	 * - the favicons
+	 */
 	public function register(IRegistrationContext $context): void {
 		// getRegisteredAppContainer("theming")
 		// explicitly register own NMCThemesManager to override the Nextcloud standard
@@ -80,6 +102,8 @@ class Application extends App implements IBootstrap {
 			);
 		});
 		
+		$this->registerURLGeneratorDecorator($context);
+
 		// the listener is helpful to enforce theme constraints and inject additional parts
 		// $context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
 	}
