@@ -4,13 +4,13 @@ namespace Test;
 
 use OC\Route\Router;
 use OCA\NMCTheme\URLGeneratorDecorator;
+use OCP\App\IAppManager;
 use OCP\ICacheFactory;
 use OCP\IConfig;
 use OCP\IRequest;
-use OCP\IURLGenerator;
 
+use OCP\IURLGenerator;
 use OCP\IUserSession;
-use OCP\App\IAppManager;
 
 /**
  * Most of the tests are taken over from server to retest the decoration.
@@ -43,7 +43,7 @@ class UrlGeneratorDecoratorTest extends \Test\TestCase {
 		$this->request = $this->createMock(IRequest::class);
 		$this->router = $this->createMock(Router::class);
 		$this->originalWebRoot = \OC::$WEBROOT;
-		$this->urlGenerator = new URLGeneratorDecorator( new \OC\URLGenerator(
+		$this->urlGenerator = new URLGeneratorDecorator(new \OC\URLGenerator(
 			$this->config,
 			$this->userSession,
 			$this->cacheFactory,
@@ -52,9 +52,9 @@ class UrlGeneratorDecoratorTest extends \Test\TestCase {
 		));
 
 		$this->app = new \OCP\AppFramework\App("nmctheme");
-        $this->appPath = $this->app->getContainer()->get(IAppManager::class)->getAppWebPath("nmctheme");
+		$this->appPath = $this->app->getContainer()->get(IAppManager::class)->getAppWebPath("nmctheme");
 
-        $this->urlGeneratorInjected = $this->app->getContainer()->get(IURLGenerator::class);
+		$this->urlGeneratorInjected = $this->app->getContainer()->get(IURLGenerator::class);
 		$this->assertInstanceOf(URLGeneratorDecorator::class, $this->urlGenerator);
 	}
 
@@ -280,7 +280,7 @@ class UrlGeneratorDecoratorTest extends \Test\TestCase {
 		$this->assertSame($result, $this->urlGenerator->imagePath($appName, $file));
 	}
 
-    public function imageDecorationProvider(): array {
+	public function imageDecorationProvider(): array {
 		return [
 			['theming', 'favicon-mask.svg', '/img/favicon-mask.svg'],
 			['files', 'favicon.ico', '/img/favicon.ico'],
