@@ -59,8 +59,11 @@ const variables = {}
 const icons = {
   "add": path.join(__dirname, '../img', 'actions', 'add.svg'),
   "address": path.join(__dirname, '../img', 'actions', 'address.svg'),
+  "close": path.join(__dirname, '../img', 'actions', 'close.svg'),
   "download": path.join(__dirname, '../img', 'actions', 'download.svg'),
   "logout": path.join(__dirname, '../img', 'actions', 'logout.svg'),
+  "menu": path.join(__dirname, '../img', 'actions', 'menu.svg'),
+  "search": path.join(__dirname, '../img', 'actions', 'search.svg'),
   "share": path.join(__dirname, '../img', 'actions', 'share.svg'),
   "star": path.join(__dirname, '../img', 'actions', 'star.svg'),
   "starred": path.join(__dirname, '../img', 'actions', 'starred.svg'),
@@ -71,7 +74,7 @@ const icons = {
 }
 
 const iconsColor = {
-  'starred': {
+	'starred': {
 		path: path.join(__dirname, '../img', 'actions', 'star-dark.svg'),
 		color: 'yellow',
 	},

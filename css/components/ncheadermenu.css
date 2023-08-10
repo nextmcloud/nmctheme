@@ -11,6 +11,7 @@ header {
   width: 48px !important;
 }
 .header-menu__trigger {
+  opacity: 1 !important;
   width: 48px !important;
 }
 .header-menu__trigger:hover span {
