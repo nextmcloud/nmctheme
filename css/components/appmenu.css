@@ -1,3 +1,14 @@
+header {
+  --icon-menu: var(--original-icon-menu-dark);
+  --icon-close: var(--original-icon-close-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  header {
+    --icon-menu: var(--original-icon-menu-white);
+    --icon-close: var(--original-icon-close-white);
+  }
+}
 .app-menu .app-menu-main .app-menu-entry {
   height: 60px !important;
   margin-right: var(--telekom-spacing-composition-space-10);
@@ -63,6 +74,16 @@
   width: 32px !important;
   min-height: 32px !important;
   min-width: 32px !important;
+  background-image: var(--icon-menu);
+  background-size: auto 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.app-menu-more .button-vue--vue-tertiary.button-vue--icon-only .button-vue__wrapper {
+  display: none !important;
+}
+.app-menu-more.action-item--open .action-item__menutoggle.button-vue--icon-only {
+  background-image: var(--icon-close);
 }
 
 .v-popper--theme-dropdown.v-popper__popper {

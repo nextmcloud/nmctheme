@@ -60,23 +60,28 @@ class Magenta implements ITheme {
 		$telekomVariables = $this->urlGenerator->linkTo('nmctheme', 'css/telekom-design-tokens.all.css');
 		$themeVariables = $this->urlGenerator->linkTo('nmctheme', 'css/nmcdefault.css');
 		$iconsVariables = $this->urlGenerator->linkTo('nmctheme', 'dist/icons.css');
+
+		$header = $this->urlGenerator->linkTo('nmctheme', 'css/core/header.css');
+
+		$appmenu = $this->urlGenerator->linkTo('nmctheme', 'css/components/appmenu.css');
 		$ncbreadcrumb = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncbreadcrumb.css');
 		$ncappnavigation = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncappnavigation.css');
-		$apps = $this->urlGenerator->linkTo('nmctheme', 'css/apps/apps.css');
-		$header = $this->urlGenerator->linkTo('nmctheme', 'css/core/header.css');
-		$appmenu = $this->urlGenerator->linkTo('nmctheme', 'css/components/appmenu.css');
 		$ncheadermenu = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncheadermenu.css');
+
+		$apps = $this->urlGenerator->linkTo('nmctheme', 'css/apps/apps.css');
+		$files = $this->urlGenerator->linkTo('nmctheme', 'css/apps/files.css');
 		
 		return "
 			@import url('{$telekomVariables}');
 			@import url('{$themeVariables}');
 			@import url('{$iconsVariables}');
-            @import url('{$ncbreadcrumb}');
-            @import url('{$ncappnavigation}');
-			@import url('{$apps}');
 			@import url('{$header}');
 			@import url('{$appmenu}');
+            @import url('{$ncbreadcrumb}');
+            @import url('{$ncappnavigation}');
 			@import url('{$ncheadermenu}');
+			@import url('{$apps}');
+			@import url('{$files}');
 		";
 	}
 }

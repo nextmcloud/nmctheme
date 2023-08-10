@@ -1,3 +1,15 @@
+header {
+    --icon-menu: var(--original-icon-menu-dark);
+    --icon-close: var(--original-icon-close-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+    header {
+        --icon-menu: var(--original-icon-menu-white);
+        --icon-close: var(--original-icon-close-white);
+    }
+}
+
 // main navigation menu styles
 .app-menu {
 
@@ -78,17 +90,39 @@
 }
 
 // mobile menu button
-.app-menu-more .button-vue--vue-tertiary {
-	opacity: 1 !important;
-	margin: 0 !important;
-	filter: unset !important;
+.app-menu-more {
 
-	// decrease size of mobile menu button
-	&.button-vue--icon-only {
-        height: 32px !important;
-        width: 32px !important;
-        min-height: 32px !important;
-        min-width: 32px !important;
+	.button-vue--vue-tertiary {
+		opacity: 1 !important;
+		margin: 0 !important;
+		filter: unset !important;
+	
+		// decrease size of mobile menu button
+		&.button-vue--icon-only {
+			height: 32px !important;
+			width: 32px !important;
+			min-height: 32px !important;
+			min-width: 32px !important;
+	
+			background-image: var(--icon-menu);
+			background-size: auto 24px;
+			background-position: center;
+			background-repeat: no-repeat;
+	
+			.button-vue__wrapper {
+				display: none !important;
+			}
+		}
+	}
+	
+	&.action-item--open {
+		
+		.action-item__menutoggle {
+		
+			&.button-vue--icon-only {
+				background-image: var(--icon-close);
+			}
+		}
 	}
 }
 
