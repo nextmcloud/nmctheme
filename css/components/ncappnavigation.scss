@@ -1,6 +1,15 @@
+$breakpoint-mobile: 1024px;
+
 :root {
 	--color-hover: var(--telekom-color-text-and-icon-primary-hovered);
 	--color-active: var(--telekom-color-text-and-icon-primary-pressed);
+	--internal-padding: 0;
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+	:root {
+		--internal-padding: 8px;
+	}
 }
 
 @mixin color-icon {
@@ -25,6 +34,7 @@
 	// remove gaps between navigation items
 	.app-navigation__content .app-navigation__list {
 		gap: 0px;
+		padding-left: var(--internal-padding);
 	}
 
 	// default navbar link styling

@@ -1,8 +1,14 @@
 :root {
   --color-hover: var(--telekom-color-text-and-icon-primary-hovered);
   --color-active: var(--telekom-color-text-and-icon-primary-pressed);
+  --internal-padding: 0;
 }
 
+@media screen and (max-width: 1024px) {
+  :root {
+    --internal-padding: 8px;
+  }
+}
 .app-navigation .app-navigation-toggle {
   background-color: var(--color-main-background) !important;
 }
@@ -11,6 +17,7 @@
 }
 .app-navigation .app-navigation__content .app-navigation__list {
   gap: 0px;
+  padding-left: var(--internal-padding);
 }
 .app-navigation .app-navigation-entry {
   border-bottom: 1px solid var(--telekom-color-ui-faint);

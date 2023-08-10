@@ -143,7 +143,7 @@ header {
 				min-height: calc(50vh - 16px) !important;
 
 				.app-menu-popover-entry {
-					padding: 0 var(--telekom-spacing-composition-space-07) !important;
+					padding: 0 var(--telekom-spacing-composition-space-04) !important;
 
 					.app-icon {
 						display: none;
@@ -154,7 +154,10 @@ header {
 					}
 
 					.action-link {
-						padding: 0 var(--telekom-spacing-composition-space-07);
+						border-bottom: 1px solid var(--telekom-color-ui-faint);
+						font: var(--telekom-text-style-ui-bold);
+						line-height: calc(2* var(--default-line-height));
+						padding: var(--telekom-spacing-composition-space-03) var(--telekom-spacing-composition-space-07);
 					}
 
 					&[aria-current="page"] {
