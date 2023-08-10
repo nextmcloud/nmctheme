@@ -112,16 +112,18 @@ header {
 }
 #user-menu .header-menu__trigger:hover {
   filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
-  /*
-  background-color: var(--color-primary-hover);
-  background-image: none;
-  -webkit-mask-image: url(../../img/actions/user.svg);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  */
+}
+#user-menu .header-menu__content {
+  width: 350px !important;
 }
 #user-menu .user-menu__avatar {
   display: none;
+}
+#user-menu .user-menu__nav ul {
+  width: 100%;
+}
+#user-menu.header-menu--opened .header-menu__carret {
+  display: block !important;
 }
 
 #body-public #nextcloud.header-appname {

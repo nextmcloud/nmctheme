@@ -140,18 +140,30 @@ header {
 
         &:hover {
 			@include color-icon;
-            /*
-            background-color: var(--color-primary-hover);
-            background-image: none;
-            -webkit-mask-image: url(../../img/actions/user.svg);
-            -webkit-mask-repeat: no-repeat;
-            -webkit-mask-position: center;
-            */
         }
     }
 
     .user-menu__avatar {
         display: none;
+    }
+
+    //adapted functional menu styles to user menu for uniformity
+    .header-menu__content {
+        width: 350px !important;
+    }
+
+    .user-menu__nav {
+
+		ul {
+            width: 100%;
+        }
+    }
+
+    &.header-menu--opened {
+
+        .header-menu__carret {
+            display: block !important;
+        }
     }
 }
 
