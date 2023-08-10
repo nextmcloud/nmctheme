@@ -1,0 +1,26 @@
+ul[role="menu"] li.action.active {
+  background-color: transparent;
+  user-select: none;
+}
+
+.action-button,
+.action-link {
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+ul[role="menu"] li.action.active {
+  &:focus-within {
+    .action-button,
+    .action-link {
+      color: var(--color-primary-press) !important;
+    }
+  }
+
+  &:hover {
+    .action-button,
+    .action-link {
+      color: var(--color-primary-hover) !important;
+    }
+  }
+}
