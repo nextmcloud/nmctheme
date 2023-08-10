@@ -1,10 +1,1 @@
-:root {
-  --body-height: calc(100% - env(safe-area-inset-bottom) - 68px - var(--body-container-margin));
-}
-
-/* CONTENT  --------------------------------------------------------- */
-#content {
-  margin-top: 68px;
-  height: var(--body-height);
-  border-radius: none;
-}/*# sourceMappingURL=apps.css.map */
+:root{--body-height: calc(100% - env(safe-area-inset-bottom) - 68px - var(--body-container-margin))}#content{margin-top:68px;height:var(--body-height);border-radius:none}/*# sourceMappingURL=apps.css.map */

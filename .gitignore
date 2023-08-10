@@ -11,4 +11,6 @@ tests/.phpunit.result.cache
 .DS_Store
 /css/**.css
 /css/**.css.map
+*.css
+*.css.map
 /dist/
