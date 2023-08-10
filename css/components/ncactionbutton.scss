@@ -1,6 +1,9 @@
+ul[role="menu"] li.action {
+  user-select: none;
+}
+
 ul[role="menu"] li.action.active {
   background-color: transparent;
-  user-select: none;
 }
 
 .action-button,
