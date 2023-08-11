@@ -1,32 +1,30 @@
 //NcActionButton
 
-ul[role="menu"] li.action {
+ul li.action {
   user-select: none;
-}
 
-ul[role="menu"] li.action.active {
-  background-color: transparent;
-}
-
-.action-button,
-.action-link {
-  opacity: 1 !important;
-  box-shadow: none !important;
-}
-
-ul[role="menu"] li.action.active {
-  &:focus-within {
-    .action-button,
-    .action-link {
-      color: var(--color-primary-press) !important;
+  &.active {
+    &:focus-within {
+      .action-button,
+      .action-link {
+        color: var(--color-primary-press) !important;
+      }
     }
+
+    &:hover {
+      .action-button,
+      .action-link {
+        color: var(--color-primary-hover) !important;
+      }
+    }
+
+    background-color: transparent;
   }
 
-  &:hover {
-    .action-button,
-    .action-link {
-      color: var(--color-primary-hover) !important;
-    }
+  button.action-button,
+  a.action-link {
+    opacity: 1;
+    box-shadow: none;
   }
 }
 
