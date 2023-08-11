@@ -13,8 +13,8 @@
 
 /* Nextcloud vue component library styles */
 @import 'components/ncappmenu.scss';
-@import 'components/ncappnavigation.scss';
 @import 'components/ncbreadcrumb.scss';
+@import 'components/ncappnavigation.scss';
 @import 'components/ncheadermenu.scss';
 
 /* layouts and layout parts*/
@@ -23,5 +23,5 @@
 
 /* special app stylings */
 @import 'apps/apps.scss';
-/* @import 'apps/files.scss'; */
+@import 'apps/files.scss';
 
