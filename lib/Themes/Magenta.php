@@ -68,7 +68,7 @@ class Magenta implements ITheme {
 		$ncappnavigation = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncappnavigation.css');
 		$ncheadermenu = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncheadermenu.css');
 		$ncactions = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncactions.css');
-		$ncinputfield = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncinputfield.css');
+		$ncinputs = $this->urlGenerator->linkTo('nmctheme', 'css/components/ncinputs.css');
 
 		$apps = $this->urlGenerator->linkTo('nmctheme', 'css/apps/apps.css');
 		$files = $this->urlGenerator->linkTo('nmctheme', 'css/apps/files.css');
@@ -83,7 +83,7 @@ class Magenta implements ITheme {
             @import url('{$ncappnavigation}');
 			@import url('{$ncheadermenu}');
 			@import url('{$ncactions}');
-			@import url('{$ncinputfield}');
+			@import url('{$ncinputs}');
 			@import url('{$apps}');
 			@import url('{$files}');
 		";
