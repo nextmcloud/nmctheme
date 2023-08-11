@@ -35,12 +35,12 @@ header {
   font-size: var(--font-size-app-name);
   font-weight: var(--font-weight-app-name);
   height: 60px;
-  left: 72px !important;
+  left: 72px;
   line-height: 60px;
-  margin: 0 !important;
+  margin: 0;
   pointer-events: all;
   position: absolute;
-  top: 0 !important;
+  top: 0;
   width: auto;
   z-index: 3000;
 }
@@ -73,11 +73,11 @@ header {
     content: " ";
     display: block;
     height: 60px;
-    left: 0 !important;
-    margin: 0 !important;
+    left: 0;
+    margin: 0;
     pointer-events: all;
     position: absolute;
-    top: 0 !important;
+    top: 0;
     transition: none;
     width: 60px;
     z-index: 3000;
@@ -92,18 +92,16 @@ header {
 }
 #unified-search .header-menu__trigger:hover {
   filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
-  /*
-  background-color: var(--color-primary-hover);
-  background-image: none;
-  -webkit-mask-image: url(../../img/actions/user.svg);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  */
 }
 #unified-search .unified-search__trigger {
-  display: none !important;
+  display: none;
 }
 
+@media screen and (max-width: 1024px) {
+  #user-menu {
+    margin-right: var(--telekom-spacing-composition-space-03);
+  }
+}
 #user-menu .header-menu__trigger {
   background-image: var(--icon-user);
   background-size: auto 24px;

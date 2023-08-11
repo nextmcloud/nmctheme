@@ -11,126 +11,124 @@ header {
 }
 
 // main navigation menu styles
-.app-menu {
+#header {
 
-	.app-menu-main {
+	.app-menu {
 
-		// visuals for navigation entries
-		.app-menu-entry {
-			height: 60px !important;
-			margin-right: var(--telekom-spacing-composition-space-10);
-			width: auto !important;
+		.app-menu-main {
 	
-			&::before {
-				background-color: var(--color-primary);
-				border-radius: none;
-				bottom: 0;
-				content: " ";
-				display: block;
-				height: 2px;
-				left: 50%;
-				opacity: 0;
-				pointer-events: none;
-				position: absolute;
-				transform: translateX(-50%);
-				transition: all .1s ease-in-out;
-				width: 100%;
-			}
-	
-			&.app-menu-entry__active {
-	
+			// visuals for navigation entries
+			.app-menu-entry {
+				height: 60px;
+				margin-right: var(--telekom-spacing-composition-space-10);
+				width: auto;
+		
 				&::before {
-					background-color: var(--color-primary) !important;
-					border-radius: 0 !important;
-					bottom: 0 !important;
-					height: 4px !important;
-					opacity: 1 !important;
-					width: 100% !important;
+					background-color: var(--color-primary);
+					border-radius: 0;
+					bottom: 0;
+					content: " ";
+					display: block;
+					height: 2px;
+					left: 50%;
+					opacity: 0;
+					pointer-events: none;
+					position: absolute;
+					transform: translateX(-50%);
+					transition: all .1s ease-in-out;
+					width: 100%;
 				}
 	
 				.app-menu-entry--label {
-					color: var(--color-primary) !important;
+					font-size: var(--default-font-size);
+					font-weight: var(--telekom-typography-font-weight-extra-bold);
+					letter-spacing: normal;
+					opacity: 1;
+					position: relative;
+					top: calc(50% - var(--default-line-height) / 2);
+				}
+		
+				&.app-menu-entry__active {
+		
+					&::before {
+						background-color: var(--color-primary);
+						border-radius: 0;
+						bottom: 0;
+						height: 4px;
+						opacity: 1;
+						width: 100%;
+					}
+		
+					.app-menu-entry--label {
+						color: var(--color-primary);
+					}
+				}
+		
+				// hover effect for navigation entries
+				&:hover,
+				&:focus-within {
+		
+					&::before {
+						opacity: 1;
+					}
+		
+					.app-menu-entry--label {
+						color: var(--color-primary-hover);
+					}
+				}
+	
+				// hide navigation menu icons
+				img {
+					display: none;
 				}
 			}
+		}
 
-			// hide navigation menu icons
-			img {
-				display: none;
-			}
+		// mobile menu button
+		.app-menu-more {
+			// increase distance of menu button to screen edge
+			margin-right: var(--telekom-spacing-composition-space-06);
 
-			.app-menu-entry--label {
-				font-size: var(--default-font-size) !important;
-				font-weight: var(--telekom-typography-font-weight-extra-bold) !important;
-				letter-spacing: normal !important;
-				opacity: 1 !important;
-				position: relative !important;
-				top: calc(50% - var(--default-line-height) / 2) !important;
-			}
-	
-			// hover effect for navigation entries
-			&:hover,
-			&:focus-within {
+			.button-vue--vue-tertiary {
 				opacity: 1;
-	
-				.app-menu-entry--label {
-					color: var(--color-primary-hover) !important;
-				}
-	
-				&::before {
-					opacity: 1 !important;
+				margin: 0;
+				filter: unset;
+			
+				// decrease size of mobile menu button
+				&.button-vue--icon-only {
+					height: 32px;
+					width: 32px !important;
+					min-height: 32px;
+					min-width: 32px;
+			
+					background-image: var(--icon-menu);
+					background-size: auto 24px;
+					background-position: center;
+					background-repeat: no-repeat;
+			
+					.button-vue__wrapper {
+						display: none;
+					}
 				}
 			}
-		}
-	}
-	
-	// increase distance of menu button to screen edge
-	.app-menu-more {
-		margin-right: var(--telekom-spacing-composition-space-06);
-	}
-}
-
-// mobile menu button
-.app-menu-more {
-
-	.button-vue--vue-tertiary {
-		opacity: 1 !important;
-		margin: 0 !important;
-		filter: unset !important;
-	
-		// decrease size of mobile menu button
-		&.button-vue--icon-only {
-			height: 32px !important;
-			width: 32px !important;
-			min-height: 32px !important;
-			min-width: 32px !important;
-	
-			background-image: var(--icon-menu);
-			background-size: auto 24px;
-			background-position: center;
-			background-repeat: no-repeat;
-	
-			.button-vue__wrapper {
-				display: none !important;
-			}
-		}
-	}
-	
-	&.action-item--open {
-		
-		.action-item__menutoggle {
-		
-			&.button-vue--icon-only {
-				background-image: var(--icon-close);
+			
+			&.action-item--open {
+				
+				.action-item__menutoggle {
+				
+					&.button-vue--icon-only {
+						background-image: var(--icon-close);
+					}
+				}
 			}
 		}
 	}
 }
 
 // mobile navigation menu flyout
-.v-popper--theme-dropdown.v-popper__popper {
+.action-item__popper.v-popper--theme-dropdown.v-popper__popper {
 	margin: 0 4px;
-	position: fixed !important;
-	top: 64px !important;
+	top: 64px;
 	transform: unset !important;
 	width: calc(100% - 8px);
 	
@@ -139,11 +137,11 @@ header {
 		.v-popper__wrapper {
 
 			.v-popper__inner {
-				padding: var(--telekom-spacing-composition-space-07) 0 !important;
-				min-height: calc(50vh - 16px) !important;
+				padding: var(--telekom-spacing-composition-space-07) 0;
+				min-height: calc(50vh - 16px);
 
 				.app-menu-popover-entry {
-					padding: 0 var(--telekom-spacing-composition-space-04) !important;
+					padding: 0 var(--telekom-spacing-composition-space-04);
 
 					.app-icon {
 						display: none;

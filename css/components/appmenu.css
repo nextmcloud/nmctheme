@@ -9,14 +9,14 @@ header {
     --icon-close: var(--original-icon-close-white);
   }
 }
-.app-menu .app-menu-main .app-menu-entry {
-  height: 60px !important;
+#header .app-menu .app-menu-main .app-menu-entry {
+  height: 60px;
   margin-right: var(--telekom-spacing-composition-space-10);
-  width: auto !important;
+  width: auto;
 }
-.app-menu .app-menu-main .app-menu-entry::before {
+#header .app-menu .app-menu-main .app-menu-entry::before {
   background-color: var(--color-primary);
-  border-radius: none;
+  border-radius: 0;
   bottom: 0;
   content: " ";
   display: block;
@@ -29,89 +29,84 @@ header {
   transition: all 0.1s ease-in-out;
   width: 100%;
 }
-.app-menu .app-menu-main .app-menu-entry.app-menu-entry__active::before {
-  background-color: var(--color-primary) !important;
-  border-radius: 0 !important;
-  bottom: 0 !important;
-  height: 4px !important;
-  opacity: 1 !important;
-  width: 100% !important;
+#header .app-menu .app-menu-main .app-menu-entry .app-menu-entry--label {
+  font-size: var(--default-font-size);
+  font-weight: var(--telekom-typography-font-weight-extra-bold);
+  letter-spacing: normal;
+  opacity: 1;
+  position: relative;
+  top: calc(50% - var(--default-line-height) / 2);
 }
-.app-menu .app-menu-main .app-menu-entry.app-menu-entry__active .app-menu-entry--label {
-  color: var(--color-primary) !important;
+#header .app-menu .app-menu-main .app-menu-entry.app-menu-entry__active::before {
+  background-color: var(--color-primary);
+  border-radius: 0;
+  bottom: 0;
+  height: 4px;
+  opacity: 1;
+  width: 100%;
 }
-.app-menu .app-menu-main .app-menu-entry img {
-  display: none;
+#header .app-menu .app-menu-main .app-menu-entry.app-menu-entry__active .app-menu-entry--label {
+  color: var(--color-primary);
 }
-.app-menu .app-menu-main .app-menu-entry .app-menu-entry--label {
-  font-size: var(--default-font-size) !important;
-  font-weight: var(--telekom-typography-font-weight-extra-bold) !important;
-  letter-spacing: normal !important;
-  opacity: 1 !important;
-  position: relative !important;
-  top: calc(50% - var(--default-line-height) / 2) !important;
-}
-.app-menu .app-menu-main .app-menu-entry:hover, .app-menu .app-menu-main .app-menu-entry:focus-within {
+#header .app-menu .app-menu-main .app-menu-entry:hover::before, #header .app-menu .app-menu-main .app-menu-entry:focus-within::before {
   opacity: 1;
 }
-.app-menu .app-menu-main .app-menu-entry:hover .app-menu-entry--label, .app-menu .app-menu-main .app-menu-entry:focus-within .app-menu-entry--label {
-  color: var(--color-primary-hover) !important;
+#header .app-menu .app-menu-main .app-menu-entry:hover .app-menu-entry--label, #header .app-menu .app-menu-main .app-menu-entry:focus-within .app-menu-entry--label {
+  color: var(--color-primary-hover);
 }
-.app-menu .app-menu-main .app-menu-entry:hover::before, .app-menu .app-menu-main .app-menu-entry:focus-within::before {
-  opacity: 1 !important;
+#header .app-menu .app-menu-main .app-menu-entry img {
+  display: none;
 }
-.app-menu .app-menu-more {
+#header .app-menu .app-menu-more {
   margin-right: var(--telekom-spacing-composition-space-06);
 }
-
-.app-menu-more .button-vue--vue-tertiary {
-  opacity: 1 !important;
-  margin: 0 !important;
-  filter: unset !important;
+#header .app-menu .app-menu-more .button-vue--vue-tertiary {
+  opacity: 1;
+  margin: 0;
+  filter: unset;
 }
-.app-menu-more .button-vue--vue-tertiary.button-vue--icon-only {
-  height: 32px !important;
+#header .app-menu .app-menu-more .button-vue--vue-tertiary.button-vue--icon-only {
+  height: 32px;
   width: 32px !important;
-  min-height: 32px !important;
-  min-width: 32px !important;
+  min-height: 32px;
+  min-width: 32px;
   background-image: var(--icon-menu);
   background-size: auto 24px;
   background-position: center;
   background-repeat: no-repeat;
 }
-.app-menu-more .button-vue--vue-tertiary.button-vue--icon-only .button-vue__wrapper {
-  display: none !important;
+#header .app-menu .app-menu-more .button-vue--vue-tertiary.button-vue--icon-only .button-vue__wrapper {
+  display: none;
 }
-.app-menu-more.action-item--open .action-item__menutoggle.button-vue--icon-only {
+#header .app-menu .app-menu-more.action-item--open .action-item__menutoggle.button-vue--icon-only {
   background-image: var(--icon-close);
 }
 
-.v-popper--theme-dropdown.v-popper__popper {
+.action-item__popper.v-popper--theme-dropdown.v-popper__popper {
   margin: 0 4px;
-  position: fixed !important;
-  top: 64px !important;
+  top: 64px;
   transform: unset !important;
   width: calc(100% - 8px);
 }
-.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner {
-  padding: var(--telekom-spacing-composition-space-07) 0 !important;
-  min-height: calc(50vh - 16px) !important;
+.action-item__popper.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner {
+  padding: var(--telekom-spacing-composition-space-07) 0;
+  min-height: calc(50vh - 16px);
 }
-.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner .app-menu-popover-entry {
-  padding: 0 var(--telekom-spacing-composition-space-04) !important;
+.action-item__popper.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner .app-menu-popover-entry {
+  padding: 0 var(--telekom-spacing-composition-space-04);
 }
-.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner .app-menu-popover-entry .app-icon {
+.action-item__popper.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner .app-menu-popover-entry .app-icon {
   display: none;
 }
-.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner .app-menu-popover-entry.active {
+.action-item__popper.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner .app-menu-popover-entry.active {
   background: var(--color-main-background);
 }
-.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner .app-menu-popover-entry .action-link {
+.action-item__popper.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner .app-menu-popover-entry .action-link {
   border-bottom: 1px solid var(--telekom-color-ui-faint);
   font: var(--telekom-text-style-ui-bold);
   line-height: calc(2 * var(--default-line-height));
   padding: var(--telekom-spacing-composition-space-03) var(--telekom-spacing-composition-space-07);
 }
-.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner .app-menu-popover-entry[aria-current=page] .action-link {
+.action-item__popper.v-popper--theme-dropdown.v-popper__popper.action-item__popper .v-popper__wrapper .v-popper__inner .app-menu-popover-entry[aria-current=page] .action-link {
   border-left: 2px solid var(--color-primary);
 }/*# sourceMappingURL=appmenu.css.map */

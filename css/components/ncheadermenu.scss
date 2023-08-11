@@ -11,55 +11,58 @@ header {
 }
 
 // header function menu styles
-.header-menu {
-	width: 48px !important;
+#header {
 
-	&__trigger {
-		opacity: 1 !important;
-		width: 48px !important;
-	   
-		// hover effect for function entries
-		&:hover {
+	.header-menu {
+		width: 48px;
 
-			span {
-				color: var(--color-primary-hover);
-			}
+		&__trigger {
+			opacity: 1;
+			width: 48px;
+		
+			// hover effect for function entries
+			&:hover {
 
-			&:not([aria-expanded="true"]) {
+				span {
+					color: var(--color-primary-hover);
+				}
 
-				&::before {
-					background-color: var(--color-primary);
-					border-bottom-color: var(--color-main-background);
-					bottom: 0;
-					content: " ";
-					display: block;
-					height: 2px;
-					left: 50%;
-					pointer-events: none;
-					position: absolute;
-					transform: translateX(-50%);
-					transition: all .1s ease-in-out;
-					width: 50%;
+				&:not([aria-expanded="true"]) {
+
+					&::before {
+						background-color: var(--color-primary);
+						border-bottom-color: var(--color-main-background);
+						bottom: 0;
+						content: " ";
+						display: block;
+						height: 2px;
+						left: 50%;
+						pointer-events: none;
+						position: absolute;
+						transform: translateX(-50%);
+						transition: all .1s ease-in-out;
+						width: 50%;
+					}
 				}
 			}
 		}
-	}
 
-	// reposition flyout menus
-	&__wrapper {
-		background-color: var(--telekom-color-background-surface) !important;
-		box-shadow: var(--telekom-shadow-raised-standard);
-		filter: none !important;
-		margin: 0 var(--external-margin) !important;
-		top: calc(var(--header-height) + var(--external-margin)) !important;
-	}
+		// reposition flyout menus
+		&__wrapper {
+			background-color: var(--telekom-color-background-surface);
+			box-shadow: var(--telekom-shadow-raised-standard);
+			filter: none;
+			margin: 0 var(--external-margin);
+			top: calc(var(--header-height) + var(--external-margin));
+		}
 
-	&__carret {
-		border-bottom-color: var(--telekom-color-background-surface) !important;
-		bottom: calc(var(--external-margin) * -1) !important;
-	}
+		&__carret {
+			border-bottom-color: var(--telekom-color-background-surface);
+			bottom: calc(var(--external-margin) * -1);
+		}
 
-	&__content {
-		max-width: calc(100vw - 6 * var(--external-margin)) !important;
+		&__content {
+			max-width: calc(100vw - 6 * var(--external-margin));
+		}
 	}
 }
