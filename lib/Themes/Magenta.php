@@ -16,9 +16,9 @@ use OCP\IL10N;
 use OCP\IURLGenerator;
 
 class Magenta implements ITheme {
-	private IAppManager $appManager;
-	private IURLGenerator $urlGenerator;
-	private IL10N $l;
+	protected IAppManager $appManager;
+	protected IURLGenerator $urlGenerator;
+	protected IL10N $l;
 
 	public function __construct(IAppManager $appManager,
 		IURLGenerator $urlGenerator,
@@ -53,7 +53,13 @@ class Magenta implements ITheme {
 	}
 
 	public function getCSSVariables(): array {
-		return [];
+		$favIconPath = $this->urlGenerator->imagePath('nmctheme', 'favicon.svg');
+		$logoPath = $this->urlGenerator->imagePath('nmctheme', 'telekom/tlogocarrier.svg');
+		return [
+			'--image-favicon' => "url('" . $favIconPath . "')",
+			#            '--image-logo' =>  "url('" . $logoPath . "')",
+			'--image-logoheader' => "url('" . $logoPath . "')"
+		];
 	}
 
 	public function getCustomCss(): string {
