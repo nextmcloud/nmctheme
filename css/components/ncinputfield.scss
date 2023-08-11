@@ -1,0 +1,39 @@
+.input-field .input-field__main-wrapper {
+  .input-field__input {
+    &:active:not([disabled]) {
+      border-color: var(--color-primary-element);
+    }
+
+    &:hover:not([disabled]) {
+      border-color: var(--border-color-hover);
+      background-color: var(--background-color-hover);
+    }
+
+    &:focus:not([disabled]) {
+      border-color: var(--border-color-focus);
+    }
+
+    &--success {
+      border: var(--border-success);
+      &:focus-visible {
+        box-shadow: unset;
+      }
+    }
+
+    &--error {
+      border: var(--border-error);
+      &:focus-visible {
+        box-shadow: unset;
+      }
+    }
+
+    background-color: var(--background-control);
+    color: var(--color-main-text);
+    border: var(--border);
+    height: var(--height) !important;
+    cursor: text;
+    transition: var(--transition-control);
+  }
+
+  height: var(--height) !important;
+}

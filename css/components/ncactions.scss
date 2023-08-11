@@ -1,3 +1,5 @@
+//NcActionButton
+
 ul[role="menu"] li.action {
   user-select: none;
 }
@@ -26,4 +28,18 @@ ul[role="menu"] li.action.active {
       color: var(--color-primary-hover) !important;
     }
   }
+}
+
+//NcActionInput
+
+.action-input {
+  cursor: auto !important;
+}
+
+//NcActionSeparator
+
+.action-separator {
+  margin: var(--spacing) !important;
+  border-bottom: var(--telekom-spacing-composition-space-01) solid
+    var(--color-border) !important;
 }

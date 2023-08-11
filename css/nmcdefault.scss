@@ -115,4 +115,20 @@
   --image-logoheader: url("/apps/nmctheme/img/tlogocarrier.svg");
   --image-logoheader-custom: url("/apps/nmctheme/img/tlogocarrier.svg");
   --color-background-plain: var(--telekom-color-background-canvas);
+  --height: 44px;
+  --border: var(--telekom-spacing-composition-space-01) solid
+    var(--telekom-color-ui-border-standard);
+  --border-error: var(--telekom-spacing-composition-space-02) solid
+    var(--color-error);
+  --border-success: var(--telekom-spacing-composition-space-02) solid
+    var(--color-success);
+  --background-control: var(--telekom-color-ui-state-fill-standard);
+  --background-color-hover: var(--telekom-color-ui-state-fill-hovered);
+  --border-color-hover: var(--telekom-color-ui-border-hovered);
+  --border-color-focus: var(--telekom-color-ui-border-hovered);
+  --focus-outline: var(--telekom-line-weight-highlight) solid
+    var(--telekom-color-functional-focus-standard);
+  --transition: all var(--animation-quick) var(--telekom-motion-easing-standard);
+  --transition-control: var(--transition);
+  --spacing: var(--telekom-spacing-composition-space-05);
 }
