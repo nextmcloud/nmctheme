@@ -7,14 +7,14 @@ ul li.action {
     &:focus-within {
       .action-button,
       .action-link {
-        color: var(--color-primary-press) !important;
+        color: var(--color-primary-press);
       }
     }
 
     &:hover {
       .action-button,
       .action-link {
-        color: var(--color-primary-hover) !important;
+        color: var(--color-primary-hover);
       }
     }
 
