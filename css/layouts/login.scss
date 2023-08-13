@@ -8,7 +8,6 @@
  */
 
 #body-login {
-
     // this is needed as background for the scrollbar
     background-color: var(--telekom-color-additional-teal-500);
     scrollbar-color: var(--telekom-color-additional-teal-900) var(--telekom-color-additional-teal-500);
@@ -20,6 +19,7 @@
     background-repeat: no-repeat;
 
     .wrapper {
+
         border-top: 0px;
         margin-top: 0px;
 
@@ -38,5 +38,13 @@
 
         // default logo is disabled
         // and takes no space
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    #body-login {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+            url('../img/telekom/consent.svg');
     }
 }
