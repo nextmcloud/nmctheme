@@ -11,7 +11,6 @@ declare(strict_types=1);
  */
 namespace OCA\NMCTheme\Listener;
 
-use OCP\AppFramework\Http\TemplateResponse;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
 use OCP\IURLGenerator;
@@ -31,14 +30,14 @@ class BeforeTemplateRenderedListener implements IEventListener {
 	 * application bootstrapping).
 	 */
 	public function handle(Event $event): void {
-        $response = $event->getResponse();
+		$response = $event->getResponse();
 
-        if (($response->getStatus() >= 400) && ($response->getStatus() < 500)) {
-            // render client error states with own layout => own #body-status id
-            $tmplparams = $response->getParams();
-            $tmplparams['bodyid'] = "body-status";
-            $response->setParams($tmplparams);
-        }
+		if (($response->getStatus() >= 400) && ($response->getStatus() < 500)) {
+			// render client error states with own layout => own #body-status id
+			$tmplparams = $response->getParams();
+			$tmplparams['bodyid'] = "body-status";
+			$response->setParams($tmplparams);
+		}
 
 		// you can add extra styles depending on situation
 		//     \OCP\Util::addStyle("nmctheme", "some_extra_xxx");

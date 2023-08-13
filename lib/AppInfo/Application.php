@@ -85,9 +85,9 @@ class Application extends App implements IBootstrap {
 	 */
 	public function register(IRegistrationContext $context): void {
 
-        /**
-         * Register decorators softly extending Nextcloud upstream standard
-         */
+		/**
+		 * Register decorators softly extending Nextcloud upstream standard
+		 */
 
 		// explicitly register own NMCThemesManager to override the Nextcloud standard
 		$this->getCapturedThemeingContainer()->registerService(ThemesService::class, function ($c) {
@@ -106,12 +106,12 @@ class Application extends App implements IBootstrap {
 			);
 		});
 		
-        // intercept requests for favicons to enforce own behavior
+		// intercept requests for favicons to enforce own behavior
 		$this->registerURLGeneratorDecorator($context);
 
-        /**
-         * Add listeners that can inject additional information or scripts before rendering
-         */
+		/**
+		 * Add listeners that can inject additional information or scripts before rendering
+		 */
 
 		// the listener is helpful to enforce theme constraints and inject additional parts
 		$context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);

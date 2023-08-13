@@ -7,30 +7,37 @@
  * Note: Take care of Telekom branding restrictions!
  */
 
-#body-login {
+#error,
+#body-status {
     // this is needed as background for the scrollbar
-    background-color: var(--telekom-color-additional-teal-500);
+    background-color: var(--telekom-color-primary-standard);
+    scrollbar-color: var(--telekom-color-primary-pressed) var(--telekom-color-text-and-icon-primary-standard);
 
     // this is the dedicated background image for login
-    background-image: url('../img/telekom/consent.svg');
+    background-image: url('../img/telekom/tectopview23.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 
-
     .wrapper {
-        // the bubble text is always on top center,
-        // but clipped if window gets too small
-        background-image: url('../img/telekom/mcbubble.svg');
-        background-size: 40%;
-        background-position: top center;
-        background-repeat: no-repeat;
-        background-clip: border-box;
-        z-index: 200;
-        .v-align header #header .logo {
-            background-image: unset;        
+
+        .v-align {
+            header #header .logo {
+                background-image: unset;
+            }
         }
+
         // default logo is disabled
         // and takes no space
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+
+    #error,
+    #body-login {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+            url('../img/telekom/tectopview23.jpg');
     }
 }
