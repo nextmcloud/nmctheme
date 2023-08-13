@@ -8,6 +8,7 @@
  */
 
 #body-login {
+
     // this is needed as background for the scrollbar
     background-color: var(--telekom-color-additional-teal-500);
     scrollbar-color: var(--telekom-color-additional-teal-900) var(--telekom-color-additional-teal-500);
@@ -19,10 +20,13 @@
     background-repeat: no-repeat;
 
     .wrapper {
+        border-top: 0px;
+        margin-top: 0px;
+
         // the bubble text is always on top center,
         // but clipped if window gets too small
         background-image: url('../img/telekom/mcbubble.svg');
-        background-size: 0%;
+        background-size: 45%;
         background-position: top center;
         background-repeat: no-repeat;
         background-clip: border-box;
