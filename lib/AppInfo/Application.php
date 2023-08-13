@@ -84,7 +84,11 @@ class Application extends App implements IBootstrap {
 	 * - the favicons
 	 */
 	public function register(IRegistrationContext $context): void {
-		// getRegisteredAppContainer("theming")
+
+        /**
+         * Register decorators softly extending Nextcloud upstream standard
+         */
+
 		// explicitly register own NMCThemesManager to override the Nextcloud standard
 		$this->getCapturedThemeingContainer()->registerService(ThemesService::class, function ($c) {
 			return new NMCThemesService(
@@ -102,10 +106,15 @@ class Application extends App implements IBootstrap {
 			);
 		});
 		
+        // intercept requests for favicons to enforce own behavior
 		$this->registerURLGeneratorDecorator($context);
 
+        /**
+         * Add listeners that can inject additional information or scripts before rendering
+         */
+
 		// the listener is helpful to enforce theme constraints and inject additional parts
-		// $context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
+		$context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
 	}
 
 	public function boot(IBootContext $context): void {

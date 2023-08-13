@@ -31,8 +31,16 @@ class BeforeTemplateRenderedListener implements IEventListener {
 	 * application bootstrapping).
 	 */
 	public function handle(Event $event): void {
+        $response = $event->getResponse();
+
+        if (($response->getStatus() >= 400) && ($response->getStatus() < 500)) {
+            // render client error states with own layout => own #body-status id
+            $tmplparams = $response->getParams();
+            $tmplparams['bodyid'] = "body-status";
+            $response->setParams($tmplparams);
+        }
+
 		// you can add extra styles depending on situation
-		// if ($event->getResponse()->getRenderAs() === TemplateResponse::RENDER_AS_USER) {
 		//     \OCP\Util::addStyle("nmctheme", "some_extra_xxx");
 		// }
 	}
