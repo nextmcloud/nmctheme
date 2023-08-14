@@ -4,20 +4,22 @@ class TeleBrandFooter extends HTMLElement {
         <footer id="telekom-footer" role="contentinfo">
             <div class="telekom-footer-content">
                 <div id="notice">
-                    Copyright Telekom Deutschland GmbH
+                    (C) Telekom Deutschland GmbH
                 </div>
                 <ul id="navigation">
-                    <li><a href="https://static.magentacloud.de/licences/webui.htm" target="_blank">Open Source Lizenzen</a>
-                    <li><a href="http://www.telekom.de/impressum" target="_blank">Impressum</a></li>
-                    <li><a href="https://static.magentacloud.de/Datenschutz" target="_blank">Datenschutz</a>
+                    <li><a href="https://static.magentacloud.de/licences/webui.htm" target="_blank" rel="noreferrer noopener">Open Source Lizenzen</a>
+                    <li><a href="http://www.telekom.de/impressum" target="_blank" rel="noreferrer noopener">Impressum</a></li>
+                    <li><a href="https://static.magentacloud.de/Datenschutz" target="_blank" rel="noreferrer noopener">Datenschutz</a>
                     </li>
-                    <li><a href="https://cloud.telekom-dienste.de/hilfe" target="_blank">Hilfe & FAQ</a></li>
+                    <li><a href="https://cloud.telekom-dienste.de/hilfe" target="_blank" rel="noreferrer noopener">Hilfe und FAQ</a></li>
                 </ul>
             </div>
         </footer>
         `;
     }
 }
+
+window.customElements.define('telekom-footer-element', TeleBrandFooter);
 
 var footerElement = document.querySelector('body footer');
 if ( footerElement === null ) {
