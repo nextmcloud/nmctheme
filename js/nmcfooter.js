@@ -2,7 +2,7 @@ class TeleBrandFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <footer id="telekom-footer" role="contentinfo">
-            <div class="telekom-footer-content">
+            <div class="telekom-footer-minimal">
                 <div id="notice">
                     (C) Telekom Deutschland GmbH
                 </div>
