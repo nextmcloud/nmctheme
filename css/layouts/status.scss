@@ -1,0 +1,43 @@
+/**
+ * The MagentaCLOUD login general layout
+ *
+ * @copyright Copyright (c) 2023 T-Systems International
+ * @author Bernd Rederlechner <bernd.rederlechner@t-systems.com>
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ * Note: Take care of Telekom branding restrictions!
+ */
+
+#error,
+#body-status {
+    // this is needed as background for the scrollbar
+    background-color: var(--telekom-color-primary-standard);
+    scrollbar-color: var(--telekom-color-primary-pressed) var(--telekom-color-text-and-icon-primary-standard);
+
+    // this is the dedicated background image for login
+    background-image: url('../img/telekom/tectopview23.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    .wrapper {
+
+        .v-align {
+            header #header .logo {
+                background-image: unset;
+            }
+        }
+
+        // default logo is disabled
+        // and takes no space
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+
+    #error,
+    #body-login {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+            url('../img/telekom/tectopview23.jpg');
+    }
+}

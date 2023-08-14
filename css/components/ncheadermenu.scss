@@ -1,68 +1,52 @@
-$breakpoint-mobile: 1024px;
+.header-menu {
+    width: 48px;
 
-header {
-	--external-margin: 8px;
-}
+    &__trigger {
+        opacity: 1;
+        width: 48px;
 
-@media screen and (max-width: $breakpoint-mobile) {
-	header {
-		--external-margin: 4px;
-	}
-}
+        // hover effect for function entries
+        &:hover {
 
-// header function menu styles
-#header {
+            span {
+                color: var(--color-primary-hover);
+            }
 
-	.header-menu {
-		width: 48px;
+            &:not([aria-expanded="true"]) {
 
-		&__trigger {
-			opacity: 1;
-			width: 48px;
-		
-			// hover effect for function entries
-			&:hover {
+                &::before {
+                    background-color: var(--color-primary);
+                    border-bottom-color: var(--color-main-background);
+                    bottom: 0;
+                    content: " ";
+                    display: block;
+                    height: 2px;
+                    left: 50%;
+                    pointer-events: none;
+                    position: absolute;
+                    transform: translateX(-50%);
+                    transition: all .1s ease-in-out;
+                    width: 50%;
+                }
+            }
+        }
+    }
 
-				span {
-					color: var(--color-primary-hover);
-				}
+    // reposition flyout menus
+    &__wrapper {
+        background-color: var(--telekom-color-background-surface);
+        box-shadow: var(--telekom-shadow-raised-standard);
+        filter: none;
+        margin: 0 var(--external-margin);
+        top: calc(var(--header-height) + var(--external-margin));
+    }
 
-				&:not([aria-expanded="true"]) {
+    &__carret {
+        border-bottom-color: var(--telekom-color-background-surface);
+        bottom: calc(var(--external-margin) * -1);
+    }
 
-					&::before {
-						background-color: var(--color-primary);
-						border-bottom-color: var(--color-main-background);
-						bottom: 0;
-						content: " ";
-						display: block;
-						height: 2px;
-						left: 50%;
-						pointer-events: none;
-						position: absolute;
-						transform: translateX(-50%);
-						transition: all .1s ease-in-out;
-						width: 50%;
-					}
-				}
-			}
-		}
-
-		// reposition flyout menus
-		&__wrapper {
-			background-color: var(--telekom-color-background-surface);
-			box-shadow: var(--telekom-shadow-raised-standard);
-			filter: none;
-			margin: 0 var(--external-margin);
-			top: calc(var(--header-height) + var(--external-margin));
-		}
-
-		&__carret {
-			border-bottom-color: var(--telekom-color-background-surface);
-			bottom: calc(var(--external-margin) * -1);
-		}
-
-		&__content {
-			max-width: calc(100vw - 6 * var(--external-margin));
-		}
-	}
+    &__content {
+        max-width: calc(100vw - 6 * var(--external-margin));
+    }
 }

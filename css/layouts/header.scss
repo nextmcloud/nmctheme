@@ -1,0 +1,203 @@
+$breakpoint-mobile: 1024px;
+
+header {
+    --shadow: 0px 2px 9px rgba(0, 0, 0, 0.15);
+    --font-size-app-name: var(--telekom-typography-font-size-small);
+    --line-height-app-name: var(--telekom-typography-line-spacing-tight);
+    --font-weight-app-name: var(--telekom-typography-font-weight-extra-bold);
+    --icon-search: var(--original-icon-search-dark);
+    --icon-user: var(--original-icon-user-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+    header {
+        --icon-search: var(--original-icon-search-white);
+        --icon-user: var(--original-icon-user-white);
+    }
+}
+
+@mixin color-icon {
+    filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
+}
+
+// main header styles
+#body-user #header,
+#body-settings #header,
+#body-public #header {
+    background-color: var(--telekom-color-background-surface);
+    box-shadow: var(--shadow);
+    height: var(--header-height);
+
+
+    // logo and application name
+    #nextcloud {
+        height: 100%;
+        margin: 0 var(--telekom-spacing-baseline-space-10) 0 0;
+        overflow: visible;
+        padding: 0;
+        padding-left: 60px; // logo width
+
+        // show application name in desktop view
+        &::before {
+            color: var(--color-primary);
+            content: "MagentaCLOUD";
+            display: block;
+            font-size: var(--font-size-app-name);
+            font-weight: var(--font-weight-app-name);
+            height: 60px;
+            left: 72px;
+            line-height: 60px;
+            margin: 0;
+            pointer-events: all;
+            position: absolute;
+            top: 0;
+            width: auto;
+            z-index: 3000;
+        }
+    }
+
+    // correct logo dimensions
+    .logo {
+        background-image: var(--image-logoheader);
+        bottom: 0;
+        left: 0;
+        top: 0;
+        width: 60px;
+    }
+
+    // hide logo and application name in mobile view - show logolayer instead
+    @media screen and (max-width: $breakpoint-mobile) {
+
+        #nextcloud {
+            display: none;
+        }
+
+        #header-left,
+        .header-left {
+            flex: unset;
+            flex-shrink: 1;
+            justify-content: flex-end;
+            order: 3;
+        }
+
+        #header-right,
+        .header-right {
+            flex-grow: 1;
+            flex-shrink: unset;
+            order: 2;
+        }
+
+        &::before {
+            background-color: var(--color-primary);
+            background-image: var(--image-logoheader);
+            content: " ";
+            display: block;
+            height: 60px;
+            left: 0;
+            margin: 0;
+            pointer-events: all;
+            position: absolute;
+            top: 0;
+            transition: none;
+            width: 60px;
+            z-index: 3000;
+        }
+    }
+}
+
+#unified-search {
+
+    .header-menu__trigger {
+        background-image: var(--icon-search);
+        background-size: auto 24px;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        &:hover {
+            @include color-icon;
+        }
+    }
+
+    .unified-search__trigger {
+        display: none;
+    }
+}
+
+#user-menu {
+
+    @media screen and (max-width: $breakpoint-mobile) {
+        margin-right: var(--telekom-spacing-composition-space-03);
+    }
+
+    .header-menu__trigger {
+        background-image: var(--icon-user);
+        background-size: auto 24px;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        &:hover {
+            @include color-icon;
+        }
+    }
+
+    .user-menu__avatar {
+        display: none;
+    }
+
+    //adapted functional menu styles to user menu for uniformity
+    .header-menu__content {
+        width: 350px !important;
+    }
+
+    .user-menu__nav {
+
+        ul {
+            width: 100%;
+        }
+    }
+
+    &.header-menu--opened {
+
+        .header-menu__carret {
+            display: block !important;
+        }
+    }
+}
+
+// styles for public share pages
+#body-public {
+
+    #nextcloud {
+
+        &.header-appname {
+            align-self: center;
+            color: var(--color-primary);
+            display: inline-flex;
+            flex: 1;
+            font-size: var(--font-size-app-name);
+            font-weight: var(--font-weight-app-name);
+            justify-content: flex-end;
+            margin-right: var(--telekom-spacing-composition-space-10);
+            overflow: unset;
+            padding: 0;
+        }
+
+        @media screen and (max-width: $breakpoint-mobile) {
+            &::before {
+                content: "";
+                display: none;
+                height: 0;
+                left: 0;
+                top: 0;
+                width: 0;
+                z-index: 0;
+            }
+        }
+    }
+
+    .header-shared-by {
+        font-size: var(--font-size-app-name);
+        font-weight: var(--font-weight-app-name);
+        line-height: var(--line-height-app-name);
+    }
+}

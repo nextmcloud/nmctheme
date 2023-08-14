@@ -1,0 +1,44 @@
+/**
+ * The MagentaCLOUD public general layout (w/o header, footer)
+ *
+ * @copyright Copyright (c) 2023 T-Systems International
+ * @author Mauro Mura <Mauro-Efisio.Mura@t-systems.com>
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ * Note: Take care of Telekom branding restrictions!
+ */
+#body-public {
+
+    #nextcloud {
+
+        &.header-appname {
+            align-self: center;
+            color: var(--color-primary);
+            display: inline-flex;
+            flex: 1;
+            font-size: var(--font-size-app-name);
+            font-weight: var(--font-weight-app-name);
+            justify-content: flex-end;
+            margin-right: var(--telekom-spacing-composition-space-10);
+            overflow: unset;
+            padding: 0;
+        }
+
+        @media screen and (max-width: var(--nmc-breakpoint-mobile) ) {
+            &::before {
+                content: "";
+                display: none;
+                height: 0;
+                left: 0;
+                top: 0;
+                width: 0;
+                z-index: 0;
+            }
+        }
+    }
+
+    .header-shared-by {
+        font-size: var(--font-size-app-name);
+        font-weight: var(--font-weight-app-name);
+        line-height: var(--line-height-app-name);
+    }
+}

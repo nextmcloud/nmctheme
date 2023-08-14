@@ -1,0 +1,50 @@
+/**
+ * The MagentaCLOUD login general layout
+ *
+ * @copyright Copyright (c) 2023 T-Systems International
+ * @author Bernd Rederlechner <bernd.rederlechner@t-systems.com>
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ * Note: Take care of Telekom branding restrictions!
+ */
+
+#body-login {
+    // this is needed as background for the scrollbar
+    background-color: var(--telekom-color-additional-teal-500);
+    scrollbar-color: var(--telekom-color-additional-teal-900) var(--telekom-color-additional-teal-500);
+
+    // this is the dedicated background image for login
+    background-image: url('../img/telekom/consent.svg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    .wrapper {
+
+        border-top: 0px;
+        margin-top: 0px;
+
+        // the bubble text is always on top center,
+        // but clipped if window gets too small
+        background-image: url('../img/telekom/mcbubble.svg');
+        background-size: 45%;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-clip: border-box;
+        z-index: 200;
+
+        .v-align header #header .logo {
+            background-image: unset;
+        }
+
+        // default logo is disabled
+        // and takes no space
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    #body-login {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+                rgba(0, 0, 0, 0.5)),
+            url('../img/telekom/consent.svg');
+    }
+}

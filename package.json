@@ -1,21 +1,25 @@
 {
     "name": "nmctheme",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "MagentaCLOUD theme for Nextcloud",
     "author": "T-Systems International",
     "type": "module",
+    "dependencies": {
+        "@telekom/design-tokens": "^1.0.0-beta.8"
+    },
     "devDependencies": {
+        "sass": "^1.54.9",
         "stylelint": "^13.13.1",
         "stylelint-config-prettier": "^8.0.2",
         "stylelint-config-sass-guidelines": "^7.1.0",
-        "stylelint-prettier": "^1.2.0",
-        "sass": "^1.54.9"
+        "stylelint-prettier": "^1.2.0"
     },
     "scripts": {
         "stylelint": "stylelint css",
         "stylelint:fix": "stylelint css --fix",
         "sass": "sass --style compressed --load-path css css/",
         "sass:watch": "sass --watch --load-path css css/",
-        "sass:icons": "node js/icons.js"
+        "sass:icons": "node js/icons.js", 
+        "postinstall": "cp node_modules/@telekom/design-tokens/dist/telekom/css/telekom-design-tokens.all.css dist/telekom-design-tokens.all.css"
     }
 }
