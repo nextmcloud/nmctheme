@@ -30,7 +30,6 @@
         background-position: top center;
         background-repeat: no-repeat;
         background-clip: border-box;
-        z-index: 200;
 
         .v-align header #header .logo {
             background-image: unset;
@@ -39,6 +38,10 @@
         // default logo is disabled
         // and takes no space
     }
+}
+
+#body-login footer[role="contentinfo"] {
+    opacity: var(--telekom-opacity-semi-transparent);
 }
 
 @media (prefers-color-scheme: dark) {
