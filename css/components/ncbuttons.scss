@@ -1,0 +1,207 @@
+/**
+ * The MagentaCLOUD login general layout
+ *
+ * @copyright Copyright (c) 2023 T-Systems International
+ * @author Bernd Rederlechner <bernd.rederlechner@t-systems.com>
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ * Note: Take care of Telekom branding restrictions!
+ */
+
+// we have to be more specific than the vue component,
+// but independent of layouts
+#body-user .button-vue,
+#body-settings .button-vue,
+#body-public .button-vue,
+#body-login .button-vue,
+#body-status .button-vue,
+#error .button-vue {
+    // we keep coloring of the default button as it is for the moment,
+    // but us ethe Telekom roundings instead of Nextcloud full-round sides
+
+    border: 0;
+    padding: 0;
+    border-radius: var(--telekom-radius-standard);
+    font: var(--telekom-text-style-caption-bold);
+    line-height: 1.125rem;
+    min-height: var(--telekom-spacing-composition-space-13);
+    min-width: var(--telekom-spacing-composition-space-13);
+    padding-left: var(--telekom-spacing-composition-space-07);
+    padding-right: var(--telekom-spacing-composition-space-07);
+    transition: all var(--telekom-motion-duration-transition) var(--telekom-motion-easing-standard);
+
+    &:after {
+        top: 0;
+        left: 0;
+        width: 100%;
+        border: var(--telekom-spacing-composition-space-01) solid transparent;
+        height: 100%;
+        content: '';
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+        pointer-events: none;
+        border-radius: var(--telekom-radius-standard);
+    }
+
+    &:focus:not(:disabled) {
+        outline: var(--telekom-line-weight-highlight) solid var(--telekom-color-functional-focus-standard);
+        outline-offset: var(--telekom-spacing-composition-space-01);
+    }
+
+    // Icon-only button
+    &--icon-only {
+        padding-left: var(--telekom-spacing-composition-space-05);
+        padding-right: var(--telekom-spacing-composition-space-05);
+    }
+
+    // Icon and text button
+    &--icon-and-text {
+        margin-right: var(--telekom-spacing-composition-space-04);
+        margin-left: calc(var(--telekom-spacing-composition-space-03) * -1);
+        margin-top: var(--telekom-spacing-composition-space-04);
+        margin-bottom: var(--telekom-spacing-composition-space-03);
+    }
+
+    // Button types
+
+    // Primary
+    &--vue-primary {
+        border-radius: var(--telekom-radius-standard);
+        background-color: var(--telekom-color-primary-standard);
+        color: var(--telekom-color-text-and-icon-white-standard);
+
+        &:hover:not(:disabled) {
+            background-color: var(--telekom-color-primary-hovered);
+        }
+
+        &:active {
+            background-color: var(--telekom-color-primary-pressed);
+        }
+
+        &:disabled {
+            background-color: var(--telekom-color-ui-disabled);
+            color: var(--telekom-color-text-and-icon-disabled);
+        }
+    }
+
+    // Secondary
+    &--vue-secondary {
+        background: transparent;
+        border-radius: var(--telekom-radius-standard);
+        border: var(--telekom-spacing-composition-space-01) solid currentColor;
+        color: var(--telekom-color-text-and-icon-standard);
+        background-color: var(--telekom-color-ui-state-fill-standard);
+        border-color: var(--telekom-color-ui-border-standard);
+
+        &:hover:not(:disabled) {
+            color: var(--telekom-color-text-and-icon-standard);
+            background-color: var(--telekom-color-ui-state-fill-standard);
+            border-color: var(--telekom-color-ui-border-hovered);
+        }
+
+        &:active {
+            color: var(--telekom-color-text-and-icon-standard);
+            background-color: var(--telekom-color-ui-state-fill-pressed);
+            border-color: var(--telekom-color-ui-border-pressed);
+        }
+
+        &:disabled {
+            color: var(--telekom-color-text-and-icon-disabled);
+            background-color: none;
+        }
+
+        &:focus {
+            border-color: var(--telekom-color-functional-focus-standard);
+        }
+
+        // Icon-only button
+        &--icon-only {
+            padding-left: calc(var(--telekom-spacing-composition-space-03) - 1px);
+            padding-right: calc(var(--telekom-spacing-composition-space-03) - 1px);
+        }
+    }
+
+    // Tertiary: thiss seems to be the ghost button
+    &--vue-tertiary {
+        border-radius: var(--telekom-radius-standard);
+        font: var(--telekom-text-style-body-bold);
+        line-height: 1.125rem;
+        min-height: var(--telekom-spacing-composition-space-10);
+        min-width: var(--telekom-spacing-composition-space-10);
+        padding-left: var(--telekom-spacing-composition-space-06);
+        padding-right: var(--telekom-spacing-composition-space-06);
+        transition: all var(--telekom-motion-duration-transition) var(--telekom-motion-easing-standard);
+
+        border-radius: var(--telekom-radius-standard);
+        background-color: var(--telekom-color-primary-standard);
+        color: var(--telekom-color-text-and-icon-white-standard);
+
+        // Icon-only button
+        &--icon-only {
+            padding-left: calc(var(--telekom-spacing-composition-space-00) - 1px);
+            padding-right: calc(var(--telekom-spacing-composition-space-00) - 1px);
+            min-width: 32px;
+        }
+
+        &:hover:not(:disabled) {
+            background-color: var(--telekom-color-primary-hovered);
+        }
+
+        &:active {
+            background-color: var(--telekom-color-primary-pressed);
+        }
+
+        &:disabled {
+            background-color: var(--telekom-color-ui-disabled);
+            color: var(--telekom-color-text-and-icon-disabled);
+        }
+    }
+
+    // Tertiary, no background
+    &--vue-tertiary-on-primary,
+    &--vue-tertiary-no-background {
+        font: var(--telekom-text-style-body-bold);
+        line-height: 1.125rem;
+        min-height: var(--telekom-spacing-composition-space-10);
+        min-width: var(--telekom-spacing-composition-space-10);
+        padding-left: var(--telekom-spacing-composition-space-06);
+        padding-right: var(--telekom-spacing-composition-space-06);
+        transition: all var(--telekom-motion-duration-transition) var(--telekom-motion-easing-standard);
+
+        background: transparent;
+        border-radius: var(--radius-secondary);
+        border: var(--telekom-spacing-composition-space-01) solid currentColor;
+        color: var(--telekom-color-text-and-icon-standard);
+        background-color: var(--telekom-color-ui-state-fill-standard);
+        border-color: var(--telekom-color-ui-border-standard);
+
+        &:hover:not(:disabled) {
+            color: var(--telekom-color-text-and-icon-standard);
+            background-color: var(--telekom-color-ui-state-fill-standard);
+            border-color: var(--telekom-color-ui-border-hovered);
+        }
+
+        &:active {
+            color: var(--telekom-color-text-and-icon-standard);
+            background-color: var(--telekom-color-ui-state-fill-pressed);
+            border-color: var(--telekom-color-ui-border-pressed);
+        }
+
+        &:disabled {
+            color: var(--telekom-color-text-and-icon-disabled);
+            background-color: none;
+        }
+
+        &:focus {
+            border-color: var(--telekom-color-functional-focus-standard);
+        }
+
+        // Icon-only button
+        &--icon-only {
+            padding-left: calc(var(--telekom-spacing-composition-space-00));
+            padding-right: calc(var(--telekom-spacing-composition-space-00));
+            min-width: 32px;
+        }
+    }
+
+}
