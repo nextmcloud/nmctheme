@@ -23,6 +23,7 @@
         border-top: 0px;
         margin-top: 0px;
 
+
         // the bubble text is always on top center,
         // but clipped if window gets too small
         background-image: url('../img/telekom/mcbubble.svg');
@@ -30,9 +31,14 @@
         background-position: top center;
         background-repeat: no-repeat;
         background-clip: border-box;
+        z-index: 200;
 
-        .v-align header #header .logo {
-            background-image: unset;
+        .v-align {
+            top: 0;
+
+            header #header .logo {
+                background-image: unset;
+            }
         }
 
         // default logo is disabled
@@ -41,7 +47,7 @@
 }
 
 #body-login footer[role="contentinfo"] {
-    opacity: var(--telekom-opacity-semi-transparent);
+    opacity: var(--telekom-opacity-translucent);
 }
 
 @media (prefers-color-scheme: dark) {

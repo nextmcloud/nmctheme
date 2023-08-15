@@ -28,23 +28,33 @@ footer[role="contentinfo"] {
     z-index: 998;
     border-radius: var(--border-radius);
 
-
-    .footer-content {
     // TODO: fixed height?, as we may have to set padding etc.
     // height: auto;
     border-left: var(--telekom-spacing-composition-space-08);
     border-right: var(--telekom-spacing-composition-space-08);
     border-bottom: var(--telekom-spacing-composition-space-08);
+    border-top: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
     padding: var(--telekom-spacing-composition-space-08);
 
-    //border-radius: 0px;
+    .footer-content {
+
+
+        //border-radius: 0px;
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-        grid-template-areas: 'notice ........ navigation';
+        grid-template-areas: 'notice ....... navigation';
         grid-auto-rows: max-content;
-        width: 100%;
+        row-gap: 0px;
 
-        ul {
+        // no linebreaks for labels
+        white-space: nowrap;
+
+        #notice {
+            grid-area: notice;
+        }
+
+        #navigation {
+            grid-area: navigation;
             list-style-type: none;
             padding: 0;
             margin: 0;
@@ -84,14 +94,13 @@ footer[role="contentinfo"] {
     }
 }
 
-/*
-@media (max-width: var(--nmcbreakpoint-mobile)) {
+@media (max-width: var(--nmc-breakpoint-mobile)) {
     .footer-content {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
         grid-template-areas:
-            'branding ....... .......'
-            'copyright navigation navigation';
+            'notice ....... .......'
+            'navigation navigation navigation';
 
         #notice {
             justify-content: flex-start;
@@ -102,4 +111,3 @@ footer[role="contentinfo"] {
         }
     }
 }
-*/
