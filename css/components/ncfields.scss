@@ -1,0 +1,85 @@
+/**
+ * The MagentaCLOUD NC input components
+ *
+ * @copyright Copyright (c) 2023 T-Systems International
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ * Note: Take care of Telekom branding restrictions!
+ */
+
+// there should be no inputs on status/error pages
+#body-user .input-field,
+#body-settings .input-field,
+#body-public .input-field,
+#body-login .input-field {
+    border-radius: var(--telekom-radius-standard);
+
+    &__main-wrapper {
+        height: 44px;
+    }
+
+    &__input {
+        padding: 0 var(--telekom-spacing-composition-space-05);
+        border: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-border-standard);
+        height: 44px !important;
+
+        &:active:disabled,
+        &:hover:disabled,
+        &:focus:disabled {
+            background: none;
+            color: var(--telekom-color-text-and-icon-disabled);
+            border-color: var(--telekom-color-ui-border-disabled);
+        }
+
+        &:active:not([disabled]) {
+            color: var(--telekom-color-text-and-icon-disabled);
+            border-color: var(--telekom-color-ui-border-hovered);
+
+        }
+
+        &:hover:not([disabled]) {
+            color: var(--telekom-color-ui-state-fill-hovered);
+            border-color: var(--telekom-color-ui-border-hovered);
+        }
+
+        &:focus:not([disabled]) {
+            border: var(--telekom-line-weight-highlight) solid var(--telekom-color-functional-focus-standard);
+        }
+
+        &--leading-icon {
+            padding-left: 38px;
+        }
+
+        &--trailing-icon {
+            padding-right: 38px;
+        }
+    }
+
+    &__icon {
+        &--leading {
+            bottom: 10px;
+            left: 2px;
+        }
+
+        &--trailing {
+            bottom: 10px;
+            right: 2px;
+        }
+    }
+
+	&__clear-button.button-vue {
+		border-radius: var(--telekom-radius-standard);
+        height: 100%;
+		top: 0;
+	}
+
+    &__helper-text-message {
+        font: var(--telekom-text-style-small-bold);
+        padding: 0;
+        align-items: center;
+
+        &__icon {
+            height: 11px;
+            width: 11px;
+        }
+    }
+}
