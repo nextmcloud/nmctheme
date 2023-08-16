@@ -39,8 +39,7 @@ class BeforeTemplateRenderedListener implements IEventListener {
 			$response->setParams($tmplparams);
 		}
 
-		// you can add extra styles depending on situation
-		//     \OCP\Util::addStyle("nmctheme", "some_extra_xxx");
-		// }
+		// you can add additional styles, links and scripts before rendering
+		\OCP\Util::addScript('nmctheme', 'nmcfooter', 'theming');
 	}
 }

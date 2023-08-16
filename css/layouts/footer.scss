@@ -1,0 +1,89 @@
+/**
+ * The MagentaCLOUD style rules package for Nextcloud
+ *
+ * @copyright Copyright (c) 2023 T-Systems International
+ * @author Bernd Rederlechner <bernd.rederlechner@t-systems.com>
+ * @author Aleksei Efremov <Aleksei.Efremov@telekom.com>
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ * Note: Take care of Telekom branding restrictions!
+ */
+
+footer {
+    --footnav-items-bottom-margin: var(--telekom-spacing-composition-space-08);
+    --radius: var(--telekom-radius-small);
+    --border-radius: 0px;
+    --footer-font: var(--telekom-text-style-caption-bold);
+}
+
+#body-login footer[role="contentinfo"],
+// need to override NC guest.scss
+footer[role="contentinfo"] {
+    background-color: var(--color-main-background);
+    font: var(--footer-font);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: var(--telekom-spacing-baseline-space-3);
+    z-index: 998;
+    border-radius: var(--border-radius);
+
+    // TODO: fixed height?, as we may have to set padding etc.
+    // height: auto;
+    border-left: var(--telekom-spacing-composition-space-08);
+    border-right: var(--telekom-spacing-composition-space-08);
+    border-bottom: var(--telekom-spacing-composition-space-08);
+    border-top: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
+    padding: var(--telekom-spacing-composition-space-08);
+
+    .footer-content {        
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--telekom-spacing-composition-space-06);
+
+        #notice {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+
+        #navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--telekom-spacing-composition-space-05);
+            flex-wrap: wrap;
+        }
+
+        li a {
+            font: var(--footer-font); // override NC guest.scss
+            padding: var(--spacing-navigation-standard);
+            margin: calc(-1 * var(--spacing-navigation-standard)) 0;
+        }
+
+        li a:hover {
+            color: var(--telekom-color-text-and-icon-primary-hovered);
+            text-decoration: none;
+        }
+
+        li a:active:focus {
+            color: var(--telekom-color-text-and-icon-primary-pressed);
+            box-shadow: none;
+            text-decoration: none;
+        }
+
+        li a:focus {
+            outline: none;
+            box-shadow: 0 0 0 var(--telekom-spacing-composition-space-02) var(--telekom-color-functional-focus-standard);
+            border-radius: var(--radius);
+            text-decoration: none;
+        }
+    }
+}
+
+@media (max-width: var(--nmc-breakpoint-mobile)) {
+    #navigation {
+        flex-direction: column;
+    }
+}
