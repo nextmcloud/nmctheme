@@ -54,28 +54,29 @@
         }
     }
 
-    &__label {
-        &--hidden {}
-    }
-
     &__icon {
         &--leading {
-            bottom: 2px;
+            bottom: 10px;
             left: 2px;
         }
 
         &--trailing {
-            bottom: 2px;
+            bottom: 10px;
             right: 2px;
         }
     }
+
+	&__clear-button.button-vue {
+		border-radius: var(--telekom-radius-standard);
+        height: 100%;
+		top: 0;
+	}
 
     &__helper-text-message {
         font: var(--telekom-text-style-small-bold);
         padding: 0;
         align-items: center;
 
-        // FIXME Is the icon on the right side as in scale?
         &__icon {
             height: 11px;
             width: 11px;
