@@ -19,12 +19,12 @@ var footerElement = document.querySelector('body footer');
 if ( footerElement === null ) {
     // add footer tag
     footerElement = document.createElement('footer');
-    footerElement.innerHTML=footerContent; 
+    footerElement.innerHTML = footerContent; 
     footerElement.setAttribute('role', footerRole);
     footerElement.setAttribute('id', footerId);
     document.body.appendChild(footerElement);
 } else {
-    footerElement.innerHTML=footerContent; 
+    footerElement.innerHTML = footerContent; 
     footerElement.setAttribute('role', footerRole);
     footerElement.setAttribute('id', footerId);
 }

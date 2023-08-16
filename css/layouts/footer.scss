@@ -13,17 +13,18 @@ footer {
     --footnav-items-bottom-margin: var(--telekom-spacing-composition-space-08);
     --radius: var(--telekom-radius-small);
     --border-radius: 0px;
-    --footer-font: var(--telekom-text-style-caption-bold)
+    --footer-font: var(--telekom-text-style-caption-bold);
 }
 
 #body-login footer[role="contentinfo"],
 // need to override NC guest.scss
 footer[role="contentinfo"] {
+    background-color: var(--color-main-background);
     font: var(--footer-font);
     position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;
+    right: 0;
     max-height: var(--telekom-spacing-baseline-space-3);
     z-index: 998;
     border-radius: var(--border-radius);
@@ -36,40 +37,27 @@ footer[role="contentinfo"] {
     border-top: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
     padding: var(--telekom-spacing-composition-space-08);
 
-    .footer-content {
-
-
-        //border-radius: 0px;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-        grid-template-areas: 'notice ....... navigation';
-        grid-auto-rows: max-content;
-        row-gap: 0px;
-
-        // no linebreaks for labels
-        white-space: nowrap;
+    .footer-content {        
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--telekom-spacing-composition-space-06);
 
         #notice {
-            grid-area: notice;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
         }
 
         #navigation {
-            grid-area: navigation;
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
             display: flex;
-            list-style: none;
+            justify-content: space-between;
             gap: var(--telekom-spacing-composition-space-05);
-        }
-
-        li {
-            float: aleft;
+            flex-wrap: wrap;
         }
 
         li a {
             font: var(--footer-font); // override NC guest.scss
-            align-items: center;
             padding: var(--spacing-navigation-standard);
             margin: calc(-1 * var(--spacing-navigation-standard)) 0;
         }
@@ -95,19 +83,7 @@ footer[role="contentinfo"] {
 }
 
 @media (max-width: var(--nmc-breakpoint-mobile)) {
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-        grid-template-areas:
-            'notice ....... .......'
-            'navigation navigation navigation';
-
-        #notice {
-            justify-content: flex-start;
-        }
-
-        #navigation {
-            margin-bottom: var(--telekom-spacing-composition-space-05)
-        }
+    #navigation {
+        flex-direction: column;
     }
 }
