@@ -8,7 +8,7 @@
     implementing Telekom Scale branding system
     supporting refactored style system since Nextcloud V25
     </description>
-	<version>0.0.1</version>
+	<version>0.1.0</version>
 	<licence>agpl</licence>
 	<author>T-Systems International</author>
 	<namespace>NMCTheme</namespace>
