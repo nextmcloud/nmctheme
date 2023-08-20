@@ -8,13 +8,21 @@
         "@telekom/design-tokens": "^1.0.0-beta.8"
     },
     "devDependencies": {
+        "@nextcloud/babel-config": "^1.0.0",
+        "@nextcloud/browserslist-config": "^2.3.0",
+        "@nextcloud/eslint-config": "^8.2.1",
+        "@nextcloud/stylelint-config": "^2.3.1",
+        "@nextcloud/webpack-vue-config": "^5.5.1",
         "sass": "^1.54.9",
-        "stylelint": "^13.13.1",
-        "stylelint-config-prettier": "^8.0.2",
-        "stylelint-config-sass-guidelines": "^7.1.0",
-        "stylelint-prettier": "^1.2.0"
+        "vue-template-compiler": "^2.7.14"
+    },
+    "//": "seems to be needed to make it work atm",
+    "overrides": {
+        "stylelint": "^15.10.3"
     },
     "scripts": {
+        "lint": "eslint js",
+        "lint:fix": "eslint js --fix",
         "stylelint": "stylelint css",
         "stylelint:fix": "stylelint css --fix",
         "sass": "sass --style compressed --load-path css css/",
