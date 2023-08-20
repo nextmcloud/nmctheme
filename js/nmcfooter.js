@@ -1,4 +1,4 @@
-const footerContent =`
+const footerContent = `
 <div class="footer-content">
     <div id="notice">
         (C) Telekom Deutschland GmbH
@@ -11,20 +11,20 @@ const footerContent =`
         <li><a href="https://cloud.telekom-dienste.de/hilfe" target="_blank" rel="noreferrer noopener">Hilfe und FAQ</a></li>
     </ul>
 </div>
-`;
-const footerRole = 'contentinfo';
-const footerId = 'telekom-minimal-footer';
+`
+const footerRole = 'contentinfo'
+const footerId = 'telekom-minimal-footer'
 
-var footerElement = document.querySelector('body footer');
-if ( footerElement === null ) {
-    // add footer tag
-    footerElement = document.createElement('footer');
-    footerElement.innerHTML = footerContent; 
-    footerElement.setAttribute('role', footerRole);
-    footerElement.setAttribute('id', footerId);
-    document.body.appendChild(footerElement);
+let footerElement = document.querySelector('body footer')
+if (footerElement === null) {
+	// add footer tag
+	footerElement = document.createElement('footer')
+	footerElement.innerHTML = footerContent
+	footerElement.setAttribute('role', footerRole)
+	footerElement.setAttribute('id', footerId)
+	document.body.appendChild(footerElement)
 } else {
-    footerElement.innerHTML = footerContent; 
-    footerElement.setAttribute('role', footerRole);
-    footerElement.setAttribute('id', footerId);
+	footerElement.innerHTML = footerContent
+	footerElement.setAttribute('role', footerRole)
+	footerElement.setAttribute('id', footerId)
 }
