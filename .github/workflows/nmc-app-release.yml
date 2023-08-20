@@ -20,7 +20,7 @@ on:
     inputs:
       branch:
         type: choice
-        description: Branch to build a package from
+        description: Branch to build a package from HEAD
         options: 
           - main
           - stable25
