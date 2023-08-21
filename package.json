@@ -21,6 +21,7 @@
         "stylelint": "^15.10.3"
     },
     "scripts": {
+        "build": "npm run sass && npm run sass:icons",
         "lint": "eslint js",
         "lint:fix": "eslint js --fix",
         "stylelint": "stylelint css",
