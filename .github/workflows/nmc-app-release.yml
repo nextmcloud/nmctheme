@@ -20,7 +20,7 @@ on:
     inputs:
       branch:
         type: choice
-        description: Branch to build a package from
+        description: Branch to build a package from HEAD
         options: 
           - main
           - stable25
@@ -34,7 +34,7 @@ on:
 
 jobs:
   check-app:
-    uses: nextmcloud/.github/.github/workflows/nmc-custom-app-precond.yml@master
+    uses: nextmcloud/.github/.github/workflows/nmc-app-precond.yml@master
     with:
       versionbranch: ${{ inputs.branch }}
       increment: ${{ inputs.increment }}
@@ -43,9 +43,9 @@ jobs:
     uses: nextmcloud/.github/.github/workflows/nmc-app-build.yml@master
     needs: check-app
     with:
-      appname: ${{ jobs.check-app.appname }}
+      appname: ${{ needs.check-app.outputs.appname }}
       branch: ${{ inputs.branch }}
-      tag: ${{ jobs.check-app.tag }}
+      tag: ${{ needs.check-app.outputs.tag }}
       prerelease: ${{ inputs.branch == 'main' && true || false }}
     secrets: inherit
 

@@ -1,5 +1,6 @@
 import path from 'path'
-import * as sass from 'sass'
+// we follow the implementation of Nextcloud in trouble with eslint, so ignore warning
+import * as sass from 'sass' // eslint-disable-line n/no-unpublished-import
 import fs from 'fs'
 import { fileURLToPath } from 'url'
 
@@ -51,34 +52,33 @@ const generateVariablesAliases = function(variables, invert = false) {
 }
 // ----- this end copy from nextcloud/server/core/src/icons.js
 
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const variables = {}
 
 const icons = {
-  "add": path.join(__dirname, '../img', 'actions', 'add.svg'),
-  "address": path.join(__dirname, '../img', 'actions', 'address.svg'),
-  "close": path.join(__dirname, '../img', 'actions', 'close.svg'),
-  "download": path.join(__dirname, '../img', 'actions', 'download.svg'),
-  "logout": path.join(__dirname, '../img', 'actions', 'logout.svg'),
-  "menu": path.join(__dirname, '../img', 'actions', 'menu.svg'),
-  "search": path.join(__dirname, '../img', 'actions', 'search.svg'),
-  "share": path.join(__dirname, '../img', 'actions', 'share.svg'),
-  "star": path.join(__dirname, '../img', 'actions', 'star.svg'),
-  "starred": path.join(__dirname, '../img', 'actions', 'starred.svg'),
-  "upload": path.join(__dirname, '../img', 'actions', 'upload.svg'),
-  "user": path.join(__dirname, '../img', 'actions', 'user.svg'),
-  "folder": path.join(__dirname, '../img', 'filetypes', 'folder.svg'),
-  'files': path.join(__dirname, '../img', 'places', 'files.svg'),
+	add: path.join(__dirname, '../img', 'actions', 'add.svg'),
+	address: path.join(__dirname, '../img', 'actions', 'address.svg'),
+	close: path.join(__dirname, '../img', 'actions', 'close.svg'),
+	download: path.join(__dirname, '../img', 'actions', 'download.svg'),
+	logout: path.join(__dirname, '../img', 'actions', 'logout.svg'),
+	menu: path.join(__dirname, '../img', 'actions', 'menu.svg'),
+	search: path.join(__dirname, '../img', 'actions', 'search.svg'),
+	share: path.join(__dirname, '../img', 'actions', 'share.svg'),
+	star: path.join(__dirname, '../img', 'actions', 'star.svg'),
+	starred: path.join(__dirname, '../img', 'actions', 'starred.svg'),
+	upload: path.join(__dirname, '../img', 'actions', 'upload.svg'),
+	user: path.join(__dirname, '../img', 'actions', 'user.svg'),
+	folder: path.join(__dirname, '../img', 'filetypes', 'folder.svg'),
+	files: path.join(__dirname, '../img', 'places', 'files.svg'),
 }
 
 const iconsColor = {
-	'starred': {
+	starred: {
 		path: path.join(__dirname, '../img', 'actions', 'star-dark.svg'),
 		color: 'yellow',
 	},
-	'file': {
+	file: {
 		path: path.join(__dirname, '../img', 'filetypes', 'text.svg'),
 		color: 'grey',
 	},
@@ -123,6 +123,6 @@ css += '[data-themes*=dark] {'
 css += generateVariablesAliases(variables, true)
 css += '}'
 
-const distFolder = path.join(__dirname, "../dist");
-fs.mkdirSync(distFolder, { recursive: true });
+const distFolder = path.join(__dirname, '../dist')
+fs.mkdirSync(distFolder, { recursive: true })
 fs.writeFileSync(path.join(distFolder, 'icons.css'), sass.compileString(css).css)
