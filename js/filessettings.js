@@ -12,10 +12,10 @@ const View = new FilesSettingsView({
 })
 
 window.addEventListener('DOMContentLoaded', function() {
-	const entry_settings = document.querySelector('.app-navigation-entry__settings')
-	if (!entry_settings) return
+	const entrySettings = document.querySelector('.app-navigation-entry__settings')
+	if (!entrySettings) return
 	const anchor = document.createElement('div')
 	anchor.id = 'files-settings-app'
-	entry_settings.appendChild(anchor)
+	entrySettings.appendChild(anchor)
 	View.$mount('#files-settings-app')
 })
