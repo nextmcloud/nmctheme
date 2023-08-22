@@ -36,7 +36,8 @@
     },
     "//": "seems to be needed to make it work atm",
     "overrides": {
-        "stylelint": "^15.10.3"
+        "stylelint": "^15.10.3",
+        "typescript": "^5.1.6"
     },
     "scripts": {
         "build": "npm run sass && npm run sass:icons",
