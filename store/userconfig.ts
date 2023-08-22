@@ -16,7 +16,7 @@ const userConfig = loadState('files', 'config', {
 	show_hidden: false,
 	crop_image_previews: true,
 	sort_favorites_first: true,
-    _initialized: false,
+	_initialized: false,
 }) as UserConfig
 
 export const useUserConfigStore = function(...args) {
@@ -48,13 +48,13 @@ export const useUserConfigStore = function(...args) {
 
 	const userConfigStore = store(...args)
 
-    // Make sure we only register the listeners once
-    if (!userConfigStore.userConfig._initialized) {
-        subscribe('files:config:updated', function({ key, value }: { key: string, value: boolean }) {
-            userConfigStore.onUpdate(key, value)
-        })
-        userConfigStore.onUpdate('_initialized', true)
-    }
+	// Make sure we only register the listeners once
+	if (!userConfigStore.userConfig._initialized) {
+		subscribe('files:config:updated', function({ key, value }: { key: string, value: boolean }) {
+			userConfigStore.onUpdate(key, value)
+		})
+		userConfigStore.onUpdate('_initialized', true)
+	}
 
 	return userConfigStore
 }
