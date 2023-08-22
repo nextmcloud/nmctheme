@@ -9,7 +9,7 @@
 
 	li.crumb {
 		// change arrow icon
-		background-image: url(../../img/breadcrumb-arrow.svg);
+		background-image: var(--icon-breadcrumb-arrow-grey);
 		background-size: auto 12px;
 		background-position: right 55%;
 		// link text styling
