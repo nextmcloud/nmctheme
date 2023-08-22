@@ -40,7 +40,8 @@
         "typescript": "^5.1.6"
     },
     "scripts": {
-        "build": "npm run sass && npm run sass:icons",
+        "build": "npm run build:webpack",
+        "postbuild": "npm run sass && npm run sass:icons",
         "lint": "eslint js",
         "lint:fix": "eslint js --fix",
         "build:webpack": "webpack --node-env development --progress",
