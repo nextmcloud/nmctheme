@@ -48,4 +48,3 @@ jobs:
       tag: ${{ needs.check-app.outputs.tag }}
       prerelease: ${{ inputs.branch == 'main' && true || false }}
     secrets: inherit
-
