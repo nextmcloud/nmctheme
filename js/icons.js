@@ -82,6 +82,10 @@ const iconsColor = {
 		path: path.join(__dirname, '../img', 'filetypes', 'text.svg'),
 		color: 'grey',
 	},
+	'breadcrumb-arrow': {
+		path: path.join(__dirname, '../img', 'breadcrumb-arrow.svg'),
+		color: 'grey',
+	}
 }
 
 let css = ''

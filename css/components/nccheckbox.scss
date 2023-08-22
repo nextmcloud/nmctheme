@@ -1,0 +1,18 @@
+span.checkbox-radio-switch.checkbox-radio-switch-checkbox {
+	// do not set background color when on hover
+	&:not(.checkbox-radio-switch--disabled) {
+		.checkbox-radio-switch__label:hover, .checkbox-radio-switch__label:focus-within {
+			background-color: initial;
+		}
+	}
+
+	// set unchecked inputs to be black
+	&:not(.checkbox-radio-switch--checked) .checkbox-radio-switch__icon {
+		color: black
+	}
+
+	// on hover unchecked inputs
+	&:not(.checkbox-radio-switch--checked):hover .checkbox-radio-switch__icon {
+		color: gray
+	}
+}

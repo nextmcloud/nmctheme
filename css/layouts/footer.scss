@@ -81,9 +81,3 @@ footer[role="contentinfo"] {
         }
     }
 }
-
-@media (max-width: var(--nmc-breakpoint-mobile)) {
-    #navigation {
-        flex-direction: column;
-    }
-}
