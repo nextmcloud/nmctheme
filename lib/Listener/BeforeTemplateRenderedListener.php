@@ -32,7 +32,7 @@ class BeforeTemplateRenderedListener implements IEventListener {
 	public function handle(Event $event): void {
 		$response = $event->getResponse();
 
-		if (($response->getStatus() >= 400) && ($response->getStatus() < 500)) {
+		if (($response->getStatus() >= 400) && ($response->getStatus() < 600)) {
 			// render client error states with own layout => own #body-status id
 			$tmplparams = $response->getParams();
 			$tmplparams['bodyid'] = "body-status";
