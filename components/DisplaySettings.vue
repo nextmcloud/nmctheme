@@ -8,10 +8,6 @@
 				Display settings
 		</button>
 		<div class="display-settings__list" :class="{open: isOpened}">
-			<NcCheckboxRadioSwitch :checked="userConfig.sort_favorites_first"
-				@update:checked="setConfig('sort_favorites_first', $event)">
-				{{ t('files', 'Sort favorites first') }}
-			</NcCheckboxRadioSwitch>
 			<NcCheckboxRadioSwitch :checked="userConfig.show_hidden"
 				@update:checked="setConfig('show_hidden', $event)">
 				{{ t('files', 'Show hidden files') }}
@@ -86,7 +82,7 @@ export default {
 		color: var(--color-primary);
 		width: fit-content;
 		position: relative;
-		padding-left: 1.5rem;
+		padding-left: 1.6rem;
 		&:hover {
 			color: var(--color-primary-hover);
 			cursor: pointer;
@@ -105,6 +101,11 @@ export default {
 		&.open::before {
 			transform: rotate(0.5turn);
 		}
+	}
+
+	// decrease gap size between checkboxes
+	.display-settings__list .checkbox-radio-switch__label {
+		min-height: 35px;
 	}
 }
 </style>

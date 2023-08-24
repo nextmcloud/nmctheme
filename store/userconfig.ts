@@ -1,8 +1,7 @@
 import { defineStore } from 'pinia'
 import { emit, subscribe } from '@nextcloud/event-bus'
-import { generateUrl } from '@nextcloud/router'
 import { loadState } from '@nextcloud/initial-state'
-import axios from '@nextcloud/axios'
+import { updateDisplaySettings } from '../components/filesSettings.utils'
 import Vue from 'vue'
 
 export interface UserConfig {
@@ -14,8 +13,7 @@ export interface UserConfigStore {
 
 const userConfig = loadState('files', 'config', {
 	show_hidden: false,
-	crop_image_previews: true,
-	sort_favorites_first: true,
+	crop_image_previews: false,
 	_initialized: false,
 }) as UserConfig
 
@@ -37,9 +35,7 @@ export const useUserConfigStore = function(...args) {
 			 * Update the user config local store AND on server side
 			 */
 			async update(key: string, value: boolean) {
-				await axios.put(generateUrl('/apps/files/api/v1/config/' + key), {
-					value,
-				})
+				await updateDisplaySettings(key, value)
 
 				emit('files:config:updated', { key, value })
 			},

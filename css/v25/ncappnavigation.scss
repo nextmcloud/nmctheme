@@ -1,0 +1,58 @@
+/**
+* Sidebar navigation styling for v25
+*/
+#app-navigation:not(.vue) {
+    // add vertical line to demarcate app navigation
+    border-right: 1px solid var(--telekom-color-ui-faint);
+
+    & > ul > li {
+        border-bottom: 1px solid var(--telekom-color-ui-faint);
+		border-radius: 0;
+		font: var(--telekom-text-style-ui-bold);
+        // no gaps between nav elements
+        margin-bottom: 0px;
+
+        // left magenta border for active elements
+        & > a::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0px;
+            left: 0px;
+			height: 100%;
+			border-left: 2px solid transparent;
+		}
+        & > a.active::before {
+			border-left: 2px solid var(--telekom-color-primary-standard);
+		}
+
+        // nav links with icons
+        & > a {
+            border-radius: 0px;
+            // increase sidebar link height
+            line-height: 52px;
+            min-height: 52px;
+        }
+        & > a:hover,  & > a.active{
+            color: var(--color-hover);
+            background-color: var(--color-main-background);
+        }
+
+        // do not pin app navigation entries to the bottom
+        &.pinned.first-pinned {
+            margin-top: initial !important;
+        }
+    }
+
+    // hide nextcloud Storage quota element
+    #quota {
+        display: none;
+    }
+}
+
+// hide nextcloud Files settings element
+#app-settings {
+    #app-settings-header {
+        display: none;
+    }
+}
