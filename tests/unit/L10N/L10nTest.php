@@ -17,7 +17,7 @@ use OCP\ICacheFactory;
 use OCP\IConfig;
 use OCP\IRequest;
 use OCP\IUserSession;
-use Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class L10nTest
@@ -58,6 +58,8 @@ class L10nTest extends TestCase {
 	protected function getFactory() {
 		/** @var \OCP\IConfig $config */
 		$config = $this->createMock(IConfig::class);
+        //$config->setSystemValue('default_language', 'en');
+
 		/** @var \OCP\IRequest $request */
 		$request = $this->createMock(IRequest::class);
 		/** @var IUserSession $userSession */

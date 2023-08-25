@@ -26,7 +26,7 @@ use OCP\IUser;
 use OCP\IUserSession;
 use OCP\L10N\ILanguageIterator;
 use PHPUnit\Framework\MockObject\MockObject;
-use Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class FactoryTest extends TestCase {
 	/** @var IConfig|MockObject */
@@ -59,6 +59,51 @@ class FactoryTest extends TestCase {
 			->willReturnMap([
 				['installed', false, true],
 			]);
+	}
+
+	/**
+	 * Allows us to test private methods/properties
+	 *
+	 * @param $object
+	 * @param $methodName
+	 * @param array $parameters
+	 * @return mixed
+	 */
+	protected static function invokePrivate($object, $methodName, array $parameters = []) {
+		if (is_string($object)) {
+			$className = $object;
+		} else {
+			$className = get_class($object);
+		}
+		$reflection = new \ReflectionClass($className);
+
+		if ($reflection->hasMethod($methodName)) {
+			$method = $reflection->getMethod($methodName);
+
+			$method->setAccessible(true);
+
+			return $method->invokeArgs($object, $parameters);
+		} elseif ($reflection->hasProperty($methodName)) {
+			$property = $reflection->getProperty($methodName);
+
+			$property->setAccessible(true);
+
+			if (!empty($parameters)) {
+				if ($property->isStatic()) {
+					$property->setValue(null, array_pop($parameters));
+				} else {
+					$property->setValue($object, array_pop($parameters));
+				}
+			}
+
+			if (is_object($object)) {
+				return $property->getValue($object);
+			}
+
+			return $property->getValue();
+		}
+
+		return false;
 	}
 
 	/**

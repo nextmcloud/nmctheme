@@ -12,13 +12,15 @@ use OCP\IRequest;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Most of the tests are taken over from server to retest the decoration.
  * The rest is to test the decoration behavior for favicons.
  *
  * @package Test
  */
-class UrlGeneratorDecoratorTest extends \Test\TestCase {
+class UrlGeneratorDecoratorTest extends TestCase {
 	/** @var \PHPUnit\Framework\MockObject\MockObject|IConfig */
 	private $config;
 	/** @var \PHPUnit\Framework\MockObject\MockObject|IUserSession */

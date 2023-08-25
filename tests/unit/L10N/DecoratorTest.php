@@ -22,7 +22,7 @@ use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCP\App\IAppManager;
 use OCP\L10N\IFactory;
 
-use Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class DecoratorTest extends TestCase {
 
@@ -113,8 +113,8 @@ class DecoratorTest extends TestCase {
 				// check for the same app key set
 				$diffapps = array_diff(array_keys($appoverrides1), array_keys($appoverrides2));
 				$this->assertEmpty($diffapps,
-					"App overrides {$this->langFiles[$pair1]} differ to {$this->langFiles[$pair2]}:\n" .
-						implode(",\n", $diffapps));
+					"App sections differ {$this->langFiles[$pair1]} <==> {$this->langFiles[$pair2]} :\n- " .
+						implode(",\n- ", $diffapps));
 
 				// check the same translation keys
 				foreach (array_keys($appoverrides1) as $app) {
@@ -122,8 +122,8 @@ class DecoratorTest extends TestCase {
 					$translations2 = $appoverrides2[$app];
 					$diffkeys = array_diff(array_keys($translations1), array_keys($translations2));
 					$this->assertEmpty($diffkeys,
-						"Override[{$app}] keys: {$this->langFiles[$pair1]} differ to {$this->langFiles[$pair2]}:\n" .
-							implode(",\n----\n", $diffkeys));
+						"----\nApp override keys differ: {$this->langFiles[$pair1]}[{$app}] <==> {$this->langFiles[$pair2]}[{$app}] :\n# " .
+							implode(",\n# ", $diffkeys));
 				}
 			}
 		}
