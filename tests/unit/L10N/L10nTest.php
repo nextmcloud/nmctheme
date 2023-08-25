@@ -35,13 +35,14 @@ class L10nTest extends TestCase {
 		$app = new \OCP\AppFramework\App("nmctheme");
 		$this->appMgr = $app->getContainer()->get(IAppManager::class);
 		$this->l10nPath = $this->appMgr->getAppPath("nmctheme") . '/tests/data/l10n/';
-        $this->tz = date_default_timezone_get();;
-        date_default_timezone_set('Asia/Tokyo');
-    }
+		$this->tz = date_default_timezone_get();
+		;
+		date_default_timezone_set('Asia/Tokyo');
+	}
 
 	protected function tearDown(): void {
 		parent::tearDown();
-        date_default_timezone_set($this->tz);
+		date_default_timezone_set($this->tz);
 	}
 
 	/**
@@ -65,7 +66,7 @@ class L10nTest extends TestCase {
 	protected function getFactory() {
 		/** @var \OCP\IConfig $config */
 		$config = $this->createMock(IConfig::class);
-        //$config->setSystemValue('default_language', 'en');
+		//$config->setSystemValue('default_language', 'en');
 
 		/** @var \OCP\IRequest $request */
 		$request = $this->createMock(IRequest::class);

@@ -240,7 +240,7 @@ class UrlGeneratorDecoratorTest extends TestCase {
 		$_REQUEST['redirect_url'] = 'myRedirectUrl.com';
 		$this->assertSame('http://localhost' . \OC::$WEBROOT . '/myRedirectUrl.com', $this->urlGenerator->linkToDefaultPageUrl());
 	}
-    
+	
 	public function testLinkToDefaultPageUrlWithRedirectUrlRedirectBypassWithoutFrontController() {
 		$this->mockBaseUrl();
 		$this->mockLinkToDefaultPageUrl();

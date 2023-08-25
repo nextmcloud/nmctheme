@@ -18,7 +18,6 @@ use OCP\IUser;
 use OCP\L10N\IFactory;
 use OCP\L10N\ILanguageIterator;
 
-
 class FactoryDecorator implements IFactory {
 	private Factory $decoratedFactory;
 
@@ -117,47 +116,47 @@ class FactoryDecorator implements IFactory {
 	 */
 	public function get($app, $lang = null, $locale = null) {
 		return new LazyL10N(function () use ($app, $lang, $locale) {
-            $app = \OC_App::cleanAppId($app);
-            if ($lang !== null) {
-                $lang = str_replace(['\0', '/', '\\', '..'], '', $lang);
-            }
+			$app = \OC_App::cleanAppId($app);
+			if ($lang !== null) {
+				$lang = str_replace(['\0', '/', '\\', '..'], '', $lang);
+			}
 
-            $forceLang = $this->config->getSystemValue('force_language', false);
-            if (is_string($forceLang)) {
-                $lang = $forceLang;
-            }
+			$forceLang = $this->config->getSystemValue('force_language', false);
+			if (is_string($forceLang)) {
+				$lang = $forceLang;
+			}
 
-            $forceLocale = $this->config->getSystemValue('force_locale', false);
-            if (is_string($forceLocale)) {
-                $locale = $forceLocale;
-            }
+			$forceLocale = $this->config->getSystemValue('force_locale', false);
+			if (is_string($forceLocale)) {
+				$locale = $forceLocale;
+			}
 
-            if ($lang === null || !$this->languageExists($app, $lang)) {
-                $lang = $this->findLanguage($app);
-            }
+			if ($lang === null || !$this->languageExists($app, $lang)) {
+				$lang = $this->findLanguage($app);
+			}
 
-            if ($locale === null || !$this->localeExists($locale)) {
-                $locale = $this->findLocale($lang);
-            }
+			if ($locale === null || !$this->localeExists($locale)) {
+				$locale = $this->findLocale($lang);
+			}
 
-            // load the multi-app json for lang if not loaded yet
-            // lazy load theme overrides map once. We need the modified $lang.
-            if (!isset($this->overrides[$lang])) {
-                // FIXME  this could break as  is marked obsolete
-                $this->overrides[$lang] = $this->getOverrides($lang);
-            }
+			// load the multi-app json for lang if not loaded yet
+			// lazy load theme overrides map once. We need the modified $lang.
+			if (!isset($this->overrides[$lang])) {
+				// FIXME  this could break as  is marked obsolete
+				$this->overrides[$lang] = $this->getOverrides($lang);
+			}
 
 			if (!isset($this->instances[$lang][$app])) {
-                $translations = $this->getTranslationsForApp($app, $lang);
-                $overrides = $this->overrides[$lang][$app] ?? [];
+				$translations = $this->getTranslationsForApp($app, $lang);
+				$overrides = $this->overrides[$lang][$app] ?? [];
 
-                $this->instances[$lang][$app] = new L10N(
-                    $this,
-                    $app,
-                    $lang,
-                    $locale,
-                    array_merge($translations, $overrides)
-                );
+				$this->instances[$lang][$app] = new L10N(
+					$this,
+					$app,
+					$lang,
+					$locale,
+					array_merge($translations, $overrides)
+				);
 			}
 
 			return $this->instances[$lang][$app];

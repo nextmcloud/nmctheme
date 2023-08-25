@@ -75,25 +75,27 @@ class DecoratorTest extends TestCase {
 	 * Iterate over all translations
 	 */
 	public function testAllOverrides(): void {
-        $arguments = [ "0", "1", "2", "3" , "4", "5", "6", "7", "8", "9", "10"];
+		$arguments = [ "0", "1", "2", "3" , "4", "5", "6", "7", "8", "9", "10"];
 
-        foreach ($this->languages as $lang) {
+		foreach ($this->languages as $lang) {
 			$overrides = $this->nmcFactory->getOverrides($lang);
 			foreach ($overrides as $app => $apptranslations) {
 				$l = $this->nmcFactory->get($app, $lang);
 				foreach ($apptranslations as $key => $translation) {
-                    if (\is_array($translation)) {
-                       $this->assertEquals($translation[0] . '|' . $translation[1], 
-                            $l->t($key, []), "Translation({$lang},{$app}) failing singular override!");;
-                    } else {
-                        $expected = vsprintf($translation, $arguments);
-                        $this->assertEquals($expected, $l->t($key, $arguments),
-                            "Translation({$lang},{$app}) failing override!");;
-                    }
+					if (\is_array($translation)) {
+						$this->assertEquals($translation[0] . '|' . $translation[1],
+							$l->t($key, []), "Translation({$lang},{$app}) failing singular override!");
+						;
+					} else {
+						$expected = vsprintf($translation, $arguments);
+						$this->assertEquals($expected, $l->t($key, $arguments),
+							"Translation({$lang},{$app}) failing override!");
+						;
+					}
 				}
 			}
 		}
-      
+	  
 	}
 
 
