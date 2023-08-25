@@ -96,8 +96,6 @@ class DecoratorTest extends TestCase {
       
 	}
 
-                    //  
-
 
 	/**
 	 * Assert that all theme overrides are contained in all translation overrides

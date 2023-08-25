@@ -35,6 +35,13 @@ class L10nTest extends TestCase {
 		$app = new \OCP\AppFramework\App("nmctheme");
 		$this->appMgr = $app->getContainer()->get(IAppManager::class);
 		$this->l10nPath = $this->appMgr->getAppPath("nmctheme") . '/tests/data/l10n/';
+        $this->tz = date_default_timezone_get();;
+        date_default_timezone_set('Asia/Tokyo');
+    }
+
+	protected function tearDown(): void {
+		parent::tearDown();
+        date_default_timezone_set($this->tz);
 	}
 
 	/**
@@ -149,34 +156,34 @@ class L10nTest extends TestCase {
 	public function localizationData() {
 		return [
 			// timestamp as string
-			['February 13, 2009 at 11:31:30 PM GMT+0', 'en', 'en_US', 'datetime', '1234567890'],
-			['13. Februar 2009 um 23:31:30 GMT+0', 'de', 'de_DE', 'datetime', '1234567890'],
-			['February 13, 2009', 'en', 'en_US', 'date', '1234567890'],
-			['13. Februar 2009', 'de', 'de_DE', 'date', '1234567890'],
-			['11:31:30 PM GMT+0', 'en', 'en_US', 'time', '1234567890'],
-			['23:31:30 GMT+0', 'de', 'de_DE', 'time', '1234567890'],
+			['February 14, 2009, 8:31:30 AM GMT+9', 'en', 'en_US', 'datetime', '1234567890'],
+			['14. Februar 2009, 08:31:30 GMT+9', 'de', 'de_DE', 'datetime', '1234567890'],
+			['February 14, 2009', 'en', 'en_US', 'date', '1234567890'],
+			['14. Februar 2009', 'de', 'de_DE', 'date', '1234567890'],
+			['8:31:30 AM GMT+9', 'en', 'en_US', 'time', '1234567890'],
+			['08:31:30 GMT+9', 'de', 'de_DE', 'time', '1234567890'],
 
 			// timestamp as int
-			['February 13, 2009 at 11:31:30 PM GMT+0', 'en', 'en_US', 'datetime', 1234567890],
-			['13. Februar 2009 um 23:31:30 GMT+0', 'de', 'de_DE', 'datetime', 1234567890],
-			['February 13, 2009', 'en', 'en_US', 'date', 1234567890],
-			['13. Februar 2009', 'de', 'de_DE', 'date', 1234567890],
-			['11:31:30 PM GMT+0', 'en', 'en_US', 'time', 1234567890],
-			['23:31:30 GMT+0', 'de', 'de_DE', 'time', 1234567890],
+			['February 14, 2009, 8:31:30 AM GMT+9', 'en', 'en_US', 'datetime', 1234567890],
+			['14. Februar 2009, 08:31:30 GMT+9', 'de', 'de_DE', 'datetime', 1234567890],
+			['February 14, 2009', 'en', 'en_US', 'date', 1234567890],
+			['14. Februar 2009', 'de', 'de_DE', 'date', 1234567890],
+			['8:31:30 AM GMT+9', 'en', 'en_US', 'time', 1234567890],
+			['08:31:30 GMT+9', 'de', 'de_DE', 'time', 1234567890],
 
 			// DateTime object
-			['February 13, 2009 at 11:31:30 PM GMT+0', 'en', 'en_US', 'datetime', new DateTime('@1234567890')],
-			['13. Februar 2009 um 23:31:30 GMT+0', 'de', 'de_DE', 'datetime', new DateTime('@1234567890')],
+			['February 13, 2009, 11:31:30 PM GMT+0', 'en', 'en_US', 'datetime', new DateTime('@1234567890')],
+			['13. Februar 2009, 23:31:30 GMT+0', 'de', 'de_DE', 'datetime', new DateTime('@1234567890')],
 			['February 13, 2009', 'en', 'en_US', 'date', new DateTime('@1234567890')],
 			['13. Februar 2009', 'de', 'de_DE', 'date', new DateTime('@1234567890')],
-			['11:31:30 PM GMT+0', 'en', 'en_US', 'time', new DateTime('@1234567890')],
+			['11:31:30 PM GMT+0', 'en', 'en_US', 'time', new DateTime('@1234567890')],
 			['23:31:30 GMT+0', 'de', 'de_DE', 'time', new DateTime('@1234567890')],
 
 			// en_GB
-			['13 February 2009 at 23:31:30 GMT+0', 'en_GB', 'en_GB', 'datetime', new DateTime('@1234567890')],
+			['13 February 2009, 23:31:30 GMT+0', 'en_GB', 'en_GB', 'datetime', new DateTime('@1234567890')],
 			['13 February 2009', 'en_GB', 'en_GB', 'date', new DateTime('@1234567890')],
 			['23:31:30 GMT+0', 'en_GB', 'en_GB', 'time', new DateTime('@1234567890')],
-			['13 February 2009 at 23:31:30 GMT+0', 'en-GB', 'en_GB', 'datetime', new DateTime('@1234567890')],
+			['13 February 2009, 23:31:30 GMT+0', 'en-GB', 'en_GB', 'datetime', new DateTime('@1234567890')],
 			['13 February 2009', 'en-GB', 'en_GB', 'date', new DateTime('@1234567890')],
 			['23:31:30 GMT+0', 'en-GB', 'en_GB', 'time', new DateTime('@1234567890')],
 		];
