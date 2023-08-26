@@ -68,7 +68,7 @@ loadThemeTranslations('nmctheme')
 	.then((result) => {
 		window._oc_theme_l10n_overrides = result
 	}).catch(error => {
-        // FIXME Is there a logger way to show the problem in browser console?
+		// FIXME Is there a logger way to show the problem in browser console?
 		console.log(error) // eslint-disable-line no-console
 	})
 
