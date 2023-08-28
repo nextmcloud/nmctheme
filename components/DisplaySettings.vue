@@ -103,9 +103,11 @@ export default {
 		}
 	}
 
-	// decrease gap size between checkboxes
 	.display-settings__list .checkbox-radio-switch__label {
+		// decrease gap size between checkboxes
 		min-height: 35px;
+		// center vertically checkboxes and arrow
+		padding-left: 0px;
 	}
 }
 </style>
