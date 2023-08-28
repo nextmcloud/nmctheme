@@ -92,11 +92,48 @@ $breakpoint-mobile: 1024px;
 			@include color-icon;
 		}
 	}
+
+	// hide Collapse buttons
+	.app-navigation-entry--collapsible button.icon-collapse{
+		display: none;
+	}
 }
 
 @media (prefers-color-scheme: dark) {    
 	:root {
 		--color-hover: var(--telekom-color-text-and-icon-primary-pressed);
 		--color-active: var(--telekom-color-text-and-icon-primary-hovered);
+	}
+}
+
+// icon update
+#app-navigation-vue .app-navigation__list {
+	// remove all the svgs
+	span.icon-vue {
+		display: none;
+	}
+	// add telekom icons as background images
+	.nav-icon-systemtagsfilter {
+		background-image: var(--icon-tag-dark);
+	}
+	a[title="Favorites"] {
+		.app-navigation-entry-icon {
+			background-image: var(--icon-star-dark);
+		}
+	}
+	a[title="Recent"] {
+		.app-navigation-entry-icon {
+			background-image: var(--icon-history-dark);
+		}
+	}
+	a[title="Deleted files"] {
+		.app-navigation-entry-icon {
+			background-image: var(--icon-delete-dark);
+		}
+	}
+	a[title="Shares"] {
+		.app-navigation-entry-icon {
+			background-image: var(--icon-share-dark);
+		}
 	}
 }
