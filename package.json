@@ -10,7 +10,7 @@
         "@nextcloud/files": "^3.0.0-beta.10",
         "@nextcloud/initial-state": "^2.0.0",
         "@nextcloud/router": "^2.1.2",
-        "@nextcloud/vue": "^7.12.0",
+        "@nextcloud/vue": "^7.12.4",
         "@telekom/design-tokens": "^1.0.0-beta.8",
         "pinia": "^2.1.6",
         "vue": "^2.7.14"
