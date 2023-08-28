@@ -1,58 +1,105 @@
+@import '../components/ncappnavigation.scss';
+
 /**
 * Sidebar navigation styling for v25
 */
 #app-navigation:not(.vue) {
-    // add vertical line to demarcate app navigation
-    border-right: 1px solid var(--telekom-color-ui-faint);
+	// add vertical line to demarcate app navigation
+	border-right: 1px solid var(--telekom-color-ui-faint);
 
-    & > ul > li {
-        border-bottom: 1px solid var(--telekom-color-ui-faint);
+	& > ul > li {
+		border-bottom: 1px solid var(--telekom-color-ui-faint);
 		border-radius: 0;
 		font: var(--telekom-text-style-ui-bold);
-        // no gaps between nav elements
-        margin-bottom: 0px;
+		// no gaps between nav elements
+		margin-bottom: 0px;
 
-        // left magenta border for active elements
-        & > a::before {
+		// left magenta border for active elements
+		& > a::before {
 			content: '';
 			display: block;
 			position: absolute;
 			top: 0px;
-            left: 0px;
+			left: 0px;
 			height: 100%;
 			border-left: 2px solid transparent;
 		}
-        & > a.active::before {
+		& > a.active::before {
 			border-left: 2px solid var(--telekom-color-primary-standard);
 		}
 
-        // nav links with icons
-        & > a {
-            border-radius: 0px;
-            // increase sidebar link height
-            line-height: 52px;
-            min-height: 52px;
-        }
-        & > a:hover,  & > a.active{
-            color: var(--color-hover);
-            background-color: var(--color-main-background);
-        }
+		// nav links with icons
+		& > a {
+			border-radius: 0px;
+			// increase sidebar link height
+			line-height: 52px;
+			min-height: 52px;
+			// hide all initial icons
+			background-image: none;
+		}
+		& > a:hover,  & > a.active{
+			color: var(--color-hover);
+			background-color: var(--color-main-background);
+			&::after {
+				@include color-icon;
+			}
+		}
 
-        // do not pin app navigation entries to the bottom
-        &.pinned.first-pinned {
-            margin-top: initial !important;
-        }
-    }
+		// do not pin app navigation entries to the bottom
+		&.pinned.first-pinned {
+			margin-top: initial !important;
+		}
 
-    // hide nextcloud Storage quota element
-    #quota {
-        display: none;
-    }
+		// icon styling
+		& > a.svg::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0px;
+			left: 2px;
+			height: 100%;
+			width: 44px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: inherit;
+		}
+
+		// hide all collapsible buttons
+		&.collapsible::before, button.collapse {
+			display: none;
+		}
+	}
+
+
+	// set telekom icons
+	.nav-icon-files::after {
+		background-image: var(--icon-folder-dark);
+	}
+	.nav-icon-recent::after {
+		background-image: var(--icon-history-dark);
+	}
+	.nav-icon-favorites::after {
+		background-image: var(--icon-star-dark);
+	}
+	.nav-icon-shareoverview::after {
+		background-image: var(--icon-share-dark);
+	}
+	.nav-icon-systemtagsfilter::after {
+		background-image: var(--icon-tag-dark);
+	}
+	.nav-icon-trashbin::after {
+		background-image: var(--icon-delete-dark);
+	}
+
+	// hide nextcloud Storage quota element
+	#quota {
+		display: none;
+	}
 }
 
 // hide nextcloud Files settings element
 #app-settings {
-    #app-settings-header {
-        display: none;
-    }
+	#app-settings-header {
+		display: none;
+	}
 }
