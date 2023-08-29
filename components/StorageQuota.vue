@@ -16,8 +16,7 @@
 </template>
 
 <script>
-import { loadState } from '@nextcloud/initial-state'
-import { generateUrl } from '@nextcloud/router'
+import { loadStats, IS_LEGACY_VERSION } from './filesSettings.utils'
 import { formatFileSize } from '@nextcloud/files'
 import { subscribe } from '@nextcloud/event-bus'
 import { throttle, debounce } from 'throttle-debounce'
@@ -31,7 +30,7 @@ export default {
 	data() {
 		return {
 			loadingStorageStats: false,
-			storageStats: loadState('files', 'storageStats', null),
+			storageStats: {},
 		}
 	},
 	computed: {
@@ -51,9 +50,10 @@ export default {
 		},
 		memoryUsage() {
 			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toFixed(2)
-		},
+		}
 	},
 	beforeMount() {
+		this.loadStorageStats()
 		/**
 		 * Update storage stats every minute
 		 * TODO: remove when all views are migrated to Vue
@@ -72,6 +72,9 @@ export default {
 		throttleUpdateStorageStats: throttle(1000, function(event) {
 			this.updateStorageStats(event)
 		}),
+		async loadStorageStats() {
+			this.storageStats = await loadStats()
+		},
 		async updateStorageStats(event = null) {
 			if (this.loadingStorageStats) {
 				return
@@ -79,7 +82,11 @@ export default {
 
 			this.loadingStorageStats = true
 			try {
-				const response = await axios.get(generateUrl('/apps/files/api/v1/stats'))
+				const response = await axios.get(
+					IS_LEGACY_VERSION ? 
+						generateUrl('/apps/files/ajax/getstoragestats') : 
+						generateUrl('/apps/files/api/v1/stats')
+				)
 				if (!response?.data?.data) {
 					throw new Error('Invalid storage stats')
 				}

@@ -1,8 +1,7 @@
 import { defineStore } from 'pinia'
 import { emit, subscribe } from '@nextcloud/event-bus'
-import { generateUrl } from '@nextcloud/router'
 import { loadState } from '@nextcloud/initial-state'
-import axios from '@nextcloud/axios'
+import { IS_LEGACY_VERSION, updateDisplaySettings } from '../components/filesSettings.utils'
 import Vue from 'vue'
 
 export interface UserConfig {
@@ -14,16 +13,34 @@ export interface UserConfigStore {
 
 const userConfig = loadState('files', 'config', {
 	show_hidden: false,
-	crop_image_previews: true,
-	sort_favorites_first: true,
+	crop_image_previews: false,
 	_initialized: false,
 }) as UserConfig
 
+// get initial values from hidden inputs since v25 does not contain 'files' state
+const getLegacyStore = (): UserConfigStore => {
+	const show_hidden = !! + (document.getElementById('showHiddenFiles') as HTMLInputElement)?.value
+	const crop_image_previews = !! + (document.getElementById('cropImagePreviews') as HTMLInputElement)?.value
+	return {
+		userConfig: {
+			show_hidden,
+			crop_image_previews,
+			_initialized: false
+		}
+	}
+
+}
+
 export const useUserConfigStore = function(...args) {
 	const store = defineStore('userconfig', {
-		state: () => ({
-			userConfig,
-		} as UserConfigStore),
+		state: (): UserConfigStore => {
+			if (IS_LEGACY_VERSION) {
+				return getLegacyStore()
+			}
+			return {
+				userConfig,
+			}
+		},
 
 		actions: {
 			/**
@@ -37,9 +54,7 @@ export const useUserConfigStore = function(...args) {
 			 * Update the user config local store AND on server side
 			 */
 			async update(key: string, value: boolean) {
-				await axios.put(generateUrl('/apps/files/api/v1/config/' + key), {
-					value,
-				})
+				await updateDisplaySettings(key, value)
 
 				emit('files:config:updated', { key, value })
 			},

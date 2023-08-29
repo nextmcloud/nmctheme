@@ -1,6 +1,6 @@
 {
 	"extends": "@vue/tsconfig/tsconfig.json",
-	"include": ["./store/**/*.ts", "./*.d.ts"],
+	"include": ["./**/*.ts", "./*.d.ts"],
 	"compilerOptions": {
 		"types": ["node", "vue"],
 		"outDir": "./bundle/",
@@ -22,5 +22,6 @@
 			"module": "commonjs",
 			"verbatimModuleSyntax": false
 		}
-	}
+	},
+	"exclude": ["node_modules"]
 }
