@@ -6,10 +6,13 @@
  *
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
+
 namespace OCA\NMCTheme\AppInfo;
 
 use OC\AppFramework\DependencyInjection\DIContainer;
+use OC\L10N\Factory;
 use OC\URLGenerator;
+use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Themes\Magenta;
@@ -32,6 +35,7 @@ use OCP\AppFramework\QueryException;
 use OCP\IConfig;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
+use OCP\L10N\IFactory;
 
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'nmctheme';
@@ -52,8 +56,7 @@ class Application extends App implements IBootstrap {
 	 * The "foreign" theming container can the be used for enforcing the registration
 	 * of the NMCThemesService factory method.
 	 */
-	public function getCapturedThemeingContainer() {
-		$appName = "theming";
+	public function otherAppContainer(string $appName) {
 		try {
 			$container = \OC::$server->getRegisteredAppContainer($appName);
 		} catch (QueryException $e) {
@@ -75,6 +78,21 @@ class Application extends App implements IBootstrap {
 		});
 	}
 
+	/**
+	 * Decorate the L10N IFactory of server with the L10N theming factory
+	 * so that any request for translation is either overridden by a value
+	 * from this app or delegated to the original factory
+	 */
+	protected function registerIFactoryDecorator(IRegistrationContext $context) {
+		$this->getContainer()->getServer()->registerService(IFactory::class, function ($c) {
+			return new FactoryDecorator(
+				$c->get(IConfig::class),
+				$this->getContainer()->getServer()->query(Factory::class)
+			);
+		});
+	}
+
+
 
 	/**
 	 * Register all kind of decorators so that the theme is in control
@@ -90,12 +108,13 @@ class Application extends App implements IBootstrap {
 		 */
 
 		// explicitly register own NMCThemesManager to override the Nextcloud standard
-		$this->getCapturedThemeingContainer()->registerService(ThemesService::class, function ($c) {
+		$this->otherAppContainer("theming")->registerService(ThemesService::class, function ($c) {
 			return new NMCThemesService(
 				$c->get(IUserSession::class),
 				$c->get(IConfig::class),
 				$c->get(Magenta::class),
-				[$c->get(MagentaDark::class)],
+				//[$c->get(MagentaDark::class)],    // FIXME
+				[],
 				[$c->get(TeleNeoWebFont::class)],
 				$c->get(DefaultTheme::class),   // the rest is overhead due to undefined interface (yet)
 				$c->get(LightTheme::class),
@@ -108,6 +127,9 @@ class Application extends App implements IBootstrap {
 		
 		// intercept requests for favicons to enforce own behavior
 		$this->registerURLGeneratorDecorator($context);
+
+		// intercept requests for translations, theme specific translations have prio
+		$this->registerIFactoryDecorator($context);
 
 		/**
 		 * Add listeners that can inject additional information or scripts before rendering

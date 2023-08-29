@@ -9,6 +9,18 @@
         "email": "bernd.rederlechner@t-systems.com"
     }
   ],
+  "config": {
+    "autoloader-suffix": "NMCTheme",
+    "classmap-authoritative": true,
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "allow-plugins": {
+        "bamarni/composer-bin-plugin": true
+    },
+    "platform": {
+        "php": "8.0"
+    }
+  },
   "require": {
     "php": "^8.0"
   },
@@ -36,6 +48,7 @@
   },
   "autoload-dev": {
     "psr-4": {
+        "OCA\\NMCTheme\\": "./lib/",
         "OCP\\": "vendor/nextcloud/ocp/OCP"
     }
   }

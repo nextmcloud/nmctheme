@@ -12,13 +12,15 @@ use OCP\IRequest;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Most of the tests are taken over from server to retest the decoration.
  * The rest is to test the decoration behavior for favicons.
  *
  * @package Test
  */
-class UrlGeneratorDecoratorTest extends \Test\TestCase {
+class UrlGeneratorDecoratorTest extends TestCase {
 	/** @var \PHPUnit\Framework\MockObject\MockObject|IConfig */
 	private $config;
 	/** @var \PHPUnit\Framework\MockObject\MockObject|IUserSession */
@@ -238,7 +240,7 @@ class UrlGeneratorDecoratorTest extends \Test\TestCase {
 		$_REQUEST['redirect_url'] = 'myRedirectUrl.com';
 		$this->assertSame('http://localhost' . \OC::$WEBROOT . '/myRedirectUrl.com', $this->urlGenerator->linkToDefaultPageUrl());
 	}
-
+	
 	public function testLinkToDefaultPageUrlWithRedirectUrlRedirectBypassWithoutFrontController() {
 		$this->mockBaseUrl();
 		$this->mockLinkToDefaultPageUrl();
