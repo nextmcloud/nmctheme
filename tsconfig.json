@@ -2,7 +2,7 @@
 	"extends": "@vue/tsconfig/tsconfig.json",
 	"include": ["./**/*.ts", "./*.d.ts"],
 	"compilerOptions": {
-		"types": ["node", "vue"],
+		"types": ["node", "vue", "jest"],
 		"outDir": "./bundle/",
 		"target": "ESNext",
 		"module": "esnext",

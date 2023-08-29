@@ -4,6 +4,7 @@ const path = require("path");
 module.exports = {
 	entry: {
 		filessettings: './js/filessettings.js',
+		l10nappender: './src/l10nappender.ts',
 	},
 	output: {
 		path: path.resolve(__dirname, "dist"),

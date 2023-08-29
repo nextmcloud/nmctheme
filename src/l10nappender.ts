@@ -41,6 +41,12 @@ export function loadThemeTranslations(appname = 'nmctheme'): Promise<ThemeTransl
 
 /**
  * the function is exported for tests and could be reused
+ *
+ * Note: The function is already compatible with V25 as it internally
+ * uses addAppTranslations from nextcloud-l10n. The same dose the register
+ * function from the newser package, so no extra backporting required!
+ * (what a luck!)
+ *
  * @param overrides  the set of override translations to register/append onload
  */
 export function appendThemeTranslations(overrides: ThemeTranslations | undefined) {
@@ -48,8 +54,7 @@ export function appendThemeTranslations(overrides: ThemeTranslations | undefined
 	Object.keys(appsTranslations).forEach(appname => {
 		register(appname, appsTranslations[appname].translations)
 	})
-	// we do not override plural function but assume that the overrides
-	// conform to the original plural form
+
 }
 
 /** the rest is the browser based part (not unit tested) */
