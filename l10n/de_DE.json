@@ -16,17 +16,18 @@
     "Expected filesize of %1$s but read (from Nextcloud client) and wrote (to Nextcloud storage) %2$s. Could either be a network problem on the sending side or a problem writing to the storage on the server side." : "Erwartete Dateigröße von %1$s, aber %2$s gelesen (vom MagentaCLOUD-Client) und geschrieben (in den MagentaCLOUD-Speicher). Dies kann entweder ein Netzwerkproblem auf der sendenden Seite oder ein Problem beim Schreiben in den Speicher auf der Serverseite sein."
   },"pluralForm" :"nplurals=2; plural=(n != 1);"},
   "end_to_end_encryption": { "translations": {
-    "End to end encryption is currently enabled." : "Die Ende-zu-Ende Verschlüsselung ist derzeit aktiviert.",
-    "Reset encryption" : "Verschlüsselung zurücksetzen",
-    "Please read carefully before resetting your end-to-end encryption keys" : "Bitte vor der Zurücksetzung der Ende-zu-Ende Verschlüsselung aufmerksam lesen",
-    "Once your encryption keys are reset, all encrypted data will be inaccessible and will be also deleted." : "Sobald die Verschlüsselung zurückgesetzt wird, werden sämtliche verschlüsselten Dateien/Ordner gelöscht.",
-    "Before you reset your encryption, check your apps and desktop clients to make sure you really can not access your keys anywhere." : "Sofern die Passphrase vergessen wurde, kann diese in den Apps oder Desktop Clients der MagentaCLOUD ausgelesen werden. Eine Zurücksetzung ist nicht zwingend notwendig.",
-    "If you want to reset the encryption even though your keys are still available in the apps or desktop clients, then delete the keys locally on the other devices. Alternatively, you can reset the apps or reconnect the desktop clients to your account." : "Sollten Sie die Verschlüsselung zurücksetzen wollen, obwohl ihre Passphrase in den Apps oder Desktop Clients der MagentaCLOUD noch vorhanden sind, entfernen Sie die Passphrase anschließend auch lokal auf den anderen Endgeräten. Alternativ können Sie die Apps auch zurücksetzen und sich erneut mit ihrer MagentaCLOUD verbinden.",
-    "Confirm and reset" : "Bestätigen und zurücksetzen",
-    "This the final warning: Do you really want to reset your encryption. Encrypted data are lost and will be deleted." : "Das ist die letzte Warnung: Möchten Sie wirklich die Verschlüsselung zurücksetzen? Verschlüsselte Daten gehen dabei verloren und werden gelöscht.",
+    "Reset End-to-End encryption" : "Verschlüsselung zurücksetzen",
+    "Please read carefully before resetting your end-to-end encryption keys" : "Bitte vor dem Zurücksetzen Ihrer Schlüssel für die Ende-zu-Ende-Verschlüsselung aufmerksam lesen!",
+    "Once your end-to-end encryption keys are reset, all files stored in your encrypted folder will be inaccessible." : "Sobald die Verschlüsselung zurückgesetzt wird, werden sämtliche verschlüsselten Dateien/Ordner gelöscht!",
+    "You should only reset your end-to-end encryption keys if you lost your secure key words (mnemonic)." : "Sofern die Passphrase vergessen wurde, kann diese in den Apps oder Desktop Clients der MagentaCLOUD ausgelesen werden. Eine Zurücksetzung ist nicht zwingend notwendig.",
+    "Check on all connected devices if you can retrieve your mnemonic." : "Sollten Sie trotzdem die Verschlüsselung zurücksetzen wollen, obwohl ihre Passphrase in den Apps oder Desktop Clients der MagentaCLOUD noch vorhanden sind, entfernen Sie die Passphrase anschließend auch lokal auf den anderen Endgeräten.",
+    "Any still connected device might cause problems after deleting the keys, so it is better to disconnect and reconnect the devices again." : "Nach dem Zurücksetzen können Sie auch alternativ auch die App-Installation zurücksetzen und sich erneut mit ihrer MagentaCLOUD verbinden.",
+    "Confirm and reset End-to-End encryption" : "Bestätigen und zurücksetzen",
+    "This is the final warning: Do you really want to reset your keys?" : "Das ist die letzte Warnung: Möchten Sie wirklich die Verschlüsselung zurücksetzen? Verschlüsselte Daten gehen dabei verloren und werden gelöscht.",
+    "End-to-End encryption is currently enabled and correctly setup." : "Die Ende-zu-Ende Verschlüsselung ist derzeit aktiviert.",
     "Cancel" : "Abbrechen",
     "Confirm" : "Bestätigen",
-    "End to end encryption is currently disabled. You can set it up with the {productName} clients." : "Die Ende-zu-Ende Verschlüsselung ist deaktiviert. Sie können sie in den Apps oder Desktop Clients einrichten."
+    "End to end encryption is currently disabled. You can set it up with the {productName} clients." : "Die Ende-zu-Ende Verschlüsselung ist deaktiviert. Sie können sie in den MagentaCLOUD Apps oder Desktop Clients einrichten."
   },"pluralForm" :"nplurals=2; plural=(n != 1);"},
   "files": { "translations": {
     "Crop image previews": "Vorschaubilder  beschneiden",
