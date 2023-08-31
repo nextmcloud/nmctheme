@@ -1,7 +1,7 @@
 <template>
 	<div class="storage-quota">
 		<div class="storage-quota__title" @click.stop.prevent="debounceUpdateStorageStats">
-			<img class="" src="../img/app-logo.svg" alt="" />
+			<img class="" src="../../img/app-logo.svg" alt="" />
 			<p v-html="storageStatsTitle"></p>
 		</div>
 		<ProgressBar :percentage="memoryUsage" />
