@@ -1,19 +1,19 @@
 <template>
-	<div class="progress-bar" :style="cssStyles"></div>
+	<div class="progress-bar" :style="cssStyles" />
 </template>
 
 <script>
 export default {
 	props: {
-		percentage: 0
+		percentage: 0,
 	},
 	computed: {
 		cssStyles() {
 			return {
-				'--percentage': this.percentage + '%'
+				'--percentage': this.percentage + '%',
 			}
-		}
-	}
+		},
+	},
 }
 
 </script>

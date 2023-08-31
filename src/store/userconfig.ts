@@ -19,14 +19,14 @@ const userConfig = loadState('files', 'config', {
 
 // get initial values from hidden inputs since v25 does not contain 'files' state
 const getLegacyStore = (): UserConfigStore => {
-	const show_hidden = !! + (document.getElementById('showHiddenFiles') as HTMLInputElement)?.value
-	const crop_image_previews = !! + (document.getElementById('cropImagePreviews') as HTMLInputElement)?.value
+	const show_hidden = !!+(document.getElementById('showHiddenFiles') as HTMLInputElement)?.value
+	const crop_image_previews = !!+(document.getElementById('cropImagePreviews') as HTMLInputElement)?.value
 	return {
 		userConfig: {
 			show_hidden,
 			crop_image_previews,
-			_initialized: false
-		}
+			_initialized: false,
+		},
 	}
 
 }
@@ -45,6 +45,8 @@ export const useUserConfigStore = function(...args) {
 		actions: {
 			/**
 			 * Update the user config local store
+			 * @param key
+			 * @param value
 			 */
 			onUpdate(key: string, value: boolean) {
 				Vue.set(this.userConfig, key, value)
@@ -52,6 +54,8 @@ export const useUserConfigStore = function(...args) {
 
 			/**
 			 * Update the user config local store AND on server side
+			 * @param key
+			 * @param value
 			 */
 			async update(key: string, value: boolean) {
 				await updateDisplaySettings(key, value)
