@@ -7,5 +7,5 @@
         "verbatimModuleSyntax": false,
         "types": ["jest"]
 	},
-	"include": ["./**/*.ts"],
+	"include": ["./**/*.ts", "../index.d.ts"],
 }

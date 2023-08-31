@@ -1,8 +1,11 @@
 import { generateFilePath } from '@nextcloud/router'
 import { register, getLocale } from '@nextcloud/l10n'
 
-/** @notExported */
-type ThemeTranslations = Record<string, Record<string, Record<string, string | string[] | undefined>>>
+type AppTranslation = {
+	translations: Record<string, string | string[] | undefined>,
+	pluralForm?: string
+}
+type ThemeTranslations = Record<string, AppTranslation>
 
 /**
  * the function is exported for tests and could be reused
@@ -21,9 +24,8 @@ export function loadThemeTranslations(appname = 'nmctheme'): Promise<ThemeTransl
 		request.onload = () => {
 			if (request.status >= 200 && request.status < 300) {
 				try {
-					const overrides = JSON.parse(request.responseText)
-					const keys = Object.keys(overrides)
-					if (keys.length > 0 && Object.keys(overrides[keys[0]]).includes('translations')) {
+					const overrides: ThemeTranslations = JSON.parse(request.responseText)
+					if (Object.values(overrides)[0]?.translations) {
 						resolve(overrides)
 					} else {
 						reject(new Error('Theme translations: file format problem!'))
