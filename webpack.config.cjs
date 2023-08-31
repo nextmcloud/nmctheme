@@ -5,6 +5,7 @@ module.exports = {
 	entry: {
 		filessettings: './js/filessettings.js',
 		l10nappender: './src/l10nappender.ts',
+		conflictdialog: './js/conflictdialog.js'
 	},
 	output: {
 		path: path.resolve(__dirname, "dist"),
