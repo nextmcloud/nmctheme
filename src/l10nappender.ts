@@ -59,16 +59,6 @@ export function appendThemeTranslations(overrides: ThemeTranslations | undefined
 
 /** the rest is the browser based part (not unit tested) */
 
-/**
- * during script loading phase, the translation json
- * for the selected language is already loaded
- */
-declare global {
-    interface Window {
-        _oc_theme_l10n_overrides?: ThemeTranslations
-    }
-}
-
 loadThemeTranslations('nmctheme')
 	.then((result) => {
 		window._oc_theme_l10n_overrides = result

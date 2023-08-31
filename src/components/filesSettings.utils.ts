@@ -2,9 +2,7 @@ import { loadState } from '@nextcloud/initial-state'
 import { generateUrl } from '@nextcloud/router'
 import axios from '@nextcloud/axios'
 
-declare var _oc_config: { version: string } & Record<string, any>
-
-export const IS_LEGACY_VERSION = _oc_config.version.startsWith('25')
+export const IS_LEGACY_VERSION = window._oc_config.version.startsWith('25')
 
 export const loadStats = async () => {
     let browserState = loadState('files', 'storageStats', null)
