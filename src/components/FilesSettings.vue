@@ -11,8 +11,8 @@ import StorageQuota from './StorageQuota.vue'
 export default {
 	components: {
 		DisplaySettings,
-		StorageQuota
-	}
+		StorageQuota,
+	},
 }
 
 </script>

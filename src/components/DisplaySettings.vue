@@ -1,11 +1,11 @@
 <template>
 	<div class="display-settings">
-		<button class="display-btn"
+		<button id="display-settings-btn"
+			class="display-btn"
 			type="button"
-			id="display-settings-btn"
 			:class="{open: isOpened}"
 			@click.stop="toggleOpen">
-				Display settings
+			Display settings
 		</button>
 		<div class="display-settings__list" :class="{open: isOpened}">
 			<NcCheckboxRadioSwitch :checked="userConfig.show_hidden"
@@ -27,17 +27,17 @@ import { translate } from '@nextcloud/l10n'
 
 export default {
 	components: {
-		NcCheckboxRadioSwitch
-	},
-	data() {
-		return { 
-			isOpened: false 
-		}
+		NcCheckboxRadioSwitch,
 	},
 	setup() {
 		const userConfigStore = useUserConfigStore()
 		return {
 			userConfigStore,
+		}
+	},
+	data() {
+		return {
+			isOpened: false,
 		}
 	},
 	computed: {
@@ -52,8 +52,8 @@ export default {
 		toggleOpen() {
 			this.isOpened = !this.isOpened
 		},
-		t: translate
-	}
+		t: translate,
+	},
 }
 
 </script>

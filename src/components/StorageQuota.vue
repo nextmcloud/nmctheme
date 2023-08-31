@@ -1,11 +1,14 @@
 <template>
 	<div class="storage-quota">
 		<div class="storage-quota__title" @click.stop.prevent="debounceUpdateStorageStats">
-			<img class="" src="../img/app-logo.svg" alt="" />
-			<p v-html="storageStatsTitle"></p>
+			<img class="" src="../../img/app-logo.svg" alt="">
+			<!-- eslint-disable-next-line vue/no-v-html -->
+			<p v-html="storageStatsTitle" />
 		</div>
 		<ProgressBar :percentage="memoryUsage" />
-		<p v-if="memoryUsage > 0">Memory used up to {{ memoryUsage }}%</p>
+		<p v-if="memoryUsage > 0">
+			Memory used up to {{ memoryUsage }}%
+		</p>
 		<a class="storage-quota__link"
 			target="_blank"
 			rel="noopener"
@@ -16,16 +19,17 @@
 </template>
 
 <script>
-import { loadStats, IS_LEGACY_VERSION } from './filesSettings.utils'
+import { loadStats, IS_LEGACY_VERSION } from './filesSettings.utils.ts'
 import { formatFileSize } from '@nextcloud/files'
 import { subscribe } from '@nextcloud/event-bus'
 import { throttle, debounce } from 'throttle-debounce'
+import { generateUrl } from '@nextcloud/router'
 import ProgressBar from './ProgressBar.vue'
 import axios from '@nextcloud/axios'
 
 export default {
 	components: {
-		ProgressBar
+		ProgressBar,
 	},
 	data() {
 		return {
@@ -50,7 +54,7 @@ export default {
 		},
 		memoryUsage() {
 			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toFixed(2)
-		}
+		},
 	},
 	beforeMount() {
 		this.loadStorageStats()
@@ -83,9 +87,9 @@ export default {
 			this.loadingStorageStats = true
 			try {
 				const response = await axios.get(
-					IS_LEGACY_VERSION ? 
-						generateUrl('/apps/files/ajax/getstoragestats') : 
-						generateUrl('/apps/files/api/v1/stats')
+					IS_LEGACY_VERSION
+						? generateUrl('/apps/files/ajax/getstoragestats')
+						: generateUrl('/apps/files/api/v1/stats'),
 				)
 				if (!response?.data?.data) {
 					throw new Error('Invalid storage stats')
@@ -97,7 +101,7 @@ export default {
 				this.loadingStorageStats = false
 			}
 		},
-	}
+	},
 }
 </script>
 
