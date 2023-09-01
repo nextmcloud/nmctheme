@@ -37,9 +37,15 @@ header {
 #body-settings #header,
 #body-public #header {
     background-color: var(--telekom-color-background-surface);
+    position: relative;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    bottom: 0;
     box-shadow: var(--shadow);
     height: var(--header-height);
-
+    border-radius: 8px 8px 0px 0px;
+    width: 98%;
 
     // logo and application name
     #nextcloud {
@@ -48,6 +54,7 @@ header {
         overflow: visible;
         padding: 0;
         padding-left: 60px; // logo width
+
 
         // show application name in desktop view
         &::before {
@@ -75,6 +82,7 @@ header {
         left: 0;
         top: 0;
         width: 60px;
+        border-radius: 8px 0px 0px 0px;
     }
 
     // hide logo and application name in mobile view - show logolayer instead
