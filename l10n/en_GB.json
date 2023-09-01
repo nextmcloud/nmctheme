@@ -27,7 +27,8 @@
     "End-to-End encryption is currently enabled and correctly setup." : "End to end encryption is currently enabled.",
     "Cancel" : "Cancel",
     "Confirm" : "Confirm",
-    "End to end encryption is currently disabled. You can set it up with the {productName} clients." : "End-to-end encryption is currently disabled. You can set it up with MagentaCLOUD clients."
+    "End to end encryption is currently disabled. You can set it up with the {productName} clients." : "End-to-end encryption is currently disabled. You can set it up with MagentaCLOUD clients.",
+    "You are not allowed to lock the root": "The lock of your complete file tree by end2end encryption was prohibited by the system!"
   },"pluralForm" :"nplurals=2; plural=(n != 1);"},
   "files": { "translations": {
     "Crop image previews": "Crop image previews",
