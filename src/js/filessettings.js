@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import FilesSettings from '../src/components/FilesSettings.vue'
+import FilesSettings from '../components/FilesSettings.vue'
 import { createPinia, PiniaVuePlugin } from 'pinia'
-import { IS_LEGACY_VERSION } from '../src/components/filesSettings.utils.ts'
+import { IS_LEGACY_VERSION } from '../components/filesSettings.utils.ts'
 
 Vue.use(PiniaVuePlugin)
 const pinia = createPinia()

@@ -1,0 +1,74 @@
+@import '../components/ncappnavigation.scss';
+
+/**
+* Custom 'File already exists' dialog
+*/
+.oc-dialog.oc-conflict-pre-dlg {
+	// modal dialog title
+	div.flex-container {
+		display: flex;
+		justify-content: space-between;
+
+		// close button
+		.oc-conflict-pre-dlg-close-div a {
+			display: block;
+			background-image: var(--icon-close-dark);
+			background-repeat: no-repeat;
+			width: 27px;
+			height: 24px;
+			&:hover {
+				@include color-icon;
+			}
+		}
+	}
+
+	div.threebuttons {
+		display: flex;
+		flex-direction: column;
+		gap: var(--telekom-spacing-composition-space-04);
+
+		button {
+			min-height: 34px;
+			border-radius: var(--telekom-radius-standard);
+			text-align: center;
+			border: 1px solid #191919;
+			padding: var(--telekom-spacing-composition-space-03);
+			font: var(--telekom-text-style-body);
+			background-color: var(--color-main-background);
+
+			&:hover {
+				cursor: pointer;
+				border: 1px solid #191919;
+			}
+
+			&.primary:active, &.primary:focus, &.primary:hover {
+				border-color: inherit;
+				color: inherit;
+				background-color: inherit;
+			}
+
+			// separate styling for 'Replace' button
+			&.oc-conflict-pre-dlg-replace-button {
+				border: 1px solid var(--telekom-color-primary-standard);
+				background-color: var(--telekom-color-primary-standard);
+				color: var(--color-main-background);
+
+				&:hover {
+					border-color: white;
+				}
+
+				&.primary:active, &.primary:focus, &.primary:hover {
+					border: 1px solid var(--telekom-color-primary-standard);
+					background-color: var(--telekom-color-primary-standard);
+					color: var(--color-main-background);
+				}
+			}
+		}
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.oc-dialog.oc-conflict-pre-dlg {
+		border: 1px solid var(--telekom-color-ui-regular);
+	}
+  }

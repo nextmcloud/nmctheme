@@ -59,7 +59,6 @@ const variables = {}
 const icons = {
 	add: path.join(__dirname, '../img', 'actions', 'add.svg'),
 	address: path.join(__dirname, '../img', 'actions', 'address.svg'),
-	close: path.join(__dirname, '../img', 'actions', 'close.svg'),
 	download: path.join(__dirname, '../img', 'actions', 'download.svg'),
 	logout: path.join(__dirname, '../img', 'actions', 'logout.svg'),
 	menu: path.join(__dirname, '../img', 'actions', 'menu.svg'),
@@ -74,6 +73,7 @@ const icons = {
 	history: path.join(__dirname, '../img', 'actions', 'history.svg'),
 	tag: path.join(__dirname, '../img', 'actions', 'tag.svg'),
 	delete: path.join(__dirname, '../img', 'actions', 'delete.svg'),
+	close: path.join(__dirname, '../img', 'close.svg'),
 }
 
 const iconsColor = {
