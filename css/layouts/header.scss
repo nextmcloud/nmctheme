@@ -55,6 +55,16 @@ header {
 		}
 	}
 
+    background-color: var(--telekom-color-background-surface);
+    position: relative;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    bottom: 0;
+    box-shadow: var(--shadow);
+    height: var(--header-height);
+    border-radius: 8px 8px 0px 0px;
+    width: 98%;
 
 	// logo and application name
 	#nextcloud {
@@ -71,6 +81,35 @@ header {
 		#nextcloud {
 			display: none;
 		}
+
+        // show application name in desktop view
+        &::before {
+            color: var(--color-primary);
+            content: "MagentaCLOUD";
+            display: block;
+            font-size: var(--font-size-app-name);
+            font-weight: var(--font-weight-app-name);
+            height: 60px;
+            left: 72px;
+            line-height: 60px;
+            margin: 0;
+            pointer-events: all;
+            position: absolute;
+            top: 0;
+            width: auto;
+            z-index: 3000;
+        }
+    }
+
+    // correct logo dimensions
+    .logo {
+        background-image: var(--image-logoheader);
+        bottom: 0;
+        left: 0;
+        top: 0;
+        width: 60px;
+        border-radius: 8px 0px 0px 0px;
+    }
 
 		#header-left,
 		.header-left {

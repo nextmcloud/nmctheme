@@ -21,13 +21,15 @@ footer {
 footer[role="contentinfo"] {
     background-color: var(--color-main-background);
     font: var(--footer-font);
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    width: 95.5vw;
+    position: absolute;
+    top: 85vh;
+    left: 16px;
+    bottom: 16px;
+    right: 16px;
     max-height: var(--telekom-spacing-baseline-space-3);
     z-index: 998;
-    border-radius: var(--border-radius);
+    border-radius: 0px 0px 8px 8px;
 
     // TODO: fixed height?, as we may have to set padding etc.
     // height: auto;
