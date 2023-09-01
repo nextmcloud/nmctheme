@@ -1,15 +1,15 @@
-const { VueLoaderPlugin } = require("vue-loader");
-const path = require("path");
+const { VueLoaderPlugin } = require('vue-loader')
+const path = require('path')
 
 module.exports = {
 	entry: {
 		filessettings: './js/filessettings.js',
 		l10nappender: './src/l10nappender.ts',
-		conflictdialog: './js/conflictdialog.js'
+		conflictdialog: './js/conflictdialog.js',
 	},
 	output: {
-		path: path.resolve(__dirname, "dist"),
-		filename: '[name].js'
+		path: path.resolve(__dirname, 'dist'),
+		filename: '[name].js',
 	},
 	devtool: 'source-map',
 	module: {
@@ -24,7 +24,7 @@ module.exports = {
 			},
 			{
 				test: /\.vue$/,
-				loader: "vue-loader",
+				loader: 'vue-loader',
 			},
 			{
 				test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf)$/,
@@ -42,14 +42,14 @@ module.exports = {
 	],
 	resolve: {
 		fallback: {
-			"stream": false,
-			"https": false,
-			"http": false,
-			"path": false
+			stream: false,
+			https: false,
+			http: false,
+			path: false,
 		},
 		alias: {
 			vue$: path.resolve('./node_modules/vue'),
 		},
-		extensions: ["*", ".js", ".ts", ".vue", ".json"],
+		extensions: ['*', '.js', '.ts', '.vue', '.json'],
 	},
-};
+}

@@ -59,7 +59,6 @@ const variables = {}
 const icons = {
 	add: path.join(__dirname, '../img', 'actions', 'add.svg'),
 	address: path.join(__dirname, '../img', 'actions', 'address.svg'),
-	close: path.join(__dirname, '../img', 'actions', 'close.svg'),
 	download: path.join(__dirname, '../img', 'actions', 'download.svg'),
 	logout: path.join(__dirname, '../img', 'actions', 'logout.svg'),
 	menu: path.join(__dirname, '../img', 'actions', 'menu.svg'),
