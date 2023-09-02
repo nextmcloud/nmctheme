@@ -14,13 +14,17 @@
 		"noImplicitAny": false,
 		"resolveJsonModule": true,
 		"strict": true,
+        "lib": [
+            "es2021",
+            "dom"
+        ]
 	},
 	"ts-node": {
 		// these options are overrides used only by ts-node
 		// same as our --compilerOptions flag and our TS_NODE_COMPILER_OPTIONS environment variable
 		"compilerOptions": {
 			"module": "commonjs",
-			"verbatimModuleSyntax": false
+			"verbatimModuleSyntax": false,
 		}
 	},
 	"exclude": ["node_modules"]

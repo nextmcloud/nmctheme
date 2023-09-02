@@ -7,13 +7,13 @@
 		</div>
 		<ProgressBar :percentage="memoryUsage" />
 		<p v-if="memoryUsage > 0">
-			Memory used up to {{ memoryUsage }}%
+			{{ t('nmctheme', 'Memory used up to { memoryUsage }%', memoryUsage) }} 
 		</p>
 		<a class="storage-quota__link"
 			target="_blank"
 			rel="noopener"
 			href="https://cloud.telekom-dienste.de/tarife">
-			Expand storage
+			{{ t('nmctheme', 'Expand storage') }}
 		</a>
 	</div>
 </template>
@@ -26,6 +26,7 @@ import { throttle, debounce } from 'throttle-debounce'
 import { generateUrl } from '@nextcloud/router'
 import ProgressBar from './ProgressBar.vue'
 import axios from '@nextcloud/axios'
+import { translate } from '@nextcloud/l10n'
 
 export default {
 	components: {
@@ -101,6 +102,7 @@ export default {
 				this.loadingStorageStats = false
 			}
 		},
+        t: translate,
 	},
 }
 </script>

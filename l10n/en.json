@@ -111,6 +111,15 @@
     },"pluralForm" :"nplurals=2; plural=(n != 1);"},
     "text": { "translations": {
         "Add Link": "Add Link"
-      },"pluralForm" :"nplurals=2; plural=(n != 1);"}
-  
+      },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+    "nmctheme": { "translations": {
+        "Copyright": "©Telekom Deutschland GmbH",
+        "OpenSource": "Open Source licenses",
+        "Impressum": "Impressum",
+        "Data protection": "Data protection",
+        "Faq": "Help & FAQ",
+        "Expand storage": "Expand storage",
+        "Memory used up to { memoryUsage }%": "Memory used up to { memoryUsage }%",
+        "Display settings": "Display settings"
+    },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }
