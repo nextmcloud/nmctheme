@@ -71,9 +71,9 @@ class FactoryDecorator implements IFactory {
 				$jsonError = json_last_error();
 				\OC::$server->getLogger()->warning("Failed to load $filename - json error code: $jsonError", ['app' => 'l10n']);
 			} else {
-                if (array_key_exists('translations', $json)) {
-                    $translations = array_merge($translations, $json['translations']);
-                }
+				if (array_key_exists('translations', $json)) {
+					$translations = array_merge($translations, $json['translations']);
+				}
 			}
 		}
 		return $translations;

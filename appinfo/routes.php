@@ -12,6 +12,6 @@ return [
 			'name' => 'L10NAppend#getTranslations',
 			'url' => '/lang/{app}/l10n/{lang}.js',
 			'verb' => 'GET',
-        ]
+		]
 	]
 ];

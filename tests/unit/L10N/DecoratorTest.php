@@ -18,10 +18,10 @@ declare(strict_types=1);
  */
 namespace OCA\NMCTheme\Test\L10N;
 
-use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Controller\AppendController;
-use OCP\IRequest;
+use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCP\App\IAppManager;
+use OCP\IRequest;
 use OCP\L10N\IFactory;
 
 use PHPUnit\Framework\TestCase;
@@ -132,10 +132,10 @@ class DecoratorTest extends TestCase {
 	}
 
 
-    public function testL10NAppendControllerCreate() {
-        new AppendController(
-            $this->app->getContainer()->get(IRequest::class),
-            $this->app->getContainer()->get(FactoryDecorator::class)
-        );       
-    }
+	public function testL10NAppendControllerCreate() {
+		new AppendController(
+			$this->app->getContainer()->get(IRequest::class),
+			$this->app->getContainer()->get(FactoryDecorator::class)
+		);
+	}
 }

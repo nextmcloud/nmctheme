@@ -30,20 +30,20 @@ class L10NResourceLocatorExtension extends JSResourceLocator {
 	 */
 	public function doFind($script) {
 		if (str_contains($script, '/l10n/')) {
-            // only add script if corresponding app has a language json
-            $pos = strpos($script, '/');
-            $app = substr($script, 0, $pos);
-            $file = substr($script, $pos, strlen($script));
-            if ( $app === 'core' || $app === '' ) {
-                $this->append(\OC::$SERVERROOT, $app . $file .".js", \OC::$WEBROOT . self::LANG_THEME_URL, false);
-                return;
-            }
+			// only add script if corresponding app has a language json
+			$pos = strpos($script, '/');
+			$app = substr($script, 0, $pos);
+			$file = substr($script, $pos, strlen($script));
+			if ($app === 'core' || $app === '') {
+				$this->append(\OC::$SERVERROOT, $app . $file .".js", \OC::$WEBROOT . self::LANG_THEME_URL, false);
+				return;
+			}
 
-            $appPath = $this->appManager->getAppPath($app);
-            if (is_file($appPath . $file . '.json')) {
+			$appPath = $this->appManager->getAppPath($app);
+			if (is_file($appPath . $file . '.json')) {
 				$this->append(\OC::$SERVERROOT, $app . $file . '.js', \OC::$WEBROOT . self::LANG_THEME_URL, false);
-                return;          
-            }
+				return;
+			}
 		}
 
 		parent::doFind($script);
