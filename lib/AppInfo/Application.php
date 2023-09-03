@@ -10,9 +10,13 @@
 namespace OCA\NMCTheme\AppInfo;
 
 use OC\AppFramework\DependencyInjection\DIContainer;
+
 use OC\L10N\Factory;
+use OC\Template\JSCombiner;
+use OC\Template\JSResourceLocator;
 use OC\URLGenerator;
 use OCA\NMCTheme\L10N\FactoryDecorator;
+use OCA\NMCTheme\L10N\L10NResourceLocatorExtension;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Themes\Magenta;
@@ -26,16 +30,21 @@ use OCA\Theming\Themes\DefaultTheme;
 use OCA\Theming\Themes\DyslexiaFont;
 use OCA\Theming\Themes\HighContrastTheme;
 use OCA\Theming\Themes\LightTheme;
+use OCP\App\IAppManager;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\AppFramework\QueryException;
+
+// FIXME: required private accesses; we have to find better ways
+// when integrating upstream
 use OCP\IConfig;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
 use OCP\L10N\IFactory;
+use Psr\Log\LoggerInterface;
 
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'nmctheme';
@@ -73,10 +82,24 @@ class Application extends App implements IBootstrap {
 	protected function registerURLGeneratorDecorator(IRegistrationContext $context) {
 		$this->getContainer()->getServer()->registerService(IURLGenerator::class, function ($c) {
 			return new URLGeneratorDecorator(
-				$this->getContainer()->getServer()->query(URLGenerator::class)
+				$this->getContainer()->getServer()->query(URLGenerator::class),
 			);
 		});
 	}
+
+	/**
+	 * Decorate the IURLGenerator to intercept request for theming favicons.
+	 */
+	protected function registerL10NResourceLocatorExtension(IRegistrationContext $context) {
+		$this->getContainer()->getServer()->registerService(JSResourceLocator::class, function ($c) {
+			return new L10NResourceLocatorExtension(
+				$c->get(LoggerInterface::class),
+				$this->getContainer()->getServer()->query(JSCombiner::class),
+				$c->get(IAppManager::class)
+			);
+		});
+	}
+
 
 	/**
 	 * Decorate the L10N IFactory of server with the L10N theming factory
@@ -90,6 +113,8 @@ class Application extends App implements IBootstrap {
 				$this->getContainer()->getServer()->query(Factory::class)
 			);
 		});
+		$context->registerServiceAlias(Factory::class, IFactory::class);
+		$context->registerServiceAlias(FactoryDecorator::class, IFactory::class);
 	}
 
 
@@ -124,6 +149,9 @@ class Application extends App implements IBootstrap {
 				$c->get(DyslexiaFont::class)
 			);
 		});
+
+		// intercept language reference generation to deviate to appender service
+		$this-> registerL10NResourceLocatorExtension($context);
 		
 		// intercept requests for favicons to enforce own behavior
 		$this->registerURLGeneratorDecorator($context);

@@ -719,4 +719,5 @@ class FactoryTest extends TestCase {
 		$iterator = $factory->getLanguageIterator($iUserMock);
 		self::assertInstanceOf(ILanguageIterator::class, $iterator);
 	}
+
 }

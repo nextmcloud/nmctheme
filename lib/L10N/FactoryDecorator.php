@@ -71,7 +71,9 @@ class FactoryDecorator implements IFactory {
 				$jsonError = json_last_error();
 				\OC::$server->getLogger()->warning("Failed to load $filename - json error code: $jsonError", ['app' => 'l10n']);
 			} else {
-				$translations = array_merge($translations, $json['translations']);
+                if (array_key_exists('translations', $json)) {
+                    $translations = array_merge($translations, $json['translations']);
+                }
 			}
 		}
 		return $translations;
@@ -261,4 +263,5 @@ class FactoryDecorator implements IFactory {
 	public function getUserLanguage(IUser $user = null): string {
 		return $this->decoratedFactory->getUserLanguage($user);
 	}
+
 }

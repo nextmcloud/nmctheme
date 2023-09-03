@@ -51,29 +51,16 @@ export function loadThemeTranslations(appname = 'nmctheme'): Promise<ThemeTransl
  *
  * @param overrides  the set of override translations to register/append onload
  */
-export function appendThemeTranslations(overrides: ThemeTranslations | undefined) {
-	const appsTranslations = overrides || {}
-	Object.keys(appsTranslations).forEach(appname => {
-		register(appname, appsTranslations[appname].translations)
-	})
-
+export function appendThemeTranslations(appname: string) {
+	if ( window._oc_theme_l10n_overrides === 'undefined' ) {
+        window._oc_theme_l10n_overrides = {}
+        loadThemeTranslations('nmctheme')
+        .then((result) => {
+            window._oc_theme_l10n_overrides = result
+        }).catch(error => {
+            // FIXME Is there a logger way to show the problem in browser console?
+            console.log(error) // eslint-disable-line no-console
+        })        
+    }
+	register({appname: window._oc_theme_l10n_overrides[appname]})
 }
-
-/** the rest is the browser based part (not unit tested) */
-
-loadThemeTranslations('nmctheme')
-	.then((result) => {
-		window._oc_theme_l10n_overrides = result
-	}).catch(error => {
-		// FIXME Is there a logger way to show the problem in browser console?
-		console.log(error) // eslint-disable-line no-console
-	})
-
-/**
- * Add the translation appending event listener.
- * As soon as all scripts are loaded, the listener registers the translations
- * from nmctheme that override default translations
- */
-window.addEventListener('load', () => {
-	appendThemeTranslations(window._oc_theme_l10n_overrides)
-})
