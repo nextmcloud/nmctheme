@@ -119,7 +119,7 @@
     "Data protection": "Datenschutz",
     "Faq": "Hilfe & FAQ",
     "Expand storage": "Speicher erweitern",
-    "Memory used up to { memoryUsage }%": "Speicher zu { memoryUsage }% belegt",
+    "Memory used up to {memoryUsage}%": "Speicher zu {memoryUsage}%% belegt",
     "Display settings": "Anzeigeeinstellungen"
   },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }
