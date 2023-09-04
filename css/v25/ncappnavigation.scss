@@ -1,9 +1,12 @@
-@import '../components/ncappnavigation.scss';
+@import '../_mixins.scss';
 
 /**
 * Sidebar navigation styling for v25
 */
 #app-navigation:not(.vue) {
+	// hide scrollbar which appears due to incorrect container height
+	overflow: hidden;
+
 	// add vertical line to demarcate app navigation
 	border-right: 1px solid var(--telekom-color-ui-faint);
 
