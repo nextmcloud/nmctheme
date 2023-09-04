@@ -111,5 +111,15 @@
   },"pluralForm" :"nplurals=2; plural=(n != 1);"},
   "text": { "translations": {
     "Add Link": "Link hinzufügen"
+  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+  "nmctheme": { "translations": {
+    "Copyright": " Telekom Deutschland GmbH",
+    "OpenSource": "Open Source Lizenzen",
+    "Impressum": "Impressum",
+    "Data protection": "Datenschutz",
+    "Faq": "Hilfe & FAQ",
+    "Expand storage": "Speicher erweitern",
+    "Memory used up to {memoryUsage}%": "Speicher zu {memoryUsage}%% belegt",
+    "Display settings": "Anzeigeeinstellungen"
   },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }

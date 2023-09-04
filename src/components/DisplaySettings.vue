@@ -5,7 +5,7 @@
 			type="button"
 			:class="{open: isOpened}"
 			@click.stop="toggleOpen">
-			Display settings
+			{{ t('nmctheme', 'Display settings') }}
 		</button>
 		<div class="display-settings__list" :class="{open: isOpened}">
 			<NcCheckboxRadioSwitch :checked="userConfig.show_hidden"
