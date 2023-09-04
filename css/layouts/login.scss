@@ -8,6 +8,10 @@
  */
 
 #body-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     // this is needed as background for the scrollbar
     background-color: var(--telekom-color-additional-teal-500);
     scrollbar-color: var(--telekom-color-additional-teal-900) var(--telekom-color-additional-teal-500);
@@ -48,6 +52,9 @@
 
 #body-login footer[role="contentinfo"] {
     opacity: var(--telekom-opacity-translucent);
+    // this overrides nextcloud properties in versions 25 and 26 that affect our custom footer
+    margin-bottom: 0;
+    min-height: auto;
 }
 
 @media (prefers-color-scheme: dark) {
