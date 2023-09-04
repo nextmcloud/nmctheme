@@ -43,6 +43,7 @@ class BeforeTemplateRenderedListener implements IEventListener {
 		// keep src for future use:   \OCP\Util::addScript("nmctheme", "../dist/l10nappender");
 		\OCP\Util::addScript('nmctheme', '../dist/nmcfooter', 'theming');
 		\OCP\Util::addScript("nmctheme", "../dist/filessettings");
+		\OCP\Util::addScript("nmctheme", "../dist/nmclogo");
 		\OCP\Util::addScript("nmctheme", "../dist/conflictdialog");
 	}
 }

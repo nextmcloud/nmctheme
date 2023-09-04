@@ -7,6 +7,7 @@ module.exports = {
 		// keep src for future use: l10nappender: './src/l10nappender.ts',
 		conflictdialog: './src/js/conflictdialog.js',
 		nmcfooter: './src/nmcfooter.ts',
+    nmclogo: './src/nmclogo.ts'
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),

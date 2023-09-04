@@ -37,19 +37,10 @@ $CONFIG = array (
 
 # "Organisational" setting
 /usr/bin/php occ theming:config color "#e20074"   # don't use uppercase letters!
-/usr/bin/php occ theming:config name MagentaCLOUD
+/usr/bin/php occ theming:config name "<strong>Magenta</strong>CLOUD"
 /usr/bin/php occ theming:config slogan "Alle Dateien sicher an einem Ort"
 /usr/bin/php occ theming:config imprintUrl "http://www.telekom.de/impressum"
 /usr/bin/php occ theming:config privacyUrl "https://static.magentacloud.de/Datenschutz"
-
-# Organisational "product" icons - 
-# they are stored in ROOT filesystem and kept in distributed cache = no performance issue
-/usr/bin/php occ theming:config faviconMime \
-    /<absolute path to appdir>/nmctheme/lib/icons/favicon.ico
-/usr/bin/php occ theming:config logo \
-    /<absolute path to appdir>/nmctheme/lib/icons/tlogocarrier.svg
-/usr/bin/php occ theming:config background \
-    /<absolute path to appdir>/nmctheme/lib/icons/background_consent.svg 
 
 # application ids for mobile apps (with real MagentaCLOUD ids)
 /usr/bin/php occ config:app:set theming AndroidClientUrl --value \
