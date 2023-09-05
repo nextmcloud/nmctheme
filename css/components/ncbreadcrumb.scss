@@ -2,10 +2,10 @@
 	.crumb {
 		// change arrow icon
 		background-image: var(--icon-breadcrumb-arrow-grey);
-		background-position: 115%;
-		padding-right: 10px;
+		padding: 0px;
 		// link text styling
 		& > a {
+			margin-right: 1.5rem;
 			font-size: var(--telekom-typography-font-size-body);
 			opacity: 1;
 			color: var(--telekom-color-text-and-icon-standart);
