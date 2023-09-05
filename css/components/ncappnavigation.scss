@@ -27,7 +27,7 @@ $breakpoint-mobile: 1024px;
 
 	// remove gaps between navigation items
 	.app-navigation__content .app-navigation__list {
-		gap: 0px;
+		gap: var(--telekom-spacing-composition-space-03);
 		padding-left: var(--internal-padding);
 	}
 
