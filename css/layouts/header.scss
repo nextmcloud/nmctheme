@@ -65,22 +65,16 @@ header {
     height: var(--header-height);
     border-radius: 8px 8px 0px 0px;
     width: 98%;
+    border-radius: 8px 8px 0px 0px;
+    width: 98%;
 
 	// logo and application name
-	#nextcloud {
-		height: 100%;
-		margin: 0 var(--telekom-spacing-baseline-space-10) 0 0;
-		overflow: visible;
-		padding: 0;
-		padding-left: 60px; // logo width
-	}
-
-	// hide logo and application name in mobile view - show logolayer instead
-	@media screen and (max-width: $breakpoint-mobile) {
-
-		#nextcloud {
-			display: none;
-		}
+    #nextcloud {
+        height: 100%;
+        margin: 0 var(--telekom-spacing-baseline-space-10) 0 0;
+        overflow: visible;
+        padding: 0;
+        padding-left: 60px; // logo width
 
         // show application name in desktop view
         &::before {
