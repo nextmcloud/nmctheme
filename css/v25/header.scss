@@ -1,0 +1,44 @@
+@mixin color-icon {
+	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
+}
+
+.header-left {
+    // disable 
+    .app-menu .app-menu-main .app-menu-entry {
+        filter: none;
+    }
+}
+
+.header-right {
+    // hide 'Search contacts' button
+    #contactsmenu {
+        display: none;
+    }
+
+    // set up styling for 'Search' and 'User' nav entries
+    #unified-search, #user-menu {
+        .header-menu__trigger {
+            background-size: auto 24px;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: none;
+    
+            &:hover {
+                @include color-icon;
+            }
+        }
+    }
+
+    // manually set icons since nextcloud uses svg elements
+    #unified-search {
+        .header-menu__trigger {
+            background-image: var(--icon-search-dark);
+        }
+    }
+
+    #user-menu {
+        .header-menu__trigger {
+            background-image: var(--icon-user-dark);
+        }
+    }
+}
