@@ -64,6 +64,8 @@ const icons = {
 	menu: path.join(__dirname, '../img', 'actions', 'menu.svg'),
 	search: path.join(__dirname, '../img', 'actions', 'search.svg'),
 	share: path.join(__dirname, '../img', 'actions', 'share.svg'),
+	shared: path.join(__dirname, '../img', 'actions', 'share.svg'),
+	public: path.join(__dirname, '../img', 'actions', 'share.svg'),
 	star: path.join(__dirname, '../img', 'actions', 'star.svg'),
 	starred: path.join(__dirname, '../img', 'actions', 'starred.svg'),
 	upload: path.join(__dirname, '../img', 'actions', 'upload.svg'),
@@ -74,6 +76,7 @@ const icons = {
 	tag: path.join(__dirname, '../img', 'actions', 'tag.svg'),
 	delete: path.join(__dirname, '../img', 'actions', 'delete.svg'),
 	close: path.join(__dirname, '../img', 'close.svg'),
+	home: path.join(__dirname, '../img', 'actions', 'home.svg'),
 }
 
 const iconsColor = {

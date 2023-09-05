@@ -1,3 +1,5 @@
+@import '../_mixins.scss';
+
 $breakpoint-mobile: 1024px;
 
 :root {
@@ -9,13 +11,6 @@ $breakpoint-mobile: 1024px;
 @media screen and (max-width: $breakpoint-mobile) {
 	:root {
 		--internal-padding: 8px;
-	}
-}
-
-@mixin color-icon {
-	filter: invert(14%) sepia(83%) saturate(3815%) hue-rotate(313deg) brightness(89%) contrast(127%);
-	@media (prefers-color-scheme: dark) {    
-		filter: brightness(0) saturate(100%) invert(14%) sepia(83%) saturate(3815%) hue-rotate(313deg) brightness(89%) contrast(127%);
 	}
 }
 
@@ -32,7 +27,7 @@ $breakpoint-mobile: 1024px;
 
 	// remove gaps between navigation items
 	.app-navigation__content .app-navigation__list {
-		gap: 0px;
+		gap: var(--telekom-spacing-composition-space-03);
 		padding-left: var(--internal-padding);
 	}
 

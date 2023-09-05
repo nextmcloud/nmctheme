@@ -1,4 +1,92 @@
+@import '../_mixins.scss';
+
 // add small gap between app content and app navigation
 .app-files #app-content > .viewcontainer {
 	padding-left: 8px;
+}
+
+// filelist
+#app-content-files {
+	// breadcrumb wrapper
+	.files-controls {
+		background-color: var(--color-main-background);
+		opacity: 0.97;
+	}
+
+	.actions.creatable {
+		// 'Add new file/folder' button inside breadcrumb
+		& > a.button.new {
+			background-color: var(--color-main-background);
+			border-color: var(--telekom-color-text-and-icon-primary-standard);
+			min-height: unset;
+			height: 24px;
+			width: 24px;
+			margin: auto 0;
+
+			.icon.icon-add {
+				@include color-icon;
+				background-size: 16px 16px;
+			}
+		}
+
+		// change position of popover menu arrow
+		.newFileMenu::after {
+			left: 51px !important;
+		}
+	}
+
+	.fileactions {
+		// 'Share' status styles
+		.action-share.permanent {
+			opacity: 1;
+
+			// color shared files in maagenta
+			&.shared-style {
+				@include color-icon;
+			}
+
+			// increase share icon sizes
+			span.icon.icon-shared, span.icon.icon-public {
+				background-size: 24px 24px;
+				min-width: 24px;
+				min-height: 24px;
+			}
+		}
+	}
+
+	.files-filestable thead {
+		background-color: var(--color-main-background);
+		opacity: 0.97;
+	}
+
+	table {
+		thead {
+			// vertically align 'Name' label
+			th .columntitle.name {
+				padding-left: 20px;
+			}
+		}
+		tbody tr {
+			height: 68px;
+
+			// filename column
+			td .nametext {
+				padding-left: 20px;
+			}
+
+			.thumbnail-wrapper {
+				height: 50px;
+				width: 50px;
+				.thumbnail {
+					margin-top: 0.2rem;
+					width: 44px;
+					height: 44px;
+					background-size: 74px;
+					background-position: center;
+					background-repeat: no-repeat;
+				}
+			}
+		}
+	}
+
 }

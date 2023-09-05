@@ -6,6 +6,13 @@ span.checkbox-radio-switch.checkbox-radio-switch-checkbox {
 		}
 	}
 
+	// do not set background color when on focus
+	&.checkbox-radio-switch, &.checkbox-radio-switch--checked {
+		&:focus-within .checkbox-radio-switch__label {
+			background-color: initial;
+		}
+	}
+
 	// set unchecked inputs to be black
 	&:not(.checkbox-radio-switch--checked) .checkbox-radio-switch__icon {
 		span.material-design-icon {

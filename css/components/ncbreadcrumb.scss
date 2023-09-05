@@ -1,25 +1,22 @@
 .breadcrumb {
-	// root crumb - hide icon and display 'Home' text
-	.crumbhome > .icon-home {
-		text-indent: 0;
-		background-image: none;
-		width: auto;
-		padding: 12px;
-	}
-
-	li.crumb {
+	.crumb {
 		// change arrow icon
 		background-image: var(--icon-breadcrumb-arrow-grey);
-		background-size: auto 12px;
-		background-position: right 55%;
+		padding: 0px;
 		// link text styling
 		& > a {
-			font-size: var(--telekom-typography-font-size-caption);
+			margin-right: 1.5rem;
+			font-size: var(--telekom-typography-font-size-body);
 			opacity: 1;
 			color: var(--telekom-color-text-and-icon-standart);
 			&:hover {
 				color: var(--color-hover);
 			}
+		}
+
+		// hide 'Shared' icon
+		span.shared, span.icon-shared {
+			display: none;
 		}
 	}
 

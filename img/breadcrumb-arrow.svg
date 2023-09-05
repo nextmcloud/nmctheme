@@ -1,1 +1,13 @@
-<svg class="scale-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><g fill="gray"><g><path d="M8.982 5.911a.75.75 0 10-.93 1.178L14.273 12l-6.221 4.911a.75.75 0 10.931 1.177L16.694 12 8.982 5.911z" fill-rule="evenodd"></path></g></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/navigation/right/default@svg</title>
+    <defs>
+        <path d="M7.39999998,19.95 C7.14999998,19.6 7.19999998,19.15 7.49999998,18.9 L16.3,12 L7.54999998,5.09999997 C7.19999998,4.84999997 7.14999998,4.34999997 7.44999998,4.04999997 C7.69999998,3.74999997 8.19999998,3.64999997 8.49999999,3.94999997 L18.7,12 L8.44999999,20.1 C8.14999998,20.35 7.64999998,20.3 7.39999998,19.95 Z" id="path-1"></path>
+    </defs>
+    <g id="icon/navigation/right/default" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="icon/navigation/right" fill="#262626" xlink:href="#path-1"></use>
+    </g>
+</svg>
