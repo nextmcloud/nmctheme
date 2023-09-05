@@ -76,6 +76,7 @@ const icons = {
 	tag: path.join(__dirname, '../img', 'actions', 'tag.svg'),
 	delete: path.join(__dirname, '../img', 'actions', 'delete.svg'),
 	close: path.join(__dirname, '../img', 'close.svg'),
+	home: path.join(__dirname, '../img', 'actions', 'home.svg'),
 }
 
 const iconsColor = {

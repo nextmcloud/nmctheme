@@ -1,20 +1,12 @@
 .breadcrumb {
-	// root crumb - hide icon and display 'Home' text
-	.crumbhome > .icon-home {
-		text-indent: 0;
-		background-image: none;
-		width: auto;
-		padding: 12px;
-	}
-
 	.crumb {
 		// change arrow icon
 		background-image: var(--icon-breadcrumb-arrow-grey);
-		background-size: auto 12px;
-		background-position: right 55%;
+		background-position: 115%;
+		padding-right: 10px;
 		// link text styling
 		& > a {
-			font-size: var(--telekom-typography-font-size-caption);
+			font-size: var(--telekom-typography-font-size-body);
 			opacity: 1;
 			color: var(--telekom-color-text-and-icon-standart);
 			&:hover {
