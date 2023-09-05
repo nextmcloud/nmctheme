@@ -21,6 +21,11 @@
 				color: var(--color-hover);
 			}
 		}
+
+		// hide 'Shared' icon
+		span.shared, span.icon-shared {
+			display: none;
+		}
 	}
 
 	// style flyout menu

@@ -7,6 +7,12 @@
 
 // filelist
 #app-content-files {
+	// breadcrumb wrapper
+	.files-controls {
+		background-color: var(--color-main-background);
+		opacity: 0.97;
+	}
+
 	.actions.creatable {
 		// 'Add new file/folder' button inside breadcrumb
 		& > a.button.new {
@@ -44,6 +50,41 @@
 				background-size: 24px 24px;
 				min-width: 24px;
 				min-height: 24px;
+			}
+		}
+	}
+
+	.files-filestable thead {
+		background-color: var(--color-main-background);
+		opacity: 0.97;
+	}
+
+	table {
+		thead {
+			// vertically align 'Name' label
+			th .columntitle.name {
+				padding-left: 20px;
+			}
+		}
+		tbody tr {
+			height: 68px;
+
+			// filename column
+			td .nametext {
+				padding-left: 20px;
+			}
+
+			.thumbnail-wrapper {
+				height: 50px;
+				width: 50px;
+				.thumbnail {
+					margin-top: 0.2rem;
+					width: 44px;
+					height: 44px;
+					background-size: 74px;
+					background-position: center;
+					background-repeat: no-repeat;
+				}
 			}
 		}
 	}
