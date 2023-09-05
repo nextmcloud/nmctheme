@@ -7,7 +7,7 @@
 		</div>
 		<ProgressBar :percentage="memoryUsage" />
 		<p v-if="memoryUsage > 0">
-			{{ t('nmctheme', 'Memory used up to { memoryUsage }%', memoryUsage) }}
+			{{ t('nmctheme', 'Memory used up to {memoryUsage}%', { memoryUsage }) }}
 		</p>
 		<a class="storage-quota__link"
 			target="_blank"
