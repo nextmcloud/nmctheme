@@ -1,12 +1,8 @@
 import Vue from 'vue'
 import UserMenuItem from '../components/UserMenuItem.vue'
-import { createPinia, PiniaVuePlugin } from 'pinia'
-
-Vue.use(PiniaVuePlugin)
-const pinia = createPinia()
 
 const UserMenuItemView = Vue.extend(UserMenuItem)
-const View = new UserMenuItemView({ pinia })
+const View = new UserMenuItemView()
 
 window.addEventListener('DOMContentLoaded', function() {
 
