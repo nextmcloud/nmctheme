@@ -21,8 +21,39 @@ use Psr\Log\LoggerInterface;
 class L10NResourceLocatorExtension extends JSResourceLocator {
 	private const LANG_THEME_URL = '/index.php/apps/nmctheme/lang';
 
-	public function __construct(LoggerInterface $logger, JSCombiner $JSCombiner, IAppManager $appManager) {
-		parent::__construct($logger, $JSCombiner, $appManager);
+	private $ownAppManager;
+
+	/**
+	 * The constructor changed between V25 and V27 multiple times,
+	 * so we try to handle different backports in this constructor.
+	 *
+	 */
+	public function __construct(LoggerInterface $logger, JSCombiner $jsCombiner, IAppManager $appManager) {
+		$this->ownAppManager = $appManager;
+
+		// later
+		try {
+			parent::__construct($logger, $jsCombiner, $appManager);
+			return;
+		} catch (\Throwable $eWrongConstruct1) {
+			// ignore the exception, try another constructor
+		}
+
+		// V26
+		try {
+			parent::__construct($logger, $jsCombiner);
+			return;
+		} catch (\Throwable $eWrongConstruct2) {
+			// ignore the exception, try another constructor
+		}
+
+		// V25
+		parent::__construct($logger,
+			'',
+			[ \OC::$SERVERROOT => \OC::$WEBROOT ],
+			[ \OC::$SERVERROOT => \OC::$WEBROOT ],
+			$jsCombiner);
+		return;
 	}
 
 	/**
@@ -39,7 +70,7 @@ class L10NResourceLocatorExtension extends JSResourceLocator {
 				return;
 			}
 
-			$appPath = $this->appManager->getAppPath($app);
+			$appPath = $this->ownAppManager->getAppPath($app);
 			if (is_file($appPath . $file . '.json')) {
 				$this->append(\OC::$SERVERROOT, $app . $file . '.js', \OC::$WEBROOT . self::LANG_THEME_URL, false);
 				return;
