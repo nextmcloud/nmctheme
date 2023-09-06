@@ -1,11 +1,11 @@
 #app-navigation.without-app-settings:not(.vue)>ul>li.active,
 #app-navigation.without-app-settings:not(.vue)>ul>li.active>a {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
 #app-navigation.without-app-settings li:hover span,
 #app-navigation.without-app-settings li.active span {
-  color:#e20074 !important;
+  color:var(--telekom-color-primary-standard);
 }
 
 #monthly-notifications-settings {
@@ -16,7 +16,7 @@
 	h1 {
 		font-size: 1.25rem;
 		font-weight: bold;
-		color: #000;
+		color: var(--telekom-color-text-and-icon-standard);
 		margin-top: 0;
 		margin-bottom: 1rem;
 	}
@@ -24,7 +24,7 @@
 	.settings-hint {
 		margin-top: 0.5rem;
 		opacity: unset;
-		color: #666;
+		color: var(--telekom-color-ui-strong);
 	}
 }
 
@@ -43,13 +43,13 @@
 
 		h3 {
 			margin: 0;
-			color: #000;
+			color: var(--telekom-color-text-and-icon-standard);
 			font-weight: bold;
 			font-size: 1.25rem;
 		}
 
 		a {
-			color:#e20074;
+			color:var(--telekom-color-primary-standard);
 		}
 
 		section, .section {
@@ -61,8 +61,9 @@
 				width: 400px;
 				height: 3rem;
 				padding: 1rem;
-				background-color: #e5e5e5;
-				border: 1px solid #e5e5e5;
+				background-color: var(--telekom-color-ui-subtle);
+				border: 1px solid var(--telekom-color-ui-subtle);
+				border-radius: var(--telekom-radius-small);
 			}
 	
 			em {
@@ -71,7 +72,7 @@
 		}
 
 		.headerbar-label {
-			color: #666;
+			color: var(--telekom-color-ui-strong);
 			font-size: 1rem;
 			font-weight: normal;
 			height: 1.5rem;
@@ -131,8 +132,9 @@
 					width: 400px;
 					height: 3rem;
 					padding: 1rem;
-					background-color: #e5e5e5;
-					border: 1px solid #e5e5e5;
+					background-color: var(--telekom-color-ui-subtle);
+					border: 1px solid var(--telekom-color-ui-subtle);
+					border-radius: var(--telekom-radius-small);
 				}
 			
 				.button {
@@ -147,7 +149,7 @@
 				}
 			
 				span {
-					color:#e20074;
+					color:var(--telekom-color-primary-standard);
 					padding-left: 0.25rem;
 				}
 			
@@ -171,12 +173,13 @@
 
 					input[type='text'] {
 						background: none;
-						border: 1px solid #000;
+						border: 1px solid var(--telekom-color-text-and-icon-standard);
+						border-radius: var(--telekom-radius-small);
 					}
 				}
 
 				button {
-					margin: 0.5rem 0 0 0;
+					margin: 0;
 				}
 			}
 		}
@@ -226,7 +229,7 @@
 						height: 8px;
 						border-top-right-radius: 10px;
 						border-bottom-right-radius: 10px;
-						background: #fff;
+						background: var(--telekom-color-ui-base);
 					}
 				}
 			}
@@ -290,16 +293,16 @@
 	button {
 		height: 40px;
 		padding: 0 1.5rem;
-		background-color: #fff;
-		border-color: #000;
-		color:#000;
-		border-radius: 4px;
+		background-color: var(--telekom-color-ui-base);
+		border-color: var(--telekom-color-text-and-icon-standard);
+		color: var(--telekom-color-text-and-icon-standard);
+		border-radius: var(--telekom-radius-small);
 		font-size: 1rem;
 		margin: 1rem 0 0 0;
 
 		&:hover{
-			border: 1px solid #e20074;
-			color: #e20074;
+			border: 1px solid var(--telekom-color-primary-standard);
+			color: var(--telekom-color-primary-standard);
 		}
 	}
 
@@ -307,8 +310,9 @@
 		width: 400px;
 		height: 3rem;
 		padding: 1rem;
-		background-color: #fff;
-		border: 1px solid #000;
+		background-color: var(--telekom-color-ui-base);
+		border: 1px solid var(--telekom-color-text-and-icon-standard);
+		border-radius: var(--telekom-radius-small);
 		display: inline-block;
 	}
 }
@@ -319,9 +323,10 @@
 
 	input[type='text'] {
 		width: 400px;
-		height: 48px;
+		height: 3rem;
 		padding: 1rem;
-		background-color: #e5e5e5;
-		border: 1px solid #e5e5e5;
+		background-color: var(--telekom-color-ui-subtle);
+		border: 1px solid var(--telekom-color-ui-subtle);
+		border-radius: var(--telekom-radius-small);
 	}
 }
