@@ -1,27 +1,28 @@
 import Vue from 'vue'
-import UserMenuItem from '../components/UserMenuItem.vue'
+import UserMenu from '../components/UserMenu.vue'
 
 const menuItems = [{
-	itemId: 'customer-center',
-	itemName: 'Customer Center',
-	itemIcon: '/customapps/nmctheme/img/settings/img/kundencenter.svg',
-	itemUrl: 'https://www.telekom.de/mein-kundencenter',
-	itemTarget: '_blank',
+	id: 'customer-center',
+	name: 'Customer Center',
+	icon: '/customapps/nmctheme/img/settings/img/kundencenter.svg',
+	url: 'https://www.telekom.de/mein-kundencenter',
+	target: '_blank',
 }, {
-	itemId: 'help',
-	itemName: 'Help & FAQ',
-	itemIcon: '/customapps/nmctheme/img/settings/img/help.svg',
-	itemUrl: 'https://cloud.telekom-dienste.de/hilfe',
-	itemTarget: '_blank',
+	id: 'help',
+	name: 'Help & FAQ',
+	icon: '/customapps/nmctheme/img/settings/img/help.svg',
+	url: 'https://cloud.telekom-dienste.de/hilfe',
+	target: '_blank',
 }, {
-	itemId: 'settings',
-	itemName: 'Account Settings',
-	itemIcon: '/customapps/nmctheme/img/settings/img/admin.svg',
-	itemUrl: '/index.php/settings/user/account',
-	itemTarget: '_self',
+	id: 'settings',
+	name: 'Account Settings',
+	icon: '/customapps/nmctheme/img/settings/img/admin.svg',
+	url: '/index.php/settings/user/account',
+	target: '_self',
 }]
 
-const UserMenuItemView = Vue.extend(UserMenuItem)
+const UserMenuView = Vue.extend(UserMenu)
+const View = new UserMenuView({ propsData: { menuItems: menuItems } })
 
 window.addEventListener('DOMContentLoaded', function() {
 
@@ -35,16 +36,10 @@ window.addEventListener('DOMContentLoaded', function() {
 	logoutIcon.src = '/customapps/nmctheme/img/actions/logout.svg'
 
 	const userMenu = document.querySelector('nav.user-menu__nav ul')
-
-	menuItems.forEach(function(menuItem) {
-		const menuItemElement = document.createElement('div')
-		menuItemElement.id = 'nmcsettings-menu-' + menuItem.itemId
-		userMenu.prepend(menuItemElement)
-
-		new UserMenuItemView({
-			propsData: menuItem,
-		}).$mount('#nmcsettings-menu-' + menuItem.itemId)
-	})
+	const menuElements = document.createElement('div')
+	menuElements.id = 'nmcsettings-menu'
+	userMenu.prepend(menuElements)
+	View.$mount('#nmcsettings-menu')
 
 	const settingsBody = document.getElementById('body-settings')
 	if (!settingsBody) return
