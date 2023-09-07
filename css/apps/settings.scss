@@ -1,13 +1,3 @@
-#app-navigation.without-app-settings:not(.vue)>ul>li.active,
-#app-navigation.without-app-settings:not(.vue)>ul>li.active>a {
-  background-color: transparent;
-}
-
-#app-navigation.without-app-settings li:hover span,
-#app-navigation.without-app-settings li.active span {
-  color:var(--telekom-color-primary-standard);
-}
-
 #monthly-notifications-settings {
 	display: block;
 	padding: 1.25rem 0 0 2.25rem;

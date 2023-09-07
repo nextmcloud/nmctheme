@@ -22,8 +22,17 @@
 			min-height: 52px;
 			// hide all initial icons
 			background-image: none;
+
+			&:first-child {
+
+				img {
+					width: 24px;
+    				height: 24px;
+				}
+			}
 		}
-		& > a:hover,  & > a.active{
+
+		& > a:hover,  & > a.active, &.active > a {
 			color: var(--color-hover);
 			background-color: #EDEDED;
 			&::after {
