@@ -5,10 +5,29 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  * Note: Take care of Telekom branding restrictions!
  */
-#body-user #content {
 
+ #body-user {
+    background-image: url('../../../../customapps/nmctheme/img/mcfluffy.jpg');
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: top center;
+}
+
+#content {
+    position: fixed;
+    inset: -0.5rem 16px 0 0;
+    width: 98vw;
+    border-radius: 0;
+    margin: 16px;
+}
+
+#body-user #content {
     // FIXME  find a better way to get some space for the footer
     // in user (and public layouts?) only
     // Remember that you have two lines on mobile view
     padding-bottom: calc(2*var(--telekom-spacing-composition-space-08) + var(--telekom-spacing-composition-space-03) + var(--telekom-typography-font-size-caption));
+}
+
+#content .app-dashboard {
+    background-image:none;
 }

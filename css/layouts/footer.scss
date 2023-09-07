@@ -22,12 +22,14 @@ footer[role="contentinfo"] {
     background-color: var(--color-main-background);
     font: var(--footer-font);
     position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    margin-bottom: 16px;
+    left: 16px;
+    right: 16px;
+    bottom: 0; 
     max-height: var(--telekom-spacing-baseline-space-3);
+    max-width: 95.5vw;
     z-index: 998;
-    border-radius: var(--border-radius);
+    border-radius: 0px 0px 8px 8px;
 
     // TODO: fixed height?, as we may have to set padding etc.
     // height: auto;
@@ -40,6 +42,7 @@ footer[role="contentinfo"] {
     .footer-content {        
         display: flex;
         justify-content: space-between;
+        align-content: center;
         flex-wrap: wrap;
         gap: var(--telekom-spacing-composition-space-06);
 
