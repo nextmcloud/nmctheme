@@ -2,9 +2,13 @@
 	--body-height: calc(100% - env(safe-area-inset-bottom) - 68px - var(--body-container-margin));
 }
 
+#app-navigation:not(.vue) {
+	background-color: var(--color-main-background);;
+}
+
 /* CONTENT  --------------------------------------------------------- */
 #content {
-	margin-top: 68px;
+	margin-top: 84px;
 	height: var(--body-height);
 	border-radius: none;
 }
