@@ -177,9 +177,52 @@
 						border-radius: var(--telekom-radius-small);
 					}
 				}
+		
+				#security {
+					max-width: 800px;
 
-				button {
-					margin: 0;
+					input[type='text'] {
+						width: 400px;
+						height: 3rem;
+						padding: 1rem;
+						background-color: var(--telekom-color-ui-subtle);
+						border: 1px solid var(--telekom-color-ui-subtle);
+						border-radius: var(--telekom-radius-small);
+					}
+					
+					table {
+
+						th {
+							background-color: var(--telekom-color-ui-subtle);
+							color: var(--telekom-color-text-and-icon-standard);
+							font-weight: bold;
+							opacity: 1;
+						}
+
+						tr:last-child {
+
+							td {
+								border-bottom: 1px solid var(--color-border);
+							}
+						}
+
+						button {
+							background: none;
+							border: 0;
+						}
+					}
+
+					button {
+						margin: 0;
+					}
+
+					.app-password-row {
+						margin-top: 1rem;
+
+						.button-vue--icon-only {
+							border: 0;
+						}
+					}
 				}
 			}
 		}
@@ -314,19 +357,5 @@
 		border: 1px solid var(--telekom-color-text-and-icon-standard);
 		border-radius: var(--telekom-radius-small);
 		display: inline-block;
-	}
-}
-
-#security {
-	padding-left: 1rem;
-	max-width: 800px;
-
-	input[type='text'] {
-		width: 400px;
-		height: 3rem;
-		padding: 1rem;
-		background-color: var(--telekom-color-ui-subtle);
-		border: 1px solid var(--telekom-color-ui-subtle);
-		border-radius: var(--telekom-radius-small);
 	}
 }

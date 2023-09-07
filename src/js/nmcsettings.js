@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	const settingsBody = document.getElementById('body-settings')
 	if (!settingsBody) return
 
-	// TODO: Find a way to remove app navigation elements in NC25
+	// removes app navigation elements
 	document.querySelectorAll('[data-section-type]').forEach(function(element) {
 		const type = element.attributes['data-section-type'].value
 		if (type === 'personal') {
@@ -29,6 +29,18 @@ window.addEventListener('DOMContentLoaded', function() {
 			if (id !== 'account' && id !== 'session') {
 				element.remove()
 			}
+		}
+	})
+
+	// removes app navigation elements in NC25
+	document.querySelectorAll('#app-navigation li a').forEach(function(element) {
+		const href = element.attributes['href'].value
+		const user = "/user";
+		const account = "/account";
+		const session = "/session";
+
+		if (href.includes(user) && !href.includes(account) && !href.includes(session)) {
+			element.parentElement.remove()
 		}
 	})
 })
