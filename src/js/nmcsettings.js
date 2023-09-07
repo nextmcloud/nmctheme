@@ -38,6 +38,9 @@ window.addEventListener('DOMContentLoaded', function() {
 	const menuButton = document.querySelector('#user-menu > a')
 	menuButton.innerHTML = '<span>'+user+'</span>'
 
+	const searchButton = document.querySelector('#unified-search > a')
+	searchButton.innerHTML = '<span>Suche</span>'
+
 	const logoutIcon = document.querySelector('nav.user-menu__nav img')
 	logoutIcon.src = '/customapps/nmctheme/img/actions/logout.svg'
 
