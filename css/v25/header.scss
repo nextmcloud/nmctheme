@@ -37,8 +37,13 @@
     }
 
     #user-menu {
+        width: auto;
+
         .header-menu__trigger {
             background-image: var(--icon-user-dark);
+            background-position-x: 12px;
+            padding: 0 12px 0 48px;
+            width: auto;
         }
     }
 }

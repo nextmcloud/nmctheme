@@ -27,8 +27,5 @@ export default {
 	methods: {
 		t: translate,
 	},
-	mounted: function() {
-		console.log(this.menuItems)
-	},
 }
 </script>

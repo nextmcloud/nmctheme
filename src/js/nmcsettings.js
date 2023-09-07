@@ -2,11 +2,11 @@ import Vue from 'vue'
 import UserMenu from '../components/UserMenu.vue'
 
 const menuItems = [{
-	id: 'customer-center',
-	name: 'Customer Center',
-	icon: '/customapps/nmctheme/img/settings/img/kundencenter.svg',
-	url: 'https://www.telekom.de/mein-kundencenter',
-	target: '_blank',
+	id: 'settings',
+	name: 'Account Settings',
+	icon: '/customapps/nmctheme/img/settings/img/admin.svg',
+	url: '/index.php/settings/user/account',
+	target: '_self',
 }, {
 	id: 'help',
 	name: 'Help & FAQ',
@@ -14,11 +14,11 @@ const menuItems = [{
 	url: 'https://cloud.telekom-dienste.de/hilfe',
 	target: '_blank',
 }, {
-	id: 'settings',
-	name: 'Account Settings',
-	icon: '/customapps/nmctheme/img/settings/img/admin.svg',
-	url: '/index.php/settings/user/account',
-	target: '_self',
+	id: 'customer-center',
+	name: 'Customer Center',
+	icon: '/customapps/nmctheme/img/settings/img/kundencenter.svg',
+	url: 'https://www.telekom.de/mein-kundencenter',
+	target: '_blank',
 }]
 
 const UserMenuView = Vue.extend(UserMenu)
@@ -31,6 +31,12 @@ window.addEventListener('DOMContentLoaded', function() {
 			element.remove()
 		}
 	})
+
+	let head = document.querySelector('head')
+	const user = head.attributes['data-user'].value
+
+	const menuButton = document.querySelector('#user-menu > a')
+	menuButton.innerHTML = '<span>'+user+'</span>'
 
 	const logoutIcon = document.querySelector('nav.user-menu__nav img')
 	logoutIcon.src = '/customapps/nmctheme/img/actions/logout.svg'
