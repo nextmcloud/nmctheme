@@ -1,0 +1,22 @@
+#user-menu {
+
+    .user-menu {
+    
+        &__nav {
+            
+            ul {
+                
+                li.menu-entry {
+                    
+                    a, button {
+                        
+                        img {
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

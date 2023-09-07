@@ -4,6 +4,7 @@ const path = require('path')
 module.exports = {
 	entry: {
 		filessettings: './src/js/filessettings.js',
+		nmcsettings: './src/js/nmcsettings.js',
 		// keep src for future use: l10nappender: './src/l10nappender.ts',
 		conflictdialog: './src/js/conflictdialog.js',
 		nmcfooter: './src/nmcfooter.ts',
