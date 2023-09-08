@@ -35,12 +35,18 @@
         background-position: top center;
         background-repeat: no-repeat;
         background-clip: border-box;
-        z-index: 200;
+        z-index: 500;
 
         .v-align {
+            margin-top: 100px;
             top: 0;
 
-            header #header .logo {
+            header .brand .title {
+                visibility: hidden;
+            }
+
+            header .brand .logo {
+                visibility: hidden;
                 background-image: unset;
             }
         }
@@ -51,10 +57,14 @@
 }
 
 #body-login footer[role="contentinfo"] {
-    opacity: var(--telekom-opacity-translucent);
+    //opacity: var(--telekom-opacity-transparent);
     // this overrides nextcloud properties in versions 25 and 26 that affect our custom footer
+    border-top: var(--telekom-spacing-composition-space-01);
+    background-color: unset;
     margin-bottom: 0;
     min-height: auto;
+    z-index: 400;
+    color: var(--telekom-color-ui-strong);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,5 +72,7 @@
         background-image: linear-gradient(rgba(0, 0, 0, 0.5),
                 rgba(0, 0, 0, 0.5)),
             url('../img/telekom/consent.svg');
+        // don't switch text color
+        color: var(--telekom-color-ui-regular);
     }
 }

@@ -16,8 +16,6 @@ footer {
     --footer-font: var(--telekom-text-style-caption-bold);
 }
 
-#body-login footer[role="contentinfo"],
-// need to override NC guest.scss
 footer[role="contentinfo"] {
     background-color: var(--color-main-background);
     font: var(--footer-font);
