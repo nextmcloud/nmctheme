@@ -22,7 +22,7 @@ const menuItems = [{
 }]
 
 const UserMenuView = Vue.extend(UserMenu)
-const View = new UserMenuView({ propsData: { menuItems: menuItems } })
+const View = new UserMenuView({ propsData: { menuItems } })
 
 window.addEventListener('DOMContentLoaded', function() {
 
@@ -32,11 +32,11 @@ window.addEventListener('DOMContentLoaded', function() {
 		}
 	})
 
-	let head = document.querySelector('head')
+	const head = document.querySelector('head')
 	const user = head.attributes['data-user'].value
 
 	const menuButton = document.querySelector('#user-menu > a')
-	menuButton.innerHTML = '<span>'+user+'</span>'
+	menuButton.innerHTML = '<span>' + user + '</span>'
 
 	const searchButton = document.querySelector('#unified-search > a')
 	searchButton.innerHTML = '<span>Suche</span>'

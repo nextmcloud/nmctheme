@@ -5,10 +5,9 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  * Note: Take care of Telekom branding restrictions!
  */
-#body-user #content {
 
-    // FIXME  find a better way to get some space for the footer
-    // in user (and public layouts?) only
-    // Remember that you have two lines on mobile view
-    padding-bottom: calc(2*var(--telekom-spacing-composition-space-08) + var(--telekom-spacing-composition-space-03) + var(--telekom-typography-font-size-caption));
+#content {
+    &.app-dashboard {
+        background: rgba(255,255,255,0.75);
+    }
 }

@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<li v-for="item in items" :id="item.id" class="menu-entry">
+		<li v-for="item in items"
+			:id="item.id"
+			:key="item.id"
+			class="menu-entry">
 			<a :href="item.url" :target="target">
 				<img :src="item.icon">
 				<span>{{ t('nmcsettings', item.name) }}</span>
@@ -17,7 +20,7 @@ export default {
 		menuItems: {
 			type: Array,
 			required: true,
-		}
+		},
 	},
 	data() {
 		return {

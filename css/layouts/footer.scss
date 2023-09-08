@@ -16,26 +16,19 @@ footer {
     --footer-font: var(--telekom-text-style-caption-bold);
 }
 
-#body-login footer[role="contentinfo"],
-// need to override NC guest.scss
 footer[role="contentinfo"] {
     background-color: var(--color-main-background);
+    border-radius: 0px 0px 0.5rem 0.5rem;
     font: var(--footer-font);
     position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    max-height: var(--telekom-spacing-baseline-space-3);
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    max-height: 60px;
+    max-width: calc(100% - 2rem);
     z-index: 998;
-    border-radius: var(--border-radius);
-
-    // TODO: fixed height?, as we may have to set padding etc.
-    // height: auto;
-    border-left: var(--telekom-spacing-composition-space-08);
-    border-right: var(--telekom-spacing-composition-space-08);
-    border-bottom: var(--telekom-spacing-composition-space-08);
     border-top: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
-    padding: var(--telekom-spacing-composition-space-08);
+    padding: var(--telekom-spacing-composition-space-07) var(--telekom-spacing-composition-space-08);
 
     .footer-content {        
         display: flex;

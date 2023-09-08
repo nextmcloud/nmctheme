@@ -4,6 +4,7 @@
 * Custom 'File already exists' dialog
 */
 .oc-dialog.oc-conflict-pre-dlg {
+
 	// modal dialog title
 	div.flex-container {
 		display: flex;
@@ -71,4 +72,4 @@
 	.oc-dialog.oc-conflict-pre-dlg {
 		border: 1px solid var(--telekom-color-ui-regular);
 	}
-  }
+}
