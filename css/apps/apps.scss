@@ -3,7 +3,7 @@
 }
 
 #app-navigation:not(.vue) {
-	background-color: var(--color-main-background);;
+	background-color: var(--color-main-background);
 }
 
 #body-user,
@@ -17,8 +17,8 @@
 
 /* CONTENT  --------------------------------------------------------- */
 #content {
-    border-radius: 0;
+  border-radius: 0;
 	margin: 76px 16px 0;
 	height: var(--body-height);
-    width: calc(100% - 32px);
+  width: calc(100% - 32px);
 }

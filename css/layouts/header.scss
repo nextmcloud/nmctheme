@@ -37,7 +37,7 @@ header {
 #body-settings #header,
 #body-public #header {
 	background: var(--telekom-color-background-surface) !important;
-    border-bottom: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
+  border-bottom: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
 	border-radius: 0.5rem 0.5rem 0px 0px;
 	height: var(--header-height);
 	margin: 1rem 1rem 0;
@@ -53,7 +53,6 @@ header {
 			width: 60px;
 			height: 60px;
 			margin-left: 1.5rem;
-
 		}
 		.title {
 			font-size: 25px;
@@ -61,7 +60,6 @@ header {
 			width: 200px;
 		}
 	}
-
 
 	// logo and application name
 	#nextcloud {

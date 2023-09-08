@@ -33,6 +33,7 @@ footer[role="contentinfo"] {
     .footer-content {        
         display: flex;
         justify-content: space-between;
+        align-content: center;
         flex-wrap: wrap;
         gap: var(--telekom-spacing-composition-space-06);
 

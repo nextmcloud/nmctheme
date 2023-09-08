@@ -58,35 +58,34 @@
 		background-color: var(--color-main-background);
 		opacity: 0.97;
 	}
+}
 
-	table {
-		thead {
-			// vertically align 'Name' label
-			th .columntitle.name {
-				padding-left: 20px;
-			}
+table.files-filestable {
+	thead {
+		// vertically align 'Name' label
+		th .columntitle.name {
+			padding-left: 20px;
 		}
-		tbody tr {
-			height: 68px;
+	}
+	tbody tr {
+		height: 68px;
 
-			// filename column
-			td .nametext {
-				padding-left: 20px;
-			}
+		// filename column
+		td .nametext {
+			padding-left: 20px;
+		}
 
-			.thumbnail-wrapper {
-				height: 50px;
-				width: 50px;
-				.thumbnail {
-					margin-top: 0.2rem;
-					width: 44px;
-					height: 44px;
-					background-size: 74px;
-					background-position: center;
-					background-repeat: no-repeat;
-				}
+		.thumbnail-wrapper {
+			height: 50px;
+			width: 50px;
+			.thumbnail {
+				margin-top: 0.2rem;
+				width: 44px;
+				height: 44px;
+				background-size: 74px;
+				background-position: center;
+				background-repeat: no-repeat;
 			}
 		}
 	}
-
 }
