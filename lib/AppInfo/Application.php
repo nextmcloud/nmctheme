@@ -15,8 +15,8 @@ use OC\L10N\Factory;
 use OC\Template\JSCombiner;
 use OC\Template\JSResourceLocator;
 use OC\URLGenerator;
+use OCA\NMCTheme\JSResourceLocatorExtension;
 use OCA\NMCTheme\L10N\FactoryDecorator;
-use OCA\NMCTheme\L10N\L10NResourceLocatorExtension;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Themes\Magenta;
@@ -37,6 +37,7 @@ use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\AppFramework\QueryException;
+use OCP\Files\IMimeTypeDetector;
 
 // FIXME: required private accesses; we have to find better ways
 // when integrating upstream
@@ -44,6 +45,7 @@ use OCP\IConfig;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
 use OCP\L10N\IFactory;
+use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
 class Application extends App implements IBootstrap {
@@ -88,11 +90,26 @@ class Application extends App implements IBootstrap {
 	}
 
 	/**
+	 * Take mimetype customisations out of our nmctheme package, not from anywhere else
+	 */
+	protected function registerMimeTypeCustomisations(IRegistrationContext $context) {
+		$this->getContainer()->getServer()->registerService(IMimeTypeDetector::class, function (ContainerInterface $c) {
+			return new \OC\Files\Type\Detection(
+				$c->get(IURLGenerator::class),
+				$c->get(LoggerInterface::class),
+				$c->get(IAppManager::class)->getAppPath(self::APP_ID) . '/resources/config/',
+				\OC::$SERVERROOT . '/resources/config/'
+			);
+		});
+	}
+
+
+	/**
 	 * Decorate the IURLGenerator to intercept request for theming favicons.
 	 */
-	protected function registerL10NResourceLocatorExtension(IRegistrationContext $context) {
-		$this->getContainer()->getServer()->registerService(JSResourceLocator::class, function ($c) {
-			return new L10NResourceLocatorExtension(
+	protected function registerJSResourceLocatorExtension(IRegistrationContext $context) {
+		$this->getContainer()->getServer()->registerService(JSResourceLocator::class, function (ContainerInterface $c) {
+			return new JSResourceLocatorExtension(
 				$c->get(LoggerInterface::class),
 				$this->getContainer()->getServer()->query(JSCombiner::class),
 				$c->get(IAppManager::class)
@@ -107,7 +124,7 @@ class Application extends App implements IBootstrap {
 	 * from this app or delegated to the original factory
 	 */
 	protected function registerIFactoryDecorator(IRegistrationContext $context) {
-		$this->getContainer()->getServer()->registerService(IFactory::class, function ($c) {
+		$this->getContainer()->getServer()->registerService(IFactory::class, function (ContainerInterface $c) {
 			return new FactoryDecorator(
 				$c->get(IConfig::class),
 				$this->getContainer()->getServer()->query(Factory::class)
@@ -151,13 +168,17 @@ class Application extends App implements IBootstrap {
 		});
 
 		// intercept language reference generation to deviate to appender service
-		$this-> registerL10NResourceLocatorExtension($context);
+		$this-> registerJSResourceLocatorExtension($context);
 		
 		// intercept requests for favicons to enforce own behavior
 		$this->registerURLGeneratorDecorator($context);
 
 		// intercept requests for translations, theme specific translations have prio
 		$this->registerIFactoryDecorator($context);
+
+		// load mimetype customisations from within the theme to keep all customisations in one place
+		$this->registerMimeTypeCustomisations($context);
+
 
 		/**
 		 * Add listeners that can inject additional information or scripts before rendering

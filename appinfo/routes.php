@@ -12,6 +12,16 @@ return [
 			'name' => 'L10NAppend#getTranslations',
 			'url' => '/lang/{app}/l10n/{lang}.js',
 			'verb' => 'GET',
-		]
+		],
+		[
+			'name' => 'MimeIcon#getMimeTypeList',
+			'url' => '/mime/js/mimetypelist.js',
+			'verb' => 'GET',
+		],
+		[
+			'name' => 'MimeIcon#getMimeIcon',
+			'url' => '/mime/img/{iconname}.svg',
+			'verb' => 'GET',
+		],
 	]
 ];
