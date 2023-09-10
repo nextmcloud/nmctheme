@@ -27,7 +27,6 @@
         border-top: 0px;
         margin-top: 0px;
 
-
         // the bubble text is always on top center,
         // but clipped if window gets too small
         background-image: url('../img/telekom/mcbubble.svg');
@@ -59,9 +58,8 @@
 #body-login footer[role="contentinfo"] {
     //opacity: var(--telekom-opacity-transparent);
     // this overrides nextcloud properties in versions 25 and 26 that affect our custom footer
-    border-top: var(--telekom-spacing-composition-space-01);
-    background-color: unset;
-    margin-bottom: 0;
+    border: none;
+    border-radius: 0.5rem;
     min-height: auto;
     z-index: 400;
     color: var(--telekom-color-ui-strong);

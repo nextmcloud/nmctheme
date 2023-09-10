@@ -37,8 +37,20 @@
     }
 
     #user-menu {
+
         .header-menu__trigger {
             background-image: var(--icon-user-dark);
+        }
+    }
+    
+    #user-menu, #unified-search {
+        width: auto;
+
+        .header-menu__trigger {
+            background-position-x: 12px;
+            font-weight: bold;
+            padding: 0 12px 0 48px;
+            width: auto;
         }
     }
 }

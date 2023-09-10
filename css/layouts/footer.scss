@@ -18,25 +18,17 @@ footer {
 
 footer[role="contentinfo"] {
     background-color: var(--color-main-background);
+    border-radius: 0px 0px 0.5rem 0.5rem;
     font: var(--footer-font);
     position: fixed;
-    margin-bottom: 16px;
-    left: 16px;
-    right: 16px;
-    bottom: 0; 
-    max-height: var(--telekom-spacing-baseline-space-3);
-    max-width: 95.25vw;
-    min-width: 94.6vw;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    max-height: 60px;
+    max-width: calc(100% - 2rem);
     z-index: 998;
-    border-radius: 0px 0px 8px 8px;
-
-    // TODO: fixed height?, as we may have to set padding etc.
-    // height: auto;
-    border-left: var(--telekom-spacing-composition-space-08);
-    border-right: var(--telekom-spacing-composition-space-08);
-    border-bottom: var(--telekom-spacing-composition-space-08);
     border-top: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
-    padding: var(--telekom-spacing-composition-space-08);
+    padding: var(--telekom-spacing-composition-space-07) var(--telekom-spacing-composition-space-08);
 
     .footer-content {        
         display: flex;

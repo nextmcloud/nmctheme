@@ -1,14 +1,22 @@
 @import '../_mixins.scss';
 
+$breakpoint-mobile: 1024px;
+
 /**
 * Sidebar navigation styling for v25
 */
+
 #app-navigation:not(.vue) {
 	// hide scrollbar which appears due to incorrect container height
 	overflow: hidden;
+	backdrop-filter: none;
 
 	// add vertical line to demarcate app navigation
 	border-right: 1px solid var(--telekom-color-ui-faint);
+	
+	& > ul {
+		padding: 1.5rem;
+	}
 
 	& > ul > li {
 		font: var(--telekom-text-style-ui-bold);
@@ -89,6 +97,25 @@
 	// hide nextcloud Storage quota element
 	#quota {
 		display: none;
+	}
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+	
+	#app-navigation:not(.vue) {
+		border-radius: 0;
+		transform: translateX(-316px);
+	}
+
+	.snapjs-left {
+
+		#app-navigation:not(.vue) {
+			transform: translateX(0px);
+		}
+	}
+
+	#app-navigation-toggle {
+		position: absolute;
 	}
 }
 

@@ -123,5 +123,10 @@
     "Expand storage": "Speicher erweitern",
     "Memory used up to {memoryUsage}%": "Speicher zu {memoryUsage}%% belegt",
     "Display settings": "Anzeigeeinstellungen"
+  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+  "nmcsettings": { "translations": {
+    "Customer Center": "Kundencenter",
+    "Help & FAQ": "Hilfe & FAQ",
+    "Account Settings": "Einstellungen",
   },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }

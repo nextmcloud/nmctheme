@@ -36,13 +36,13 @@ header {
 #body-user #header,
 #body-settings #header,
 #body-public #header {
-	position: fixed;
-	inset: 16px 16px 0 16px;
-	border-radius: 8px 8px 0px 0px;
-    width: 98%;
-	background-color: var(--telekom-color-background-surface);
-	box-shadow: var(--shadow);
+	background: var(--telekom-color-background-surface) !important;
+  border-bottom: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
+	border-radius: 0.5rem 0.5rem 0px 0px;
 	height: var(--header-height);
+	margin: 1rem 1rem 0;
+	position: fixed;
+    width: calc(100% - 2rem);
 
 	// brand logo update
 	.brand {
@@ -52,12 +52,12 @@ header {
 			position: initial;
 			width: 60px;
 			height: 60px;
-			padding-left: 32px;
-
+			margin-left: 1.5rem;
 		}
 		.title {
 			font-size: 25px;
-			margin: auto 48px auto 5px;
+			margin: auto 2.5rem auto 1rem;
+			width: 200px;
 		}
 	}
 
