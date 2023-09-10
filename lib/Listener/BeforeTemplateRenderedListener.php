@@ -11,26 +11,26 @@ declare(strict_types=1);
  */
 namespace OCA\NMCTheme\Listener;
 
+use OC\Security\CSP\ContentSecurityPolicyNonceManager;
+use OCA\Theming\Util;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
-use OC\Security\CSP\ContentSecurityPolicyNonceManager;
-use OCP\IURLGenerator;
 
-use OCA\Theming\Util;
+use OCP\IURLGenerator;
 
 class BeforeTemplateRenderedListener implements IEventListener {
 	private IURLGenerator $urlGenerator;
 	private ContentSecurityPolicyNonceManager $nonceManager;
-    private Util $themingUtil;
+	private Util $themingUtil;
 
 	public function __construct(
 		IURLGenerator $urlGenerator,
-        ContentSecurityPolicyNonceManager $nonceManager,
-        Util $themingUtil
+		ContentSecurityPolicyNonceManager $nonceManager,
+		Util $themingUtil
 	) {
 		$this->urlGenerator = $urlGenerator;
-        $this->nonceManager = $nonceManager;
-        $this->themingUtil = $themingUtil;
+		$this->nonceManager = $nonceManager;
+		$this->themingUtil = $themingUtil;
 	}
 
 	/**
@@ -48,18 +48,18 @@ class BeforeTemplateRenderedListener implements IEventListener {
 			$response->setParams($tmplparams);
 		}
 
-        // add own mimetypelist from the dynamic service endpoint
+		// add own mimetypelist from the dynamic service endpoint
 		$mimetypelist = $this->urlGenerator->linkToRoute('nmctheme.MimeIcon.getMimeTypeList');
-        \OCP\Util::addHeader("script", 
-            [ 'nonce' => $this->nonceManager->getNonce(),
-                'src' => $mimetypelist . '?nmcv=' . $this->themingUtil->getCacheBuster() ],
-            ''); // the empty text is needed to generate HTML5 valid tags
+		\OCP\Util::addHeader("script",
+			[ 'nonce' => $this->nonceManager->getNonce(),
+				'src' => $mimetypelist . '?nmcv=' . $this->themingUtil->getCacheBuster() ],
+			''); // the empty text is needed to generate HTML5 valid tags
 
 
 		// you can add additional styles, links and scripts before rendering
 		// keep src for future use:   \OCP\Util::addScript("nmctheme", "../dist/l10nappender");
 		\OCP\Util::addScript("nmctheme", "../dist/mimetypes", "core");
-        \OCP\Util::addScript('nmctheme', '../dist/nmcfooter', 'theming');
+		\OCP\Util::addScript('nmctheme', '../dist/nmcfooter', 'theming');
 		\OCP\Util::addScript("nmctheme", "../dist/filessettings");
 		\OCP\Util::addScript("nmctheme", "../dist/nmcsettings");
 		\OCP\Util::addScript("nmctheme", "../dist/nmclogo");

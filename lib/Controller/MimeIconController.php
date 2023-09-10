@@ -8,13 +8,12 @@
  */
 namespace OCA\NMCTheme\Controller;
 
-use OCP\App\IAppManager;
 use OCA\NMCTheme\AppInfo\Application;
+use OCP\App\IAppManager;
 use OCP\AppFramework\Controller;
 
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\DataDisplayResponse;
-use OCP\AppFramework\Http\FileDisplayResponse;
 use OCP\Files\IMimeTypeDetector;
 use OCP\IRequest;
 
@@ -25,32 +24,32 @@ use OCP\IRequest;
  * If none is found, and unknown icon is delivered
  */
 class MimeIconController extends Controller {
-    const FOLDER_ICON_FILES = [
-        "folder", 
-        "folder-encrypted",
-        "folder-shared",
-        "folder-public",
-        "folder-external",
-        "folder-external"];
+	public const FOLDER_ICON_FILES = [
+		"folder",
+		"folder-encrypted",
+		"folder-shared",
+		"folder-public",
+		"folder-external",
+		"folder-external"];
 
 
 	private IMimeTypeDetector $mimetypes;
-    private IAppManager $appManager;
+	private IAppManager $appManager;
 
 	/**
 	 * AppendController for translation constructor.
 	 *
 	 * @param IRequest $request
 	 * @param IMimeTypeDetector mimetype metadata (standard + custom merged)
-     * @param IAppAManager the application manager to get the app path
+	 * @param IAppAManager the application manager to get the app path
 	 */
 	public function __construct(
-        IRequest $request,
+		IRequest $request,
 		IMimeTypeDetector $mimetypes,
-        IAppManager $appManager) {
+		IAppManager $appManager) {
 		parent::__construct(Application::APP_ID, $request);
 		$this->mimetypes = $mimetypes;
-        $this->appManager = $appManager;
+		$this->appManager = $appManager;
 	}
 
 	/**
@@ -75,28 +74,28 @@ class MimeIconController extends Controller {
 
 		$resolvedAliases = [];
 		foreach ($aliases as $key => $value) {
-            // filter out comments
-            if (str_starts_with($key, '_')) {
-                continue;
-            }
+			// filter out comments
+			if (str_starts_with($key, '_')) {
+				continue;
+			}
 
-            // resolve values until depth 10
-            if (array_key_exists($value, $aliases)) {
-                for ($depth = 0; $depth < 10 && array_key_exists($value, $aliases); $depth++) {
-                    $value = $aliases[$value];
-                }    
-            }
-            // we build a new array so that all values resolve properly
+			// resolve values until depth 10
+			if (array_key_exists($value, $aliases)) {
+				for ($depth = 0; $depth < 10 && array_key_exists($value, $aliases); $depth++) {
+					$value = $aliases[$value];
+				}
+			}
+			// we build a new array so that all values resolve properly
 			$resolvedAliases[$key] = $value;
 		}
-        ksort($resolvedAliases);
+		ksort($resolvedAliases);
 
-        $mimefiles = array_map(function($name) { return '"' . str_replace('/', '-', $name) . '"'; }, 
-            array_unique(array_merge(self::FOLDER_ICON_FILES, array_values($resolvedAliases))));
-        sort($mimefiles);
+		$mimefiles = array_map(function ($name) { return '"' . str_replace('/', '-', $name) . '"'; },
+			array_unique(array_merge(self::FOLDER_ICON_FILES, array_values($resolvedAliases))));
+		sort($mimefiles);
 
 		$mimetypes = 'OC.MimeTypeList={ aliases: ';
-		$mimetypes .= json_encode($resolvedAliases, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES) . ',';
+		$mimetypes .= json_encode($resolvedAliases, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ',';
 		$mimetypes .= 'files: [' . implode(",\n", $mimefiles) . '],';
 		$mimetypes .= 'themes: [] }';
 

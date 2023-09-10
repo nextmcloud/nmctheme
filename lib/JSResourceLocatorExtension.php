@@ -60,7 +60,7 @@ class JSResourceLocatorExtension extends JSResourceLocator {
 	 * Deviate all language requests to the nmctheme language extension service
 	 */
 	public function doFind($script) {
-        // Translation extensions
+		// Translation extensions
 		if (str_contains($script, '/l10n/')) {
 			// only add script if corresponding app has a language json
 			$pos = strpos($script, '/');
