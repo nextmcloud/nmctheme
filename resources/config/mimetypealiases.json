@@ -1,0 +1,48 @@
+{
+	"_comment" : "Array of mimetype icon file aliases.",
+	"_comment2": "This file contains the mapping to own icon names",
+	"_comment3": "Icon filenames are derived from the mapping values. (eg '/' ==> '.')",
+
+    "image/targa": "image/tga",
+	"application/vnd.ms-fontobject": "font",
+	"application/x-font": "font",
+	"application/font-sfnt": "font",
+	"application/font-woff": "font",
+
+	"application/x-gzip": "application/gzip",
+	"application/gzip": "package/x-generic",
+    "application/zip": "package/x-generic",
+
+    "video/3gpp": "video",
+    "video/x-msvideo": "video",
+    "video/dv": "video",
+    "video/x-flv": "video",
+    "video/mp2t": "video",
+    "video/mp4": "video",
+    "video/quicktime": "video",
+    "video/MP2T": "video",
+    "video/mpeg": "video",
+    "video/ogg": "video",
+    "video/webm": "video",
+    "image/webp": "video",
+    "video/dvd": "video",
+
+    "audio/flac": "audio",
+    "audio/mpegurl": "audio",
+    "audio/mp4": "audio",
+    "audio/m4b": "audio/mp4",
+    "audio/mpeg": "audio",
+    "audio/ogg": "audio",
+    "audio/wav": "audio",
+    "audio/x-scpls": "audio",
+
+    "application/pdf": "application/pdf",
+
+    "application/x-ms-dos-executable": "application",
+    "application/x-msi": "application",
+    "application/x-apple-diskimage": "application",
+    "application/vnd.android.package-archive": "application",
+
+    "text/calendar": "text-calendar",
+    "text/vcard": "text-vcard"
+}
