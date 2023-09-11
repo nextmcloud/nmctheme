@@ -114,6 +114,9 @@
   "text": { "translations": {
     "Add Link": "Link hinzufügen"
   },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+  "photos": { "translations": {
+    "Photos": "Fotos"
+  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
   "nmctheme": { "translations": {
     "Copyright": " Telekom Deutschland GmbH",
     "OpenSource": "Open Source Lizenzen",
@@ -128,5 +131,7 @@
     "Customer Center": "Kundencenter",
     "Help & FAQ": "Hilfe & FAQ",
     "Account Settings": "Einstellungen",
+    "Display settings": "Anzeigeeinstellungen",
+    "PhotosMedia": "Medien"
   },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }
