@@ -1,0 +1,31 @@
+{
+	"_comment" : "Array mapping file extensions to mimetypes (in alphabetical order)",
+	"_comment2": "The first index in the mime type array is the assumed correct mimetype",
+	"_comment3": "and the second (if present) is a secure alternative",
+
+	"_comment4": "The theme only contains changes to Nextcloud standard",
+
+    "adoc": ["text/asciidoc", "text/plain"],
+    "asciidoc": ["text/asciidoc", "text/plain"],
+    "c": ["text/x-c"],
+    "c++": ["text/x-c++src"],
+    "cxx": ["text/x-c++src"],
+    "dmg": ["application/x-apple-diskimage"],
+    "hxx": ["text/x-h"],
+    "fodg": ["application/vnd.oasis.opendocument.graphics-flat-xml"],
+    "fodp": ["application/vnd.oasis.opendocument.presentation-flat-xml"],
+    "fods": ["application/vnd.oasis.opendocument.spreadsheet-flat-xml"],
+    "fodt": ["application/vnd.oasis.opendocument.text-flat-xml"],
+    "gz": ["application/gzip"],
+    "gzip": ["application/gzip"],
+	"zsh": ["text/x-shellscript"],
+	"scss": ["text/css"],
+    "ino": ["text/x-c++src"],
+    "ico": ["image/x-icon"],
+    "mjs": ["application/javascript", "text/plain"],
+    "cjs": ["application/javascript", "text/plain"],
+    "ts": ["application/javascript", "text/plain"],
+    "xsd": ["application/xml", "text/plain"],
+    "url": ["application/internet-shortcut"],
+    "webloc": ["application/internet-shortcut"]
+}

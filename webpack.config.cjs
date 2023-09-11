@@ -7,6 +7,7 @@ module.exports = {
 		nmcsettings: './src/js/nmcsettings.js',
 		// keep src for future use: l10nappender: './src/l10nappender.ts',
 		conflictdialog: './src/js/conflictdialog.js',
+        mimetypes: './src/js/mimetypes.js',
 		nmcfooter: './src/nmcfooter.ts',
 		nmclogo: './src/nmclogo.ts',
 	},

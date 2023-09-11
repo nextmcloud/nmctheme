@@ -11,14 +11,14 @@
  *
  */
 
-namespace OCA\NMCTheme\L10N;
+namespace OCA\NMCTheme;
 
 use OC\Template\JSCombiner;
 use OC\Template\JSResourceLocator;
 use OCP\App\IAppManager;
 use Psr\Log\LoggerInterface;
 
-class L10NResourceLocatorExtension extends JSResourceLocator {
+class JSResourceLocatorExtension extends JSResourceLocator {
 	private const LANG_THEME_URL = '/index.php/apps/nmctheme/lang';
 
 	private $ownAppManager;
@@ -60,6 +60,7 @@ class L10NResourceLocatorExtension extends JSResourceLocator {
 	 * Deviate all language requests to the nmctheme language extension service
 	 */
 	public function doFind($script) {
+		// Translation extensions
 		if (str_contains($script, '/l10n/')) {
 			// only add script if corresponding app has a language json
 			$pos = strpos($script, '/');
