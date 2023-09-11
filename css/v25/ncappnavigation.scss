@@ -15,7 +15,12 @@ $breakpoint-mobile: 1024px;
 	border-right: 1px solid var(--telekom-color-ui-faint);
 	
 	& > ul {
-		padding: 1.5rem;
+		padding: 4rem 1.5rem 1.5rem;
+	}
+	@media screen and (max-height: 768px) {
+		& > ul {
+			padding: 1.5rem;
+		}
 	}
 
 	& > ul > li {
@@ -36,6 +41,7 @@ $breakpoint-mobile: 1024px;
 				img {
 					width: 24px;
     				height: 24px;
+					filter: var(--background-invert-if-dark);
 				}
 			}
 		}
