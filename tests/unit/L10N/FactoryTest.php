@@ -55,6 +55,7 @@ class FactoryTest extends TestCase {
 		$this->serverRoot = \OC::$SERVERROOT;
 
 		$this->config
+        ->expects(self::any())
 			->method('getSystemValueBool')
 			->willReturnMap([
 				['installed', false, true],

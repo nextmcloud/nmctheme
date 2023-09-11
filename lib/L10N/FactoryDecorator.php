@@ -94,8 +94,8 @@ class FactoryDecorator implements IFactory {
 			$filename = $l10nFilenames[0];
 			$json = json_decode(file_get_contents($filename), true);
 			if (!\is_array($json)) {
-				$jsonError = json_last_error();
-				\OC::$server->getLogger()->warning("Failed to load $filename - json error code: $jsonError", ['app' => 'l10n']);
+				$jsonError = json_last_error() . '-' . json_last_error_msg();
+				\OC::$server->getLogger()->warning("Failed to load $filename - json error: $jsonError", ['app' => 'l10n']);
 			} else {
 				$overrides = $json;
 			}

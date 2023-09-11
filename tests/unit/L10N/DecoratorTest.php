@@ -18,7 +18,7 @@ declare(strict_types=1);
  */
 namespace OCA\NMCTheme\Test\L10N;
 
-use OCA\NMCTheme\Controller\AppendController;
+use OCA\NMCTheme\Controller\L10NAppendController;
 use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCP\App\IAppManager;
 use OCP\IRequest;
@@ -71,6 +71,17 @@ class DecoratorTest extends TestCase {
 		$this->nmcFactory = $this->app->getContainer()->get(IFactory::class);
 		$this->assertInstanceOf(FactoryDecorator::class, $this->nmcFactory);
 	}
+
+    /**
+     * Check the readability of the translation files
+     */
+    public function testJsonLoad(): void {
+        foreach ($this->langFiles as $filename) {
+            $json = json_decode(file_get_contents($this->l10nPath . '/' . $filename), true);
+            $lastErr = json_last_error();
+            $this->assertEquals(0, $lastErr, "json problem: " . $lastErr . "-" . json_last_error_msg());
+        }
+    }
 
 
 	/**
@@ -133,7 +144,7 @@ class DecoratorTest extends TestCase {
 
 
 	public function testL10NAppendControllerCreate() {
-		new AppendController(
+		new L10NAppendController(
 			$this->app->getContainer()->get(IRequest::class),
 			$this->app->getContainer()->get(FactoryDecorator::class)
 		);
