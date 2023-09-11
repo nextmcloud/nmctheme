@@ -1,12 +1,17 @@
 @import '../_mixins.scss';
 
+@mixin magenta-icon {
+	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
+}
+
 // add small gap between app content and app navigation
 .app-files #app-content > .viewcontainer {
 	padding-left: 8px;
 }
 
 // filelist
-#app-content-files {
+#app-content-files, #app-content-trashbin {
+
 	// breadcrumb wrapper
 	.files-controls {
 		background-color: var(--color-main-background);
@@ -14,6 +19,7 @@
 	}
 
 	.actions.creatable {
+
 		// 'Add new file/folder' button inside breadcrumb
 		& > a.button.new {
 			background-color: var(--color-main-background);
@@ -24,7 +30,7 @@
 			margin: auto 0;
 
 			.icon.icon-add {
-				@include color-icon;
+				@include magenta-icon;
 				background-size: 16px 16px;
 			}
 		}
@@ -36,13 +42,14 @@
 	}
 
 	.fileactions {
+
 		// 'Share' status styles
 		.action-share.permanent {
 			opacity: 1;
 
 			// color shared files in maagenta
 			&.shared-style {
-				@include color-icon;
+				@include magenta-icon;
 			}
 
 			// increase share icon sizes
@@ -54,19 +61,125 @@
 		}
 	}
 
-	.files-filestable thead {
-		background-color: var(--color-main-background);
-		opacity: 0.97;
+	.files-filestable {
+		
+		thead {
+			background-color: var(--color-main-background);
+			opacity: 0.97;
+	
+			th {
+
+				&.column-selection {
+
+					input {
+
+						&.checkbox {
+
+							+ label:before {
+								margin-top: 2px;
+								vertical-align: top;
+							}
+						}
+					}
+
+					label {
+						padding-bottom: 0.75rem;
+						padding-top: 0.75rem;
+
+						span {
+							display: inline-block;
+							height: auto;
+							left: 0;
+							margin-left: 1rem;
+							overflow: auto;
+							position: relative;
+							top: 0;
+							width: 44px;
+						}
+					}
+				}
+	
+				.columntitle.name {
+					margin-left: 0px;
+					padding-bottom: 0.75rem;
+					padding-top: 0.75rem;
+				}
+			}
+		}
+
+		td > a a.action.action-menu {
+			display: none;
+		}
+	}
+
+	.selectedActions {
+
+		&> a.actions-selected {
+			display: none;
+		}
+
+		.filesSelectMenu {
+			background: none; 
+			border-radius: 0;
+			display: inline-block !important;
+			filter: unset;
+			margin: 0;
+			padding: 0;
+			position: unset;
+			transform: unset;
+
+			ul {
+				flex-direction: row;
+
+				li.item-toggleSelectionMode,
+				li.item-tags {
+					display: none;
+				}
+
+				a.menuitem.action {
+					background: none;
+					border: none;
+					border-radius: 0;
+					color: var(--telekom-color-text-and-icon-primary-standard);
+					position: relative;
+
+					.icon {
+						@include magenta-icon;
+						pointer-events: none;
+					}
+
+					&::before {
+						background-color: var(--color-primary);
+						border-radius: 0;
+						bottom: 0;
+						content: " ";
+						display: block;
+						height: 2px;
+						left: 50%;
+						opacity: 0;
+						pointer-events: none;
+						position: absolute;
+						transform: translateX(-50%);
+						transition: all .1s ease-in-out;
+						width: 100%;
+					}
+
+					&:hover, &:focus {
+						background: none;
+						border: none;
+
+						&::before {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
 table.files-filestable {
-	thead {
-		// vertically align 'Name' label
-		th .columntitle.name {
-			padding-left: 20px;
-		}
-	}
+
 	tbody tr {
 		height: 68px;
 
@@ -78,6 +191,7 @@ table.files-filestable {
 		.thumbnail-wrapper {
 			height: 50px;
 			width: 50px;
+
 			.thumbnail {
 				margin-top: 0.2rem;
 				width: 44px;

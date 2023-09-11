@@ -61,14 +61,14 @@ $breakpoint-mobile: 1024px;
             }
 
             &__carret {
-                transform: rotate(45deg);
-                bottom: -8px;
-                width: 16px;
+                background-color: var(--telekom-color-background-surface);
                 border: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
                 border-bottom: none;
                 border-right: none;
+                bottom: -8px;
                 height: 16px;
-                background: #fff;
+                transform: rotate(45deg);
+                width: 16px;
             }
 
             &__content {

@@ -3,6 +3,7 @@ const path = require('path')
 
 module.exports = {
 	entry: {
+		filelistplugin: './src/js/filelistplugin.js',
 		filessettings: './src/js/filessettings.js',
 		nmcsettings: './src/js/nmcsettings.js',
 		// keep src for future use: l10nappender: './src/l10nappender.ts',

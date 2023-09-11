@@ -36,6 +36,7 @@ $breakpoint-mobile: 1024px;
 				img {
 					width: 24px;
     				height: 24px;
+					filter: var(--background-invert-if-dark);
 				}
 			}
 		}
