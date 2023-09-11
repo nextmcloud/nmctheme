@@ -17,6 +17,8 @@
 
 			fileList.updateSelectionSummary = function() {
 				const self = this
+				fileList.fileMultiSelectMenu.show(self)
+				
 				const summary = fileList._selectionSummary.summary
 				let selection
 
@@ -35,8 +37,6 @@
 					fileTable.find('.column-size').addClass('hidden')
 					fileTable.find('.column-mtime').addClass('hidden')
 					fileTable.find('.selectedActions').removeClass('hidden')
-
-					fileList.fileMultiSelectMenu.show(self)
 
 					const directoryInfo = n('files', '%n folder', '%n folders', summary.totalDirs)
 					const fileInfo = n('files', '%n file', '%n files', summary.totalFiles)
@@ -77,21 +77,6 @@
 							}
 						} else {
 							fileList.fileMultiSelectMenu.toggleItemVisibility('copyMove', false)
-						}
-					}
-
-					if (fileList.fileMultipleSelectionMenu) {
-						fileList.fileMultipleSelectionMenu.toggleItemVisibility('download', fileList.isSelectedDownloadable())
-						fileList.fileMultipleSelectionMenu.toggleItemVisibility('delete', fileList.isSelectedDeletable())
-						fileList.fileMultipleSelectionMenu.toggleItemVisibility('copyMove', fileList.isSelectedCopiable())
-						if (fileList.isSelectedCopiable()) {
-							if (fileList.isSelectedMovable()) {
-								fileList.fileMultipleSelectionMenu.updateItemText('copyMove', t('files', 'Move or copy'))
-							} else {
-								fileList.fileMultipleSelectionMenu.updateItemText('copyMove', t('files', 'Copy'))
-							}
-						} else {
-							fileList.fileMultipleSelectionMenu.toggleItemVisibility('copyMove', false)
 						}
 					}
 				}
