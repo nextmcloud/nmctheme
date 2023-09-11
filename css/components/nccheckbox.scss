@@ -1,4 +1,20 @@
 span.checkbox-radio-switch.checkbox-radio-switch-checkbox {
+	// align left both checked and unchecked icons with loading bar in files-settings div
+	& > .checkbox-radio-switch__label > .checkbox-radio-switch__icon > .material-design-icon {
+		&.checkbox-blank-outline-icon {
+			margin-left: -3px;
+		}
+
+		&.checkbox-marked-icon {
+			margin-left: -3px;
+		}
+	}
+
+	// Align text left of checboxes with the Display Settings text left to the arrow button on top
+	& .checkbox-radio-switch__label > .checkbox-radio-switch__label-text {
+		margin-left: -1px;
+	}
+	
 	// do not set background color when on hover
 	&:not(.checkbox-radio-switch--disabled) {
 		.checkbox-radio-switch__label:hover, .checkbox-radio-switch__label:focus-within {
