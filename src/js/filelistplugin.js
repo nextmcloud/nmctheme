@@ -18,7 +18,7 @@
 			fileList.updateSelectionSummary = function() {
 				const self = this
 				fileList.fileMultiSelectMenu.show(self)
-				
+
 				const summary = fileList._selectionSummary.summary
 				let selection
 
