@@ -72,16 +72,16 @@ class DecoratorTest extends TestCase {
 		$this->assertInstanceOf(FactoryDecorator::class, $this->nmcFactory);
 	}
 
-    /**
-     * Check the readability of the translation files
-     */
-    public function testJsonLoad(): void {
-        foreach ($this->langFiles as $filename) {
-            $json = json_decode(file_get_contents($this->l10nPath . '/' . $filename), true);
-            $lastErr = json_last_error();
-            $this->assertEquals(0, $lastErr, "json problem: " . $lastErr . "-" . json_last_error_msg());
-        }
-    }
+	/**
+	 * Check the readability of the translation files
+	 */
+	public function testJsonLoad(): void {
+		foreach ($this->langFiles as $filename) {
+			$json = json_decode(file_get_contents($this->l10nPath . '/' . $filename), true);
+			$lastErr = json_last_error();
+			$this->assertEquals(0, $lastErr, "json problem: " . $lastErr . "-" . json_last_error_msg());
+		}
+	}
 
 
 	/**
