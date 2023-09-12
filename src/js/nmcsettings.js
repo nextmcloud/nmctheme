@@ -27,7 +27,10 @@ const View = new UserMenuView({ propsData: { menuItems } })
 window.addEventListener('DOMContentLoaded', function() {
 
 	document.querySelectorAll('nav.user-menu__nav li').forEach(function(element) {
-		if (element.id !== 'logout') {
+		const core = 'core_'
+		const admin = 'admin_'
+
+		if (element.id !== 'logout' && !element.id.includes(core) && !element.id.includes(admin)) {
 			element.remove()
 		}
 	})
@@ -41,8 +44,25 @@ window.addEventListener('DOMContentLoaded', function() {
 	const searchButton = document.querySelector('#unified-search > a')
 	searchButton.innerHTML = '<span>Suche</span>'
 
-	const logoutIcon = document.querySelector('nav.user-menu__nav img')
-	logoutIcon.src = '/customapps/nmctheme/img/actions/logout.svg'
+	const adminIcon = document.querySelector('nav.user-menu__nav li#admin_settings img')
+	if (adminIcon) {
+		adminIcon.src = '/customapps/nmctheme/img/settings/img/apps.svg'
+	}
+
+	const appsIcon = document.querySelector('nav.user-menu__nav li#core_apps img')
+	if (appsIcon) {
+		appsIcon.src = '/customapps/nmctheme/img/actions/add.svg'
+	}
+
+	const usersIcon = document.querySelector('nav.user-menu__nav li#core_users img')
+	if (usersIcon) {
+		usersIcon.src = '/customapps/nmctheme/img/settings/img/users.svg'
+	}
+
+	const logoutIcon = document.querySelector('nav.user-menu__nav li#logout img')
+	if (logoutIcon) {
+		logoutIcon.src = '/customapps/nmctheme/img/actions/logout.svg'
+	}
 
 	const userMenu = document.querySelector('nav.user-menu__nav ul')
 	const menuElements = document.createElement('div')
