@@ -4,19 +4,16 @@ import UserMenu from '../components/UserMenu.vue'
 const menuItems = [{
 	id: 'settings',
 	name: 'Account Settings',
-	icon: '/customapps/nmctheme/img/settings/img/admin.svg',
 	url: '/index.php/settings/user/account',
 	target: '_self',
 }, {
 	id: 'help',
 	name: 'Help & FAQ',
-	icon: '/customapps/nmctheme/img/settings/img/help.svg',
 	url: 'https://cloud.telekom-dienste.de/hilfe',
 	target: '_blank',
 }, {
-	id: 'customer-center',
+	id: 'customer_center',
 	name: 'Customer Center',
-	icon: '/customapps/nmctheme/img/settings/img/kundencenter.svg',
 	url: 'https://www.telekom.de/mein-kundencenter',
 	target: '_blank',
 }]
@@ -43,26 +40,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	const searchButton = document.querySelector('#unified-search > a')
 	searchButton.innerHTML = '<span>Suche</span>'
-
-	const adminIcon = document.querySelector('nav.user-menu__nav li#admin_settings img')
-	if (adminIcon) {
-		adminIcon.src = '/customapps/nmctheme/img/settings/img/apps.svg'
-	}
-
-	const appsIcon = document.querySelector('nav.user-menu__nav li#core_apps img')
-	if (appsIcon) {
-		appsIcon.src = '/customapps/nmctheme/img/actions/add.svg'
-	}
-
-	const usersIcon = document.querySelector('nav.user-menu__nav li#core_users img')
-	if (usersIcon) {
-		usersIcon.src = '/customapps/nmctheme/img/settings/img/users.svg'
-	}
-
-	const logoutIcon = document.querySelector('nav.user-menu__nav li#logout img')
-	if (logoutIcon) {
-		logoutIcon.src = '/customapps/nmctheme/img/actions/logout.svg'
-	}
 
 	const userMenu = document.querySelector('nav.user-menu__nav ul')
 	const menuElements = document.createElement('div')
