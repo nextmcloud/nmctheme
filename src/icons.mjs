@@ -70,7 +70,7 @@ const icons = {
 	starred: path.join(__dirname, '../img', 'actions', 'starred.svg'),
 	upload: path.join(__dirname, '../img', 'actions', 'upload.svg'),
 	user: path.join(__dirname, '../img', 'actions', 'user.svg'),
-	folder: path.join(__dirname, '../img', 'filetypes', 'folder.svg'),
+	folder: path.join(__dirname, '../img', 'actions', 'folder.svg'),
 	files: path.join(__dirname, '../img', 'places', 'files.svg'),
 	history: path.join(__dirname, '../img', 'actions', 'history.svg'),
 	tag: path.join(__dirname, '../img', 'actions', 'tag.svg'),
@@ -83,6 +83,9 @@ const icons = {
 	admin: path.join(__dirname, '../img', 'settings', 'apps.svg'),
 	apps: path.join(__dirname, '../img', 'actions', 'add.svg'),
 	users: path.join(__dirname, '../img', 'settings', 'users.svg'),
+	play: path.join(__dirname, '../img', 'actions', 'play.svg'),
+	'play-previous': path.join(__dirname, '../img', 'actions', 'play-previous.svg'),
+	'play-next': path.join(__dirname, '../img', 'actions', 'play-next.svg'),
 }
 
 const iconsColor = {

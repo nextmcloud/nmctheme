@@ -92,13 +92,13 @@ class BeforeTemplateRenderedListener implements IEventListener {
 
 		// you can add additional styles, links and scripts before rendering
 		// keep src for future use:   \OCP\Util::addScript("nmctheme", "../dist/l10nappender");
-		\OCP\Util::addScript("nmctheme", "../dist/mimetypes", "core");
-		\OCP\Util::addScript('nmctheme', '../dist/nmcfooter', 'theming');
-		\OCP\Util::addScript("nmctheme", "../dist/newfilemenuplugin");
-		\OCP\Util::addScript("nmctheme", "../dist/filelistplugin");
-		\OCP\Util::addScript("nmctheme", "../dist/filessettings");
-		\OCP\Util::addScript("nmctheme", "../dist/nmcsettings");
-		\OCP\Util::addScript("nmctheme", "../dist/nmclogo");
-		\OCP\Util::addScript("nmctheme", "../dist/conflictdialog");
+		\OCP\Util::addScript("nmctheme", "nmctheme-mimetypes", "core");
+		\OCP\Util::addScript('nmctheme', 'nmctheme-nmcfooter', 'theming');
+		\OCP\Util::addScript("nmctheme", "nmctheme-newfilemenuplugin", "files");
+		\OCP\Util::addScript("nmctheme", "nmctheme-filelistplugin", "files");
+		\OCP\Util::addScript("nmctheme", "nmctheme-filessettings", "files");
+		\OCP\Util::addScript("nmctheme", "nmctheme-nmcsettings");
+		\OCP\Util::addScript("nmctheme", "nmctheme-nmclogo");
+		\OCP\Util::addScript("nmctheme", "nmctheme-conflictdialog");
 	}
 }
