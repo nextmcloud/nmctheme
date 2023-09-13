@@ -118,6 +118,9 @@
         "Photos": "Fotos"
     },"pluralForm" :"nplurals=2; plural=(n != 1);"},
     "nmctheme": { "translations": {
+        "Search": "Search",
+        "Customer center": "Customer center",
+        "Account settings": "Settings",
         "Copyright": "©Telekom Deutschland GmbH",
         "OpenSource": "Open Source licenses",
         "Impressum": "Impressum",
@@ -126,12 +129,5 @@
         "Expand storage": "Expand storage",
         "Memory used up to {memoryUsage}%": "Memory used up to {memoryUsage}%%",
         "Display settings": "Display settings"
-    },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-    "nmcsettings": { "translations": {
-      "Customer Center": "Customer Center",
-      "Help & FAQ": "Help & FAQ",
-      "Account Settings": "Account Settings",
-        "Display settings": "Display settings",
-        "PhotosMedia": "Media"
     },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }
