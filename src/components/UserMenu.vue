@@ -5,7 +5,6 @@
 			:key="item.id"
 			class="menu-entry">
 			<a :href="item.url" :target="item.target">
-				<img :src="item.icon">
 				<span>{{ t('nmcsettings', item.name) }}</span>
 			</a>
 		</li>

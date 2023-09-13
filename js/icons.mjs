@@ -77,6 +77,12 @@ const icons = {
 	delete: path.join(__dirname, '../img', 'actions', 'delete.svg'),
 	close: path.join(__dirname, '../img', 'close.svg'),
 	home: path.join(__dirname, '../img', 'actions', 'home.svg'),
+	settings: path.join(__dirname, '../img', 'settings', 'admin.svg'),
+	help: path.join(__dirname, '../img', 'settings', 'help.svg'),
+	customercenter: path.join(__dirname, '../img', 'settings', 'customercenter.svg'),
+	admin: path.join(__dirname, '../img', 'settings', 'apps.svg'),
+	apps: path.join(__dirname, '../img', 'actions', 'add.svg'),
+	users: path.join(__dirname, '../img', 'settings', 'users.svg'),
 }
 
 const iconsColor = {
@@ -119,6 +125,10 @@ Object.keys(variables).forEach(variable => {
 	const data = variables[variable]
 	css += `${variable}: url(data:image/svg+xml;base64,${data});`
 })
+css += '}'
+
+css += 'body {'
+css += generateVariablesAliases(variables)
 css += '}'
 
 css += '@media (prefers-color-scheme: dark) { body {'

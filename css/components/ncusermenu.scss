@@ -7,13 +7,54 @@
             ul {
                 
                 li.menu-entry {
-                    
-                    a, button {
-                        
-                        img {
-                            width: 24px;
-                            height: 24px;
+
+                    a {
+                        padding-left: 48px;
+
+                        &::after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            top: 0px;
+                            left: 2px;
+                            height: 100%;
+                            width: 44px;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: 24px 24px;
                         }
+
+                        img {
+                            display: none;
+                        }
+                    }
+                    
+                    &#settings > a::after {
+                        background-image: var(--icon-settings-dark);
+                    }
+                    
+                    &#help > a::after {
+                        background-image: var(--original-icon-help-dark);
+                    }
+                    
+                    &#customer_center > a::after {
+                        background-image: var(--icon-customercenter-dark);
+                    }
+                    
+                    &#admin_settings > a::after {
+                        background-image: var(--icon-admin-dark);
+                    }
+                    
+                    &#core_apps > a::after {
+                        background-image: var(--icon-add-dark);
+                    }
+                    
+                    &#core_users > a::after {
+                        background-image: var(--icon-users-dark);
+                    }
+                    
+                    &#logout > a::after {
+                        background-image: var(--icon-logout-dark);
                     }
                 }
             }
