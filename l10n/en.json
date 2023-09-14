@@ -118,6 +118,7 @@
         "Photos": "Fotos"
     },"pluralForm" :"nplurals=2; plural=(n != 1);"},
     "nmctheme": { "translations": {
+        "PhotosMedia": "Media",
         "Search": "Search",
         "Customer center": "Customer center",
         "Account settings": "Settings",
@@ -127,7 +128,6 @@
         "Data protection": "Data protection",
         "Faq": "Help & FAQ",
         "Expand storage": "Expand storage",
-        "Memory used up to {memoryUsage}%": "Memory used up to {memoryUsage}%%",
         "Display settings": "Display settings"
     },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }
