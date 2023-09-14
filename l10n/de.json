@@ -125,6 +125,8 @@
     "Faq": "Hilfe & FAQ",
     "Expand storage": "Speicher erweitern",
     "Memory used up to {memoryUsage}%": "Speicher zu {memoryUsage}% belegt",
+    "of": "von",
+    "used": "genutzt",
     "Display settings": "Anzeigeeinstellungen",
     "PhotosMedia": "Medien"
   },"pluralForm" :"nplurals=2; plural=(n != 1);"},
