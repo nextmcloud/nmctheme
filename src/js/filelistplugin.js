@@ -59,7 +59,7 @@
 					}
 
 					if (summary.totalSize > 0) {
-						selection += ' (' + OC.Util.humanFileSize(summary.totalSize) + ')'
+						selection += ' (' + OC.Util.humanFileSize(summary.totalSize) + ')' // eslint-disable-line
 					}
 
 					fileTable.find('.column-name a.name > span:first').text(selection)
