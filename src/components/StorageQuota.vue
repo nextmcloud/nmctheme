@@ -48,7 +48,7 @@ export default {
 			const { usedQuotaByte, quotaByte } = this.formattedStats
 
 			if (this.storageStats?.quota < 0) {
-				return `<b>${usedQuotaByte}</b> `+ t('nmctheme', 'used');
+				return `<b>${usedQuotaByte}</b> ` + t('nmctheme', 'used')
 			}
 
 			return `<b>${usedQuotaByte}</b> ' + t('nmctheme', 'of') + ' ${quotaByte}`
