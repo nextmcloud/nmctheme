@@ -13,8 +13,7 @@ webpackConfig.entry = {
 		conflictdialog: path.join(__dirname, 'src', 'js', 'conflictdialog.js'),
         mimetypes: path.join(__dirname, 'src', 'js', 'mimetypes.js'),
 		nmcfooter: path.join(__dirname, 'src', 'nmcfooter.ts'),
-		nmclogo: path.join(__dirname, 'src', 'nmclogo.ts'),
-		viewer: path.join(__dirname, 'src', 'viewer.ts')
+		nmclogo: path.join(__dirname, 'src', 'nmclogo.ts')
 	}
 
 // Workaround for https://github.com/nextcloud/webpack-vue-config/pull/432 causing problems with nextcloud-vue-collections
