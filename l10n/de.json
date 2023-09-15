@@ -118,6 +118,10 @@
     "Photos": "Fotos"
   },"pluralForm" :"nplurals=2; plural=(n != 1);"},
   "nmctheme": { "translations": {
+    "PhotosMedia": "Medien",
+    "Search": "Suche",
+    "Customer center": "Kundencenter",
+    "Account settings": "Einstellungen",
     "Copyright": " Telekom Deutschland GmbH",
     "OpenSource": "Open Source Lizenzen",
     "Impressum": "Impressum",

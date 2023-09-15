@@ -118,6 +118,10 @@
         "Photos": "Fotos"
     },"pluralForm" :"nplurals=2; plural=(n != 1);"},
     "nmctheme": { "translations": {
+        "PhotosMedia": "Media",
+        "Search": "Search",
+        "Customer center": "Customer center",
+        "Account settings": "Settings",
         "Copyright": "©Telekom Deutschland GmbH",
         "OpenSource": "Open Source licenses",
         "Impressum": "Impressum",
@@ -134,6 +138,6 @@
       "Customer Center": "Customer Center",
       "Help & FAQ": "Help & FAQ",
       "Account Settings": "Account Settings",
-        "Display settings": "Display settings"
+      "Display settings": "Display settings"
     },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }

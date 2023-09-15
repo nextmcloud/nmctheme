@@ -1,19 +1,22 @@
 import Vue from 'vue'
 import UserMenu from '../components/UserMenu.vue'
+import { translate as t } from '@nextcloud/l10n'
+
+const app = 'nmctheme'
 
 const menuItems = [{
 	id: 'settings',
-	name: 'Account Settings',
+	name: t(app, 'Account settings'),
 	url: '/index.php/settings/user/account',
 	target: '_self',
 }, {
 	id: 'help',
-	name: 'Help & FAQ',
+	name: t(app, 'Faq'),
 	url: 'https://cloud.telekom-dienste.de/hilfe',
 	target: '_blank',
 }, {
 	id: 'customer_center',
-	name: 'Customer Center',
+	name: t(app, 'Customer center'),
 	url: 'https://www.telekom.de/mein-kundencenter',
 	target: '_blank',
 }]
@@ -33,13 +36,13 @@ window.addEventListener('DOMContentLoaded', function() {
 	})
 
 	const head = document.querySelector('head')
-	const user = head.attributes['data-user'].value
+	const user = head.attributes['data-user-displayname'].value
 
 	const menuButton = document.querySelector('#user-menu > a')
 	menuButton.innerHTML = '<span>' + user + '</span>'
 
 	const searchButton = document.querySelector('#unified-search > a')
-	searchButton.innerHTML = '<span>Suche</span>'
+	searchButton.innerHTML = '<span>' + t(app, 'Search') + '</span>'
 
 	const userMenu = document.querySelector('nav.user-menu__nav ul')
 	const menuElements = document.createElement('div')
