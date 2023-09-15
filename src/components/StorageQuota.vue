@@ -40,18 +40,18 @@ export default {
 	},
 	computed: {
 		formattedStats() {
-			const usedQuotaByte = formatFileSize(this.storageStats?.used)
-			const quotaByte = formatFileSize(this.storageStats?.quota)
+			const usedQuotaByte = formatFileSize(this.storageStats?.used, false, true)
+			const quotaByte = formatFileSize(this.storageStats?.quota, false, true)
 			return { usedQuotaByte, quotaByte }
 		},
 		storageStatsTitle() {
 			const { usedQuotaByte, quotaByte } = this.formattedStats
 
 			if (this.storageStats?.quota < 0) {
-				return `<b>${usedQuotaByte}</b> used`
+				return `<b>${usedQuotaByte}</b> ` + t('nmctheme', 'used')
 			}
 
-			return `<b>${usedQuotaByte}</b> of ${quotaByte}`
+			return `<b>${usedQuotaByte}</b> ' + t('nmctheme', 'of') + ' ${quotaByte}`
 		},
 		memoryUsage() {
 			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toFixed(2)
