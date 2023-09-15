@@ -128,6 +128,16 @@
         "Data protection": "Data protection",
         "Faq": "Help & FAQ",
         "Expand storage": "Expand storage",
-        "Display settings": "Display settings"
+        "Memory used up to {memoryUsage}%": "Memory used up to {memoryUsage}%",
+        "of": "of",
+        "used": "used",
+        "Display settings": "Display settings",
+        "PhotosMedia": "Media"
+    },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+    "nmcsettings": { "translations": {
+      "Customer Center": "Customer Center",
+      "Help & FAQ": "Help & FAQ",
+      "Account Settings": "Account Settings",
+      "Display settings": "Display settings"
     },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }
