@@ -27,6 +27,15 @@ $CONFIG = array (
 );
 ----
 
+.Restriction of supported languages (optional, example on some en and de locales)
+----
+<?php
+$CONFIG = array (
+    'default_language' => 'de_DE',
+    'nmc_supported_locales' => array(0 => 'en', 1 => 'en_GB', 2 => 'de', 3 => 'de_DE');
+);
+----
+
 .Nextcloud standard *theming* app configs
 ----
 # Set base url of the installation

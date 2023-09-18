@@ -107,10 +107,13 @@ class FactoryDecorator implements IFactory {
         $supportedLocales = $this->config->getSystemValue('nmc_supported_locales', false);
         if (is_array($supportedLocales)) {
             // the default en must be always supported
-            $this->suppported_locales = array_unique(array_merge($supportedLocales, ['en']));
+            $this->supported_locales = array_unique(array_merge($supportedLocales, ['en', 'en_GB']));
         }
 	}
 
+    public function getDecorated() :Factory {
+        return $this->decoratedFactory;
+    }
 
     /**
      * Filter by supported locales (if set)
@@ -132,8 +135,13 @@ class FactoryDecorator implements IFactory {
             return $locales;
         }
 
-        $filteredLocales = array_intersect($locales, $this->supported_locales);
-        if (empty($this->supported_locales)) {
+
+        $filteredLocales = array_filter($locales, function($locale) {
+            return in_array($locale['code'], $this->supported_locales);
+        });
+        
+        if (empty($this->supported_locales) ||
+            empty($filteredLocales)) {
             return ['en'];
         } else {
             // make sure that indexed are corrected
@@ -151,6 +159,7 @@ class FactoryDecorator implements IFactory {
 
 	/**
 	 * Read all the available translation jsons for app.
+     * This is not part of the interface IFactory
 	 *
 	 * @param string $app
 	 * @param string $lang
@@ -176,8 +185,16 @@ class FactoryDecorator implements IFactory {
 				}
 			}
 		}
-        
-        return $translations;
+
+		// load the multi-app json for lang if not loaded yet
+		// lazy load theme overrides map once. We need the modified $lang.
+		if (!isset($this->overrides[$lang])) {
+			// FIXME  this could break as  is marked obsolete
+			$this->overrides[$lang] = $this->getOverrides($lang);
+		}
+
+        $overrides = $this->overrides[$lang][$app] ?? [];
+        return array_merge($translations, $overrides);
 	}
 
 	/**
@@ -243,23 +260,15 @@ class FactoryDecorator implements IFactory {
 				$locale = $this->findLocale($lang);
 			}
 
-			// load the multi-app json for lang if not loaded yet
-			// lazy load theme overrides map once. We need the modified $lang.
-			if (!isset($this->overrides[$lang])) {
-				// FIXME  this could break as  is marked obsolete
-				$this->overrides[$lang] = $this->getOverrides($lang);
-			}
-
 			if (!isset($this->instances[$lang][$app])) {
 				$translations = $this->getTranslationsForApp($app, $lang);
-				$overrides = $this->overrides[$lang][$app] ?? [];
 
 				$this->instances[$lang][$app] = new L10N(
 					$this,
 					$app,
 					$lang,
 					$locale,
-					array_merge($translations, $overrides)
+					$translations
 				);
 			}
 
