@@ -55,6 +55,7 @@ class UrlGeneratorDecoratorTest extends TestCase {
 
 		$this->app = new \OCP\AppFramework\App("nmctheme");
 		$this->appPath = $this->app->getContainer()->get(IAppManager::class)->getAppWebPath("nmctheme");
+		$this->defaultApp = $this->app->getContainer()->get(IAppManager::class)->getDefaultAppForUser();
 
 		$this->urlGeneratorInjected = $this->app->getContainer()->get(IURLGenerator::class);
 		$this->assertInstanceOf(URLGeneratorDecorator::class, $this->urlGenerator);
@@ -229,7 +230,7 @@ class UrlGeneratorDecoratorTest extends TestCase {
 			->willReturn('');
 
 		$this->config->expects($this->once())
-			->method('getSystemValueBool')
+			->method('getSystemValue')
 			->with('htaccess.IgnoreFrontController', $this->anything())
 			->willReturn($ignoreFrontControllerConfig);
 	}
@@ -247,7 +248,7 @@ class UrlGeneratorDecoratorTest extends TestCase {
 		putenv('front_controller_active=false');
 
 		$_REQUEST['redirect_url'] = 'myRedirectUrl.com@foo.com:a';
-		$this->assertSame('http://localhost' . \OC::$WEBROOT . '/index.php/apps/dashboard/', $this->urlGenerator->linkToDefaultPageUrl());
+		$this->assertSame('http://localhost' . \OC::$WEBROOT . '/index.php/apps/' . $this->defaultApp .'/', $this->urlGenerator->linkToDefaultPageUrl());
 	}
 
 	public function testLinkToDefaultPageUrlWithRedirectUrlRedirectBypassWithFrontController() {
@@ -256,7 +257,7 @@ class UrlGeneratorDecoratorTest extends TestCase {
 		putenv('front_controller_active=true');
 
 		$_REQUEST['redirect_url'] = 'myRedirectUrl.com@foo.com:a';
-		$this->assertSame('http://localhost' . \OC::$WEBROOT . '/apps/dashboard/', $this->urlGenerator->linkToDefaultPageUrl());
+		$this->assertSame('http://localhost' . \OC::$WEBROOT . '/apps/' . $this->defaultApp . '/', $this->urlGenerator->linkToDefaultPageUrl());
 	}
 
 	public function testLinkToDefaultPageUrlWithRedirectUrlWithIgnoreFrontController() {
@@ -265,8 +266,21 @@ class UrlGeneratorDecoratorTest extends TestCase {
 		putenv('front_controller_active=false');
 
 		$_REQUEST['redirect_url'] = 'myRedirectUrl.com@foo.com:a';
-		$this->assertSame('http://localhost' . \OC::$WEBROOT . '/apps/dashboard/', $this->urlGenerator->linkToDefaultPageUrl());
+		$this->assertSame('http://localhost' . \OC::$WEBROOT . '/apps/' . $this->defaultApp . '/', $this->urlGenerator->linkToDefaultPageUrl());
 	}
+
+	public function testLinkToDefaultPageUrlWithRedirectUrlDefaultPageSet() {
+		$this->mockBaseUrl();
+		putenv('front_controller_active=false');
+		
+		$this->config->expects(self::once())
+				->method('getAppValue')
+				->with($this->equalTo('core'), $this->equalTo('defaultpage'))
+				->willReturn('strange');
+		$_REQUEST['redirect_url'] = 'myRedirectUrl.com@foo.com:a';
+		$this->assertSame('http://localhost' . \OC::$WEBROOT . '/strange', $this->urlGenerator->linkToDefaultPageUrl());
+	}
+		
 
 	public function imagePathProvider(): array {
 		return [

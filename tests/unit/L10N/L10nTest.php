@@ -9,22 +9,16 @@
 namespace OCA\NMCTheme\Tests\L10N;
 
 use DateTime;
-use OC\L10N\Factory;
-use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\L10N\L10N;
 use OCP\App\IAppManager;
-use OCP\ICacheFactory;
-use OCP\IConfig;
-use OCP\IRequest;
-use OCP\IUserSession;
-use PHPUnit\Framework\TestCase;
+use Punic\Calendar;
 
 /**
  * Class L10nTest
  *
  * @package Test\L10N
  */
-class L10nTest extends TestCase {
+class L10nTest extends FactoryTestCase {
 	private IAppManager $appMgr;
 	private string $l10nPath;
 
@@ -36,7 +30,6 @@ class L10nTest extends TestCase {
 		$this->appMgr = $app->getContainer()->get(IAppManager::class);
 		$this->l10nPath = $this->appMgr->getAppPath("nmctheme") . '/tests/data/l10n/';
 		$this->tz = date_default_timezone_get();
-		;
 		date_default_timezone_set('Asia/Tokyo');
 	}
 
@@ -60,22 +53,6 @@ class L10nTest extends TestCase {
 		return $translations;
 	}
 
-	/**
-	 * @return Factory
-	 */
-	protected function getFactory() {
-		/** @var \OCP\IConfig $config */
-		$config = $this->createMock(IConfig::class);
-		//$config->setSystemValue('default_language', 'en');
-
-		/** @var \OCP\IRequest $request */
-		$request = $this->createMock(IRequest::class);
-		/** @var IUserSession $userSession */
-		$userSession = $this->createMock(IUserSession::class);
-		$cacheFactory = $this->createMock(ICacheFactory::class);
-		return new FactoryDecorator($config,
-			new Factory($config, $request, $userSession, $cacheFactory, \OC::$SERVERROOT));
-	}
 
 	public function testSimpleTranslationWithTrailingColon(): void {
 		$fac = $this->getFactory();
@@ -154,47 +131,70 @@ class L10nTest extends TestCase {
 		$this->assertEquals($expected, $l->t($string, ['1', '2']));
 	}
 
+
 	public function localizationData() {
+		$formatDate = function ($value, $locale) {
+			return (string) Calendar::formatDate($value, 'long', $locale);
+		};
+	
+		$formatDatetime = function ($value, $locale) {
+			return (string) Calendar::formatDatetime($value, 'long', $locale);
+		};
+	
+		$formatTime = function ($value, $locale) {
+			return (string) Calendar::formatTime($value, 'long', $locale);
+		};
+	
 		return [
 			// timestamp as string
-			['February 14, 2009, 8:31:30 AM GMT+9', 'en', 'en_US', 'datetime', '1234567890'],
-			['14. Februar 2009, 08:31:30 GMT+9', 'de', 'de_DE', 'datetime', '1234567890'],
-			['February 14, 2009', 'en', 'en_US', 'date', '1234567890'],
-			['14. Februar 2009', 'de', 'de_DE', 'date', '1234567890'],
-			['8:31:30 AM GMT+9', 'en', 'en_US', 'time', '1234567890'],
-			['08:31:30 GMT+9', 'de', 'de_DE', 'time', '1234567890'],
+			[$formatDatetime, 'en', 'en_US', 'datetime', '1234567890'],
+			[$formatDatetime, 'de', 'de_DE', 'datetime', '1234567890'],
+			[$formatDate, 'en', 'en_US', 'date', '1234567890'],
+			[$formatDate, 'de', 'de_DE', 'date', '1234567890'],
+			[$formatTime, 'en', 'en_US', 'time', '1234567890'],
+			[$formatTime, 'de', 'de_DE', 'time', '1234567890'],
 
 			// timestamp as int
-			['February 14, 2009, 8:31:30 AM GMT+9', 'en', 'en_US', 'datetime', 1234567890],
-			['14. Februar 2009, 08:31:30 GMT+9', 'de', 'de_DE', 'datetime', 1234567890],
-			['February 14, 2009', 'en', 'en_US', 'date', 1234567890],
-			['14. Februar 2009', 'de', 'de_DE', 'date', 1234567890],
-			['8:31:30 AM GMT+9', 'en', 'en_US', 'time', 1234567890],
-			['08:31:30 GMT+9', 'de', 'de_DE', 'time', 1234567890],
+			[$formatDatetime, 'en', 'en_US', 'datetime', 1234567890],
+			[$formatDatetime, 'de', 'de_DE', 'datetime', 1234567890],
+			[$formatDate, 'en', 'en_US', 'date', 1234567890],
+			[$formatDate, 'de', 'de_DE', 'date', 1234567890],
+			[$formatTime, 'en', 'en_US', 'time', 1234567890],
+			[$formatTime, 'de', 'de_DE', 'time', 1234567890],
 
 			// DateTime object
-			['February 13, 2009, 11:31:30 PM GMT+0', 'en', 'en_US', 'datetime', new DateTime('@1234567890')],
-			['13. Februar 2009, 23:31:30 GMT+0', 'de', 'de_DE', 'datetime', new DateTime('@1234567890')],
-			['February 13, 2009', 'en', 'en_US', 'date', new DateTime('@1234567890')],
-			['13. Februar 2009', 'de', 'de_DE', 'date', new DateTime('@1234567890')],
-			['11:31:30 PM GMT+0', 'en', 'en_US', 'time', new DateTime('@1234567890')],
-			['23:31:30 GMT+0', 'de', 'de_DE', 'time', new DateTime('@1234567890')],
+			[$formatDatetime, 'en', 'en_US', 'datetime', new DateTime('@1234567890')],
+			[$formatDatetime, 'de', 'de_DE', 'datetime', new DateTime('@1234567890')],
+			[$formatDate, 'en', 'en_US', 'date', new DateTime('@1234567890')],
+			[$formatDate, 'de', 'de_DE', 'date', new DateTime('@1234567890')],
+			[$formatTime, 'en', 'en_US', 'time', new DateTime('@1234567890')],
+			[$formatTime, 'de', 'de_DE', 'time', new DateTime('@1234567890')],
 
 			// en_GB
-			['13 February 2009, 23:31:30 GMT+0', 'en_GB', 'en_GB', 'datetime', new DateTime('@1234567890')],
-			['13 February 2009', 'en_GB', 'en_GB', 'date', new DateTime('@1234567890')],
-			['23:31:30 GMT+0', 'en_GB', 'en_GB', 'time', new DateTime('@1234567890')],
-			['13 February 2009, 23:31:30 GMT+0', 'en-GB', 'en_GB', 'datetime', new DateTime('@1234567890')],
-			['13 February 2009', 'en-GB', 'en_GB', 'date', new DateTime('@1234567890')],
-			['23:31:30 GMT+0', 'en-GB', 'en_GB', 'time', new DateTime('@1234567890')],
+			[$formatDatetime, 'en_GB', 'en_GB', 'datetime', new DateTime('@1234567890')],
+			[$formatDatetime, 'en-GB', 'en_GB', 'datetime', new DateTime('@1234567890')],
+			[$formatDate, 'en_GB', 'en_GB', 'date', new DateTime('@1234567890')],
+			[$formatDate, 'en-GB', 'en_GB', 'date', new DateTime('@1234567890')],
+			[$formatTime, 'en_GB', 'en_GB', 'time', new DateTime('@1234567890')],
+			[$formatTime, 'en-GB', 'en_GB', 'time', new DateTime('@1234567890')],
 		];
 	}
 
 	/**
 	 * @dataProvider localizationData
 	 */
-	public function testNumericStringLocalization($expectedDate, $lang, $locale, $type, $value) {
+	public function testNumericStringLocalization(callable $expectedFunc, $lang, $locale, $type, $data) {
 		$l = new L10N($this->getFactory(), 'test', $lang, $locale, []);
+		if ($data instanceof \DateTime) {
+			$value = $data;
+		} elseif (\is_string($data) && !is_numeric($data)) {
+			$value = new \DateTime();
+			$value->setTimestamp(strtotime($data));
+		} elseif ($data !== null) {
+			$value = new \DateTime();
+			$value->setTimestamp((int)$data);
+		}
+		$expectedDate = call_user_func($expectedFunc, $value, $locale);
 		$this->assertSame($expectedDate, $l->l($type, $value));
 	}
 

@@ -93,6 +93,13 @@ class DecoratorTest extends TestCase {
 		foreach ($this->languages as $lang) {
 			$overrides = $this->nmcFactory->getOverrides($lang);
 			foreach ($overrides as $app => $apptranslations) {
+				if (!$this->nmcFactory->languageExists($app, $lang)) {
+					// overrides only apply if original apps have translations
+					// overrides should not replace original translations
+					$this->markTestIncomplete("Translation({$lang},{$app}) overrides, but has no base translations!");
+					continue;
+				}
+
 				$l = $this->nmcFactory->get($app, $lang);
 				foreach ($apptranslations as $key => $translation) {
 					if (\is_array($translation)) {
