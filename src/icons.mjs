@@ -15,6 +15,7 @@ const colors = {
 	orange: 'eca700',
 	green: '46ba61',
 	grey: '969696',
+	magenta: 'e20074',
 }
 
 const colorSvg = function(svg = '', color = '000') {
@@ -82,6 +83,10 @@ const icons = {
 	customercenter: path.join(__dirname, '../img', 'settings', 'customercenter.svg'),
 	admin: path.join(__dirname, '../img', 'settings', 'apps.svg'),
 	apps: path.join(__dirname, '../img', 'actions', 'add.svg'),
+	link: path.join(__dirname, '../img', 'actions', 'link.svg'),
+	'upload-to-cloud': path.join(__dirname, '../img', 'actions', 'upload-to-cloud.svg'),
+	clipboard: path.join(__dirname, '../img', 'actions', 'clipboard.svg'),
+	mail: path.join(__dirname, '../img', 'actions', 'mail.svg'),
 	users: path.join(__dirname, '../img', 'settings', 'users.svg'),
 	play: path.join(__dirname, '../img', 'actions', 'play.svg'),
 	'play-previous': path.join(__dirname, '../img', 'actions', 'play-previous.svg'),
@@ -100,6 +105,10 @@ const iconsColor = {
 	'breadcrumb-arrow': {
 		path: path.join(__dirname, '../img', 'breadcrumb-arrow.svg'),
 		color: 'grey',
+	},
+	checkmark: {
+		path: path.join(__dirname, '../img', 'email', 'checkmark.svg'),
+		color: 'magenta',
 	},
 }
 
