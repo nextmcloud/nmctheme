@@ -12,3 +12,4 @@ tests/.phpunit.result.cache
 /css/**/*.css
 /css/**/*.css.map
 /dist/
+/js/
