@@ -18,6 +18,46 @@ use OCP\IUser;
 use OCP\L10N\IFactory;
 use OCP\L10N\ILanguageIterator;
 
+class LanguageIteratorDecorator implements ILanguageIterator {
+	private ILanguageIterator $decorated;
+	private array $supported_locales = [];
+
+	public function __construct(ILanguageIterator $decorated,
+		array $supported_locales) {
+		$this->decorated = $decorated;
+		$this->supported_locales = $supported_locales;
+	}
+
+	public function rewind(): void {
+		$this->decorated->rewind();
+	}
+
+	public function current(): string {
+		$locale = $this->decorated->rewind();
+		
+		if (empty($this->supported_locales) ||
+			in_array($locale, $this->supported_locales)) {
+			return $locale;
+		} else {
+			return 'en';
+		}
+	}
+
+	public function next(): bool {
+		return $this->decorated->next();
+	}
+
+	public function key(): int {
+		return $this->decorated->key();
+	}
+
+	public function valid(): bool {
+		return $this->decorated->valid();
+	}
+
+}
+
+
 class FactoryDecorator implements IFactory {
 	private Factory $decoratedFactory;
 
@@ -43,6 +83,16 @@ class FactoryDecorator implements IFactory {
 	 */
 	protected array $overrides = [];
 
+
+	/**
+	 * NMCTheme restricts the available locales and translations
+	 * to only a selectable set
+	 * @var string[]
+	 *
+	 */
+	protected array $supported_locales = [];
+
+
 	/**
 	 * @param IConfig $config
 	 */
@@ -52,17 +102,76 @@ class FactoryDecorator implements IFactory {
 	) {
 		$this->config = $config;
 		$this->decoratedFactory = $decoratedFactory;
+
+		// configuration for supported locales of nmctheme
+		$supportedLocales = $this->config->getSystemValue('nmc_supported_locales', false);
+		if (is_array($supportedLocales)) {
+			// the default en must be always supported
+			$this->supported_locales = array_unique(array_merge($supportedLocales, ['en', 'en_GB']));
+		}
+	}
+
+	public function getDecorated() :Factory {
+		return $this->decoratedFactory;
+	}
+
+	/**
+	 * Filter by supported locales (if set)
+	 */
+	protected function filterLocale(string $locale) {
+		if (empty($this->supported_locales) ||
+			in_array($locale, $this->supported_locales)) {
+			return $locale;
+		} else {
+			return 'en';
+		}
+	}
+
+	/**
+	 * Filter a set of supported locales (if set)
+	 */
+	protected function filterLocales(array $locales) {
+		if (empty($this->supported_locales)) {
+			return $locales;
+		}
+
+
+		$filteredLocales = array_filter($locales, function ($locale) {
+			return in_array($locale['code'], $this->supported_locales);
+		});
+		
+		if (empty($this->supported_locales) ||
+			empty($filteredLocales)) {
+			return ['en'];
+		} else {
+			// make sure that indexed are corrected
+			return array_values($filteredLocales);
+		}
+	}
+
+	/**
+	 * Predicate to check filter
+	 */
+	protected function isSupportedLocale(string $locale) {
+		return (empty($this->supported_locales) ||
+				in_array($locale, $this->supported_locales));
 	}
 
 	/**
 	 * Read all the available translation jsons for app.
-	 *
+	 * This is not part of the interface IFactory
 	 *
 	 * @param string $app
 	 * @param string $lang
 	 * @return string[]
 	 */
 	public function getTranslationsForApp($app, $lang) {
+
+		// if language is not suppported - not translations
+		if (!$this->isSupportedLocale($lang)) {
+			return [];
+		}
+
 		$translations = [];
 		$l10nFilenames = $this->decoratedFactory->getL10nFilesForApp($app, $lang);
 		foreach ($l10nFilenames as $filename) {
@@ -76,7 +185,16 @@ class FactoryDecorator implements IFactory {
 				}
 			}
 		}
-		return $translations;
+
+		// load the multi-app json for lang if not loaded yet
+		// lazy load theme overrides map once. We need the modified $lang.
+		if (!isset($this->overrides[$lang])) {
+			// FIXME  this could break as  is marked obsolete
+			$this->overrides[$lang] = $this->getOverrides($lang);
+		}
+
+		$overrides = $this->overrides[$lang][$app] ?? [];
+		return array_merge($translations, $overrides);
 	}
 
 	/**
@@ -142,23 +260,15 @@ class FactoryDecorator implements IFactory {
 				$locale = $this->findLocale($lang);
 			}
 
-			// load the multi-app json for lang if not loaded yet
-			// lazy load theme overrides map once. We need the modified $lang.
-			if (!isset($this->overrides[$lang])) {
-				// FIXME  this could break as  is marked obsolete
-				$this->overrides[$lang] = $this->getOverrides($lang);
-			}
-
 			if (!isset($this->instances[$lang][$app])) {
 				$translations = $this->getTranslationsForApp($app, $lang);
-				$overrides = $this->overrides[$lang][$app] ?? [];
 
 				$this->instances[$lang][$app] = new L10N(
 					$this,
 					$app,
 					$lang,
 					$locale,
-					array_merge($translations, $overrides)
+					$translations
 				);
 			}
 
@@ -167,102 +277,128 @@ class FactoryDecorator implements IFactory {
 	}
 
 	/**
-	 * No decoration, just pass on to original IFactory
+	 * decorate standard IFactory with supported locale filter
 	 * @see public\L10N\IFactory
 	 * @see private\L10N\Factory
 	 */
 	public function findLanguage(?string $appId = null): string {
-		return $this->decoratedFactory->findLanguage($appId);
+		return $this->filterLocale($this->decoratedFactory->findLanguage($appId));
 	}
 
 	/**
-	 * No decoration, just pass on to original IFactory
+	 * decorate standard IFactory with supported locale filter
 	 * @see public\L10N\IFactory
 	 * @see private\L10N\Factory
 	 */
 	public function findGenericLanguage(string $appId = null): string {
-		return $this->decoratedFactory->findGenericLanguage($appId);
+		return $this->filterLocale($this->decoratedFactory->findGenericLanguage($appId));
 	}
 	
 	/**
-	 * No decoration, just pass on to original IFactory
+	 * decorate standard IFactory with supported locale filter
 	 * @see public\L10N\IFactory
 	 * @see private\L10N\Factory
 	 */
 	public function findLocale($lang = null) {
-		return $this->decoratedFactory->findLocale($lang);
+		return $this->filterLocale($this->decoratedFactory->findLocale($lang));
 	}
 
 	/**
-	 * No decoration, just pass on to original IFactory
+	 * decorate standard IFactory with supported locale filter
 	 * @see public\L10N\IFactory
 	 * @see private\L10N\Factory
 	 */
 	public function findLanguageFromLocale(string $app = 'core', string $locale = null) {
-		return $this->decoratedFactory->findLanguageFromLocale($app, $locale);
+		return $this->filterLocale($this->decoratedFactory->findLanguageFromLocale($app, $locale));
 	}
 
 	/**
-	 * No decoration, just pass on to original IFactory
+	 * decorate standard IFactory with supported locale filter
 	 * @see public\L10N\IFactory
 	 * @see private\L10N\Factory
 	 */
 	public function findAvailableLanguages($app = null): array {
-		return $this->decoratedFactory->findAvailableLanguages($app);
+		return $this->filterLocales($this->decoratedFactory->findAvailableLanguages($app));
 	}
 
 	/**
-	 * No decoration, just pass on to original IFactory
+	 * decorate standard IFactory with supported locale filter
 	 * @see public\L10N\IFactory
 	 * @see private\L10N\Factory
 	 */
 	public function findAvailableLocales() {
-		return $this->decoratedFactory->findAvailableLocales();
+		return $this->filterLocales($this->decoratedFactory->findAvailableLocales());
 	}
 
 	/**
-	 * No decoration, just pass on to original IFactory
+	 * decorate standard IFactory with supported locale filter
 	 * @see public\L10N\IFactory
 	 * @see private\L10N\Factory
 	 */
 	public function languageExists($app, $lang) {
+		if (!$this->isSupportedLocale($lang)) {
+			return false;
+		}
+
 		return $this->decoratedFactory->languageExists($app, $lang);
 	}
 
 	/**
-	 * No decoration, just pass on to original IFactory
+	 * decorate standard IFactory with supported locale filter
 	 * @see public\L10N\IFactory
 	 * @see private\L10N\Factory
 	 */
 	public function localeExists($locale) {
+		if (!$this->isSupportedLocale($locale)) {
+			return false;
+		}
+
 		return $this->decoratedFactory->localeExists($locale);
 	}
 
 	/**
-	 * No decoration, just pass on to original IFactory
+	 * decorate standard IFactory with supported locale filter
 	 * @see public\L10N\IFactory
 	 * @see private\L10N\Factory
 	 */
 	public function getLanguageIterator(IUser $user = null): ILanguageIterator {
-		return $this->decoratedFactory->getLanguageIterator($user);
+		return new LanguageIteratorDecorator(
+			$this->decoratedFactory->getLanguageIterator($user),
+			$this->supported_locales);
 	}
 
 	/**
-	 * No decoration, just pass on to original IFactory
+	 * decorate standard IFactory with supported locale filter
 	 * @see public\L10N\IFactory
 	 * @see private\L10N\Factory
 	 */
 	public function getLanguages(): array {
-		return $this->decoratedFactory->getLanguages();
+		$languages = $this->decoratedFactory->getLanguages();
+
+		if (empty($this->supported_locales)) {
+			return $languages;
+		}
+
+		$commonLanguages = array_filter($languages['commonLanguages'], function ($lang) {
+			return in_array($lang['code'], $this->supported_locales);
+		});
+		$otherLanguages = array_filter($languages['otherLanguages'], function ($lang) {
+			return in_array($lang['code'], $this->supported_locales);
+		});
+		return [
+			// re-index filtered arrays
+			'commonLanguages' => array_values($commonLanguages),
+			'otherLanguages' => array_values($otherLanguages)
+		];
 	}
 
 	/**
-	 * No decoration, just pass on to original IFactory
+	 * decorate standard IFactory with supported locale filter
 	 * @see public\L10N\IFactory
 	 * @see private\L10N\Factory
 	 */
 	public function getUserLanguage(IUser $user = null): string {
-		return $this->decoratedFactory->getUserLanguage($user);
+		return $this->filterLocale($this->decoratedFactory->getUserLanguage($user));
 	}
 
 }
