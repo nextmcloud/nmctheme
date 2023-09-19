@@ -133,11 +133,5 @@
         "used": "used",
         "Display settings": "Display settings",
         "PhotosMedia": "Media"
-    },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-    "nmcsettings": { "translations": {
-      "Customer Center": "Customer Center",
-      "Help & FAQ": "Help & FAQ",
-      "Account Settings": "Account Settings",
-      "Display settings": "Display settings"
     },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }
