@@ -20,6 +20,8 @@
 @import 'components/ncbuttons.scss';
 @import 'components/nccheckbox.scss';
 @import 'components/ncusermenu.scss';
+@import 'components/ncactions.scss';
+@import 'components/ncselect.scss';
 
 
 /* layouts and layout parts*/
@@ -35,6 +37,7 @@
 @import 'apps/apps.scss';
 @import 'apps/files.scss';
 @import 'apps/settings.scss';
+@import 'apps/sharing.scss';
 
 /* v25 override */
 @import 'v25/ncappnavigation.scss';

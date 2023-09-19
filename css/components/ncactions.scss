@@ -1,0 +1,16 @@
+// NcActions
+.action-item .v-popper{
+	--open-background-color: initial;
+	.button-vue {
+		&:hover:not(:disabled) {
+			background-color: initial;
+			svg {
+				color: var(--telekom-color-text-and-icon-primary-standard);
+			}
+		}
+
+		&:focus:not(:disabled) {
+			outline: none;
+		}
+	}
+}

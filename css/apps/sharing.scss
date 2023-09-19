@@ -1,0 +1,100 @@
+@import '../_mixins.scss';
+
+#app-sidebar-vue {
+	.app-sidebar-header {
+			&__desc {
+				// hide '...' actions button
+				.app-sidebar-header__menu {
+					display: none;
+				}
+			}
+
+			button.app-sidebar__close {
+				opacity: 1;
+				&:hover, &:active, &:focus {
+					background-color: initial;
+					@include color-icon;
+				}
+				.button-vue__icon {
+					background-image: var(--icon-close-dark);
+					background-position: center;
+					background-repeat: no-repeat;
+					// hide initial icon
+					svg {
+						display: none;
+					}
+				}
+			}
+	}
+
+	// reset absolute position of 'Favorite' button in header of folder share
+	.app-sidebar-header--compact {
+		.app-sidebar-header__tertiary-actions{
+			position: initial;
+		}
+	}
+
+	.app-sidebar-tabs {
+		min-height: auto;
+		padding: 0 24px;
+	}
+
+	// remove tab navigation
+	.app-sidebar-tabs__nav {
+		display: none;
+	}
+
+	// remove left and right padding in sharing tab
+	.app-sidebar-tabs__content {
+		.app-sidebar__tab {
+			&:focus {
+				box-shadow: none;
+				border-color: initial;
+			}
+			padding: 10px 0;
+		}
+	}
+
+	.sharing-entry__avatar, .button-vue__icon {
+		.icon {
+			display: block;
+			height: 100%;
+			width: 100%;
+			&.icon-default {
+				background-image: var(--icon-link-dark);
+			}
+			&.icon-link {
+				background-image: var(--icon-link-dark);
+			}
+
+			&.icon.icon-user {
+				background-image: var(--icon-user-dark);
+			}
+
+			&.icon.icon-upload-to-cloud {
+				background-image: var(--icon-upload-to-cloud-dark);
+			}
+
+			&.icon-checkmark-magenta {
+				background-image: var(--icon-checkmark-magenta);
+			}
+
+			&.icon-clipboard {
+				background-image: var(--icon-clipboard-dark);
+				&:hover {
+					@include color-icon;
+				}
+			}
+
+			&.icon-add:hover {
+				@include color-icon;
+			}
+
+		}
+	}
+}
+
+// Sharing details container
+.sharingTabDetailsView {
+	margin: 0 !important;
+}

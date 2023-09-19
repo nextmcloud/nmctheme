@@ -11,7 +11,7 @@
 #body-settings .input-field,
 #body-public .input-field,
 #body-login .input-field {
-    border-radius: var(--telekom-radius-standard);
+    border-radius: var(--telekom-radius-small);
 
     &__main-wrapper {
         height: 44px;
@@ -37,7 +37,7 @@
         }
 
         &:hover:not([disabled]) {
-            color: var(--telekom-color-ui-state-fill-hovered);
+            cursor: text;
             border-color: var(--telekom-color-ui-border-hovered);
         }
 
@@ -52,6 +52,10 @@
         &--trailing-icon {
             padding-right: 38px;
         }
+
+        &:not(:focus,&--label-outside)::placeholder {
+			opacity: 1;
+		}
     }
 
     &__icon {

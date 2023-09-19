@@ -1,0 +1,13 @@
+.v-select.select {
+	.vs__dropdown-toggle {
+		border-width: 1px;
+	}
+
+	.vs__actions {
+		// remove arrow icon
+		.chevron-down-icon {
+			display: none;
+		}
+	}
+
+}
