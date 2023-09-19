@@ -133,11 +133,5 @@
     "used": "genutzt",
     "Display settings": "Anzeigeeinstellungen",
     "PhotosMedia": "Medien"
-  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-  "nmcsettings": { "translations": {
-    "Customer Center": "Kundencenter",
-    "Help & FAQ": "Hilfe & FAQ",
-    "Account Settings": "Einstellungen",
-    "Display settings": "Anzeigeeinstellungen"
   },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }

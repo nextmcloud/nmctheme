@@ -131,3 +131,13 @@ $breakpoint-mobile: 1024px;
 		display: none;
 	}
 }
+
+.app-settings {
+	
+	#app-navigation:not(.vue) {
+	
+		& > ul > li {
+			display: none;
+		}
+	}
+}
