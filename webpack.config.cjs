@@ -8,7 +8,6 @@ webpackConfig.entry = {
  		filelistplugin: path.join(__dirname, 'src', 'js', 'filelistplugin.js'),
         newfilemenuplugin: path.join(__dirname, 'src', 'js', 'newfilemenuplugin.js'),
         filessettings: path.join(__dirname, 'src', 'js', 'filessettings.js'),
-		nmcsettings: path.join(__dirname, 'src', 'js', 'nmcsettings.js'),
 		// keep src for future use: l10nappender: './src/l10nappender.ts',
 		conflictdialog: path.join(__dirname, 'src', 'js', 'conflictdialog.js'),
         mimetypes: path.join(__dirname, 'src', 'js', 'mimetypes.js'),
