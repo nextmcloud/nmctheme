@@ -19,7 +19,7 @@ export default {
 
 <style>
 .files-settings {
-	padding: 0 1rem;
+	padding: 0 1.5rem;
 }
 
 @media only screen and (max-width: 1024px) {

@@ -72,6 +72,7 @@ export default {
 		max-height: 0;
 		overflow: hidden;
 		transition: max-height 0.8s;
+		gap: 0.5rem;
 		&.open {
 			max-height: 280px;
 		}
@@ -82,7 +83,8 @@ export default {
 		color: var(--color-primary);
 		width: fit-content;
 		position: relative;
-		padding-left: 1.6rem;
+		padding-left: 1.5rem;
+		margin-bottom: 6px;
 		&:hover {
 			color: var(--color-primary-hover);
 			cursor: pointer;
@@ -95,7 +97,7 @@ export default {
 			border-bottom: 5px solid var(--color-primary);
 			position: absolute;
 			top: calc(50% - 3px);
-			left: 6px;
+			left: 3px;
 		}
 		// rotate arrow when opened
 		&.open::before {
@@ -104,10 +106,7 @@ export default {
 	}
 
 	.display-settings__list .checkbox-radio-switch__label {
-		// decrease gap size between checkboxes
-		min-height: 35px;
-		// center vertically checkboxes and arrow
-		padding-left: 0px;
+		gap: 0.5rem;
 	}
 }
 </style>
