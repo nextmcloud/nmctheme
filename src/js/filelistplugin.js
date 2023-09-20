@@ -1,8 +1,15 @@
-(function() {
+window.addEventListener('DOMContentLoaded', function() {
 
-	const FilesPlugin = {
+	const FileListPlugin = {
 
 		attach(fileList) {
+			const that = this
+
+			this._resizeFileActionMenu = _.debounce(_.bind(this._resizeFileActionMenu, this), 250) // eslint-disable-line
+			window.addEventListener('resize', function() {
+				that._resizeFileActionMenu(fileList)
+			})
+
 			const actionHandler = () => {
 				this._onClickCancelSelected(fileList)
 			}
@@ -15,28 +22,52 @@
 				action: actionHandler,
 			})
 
+			const $thActions = $('<th>', { class: 'column-actions' }) // eslint-disable-line
+			fileList.$el.find('.column-mtime').after($thActions)
+
+			const $thMenu = $('<th>', { class: 'column-menu' }) // eslint-disable-line
+			fileList.$el.find('.column-mtime').after($thMenu)
+
+			fileList.fileMultipleSelectionMenu = new OCA.Files.FileMultiSelectMenu(fileList.multiSelectMenuItems)
+			fileList.fileMultipleSelectionMenu.render()
+
+			fileList.$el.find('.selectedActions').detach().appendTo($thActions)
+			$thMenu.append(fileList.fileMultipleSelectionMenu.$el)
+
+			fileList.showDetailsView = function(fileName, tabId) {
+				that._updateDetailsView(fileName, fileList)
+				if (tabId) {
+					OCA.Files.Sidebar.setActiveTab(tabId)
+				}
+			}
+
 			fileList.updateSelectionSummary = function() {
 				const self = this
-				fileList.fileMultiSelectMenu.show(self)
 
 				const summary = fileList._selectionSummary.summary
-				let selection
-
 				const showHidden = !!fileList._filesConfig.show_hidden
 
 				const fileTable = fileList.$table
 				fileTable.find('.column-selection > label > span').text(t('files', 'All'))
 
+				let selection
+
 				if (summary.totalFiles === 0 && summary.totalDirs === 0) {
-					fileTable.find('.column-name a.name > span:first').text(t('files', 'Name'))
-					fileTable.find('table').removeClass('multiselect')
 					fileTable.find('.column-size').removeClass('hidden')
 					fileTable.find('.column-mtime').removeClass('hidden')
-					fileTable.find('.selectedActions').addClass('hidden')
+					fileTable.find('.column-menu').addClass('hidden')
+					fileTable.find('.column-actions').addClass('hidden')
+					fileTable.find('.column-name a.name > span:first').text(t('files', 'Name'))
+					fileTable.find('table').removeClass('multiselect')
 				} else {
 					fileTable.find('.column-size').addClass('hidden')
 					fileTable.find('.column-mtime').addClass('hidden')
-					fileTable.find('.selectedActions').removeClass('hidden')
+					fileTable.find('.column-menu').removeClass('hidden')
+					fileTable.find('.column-actions').removeClass('hidden')
+
+					fileList.fileMultiSelectMenu.show(self)
+					fileList.fileMultipleSelectionMenu.show(self)
+					that._resizeFileActionMenu(fileList)
 
 					const directoryInfo = n('files', '%n folder', '%n folders', summary.totalDirs)
 					const fileInfo = n('files', '%n file', '%n files', summary.totalFiles)
@@ -79,7 +110,91 @@
 							fileList.fileMultiSelectMenu.toggleItemVisibility('copyMove', false)
 						}
 					}
+
+					if (fileList.fileMultipleSelectionMenu) {
+						fileList.fileMultipleSelectionMenu.toggleItemVisibility('download', fileList.isSelectedDownloadable())
+						fileList.fileMultipleSelectionMenu.toggleItemVisibility('delete', fileList.isSelectedDeletable())
+						fileList.fileMultipleSelectionMenu.toggleItemVisibility('copyMove', fileList.isSelectedCopiable())
+						if (fileList.isSelectedCopiable()) {
+							if (fileList.isSelectedMovable()) {
+								fileList.fileMultipleSelectionMenu.updateItemText('copyMove', t('files', 'Move or copy'))
+							} else {
+								fileList.fileMultipleSelectionMenu.updateItemText('copyMove', t('files', 'Copy'))
+							}
+						} else {
+							fileList.fileMultipleSelectionMenu.toggleItemVisibility('copyMove', false)
+						}
+					}
 				}
+			}
+		},
+
+		_resizeFileActionMenu(fileList) {
+			fileList.$el.find('.column-menu .filesSelectMenu ul li').removeClass('hidden')
+
+			const appList = fileList.$el.find('.column-menu .filesSelectMenu ul li:visible')
+			const appListLength = appList.length
+			const colSelectionWidth = Math.ceil(fileList.$el.find('.column-selection').outerWidth())
+			const colNameWidth = Math.ceil(fileList.$el.find('.column-name').outerWidth())
+			const menuWidth = Math.ceil(fileList.$el.find('.column-menu .filesSelectMenu ul').outerWidth())
+			const colActionsWidth = Math.ceil(fileList.$el.find('.column-actions').outerWidth())
+			const headerWidth = Math.ceil(fileList.$el.find('.files-filestable thead').outerWidth())
+			const listItemWidth = Math.round(menuWidth / appListLength)
+			let availableWidth = headerWidth - (colSelectionWidth + colNameWidth)
+			let appCount = Math.floor(availableWidth / listItemWidth)
+
+			if (appCount < appListLength) {
+				availableWidth = headerWidth - (colSelectionWidth + colNameWidth + colActionsWidth)
+				appCount = Math.floor((availableWidth / listItemWidth))
+			}
+
+			if (appCount < appListLength) {
+				fileList.$el.find('.selectedActions').css('display', 'block')
+			} else if (appCount === appListLength) {
+				fileList.$el.find('.selectedActions').css('display', 'none')
+			} else if (!isFinite(appCount)) {
+				fileList.$el.find('.selectedActions').css('display', 'block')
+			} else if (appCount > appListLength) {
+				fileList.$el.find('.selectedActions').css('display', 'none')
+			}
+
+			for (let k = 0; k < appListLength; k++) {
+				if (k < appCount) {
+					$(appList[k]).removeClass('hidden') // eslint-disable-line
+				} else {
+					$(appList[k]).addClass('hidden') // eslint-disable-line
+				}
+			}
+		},
+
+		_updateDetailsView(fileName, fileList, show) {
+			FileListPlugin._resizeFileActionMenu(fileList)
+
+			if (!(OCA.Files && OCA.Files.Sidebar)) {
+				console.error('No sidebar available')
+				return
+			}
+
+			if (!fileName && OCA.Files.Sidebar.close) {
+				OCA.Files.Sidebar.close()
+				return
+			} else if (typeof fileName !== 'string') {
+				fileName = ''
+			}
+
+			const tr = fileList.findFileEl(fileName)
+			const model = fileList.getModelForFile(tr)
+			const path = model.attributes.path + '/' + model.attributes.name
+
+			if (fileList._currentFileModel) {
+				fileList._currentFileModel.off()
+			}
+			fileList.$fileList.children().removeClass('highlighted')
+			tr.addClass('highlighted')
+			fileList._currentFileModel = model
+
+			if (typeof show === 'undefined' || !!show || (OCA.Files.Sidebar.file !== '')) {
+				OCA.Files.Sidebar.open(path.replace('//', '/'))
 			}
 		},
 
@@ -92,5 +207,5 @@
 		},
 	}
 
-	OC.Plugins.register('OCA.Files.FileList', FilesPlugin)
-})()
+	OC.Plugins.register('OCA.Files.FileList', FileListPlugin)
+})

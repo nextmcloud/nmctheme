@@ -1,6 +1,10 @@
-#nmcsettings {
+#nmcsettings, .nmcsettings {
 	display: flex;
 	padding: 1.25rem 2.25rem;
+
+	.section {
+		padding: 1rem;
+	}
 	
 	.personal-settings-account-container {
 		display: flex;
@@ -359,8 +363,9 @@
 }
 
 #monthly-notifications-settings {
+	border: none;
 	display: block;
-	padding: 0 66px 2rem;
+	padding: 0 3.25rem;
 
 	&.section {
 
