@@ -1,5 +1,4 @@
-(function() {
-
+window.addEventListener('DOMContentLoaded', function() {
 	const NewFileMenuPlugin = {
 
 		attach(menu) {
@@ -39,8 +38,11 @@
 					})
 				})
 			}
+
+			// remove 'Set up templates folder' option
+			menu.removeMenuEntry('template-init')
 		},
 	}
 
 	OC.Plugins.register('OCA.Files.NewFileMenu', NewFileMenuPlugin)
-})()
+})
