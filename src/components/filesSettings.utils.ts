@@ -4,6 +4,16 @@ import axios from '@nextcloud/axios'
 
 export const IS_LEGACY_VERSION = window._oc_config.version.startsWith('25')
 
+const SETTINGS_MAPPING = {
+	show_hidden: 'show',
+	crop_image_previews: 'crop',
+}
+
+const CONFIG_SETTINGS_MAPPING = {
+	show_hidden: 'showhidden',
+	crop_image_previews: 'cropimagepreviews',
+}
+
 export const loadStats = async () => {
 	let browserState = loadState('files', 'storageStats', null)
 	// v25
@@ -23,13 +33,10 @@ export const updateDisplaySettings = async (key: string, value: boolean) => {
 	try {
 		// v25
 		if (IS_LEGACY_VERSION) {
-			const keyName = {
-				show_hidden: 'show',
-				crop_image_previews: 'crop',
-			}
 			await axios.post(generateUrl('/apps/files/api/v1/' + key.replaceAll('_', '')), {
-				[keyName[key]]: value,
+				[SETTINGS_MAPPING[key]]: value,
 			})
+			window.OCA.Files.App._filesConfig.set(CONFIG_SETTINGS_MAPPING[key], value)
 			return
 		}
 		// v26, v27
