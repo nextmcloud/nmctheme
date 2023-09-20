@@ -51,7 +51,7 @@ export default {
 				return `<b>${usedQuotaByte}</b> ` + t('nmctheme', 'used')
 			}
 
-			return `<b>${usedQuotaByte}</b> ' + t('nmctheme', 'of') + ' ${quotaByte}`
+			return `<b>${usedQuotaByte}</b> ${t('nmctheme', 'of')} ${quotaByte}`
 		},
 		memoryUsage() {
 			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toFixed(2)

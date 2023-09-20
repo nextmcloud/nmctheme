@@ -14,28 +14,19 @@ span.checkbox-radio-switch.checkbox-radio-switch-checkbox {
 		}
 	}
 
-	// set unchecked inputs to be black
-	&:not(.checkbox-radio-switch--checked) .checkbox-radio-switch__icon {
-		span.material-design-icon {
-			color: var(--telekom-color-ui-black);
-			// make checkbox thinner
-			svg > path {
-				d: path('M 19 3 H 5 C 3.89 3 3 3.89 3 5 V 19 A 2 2 0 0 0 5 21 H 19 A 2 2 0 0 0 21 19 V 5 C 21 3.89 20.1 3 19 3 M 20 5 V 20 H 4 V 4 H 20 Z');
-			}
-		}
-	}
-
 	// on hover unchecked inputs
 	&:not(.checkbox-radio-switch--checked):hover .checkbox-radio-switch__icon {
 		color: var(--telekom-color-ui-regular);
 	}
 
-	label.checkbox-radio-switch__label {
+	.checkbox-radio-switch__label {
 		// override min-height of checkbox
 		min-height: auto;
+		padding: 0px;
 		// replace box svg with custom element
 		.material-design-icon {
-			width: 18px;
+			width: 16px;
+			height: 16px;
 
 			// hide original box icon
 			svg {
@@ -68,6 +59,10 @@ span.checkbox-radio-switch.checkbox-radio-switch-checkbox {
 			.material-design-icon::before {
 				border-color: var(--telekom-color-primary-standard);
 			}
+		}
+
+		&-text {
+			line-height: 1rem;
 		}
 	}
 }
@@ -102,6 +97,7 @@ span.checkbox-radio-switch.checkbox-radio-switch-radio {
 
 	label.checkbox-radio-switch__label {
 		min-height: auto;
+		padding: 0px;
 
 		// replace circle svg with custom element
 		.material-design-icon {
