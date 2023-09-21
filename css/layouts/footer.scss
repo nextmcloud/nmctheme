@@ -8,6 +8,9 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  * Note: Take care of Telekom branding restrictions!
  */
+ 
+$breakpoint-mobile: 1024px;
+$breakpoint-mobile-small: 480px;
 
 footer {
     --footnav-items-bottom-margin: var(--telekom-spacing-composition-space-08);
@@ -30,12 +33,25 @@ footer[role="contentinfo"] {
     border-top: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
     padding: var(--telekom-spacing-composition-space-07) var(--telekom-spacing-composition-space-08);
 
+	@media screen and (max-width: $breakpoint-mobile-small) {
+		border-radius: 0;
+		padding: 0.75rem 0.5rem;
+        left: 0;
+        right: 0;
+        bottom: 0;
+		max-width: 100%;
+	}
+
     .footer-content {        
         display: flex;
         justify-content: space-between;
         align-content: center;
         flex-wrap: wrap;
         gap: var(--telekom-spacing-composition-space-06);
+
+        @media screen and (max-width: $breakpoint-mobile-small) {
+            gap: var(--telekom-spacing-composition-space-04);
+        }
 
         #notice {
             display: flex;
@@ -45,9 +61,13 @@ footer[role="contentinfo"] {
 
         #navigation {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             gap: var(--telekom-spacing-composition-space-05);
-            flex-wrap: wrap;
+
+            @media screen and (max-width: $breakpoint-mobile-small) {
+                gap: var(--telekom-spacing-composition-space-04);
+            }
         }
 
         li a {

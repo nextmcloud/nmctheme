@@ -4,6 +4,9 @@
 	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
 }
 
+$breakpoint-mobile: 1024px;
+$breakpoint-mobile-small: 480px;
+
 // add small gap between app content and app navigation
 .app-files #app-content > .viewcontainer {
 	padding-left: 8px;
@@ -68,8 +71,10 @@
 			opacity: 0.97;
 	
 			th {
+				vertical-align: top;
 
 				&.column-selection {
+					padding: 0;
 
 					input {
 
@@ -83,6 +88,7 @@
 					}
 
 					label {
+						display: inline-block;
 						padding-bottom: 0.75rem;
 						padding-top: 0.75rem;
 
@@ -91,10 +97,15 @@
 							height: auto;
 							left: 0;
 							margin-left: 1rem;
+							margin-right: 0;
 							overflow: auto;
 							position: relative;
 							top: 0;
-							width: 44px;
+							width: 40px;
+
+							@media screen and (max-width: $breakpoint-mobile) {
+								display: none;
+							}
 						}
 					}
 				}
@@ -119,6 +130,10 @@
 
 	.column-menu {
 		width: 1000vw;
+
+		@media screen and (max-width: $breakpoint-mobile-small) {
+			display: none;
+		}
 
 		.filesSelectMenu  {
 			display: flex !important;
@@ -196,6 +211,21 @@
 
 			.icon {
 				margin-right: 0.25rem;
+			}
+		}
+
+		.filesSelectMenu {
+			transform: unset;
+			right: 0;
+			margin: 0.25rem;
+			margin-top: -0.25rem;
+
+			&.popovermenu.menu-center:after {
+				right: 3rem;
+			}
+
+			&.popovermenu.menu-right:after {
+				right: 2rem;
 			}
 		}
 

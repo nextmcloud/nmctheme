@@ -11,6 +11,7 @@
  */
  
 $breakpoint-mobile: 1024px;
+$breakpoint-mobile-small: 480px;
 
 header {
 	--shadow: 0px 2px 9px rgba(0, 0, 0, 0.15);
@@ -37,12 +38,18 @@ header {
 #body-settings #header,
 #body-public #header {
 	background: var(--telekom-color-background-surface) !important;
-  border-bottom: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
+	border-bottom: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
 	border-radius: 0.5rem 0.5rem 0px 0px;
 	height: var(--header-height);
 	margin: 1rem 1rem 0;
 	position: fixed;
-    width: calc(100% - 2rem);
+	width: calc(100% - 2rem);
+
+	@media screen and (max-width: $breakpoint-mobile-small) {
+		border-radius: 0;
+		margin: 0;
+		width: 100%;
+	}
 
 	// brand logo update
 	.brand {
