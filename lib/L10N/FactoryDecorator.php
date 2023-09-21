@@ -135,7 +135,6 @@ class FactoryDecorator implements IFactory {
 			return $locales;
 		}
 
-
 		$filteredLocales = array_filter($locales, function ($locale) {
 			return in_array($locale['code'], $this->supported_locales);
 		});
@@ -146,6 +145,27 @@ class FactoryDecorator implements IFactory {
 		} else {
 			// make sure that indexed are corrected
 			return array_values($filteredLocales);
+		}
+	}
+
+	/**
+	 * Filter a set of supported languages (locales) (if set)
+	 */
+	protected function filterLanguages(array $languages) {
+		if (empty($this->supported_locales)) {
+			return $languages;
+		}
+
+		$filteredLanguages = array_filter($languages, function ($language) {
+			return in_array($language, $this->supported_locales);
+		});
+		
+		if (empty($this->supported_locales) ||
+			empty($filteredLanguages)) {
+			return ['en'];
+		} else {
+			// make sure that indexed are corrected
+			return array_values($filteredLanguages);
 		}
 	}
 
@@ -313,12 +333,12 @@ class FactoryDecorator implements IFactory {
 	}
 
 	/**
-	 * decorate standard IFactory with supported locale filter
+	 * decorate standard IFactory with supported languages (locales) filter
 	 * @see public\L10N\IFactory
 	 * @see private\L10N\Factory
 	 */
 	public function findAvailableLanguages($app = null): array {
-		return $this->filterLocales($this->decoratedFactory->findAvailableLanguages($app));
+		return $this->filterLanguages($this->decoratedFactory->findAvailableLanguages($app));
 	}
 
 	/**
