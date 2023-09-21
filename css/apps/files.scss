@@ -4,6 +4,9 @@
 	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
 }
 
+$breakpoint-mobile: 1024px;
+$breakpoint-mobile-small: 480px;
+
 // add small gap between app content and app navigation
 .app-files #app-content > .viewcontainer {
 	padding-left: 8px;
@@ -69,8 +72,10 @@
 			opacity: 0.97;
 	
 			th {
+				vertical-align: top;
 
 				&.column-selection {
+					padding: 0;
 
 					input {
 
@@ -84,6 +89,7 @@
 					}
 
 					label {
+						display: inline-block;
 						padding-bottom: 0.75rem;
 						padding-top: 0.75rem;
 
@@ -92,10 +98,15 @@
 							height: auto;
 							left: 0;
 							margin-left: 1rem;
+							margin-right: 0;
 							overflow: auto;
 							position: relative;
 							top: 0;
-							width: 44px;
+							width: 40px;
+
+							@media screen and (max-width: $breakpoint-mobile) {
+								display: none;
+							}
 						}
 					}
 				}
@@ -114,44 +125,53 @@
 		}
 	}
 
-	.selectedActions {
-		float: right;
+	.column-name {
+		width: 100vw;
+	}
 
-		&> a.actions-selected {
+	.column-menu {
+		width: 1000vw;
+
+		@media screen and (max-width: $breakpoint-mobile-small) {
 			display: none;
 		}
 
-		.filesSelectMenu {
-			background: none; 
-			border-radius: 0;
-			display: inline-block !important;
+		.filesSelectMenu  {
+			display: flex !important;
 			filter: unset;
-			margin: 0 1rem 0 0;
+			justify-content: flex-end;
+			margin: 0;
 			padding: 0;
 			position: unset;
 			transform: unset;
-
+	
 			ul {
 				flex-direction: row;
-
+	
 				li.item-toggleSelectionMode,
 				li.item-tags {
 					display: none;
 				}
-
+	
 				a.menuitem.action {
-					background: none;
 					border: none;
 					border-radius: 0;
 					color: var(--telekom-color-text-and-icon-primary-standard);
 					font-weight: bold;
+					line-height: 50px;
+					margin-right: 1rem;
+					padding: 0 !important;
 					position: relative;
-
+	
 					.icon {
 						@include magenta-icon;
+						background-position-x: left;
+						background-size: 1.25rem;
+						height: 50px;
+						padding: 1rem;
 						pointer-events: none;
 					}
-
+	
 					&::before {
 						background-color: var(--color-primary);
 						border-radius: 0;
@@ -167,16 +187,54 @@
 						transition: all .1s ease-in-out;
 						width: 100%;
 					}
-
+	
 					&:hover, &:focus {
 						background: none;
 						border: none;
-
+	
 						&::before {
 							opacity: 1;
 						}
 					}
 				}
+			}
+		}
+	}
+
+	.selectedActions {
+
+		&> a.actions-selected {
+			color: var(--telekom-color-text-and-icon-primary-standard);
+			font-weight: bold;
+			margin: 0 1rem 0 0;
+			opacity: 1;
+			top: 0;
+
+			.icon {
+				margin-right: 0.25rem;
+			}
+		}
+
+		.filesSelectMenu {
+			transform: unset;
+			right: 0;
+			margin: 0.25rem;
+			margin-top: -0.25rem;
+
+			&.popovermenu.menu-center:after {
+				right: 3rem;
+			}
+
+			&.popovermenu.menu-right:after {
+				right: 2rem;
+			}
+		}
+
+		ul {
+
+			li.item-toggleSelectionMode,
+			li.item-tags {
+				display: none;
 			}
 		}
 	}
