@@ -135,16 +135,12 @@ class FactoryDecorator implements IFactory {
 			return $locales;
 		}
 
-		$filteredLocales = array_filter($locales, function ($locale) {
-			return in_array($locale['code'], $this->supported_locales);
-		});
-		
-		if (empty($this->supported_locales) ||
-			empty($filteredLocales)) {
+		$filteredLocales = array_intersect($locales, $this->supported_locales);
+		if (empty($filteredLocales)) {
 			return ['en'];
 		} else {
 			// make sure that indexed are corrected
-			return array_values($filteredLocales);
+			return array_unique(array_values($filteredLocales));
 		}
 	}
 
@@ -165,7 +161,7 @@ class FactoryDecorator implements IFactory {
 			return ['en'];
 		} else {
 			// make sure that indexed are corrected
-			return array_values($filteredLanguages);
+			return array_unique(array_values($filteredLanguages));
 		}
 	}
 
@@ -347,7 +343,9 @@ class FactoryDecorator implements IFactory {
 	 * @see private\L10N\Factory
 	 */
 	public function findAvailableLocales() {
-		return $this->filterLocales($this->decoratedFactory->findAvailableLocales());
+		return array_filter($this->decoratedFactory->findAvailableLocales(), function ($lang) {
+			return in_array($lang['code'], $this->supported_locales);
+		});
 	}
 
 	/**
