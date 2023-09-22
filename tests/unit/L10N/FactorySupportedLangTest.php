@@ -24,10 +24,13 @@ class FactorySupportedLangTest extends FactoryTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
+
+
 		$this->config
 			->expects(self::any())
 			->method('getSystemValue')
 			->willReturnMap([
+				['installed', false, true],
 				['nmc_supported_locales', false, ['de', 'de_DE', 'en_GB',   // suppored
 					'es', 'es_MX',          // supported not themed
 					'de_AT', 'co', 'co_XX' ]], // not supported
@@ -170,6 +173,7 @@ class FactorySupportedLangTest extends FactoryTestCase {
 		$this->assertEquals($expectedLocale, $l10n->getLocaleCode());
 	}
 
+
 	public function testFindAvailableLocales() {
 		$locales = $this->factory->findAvailableLocales();
 		$this->assertCount(7, $locales);
@@ -177,5 +181,33 @@ class FactorySupportedLangTest extends FactoryTestCase {
 		// TODO: more testing!
 	}
 
+	public function testFindAvailableLanguages() {
+		$languages = $this->factory->findAvailableLanguages();
+		$this->assertCount(6, $languages);
+		$languages = $this->factory->findAvailableLanguages('nmctheme');
+		$this->assertCount(4, $languages);
+
+		// TODO: more testing!
+	}
+
+	public function dataForFindLanguage() {
+		return [
+			['User_jp', 'en', 'en', 'en'],
+			['User_null', 'en', 'en', 'en'],
+			['User_de', 'de', 'de', 'de'],
+			['User_es', 'es', 'en', 'es']
+		];
+	}
+
+	/**
+	 * @dataProvider dataForFindLanguage
+	 */
+	public function testFindLanguage(string $username, string $expectedCore,
+		string $expectedTheme, string $expectedUnknown) {
+		$this->setUser($username);
+		self::assertSame($expectedCore, $this->factory->findLanguage('core'));
+		self::assertSame($expectedTheme, $this->factory->findLanguage('nmctheme'));
+		self::assertSame($expectedUnknown, $this->factory->findLanguage('_unknown_'));
+	}
 
 }

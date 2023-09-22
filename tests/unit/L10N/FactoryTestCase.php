@@ -58,6 +58,7 @@ class FactoryTestCase extends TestCase {
 						['User_cz', 'core', 'lang', null, 'cz'],
 						['User_fr', 'core', 'lang', null, 'fr'],
 						['User_nl', 'core', 'lang', null, 'nl'],
+						['User_es', 'core', 'lang', null, 'es'],
 						['User_null', 'core', 'lang', null, null],
 					]);
 		$this->user->expects(self::any())
