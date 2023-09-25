@@ -128,10 +128,9 @@
     "Data protection": "Datenschutz",
     "Faq": "Hilfe & FAQ",
     "Expand storage": "Speicher erweitern",
-    "Memory used up to {memoryUsage}%": "Speicher zu {memoryUsage}% belegt",
+    "Memory used up to {memoryUsage}%": "Speicher zu {memoryUsage}&#x25; belegt",
     "of": "von",
     "used": "genutzt",
-    "Display settings": "Anzeigeeinstellungen",
-    "PhotosMedia": "Medien"
+    "Display settings": "Anzeigeeinstellungen"
   },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }
