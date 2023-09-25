@@ -3,17 +3,28 @@
 #app-sidebar-vue {
 	.app-sidebar-header {
 			&__desc {
+				padding: var(--telekom-spacing-composition-space-04) var(--telekom-spacing-composition-space-06) var(--telekom-spacing-composition-space-08);
 				// hide '...' actions button
 				.app-sidebar-header__menu {
 					display: none;
 				}
+
+				// container of the Star button
+				.app-sidebar-header__tertiary-actions {
+					width: 1.5rem;
+				}
 			}
 
-			button.app-sidebar__close {
+			&__close {
 				opacity: 1;
+				background-color: var(--color-main-background);
+				top: 1rem;
+				right: 1rem;
 				&:hover, &:active, &:focus {
-					background-color: initial;
-					@include color-icon;
+					background-color: var(--color-background-hover);
+					.button-vue__icon {
+						@include color-icon;
+					}
 				}
 				.button-vue__icon {
 					background-image: var(--icon-close-dark);
@@ -25,18 +36,62 @@
 					}
 				}
 			}
+
+			&__star {
+				all: unset;
+				.button-vue__icon {
+					width: 1.5rem;
+					min-width: 1.5rem;
+					.material-design-icon {
+						width: 1.5rem;
+						height: 1.5rem;
+					}
+				}
+				.star-outline-icon {
+					background-image: var(--icon-star-dark);
+					svg {
+						display: none;
+					}
+				}
+				.star-icon {
+					background-image: var(--icon-starred-yellow);
+					svg {
+						display: none;
+					}
+				}
+			}
+
+			&__maintitle-container {
+				min-height: auto;
+			}
+			&__maintitle {
+				font-size: var(--telekom-typography-font-size-body);
+				min-height: auto;
+				line-height: 22px;
+			}
+			&__subtitle {
+				font-size: 14px;
+				opacity: 1;
+			}
 	}
 
-	// reset absolute position of 'Favorite' button in header of folder share
 	.app-sidebar-header--compact {
+		margin-bottom: 1.5rem;
+		// reset absolute position of 'Favorite' button in header of folder share
 		.app-sidebar-header__tertiary-actions{
 			position: initial;
+		}
+		.app-sidebar-header__desc {
+			padding-top: var(--telekom-spacing-composition-space-06);
+		}
+		.app-sidebar-header__figure {
+			margin: var(--telekom-spacing-composition-space-04) 0 0 var(--telekom-spacing-composition-space-06);
 		}
 	}
 
 	.app-sidebar-tabs {
 		min-height: auto;
-		padding: 0 24px;
+		padding: 0 var(--telekom-spacing-composition-space-06);
 	}
 
 	// remove tab navigation
@@ -51,7 +106,7 @@
 				box-shadow: none;
 				border-color: initial;
 			}
-			padding: 10px 0;
+			padding: 0;
 		}
 	}
 
