@@ -10,7 +10,7 @@ const colors = {
 	dark: '000',
 	white: 'fff',
 	// gold but for backwards compatibility called yellow
-	yellow: 'a08b00',
+	yellow: 'fecb00',
 	red: 'e9322d',
 	orange: 'eca700',
 	green: '46ba61',
@@ -96,7 +96,7 @@ const icons = {
 
 const iconsColor = {
 	starred: {
-		path: path.join(__dirname, '../img', 'actions', 'star-dark.svg'),
+		path: path.join(__dirname, '../img', 'actions', 'starred.svg'),
 		color: 'yellow',
 	},
 	file: {
