@@ -8,6 +8,11 @@
 			{{ t('nmctheme', 'Display settings') }}
 		</button>
 		<div class="display-settings__list" :class="{open: isOpened}">
+			<NcCheckboxRadioSwitch v-if="textAvailable"
+				:checked="userConfig.show_folder_info"
+				@update:checked="setConfig('show_folder_info', $event)">
+				{{ t('nmctheme', 'Show folder info text') }}
+			</NcCheckboxRadioSwitch>
 			<NcCheckboxRadioSwitch :checked="userConfig.show_hidden"
 				@update:checked="setConfig('show_hidden', $event)">
 				{{ t('files', 'Show hidden files') }}
@@ -23,6 +28,7 @@
 <script>
 import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
 import { useUserConfigStore } from '../store/userconfig.ts'
+import { loadState } from '@nextcloud/initial-state'
 import { translate } from '@nextcloud/l10n'
 
 export default {
@@ -42,7 +48,10 @@ export default {
 	},
 	computed: {
 		userConfig() {
-			return this.userConfigStore.userConfig
+			return this.userConfigStore
+		},
+		textAvailable() {
+			return loadState('text', 'workspace_available', false)
 		},
 	},
 	methods: {
