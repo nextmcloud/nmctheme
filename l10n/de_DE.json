@@ -131,6 +131,7 @@
     "Memory used up to {memoryUsage}%": "Speicher zu {memoryUsage}&#x25; belegt",
     "of": "von",
     "used": "genutzt",
-    "Display settings": "Anzeigeeinstellungen"
+    "Display settings": "Anzeigeeinstellungen",
+    "Show folder info text": "Ordnerinfotext anzeigen"
   },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }

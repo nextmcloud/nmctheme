@@ -7,9 +7,6 @@ import Vue from 'vue'
 export interface UserConfig {
 	[key: string]: boolean
 }
-export interface UserConfigStore {
-	userConfig: UserConfig
-}
 
 const userConfig = loadState('files', 'config', {
 	show_hidden: false,
@@ -18,28 +15,27 @@ const userConfig = loadState('files', 'config', {
 }) as UserConfig
 
 // get initial values from hidden inputs since v25 does not contain 'files' state
-const getLegacyStore = (): UserConfigStore => {
+const getLegacyStore = (): UserConfig => {
 	const show_hidden = !!+(document.getElementById('showHiddenFiles') as HTMLInputElement)?.value
 	const crop_image_previews = !!+(document.getElementById('cropImagePreviews') as HTMLInputElement)?.value
 	return {
-		userConfig: {
-			show_hidden,
-			crop_image_previews,
-			_initialized: false,
-		},
+		show_hidden,
+		crop_image_previews,
+		_initialized: false,
 	}
 
 }
 
 export const useUserConfigStore = function(...args) {
 	const store = defineStore('userconfig', {
-		state: (): UserConfigStore => {
+		state: (): UserConfig => {
+			const textState = {
+				show_folder_info: loadState('text', 'workspace_enabled', false),
+			}
 			if (IS_LEGACY_VERSION) {
-				return getLegacyStore()
+				return { ...getLegacyStore(), ...textState }
 			}
-			return {
-				userConfig,
-			}
+			return { ...userConfig, ...textState }
 		},
 
 		actions: {
@@ -49,7 +45,7 @@ export const useUserConfigStore = function(...args) {
 			 * @param value
 			 */
 			onUpdate(key: string, value: boolean) {
-				Vue.set(this.userConfig, key, value)
+				Vue.set(this, key, value)
 			},
 
 			/**
@@ -68,7 +64,7 @@ export const useUserConfigStore = function(...args) {
 	const userConfigStore = store(...args)
 
 	// Make sure we only register the listeners once
-	if (!userConfigStore.userConfig._initialized) {
+	if (!userConfigStore._initialized) {
 		subscribe('files:config:updated', function({ key, value }: { key: string, value: boolean }) {
 			userConfigStore.onUpdate(key, value)
 		})

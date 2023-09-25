@@ -131,6 +131,7 @@
         "Memory used up to {memoryUsage}%": "Memory used up to {memoryUsage}&#x25;",
         "of": "of",
         "used": "used",
-        "Display settings": "Display settings"
+        "Display settings": "Display settings",
+        "Show folder info text": "Show folder info text"
     },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }
