@@ -62,7 +62,18 @@ $breakpoint-mobile-small: 480px;
 
 		// 'Share' status styles
 		.action-share.permanent {
+			display: flex;
+			flex-direction: row-reverse;
+			height: 50px;
 			opacity: 1;
+			padding: 0;
+			width: 100%;
+
+			&:focus {
+				background: none;
+				border: none;
+				border-radius: 0;
+			}
 
 			// color shared files in maagenta
 			&.shared-style {
@@ -70,8 +81,17 @@ $breakpoint-mobile-small: 480px;
 			}
 
 			// increase share icon sizes
+			span {
+				display: inline-flex;
+				line-height: 50px;
+				margin: 0;
+			}
+
+			// increase share icon sizes
 			span.icon.icon-shared, span.icon.icon-public {
 				background-size: 24px 24px;
+				margin-left: 0.5rem;
+				margin-top: -0.25rem;
 				min-width: 24px;
 				min-height: 24px;
 			}
@@ -107,7 +127,7 @@ $breakpoint-mobile-small: 480px;
 							}
 
 							&:checked + label:before {
-								background-color: #73C354;
+								background-color: var(--telekom-color-text-and-icon-functional-success);
 								background-repeat: no-repeat;
 								border: none;
 								border-radius: 3rem;
@@ -342,7 +362,7 @@ table.files-filestable {
 				}
 
 				&:checked + label:before {
-					background-color: #73C354;
+					background-color: var(--telekom-color-text-and-icon-functional-success);
 					background-repeat: no-repeat;
 					border: none;
 					border-radius: 3rem;
