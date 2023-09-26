@@ -16,6 +16,8 @@
 name: MCLOUD app release
 
 on:
+  schedule:
+    - cron: "0 15 * * *"
   workflow_dispatch:
     inputs:
       branch:
@@ -48,3 +50,9 @@ jobs:
       tag: ${{ needs.check-app.outputs.tag }}
       prerelease: ${{ inputs.branch == 'main' && true || false }}
     secrets: inherit
+  store-version:
+    uses: nextmcloud/.github/.github/workflows/store-version-artifacts.yml@nmc/2027-build-test-rtoth
+    needs: build-app
+  trigger-image-build:
+    uses: nextmcloud/.github/.github/workflows/nmc-trigger-gitlab-image-build.yml@nmc/2027-build-test-rtoth
+    needs: store-version

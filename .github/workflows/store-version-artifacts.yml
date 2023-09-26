@@ -1,0 +1,63 @@
+name: Store version artifacts
+
+on:
+  workflow_call:
+
+  workflow_dispatch:
+
+jobs:
+  combine-versions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get version of server
+        id: retrieve-server
+        run: |
+          VERSION=$(curl -s https://api.github.com/repos/nextmcloud/server/releases/latest | jq -r '.tag_name')
+          echo "::set-output name=VERSION::$VERSION" 
+
+      - name: Get version of nmcprovisioning
+        id: retrieve-nmcprovisioning
+        run: |
+          VERSION=$(curl -s https://api.github.com/repos/nextmcloud/nmcprovisioning/releases/latest | jq -r '.tag_name')
+          echo "::set-output name=VERSION::$VERSION"
+
+      - name: Get version of user_oidc
+        id: retrieve-user_oidc
+        run: |
+          VERSION=$(curl -s https://api.github.com/repos/nextmcloud/user_oidc/releases/latest | jq -r '.tag_name')
+          echo "::set-output name=VERSION::$VERSION"
+
+      - name: Get version of nmctheme
+        id: retrieve-nmctheme
+        run: |
+          VERSION=$(curl -s https://api.github.com/repos/nextmcloud/nmctheme/releases/latest | jq -r '.tag_name')
+          echo "::set-output name=VERSION::$VERSION"
+      - name: Get version of nmctheme
+        id: retrieve-nmcsharing
+        run: |
+          VERSION=$(curl -s https://api.github.com/repos/nextmcloud/nmcsharing/releases/latest | jq -r '.tag_name')
+          echo "::set-output name=VERSION::$VERSION"
+      - name: Get version of nmctheme
+        id: retrieve-nmcsettings
+        run: |
+          VERSION=$(curl -s https://api.github.com/repos/nextmcloud/nmcsettings/releases/latest | jq -r '.tag_name')
+          echo "::set-output name=VERSION::$VERSION"
+
+      - name: Combine version artifacts
+        run: |
+          echo "${{ steps.retrieve-server.outputs.VERSION }}" > versions-combined.txt
+          echo "${{ steps.retrieve-nmcprovisioning.outputs.VERSION }}" >> versions-combined.txt
+          echo "${{ steps.retrieve-user_oidc.outputs.VERSION }}" >> versions-combined.txt
+          echo "${{ steps.retrieve-nmctheme.outputs.VERSION }}" >> versions-combined.txt
+          echo "${{ steps.retrieve-nmcsharing.outputs.VERSION }}" >> versions-combined.txt
+          echo "${{ steps.retrieve-nmcsettings.outputs.VERSION }}" >> versions-combined.txt
+
+      - name: Upload combined version artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: versions-combined
+          path: versions-combined.txt
