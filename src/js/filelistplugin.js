@@ -57,7 +57,9 @@ window.addEventListener('DOMContentLoaded', function() {
 					fileTable.find('.column-mtime').removeClass('hidden')
 					fileTable.find('.column-menu').addClass('hidden')
 					fileTable.find('.column-actions').addClass('hidden')
+					fileTable.find('.column-name a.name').css('pointer-events', 'all')
 					fileTable.find('.column-name a.name > span:first').text(t('files', 'Name'))
+					fileTable.find('.column-name a.name > span.sort-indicator').css('display', '')
 					fileTable.find('table').removeClass('multiselect')
 				} else {
 					fileTable.find('.column-size').addClass('hidden')
@@ -93,7 +95,9 @@ window.addEventListener('DOMContentLoaded', function() {
 						selection += ' (' + OC.Util.humanFileSize(summary.totalSize) + ')' // eslint-disable-line
 					}
 
+					fileTable.find('.column-name a.name').css('pointer-events', 'none')
 					fileTable.find('.column-name a.name > span:first').text(selection)
+					fileTable.find('.column-name a.name > span.sort-indicator').css('display', 'none')
 					fileTable.find('table').addClass('multiselect')
 
 					if (fileList.fileMultiSelectMenu) {

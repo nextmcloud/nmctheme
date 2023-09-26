@@ -8,8 +8,20 @@ $breakpoint-mobile: 1024px;
 $breakpoint-mobile-small: 480px;
 
 // add small gap between app content and app navigation
-.app-files #app-content > .viewcontainer {
-	padding-left: 8px;
+.app-files #app-content {
+
+	&> .viewcontainer {
+		padding-left: 8px;
+	}
+
+	#app-navigation-toggle {
+		left: var(--default-grid-baseline);
+		top: var(--default-grid-baseline);
+	}
+
+	#view-toggle {
+		position: absolute;
+	}
 }
 
 // filelist
@@ -19,6 +31,7 @@ $breakpoint-mobile-small: 480px;
 	.files-controls {
 		background-color: var(--color-main-background);
 		opacity: 0.97;
+		padding-top: 0;
 	}
 
 	.actions.creatable {
@@ -70,6 +83,7 @@ $breakpoint-mobile-small: 480px;
 		thead {
 			background-color: var(--color-main-background);
 			opacity: 0.97;
+			top: 54px;
 	
 			th {
 				vertical-align: top;
@@ -81,9 +95,27 @@ $breakpoint-mobile-small: 480px;
 
 						&.checkbox {
 
+							+ label {
+								margin-top: 1px;
+								vertical-align: top;
+							}
+
 							+ label:before {
 								margin-top: 2px;
 								vertical-align: top;
+								border-radius: var(--telekom-radius-small);
+							}
+
+							&:checked + label:before {
+								background-color: #73C354;
+								background-repeat: no-repeat;
+								border: none;
+								border-radius: 3rem;
+								height: 1.5rem;
+								margin-left: 0px;
+								margin-right: 1px;
+								margin-top: 0px;
+								width: 1.5rem;
 							}
 						}
 					}
@@ -156,9 +188,10 @@ $breakpoint-mobile-small: 480px;
 				a.menuitem.action {
 					border: none;
 					border-radius: 0;
+					box-shadow: none;
 					color: var(--telekom-color-text-and-icon-primary-standard);
 					font-weight: bold;
-					line-height: 50px;
+					line-height: 3rem;
 					margin-right: 1rem;
 					padding: 0 !important;
 					position: relative;
@@ -167,7 +200,7 @@ $breakpoint-mobile-small: 480px;
 						@include magenta-icon;
 						background-position-x: left;
 						background-size: 1.25rem;
-						height: 50px;
+						height: 3rem;
 						padding: 1rem;
 						pointer-events: none;
 					}
@@ -206,12 +239,39 @@ $breakpoint-mobile-small: 480px;
 		&> a.actions-selected {
 			color: var(--telekom-color-text-and-icon-primary-standard);
 			font-weight: bold;
+			line-height: 3rem;
 			margin: 0 1rem 0 0;
 			opacity: 1;
+			padding: 1rem 0;
 			top: 0;
 
-			.icon {
-				margin-right: 0.25rem;
+			span:not(.icon) {
+				margin-left: 0.5rem;
+			}
+	
+			&::before {
+				background-color: var(--color-primary);
+				border-radius: 0;
+				bottom: 0;
+				content: " ";
+				display: block;
+				height: 2px;
+				left: 50%;
+				opacity: 0;
+				pointer-events: none;
+				position: absolute;
+				transform: translateX(-50%);
+				transition: all .1s ease-in-out;
+				width: 100%;
+			}
+
+			&:hover, &:focus {
+				background: none;
+				border: none;
+
+				&::before {
+					opacity: 1;
+				}
 			}
 		}
 
@@ -261,6 +321,35 @@ table.files-filestable {
 				background-size: 74px;
 				background-position: center;
 				background-repeat: no-repeat;
+			}
+		}
+
+		input {
+
+			&.checkbox {
+
+				+ label {
+					display: inline-block;
+					padding: 16px 0;
+					text-align: center;
+					width: 50px;
+				}
+
+				+ label:before {
+					border-radius: var(--telekom-radius-small);
+					margin-top: 2px;
+					vertical-align: top;
+				}
+
+				&:checked + label:before {
+					background-color: #73C354;
+					background-repeat: no-repeat;
+					border: none;
+					border-radius: 3rem;
+					height: 1.5rem;
+					margin-left: 0px;
+					width: 1.5rem;
+				}
 			}
 		}
 	}
