@@ -33,24 +33,13 @@ $breakpoint-mobile: 1024px;
 
 	// default navbar link styling
 	.app-navigation-entry {
-		border-bottom: 1px solid var(--telekom-color-ui-faint);
-		border-radius: 0;
+		border-radius: var(--telekom-radius-standard);
 		font: var(--telekom-text-style-ui-bold);
 		.app-navigation-entry-link {
 			padding: 0.25rem;
 		}
-		// left border styling
-		&::before {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 0px;
-			height: 100%;
-			border-left: 2px solid transparent;
-		}
-		// highlight only border on focus
-		&:focus-within {
-			background-color: transparent;
+		&:hover,  &.active {
+			background-color: #EDEDED;
 		}
 		// do not pin app navigation entries to the bottom
 		&--pinned {
@@ -65,7 +54,6 @@ $breakpoint-mobile: 1024px;
 
 	// active link styling
 	.app-navigation-entry.active {
-		background-color: transparent !important;
 		&::before {
 			background-color: var(--telekom-color-primary-standard);
 		}
@@ -79,7 +67,6 @@ $breakpoint-mobile: 1024px;
 
 	// on hover link styling
 	.app-navigation-entry:hover {
-		background-color: transparent !important;
 		span {
 			color: var(--color-hover);
 		}
