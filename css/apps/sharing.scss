@@ -13,9 +13,34 @@
 				.app-sidebar-header__tertiary-actions {
 					width: 1.5rem;
 				}
+
+				button.app-sidebar-header__star {
+					all: unset;
+					.button-vue__icon {
+						width: 1.5rem;
+						min-width: 1.5rem;
+						.material-design-icon {
+							width: 1.5rem;
+							height: 1.5rem;
+						}
+					}
+					.star-outline-icon {
+						background-image: var(--icon-star-dark);
+						svg {
+							display: none;
+						}
+					}
+					.star-icon {
+						background-image: var(--icon-starred-yellow);
+						svg {
+							display: none;
+						}
+					}
+				}
 			}
 
-			&__close {
+			// 'Close' button
+			button.app-sidebar__close {
 				opacity: 1;
 				background-color: var(--color-main-background);
 				top: 1rem;
@@ -31,30 +56,6 @@
 					background-position: center;
 					background-repeat: no-repeat;
 					// hide initial icon
-					svg {
-						display: none;
-					}
-				}
-			}
-
-			&__star {
-				all: unset;
-				.button-vue__icon {
-					width: 1.5rem;
-					min-width: 1.5rem;
-					.material-design-icon {
-						width: 1.5rem;
-						height: 1.5rem;
-					}
-				}
-				.star-outline-icon {
-					background-image: var(--icon-star-dark);
-					svg {
-						display: none;
-					}
-				}
-				.star-icon {
-					background-image: var(--icon-starred-yellow);
 					svg {
 						display: none;
 					}
