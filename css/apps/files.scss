@@ -77,7 +77,11 @@ $breakpoint-mobile-small: 480px;
 
 			// color shared files in maagenta
 			&.shared-style {
-				@include magenta-icon;
+				color: var(--color-primary);
+
+				.icon {
+					@include magenta-icon;
+				}
 			}
 
 			// increase share icon sizes
