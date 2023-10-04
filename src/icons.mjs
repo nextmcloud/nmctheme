@@ -77,6 +77,7 @@ const icons = {
 	tag: path.join(__dirname, '../img', 'actions', 'tag.svg'),
 	delete: path.join(__dirname, '../img', 'actions', 'delete.svg'),
 	close: path.join(__dirname, '../img', 'close.svg'),
+	'close-x': path.join(__dirname, '../img', 'actions', 'close.svg'),
 	home: path.join(__dirname, '../img', 'actions', 'home.svg'),
 	settings: path.join(__dirname, '../img', 'settings', 'admin.svg'),
 	help: path.join(__dirname, '../img', 'settings', 'help.svg'),
