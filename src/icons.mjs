@@ -92,6 +92,8 @@ const icons = {
 	'play-previous': path.join(__dirname, '../img', 'actions', 'play-previous.svg'),
 	'play-next': path.join(__dirname, '../img', 'actions', 'play-next.svg'),
 	external: path.join(__dirname, '../img', 'actions', 'copy-paste.svg'),
+	attachment: path.join(__dirname, '../img', 'actions', 'attachment.svg'),
+	edit: path.join(__dirname, '../img', 'email', 'edit.svg'),
 }
 
 const iconsColor = {
