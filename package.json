@@ -56,7 +56,7 @@
         "sass": "sass --style compressed --load-path css css/",
         "sass:watch": "sass --watch --load-path css css/",
         "sass:icons": "node src/icons.mjs",
-        "postinstall": "cp node_modules/@telekom/design-tokens/dist/telekom/css/telekom-design-tokens.all.css dist/telekom-design-tokens.all.css",
+        "postinstall": "mkdir -p dist && cp node_modules/@telekom/design-tokens/dist/telekom/css/telekom-design-tokens.all.css dist/telekom-design-tokens.all.css",
         "test": "jest --verbose",
         "test:watch": "jest --watchAll",
         "test:coverage": "jest --coverage"
