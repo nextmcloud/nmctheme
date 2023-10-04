@@ -74,6 +74,9 @@
 				font-size: 14px;
 				opacity: 1;
 			}
+			&__figure {
+				background-size: cover;
+			}
 	}
 
 	.app-sidebar-header--compact {
@@ -108,6 +111,7 @@
 				border-color: initial;
 			}
 			padding: 0;
+			overflow: unset;
 		}
 	}
 
@@ -123,11 +127,11 @@
 				background-image: var(--icon-link-dark);
 			}
 
-			&.icon.icon-user {
+			&.icon-user {
 				background-image: var(--icon-user-dark);
 			}
 
-			&.icon.icon-upload-to-cloud {
+			&.icon-upload-to-cloud {
 				background-image: var(--icon-upload-to-cloud-dark);
 			}
 
@@ -146,6 +150,16 @@
 				@include color-icon;
 			}
 
+		}		
+	}
+
+	// '...' button in internal shares list
+	.sharing-entry__action {
+		margin-left: auto;
+		&:hover {
+			svg {
+				color: var(--telekom-color-text-and-icon-primary-standard);
+			}
 		}
 	}
 }
@@ -153,4 +167,9 @@
 // Sharing details container
 .sharingTabDetailsView {
 	margin: 0 !important;
+}
+
+// TODO this should be done by the icon generation script
+body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
+    background-image: var(--icon-upload-to-cloud-dark);
 }

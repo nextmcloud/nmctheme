@@ -1,4 +1,6 @@
-// NcActions
+@import '../_mixins.scss';
+
+// '...' button style
 .action-item .v-popper{
 	--open-background-color: initial;
 	.button-vue {
@@ -11,6 +13,32 @@
 
 		&:focus:not(:disabled) {
 			outline: none;
+		}
+	}
+}
+
+// dropdown menu styles
+.v-popper__inner {
+	li.action {
+		.action-button__icon {
+			background-size: 20px;
+		}
+
+		&.active {
+			background-color: initial;
+	
+			.action-button__icon, .material-design-icon {
+				@include color-icon;
+			}
+	
+			.action-button__text, .action-button__longtext, .action-link__text {
+				color: var(--telekom-color-primary-standard);
+			}
+	
+			// do not set Delete icon to red when hovered
+			.icon-delete:hover {
+				background-image: var(--icon-delete-dark);
+			}
 		}
 	}
 }
