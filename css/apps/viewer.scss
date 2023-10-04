@@ -1,7 +1,7 @@
 #viewer {
     --header-height: 64px;
 
-	button[aria-label*="Edit"] {
+	button[aria-label*="Edit"], button[aria-label*="Bearbeiten"]  {
         display: none;
     }
 
@@ -12,11 +12,14 @@
     }
 
     .modal-header {
+        .modal-title {
+            font-size: 1rem;
+        }
         height: var(--header-height);
         .icons-menu {
             padding: 12px 16px 12px 0;
             gap: var(--telekom-spacing-composition-space-04);
-            & > button, button[aria-label="Actions"] {
+            & > button, button[aria-label="Actions"], button[aria-label="Aktionen"] {
                 border-radius: var(--telekom-radius-circle);
                 background-color: var(--telekom-color-background-surface-highlight);
                 width: 44px;
@@ -26,7 +29,7 @@
                     // override nextcloud styles
                     background-color: #666666 !important;
                     svg {
-                        color: var(--telekom-color-text-and-icon-white-standard);;
+                        color: var(--telekom-color-text-and-icon-white-standard);
                     }
                 }
             }
