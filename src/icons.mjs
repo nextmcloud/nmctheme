@@ -95,6 +95,8 @@ const icons = {
 	external: path.join(__dirname, '../img', 'actions', 'copy-paste.svg'),
 	attachment: path.join(__dirname, '../img', 'actions', 'attachment.svg'),
 	edit: path.join(__dirname, '../img', 'email', 'edit.svg'),
+	'mail-opened': path.join(__dirname, '../img', 'email', 'opened.svg'),
+	'auto-login': path.join(__dirname, '../img', 'actions', 'auto-login.svg'),
 }
 
 const iconsColor = {
