@@ -13,7 +13,6 @@ use OC\AppFramework\DependencyInjection\DIContainer;
 
 use OC\L10N\Factory;
 use OC\NavigationManager;
-use OC\Settings\Manager as SettingsManager;
 use OC\Template\JSCombiner;
 use OC\Template\JSResourceLocator;
 use OC\URLGenerator;
@@ -22,7 +21,6 @@ use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\NavigationManagerDecorator;
 use OCA\NMCTheme\Service\NMCThemesService;
-use OCA\NMCTheme\SettingsManagerDecorator;
 use OCA\NMCTheme\Themes\Magenta;
 use OCA\NMCTheme\Themes\MagentaDark;
 use OCA\NMCTheme\Themes\TeleNeoWebFont;
@@ -42,7 +40,6 @@ use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\AppFramework\QueryException;
 use OCP\Files\IMimeTypeDetector;
-use OCP\Settings\IManager as ISettingsManager;
 
 // FIXME: required private accesses; we have to find better ways
 // when integrating upstream
