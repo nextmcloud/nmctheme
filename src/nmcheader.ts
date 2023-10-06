@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	const head = document.querySelector('head')
 	if (head !== null) {
 		const user = head.attributes['data-user-displayname'].value
-	
+
 		const menuButton = document.querySelector('#user-menu > a')
 		if (menuButton !== null) {
 			menuButton.innerHTML = '<span>' + user + '</span>'
