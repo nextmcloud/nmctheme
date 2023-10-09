@@ -184,6 +184,7 @@ $breakpoint-mobile-small: 480px;
 
 				&:hover, &:focus {
 					border: none;
+					outline: none;
 				}
 
 				.button-vue__icon {
@@ -229,9 +230,15 @@ $breakpoint-mobile-small: 480px;
 				line-height: 3rem;
 				padding: 0;
 
+				&:focus {
+					outline: none;
+				}
+
 				.plus-icon {
 					border: 1px solid var(--telekom-color-primary-standard);
 					border-radius: 1rem;
+					height: 1.5rem;
+					width: 1.5rem;
 				}
 			}
 		}

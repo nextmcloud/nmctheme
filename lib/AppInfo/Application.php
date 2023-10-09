@@ -12,12 +12,14 @@ namespace OCA\NMCTheme\AppInfo;
 use OC\AppFramework\DependencyInjection\DIContainer;
 
 use OC\L10N\Factory;
+use OC\NavigationManager;
 use OC\Template\JSCombiner;
 use OC\Template\JSResourceLocator;
 use OC\URLGenerator;
 use OCA\NMCTheme\JSResourceLocatorExtension;
 use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
+use OCA\NMCTheme\NavigationManagerDecorator;
 use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Themes\Magenta;
 use OCA\NMCTheme\Themes\MagentaDark;
@@ -42,6 +44,7 @@ use OCP\Files\IMimeTypeDetector;
 // FIXME: required private accesses; we have to find better ways
 // when integrating upstream
 use OCP\IConfig;
+use OCP\INavigationManager;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
 use OCP\L10N\IFactory;
@@ -119,6 +122,19 @@ class Application extends App implements IBootstrap {
 
 
 	/**
+	 * Decorate the INavigationManager.
+	 */
+	protected function registerNavigationManagerDecorator(IRegistrationContext $context) {
+		$this->getContainer()->getServer()->registerService(INavigationManager::class, function (ContainerInterface $c) {
+			return new NavigationManagerDecorator(
+				$c->get(IConfig::class),
+				$this->getContainer()->getServer()->query(NavigationManager::class),
+			);
+		});
+	}
+
+
+	/**
 	 * Decorate the L10N IFactory of server with the L10N theming factory
 	 * so that any request for translation is either overridden by a value
 	 * from this app or delegated to the original factory
@@ -133,8 +149,6 @@ class Application extends App implements IBootstrap {
 		$context->registerServiceAlias(Factory::class, IFactory::class);
 		$context->registerServiceAlias(FactoryDecorator::class, IFactory::class);
 	}
-
-
 
 	/**
 	 * Register all kind of decorators so that the theme is in control
@@ -173,12 +187,14 @@ class Application extends App implements IBootstrap {
 		// intercept requests for favicons to enforce own behavior
 		$this->registerURLGeneratorDecorator($context);
 
+		// intercept requests for main navigation elements
+		$this->registerNavigationManagerDecorator($context);
+
 		// intercept requests for translations, theme specific translations have prio
 		$this->registerIFactoryDecorator($context);
 
 		// load mimetype customisations from within the theme to keep all customisations in one place
 		$this->registerMimeTypeCustomisations($context);
-
 
 		/**
 		 * Add listeners that can inject additional information or scripts before rendering

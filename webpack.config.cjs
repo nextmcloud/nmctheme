@@ -12,6 +12,7 @@ webpackConfig.entry = {
 		conflictdialog: path.join(__dirname, 'src', 'js', 'conflictdialog.js'),
         mimetypes: path.join(__dirname, 'src', 'js', 'mimetypes.js'),
 		nmcfooter: path.join(__dirname, 'src', 'nmcfooter.ts'),
+		nmcheader: path.join(__dirname, 'src', 'nmcheader.ts'),
 		nmclogo: path.join(__dirname, 'src', 'nmclogo.ts')
 	}
 

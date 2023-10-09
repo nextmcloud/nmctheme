@@ -43,8 +43,8 @@ class LanguageIteratorDecorator implements ILanguageIterator {
 		}
 	}
 
-	public function next(): bool {
-		return $this->decorated->next();
+	public function next(): void {
+		$this->decorated->next();
 	}
 
 	public function key(): int {
