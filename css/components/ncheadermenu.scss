@@ -2,6 +2,8 @@ $breakpoint-mobile: 1024px;
 
 #header {
 
+    box-shadow: 0 2px 9px var(--color-box-shadow);
+
     .header-right {
     
         .header-menu {
@@ -27,14 +29,16 @@ $breakpoint-mobile: 1024px;
 
                         &::before {
                             background-color: var(--color-primary);
-                            border-bottom-color: var(--color-main-background);
+                            border-radius: 0;
                             bottom: 0;
                             content: " ";
                             display: block;
-                            height: 2px;
+                            height: 4px;
                             left: 50%;
+                            opacity: 1;
                             pointer-events: none;
-                            position: absolute;
+                            position: fixed;
+                            bottom: 8px;
                             transform: translateX(-50%);
                             transition: all .1s ease-in-out;
                             width: 100%;

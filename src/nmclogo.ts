@@ -20,5 +20,5 @@ if (headerElement !== null) {
 	headerElement.prepend(brandElement)
 	brandElement.innerHTML = `
     <div class="logo logo-icon"></div>
-    <div class="title"><strong>Magenta</strong>CLOUD</div>`
+    <div class="title"><strong>MagentaCLOUD</strong></div>`
 }

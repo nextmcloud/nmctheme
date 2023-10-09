@@ -50,15 +50,6 @@ header {
 		
 				&.app-menu-entry__active {
 		
-					&::before {
-						background-color: var(--color-primary);
-						border-radius: 0;
-						bottom: 0;
-						height: 4px;
-						opacity: 1;
-						width: 100%;
-					}
-		
 					.app-menu-entry--label {
 						color: var(--color-primary);
 					}
@@ -69,7 +60,12 @@ header {
 				&:focus-within {
 		
 					&::before {
+						background-color: var(--color-primary);
+						border-radius: 0;
+						bottom: 0;
+						height: 4px;
 						opacity: 1;
+						width: 100%;
 					}
 		
 					.app-menu-entry--label {
