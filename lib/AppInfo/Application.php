@@ -9,8 +9,8 @@
 
 namespace OCA\NMCTheme\AppInfo;
 
+use Closure;
 use OC\AppFramework\DependencyInjection\DIContainer;
-
 use OC\L10N\Factory;
 use OC\NavigationManager;
 use OC\Template\JSCombiner;
@@ -20,6 +20,7 @@ use OCA\NMCTheme\JSResourceLocatorExtension;
 use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\NavigationManagerDecorator;
+use OCA\NMCTheme\Service\NMCFilesService;
 use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Themes\Magenta;
 use OCA\NMCTheme\Themes\MagentaDark;
@@ -182,7 +183,7 @@ class Application extends App implements IBootstrap {
 		});
 
 		// intercept language reference generation to deviate to appender service
-		$this-> registerJSResourceLocatorExtension($context);
+		$this->registerJSResourceLocatorExtension($context);
 		
 		// intercept requests for favicons to enforce own behavior
 		$this->registerURLGeneratorDecorator($context);
@@ -205,5 +206,11 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function boot(IBootContext $context): void {
+		$context->injectFn(Closure::fromCallable([$this, 'modifyNavigation']));
+	}
+
+	protected function modifyNavigation(NMCFilesService $filesService): void {
+		$filesService->rearrangeFilesAppNavigation();
+		$filesService->addFilesAppNavigationEntries();
 	}
 }

@@ -99,6 +99,12 @@ $breakpoint-mobile: 1024px;
 	.nav-icon-trashbin::after {
 		background-image: var(--icon-delete-dark);
 	}
+	.nav-icon-sharingout::after {
+		background-image: var(--icon-share-dark);
+	}
+	.nav-icon-sharingin::after {
+		background-image: var(--icon-attachment-dark);
+	}
 
 	// hide nextcloud Storage quota element
 	#quota {

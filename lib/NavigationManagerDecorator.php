@@ -29,7 +29,7 @@ class NavigationManagerDecorator implements INavigationManager {
 	 * No decoration, only delegate.
 	 */
 	public function add($entry) {
-		return $this->decorated->add($entry);
+		$this->decorated->add($entry);
 	}
 
 	/**
@@ -50,18 +50,17 @@ class NavigationManagerDecorator implements INavigationManager {
 	 * Deactivate use menu entries.
 	 */
 	public function getAll(string $type = self::TYPE_APPS): array {
+		$all = $this->decorated->getAll($type);
+
 		if($type === 'settings') {
 			$deactivate = $this->config->getSystemValue('nmc_deactivate_user_menu_entry', false);
-			$all = $this->decorated->getAll($type);
 
 			foreach ($deactivate as $value) {
 				unset($all[$value]);
 			}
-
-			return $all;
 		}
 
-		return $this->decorated->getAll($type);
+		return $all;
 	}
 
 	/**
