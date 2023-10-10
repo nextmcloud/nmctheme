@@ -7,7 +7,7 @@
         "@floating-ui/dom": "^1.5.3",
         "@nextcloud/axios": "^2.3.0",
         "@nextcloud/event-bus": "^3.1.0",
-        "@nextcloud/files": "^3.0.0-beta.22",
+        "@nextcloud/files": "^3.0.0-beta.25",
         "@nextcloud/initial-state": "^2.0.0",
         "@nextcloud/l10n": "^2.1.0",
         "@nextcloud/router": "^2.1.2",
