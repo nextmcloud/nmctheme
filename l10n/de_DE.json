@@ -132,6 +132,8 @@
     "of": "von",
     "used": "genutzt",
     "Display settings": "Anzeigeeinstellungen",
-    "Show folder info text": "Ordnerinfotext anzeigen"
+    "Show folder info text": "Ordnerinfotext anzeigen",
+    "Shared with you" : "Mit mir geteilt",
+    "Shared with others" : "Von mir geteilt"
   },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }

@@ -21,6 +21,7 @@ use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\NavigationManagerDecorator;
 use OCA\NMCTheme\Service\NMCThemesService;
+use OCA\NMCTheme\Service\NMCFilesService;
 use OCA\NMCTheme\Themes\Magenta;
 use OCA\NMCTheme\Themes\MagentaDark;
 use OCA\NMCTheme\Themes\TeleNeoWebFont;
@@ -40,6 +41,7 @@ use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\AppFramework\QueryException;
 use OCP\Files\IMimeTypeDetector;
+use Closure;
 
 // FIXME: required private accesses; we have to find better ways
 // when integrating upstream
@@ -182,7 +184,7 @@ class Application extends App implements IBootstrap {
 		});
 
 		// intercept language reference generation to deviate to appender service
-		$this-> registerJSResourceLocatorExtension($context);
+		$this->registerJSResourceLocatorExtension($context);
 		
 		// intercept requests for favicons to enforce own behavior
 		$this->registerURLGeneratorDecorator($context);
@@ -205,5 +207,11 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function boot(IBootContext $context): void {
+		$context->injectFn(Closure::fromCallable([$this, 'modifyNavigation']));
 	}
+
+	protected function modifyNavigation(NMCFilesService $filesService): void {
+        $filesService->rearrangeFilesAppNavigation();
+        $filesService->addFilesAppNavigationEntries();
+    }
 }
