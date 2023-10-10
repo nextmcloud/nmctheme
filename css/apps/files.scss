@@ -378,3 +378,36 @@ table.files-filestable {
 		}
 	}
 }
+
+// styles specific to 'My shares' and 'Shared with me' pages
+#app-content-sharingout, #app-content-sharingin {
+	.action {
+		display: inline-flex;
+		width: auto;
+		height: auto;
+		// hide '...' button
+		&.action-menu {
+			display: none;
+		}
+		// Share types icon container
+		&.action-share {
+			opacity: 1;
+			gap: 1rem;
+			padding: 12px 17px;
+			.icon {
+				background-size: 24px;
+				min-width: 24px;
+				min-height: 24px;
+				@include color-icon;
+
+				&.icon-upload-to-cloud {
+					filter: invert(61%) sepia(98%) saturate(4546%) hue-rotate(181deg) brightness(99%) contrast(109%);
+				}
+			}
+
+			&:focus {
+				background-color: transparent;
+			}
+		}
+	}
+}
