@@ -57,13 +57,12 @@ const generateShareList = (action, recipients, shareTypes) => {
 }
 
 const generateSharedWithMe = (action, owner) => {
-	action.empty()
 	const iconEl = document.createElement('span')
 	iconEl.classList.add('icon', 'icon-upload-to-cloud')
 	iconEl.tooltipContent = `${t('files_sharing', 'Shared by')} ${owner}`
 	iconEl.addEventListener('mouseenter', showTooltip)
 	iconEl.addEventListener('mouseleave', hideTooltip)
-	action.append(iconEl)
+	action.html(iconEl)
 }
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -120,6 +119,11 @@ window.addEventListener('DOMContentLoaded', function() {
 				generateSharedWithMe(action, owner)
 			} else if (recipients) {
 				generateShareList(action, recipients, shareTypes)
+			// in case file has only link shares and the user is on 'My shares' page
+			} else if (window.location.href.includes('view=sharingout')) {
+				const iconEl = document.createElement('span')
+				iconEl.classList.add('icon', 'icon-link')
+				action.html(iconEl)
 			}
 		} else {
 			action.html('<span class="hidden-visually">' + t('files_sharing', 'Shared') + '</span>').prepend(icon)
