@@ -9,8 +9,8 @@
 
 namespace OCA\NMCTheme\AppInfo;
 
+use Closure;
 use OC\AppFramework\DependencyInjection\DIContainer;
-
 use OC\L10N\Factory;
 use OC\NavigationManager;
 use OC\Template\JSCombiner;
@@ -20,8 +20,8 @@ use OCA\NMCTheme\JSResourceLocatorExtension;
 use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\NavigationManagerDecorator;
-use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Service\NMCFilesService;
+use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Themes\Magenta;
 use OCA\NMCTheme\Themes\MagentaDark;
 use OCA\NMCTheme\Themes\TeleNeoWebFont;
@@ -41,7 +41,6 @@ use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\AppFramework\QueryException;
 use OCP\Files\IMimeTypeDetector;
-use Closure;
 
 // FIXME: required private accesses; we have to find better ways
 // when integrating upstream
@@ -211,7 +210,7 @@ class Application extends App implements IBootstrap {
 	}
 
 	protected function modifyNavigation(NMCFilesService $filesService): void {
-        $filesService->rearrangeFilesAppNavigation();
-        $filesService->addFilesAppNavigationEntries();
-    }
+		$filesService->rearrangeFilesAppNavigation();
+		$filesService->addFilesAppNavigationEntries();
+	}
 }
