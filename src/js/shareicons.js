@@ -20,7 +20,7 @@ const generateText = (recipients) => {
 		text += ` ${displayNames[0]}, ${displayNames[1]}`
 		break
 	case 3:
-		text += ` ${displayNames[0]}, ${displayNames[1]} and ${displayNames[2]}`
+		text += ` ${displayNames[0]}, ${displayNames[1]} ${t('nmctheme', 'and')} ${displayNames[2]}`
 		break
 	case 4:
 	default:
@@ -42,12 +42,12 @@ const generateShareList = (action, recipients, shareTypes) => {
 		const iconEl = document.createElement('span')
 		iconEl.className = 'icon'
 		if (parseInt(shareType) === ShareTypes.SHARE_TYPE_LINK) {
-			iconEl.classList.add('icon', 'icon-link')
+			iconEl.classList.add('icon-link')
 		} else if (parseInt(shareType) === ShareTypes.SHARE_TYPE_EMAIL) {
-			iconEl.classList.add('icon', 'icon-user')
+			iconEl.classList.add('icon-user')
 			iconEl.tooltipContent = generateText(Object.values(recipients).filter(rec => isEmail(rec.shareWith)))
 		} else if (parseInt(shareType) === ShareTypes.SHARE_TYPE_USER) {
-			iconEl.classList.add('icon', 'icon-upload-to-cloud')
+			iconEl.classList.add('icon-upload-to-cloud')
 			iconEl.tooltipContent = generateText(Object.values(recipients).filter(rec => !isEmail(rec.shareWith)))
 		}
 		iconEl.addEventListener('mouseenter', showTooltip)

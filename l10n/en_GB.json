@@ -134,6 +134,7 @@
         "Display settings": "Display settings",
         "Show folder info text": "Show folder info text",
         "Shared with you" : "Shared with you",
-        "Shared with others" : "Shared with others"
+        "Shared with others" : "Shared with others",
+        "and": "and"
     },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }
