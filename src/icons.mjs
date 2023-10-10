@@ -97,6 +97,7 @@ const icons = {
 	edit: path.join(__dirname, '../img', 'email', 'edit.svg'),
 	'mail-opened': path.join(__dirname, '../img', 'email', 'opened.svg'),
 	'auto-login': path.join(__dirname, '../img', 'actions', 'auto-login.svg'),
+	warning: path.join(__dirname, '../img', 'settings', 'warning.svg'),
 }
 
 const iconsColor = {

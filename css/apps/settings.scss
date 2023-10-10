@@ -59,6 +59,10 @@ $breakpoint-mobile-small: 480px;
 				&.additional {
 					background-color: var(--color-main-background);
 					border: 1px solid var(--telekom-color-text-and-icon-standard);
+
+					&.notification {
+						color: var(--telekom-color-primary-standard);
+					}
 				}
 			}
 
@@ -208,6 +212,28 @@ $breakpoint-mobile-small: 480px;
 
 			.email {
 				width: 400px;
+
+				.email__actions-container {
+					
+					.email__actions {
+						opacity: 1 !important;
+
+						button {
+							color: var(--telekom-color-text-and-icon-standard);
+						}
+					}
+
+					.alert-octagon-icon {
+						background-image: var(--icon-warning-dark);
+						background-size: 20px;
+						height: 20px;
+						width: 20px;
+
+						svg {
+							display: none;
+						}
+					}
+				}
 			}
 	
 			em {
