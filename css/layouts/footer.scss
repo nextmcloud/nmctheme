@@ -63,11 +63,7 @@ footer[role="contentinfo"] {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: var(--telekom-spacing-composition-space-05);
-
-            @media screen and (max-width: $breakpoint-mobile-small) {
-                gap: 16px;
-            }
+            gap: 16px;
         }
 
         li a {
