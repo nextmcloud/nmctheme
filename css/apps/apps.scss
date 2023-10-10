@@ -27,12 +27,12 @@ $breakpoint-mobile-small: 480px;
 /* CONTENT  --------------------------------------------------------- */
 #content, #content-vue {
 	border-radius: 0;
-	margin: 76px 16px 0;
+	margin: 89px 16px 0;
 	height: var(--body-height);
 	width: calc(100% - 32px);
 
 	@media screen and (max-width: $breakpoint-mobile-small) {
-		margin: 60px 0 0;
+		margin: 73px 0 0;
 		width: 100%;
 	}
 }
