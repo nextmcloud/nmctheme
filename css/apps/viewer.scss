@@ -11,6 +11,11 @@
         }
     }
 
+    // hide 'Active people' button for text documents
+    .text-editor__session-list .session-list {
+        display: none;
+    }
+
     .modal-header {
         .modal-title {
             font-size: 1rem;
@@ -21,17 +26,8 @@
             gap: var(--telekom-spacing-composition-space-04);
             & > button, button[aria-label="Actions"], button[aria-label="Aktionen"] {
                 border-radius: var(--telekom-radius-circle);
-                background-color: var(--telekom-color-background-surface-highlight);
                 width: 44px;
                 height: 44px;
-
-                &:hover, &:focus {
-                    // override nextcloud styles
-                    background-color: #666666 !important;
-                    svg {
-                        color: var(--telekom-color-text-and-icon-white-standard);
-                    }
-                }
             }
 
             button.play-pause-icons {
@@ -44,6 +40,33 @@
                     circle {
                         cx: 22;
                         cy: 22;
+                    }
+                }
+            }
+        }
+    }
+
+    // set the correct background color of header buttons
+    &.theme {
+        &--default {
+            .icons-menu > button, button[aria-label="Actions"], button[aria-label="Aktionen"] {
+                background-color: var(--color-background-dark);
+                &:hover, &:focus {
+                    // overrides nextcloud style
+                    background-color: var(--telekom-color-ui-state-fill-hovered) !important;
+                }
+            }
+        }
+
+        &--dark {
+            .icons-menu > button, button[aria-label="Actions"], button[aria-label="Aktionen"] {
+                background-color: var(--telekom-color-background-surface-highlight);
+                &:hover, &:focus {
+                    // overrides nextcloud style
+                    background-color: #666666 !important;
+                    // overrides ncactions style
+                    svg {
+                        color: var(--telekom-color-text-and-icon-white-standard);
                     }
                 }
             }
