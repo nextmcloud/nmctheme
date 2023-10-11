@@ -40,8 +40,8 @@ export default {
 	},
 	computed: {
 		formattedStats() {
-			const usedQuotaByte = formatFileSize(this.storageStats?.used, false, true).replace(/iB/g, "B")
-			const quotaByte = formatFileSize(this.storageStats?.quota, false, true).replace(/iB/g, "B")
+			const usedQuotaByte = formatFileSize(this.storageStats?.used, false, true).replace(/iB/g, 'B')
+			const quotaByte = formatFileSize(this.storageStats?.quota, false, true).replace(/iB/g, 'B')
 			return { usedQuotaByte, quotaByte }
 		},
 		storageStatsTitle() {
