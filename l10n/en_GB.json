@@ -133,8 +133,8 @@
         "used": "used",
         "Display settings": "Display settings",
         "Show folder info text": "Show folder info text",
-        "Shared with you" : "Shared with you",
-        "Shared with others" : "Shared with others",
+        "Shared with you" : "Shared with me",
+        "Shared with others" : "My shares",
         "and": "and"
     },"pluralForm" :"nplurals=2; plural=(n != 1);"}
 }

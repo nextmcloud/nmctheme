@@ -15,12 +15,18 @@ $breakpoint-mobile-small: 480px;
 	}
 
 	#app-navigation-toggle {
-		left: var(--default-grid-baseline);
-		top: var(--default-grid-baseline);
+		height: 54px;
+		left: 0;
+		top: 0;
+		width: 54px;
 	}
 
 	#view-toggle {
+		height: 54px;
 		position: absolute;
+		right: 0;
+		top: 0;
+		width: 54px;
 	}
 }
 
