@@ -53,7 +53,7 @@ class NMCFilesService {
 				'id' => 'sharingout',
 				'appname' => 'files_sharing',
 				'script' => 'list.php',
-				'order' => 16,
+				'order' => 15,
 				'name' => $this->l10n->t('Shared with others'),
 			];
 		});
@@ -63,7 +63,7 @@ class NMCFilesService {
 				'id' => 'sharingin',
 				'appname' => 'files_sharing',
 				'script' => 'list.php',
-				'order' => 15,
+				'order' => 16,
 				'name' => $this->l10n->t('Shared with you'),
 			];
 		});
