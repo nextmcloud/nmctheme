@@ -1,7 +1,7 @@
 @import '../_mixins.scss';
 
 @mixin magenta-icon {
-	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
+	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%);
 }
 
 $breakpoint-mobile: 1024px;
@@ -343,7 +343,7 @@ table.files-filestable {
 							}
 
 							&.icon-upload-to-cloud {
-								filter: invert(61%) sepia(98%) saturate(4546%) hue-rotate(181deg) brightness(99%) contrast(109%);
+								filter: invert(61%) sepia(98%) saturate(4546%) hue-rotate(181deg) brightness(99%) contrast(109%) !important;
 							}
 						}
 					}
