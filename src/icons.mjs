@@ -98,6 +98,7 @@ const icons = {
 	'mail-opened': path.join(__dirname, '../img', 'email', 'opened.svg'),
 	'auto-login': path.join(__dirname, '../img', 'actions', 'auto-login.svg'),
 	warning: path.join(__dirname, '../img', 'settings', 'warning.svg'),
+	check: path.join(__dirname, '../img', 'checkmarktick.svg'),
 	'toggle-filelist': path.join(__dirname, '../img', 'actions', 'toggle-filelist.svg'),
 	'toggle-pictures': path.join(__dirname, '../img', 'actions', 'toggle-pictures.svg'),
 }

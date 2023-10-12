@@ -9,8 +9,13 @@
 			font-size: var(--telekom-typography-font-size-body);
 			opacity: 1;
 			color: var(--telekom-color-text-and-icon-standart);
+
 			&:hover {
 				color: var(--color-hover);
+			}
+
+			&.icon-home {
+				margin-left: 2px;
 			}
 		}
 
