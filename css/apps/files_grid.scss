@@ -1,0 +1,32 @@
+#app-content {
+	table.files-filestable.view-grid {
+		td {
+			// hide Share icons 
+			.fileactions .action-share {
+				display: none;
+			}
+
+			// increase z-index of select checkboxes
+			&.selection {
+				z-index: 20;
+			}
+
+			.thumbnail-wrapper {
+				// increase z-index so that filename won't overflow Start icon
+				z-index: 15;
+				// reposition Star icon to be in the bottom center
+				.favorite-mark {
+					padding: 0;
+					left: calc(50% - 22px);
+					top: calc(100% - 25px);
+					.icon.icon-starred {
+						background-size: 24px;
+						min-width: 24px;
+						min-height: 24px;
+						margin: auto;
+					}
+				}
+			}
+		}
+	}
+}
