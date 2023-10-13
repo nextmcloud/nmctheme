@@ -12,8 +12,10 @@ declare(strict_types=1);
 namespace OCA\NMCTheme\Listener;
 
 use OC\Security\CSP\ContentSecurityPolicyNonceManager;
+use OCA\NMCTheme\Service\NMCFilesService;
 use OCA\Theming\Util;
 use OCP\AppFramework\Http\TemplateResponse;
+use OCP\AppFramework\Services\IInitialState;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
 use OCP\IL10N;
@@ -25,6 +27,8 @@ class BeforeTemplateRenderedListener implements IEventListener {
 	private ContentSecurityPolicyNonceManager $nonceManager;
 	private Util $themingUtil;
 	private INavigationManager $navManager;
+	private IInitialState $initialState;
+	private NMCFilesService $filesService;
 	private IL10N $l;
 
 	public function __construct(
@@ -32,11 +36,15 @@ class BeforeTemplateRenderedListener implements IEventListener {
 		ContentSecurityPolicyNonceManager $nonceManager,
 		Util $themingUtil,
 		INavigationManager $navManager,
+		IInitialState $initialState,
+		NMCFilesService $filesService,
 		IL10N $l) {
 		$this->urlGenerator = $urlGenerator;
 		$this->nonceManager = $nonceManager;
 		$this->themingUtil = $themingUtil;
 		$this->navManager = $navManager;
+		$this->initialState = $initialState;
+		$this->filesService = $filesService;
 		$this->l = $l;
 	}
 
@@ -88,7 +96,9 @@ class BeforeTemplateRenderedListener implements IEventListener {
 			[ 'nonce' => $this->nonceManager->getNonce(),
 				'src' => $mimetypelist . '?nmcv=' . $this->themingUtil->getCacheBuster() ],
 			''); // the empty text is needed to generate HTML5 valid tags
-
+		
+		// provide corrected storageStats for v27
+		$this->initialState->provideInitialState('storageStats', $this->filesService->buildFileStorageStatistics());
 
 		// you can add additional styles, links and scripts before rendering
 		// keep src for future use:   \OCP\Util::addScript("nmctheme", "../dist/l10nappender");

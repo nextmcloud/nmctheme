@@ -89,8 +89,8 @@ export default {
 			try {
 				const response = await axios.get(
 					IS_LEGACY_VERSION
-						? generateUrl('/apps/files/ajax/getstoragestats')
-						: generateUrl('/apps/files/api/v1/stats'),
+						? generateUrl('/apps/nmctheme/ajax/getstoragestats')
+						: generateUrl('/apps/nmctheme/api/v1/stats'),
 				)
 				if (!response?.data?.data) {
 					throw new Error('Invalid storage stats')

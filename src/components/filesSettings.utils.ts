@@ -16,11 +16,16 @@ const CONFIG_SETTINGS_MAPPING = {
 }
 
 export const loadStats = async () => {
-	let browserState = loadState('files', 'storageStats', null)
+	let browserState = loadState('nmctheme', 'storageStats', null)
 	// v25
 	if (!browserState) {
 		try {
-			const response = await axios.get(generateUrl('/apps/files/ajax/getstoragestats'))
+			let statsUrl = generateUrl('/apps/nmctheme/api/v1/stats')
+			// v25
+			if (IS_LEGACY_VERSION) {
+				statsUrl = generateUrl('/apps/nmctheme/ajax/getstoragestats')
+			}
+			const response = await axios.get(statsUrl)
 			if (!response?.data?.data) {
 				throw new Error('Invalid storage stats')
 			}

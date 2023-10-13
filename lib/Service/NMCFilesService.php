@@ -9,6 +9,7 @@
 
 namespace OCA\NMCTheme\Service;
 
+use OC\Files\View;
 use OCP\IL10N;
 
 class NMCFilesService {
@@ -67,5 +68,47 @@ class NMCFilesService {
 				'name' => $this->l10n->t('Shared with you'),
 			];
 		});
+	}
+
+	public static function buildFileStorageStatistics(string $dir = '/') {
+		// information about storage capacities
+		$storageInfo = \OC_Helper::getStorageInfo($dir);
+		$trashbin = self::getTrashbinSize(\OC_User::getUser());
+		$free = $storageInfo['free'] - $trashbin;
+		$used = $storageInfo['used'] + $trashbin;
+		$relative = self::getUsedRelative($storageInfo['quota'], $storageInfo['total'], $used);
+		
+		return [
+			'freeSpace' => $free,
+			'quota' => $storageInfo['quota'],
+			'total' => $storageInfo['total'],
+			'used' => $used,
+			'relative' => $relative,
+			'trashbin' => $trashbin,
+			'owner' => $storageInfo['owner'],
+			'ownerDisplayName' => $storageInfo['ownerDisplayName'],
+			'mountType' => $storageInfo['mountType'],
+			'mountPoint' => $storageInfo['mountPoint'],
+		];
+	}
+
+	private static function getTrashbinSize($user) {
+		$view = new View('/' . $user);
+		$fileInfo = $view->getFileInfo('/files_trashbin');
+		return isset($fileInfo['size']) ? $fileInfo['size'] : 0;
+	}
+
+	private static function getUsedRelative($quota, $total, $used) {
+		if ($total > 0) {
+			if ($quota > 0 && $total > $quota) {
+				$total = $quota;
+			}
+			// prevent division by zero or error codes (negative values)
+			$relative = round(($used / $total) * 10000) / 100;
+		} else {
+			$relative = 0;
+		}
+
+		return $relative;
 	}
 }

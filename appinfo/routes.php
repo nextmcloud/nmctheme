@@ -23,5 +23,15 @@ return [
 			'url' => '/mime/img/{iconname}.svg',
 			'verb' => 'GET',
 		],
+		[
+			'name' => 'ajax#getStorageStats',
+			'url' => '/ajax/getstoragestats',
+			'verb' => 'GET',
+		],
+		[
+			'name' => 'Api#getStorageStats',
+			'url' => '/api/v1/stats',
+			'verb' => 'GET'
+		],
 	]
 ];
