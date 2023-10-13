@@ -1,3 +1,5 @@
+@import '../_mixins.scss';
+
 $breakpoint-mobile: 1024px;
 $breakpoint-mobile-small: 480px;
 
@@ -217,10 +219,6 @@ $breakpoint-mobile-small: 480px;
 					
 					.email__actions {
 						opacity: 1 !important;
-
-						button {
-							color: var(--telekom-color-text-and-icon-standard);
-						}
 					}
 
 					.alert-octagon-icon {
@@ -232,6 +230,22 @@ $breakpoint-mobile-small: 480px;
 						svg {
 							display: none;
 						}
+					}
+				}
+			}
+
+			.email__helper-text-message {
+
+				.alert-circle-outline-icon {
+					background-image: var(--icon-warning-dark);
+					background-size: 20px;
+					height: 20px;
+					margin: 0 6px 0 12px;
+					width: 20px;
+					@include color-icon-red;
+
+					svg {
+						display: none;
 					}
 				}
 			}

@@ -27,17 +27,19 @@
 		&.active {
 			background-color: initial;
 	
+			// do not set Delete icon to red when hovered
+			.icon-delete:hover {
+				background-image: var(--icon-delete-dark);
+			}
+		}
+
+		&:hover {
 			.action-button__icon, .material-design-icon {
 				@include color-icon;
 			}
 	
 			.action-button__text, .action-button__longtext, .action-link__text {
 				color: var(--telekom-color-primary-standard);
-			}
-	
-			// do not set Delete icon to red when hovered
-			.icon-delete:hover {
-				background-image: var(--icon-delete-dark);
 			}
 		}
 	}

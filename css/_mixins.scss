@@ -4,3 +4,10 @@
 		filter: brightness(0) saturate(100%) invert(14%) sepia(83%) saturate(3815%) hue-rotate(313deg) brightness(89%) contrast(127%);
 	}
 }
+
+@mixin color-icon-red {
+	filter: invert(21%) sepia(37%) saturate(6447%) hue-rotate(357deg) brightness(98%) contrast(99%);
+	@media (prefers-color-scheme: dark) {    
+		filter: invert(30%) sepia(89%) saturate(7365%) hue-rotate(358deg) brightness(95%) contrast(92%);
+	}
+}

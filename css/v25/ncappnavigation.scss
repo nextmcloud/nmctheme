@@ -49,7 +49,8 @@ $breakpoint-mobile: 1024px;
 		& > a:hover,  & > a.active, &.active > a {
 			color: var(--color-hover);
 			background-color: #EDEDED;
-			&::after {
+
+			&::after, img {
 				@include color-icon;
 			}
 		}
