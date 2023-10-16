@@ -20,15 +20,16 @@
 
                 &.button-vue--vue-tertiary {
                     background-color: var(--telekom-color-ui-base);
-                    border: 1px solid var(--telekom-color-text-and-icon-standard) !important;
+                    border: 1px solid var(--telekom-color-ui-border-standard) !important;
                     color: var(--telekom-color-text-and-icon-standard);
 
-                    &:hover {
+                    &:hover:not(:disabled) {
                         background-color: var(--color-background-hover);
+                        border: 1px solid var(--telekom-color-ui-border-hovered) !important;
                     }
                 }
 
-                &:hover {
+                &:hover:not(:disabled) {
 					background-color: var(--telekom-color-primary-hovered);
                 }
             }
@@ -76,18 +77,19 @@
                 background-color: var(--telekom-color-primary-standard);
                 color: var(--telekom-color-text-and-icon-white-standard);
 
-                &:hover {
+                &:hover:not(:disabled) {
 					background-color: var(--telekom-color-primary-hovered);
                 }
             }
             
             &:not(.primary) {
                 background-color: var(--telekom-color-ui-base);
-                border: 1px solid var(--telekom-color-text-and-icon-standard) !important;
+                border: 1px solid var(--telekom-color-ui-border-standard) !important;
                 color: var(--telekom-color-text-and-icon-standard);
 
-                &:hover {
+                &:hover:not(:disabled) {
                     background-color: var(--color-background-hover);
+                    border: 1px solid var(--telekom-color-ui-border-hovered) !important;
                 }
             }
         }
