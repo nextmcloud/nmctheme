@@ -1,0 +1,147 @@
+// styling for guest view in file sharing app
+
+@import '../_mixins.scss';
+
+@mixin magenta-icon {
+	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
+}
+
+@mixin primary-button {
+    border: none;
+    border-radius: var(--telekom-radius-standard);
+    background-color: var(--telekom-color-primary-standard);
+    color: var(--telekom-color-text-and-icon-white-standard);
+
+    &:hover:not(:disabled) {
+        background-color: var(--telekom-color-primary-hovered);
+    }
+
+    &:active {
+        background-color: var(--telekom-color-primary-pressed);
+    }
+
+    &:disabled {
+        background-color: var(--telekom-color-ui-disabled);
+        color: var(--telekom-color-text-and-icon-disabled);
+    }
+}
+
+$footer-height: 60px;
+$breakpoint-mobile: 1024px;
+$breakpoint-mobile-small: 480px;
+
+body .icon-download {
+    background-image: var( --icon-download-white);
+}
+
+#body-public {
+    #header .header-right {
+        #header-primary-action {
+            &>a.primary.button {
+                @include primary-button;
+            }
+        }
+    }
+
+    .app-files_sharing #app-content {
+        position: fixed;
+        height: var(--body-height);
+        width: calc(100% - 2rem);
+        background-color: var(--color-main-background);
+
+        @media screen and (max-width: $breakpoint-mobile-small) {
+            width: 100%;
+        }
+
+        #files-public-content #preview {
+            .files-controls .actions.creatable {
+                // 'New file/folder' button inside breadcrumb
+                & > a.button.new {
+                    background-color: var(--color-main-background);
+                    border-color: var(--telekom-color-text-and-icon-primary-standard);
+                    min-height: unset;
+                    height: 24px;
+                    width: 24px;
+                    margin: auto 0;
+
+                    .icon.icon-add {
+                        @include magenta-icon;
+                        background-size: 16px 16px;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            & > .emptyfilelist.emptycontent .icon-folder{
+                background-image: url('../img/filetypes/folder.svg');
+                background-size: 192px;
+                height: 128px;
+                width: 128px;
+            }
+
+            .directDownload>#downloadFile {
+                @include primary-button;
+            }
+        }
+    }
+    .app-files_sharing+footer {
+        --footnav-items-bottom-margin: var(--telekom-spacing-composition-space-08);
+        --radius: var(--telekom-radius-small);
+        --border-radius: 0px;
+        --footer-font: var(--telekom-text-style-caption-bold);
+    }
+
+    .app-files_sharing+footer[role="contentinfo"] {
+        position: fixed;
+        display: inline-block;
+        background-color: var(--color-main-background);
+        border-radius: 0px 0px 0.5rem 0.5rem;
+        font: var(--footer-font);
+        left: 1rem;
+        right: 1rem;
+        bottom: 24px;
+        height: 20px;
+        max-width: calc(100% - 4rem);
+        margin: auto;
+        z-index: 998;
+        border-top: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
+        padding: 16px 16px;
+
+        @media screen and (max-width: $breakpoint-mobile-small) {
+            height: 60px;
+            border-radius: 0;
+            padding: 16px 16px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            max-width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            flex-wrap: wrap;
+            gap: var(--telekom-spacing-composition-space-06);
+
+            @media screen and (max-width: $breakpoint-mobile-small) {
+                flex-direction: column;
+                align-content: first baseline;
+                gap: var(--telekom-spacing-composition-space-04);
+            }
+
+            #notice {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+            }
+
+            #navigation {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 16px;
+            }
+        }
+    }
+}
