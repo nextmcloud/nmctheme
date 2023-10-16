@@ -474,6 +474,31 @@ $breakpoint-mobile-small: 480px;
 	.settings-section {
 		padding: 1.5rem 3rem 0;
 		border: none;
+
+		.button-vue {
+
+			&.button-vue--vue-warning, &.button-vue--vue-error {
+				background-color: var(--telekom-color-primary-standard);
+
+				&:hover:not(:disabled) {
+					background-color: var(--telekom-color-primary-hovered);
+				}
+			}
+		}
+
+		.notecard.warning {
+			background-color: var(--telekom-color-background-canvas-subtle) !important;
+			border: unset;
+			border-radius: unset;
+			max-width: 800px;
+
+			.checkbox-radio-switch:not(.checkbox-radio-switch--disabled) {
+
+				.checkbox-radio-switch__input:hover+.checkbox-radio-switch__label {
+					background-color: unset;
+				}
+			}
+		}
 	}
 }
 
