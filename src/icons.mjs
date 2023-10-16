@@ -101,6 +101,7 @@ const icons = {
 	check: path.join(__dirname, '../img', 'checkmarktick.svg'),
 	'toggle-filelist': path.join(__dirname, '../img', 'actions', 'toggle-filelist.svg'),
 	'toggle-pictures': path.join(__dirname, '../img', 'actions', 'toggle-pictures.svg'),
+	restore: path.join(__dirname, '../img', 'actions', 'restore.svg')
 }
 
 const iconsColor = {

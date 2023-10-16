@@ -125,6 +125,10 @@ table.files-filestable {
 								height: 3rem;
 								padding: 1rem;
 								pointer-events: none;
+
+								&.icon-history {
+									background-image: var(--original-icon-restore-dark);
+								}
 							}
 			
 							&::before {
@@ -341,6 +345,10 @@ table.files-filestable {
 							&.icon-upload-to-cloud {
 								filter: invert(61%) sepia(98%) saturate(4546%) hue-rotate(181deg) brightness(99%) contrast(109%) !important;
 							}
+
+							&.icon-history {
+								background-image: var(--original-icon-restore-dark);
+							}
 						}
 					}
 				}
@@ -457,4 +465,11 @@ table.files-filestable {
 
 #app-content-favorites, #app-content-sharingout, #app-content-sharingin {
 	margin-top: 54px;
+}
+
+#app-content-trashbin {
+	
+	.item-files_zip {
+		display: none;
+	}
 }
