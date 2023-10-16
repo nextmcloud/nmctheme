@@ -6,6 +6,9 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  * Note: Take care of Telekom branding restrictions!
  */
+
+ @import '../_mixins.scss';
+
 .modal {
 
     .modal-container {
@@ -29,6 +32,152 @@
 					background-color: var(--telekom-color-primary-hovered);
                 }
             }
+        }
+    }
+}
+
+.oc-dialog, .dialog {
+    min-width: 448px;
+
+    button {
+        border: 0;
+        border-radius: var(--telekom-radius-standard);
+        opacity: 1;
+
+        &.oc-dialog-close {
+            background-color: var(--telekom-color-ui-base);
+            right: 7px;
+            top: 12px;
+
+            &:hover:not(:disabled) {
+                background-color: unset;
+                @include color-icon;
+            }
+        }
+    }
+
+    .oc-dialog-buttonrow {
+
+        &.twobuttons {
+            justify-content: flex-end;
+        }
+
+        button {
+            border: 0;
+            border-radius: var(--telekom-radius-standard);
+            margin: 0.25rem 0.5rem 0.25rem 0;
+            opacity: 1;
+
+            &:last-child {
+                margin-right: 0;
+            }
+            
+            &.primary {
+                background-color: var(--telekom-color-primary-standard);
+                color: var(--telekom-color-text-and-icon-white-standard);
+
+                &:hover {
+					background-color: var(--telekom-color-primary-hovered);
+                }
+            }
+            
+            &:not(.primary) {
+                background-color: var(--telekom-color-ui-base);
+                border: 1px solid var(--telekom-color-text-and-icon-standard) !important;
+                color: var(--telekom-color-text-and-icon-standard);
+
+                &:hover {
+                    background-color: var(--color-background-hover);
+                }
+            }
+        }
+    }
+
+    .oc-dialog-content {
+
+        p {
+            margin-bottom: 0.75rem;
+        }
+
+        label {
+            margin-right: 0.75rem;
+
+        }
+    
+        input[type=text], input[type=email] {
+            background-color: var(--color-main-background);
+            border: 1px solid var(--telekom-color-text-and-icon-standard);
+            border-radius: var(--telekom-radius-small);
+            color: var(--telekom-color-text-and-icon-standard);
+            height: 3rem !important;
+            padding: 0.75rem;
+            width: 400px;
+        }
+    }
+
+    &__container {
+        margin: 1.5rem !important;
+    }
+
+    .modal-wrapper {
+
+        .modal-container {
+            
+            &__close {
+                top: 1rem !important;
+                right: 0.75rem !important;
+
+                &:hover:not(:disabled) {
+                    background-color: unset !important;
+                    @include color-icon;
+                }
+
+                .close-icon {
+                    background-image: var(--icon-close-dark);
+                    height: 24px;
+                    width: 24px;
+
+                    svg {
+                        display: none;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+#oc-dialog-filepicker-content {
+
+    .actions.creatable {
+        background: unset;
+        border: unset;
+        left: 0;
+        top: 0;
+
+        .icon.icon-add.button.button-add {
+            background-color: unset;
+            border-color: var(--telekom-color-primary-standard);
+            height: 24px;
+            opacity: 1;
+            width: 24px;
+            @include color-icon;
+        }
+
+        input[type=text] + .icon-confirm, input[type=password] + .icon-confirm, input[type=email] + .icon-confirm {
+            border: unset;
+            margin-left: -40px !important;
+            margin-top: 6px;
+        }
+    }
+
+    #picker-showgridview {
+        opacity: 1;
+        right: -1rem;
+
+        &:hover, &:active, &:focus {
+            box-shadow: unset;
+            @include color-icon;
         }
     }
 }
