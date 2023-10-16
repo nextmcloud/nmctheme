@@ -268,11 +268,7 @@ table.files-filestable {
 
 		tr {
 			height: 68px;
-	
-			&:hover, &.selected {
-				background-color: #EDEDED;
-			}
-	
+
 			td {
 	
 				&.date, &.column-last {
