@@ -59,7 +59,7 @@ header {
 			position: initial;
 			width: 60px;
 			height: 60px;
-			margin: 6px 12px 6px 1.5rem;
+			margin: 6px 0 6px 1.5rem;
 		}
 		.title {
 			font-size: 25px;
@@ -103,6 +103,15 @@ header {
 			display: none;
 		}
 	}
+}
+
+#notifications {
+	display: none;
+}
+
+.header-menu__trigger {
+	font-size: 12px;
+	font-weight: normal;
 }
 
 #unified-search {
