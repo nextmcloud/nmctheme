@@ -15,15 +15,19 @@ $breakpoint-mobile: 1024px;
 }
 
 .app-navigation {
+	// TODO compare with v27
+	// add vertical line to demarcate app navigation
+	border-right: 1px solid var(--telekom-color-ui-faint);
+
 	// prevent mobile navigation toggle button to visually overlap underlying content
 	.app-navigation-toggle {
 		background-color: var(--color-main-background) !important;
 	}
 
 	// add vertical line to demarcate app navigation
-	.app-navigation__content {
-		border-right: 1px solid var(--telekom-color-ui-faint);
-	}
+	// .app-navigation__content {
+	// 	border-right: 1px solid var(--telekom-color-ui-faint);
+	// }
 
 	// remove gaps between navigation items
 	.app-navigation__content .app-navigation__list {

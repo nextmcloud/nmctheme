@@ -92,6 +92,7 @@ const icons = {
 	play: path.join(__dirname, '../img', 'actions', 'play.svg'),
 	'play-previous': path.join(__dirname, '../img', 'actions', 'play-previous.svg'),
 	'play-next': path.join(__dirname, '../img', 'actions', 'play-next.svg'),
+	'play-video': path.join(__dirname, '../img', 'icons', 'play-video.svg'),
 	external: path.join(__dirname, '../img', 'actions', 'copy-paste.svg'),
 	attachment: path.join(__dirname, '../img', 'actions', 'attachment.svg'),
 	edit: path.join(__dirname, '../img', 'email', 'edit.svg'),

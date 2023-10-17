@@ -1,0 +1,74 @@
+@import '../mixins.scss';
+
+.app-photos {
+	#app-content-vue {
+		.photos-navigation {
+			&__title__main {
+				font-size: 32px;
+			}
+			// 'Add', 'Add to album', 'Unselect all' and '...' buttons
+			&__content button{
+				all: unset;
+				.plus-icon {
+					border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
+					border-radius: 50%;
+				}
+				
+				svg, .button-vue__text {
+					color: var(--telekom-color-text-and-icon-primary-standard);
+				}
+
+				&:hover {
+					background-color: initial;
+					.plus-icon {
+						border: 1px solid var(--telekom-color-text-and-icon-primary-hovered);
+					}
+	
+					svg, .button-vue__text {
+						color: var(--telekom-color-text-and-icon-primary-hovered);
+					}
+				}
+			}
+		}
+
+		.files-list-viewer.timeline__file-list {
+			padding: 0 32px;
+
+			// Date container
+			.files-list-viewer__section-header {
+				height: auto !important;
+				h3 {
+					margin: 32px 0 8px;
+				}
+			}
+
+			li {
+				// prevent stretching a low number of photos in line to fill it
+				flex-grow: 0;
+				// new play icon for videos
+				span.video-icon {
+					background-image: var(--icon-play-video-white);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 32px;
+					svg {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	// sidebar navigation
+	#app-navigation-vue {
+		.app-navigation__list {
+			padding: 4rem 1.5rem 1.5rem;
+		}
+
+		// contains 'Photos settings' button
+		& > li.app-navigation-entry-wrapper {
+			margin: 1.5rem;
+			width: auto;
+		}
+	}
+}
