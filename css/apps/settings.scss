@@ -66,6 +66,10 @@ $breakpoint-mobile-small: 480px;
 						color: var(--telekom-color-primary-standard);
 					}
 				}
+
+				&:disabled {
+					color: var(--telekom-color-text-and-icon-disabled);
+				}
 			}
 
 			button  {

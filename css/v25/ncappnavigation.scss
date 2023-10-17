@@ -42,13 +42,17 @@ $breakpoint-mobile: 1024px;
 					width: 24px;
     				height: 24px;
 					filter: var(--background-invert-if-dark);
+					
+					@media (prefers-color-scheme: dark) {
+						filter: var(--background-invert-if-bright);
+					}
 				}
 			}
 		}
 
 		& > a:hover,  & > a.active, &.active > a {
 			color: var(--color-hover);
-			background-color: #EDEDED;
+			background-color: var(--color-background-hover);
 
 			&::after, img {
 				@include color-icon;

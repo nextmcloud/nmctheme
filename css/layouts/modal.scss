@@ -173,6 +173,26 @@
         }
     }
 
+    #picker-filestable {
+
+        &.filelist {
+
+            tbody {
+    
+                td {
+    
+                    &.filename {
+                        background-position: left center;
+                    }
+                    
+                    &.date {
+                        color: var(--telekom-color-text-and-icon-standard);
+                    }
+                }
+            }
+        }
+    }
+
     #picker-showgridview {
         opacity: 1;
         right: -1rem;

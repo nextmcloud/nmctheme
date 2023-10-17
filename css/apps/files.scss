@@ -278,6 +278,10 @@ table.files-filestable {
 				&.date, &.column-last {
 					min-width: 140px;
 					text-align: right;
+
+					.modified {
+						color: var(--color-main-text) !important;
+					}
 				}
 				
 				&.filesize {
