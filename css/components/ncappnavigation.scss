@@ -39,7 +39,7 @@ $breakpoint-mobile: 1024px;
 			padding: 0.25rem;
 		}
 		&:hover,  &.active {
-			background-color: #EDEDED;
+			background-color: var(--color-background-hover);
 		}
 		// do not pin app navigation entries to the bottom
 		&--pinned {
