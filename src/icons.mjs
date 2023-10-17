@@ -72,6 +72,7 @@ const icons = {
 	upload: path.join(__dirname, '../img', 'actions', 'upload.svg'),
 	user: path.join(__dirname, '../img', 'actions', 'user.svg'),
 	folder: path.join(__dirname, '../img', 'actions', 'folder.svg'),
+	'mime-folder': path.join(__dirname, '../img', 'filetypes', 'folder.svg'),
 	files: path.join(__dirname, '../img', 'places', 'files.svg'),
 	history: path.join(__dirname, '../img', 'actions', 'history.svg'),
 	tag: path.join(__dirname, '../img', 'actions', 'tag.svg'),

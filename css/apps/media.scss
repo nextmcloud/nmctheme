@@ -57,6 +57,16 @@
 				}
 			}
 		}
+
+		// grid view of files and folders
+		.grid-container {
+			// replace standart folder icon
+			span.icon-folder {
+				background-image: var(--icon-mime-folder-dark);
+				background-size: 130px;
+				opacity: 1;
+			}
+		}
 	}
 
 	// sidebar navigation
