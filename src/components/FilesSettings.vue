@@ -21,10 +21,4 @@ export default {
 .files-settings {
 	padding: 0 1.5rem;
 }
-
-@media only screen and (max-width: 1024px) {
-	.files-settings {
-		padding-bottom: 4rem;
-	}
-}
 </style>

@@ -2,12 +2,12 @@ $breakpoint-mobile: 1024px;
 $breakpoint-mobile-small: 480px;
 
 :root {
-	--body-height: calc(100% - 144px - var(--body-container-margin));
+	--body-height: calc(100% - 158px - var(--body-container-margin));
 }
 
 @media screen and (max-width: $breakpoint-mobile-small) {
 :root {
-		--body-height: calc(100% - 132px - var(--body-container-margin));
+		--body-height: calc(100% - 152px - var(--body-container-margin));
 	}
 }
 

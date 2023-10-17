@@ -5,8 +5,8 @@
 			<!-- eslint-disable-next-line vue/no-v-html -->
 			<p v-html="storageStatsTitle" />
 		</div>
-		<ProgressBar :percentage="memoryUsage" />
-		<p v-if="memoryUsage > 0">
+		<ProgressBar :percentage="memoryUsed" />
+		<p v-if="memoryUsed > 0">
 			{{ t('nmctheme', 'Memory used up to {memoryUsage}%', { memoryUsage }) }}
 		</p>
 		<a class="storage-quota__link"
@@ -26,7 +26,7 @@ import { throttle, debounce } from 'throttle-debounce'
 import { generateUrl } from '@nextcloud/router'
 import ProgressBar from './ProgressBar.vue'
 import axios from '@nextcloud/axios'
-import { translate } from '@nextcloud/l10n'
+import { translate, getCanonicalLocale } from '@nextcloud/l10n'
 
 export default {
 	components: {
@@ -53,8 +53,11 @@ export default {
 
 			return `<b>${usedQuotaByte}</b> ${t('nmctheme', 'of')} ${quotaByte}`
 		},
-		memoryUsage() {
+		memoryUsed() {
 			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toFixed(2)
+		},
+		memoryUsage() {
+			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toLocaleString(getCanonicalLocale())
 		},
 	},
 	beforeMount() {
