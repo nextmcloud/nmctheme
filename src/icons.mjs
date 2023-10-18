@@ -18,7 +18,7 @@ const colors = {
 	magenta: 'e20074',
 	success: '008653',
 	danger: 'd91308',
-	warning: 'b63d00'
+	warning: 'b63d00',
 }
 
 const colorSvg = function(svg = '', color = '000') {
@@ -119,7 +119,6 @@ const icons = {
 	h4: path.join(__dirname, '../img', 'rich-workspace', 'h4.svg'),
 	h5: path.join(__dirname, '../img', 'rich-workspace', 'h5.svg'),
 	h6: path.join(__dirname, '../img', 'rich-workspace', 'h6.svg'),
-	help: path.join(__dirname, '../img', 'rich-workspace', 'help.svg'),
 	image: path.join(__dirname, '../img', 'rich-workspace', 'image.svg'),
 	italic: path.join(__dirname, '../img', 'rich-workspace', 'italic.svg'),
 	ol: path.join(__dirname, '../img', 'rich-workspace', 'ol.svg'),
@@ -131,7 +130,7 @@ const icons = {
 	'table-settings': path.join(__dirname, '../img', 'rich-workspace', 'table-settings.svg'),
 	ul: path.join(__dirname, '../img', 'rich-workspace', 'ul.svg'),
 	underline: path.join(__dirname, '../img', 'rich-workspace', 'underline.svg'),
-	undo: path.join(__dirname, '../img', 'rich-workspace', 'undo.svg')
+	undo: path.join(__dirname, '../img', 'rich-workspace', 'undo.svg'),
 }
 
 const iconsColor = {
@@ -166,7 +165,7 @@ const iconsColor = {
 	danger: {
 		path: path.join(__dirname, '../img', 'rich-workspace', 'alert.svg'),
 		color: 'danger',
-	}
+	},
 }
 
 let css = ''
