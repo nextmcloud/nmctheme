@@ -30,6 +30,10 @@
 						background-color: unset;
 						@include color-icon;
 					}
+
+					&.action-menu-redo {
+						margin-right: 1rem;
+					}
 	
 					&__icon {
 
@@ -147,6 +151,10 @@
 
 				.entry-action {
 
+					&.action-menu-headings {
+						margin-right: 1rem;
+					}
+
 					&.is-active:not(.entry-action-item) {
 						background-color: unset;
 					}
@@ -253,14 +261,14 @@
 				padding: 0.5rem;
 			}
 
-			svg {
-				display: none;
-			}
-
 			.material-design-icon {
 				background-position: center;
 				background-repeat: no-repeat;
 				background-size: 24px;
+
+				svg {
+					display: none;
+				}
 			}
 			
 			.format-header1-icon {
@@ -305,8 +313,6 @@
 		}
 	}
 }
-
-
 
 .v-popper__popper {
 
