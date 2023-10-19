@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	const NewFileMenuPlugin = {
 
 		attach(menu) {
+			const that = this
 
 			menu.render = function() {
 				const self = this
@@ -19,28 +20,47 @@ window.addEventListener('DOMContentLoaded', function() {
 					}
 				})
 
-				const folderEntry = this.$el.find('[data-action="folder"]')
-				folderEntry.removeClass('menuitem').addClass('customitem')
+				const menuitems = this.$el.find('a.menuitem')
 
-				folderEntry.on('click', function(event) {
-					let $target = $(event.target) // eslint-disable-line
+				menuitems.each(function(index, element) {
+					$(element).removeClass('menuitem').addClass('customitem') // eslint-disable-line
 
-					if (!$target.hasClass('menuitem')) {
-						$target = $target.closest('.customitem')
-					}
+					$(element).on('click', function(event) { // eslint-disable-line
 
-					const name = $target.attr('data-templatename')
-					const uniqueName = self.fileList.getUniqueName(name)
+						let $target = $(event.target) // eslint-disable-line
 
-					const tempPromise = self.fileList.createDirectory(uniqueName)
-					Promise.all([tempPromise]).then(() => {
-						self.fileList.rename(uniqueName)
+						if (!$target.hasClass('menuitem')) {
+							$target = $target.closest('.customitem')
+						}
+
+						const filetype = $target.data('filetype')
+						const name = $target.data('templatename')
+						const uniqueName = self.fileList.getUniqueName(name)
+
+						if (filetype === 'file') {
+							Promise.all([self.fileList.createFile(uniqueName)]).then(() => {
+								that._hideAllMenus(self.fileList)
+								self.fileList.rename(uniqueName)
+							})
+						} else if (filetype === 'folder') {
+							Promise.all([self.fileList.createDirectory(uniqueName)]).then(() => {
+								that._hideAllMenus(self.fileList)
+								self.fileList.rename(uniqueName)
+							})
+						}
 					})
 				})
 			}
 
 			// remove 'Set up templates folder' option
 			menu.removeMenuEntry('template-init')
+		},
+
+		_hideAllMenus(fileList) {
+			fileList.$el.find('.column-menu').addClass('hidden')
+			fileList.$el.find('.column-actions').addClass('hidden')
+			OC.hideMenus()
+			OCA.Files.Sidebar.close()
 		},
 	}
 

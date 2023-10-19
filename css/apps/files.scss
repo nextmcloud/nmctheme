@@ -284,6 +284,13 @@ table.files-filestable {
 					}
 				}
 				
+				&.filename {
+
+					input.filename {
+						margin-left: 70px !important;
+					}
+				}
+				
 				&.filesize {
 					min-width: 90px;
 				}
@@ -327,7 +334,7 @@ table.files-filestable {
 
 							@media screen and (max-width: $breakpoint-mobile) {
 								&:not(.icon) {
-									display: none;
+									display: none !important;
 								}
 							}
 
