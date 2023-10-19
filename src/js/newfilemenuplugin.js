@@ -18,23 +18,32 @@ window.addEventListener('DOMContentLoaded', function() {
 						$('#file_upload_start').trigger('click') // eslint-disable-line
 					}
 				})
+				
+				const menuitems = this.$el.find('a.menuitem')
 
-				const folderEntry = this.$el.find('[data-action="folder"]')
-				folderEntry.removeClass('menuitem').addClass('customitem')
+				menuitems.each(function( index, element ) {
+					$(element).removeClass('menuitem').addClass('customitem')
 
-				folderEntry.on('click', function(event) {
-					let $target = $(event.target) // eslint-disable-line
+					$(element).on('click', function(event) {
+						let $target = $(event.target) // eslint-disable-line
+	
+						if (!$target.hasClass('menuitem')) {
+							$target = $target.closest('.customitem')
+						}
+	
+						const filetype = $target.data('filetype')
+						const name = $target.data('templatename')
+						const uniqueName = self.fileList.getUniqueName(name)
 
-					if (!$target.hasClass('menuitem')) {
-						$target = $target.closest('.customitem')
-					}
-
-					const name = $target.attr('data-templatename')
-					const uniqueName = self.fileList.getUniqueName(name)
-
-					const tempPromise = self.fileList.createDirectory(uniqueName)
-					Promise.all([tempPromise]).then(() => {
-						self.fileList.rename(uniqueName)
+						if(filetype === 'file') {
+							Promise.all([self.fileList.createFile(uniqueName)]).then(() => {
+								self.fileList.rename(uniqueName)
+							})
+						} else if(filetype === 'folder') {
+							Promise.all([self.fileList.createDirectory(uniqueName)]).then(() => {
+								self.fileList.rename(uniqueName)
+							})
+						}
 					})
 				})
 			}
