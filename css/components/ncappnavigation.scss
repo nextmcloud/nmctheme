@@ -3,8 +3,6 @@
 $breakpoint-mobile: 1024px;
 
 :root {
-	--color-hover: var(--telekom-color-text-and-icon-primary-hovered);
-	--color-active: var(--telekom-color-text-and-icon-primary-pressed);
 	--internal-padding: 0;
 }
 
@@ -43,7 +41,7 @@ $breakpoint-mobile: 1024px;
 			padding: 0.25rem;
 		}
 		&:hover,  &.active {
-			background-color: var(--color-background-hover);
+			background-color: var(--nmc-color-background-hover);
 		}
 		// do not pin app navigation entries to the bottom
 		&--pinned {
@@ -62,7 +60,7 @@ $breakpoint-mobile: 1024px;
 			background-color: var(--telekom-color-primary-standard);
 		}
 		span {
-			color: var(--color-active);
+			color: var(--telekom-color-text-and-icon-primary-standard);
 		}
 		.app-navigation-entry-icon {
 			@include color-icon;
@@ -72,7 +70,7 @@ $breakpoint-mobile: 1024px;
 	// on hover link styling
 	.app-navigation-entry:hover {
 		span {
-			color: var(--color-hover);
+			color: var(--telekom-color-text-and-icon-primary-standard);
 		}
 		.app-navigation-entry-icon {
 			@include color-icon;
@@ -82,13 +80,6 @@ $breakpoint-mobile: 1024px;
 	// hide Collapse buttons
 	.app-navigation-entry--collapsible button.icon-collapse{
 		display: none;
-	}
-}
-
-@media (prefers-color-scheme: dark) {    
-	:root {
-		--color-hover: var(--telekom-color-text-and-icon-primary-pressed);
-		--color-active: var(--telekom-color-text-and-icon-primary-hovered);
 	}
 }
 

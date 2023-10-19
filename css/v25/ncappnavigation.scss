@@ -24,6 +24,11 @@ $breakpoint-mobile: 1024px;
 	}
 
 	& > ul > li {
+		// remove already hidden from DOM so they won't take up space
+		&.hidden-visually{
+			display: none;
+		}
+
 		font: var(--telekom-text-style-ui-bold);
 		margin-bottom: var(--telekom-spacing-composition-space-03);
 
@@ -51,8 +56,8 @@ $breakpoint-mobile: 1024px;
 		}
 
 		& > a:hover,  & > a.active, &.active > a {
-			color: var(--color-hover);
-			background-color: var(--color-background-hover);
+			color: var(--telekom-color-text-and-icon-primary-standard);
+			background-color: var(--nmc-color-background-hover);
 
 			&::after, img {
 				@include color-icon;
