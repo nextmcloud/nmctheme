@@ -1,7 +1,7 @@
 @mixin color-icon {
-	filter: invert(14%) sepia(83%) saturate(3815%) hue-rotate(313deg) brightness(89%) contrast(127%);
+	filter: invert(17%) sepia(87%) saturate(5418%) hue-rotate(319deg) brightness(85%) contrast(110%);
 	@media (prefers-color-scheme: dark) {    
-		filter: brightness(0) saturate(100%) invert(14%) sepia(83%) saturate(3815%) hue-rotate(313deg) brightness(89%) contrast(127%);
+		filter: brightness(0) saturate(100%) invert(17%) sepia(87%) saturate(5418%) hue-rotate(319deg) brightness(85%) contrast(110%);
 	}
 }
 

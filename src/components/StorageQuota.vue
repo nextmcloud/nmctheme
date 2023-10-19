@@ -9,7 +9,7 @@
 		<p v-if="memoryUsed > 0">
 			{{ t('nmctheme', 'Memory used up to {memoryUsage}%', { memoryUsage }) }}
 		</p>
-		<a class="storage-quota__link"
+		<a class="button-vue--vue-secondary storage-quota__link"
 			target="_blank"
 			rel="noopener"
 			href="https://cloud.telekom-dienste.de/tarife">
@@ -132,13 +132,8 @@ export default {
 	&__link {
 		width: fit-content;
 		padding: 0.5rem 1.5rem;
-		border-radius: var(--telekom-radius-small);
 		font: var(--telekom-text-style-body);
-		border: 1px solid #191919;
-		&:hover {
-			border-color: var(--telekom-color-primary-standard);
-			color: var(--telekom-color-primary-standard);
-		}
+		font-weight: bold;
 	}
 }
 </style>
