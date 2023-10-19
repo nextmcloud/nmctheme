@@ -38,7 +38,7 @@ const generateText = (recipients) => {
  */
 const generateShareList = (action, recipients, shareTypes) => {
 	action.empty()
-	shareTypes.split(',').forEach(shareType => {
+	String(shareTypes).split(',').forEach(shareType => {
 		const iconEl = document.createElement('span')
 		iconEl.className = 'icon'
 		if (parseInt(shareType) === ShareTypes.SHARE_TYPE_LINK) {
