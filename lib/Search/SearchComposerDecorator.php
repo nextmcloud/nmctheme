@@ -13,11 +13,10 @@ declare(strict_types=1);
 namespace OCA\NMCTheme\Search;
 
 use OC\Search\SearchComposer;
-use OCP\Search\SearchResult;
+use OCP\IUser;
 use OCP\Search\ISearchQuery;
 
-use OCP\IUser;
-
+use OCP\Search\SearchResult;
 
 /**
  * Blacklist unwanted search types like apps or settings for full-text search
@@ -25,24 +24,24 @@ use OCP\IUser;
  * API directly.
  */
 class SearchComposerDecorator extends SearchComposer {
-    protected SearchComposer $decorated;
-    protected array $providerBlacklist = [];
+	protected SearchComposer $decorated;
+	protected array $providerBlacklist = [];
 
 
 	public function __construct(SearchComposer $decorated,
-                                array $providerBlacklist ) {
+		array $providerBlacklist) {
 		$this->decorated = $decorated;
 		$this->providerBlacklist = $providerBlacklist;
-    }
+	}
 
-    /**
-     * Get providers with the blacklisted ones filtered out
-     */
-    public function getProviders(string $route, array $routeParameters): array {
+	/**
+	 * Get providers with the blacklisted ones filtered out
+	 */
+	public function getProviders(string $route, array $routeParameters): array {
 		$providers = $this->decorated->getProviders($route, $routeParameters);
-		return array_filter($providers, function($p) {
-            return !in_array($p['id'], $this->providerBlacklist);
-        });
+		return array_filter($providers, function ($p) {
+			return !in_array($p['id'], $this->providerBlacklist);
+		});
 	}
 
 	/**
@@ -56,16 +55,16 @@ class SearchComposerDecorator extends SearchComposer {
 	 * @throws InvalidArgumentException when the $providerId does not correspond to a registered provider
 	 */
 	public function search(IUser $user,
-						   string $providerId,
-						   ISearchQuery $query): SearchResult {
+		string $providerId,
+		ISearchQuery $query): SearchResult {
 		
-        if (in_array($providerId, $this->providerBlacklist)) {
-            // for performance reasons, we do not use the correct app name for blacklisted searches
-            // anyway, this is only shown if somebody tries to mess around with search
-            return SearchResult::complete($providerId, []);
-        } else {
-            return $this->decorated->search($user, $providerId, $query);
-        }
+		if (in_array($providerId, $this->providerBlacklist)) {
+			// for performance reasons, we do not use the correct app name for blacklisted searches
+			// anyway, this is only shown if somebody tries to mess around with search
+			return SearchResult::complete($providerId, []);
+		} else {
+			return $this->decorated->search($user, $providerId, $query);
+		}
 	}
 
 }
