@@ -20,6 +20,8 @@ use OCA\NMCTheme\JSResourceLocatorExtension;
 use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\NavigationManagerDecorator;
+use OCA\NMCTheme\Search\SearchComposerDecorator;
+use OC\Search\SearchComposer;
 use OCA\NMCTheme\Service\NMCFilesService;
 use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Themes\Magenta;
@@ -41,6 +43,8 @@ use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\AppFramework\QueryException;
 use OCP\Files\IMimeTypeDetector;
+use OCP\IServerContainer;
+use OC\AppFramework\Bootstrap\Coordinator;
 
 // FIXME: required private accesses; we have to find better ways
 // when integrating upstream
@@ -48,6 +52,7 @@ use OCP\IConfig;
 use OCP\INavigationManager;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
+use OCP\IUser;
 use OCP\L10N\IFactory;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
@@ -151,6 +156,33 @@ class Application extends App implements IBootstrap {
 		$context->registerServiceAlias(FactoryDecorator::class, IFactory::class);
 	}
 
+    /**
+     * Decorate SearchComposer with blacklisted, unwanted search providers -
+     * to avoid them from being listed and used for searches
+     * 
+     * For blacklisting, the ids of the Search\IProvider is used
+     */
+	protected function registerSearchComposerDecorator(IRegistrationContext $context) {
+		$this->getContainer()->getServer()->registerService(\OC\Search\SearchComposer::class, 
+            function (ContainerInterface $c) {
+                return new SearchComposerDecorator(
+                    new SearchComposer(
+                        $c->get(Coordinator::class),
+                        $c->get(IServerContainer::class),
+                        $c->get(LoggerInterface::class)
+                    ),
+                    ['contacts', // from apps/dav
+                    'calendar', 
+                    'tasks',
+                    'settings_apps', // from apps/settings 
+                    'settings',
+                    'systemtags' // from apps/systemtags (first candidate to enable in the future!)
+                    ]
+                );
+            });
+    }
+
+     
 	/**
 	 * Register all kind of decorators so that the theme is in control
 	 * of:
@@ -196,6 +228,9 @@ class Application extends App implements IBootstrap {
 
 		// load mimetype customisations from within the theme to keep all customisations in one place
 		$this->registerMimeTypeCustomisations($context);
+
+        // blacklist unwanted search providers for full-text search
+        $this->registerSearchComposerDecorator($context);
 
 		/**
 		 * Add listeners that can inject additional information or scripts before rendering

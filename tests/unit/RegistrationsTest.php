@@ -22,6 +22,9 @@ use OCA\Theming\Service\ThemesService;
 use OCP\IURLGenerator;
 use OCP\L10N\IFactory;
 
+use OCA\NMCTheme\Search\SearchComposerDecorator;
+use OC\Search\SearchComposer;
+
 use PHPUnit\Framework\TestCase;
 
 class RegistrationsTest extends TestCase {
@@ -47,4 +50,10 @@ class RegistrationsTest extends TestCase {
 		$factoryDecorator = $this->app->getContainer()->get(IFactory::class);
 		$this->assertInstanceOf(FactoryDecorator::class, $factoryDecorator, "FATAL: L10N FactoryDecorator failed to register!");
 	}
+
+    public function testDecoratedSearchComposer() :void {
+		$searchComposer = $this->app->getContainer()->get(SearchComposer::class);
+		$this->assertInstanceOf(SearchComposerDecorator::class, $searchComposer, "FATAL: SearchComposerDecorator (Search\\IProvider blacklister) failed to register!");
+	}
+
 }
