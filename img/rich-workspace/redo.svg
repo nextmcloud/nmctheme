@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>/svg/icon/action/forward/selected</title>
+    <g id="icon/action/forward/selected" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M20.2505,7.752 L13.5005,3.352 L13.5005,6.213 L11.2365,6.213 C6.5495,6.213 2.7365,10.026 2.7365,14.713 L2.7365,19 C2.7365,19.829 3.4085,20.5 4.2365,20.5 C5.0655,20.5 5.7365,19.829 5.7365,19 L5.7365,14.713 C5.7365,11.681 8.2045,9.213 11.2365,9.213 L13.5005,9.213 L13.5005,12.151 L20.2505,7.752 Z" id="Icon" fill="#000000"></path>
+    </g>
+</svg>

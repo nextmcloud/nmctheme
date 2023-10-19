@@ -310,7 +310,7 @@ table.files-filestable {
 						}
 
 						// color shared files in magenta
-						&.shared-style, &.action-restore, &.action-share {
+						&.shared-style, &.action-restore {
 							color: var(--color-primary);
 							opacity: 1;
 
