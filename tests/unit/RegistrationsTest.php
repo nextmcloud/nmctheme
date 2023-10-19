@@ -11,9 +11,12 @@
 declare(strict_types=1);
 
 use OC\AppFramework\Bootstrap\Coordinator;
-use OCA\NMCTheme\AppInfo\Application;
+use OC\Search\SearchComposer;
 
+use OCA\NMCTheme\AppInfo\Application;
 use OCA\NMCTheme\L10N\FactoryDecorator;
+
+use OCA\NMCTheme\Search\SearchComposerDecorator;
 use OCA\NMCTheme\Service\NMCThemesService;
 
 use OCA\NMCTheme\URLGeneratorDecorator;
@@ -47,4 +50,10 @@ class RegistrationsTest extends TestCase {
 		$factoryDecorator = $this->app->getContainer()->get(IFactory::class);
 		$this->assertInstanceOf(FactoryDecorator::class, $factoryDecorator, "FATAL: L10N FactoryDecorator failed to register!");
 	}
+
+	public function testDecoratedSearchComposer() :void {
+		$searchComposer = $this->app->getContainer()->get(SearchComposer::class);
+		$this->assertInstanceOf(SearchComposerDecorator::class, $searchComposer, "FATAL: SearchComposerDecorator (Search\\IProvider blacklister) failed to register!");
+	}
+
 }

@@ -10,9 +10,11 @@
 namespace OCA\NMCTheme\AppInfo;
 
 use Closure;
+use OC\AppFramework\Bootstrap\Coordinator;
 use OC\AppFramework\DependencyInjection\DIContainer;
 use OC\L10N\Factory;
 use OC\NavigationManager;
+use OC\Search\SearchComposer;
 use OC\Template\JSCombiner;
 use OC\Template\JSResourceLocator;
 use OC\URLGenerator;
@@ -20,6 +22,7 @@ use OCA\NMCTheme\JSResourceLocatorExtension;
 use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\NavigationManagerDecorator;
+use OCA\NMCTheme\Search\SearchComposerDecorator;
 use OCA\NMCTheme\Service\NMCFilesService;
 use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Themes\Magenta;
@@ -41,11 +44,12 @@ use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\AppFramework\QueryException;
 use OCP\Files\IMimeTypeDetector;
+use OCP\IConfig;
 
 // FIXME: required private accesses; we have to find better ways
 // when integrating upstream
-use OCP\IConfig;
 use OCP\INavigationManager;
+use OCP\IServerContainer;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
 use OCP\L10N\IFactory;
@@ -152,6 +156,34 @@ class Application extends App implements IBootstrap {
 	}
 
 	/**
+	 * Decorate SearchComposer with blacklisted, unwanted search providers -
+	 * to avoid them from being listed and used for searches
+	 *
+	 * For blacklisting, the ids of the Search\IProvider is used
+	 */
+	protected function registerSearchComposerDecorator(IRegistrationContext $context) {
+		$this->getContainer()->getServer()->registerService(\OC\Search\SearchComposer::class,
+			function (ContainerInterface $c) {
+				return new SearchComposerDecorator(
+					new SearchComposer(
+						$c->get(Coordinator::class),
+						$c->get(IServerContainer::class),
+						$c->get(LoggerInterface::class)
+					),
+					['contacts', // from apps/dav
+						'calendar',
+						'tasks',
+						'settings_apps', // from apps/settings
+						'settings',
+						'users',
+						'systemtags' // from apps/systemtags (first candidate to enable in the future!)
+					]
+				);
+			});
+	}
+
+	 
+	/**
 	 * Register all kind of decorators so that the theme is in control
 	 * of:
 	 * - the set of available themes
@@ -196,6 +228,9 @@ class Application extends App implements IBootstrap {
 
 		// load mimetype customisations from within the theme to keep all customisations in one place
 		$this->registerMimeTypeCustomisations($context);
+
+		// blacklist unwanted search providers for full-text search
+		$this->registerSearchComposerDecorator($context);
 
 		/**
 		 * Add listeners that can inject additional information or scripts before rendering
