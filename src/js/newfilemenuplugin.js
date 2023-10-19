@@ -19,30 +19,30 @@ window.addEventListener('DOMContentLoaded', function() {
 						$('#file_upload_start').trigger('click') // eslint-disable-line
 					}
 				})
-				
+
 				const menuitems = this.$el.find('a.menuitem')
 
-				menuitems.each(function( index, element ) {
-					$(element).removeClass('menuitem').addClass('customitem')
+				menuitems.each(function(index, element) {
+					$(element).removeClass('menuitem').addClass('customitem') // eslint-disable-line
 
-					$(element).on('click', function(event) {
+					$(element).on('click', function(event) { // eslint-disable-line
 
 						let $target = $(event.target) // eslint-disable-line
-	
+
 						if (!$target.hasClass('menuitem')) {
 							$target = $target.closest('.customitem')
 						}
-	
+
 						const filetype = $target.data('filetype')
 						const name = $target.data('templatename')
 						const uniqueName = self.fileList.getUniqueName(name)
 
-						if(filetype === 'file') {
+						if (filetype === 'file') {
 							Promise.all([self.fileList.createFile(uniqueName)]).then(() => {
 								that._hideAllMenus(self.fileList)
 								self.fileList.rename(uniqueName)
 							})
-						} else if(filetype === 'folder') {
+						} else if (filetype === 'folder') {
 							Promise.all([self.fileList.createDirectory(uniqueName)]).then(() => {
 								that._hideAllMenus(self.fileList)
 								self.fileList.rename(uniqueName)
