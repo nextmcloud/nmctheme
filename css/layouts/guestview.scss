@@ -3,7 +3,7 @@
 @import '../_mixins.scss';
 
 @mixin magenta-icon {
-	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
+    filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
 }
 
 @mixin primary-button {
@@ -31,7 +31,7 @@ $breakpoint-mobile: 1024px;
 $breakpoint-mobile-small: 480px;
 
 body .icon-download {
-    background-image: var( --icon-download-white);
+    background-image: var(--icon-download-white);
 }
 
 #body-public {
@@ -55,8 +55,9 @@ body .icon-download {
 
         #files-public-content #preview {
             .files-controls .actions.creatable {
+
                 // 'New file/folder' button inside breadcrumb
-                & > a.button.new {
+                &>a.button.new {
                     background-color: var(--color-main-background);
                     border-color: var(--telekom-color-text-and-icon-primary-standard);
                     min-height: unset;
@@ -72,7 +73,7 @@ body .icon-download {
                 }
             }
 
-            & > .emptyfilelist.emptycontent .icon-folder{
+            &>.emptyfilelist.emptycontent .icon-folder {
                 background-image: url('../img/filetypes/folder.svg');
                 background-size: 192px;
                 height: 128px;
@@ -84,6 +85,7 @@ body .icon-download {
             }
         }
     }
+
     .app-files_sharing+footer {
         --footnav-items-bottom-margin: var(--telekom-spacing-composition-space-08);
         --radius: var(--telekom-radius-small);
@@ -143,5 +145,38 @@ body .icon-download {
                 gap: 16px;
             }
         }
+    }
+}
+
+// style password entry for guest view only, w/o overwriting general login
+.guest-box:not(.login-box) {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    position: relative;
+    top: 18vh;
+    padding-bottom: 2.5rem;
+
+    @media screen and (max-width: $breakpoint-mobile-small) {
+        top: 10vh;
+    }
+
+    form fieldset .warning-info {
+        font-size: 20px;
+        font-weight: bold;
+        padding-top: 0.5rem;
+        padding-bottom: 1rem;
+    }
+
+    // this is the password entry field
+    #password {
+        background: rgba(255, 255, 255, 0.4);
+        border: solid black 1px;
+        border-radius: 10px;
+        color: var(--color-text);
+    }
+
+    // form submit button icon
+    #password-submit {
+        opacity: 1;
     }
 }
