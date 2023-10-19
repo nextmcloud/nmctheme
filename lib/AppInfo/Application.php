@@ -175,6 +175,7 @@ class Application extends App implements IBootstrap {
 						'tasks',
 						'settings_apps', // from apps/settings
 						'settings',
+						'users',
 						'systemtags' // from apps/systemtags (first candidate to enable in the future!)
 					]
 				);
