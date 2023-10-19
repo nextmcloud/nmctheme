@@ -284,6 +284,13 @@ table.files-filestable {
 					}
 				}
 				
+				&.filename {
+
+					input.filename {
+						margin-left: 70px !important;
+					}
+				}
+				
 				&.filesize {
 					min-width: 90px;
 				}
