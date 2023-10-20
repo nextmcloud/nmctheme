@@ -14,7 +14,7 @@
     scrollbar-color: var(--telekom-color-primary-pressed) var(--telekom-color-text-and-icon-primary-standard);
 
     // this is the dedicated background image for login
-    background-image: url('../img/telekom/tectopview23.jpg');
+    background-image: url('../img/telekom/consent.svg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -43,6 +43,6 @@
     #body-status {
         background-image: linear-gradient(rgba(0, 0, 0, 0.5),
                 rgba(0, 0, 0, 0.5)),
-            url('../img/telekom/tectopview23.jpg');
+            url('../img/telekom/consent.svg');
     }
 }
