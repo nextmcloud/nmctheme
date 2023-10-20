@@ -35,7 +35,6 @@ header {
 					pointer-events: none;
 					position: absolute;
 					transform: translateX(-50%);
-					transition: all .1s ease-in-out;
 					width: 100%;
 				}
 	
@@ -46,6 +45,7 @@ header {
 					opacity: 1;
 					position: relative;
 					top: calc(50% - var(--default-line-height) / 2);
+					transition: none;
 				}
 		
 				&.app-menu-entry__active {
