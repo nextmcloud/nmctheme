@@ -5,7 +5,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		attach(fileList) {
 			const that = this
 
-			this._resizeFileActionMenu = _.debounce(_.bind(this._resizeFileActionMenu, this), 250) // eslint-disable-line
 			window.addEventListener('resize', function() {
 				that._resizeFileActionMenu(fileList)
 			})
@@ -33,6 +32,18 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			fileList.$el.find('.selectedActions').detach().appendTo($thActions)
 			$thMenu.append(fileList.fileMultipleSelectionMenu.$el)
+
+			fileList.updateEmptyContent = function() {
+				const permissions = fileList.getDirectoryPermissions()
+				const isCreatable = (permissions & OC.PERMISSION_CREATE) !== 0
+				fileList.$el.find('.emptyfilelist.emptycontent').toggleClass('hidden', !fileList.isEmpty)
+				fileList.$el.find('.emptyfilelist.emptycontent').toggleClass('hidden', !fileList.isEmpty)
+				fileList.$el.find('.emptyfilelist.emptycontent .uploadmessage').toggleClass('hidden', !isCreatable || !fileList.isEmpty)
+				fileList.$el.find('.files-filestable').toggleClass('hidden', fileList.isEmpty)
+				fileList.$el.find('.files-filestable thead th').toggleClass('hidden', fileList.isEmpty)
+				fileList.$el.find('.files-filestable thead th.column-menu').addClass('hidden')
+				fileList.$el.find('.files-filestable thead th.column-actions').addClass('hidden')
+			}
 
 			fileList.showDetailsView = function(fileName, tabId) {
 				that._updateDetailsView(fileName, fileList)
