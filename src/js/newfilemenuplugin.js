@@ -57,8 +57,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		},
 
 		_hideAllMenus(fileList) {
-			fileList.$el.find('.column-menu').addClass('hidden')
-			fileList.$el.find('.column-actions').addClass('hidden')
 			OC.hideMenus()
 			OCA.Files.Sidebar.close()
 		},
