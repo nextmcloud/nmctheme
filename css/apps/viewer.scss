@@ -74,11 +74,15 @@
     }
 }
 
-// hide 'Open sidebar' option
-#viewer-sidebar-btn {
-	display: none;
-}
+.v-popper__inner {
+    span.download-icon {
+        background-image: var(--icon-download-dark);
+        svg {
+            display: none;
+        }
+    }
 
-// div.v-popper--theme-tooltip {
-//     display: none !important;
-// }
+    span.icon-menu-sidebar {
+        background-image: var(--icon-share-dark);
+    }
+}
