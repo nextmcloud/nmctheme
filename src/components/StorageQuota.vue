@@ -57,7 +57,7 @@ export default {
 			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toFixed(2)
 		},
 		memoryUsage() {
-			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toLocaleString(getCanonicalLocale())
+			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toFixed(2).toLocaleString(getCanonicalLocale())
 		},
 	},
 	beforeMount() {
