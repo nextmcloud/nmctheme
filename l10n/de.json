@@ -118,6 +118,9 @@
   "photos": { "translations": {
     "Photos": "Fotos"
   },"pluralForm" :"nplurals=2; plural=(n != 1);"},
+  "viewer": { "translations": {
+      "Open sidebar": "Teilen"
+  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
   "nmctheme": { "translations": {
     "PhotosMedia": "Medien",
     "Search": "Suche",
