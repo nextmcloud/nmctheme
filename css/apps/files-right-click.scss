@@ -1,9 +1,10 @@
 @import '../_mixins.scss';
 
-#rightClickMenu {
+// add current style to right click menu and also to the '...' button in filetable
+#rightClickMenu, .fileActionsMenu {
 	padding: 20px 8px;
 	ul li {
-		.menu-option {
+		.menu-option, .menuitem {
 			gap: 8px;
 			padding: 8px 14px 8px 16px;
 			line-height: 26px;
@@ -13,13 +14,9 @@
 				background-size: 24px;
 			}
 
-			// hide 'details' and 'edit locally' buttons
+			// hide 'details' and 'edit locally' buttons in the right click menu
 			&.option-editlocally, &.option-details {
 				display: none;
-			}
-
-			.icon.icon-download {
-				background-image: var(--icon-download-dark);
 			}
 
 			.icon.icon-external {
@@ -33,6 +30,24 @@
 					@include color-icon;
 				}
 			}
+		}
+	}
+}
+
+// style overrides for '...' button in filetable
+#app-content-files {
+	.fileActionsMenu .menuitem {
+		padding: 8px 14px 8px 16px !important;
+
+		.icon {
+			background-size: 24px;
+		}
+
+		// Edit locally has an img instead of span
+		&.action-editlocally img{
+			padding: 2px;
+			width: 26px;
+			height: 26px;
 		}
 	}
 }
