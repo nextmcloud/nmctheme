@@ -177,7 +177,7 @@ class Application extends App implements IBootstrap {
 						'settings',
 						'users',
 						'systemtags', // from apps/systemtags (first candidate to enable in the future!)
-                        'comments'    // from apps comments, (to enable as soon as comments is supported)
+						'comments'    // from apps comments, (to enable as soon as comments is supported)
 					]
 				);
 			});
