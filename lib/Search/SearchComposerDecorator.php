@@ -39,9 +39,9 @@ class SearchComposerDecorator extends SearchComposer {
 	 */
 	public function getProviders(string $route, array $routeParameters): array {
 		$providers = $this->decorated->getProviders($route, $routeParameters);
-		return array_filter($providers, function ($p) {
+		return array_values(array_filter($providers, function ($p) {
 			return !in_array($p['id'], $this->providerBlacklist);
-		});
+		}));
 	}
 
 	/**
