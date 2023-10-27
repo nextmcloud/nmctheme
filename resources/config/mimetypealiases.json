@@ -36,7 +36,7 @@
     "audio/wav": "audio",
     "audio/x-scpls": "audio",
 
-    "application/pdf": "application/pdf",
+    "application/pdf": "pdf",
 
     "application/x-ms-dos-executable": "application",
     "application/x-msi": "application",
