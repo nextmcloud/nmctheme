@@ -1,0 +1,70 @@
+@import '../_mixins.scss';
+
+// add current style to right click menu and also to the '...' button in filetable
+#rightClickMenu, .fileActionsMenu {
+	padding: 20px 8px;
+	ul li {
+		.menu-option, .menuitem {
+			gap: 8px;
+			padding: 8px 14px 8px 16px;
+			line-height: 26px;
+			span.icon {
+				padding: 26px 0 0 26px;
+				background-position: center;
+				background-size: 24px;
+			}
+
+			// hide 'details' and 'edit locally' buttons in the right click menu
+			&.option-editlocally, &.option-details {
+				display: none;
+			}
+
+			.icon.icon-external {
+				background-image: var(--icon-cut-paste-dark);
+			}
+
+			&:hover {
+				background-color: initial;
+				color: var(--telekom-color-text-and-icon-primary-standard);
+				.icon:not(.icon-starred) {
+					@include color-icon;
+				}
+			}
+		}
+	}
+}
+
+// style overrides for '...' button in filetable
+#app-content-files {
+	.fileActionsMenu .menuitem {
+		padding: 8px 14px 8px 16px !important;
+
+		.icon {
+			background-size: 24px;
+		}
+
+		// Edit locally has an img instead of span
+		&.action-editlocally img{
+			padding: 2px;
+			width: 26px;
+			height: 26px;
+		}
+	}
+}
+
+// override global nextcloud hover styles
+body .icon-delete:hover {
+	background-image: var(--icon-delete-dark);
+}
+
+body .icon-starred:hover {
+	background-image: var(--icon-starred-yellow);
+}
+
+body .icon-rename {
+	background-image: var(--icon-edit-dark);
+}
+
+body .icon-favorite {
+	background-image: var(--icon-star-dark);
+}

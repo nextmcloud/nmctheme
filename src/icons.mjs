@@ -107,6 +107,7 @@ const icons = {
 	'toggle-filelist': path.join(__dirname, '../img', 'actions', 'toggle-filelist.svg'),
 	'toggle-pictures': path.join(__dirname, '../img', 'actions', 'toggle-pictures.svg'),
 	restore: path.join(__dirname, '../img', 'actions', 'restore.svg'),
+	'cut-paste': path.join(__dirname, '../img', 'actions', 'cut-paste.svg'),
 	alert: path.join(__dirname, '../img', 'rich-workspace', 'warning.svg'),
 	bold: path.join(__dirname, '../img', 'rich-workspace', 'bold.svg'),
 	checklist: path.join(__dirname, '../img', 'rich-workspace', 'checklist.svg'),
