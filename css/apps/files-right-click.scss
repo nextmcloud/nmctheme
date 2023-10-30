@@ -1,10 +1,10 @@
 @import '../_mixins.scss';
 
-// add current style to right click menu and also to the '...' button in filetable
-#rightClickMenu, .fileActionsMenu {
+// add current style to right click menu, to the '...' and 'Add' buttons in filetable
+#rightClickMenu, .fileActionsMenu, .newFileMenu {
 	padding: 20px 8px;
 	ul li {
-		.menu-option, .menuitem {
+		.menu-option, .menuitem, .customitem {
 			gap: 8px;
 			padding: 8px 14px 8px 16px;
 			line-height: 26px;
@@ -26,7 +26,8 @@
 			&:hover {
 				background-color: initial;
 				color: var(--telekom-color-text-and-icon-primary-standard);
-				.icon:not(.icon-starred) {
+				// color every icon except starred and filetype ones
+				.icon:not(.icon-starred, [class*="icon-filetype"]) {
 					@include color-icon;
 				}
 			}
@@ -67,4 +68,12 @@ body .icon-rename {
 
 body .icon-favorite {
 	background-image: var(--icon-star-dark);
+}
+
+body .icon-zip {
+	background-image: var(--icon-compress-zip-dark);
+}
+
+body .icon-richdocuments {
+	background-image: var(--icon-richdocuments-dark);
 }
