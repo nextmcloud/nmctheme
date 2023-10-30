@@ -79,4 +79,12 @@ $breakpoint-mobile: 1024px;
             }
         }
     }
+
+    .header-left {
+        .app-menu {
+            &-entry {
+                opacity: 1;
+            }
+        }
+    }
 }

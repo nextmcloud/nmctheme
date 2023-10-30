@@ -37,6 +37,7 @@ $breakpoint-mobile: 1024px;
 	.app-navigation-entry {
 		border-radius: var(--telekom-radius-standard);
 		font: var(--telekom-text-style-ui-bold);
+		transition: none;
 		.app-navigation-entry-link {
 			padding: 0.25rem;
 		}
