@@ -7,7 +7,7 @@
 				font-size: 32px;
 			}
 			// 'Add', 'Add to album', 'Unselect all' and '...' buttons
-			&__content button{
+			&__content button, &__content-right button{
 				all: unset;
 				.plus-icon {
 					border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
