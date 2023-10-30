@@ -59,26 +59,71 @@
 		}
 
 		// grid view of files and folders
-		.grid-container {
-			// replace standart folder icon
-			span.icon-folder {
-				background-image: var(--icon-mime-folder-dark);
-				background-size: 130px;
-				opacity: 1;
+		.grid-container .grid {
+			.grid-item-wrapper {
+				.folder {
+					.folder-name {
+						transition: none;
+						// replace standart folder icon
+						span.icon-folder {
+							background-image: var(--icon-mime-folder-dark);
+							background-size: 130px;
+							opacity: 1;
+						}
+					}
+
+					.cover {
+						transition: none;
+					}
+				}
+
+				.file {
+					.cover {
+						transition: none;
+					}
+				}
 			}
+		}
+
+		// 'Albums' page
+		.collections.albums-list {
+
+			.collection-cover {
+				border-radius: 0;
+				img {
+					border-radius: 0;
+					width: 250px;
+					height: 250px;
+				}
+
+				&__details {
+					width: 250px;
+					&__title .album__name {
+						line-height: normal;
+						font-weight: bold;
+						margin-bottom: 4px;
+					}
+
+					&__subtitle .album__details {
+						color: var(--color-main-text);
+					}
+				}
+			}
+
+
+
 		}
 	}
 
 	// sidebar navigation
 	#app-navigation-vue {
-		.app-navigation__list {
+		ul.app-navigation__list {
 			padding: 4rem 1.5rem 1.5rem;
 		}
 
 		// contains 'Photos settings' button
 		& > li.app-navigation-entry-wrapper {
-			margin: 1.5rem;
-			width: auto;
+			display: none;
 		}
 	}
 }
