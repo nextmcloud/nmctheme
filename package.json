@@ -13,7 +13,7 @@
         "@nextcloud/router": "^2.1.2",
         "@nextcloud/typings": "^1.7.0",
         "@nextcloud/vue": "8.0.0-beta.5",
-        "@telekom/design-tokens": "^1.0.0-beta.9",
+        "@telekom/design-tokens": "^1.0.0-beta.10",
         "pinia": "^2.1.6",
         "vue": "^2.7.14"
     },
