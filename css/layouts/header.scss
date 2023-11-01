@@ -68,6 +68,16 @@ header {
 		}
 	}
 
+	#header-left, .header-left {
+		.app-menu {
+			&-entry {
+				&--label {
+					font-weight: 800;
+				}
+			}
+		}
+	}
+
 	// logo and application name
 	#nextcloud {
 		height: 100%;
