@@ -13,14 +13,25 @@
 		justify-content: space-between;
 
 		// close button
-		.oc-conflict-pre-dlg-close-div a {
-			display: block;
-			background-image: var(--icon-close-dark);
-			background-repeat: no-repeat;
-			width: 27px;
-			height: 24px;
+		.oc-conflict-pre-dlg-close-div {
+			margin: -15px -15px 0 0;
+			width: 35px;
+			height: 35px;
+			border-radius: var(--telekom-radius-standard);
 			&:hover {
-				@include color-icon;
+				background-color: var(--nmc-color-background-hover);
+			}
+			a {
+				display: block;
+				background-image: var(--icon-close-dark);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 24px;
+				width: 35px;
+				height: 35px;
+				&:hover {
+					@include color-icon;
+				}
 			}
 		}
 	}
@@ -42,6 +53,7 @@
 			&:hover {
 				cursor: pointer;
 				border: 1px solid #191919;
+				background-color: var(--nmc-color-background-hover);
 			}
 
 			&.primary:active, &.primary:focus, &.primary:hover {
@@ -57,7 +69,7 @@
 				color: var(--color-main-background);
 
 				&:hover {
-					border-color: white;
+					background-color: var(--telekom-color-primary-hovered);
 				}
 
 				&.primary:active, &.primary:focus, &.primary:hover {
