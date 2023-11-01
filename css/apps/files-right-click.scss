@@ -12,15 +12,18 @@
 				padding: 26px 0 0 26px;
 				background-position: center;
 				background-size: 24px;
+				&.icon-external {
+					background-image: var(--icon-cut-paste-dark);
+				}
+
+				&.icon-goto {
+					background-image: var(--icon-folder-dark);
+				}
 			}
 
 			// hide 'details' and 'edit locally' buttons in the right click menu
 			&.option-editlocally, &.option-details {
 				display: none;
-			}
-
-			.icon.icon-external {
-				background-image: var(--icon-cut-paste-dark);
 			}
 
 			&:hover {
@@ -36,7 +39,7 @@
 }
 
 // style overrides for '...' button in filetable
-#app-content-files {
+#app-content {
 	.fileActionsMenu .menuitem {
 		padding: 8px 14px 8px 16px !important;
 
