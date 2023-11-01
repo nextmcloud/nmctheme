@@ -1,5 +1,4 @@
-$breakpoint-mobile: 1024px;
-$breakpoint-mobile-small: 480px;
+@import '../variables';
 
 :root {
 	--body-height: calc(100% - 157px - var(--body-container-margin));

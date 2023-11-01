@@ -1,4 +1,5 @@
 @import '../mixins.scss';
+@import '../variables';
 
 /**
 * Custom 'File already exists' dialog
@@ -40,6 +41,10 @@
 		display: flex;
 		justify-content: end;
 		gap: var(--telekom-spacing-composition-space-04);
+
+		@media screen and (max-width: $breakpoint-mobile) {
+			flex-direction: column;
+		}
 
 		button {
 			min-height: var(--telekom-size-generic-size-12);

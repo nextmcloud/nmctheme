@@ -1,8 +1,7 @@
 // styling for guest view in file sharing app
 
 @import '../_mixins.scss';
-
-$breakpoint-mobile-small: 480px;
+@import '../variables';
 
 #body-public {
     .directDownload, #header {
