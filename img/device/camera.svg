@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/device/camera/default@svg</title>
+    <defs>
+        <path d="M20,4.99999997 L20,8.79999999 L21.8,6.99999997 L23.5,6.99999997 L23.5,17 L21.8,17 L20,15.2 L20,17 C20,18.65 18.65,20 17,20 L17,20 L4.99999995,20 C3.34999996,20 1.99999995,18.65 1.99999995,17 L1.99999995,17 L1.99999995,10.5 L0.499999952,10.5 L0.499999952,6.49999997 L1.99999995,6.49999997 L1.99999995,4.99999997 L20,4.99999997 Z M18.5,6.49999998 L3.49999996,6.49999998 L3.49999996,17 C3.49999996,17.85 4.14999997,18.5 4.99999996,18.5 L4.99999996,18.5 L17,18.5 C17.85,18.5 18.5,17.85 18.5,17 L18.5,17 L18.5,6.49999998 Z M8.99999999,9.24999999 L14,12.5 L8.99999999,15.75 L8.99999999,9.24999999 Z M22,8.89999999 L20,10.9 L20,13.1 L22,15.1 L22,8.89999999 Z" id="path-1"></path>
+    </defs>
+    <g id="icon/device/camera/default" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#262626" xlink:href="#path-1"></use>
+    </g>
+</svg>

@@ -119,6 +119,44 @@
 	#app-navigation-vue {
 		ul.app-navigation__list {
 			padding: 4rem 1.5rem 1.5rem;
+
+			span.material-design-icon {
+				width: 44px;
+				height: 44px;
+				background-position: center;
+				background-repeat: no-repeat;
+				svg {
+					display: none;
+				}
+
+				&.star-icon {
+					background-image: var(--icon-star-dark);
+				}
+
+				&.folder-icon {
+					background-image: var(--icon-folder-dark);
+				}
+
+				&.camera-icon {
+					background-image: var(--icon-photo-camera-dark);
+				}
+
+				&.video-icon {
+					background-image: var(--icon-camera-dark);
+				}
+
+				&.folder-multiple-image-icon {
+					background-image: var(--icon-albums-dark);
+				}
+
+				&.image-icon {
+					background-image: var(--icon-all-media-dark);
+				}
+
+				&.share-variant-icon {
+					background-image: var(--icon-attachment-dark);
+				}
+			}
 		}
 
 		// contains 'Photos settings' button
