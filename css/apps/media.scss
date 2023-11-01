@@ -119,11 +119,85 @@
 	#app-navigation-vue {
 		ul.app-navigation__list {
 			padding: 4rem 1.5rem 1.5rem;
+
+			span.material-design-icon {
+				width: 44px;
+				height: 44px;
+				background-position: center;
+				background-repeat: no-repeat;
+				svg {
+					display: none;
+				}
+
+				&.star-icon {
+					background-image: var(--icon-star-dark);
+				}
+
+				&.folder-icon {
+					background-image: var(--icon-folder-dark);
+				}
+
+				&.camera-icon {
+					background-image: var(--icon-photo-camera-dark);
+				}
+
+				&.video-icon {
+					background-image: var(--icon-camera-dark);
+				}
+
+				&.folder-multiple-image-icon {
+					background-image: var(--icon-albums-dark);
+				}
+
+				&.image-icon {
+					background-image: var(--icon-all-media-dark);
+				}
+
+				&.share-variant-icon {
+					background-image: var(--icon-attachment-dark);
+				}
+			}
 		}
 
 		// contains 'Photos settings' button
 		& > li.app-navigation-entry-wrapper {
 			display: none;
+		}
+	}
+}
+
+// New album modal window
+.modal-container {
+	form.album-form {
+		height: auto;
+		padding: 50px 50px 24px 24px;
+		div.form-inputs {
+			// 'Name of the album' input field
+			.input-field {
+				margin-bottom: 1rem;
+			}
+
+			// hide 'Location of the album' input
+			& > label {
+				display: none;
+			}
+		}
+	
+		.form-buttons {
+			.right-buttons {
+				// Hide 'Add collaborators' button 
+				.button-vue--vue-secondary {
+					display: none;
+				}
+
+				// 'Create album' button
+				.button-vue--vue-primary {
+					margin: 0 !important;
+					.button-vue__icon {
+						display: none;
+					}
+				}
+			}
 		}
 	}
 }

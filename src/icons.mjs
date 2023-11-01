@@ -134,6 +134,10 @@ const icons = {
 	ul: path.join(__dirname, '../img', 'rich-workspace', 'ul.svg'),
 	underline: path.join(__dirname, '../img', 'rich-workspace', 'underline.svg'),
 	undo: path.join(__dirname, '../img', 'rich-workspace', 'undo.svg'),
+	albums: path.join(__dirname, '../img', 'media', 'albums.svg'),
+	'all-media': path.join(__dirname, '../img', 'media', 'all-media.svg'),
+	camera: path.join(__dirname, '../img', 'device', 'camera.svg'),
+	'photo-camera': path.join(__dirname, '../img', 'device', 'photo-camera.svg'),
 }
 
 const iconsColor = {
