@@ -2,45 +2,36 @@
 
 @import '../_mixins.scss';
 
-@mixin magenta-icon {
-    filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
-}
-
-@mixin primary-button {
-    border: none;
-    border-radius: var(--telekom-radius-standard);
-    background-color: var(--telekom-color-primary-standard);
-    color: var(--telekom-color-text-and-icon-white-standard);
-
-    &:hover:not(:disabled) {
-        background-color: var(--telekom-color-primary-hovered);
-    }
-
-    &:active {
-        background-color: var(--telekom-color-primary-pressed);
-    }
-
-    &:disabled {
-        background-color: var(--telekom-color-ui-disabled);
-        color: var(--telekom-color-text-and-icon-disabled);
-    }
-}
-
-$footer-height: 60px;
-$breakpoint-mobile: 1024px;
 $breakpoint-mobile-small: 480px;
 
 #body-public {
-    #header .header-right {
-        #header-primary-action {
-            &>a.primary.button {
-                @include primary-button;
+    .directDownload, #header {
+        a.button {
+            @include primary-button;
+            .icon-download {
+                opacity: 1;
+                background-image: var(--icon-download-white);
+                background-size: 16px;
             }
         }
     }
 
-    .icon-download {
-        background-image: var(--icon-download-white);
+    #imgframe {
+        padding: 24px 0 16px;
+    }
+
+    #files-public-content {
+        padding-left: 16px;
+        padding-right: 4px;
+    }
+
+    #header {
+        .header-right {
+            padding-right: 24px;
+            #header-actions-toggle {
+                display: none;
+            }
+        }
     }
 
     .app-files_sharing #app-content {
@@ -54,46 +45,21 @@ $breakpoint-mobile-small: 480px;
         }
 
         #files-public-content #preview {
-            .files-controls .actions.creatable {
 
-                // 'New file/folder' button inside breadcrumb
-                &>a.button.new {
-                    background-color: var(--color-main-background);
-                    border-color: var(--telekom-color-text-and-icon-primary-standard);
-                    min-height: unset;
-                    height: 24px;
-                    width: 24px;
-                    margin: auto 0;
-
-                    .icon.icon-add {
-                        @include magenta-icon;
-                        background-size: 16px 16px;
-                        opacity: 1;
-                    }
-                }
-            }
-
-            &>.emptyfilelist.emptycontent .icon-folder {
+            & > .emptyfilelist.emptycontent .icon-folder {
                 background-image: url('../img/filetypes/folder.svg');
                 background-size: 192px;
                 height: 128px;
                 width: 128px;
             }
-
-            .directDownload>#downloadFile {
-                @include primary-button;
-            }
         }
     }
 
-    .app-files_sharing+footer {
-        --footnav-items-bottom-margin: var(--telekom-spacing-composition-space-08);
-        --radius: var(--telekom-radius-small);
-        --border-radius: 0px;
+    .app-files_sharing + footer {
         --footer-font: var(--telekom-text-style-caption-bold);
     }
 
-    .app-files_sharing+footer[role="contentinfo"] {
+    .app-files_sharing + footer[role="contentinfo"] {
         position: fixed;
         display: inline-block;
         background-color: var(--color-main-background);
