@@ -127,3 +127,39 @@
 		}
 	}
 }
+
+// New album modal window
+.modal-container {
+	form.album-form {
+		height: auto;
+		padding: 50px 50px 24px 24px;
+		div.form-inputs {
+			// 'Name of the album' input field
+			.input-field {
+				margin-bottom: 1rem;
+			}
+
+			// hide 'Location of the album' input
+			& > label {
+				display: none;
+			}
+		}
+	
+		.form-buttons {
+			.right-buttons {
+				// Hide 'Add collaborators' button 
+				.button-vue--vue-secondary {
+					display: none;
+				}
+
+				// 'Create album' button
+				.button-vue--vue-primary {
+					margin: 0 !important;
+					.button-vue__icon {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
