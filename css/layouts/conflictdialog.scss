@@ -4,6 +4,8 @@
 * Custom 'File already exists' dialog
 */
 .oc-dialog.oc-conflict-pre-dlg {
+	width: 100%;
+	max-width: var(--telekom-size-generic-size-24);
 
 	// modal dialog title
 	div.flex-container {
@@ -25,16 +27,16 @@
 
 	div.threebuttons {
 		display: flex;
-		flex-direction: column;
+		justify-content: end;
 		gap: var(--telekom-spacing-composition-space-04);
 
 		button {
-			min-height: 34px;
+			min-height: var(--telekom-size-generic-size-12);
 			border-radius: var(--telekom-radius-standard);
 			text-align: center;
 			border: 1px solid #191919;
-			padding: var(--telekom-spacing-composition-space-03);
-			font: var(--telekom-text-style-body);
+			padding: 0 var(--telekom-spacing-composition-space-07);
+			font: var(--telekom-text-style-body-bold);
 			background-color: var(--color-main-background);
 
 			&:hover {
