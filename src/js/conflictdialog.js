@@ -417,7 +417,6 @@ const overrideOC = () => {
 			}]
 
 			$(dialogId).ocdialogconflictpredlg({
-				width: 288,
 				closeOnEscape: true,
 				modal: true,
 				buttons: buttonlist,

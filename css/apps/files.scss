@@ -1,11 +1,9 @@
 @import '../_mixins.scss';
+@import '../variables';
 
 @mixin magenta-icon {
 	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%);
 }
-
-$breakpoint-mobile: 1024px;
-$breakpoint-mobile-small: 480px;
 
 // add small gap between app content and app navigation
 .app-files #app-content {

@@ -1,7 +1,5 @@
 @import '../_mixins.scss';
-
-$breakpoint-mobile: 1024px;
-$breakpoint-mobile-small: 480px;
+@import '../variables';
 
 #nmcsettings, .nmcsettings {
 	display: flex;

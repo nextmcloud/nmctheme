@@ -1,6 +1,5 @@
 @import '../_mixins.scss';
-
-$breakpoint-mobile: 1024px;
+@import '../variables';
 
 :root {
 	--internal-padding: 0;

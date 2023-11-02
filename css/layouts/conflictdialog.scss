@@ -1,9 +1,12 @@
 @import '../mixins.scss';
+@import '../variables';
 
 /**
 * Custom 'File already exists' dialog
 */
 .oc-dialog.oc-conflict-pre-dlg {
+	width: 100%;
+	max-width: var(--telekom-size-generic-size-24);
 
 	// modal dialog title
 	div.flex-container {
@@ -11,35 +14,51 @@
 		justify-content: space-between;
 
 		// close button
-		.oc-conflict-pre-dlg-close-div a {
-			display: block;
-			background-image: var(--icon-close-dark);
-			background-repeat: no-repeat;
-			width: 27px;
-			height: 24px;
+		.oc-conflict-pre-dlg-close-div {
+			margin: -15px -15px 0 0;
+			width: 35px;
+			height: 35px;
+			border-radius: var(--telekom-radius-standard);
 			&:hover {
-				@include color-icon;
+				background-color: var(--nmc-color-background-hover);
+			}
+			a {
+				display: block;
+				background-image: var(--icon-close-dark);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 24px;
+				width: 35px;
+				height: 35px;
+				&:hover {
+					@include color-icon;
+				}
 			}
 		}
 	}
 
 	div.threebuttons {
 		display: flex;
-		flex-direction: column;
+		justify-content: end;
 		gap: var(--telekom-spacing-composition-space-04);
 
+		@media screen and (max-width: $breakpoint-mobile) {
+			flex-direction: column;
+		}
+
 		button {
-			min-height: 34px;
+			min-height: var(--telekom-size-generic-size-12);
 			border-radius: var(--telekom-radius-standard);
 			text-align: center;
 			border: 1px solid #191919;
-			padding: var(--telekom-spacing-composition-space-03);
-			font: var(--telekom-text-style-body);
+			padding: 0 var(--telekom-spacing-composition-space-07);
+			font: var(--telekom-text-style-body-bold);
 			background-color: var(--color-main-background);
 
 			&:hover {
 				cursor: pointer;
 				border: 1px solid #191919;
+				background-color: var(--nmc-color-background-hover);
 			}
 
 			&.primary:active, &.primary:focus, &.primary:hover {
@@ -55,7 +74,7 @@
 				color: var(--color-main-background);
 
 				&:hover {
-					border-color: white;
+					background-color: var(--telekom-color-primary-hovered);
 				}
 
 				&.primary:active, &.primary:focus, &.primary:hover {
