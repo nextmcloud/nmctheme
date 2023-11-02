@@ -138,6 +138,7 @@ const icons = {
 	'all-media': path.join(__dirname, '../img', 'media', 'all-media.svg'),
 	camera: path.join(__dirname, '../img', 'device', 'camera.svg'),
 	'photo-camera': path.join(__dirname, '../img', 'device', 'photo-camera.svg'),
+	'hide-menu': path.join(__dirname, '../img', 'actions', 'hide-menu.svg'),
 }
 
 const iconsColor = {
