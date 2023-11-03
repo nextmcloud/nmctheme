@@ -6,10 +6,13 @@ span.checkbox-radio-switch.checkbox-radio-switch-checkbox {
 	}
 
 	.checkbox-radio-switch__label {
+		&::after {
+			display: none;
+		}
 		// replace box svg with custom element
 		.material-design-icon {
-			width: 16px;
-			height: 16px;
+			width: 20px;
+			height: 20px;
 
 			// hide original box icon
 			svg {
