@@ -55,6 +55,17 @@
 						display: none;
 					}
 				}
+				span.star-icon {
+					background-image: var(--icon-starred-yellow);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 24px;
+					width: 24px;
+					height: 24px;
+					svg {
+						display: none;
+					}
+				}
 			}
 		}
 
@@ -117,6 +128,7 @@
 
 	// sidebar navigation
 	#app-navigation-vue {
+		// toggle button icon change
 		&.app-navigation:not(.app-navigation--close) {
 			button.app-navigation-toggle {
 				span.menu-icon {
@@ -133,52 +145,61 @@
 			}
 		}
 
-		ul.app-navigation__list {
-			padding: 4rem 1.5rem 1.5rem;
-
-			span.material-design-icon {
-				width: 44px;
-				height: 44px;
-				background-position: center;
-				background-repeat: no-repeat;
-				svg {
-					display: none;
+		.app-navigation__content {
+			ul.app-navigation__list {
+				padding: 4rem 1.5rem 1.5rem;
+	
+				li.app-navigation-entry-wrapper {
+					.app-navigation-entry-icon {
+						background-image: none;
+						span.material-design-icon {
+							width: 44px;
+							height: 44px;
+							background-position: center;
+							background-repeat: no-repeat;
+							svg {
+								display: none;
+							}
+			
+							&.star-icon {
+								background-image: var(--icon-star-dark);
+							}
+			
+							&.folder-icon {
+								background-image: var(--icon-folder-dark);
+							}
+			
+							&.camera-icon {
+								background-image: var(--icon-photo-camera-dark);
+							}
+			
+							&.video-icon {
+								background-image: var(--icon-camera-dark);
+							}
+			
+							&.folder-multiple-image-icon {
+								background-image: var(--icon-albums-dark);
+							}
+			
+							&.image-icon {
+								background-image: var(--icon-all-media-dark);
+							}
+			
+							&.share-variant-icon {
+								background-image: var(--icon-attachment-dark);
+							}
+						}
+					}
 				}
-
-				&.star-icon {
-					background-image: var(--icon-star-dark);
-				}
-
-				&.folder-icon {
-					background-image: var(--icon-folder-dark);
-				}
-
-				&.camera-icon {
-					background-image: var(--icon-photo-camera-dark);
-				}
-
-				&.video-icon {
-					background-image: var(--icon-camera-dark);
-				}
-
-				&.folder-multiple-image-icon {
-					background-image: var(--icon-albums-dark);
-				}
-
-				&.image-icon {
-					background-image: var(--icon-all-media-dark);
-				}
-
-				&.share-variant-icon {
-					background-image: var(--icon-attachment-dark);
-				}
+	
+			}
+	
+			// contains 'Photos settings' button
+			& > li.app-navigation-entry-wrapper {
+				display: none;
 			}
 		}
 
-		// contains 'Photos settings' button
-		& > li.app-navigation-entry-wrapper {
-			display: none;
-		}
 	}
 }
 
