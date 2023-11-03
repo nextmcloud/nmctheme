@@ -63,421 +63,420 @@
 		left: 51px !important;
 	}
 }
-#content, #content-vue {
-	table.files-filestable {
-	
-		thead {
-			background-color: var(--color-main-background);
-			opacity: 0.97;
-			top: 54px;
-	
-			th {
-	
-				&.column-selection {
-					min-width: 100px;
-					width: 100px;
-				}
-	
-				&.column-name {
-					width: 100vw;
-				}
-	
-				&.column-menu {
-					width: 1000vw;
-	
-					@media screen and (max-width: $breakpoint-mobile-small) {
-						display: none;
-					}
-	
-					.filesSelectMenu  {
-						display: flex !important;
-						filter: unset;
-						justify-content: flex-end;
-						margin: 0;
-						padding: 0;
-						position: unset;
-						transform: unset;
-				
-						ul {
-							flex-direction: row;
-				
-							li.item-toggleSelectionMode {
-								display: none;
-							}
-				
-							a.menuitem.action {
-								border: none;
-								border-radius: 0;
-								box-shadow: none;
-								color: var(--telekom-color-text-and-icon-primary-standard);
-								font-weight: bold;
-								line-height: 3rem;
-								margin-right: 1rem;
-								padding: 0 !important;
-								position: relative;
-				
-								.icon {
-									@include magenta-icon;
-									background-position-x: left;
-									background-size: 1.25rem;
-									height: 3rem;
-									padding: 1rem;
-									pointer-events: none;
-	
-									&.icon-history {
-										background-image: var(--original-icon-restore-dark);
-									}
-								}
-				
-								&::before {
-									background-color: var(--color-primary);
-									border-radius: 0;
-									bottom: 2px;
-									content: " ";
-									display: block;
-									height: 4px;
-									left: 50%;
-									opacity: 0;
-									pointer-events: none;
-									position: absolute;
-									transform: translateX(-50%);
-									transition: all .1s ease-in-out;
-									width: 100%;
-								}
-				
-								&:hover, &:focus {
-									background: none;
-									border: none;
-				
-									&::before {
-										opacity: 1;
-									}
-								}
-							}
-						}
-					}
-				}
-	
-				&.column-mtime, &.column-size, &.column-last {
-					min-width: 140px;
-					text-align: right;
-	
-					.columntitle {
-						display: flex;
-						flex-direction: row-reverse;
-					}
-	
-					.sort-indicator {
-						margin-right: 4px;
-						margin-top: 4px;
-					}
-				}
-	
-				&.column-size {
-					min-width: 90px;
-				}
-	
-				.columntitle {
-					color: var(--color-main-text);
-					
-					&:hover {
-						color: var(--telekom-color-text-and-icon-primary-standard);
-	
-						.sort-indicator {
-							@include color-icon;
-						}
-					}
-					
-					&.name {
-						margin-left: 20px;
-						padding-right: 2rem;
-					}
-	
-					.sort-indicator {
-						opacity: 1;
-					}
-				}
-	
-				.selectedActions {
-	
-					&> a.actions-selected {
-						color: var(--telekom-color-text-and-icon-primary-standard);
-						font-weight: bold;
-						margin: 0 1rem 0 0;
-						opacity: 1;
-						padding: 1rem 0;
-						top: 0;
-	
-						span:not(.icon) {
-							margin-left: 0.5rem;
-						}
-	
-						.icon {
-							@include magenta-icon;
-						}
-				
-						&::before {
-							background-color: var(--color-primary);
-							border-radius: 0;
-							bottom: 2px;
-							content: " ";
-							display: block;
-							height: 4px;
-							left: 50%;
-							opacity: 0;
-							pointer-events: none;
-							position: absolute;
-							transform: translateX(-50%);
-							transition: all .1s ease-in-out;
-							width: 100%;
-						}
-	
-						&:hover, &:focus {
-							background: none;
-							border: none;
-	
-							&::before {
-								opacity: 1;
-							}
-						}
-					}
-	
-					.filesSelectMenu {
-						transform: unset;
-						right: 0;
-						margin: 0.25rem;
-						margin-top: -0.25rem;
-	
-						&.popovermenu.menu-center:after {
-							right: 3rem;
-						}
-	
-						&.popovermenu.menu-right:after {
-							right: 2rem;
-						}
-	
-						ul {
-				
-							li.item-toggleSelectionMode {
-								display: none;
-							}
-						}
-					}
-				}
-			}
-		}
-	
-		tbody {
-	
-			tr {
-				height: 68px;
 
-				&:hover, &:active {
-					background-color: var(--nmc-color-background-hover);
+table.files-filestable {
+
+	thead {
+		background-color: var(--color-main-background);
+		opacity: 0.97;
+		top: 54px;
+
+		th {
+
+			&.column-selection {
+				min-width: 100px;
+				width: 100px;
+			}
+
+			&.column-name {
+				width: 100vw;
+			}
+
+			&.column-menu {
+				width: 1000vw;
+
+				@media screen and (max-width: $breakpoint-mobile-small) {
+					display: none;
 				}
-	
-				td {
-		
-					&.date, &.column-last {
-						min-width: 140px;
-						text-align: right;
-	
-						.modified {
-							color: var(--color-main-text) !important;
+
+				.filesSelectMenu  {
+					display: flex !important;
+					filter: unset;
+					justify-content: flex-end;
+					margin: 0;
+					padding: 0;
+					position: unset;
+					transform: unset;
+			
+					ul {
+						flex-direction: row;
+			
+						li.item-toggleSelectionMode {
+							display: none;
 						}
-					}
-					
-					&.filename {
-	
-						input.filename {
-							margin-left: 70px !important;
-						}
-					}
-					
-					&.filesize {
-						min-width: 90px;
-					}
-		
-					.nametext {
-						padding-left: 20px;
-					}
-	
-					.fileactions {
-						display: flex;
-	
-						// 'Share' status styles
-						.permanent {
-							display: flex;
-							flex-direction: row-reverse;
-							height: 50px;
-							opacity: 1;
-							padding: 0;
-							width: 100%;
-	
-							&:focus {
-								background: none;
-								border: none;
-							}
-	
-							// color shared files in magenta
-							&.shared-style, &.action-restore {
-								color: var(--color-primary);
-								opacity: 1;
-	
-								.icon {
-									@include magenta-icon;
-								}
-							}
-	
-							// hide all text labels in mobile view
-							@media screen and (max-width: $breakpoint-mobile) {
-								span:not(.icon) {
-									display: none;
-								}
-							}
-	
-	
-							// increase share icon sizes
-							span.icon {
-								display: inline-flex;
-								line-height: 50px;
-								margin: 0;
-	
-								@media screen and (max-width: $breakpoint-mobile) {
-									&:not(.icon) {
-										display: none !important;
-									}
-								}
-	
-								// increase share icon sizes
-								&.icon:not(.icon-more) {
-									background-size: 24px;
-									margin-left: 0.5rem;
-									margin-top: -0.25rem;
-									min-width: 24px;
-									min-height: 24px;
-								}
-					
-								&.icon-more {
-									margin: 0 1rem;
-									min-width: 24px;
-									min-height: 24px;
-								}
-	
-								&.icon-upload-to-cloud {
-									filter: invert(61%) sepia(98%) saturate(4546%) hue-rotate(181deg) brightness(99%) contrast(109%) !important;
-								}
-	
+			
+						a.menuitem.action {
+							border: none;
+							border-radius: 0;
+							box-shadow: none;
+							color: var(--telekom-color-text-and-icon-primary-standard);
+							font-weight: bold;
+							line-height: 3rem;
+							margin-right: 1rem;
+							padding: 0 !important;
+							position: relative;
+			
+							.icon {
+								@include magenta-icon;
+								background-position-x: left;
+								background-size: 1.25rem;
+								height: 3rem;
+								padding: 1rem;
+								pointer-events: none;
+
 								&.icon-history {
 									background-image: var(--original-icon-restore-dark);
 								}
 							}
+			
+							&::before {
+								background-color: var(--color-primary);
+								border-radius: 0;
+								bottom: 2px;
+								content: " ";
+								display: block;
+								height: 4px;
+								left: 50%;
+								opacity: 0;
+								pointer-events: none;
+								position: absolute;
+								transform: translateX(-50%);
+								transition: all .1s ease-in-out;
+								width: 100%;
+							}
+			
+							&:hover, &:focus {
+								background: none;
+								border: none;
+			
+								&::before {
+									opacity: 1;
+								}
+							}
 						}
 					}
 				}
-		
-				.thumbnail-wrapper {
-					height: 50px;
-					width: 50px;
-		
-					.thumbnail {
-						background-position: center;
-						background-repeat: no-repeat;
-						background-size: 74px;
+			}
+
+			&.column-mtime, &.column-size, &.column-last {
+				min-width: 140px;
+				text-align: right;
+
+				.columntitle {
+					display: flex;
+					flex-direction: row-reverse;
+				}
+
+				.sort-indicator {
+					margin-right: 4px;
+					margin-top: 4px;
+				}
+			}
+
+			&.column-size {
+				min-width: 90px;
+			}
+
+			.columntitle {
+				color: var(--color-main-text);
+				
+				&:hover {
+					color: var(--telekom-color-text-and-icon-primary-standard);
+
+					.sort-indicator {
+						@include color-icon;
+					}
+				}
+				
+				&.name {
+					margin-left: 20px;
+					padding-right: 2rem;
+				}
+
+				.sort-indicator {
+					opacity: 1;
+				}
+			}
+
+			.selectedActions {
+
+				&> a.actions-selected {
+					color: var(--telekom-color-text-and-icon-primary-standard);
+					font-weight: bold;
+					margin: 0 1rem 0 0;
+					opacity: 1;
+					padding: 1rem 0;
+					top: 0;
+
+					span:not(.icon) {
+						margin-left: 0.5rem;
+					}
+
+					.icon {
+						@include magenta-icon;
+					}
+			
+					&::before {
+						background-color: var(--color-primary);
+						border-radius: 0;
+						bottom: 2px;
+						content: " ";
+						display: block;
+						height: 4px;
+						left: 50%;
+						opacity: 0;
+						pointer-events: none;
+						position: absolute;
+						transform: translateX(-50%);
+						transition: all .1s ease-in-out;
+						width: 100%;
+					}
+
+					&:hover, &:focus {
+						background: none;
 						border: none;
-						height: 44px;
-						margin-top: 0.2rem;
-						width: 44px;
-		
-						.favorite-mark {
-							bottom: -2px;
-							right: -8px;
-							top: unset;
-		
+
+						&::before {
+							opacity: 1;
+						}
+					}
+				}
+
+				.filesSelectMenu {
+					transform: unset;
+					right: 0;
+					margin: 0.25rem;
+					margin-top: -0.25rem;
+
+					&.popovermenu.menu-center:after {
+						right: 3rem;
+					}
+
+					&.popovermenu.menu-right:after {
+						right: 2rem;
+					}
+
+					ul {
+			
+						li.item-toggleSelectionMode {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	tbody {
+
+		tr {
+			height: 68px;
+
+			&:hover, &:active {
+				background-color: var(--nmc-color-background-hover);
+			}
+
+			td {
+	
+				&.date, &.column-last {
+					min-width: 140px;
+					text-align: right;
+
+					.modified {
+						color: var(--color-main-text) !important;
+					}
+				}
+				
+				&.filename {
+
+					input.filename {
+						margin-left: 70px !important;
+					}
+				}
+				
+				&.filesize {
+					min-width: 90px;
+				}
+	
+				.nametext {
+					padding-left: 20px;
+				}
+
+				.fileactions {
+					display: flex;
+
+					// 'Share' status styles
+					.permanent {
+						display: flex;
+						flex-direction: row-reverse;
+						height: 50px;
+						opacity: 1;
+						padding: 0;
+						width: 100%;
+
+						&:focus {
+							background: none;
+							border: none;
+						}
+
+						// color shared files in magenta
+						&.shared-style, &.action-restore {
+							color: var(--color-primary);
+							opacity: 1;
+
 							.icon {
+								@include magenta-icon;
+							}
+						}
+
+						// hide all text labels in mobile view
+						@media screen and (max-width: $breakpoint-mobile) {
+							span:not(.icon) {
+								display: none !important;
+							}
+						}
+
+
+						// increase share icon sizes
+						span.icon {
+							display: inline-flex;
+							line-height: 50px;
+							margin: 0;
+
+							@media screen and (max-width: $breakpoint-mobile) {
+								&:not(.icon) {
+									display: none !important;
+								}
+							}
+
+							// increase share icon sizes
+							&.icon:not(.icon-more) {
 								background-size: 24px;
+								margin-left: 0.5rem;
+								margin-top: -0.25rem;
 								min-width: 24px;
 								min-height: 24px;
 							}
-						}
-					}
-				}
-			}
-		}
-	
-		tfoot {
-	
-			.summary {
-				color: var(--color-main-text);
-	
-				.filesummary {
-					padding-top: 20px;
-				}
-			}
-		}
-		
-		input {
-	
-			&[type=checkbox] {
-	
-				&.checkbox {
-	
-					+ label {
-						display: inline-block;
-						padding: 16px 0;
-						text-align: center;
-						width: 50px;
-	
-						&:before {
-							border-color: var(--telekom-color-ui-border-standard);
-							border-radius: var(--telekom-radius-small);
-							margin: 2px 0 0;
-							opacity: 1;
-							vertical-align: top;
-						}
-					}
-	
-					&:not(:disabled):not(:checked):hover + label:before {
-						background: var(--telekom-color-ui-state-fill-hovered);
-						border-color: var(--telekom-color-ui-border-hovered);
-						color: var(--color-icon-checked-active);
-					}
-	
-					&:checked + label:before {
-						background-image: var(--original-icon-check-white);
-						background-color: var(--telekom-color-text-and-icon-functional-success);
-						background-repeat: no-repeat;
-						background-size: 18px;
-						border: none;
-						border-radius: 3rem;
-						height: 1.5rem;
-						margin-left: -2px;
-						margin-right: -2px;
-						margin-top: -2px;
-						width: 1.5rem;
-					}
-				}
-	
-				&.select-all {
-	
-					+ label {
-						height: 50px;
-						padding: 15px;
-	
-						&:before {
-							margin: 2px;
-							border-radius: var(--telekom-radius-small);
-						}
-	
-						span {
-							color: var(--color-main-text);
-							margin-left: 20px;
-							overflow: auto;
-							position: static;
-	
-							@media screen and (max-width: $breakpoint-mobile) {
-								display: none;
+				
+							&.icon-more {
+								margin: 0 1rem;
+								min-width: 24px;
+								min-height: 24px;
 							}
+
+							&.icon-upload-to-cloud {
+								filter: invert(61%) sepia(98%) saturate(4546%) hue-rotate(181deg) brightness(99%) contrast(109%) !important;
+							}
+
+							&.icon-history {
+								background-image: var(--original-icon-restore-dark);
+							}
+						}
+					}
+				}
+			}
+	
+			.thumbnail-wrapper {
+				height: 50px;
+				width: 50px;
+	
+				.thumbnail {
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 74px;
+					border: none;
+					height: 44px;
+					margin-top: 0.2rem;
+					width: 44px;
+	
+					.favorite-mark {
+						bottom: -2px;
+						right: -8px;
+						top: unset;
+	
+						.icon {
+							background-size: 24px;
+							min-width: 24px;
+							min-height: 24px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	tfoot {
+
+		.summary {
+			color: var(--color-main-text);
+
+			.filesummary {
+				padding-top: 20px;
+			}
+		}
+	}
+	
+	input {
+
+		&[type=checkbox] {
+
+			&.checkbox {
+
+				+ label {
+					display: inline-block;
+					padding: 16px 0;
+					text-align: center;
+					width: 50px;
+
+					&:before {
+						border-color: var(--telekom-color-ui-border-standard);
+						border-radius: var(--telekom-radius-small);
+						margin: 2px 0 0;
+						opacity: 1;
+						vertical-align: top;
+					}
+				}
+
+				&:not(:disabled):not(:checked):hover + label:before {
+					background: var(--telekom-color-ui-state-fill-hovered);
+					border-color: var(--telekom-color-ui-border-hovered);
+					color: var(--color-icon-checked-active);
+				}
+
+				&:checked + label:before {
+					background-image: var(--original-icon-check-white);
+					background-color: var(--telekom-color-text-and-icon-functional-success);
+					background-repeat: no-repeat;
+					background-size: 18px;
+					border: none;
+					border-radius: 3rem;
+					height: 1.5rem;
+					margin-left: -2px;
+					margin-right: -2px;
+					margin-top: -2px;
+					width: 1.5rem;
+				}
+			}
+
+			&.select-all {
+
+				+ label {
+					height: 50px;
+					padding: 15px;
+
+					&:before {
+						margin: 2px;
+						border-radius: var(--telekom-radius-small);
+					}
+
+					span {
+						color: var(--color-main-text);
+						margin-left: 20px;
+						overflow: auto;
+						position: static;
+
+						@media screen and (max-width: $breakpoint-mobile) {
+							display: none;
 						}
 					}
 				}
