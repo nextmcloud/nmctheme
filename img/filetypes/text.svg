@@ -1,1 +1,32 @@
-<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 108"><defs><style>.cls-1{fill:url(#Unbenannter_Verlauf_25);}.cls-2{fill:#b9ada7;isolation:isolate;opacity:0.7;}.cls-3{fill:#529ad6;}</style><linearGradient id="Unbenannter_Verlauf_25" x1="-134.95" y1="-132.55" x2="-134.95" y2="-204.55" gradientTransform="translate(198.95 222.55)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ddd6d3"/><stop offset="0.39" stop-color="#e9e4e2"/><stop offset="1" stop-color="#e9e4e2"/></linearGradient></defs><path class="cls-1" d="M93.57,37.29V87.43A2.58,2.58,0,0,1,91,90H37a2.58,2.58,0,0,1-2.57-2.57V20.57A2.58,2.58,0,0,1,37,18H74.29Z"/><path class="cls-2" d="M93.57,37.29H76.86a2.58,2.58,0,0,1-2.57-2.58V18Z"/><path class="cls-3" d="M77.5,43.71h-27a2,2,0,0,0-1.93,1.93v1.93H79.43V45.64A2,2,0,0,0,77.5,43.71ZM48.57,72.64a2,2,0,0,0,1.93,1.93h27a2,2,0,0,0,1.93-1.93V50.14H48.57v22.5ZM53.71,54H74.29v2.57H53.71Zm0,6.43H74.29V63H53.71Zm0,6.43H66.57v2.57H53.71Z"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 72 72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Unbenannter_Verlauf_25);
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #529ad6;
+      }
+
+      .cls-3 {
+        fill: #b9ada7;
+        isolation: isolate;
+        opacity: .7;
+      }
+    </style>
+    <linearGradient id="Unbenannter_Verlauf_25" data-name="Unbenannter Verlauf 25" x1="-162.95" y1="-150.55" x2="-162.95" y2="-222.55" gradientTransform="translate(198.95 222.55)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ddd6d3"/>
+      <stop offset=".39" stop-color="#e9e4e2"/>
+      <stop offset="1" stop-color="#e9e4e2"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-1" d="m65.57,19.29v50.14c0,1.41-1.16,2.57-2.57,2.57H9c-1.41,0-2.57-1.16-2.57-2.57V2.57C6.43,1.16,7.59,0,9,0h37.29l19.29,19.29Z"/>
+  <path class="cls-3" d="m65.57,19.29h-16.71c-1.41,0-2.57-1.16-2.57-2.57V0l19.29,19.29Z"/>
+  <path class="cls-2" d="m49.5,25.71h-27c-1.03,0-1.93.9-1.93,1.93v1.93h30.86v-1.93c0-1.03-.9-1.93-1.93-1.93Zm-28.93,28.93c0,1.03.9,1.93,1.93,1.93h27c1.03,0,1.93-.9,1.93-1.93v-22.5h-30.86v22.5h0Zm5.14-18.64h20.57v2.57h-20.57v-2.57Zm0,6.43h20.57v2.57h-20.57v-2.57Zm0,6.43h12.86v2.57h-12.86v-2.57Z"/>
+</svg>
