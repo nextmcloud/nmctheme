@@ -92,7 +92,7 @@ export default {
 		color: var(--color-primary);
 		width: fit-content;
 		position: relative;
-		padding-left: 1.5rem;
+		padding-left: 1.75rem;
 		margin-bottom: 6px;
 		&:hover {
 			color: var(--color-primary-hover);
@@ -106,7 +106,7 @@ export default {
 			border-bottom: 5px solid var(--color-primary);
 			position: absolute;
 			top: calc(50% - 3px);
-			left: 3px;
+			left: 5px;
 		}
 		// rotate arrow when opened
 		&.open::before {
