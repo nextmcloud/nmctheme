@@ -1,0 +1,57 @@
+// styling for search popover from header
+
+.header-right {
+    .unified-search__input-wrapper label {
+        display: none;
+    }
+
+    .unified-search__input-wrapper ~ .empty-content {
+        display: none;
+    }
+
+    .empty-content {
+        &__icon > .material-design-icon.magnify-icon {
+            display: none;
+        }
+    }
+
+    .header-menu {
+        &__carret {
+            display: none;
+        }
+    }
+}
+
+.unified-search__form {
+    & #unified-search__input {
+        border: 2px solid black;
+        border-radius: 5px;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        padding-left: 1rem;
+    }
+
+    & .unified-search__form-reset.icon-close {
+        background-image: var(--icon-close-x-dark);
+        opacity: 1;
+        margin: 12px 3px;
+    }
+}
+
+#header-menu-unified-search .header-menu__content .unified-search__results.unified-search__results-files {
+    & .unified-search__results-header {
+        color: #000000;
+        font-size: 16px;
+    }
+
+    & .unified-search__result {
+        border: none;
+
+        &:active,
+        &:hover,
+        &:focus {
+            background-color: var(--nmc-color-background-hover);
+            border: none;
+        }
+    }
+}
