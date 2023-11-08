@@ -6,27 +6,42 @@
 			&__title__main {
 				font-size: 32px;
 			}
+
 			// 'Add', 'Add to album', 'Unselect all' and '...' buttons
-			&__content button, &__content-right button{
+			&__content button,
+			&__content-right button {
 				all: unset;
+
 				.plus-icon {
 					border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
 					border-radius: 50%;
 				}
-				
-				svg, .button-vue__text {
+
+				svg,
+				.button-vue__text {
 					color: var(--telekom-color-text-and-icon-primary-standard);
 				}
 
 				&:hover {
 					background-color: initial;
+
 					.plus-icon {
 						border: 1px solid var(--telekom-color-text-and-icon-primary-hovered);
 					}
-	
-					svg, .button-vue__text {
+
+					svg,
+					.button-vue__text {
 						color: var(--telekom-color-text-and-icon-primary-hovered);
 					}
+				}
+			}
+
+			.photos-navigation__content-right {
+
+				// disable Share button for Albums
+				button > .button-vue__wrapper > .button-vue__icon:has(span.share-variant-icon),
+				button:not(.action-item__menutoggle) {
+					display: none;
 				}
 			}
 		}
@@ -37,6 +52,7 @@
 			// Date container
 			.files-list-viewer__section-header {
 				height: auto !important;
+
 				h3 {
 					margin: 32px 0 8px;
 				}
@@ -45,16 +61,19 @@
 			li {
 				// prevent stretching a low number of photos in line to fill it
 				flex-grow: 0;
+
 				// new play icon for videos
 				span.video-icon {
 					background-image: var(--icon-play-video-white);
 					background-repeat: no-repeat;
 					background-position: center;
 					background-size: 32px;
+
 					svg {
 						display: none;
 					}
 				}
+
 				span.star-icon {
 					background-image: var(--icon-starred-yellow);
 					background-repeat: no-repeat;
@@ -62,6 +81,7 @@
 					background-size: 24px;
 					width: 24px;
 					height: 24px;
+
 					svg {
 						display: none;
 					}
@@ -75,6 +95,7 @@
 				.folder {
 					.folder-name {
 						transition: none;
+
 						// replace standart folder icon
 						span.icon-folder {
 							background-image: var(--icon-mime-folder-dark);
@@ -101,6 +122,7 @@
 
 			.collection-cover {
 				border-radius: 0;
+
 				img {
 					border-radius: 0;
 					width: 250px;
@@ -109,6 +131,7 @@
 
 				&__details {
 					width: 250px;
+
 					&__title .album__name {
 						line-height: normal;
 						font-weight: bold;
@@ -128,6 +151,7 @@
 
 	// sidebar navigation
 	#app-navigation-vue {
+
 		// toggle button icon change
 		&.app-navigation:not(.app-navigation--close) {
 			button.app-navigation-toggle {
@@ -138,6 +162,7 @@
 					background-position: center;
 					background-repeat: no-repeat;
 					background-size: 24px;
+
 					svg {
 						display: none;
 					}
@@ -148,54 +173,56 @@
 		.app-navigation__content {
 			ul.app-navigation__list {
 				padding: 4rem 1.5rem 1.5rem;
-	
+
 				li.app-navigation-entry-wrapper {
 					.app-navigation-entry-icon {
 						background-image: none;
+
 						span.material-design-icon {
 							width: 44px;
 							height: 44px;
 							background-position: center;
 							background-repeat: no-repeat;
+
 							svg {
 								display: none;
 							}
-			
+
 							&.star-icon {
 								background-image: var(--icon-star-dark);
 							}
-			
+
 							&.folder-icon {
 								background-image: var(--icon-folder-dark);
 							}
-			
+
 							&.camera-icon {
 								background-image: var(--icon-photo-camera-dark);
 							}
-			
+
 							&.video-icon {
 								background-image: var(--icon-camera-dark);
 							}
-			
+
 							&.folder-multiple-image-icon {
 								background-image: var(--icon-albums-dark);
 							}
-			
+
 							&.image-icon {
 								background-image: var(--icon-all-media-dark);
 							}
-			
+
 							&.share-variant-icon {
 								background-image: var(--icon-attachment-dark);
 							}
 						}
 					}
 				}
-	
+
 			}
-	
+
 			// contains 'Photos settings' button
-			& > li.app-navigation-entry-wrapper {
+			&>li.app-navigation-entry-wrapper {
 				display: none;
 			}
 		}
@@ -208,20 +235,23 @@
 	form.album-form {
 		height: auto;
 		padding: 50px 50px 24px 24px;
+
 		div.form-inputs {
+
 			// 'Name of the album' input field
 			.input-field {
 				margin-bottom: 1rem;
 			}
 
 			// hide 'Location of the album' input
-			& > label {
+			&>label {
 				display: none;
 			}
 		}
-	
+
 		.form-buttons {
 			.right-buttons {
+
 				// Hide 'Add collaborators' button 
 				.button-vue--vue-secondary {
 					display: none;
@@ -230,6 +260,7 @@
 				// 'Create album' button
 				.button-vue--vue-primary {
 					margin: 0 !important;
+
 					.button-vue__icon {
 						display: none;
 					}
