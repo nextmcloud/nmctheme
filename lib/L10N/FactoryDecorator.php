@@ -107,7 +107,7 @@ class FactoryDecorator implements IFactory {
 		$supportedLocales = $this->config->getSystemValue('nmc_supported_locales', false);
 		if (is_array($supportedLocales)) {
 			// the default en must be always supported
-			$this->supported_locales = array_unique(array_merge($supportedLocales, ['en', 'en_GB']));
+			$this->supported_locales = array_unique(array_merge($supportedLocales, ['en_GB']));
 		}
 	}
 
