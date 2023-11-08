@@ -187,6 +187,7 @@
 							height: 44px;
 							background-position: center;
 							background-repeat: no-repeat;
+							background-size: 24px;
 
 							svg {
 								display: none;
@@ -213,7 +214,7 @@
 							}
 
 							&.image-icon {
-								background-image: var(--icon-all-media-dark);
+								background-image: var(--icon-photos-videos-dark);
 							}
 
 							&.share-variant-icon {
