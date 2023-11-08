@@ -174,7 +174,11 @@
 			ul.app-navigation__list {
 				padding: 4rem 1.5rem 1.5rem;
 
-				li.app-navigation-entry-wrapper {
+				li.app-navigation-entry-wrapper {					
+					& > .app-navigation-entry:has(a[href$="shared"]) {
+						display: none;
+					}
+
 					.app-navigation-entry-icon {
 						background-image: none;
 
