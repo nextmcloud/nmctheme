@@ -147,6 +147,10 @@ const iconsColor = {
 		path: path.join(__dirname, '../img', 'actions', 'starred.svg'),
 		color: 'yellow',
 	},
+	'delete-starred': {
+		path: path.join(__dirname, '../img', 'actions', 'delete.svg'),
+		color: 'warning',
+	},
 	file: {
 		path: path.join(__dirname, '../img', 'filetypes', 'text.svg'),
 		color: 'grey',
