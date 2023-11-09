@@ -99,6 +99,9 @@
 	.nav-icon-favorites::after {
 		background-image: var(--icon-star-dark);
 	}
+	.nav-icon-favorites-starred::after {
+		background-image: var(--icon-starred-yellow);
+	}
 	.nav-icon-shareoverview::after {
 		background-image: var(--icon-share-dark);
 	}
@@ -107,6 +110,9 @@
 	}
 	.nav-icon-trashbin::after {
 		background-image: var(--icon-delete-dark);
+	}
+	.nav-icon-trashbin-starred::after {
+		background-image: var(--icon-delete-starred-warning);
 	}
 	.nav-icon-sharingout::after {
 		background-image: var(--icon-share-dark);
@@ -121,7 +127,7 @@
 	}
 }
 
-@media screen and (max-width: $breakpoint-mobile) {
+@media screen and (max-width: 1023px) {
 	
 	#app-navigation:not(.vue) {
 		border-radius: 0;
