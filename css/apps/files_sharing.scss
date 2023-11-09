@@ -1,0 +1,45 @@
+@import '../_mixins.scss';
+@import '../variables';
+
+.app-files_sharing #app-content {
+    #drop-uploaded-files {
+        width: 448px;
+
+        @media screen and (max-width: $breakpoint-mobile-small) {
+            max-width: 180px;
+        }
+    }
+
+    #public-upload .emptycontent {
+        li img {
+            width: 24px;
+            margin: 0;
+        }
+
+        #displayavatar .icon-folder {
+            background-image: var(--icon-mime-folder-dark);
+            background-size: 192px;
+            height: 128px;
+            width: 128px;
+        }
+
+        #drop-uploaded-files {
+            padding: 2rem;
+        }
+
+        a.button {
+            @include primary-button;
+
+            &.icon-upload {
+                opacity: 1;
+                background-image: var(--icon-upload-white);
+                background-size: 16px;
+            }
+        }
+
+        #drop-upload-done-indicator {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    }
+}
