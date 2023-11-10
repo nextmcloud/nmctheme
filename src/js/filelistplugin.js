@@ -43,6 +43,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				fileList.$el.find('.files-filestable thead th').toggleClass('hidden', fileList.isEmpty)
 				fileList.$el.find('.files-filestable thead th.column-menu').addClass('hidden')
 				fileList.$el.find('.files-filestable thead th.column-actions').addClass('hidden')
+				fileList.$el.find('.files-filestable thead th.column-expiration').addClass('hidden')
 			}
 
 			fileList.showDetailsView = function(fileName, tabId) {
@@ -98,7 +99,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					}
 
 					if (!showHidden && summary.totalHidden > 0) {
-						const hiddenInfo = n('files', 'including %n hidden', 'including %n hidden', summary.totalHidden)
+						const hiddenInfo = n('nmctheme', 'including %n hidden', 'including %n hidden', summary.totalHidden)
 						selection += ' (' + hiddenInfo + ')'
 					}
 
