@@ -184,7 +184,8 @@
       "Show folder info text": "Show folder info text",
       "Shared with you": "Shared with me",
       "Shared with others": "My shares",
-      "and": "and"
+      "and": "and",
+      "_including %n hidden_::_including %n hidden_" : ["including %n hidden","including %n hidden"]
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   }

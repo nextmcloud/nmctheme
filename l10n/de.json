@@ -184,7 +184,8 @@
       "Show folder info text": "Ordnerinfotext anzeigen",
       "Shared with you": "Mit mir geteilt",
       "Shared with others": "Meine geteilten Inhalte",
-      "and": "und"
+      "and": "und",
+      "_including %n hidden_::_including %n hidden_": ["davon %n versteckt","davon %n versteckt"]
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   }
