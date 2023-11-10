@@ -43,6 +43,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				fileList.$el.find('.files-filestable thead th').toggleClass('hidden', fileList.isEmpty)
 				fileList.$el.find('.files-filestable thead th.column-menu').addClass('hidden')
 				fileList.$el.find('.files-filestable thead th.column-actions').addClass('hidden')
+				fileList.$el.find('.files-filestable thead th.column-expiration').addClass('hidden')
 			}
 
 			fileList.showDetailsView = function(fileName, tabId) {

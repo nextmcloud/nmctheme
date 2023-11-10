@@ -51,7 +51,8 @@
       "Display settings": "Anzeigeeinstellungen",
       "Expand storage": "Speicherplatz erweitern",
       "Memory used up to %s%%": "Speicher zu %s%% belegt ",
-      "of": "von"
+      "of": "von",
+      "_including %n hidden_::_including %n hidden_": ["davon %n versteckt","davon %n versteckt"]
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
