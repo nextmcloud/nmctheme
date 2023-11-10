@@ -99,7 +99,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					}
 
 					if (!showHidden && summary.totalHidden > 0) {
-						const hiddenInfo = n('nmctheme', 'including %n hidden', 'including %n hidden', summary.totalHidden)
+						const hiddenInfo = n('files', 'including %n hidden', 'including %n hidden', summary.totalHidden)
 						selection += ' (' + hiddenInfo + ')'
 					}
 
