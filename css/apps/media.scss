@@ -273,4 +273,33 @@
 			}
 		}
 	}
+	// Add Photos modal window
+	.file-picker__actions {
+		flex-direction: row-reverse;
+	
+		.upload-picker {
+			display: none;
+		}
+	
+		button {
+			&:disabled {
+				& .material-design-icon.image-plus-icon {
+					background-image: var(--icon-add-dark);
+				}
+			}
+	
+			& .material-design-icon.image-plus-icon {
+				background-image: var(--icon-add-white);
+				width: 44px;
+				height: 44px;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 24px;
+			}
+
+			svg {
+				display: none;
+			}
+		}
+	}
 }
