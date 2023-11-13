@@ -48,6 +48,12 @@
                 visibility: hidden;
                 background-image: unset;
             }
+
+            main .update {
+                background-color: white;
+                border-radius: 10px;
+                padding-bottom: 1rem;
+            }
         }
 
         // default logo is disabled
