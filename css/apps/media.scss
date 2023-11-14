@@ -130,7 +130,7 @@
 			.collection-cover {
 				border-radius: 0;
 
-				img {
+				img, &__image {
 					border-radius: 0;
 					width: 250px;
 					height: 250px;
@@ -150,9 +150,41 @@
 					}
 				}
 			}
+		}
 
+		// 'Albums' - empty album page
+		.empty-content {
+			&__icon {
+				opacity: 1;
+				width: 120px;
+				height: 120px;
+				margin-bottom: 0;
+				span.image-plus-icon {
+					svg {
+						display: none;
+					}
+					background-image: var(--icon-all-media-dark);
+					width: 100%;
+					height: 100%;
+					background-size: 120px;
+					background-repeat: no-repeat;
+					background-position: center;
 
+				}
+			}
 
+			&__title {
+				line-height: normal;
+				margin-top: 24px;
+				margin-bottom: 32px;
+			}
+
+			&__action {
+				margin: 0;
+				button.album__empty__button {
+					margin: 0;
+				}
+			}
 		}
 	}
 
