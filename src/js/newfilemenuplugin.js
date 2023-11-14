@@ -1,5 +1,5 @@
 import axios from '@nextcloud/axios'
-import { showError } from '@nextcloud/dialogs'
+import { showError } from '@nextcloud/dialogs' // eslint-disable-line
 import { generateOcsUrl } from '@nextcloud/router'
 
 window.addEventListener('DOMContentLoaded', function() {
