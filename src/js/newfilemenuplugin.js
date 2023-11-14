@@ -1,3 +1,7 @@
+import axios from '@nextcloud/axios'
+import { showError } from '@nextcloud/dialogs'
+import { generateOcsUrl } from '@nextcloud/router'
+
 window.addEventListener('DOMContentLoaded', function() {
 	const NewFileMenuPlugin = {
 
@@ -26,26 +30,24 @@ window.addEventListener('DOMContentLoaded', function() {
 					$(element).removeClass('menuitem').addClass('customitem') // eslint-disable-line
 
 					$(element).on('click', function(event) { // eslint-disable-line
+						event.preventDefault()
 
 						let $target = $(event.target) // eslint-disable-line
 
-						if (!$target.hasClass('menuitem')) {
+						if (!$target.hasClass('customitem')) {
 							$target = $target.closest('.customitem')
 						}
 
-						const filetype = $target.data('filetype')
+						const fileType = $target.data('filetype')
 						const name = $target.data('templatename')
 						const uniqueName = self.fileList.getUniqueName(name)
 
-						if (filetype === 'file') {
-							Promise.all([self.fileList.createFile(uniqueName)]).then(() => {
-								that._hideAllMenus(self.fileList)
-								self.fileList.rename(uniqueName)
-							})
-						} else if (filetype === 'folder') {
+						if (fileType === 'file') {
+							that._createFile(uniqueName)
+						} else if (fileType === 'folder') {
 							Promise.all([self.fileList.createDirectory(uniqueName)]).then(() => {
-								that._hideAllMenus(self.fileList)
 								self.fileList.rename(uniqueName)
+								that._hideAllMenus()
 							})
 						}
 					})
@@ -56,7 +58,31 @@ window.addEventListener('DOMContentLoaded', function() {
 			menu.removeMenuEntry('template-init')
 		},
 
-		_hideAllMenus(fileList) {
+		async _createFile(name) {
+
+			const currentDirInfo = OCA?.Files?.App?.currentFileList?.dirInfo || { path: '/', name: '' }
+			const currentDirectory = `${currentDirInfo.path}/${currentDirInfo.name}`.replace(/\/\//gi, '/')
+
+			const fileList = OCA?.Files?.App?.currentFileList
+
+			try {
+				await axios.post(generateOcsUrl('apps/files/api/v1/templates/create'), {
+					filePath: `${currentDirectory}/${name}`,
+				})
+
+				const options = _.extend({ scrollTo: true }, { showDetailsView: false } || {}) // eslint-disable-line
+
+				await fileList?.addAndFetchFileInfo(name, undefined, options)
+				fileList.rename(name)
+
+				this._hideAllMenus()
+			} catch (error) {
+				console.error(error)
+				showError('Unable to create new file')
+			}
+		},
+
+		_hideAllMenus() {
 			OC.hideMenus()
 			OCA.Files.Sidebar.close()
 		},
