@@ -328,6 +328,12 @@
 	}
 }
 
+#body-user .modal-header {
+	h2.modal-title {
+		display: none;
+	}
+}
+
 // Add Photos modal window
 #body-user .modal-container .file-picker {
 	&__actions {
