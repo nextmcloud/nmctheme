@@ -130,10 +130,24 @@
 			.collection-cover {
 				border-radius: 0;
 
-				img, &__image {
+				&__image {
 					border-radius: 0;
 					width: 250px;
 					height: 250px;
+
+					&--placeholder {
+						// empty album icon
+						span.image-multiple-icon {
+							background-image: var(--icon-albums-dark);
+							background-repeat: no-repeat;
+							background-position: center;
+							background-size: 96px;
+							background-color: #f2f2f2;
+							svg {
+								display: none;
+							}
+						}
+					}
 				}
 
 				&__details {
