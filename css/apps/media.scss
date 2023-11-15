@@ -1,10 +1,17 @@
 @import '../mixins.scss';
+@import '../variables';
 
 .app-photos {
 	#app-content-vue {
 		.photos-navigation {
 			&__title__main {
 				font-size: 32px;
+			}
+
+			// hide 'Add' button breadcrumbs for all menu pages,
+			// unless it is for "Create a new album"/ "Ein neues Album erstellen."
+			&__content button:not([aria-label*='lbum']) {
+				display: none;
 			}
 
 			// 'Add', 'Add to album', 'Unselect all' and '...' buttons
@@ -174,7 +181,7 @@
 			ul.app-navigation__list {
 				padding: 4rem 1.5rem 1.5rem;
 
-				li.app-navigation-entry-wrapper {					
+				li.app-navigation-entry-wrapper {
 					& > .app-navigation-entry:has(a[href$="shared"]) {
 						display: none;
 					}
@@ -273,21 +280,24 @@
 			}
 		}
 	}
-	// Add Photos modal window
-	.file-picker__actions {
+}
+
+// Add Photos modal window
+#body-user .modal-container .file-picker {
+	&__actions {
 		flex-direction: row-reverse;
-	
+
 		.upload-picker {
 			display: none;
 		}
-	
+
 		button {
 			&:disabled {
 				& .material-design-icon.image-plus-icon {
 					background-image: var(--icon-add-dark);
 				}
 			}
-	
+
 			& .material-design-icon.image-plus-icon {
 				background-image: var(--icon-add-white);
 				width: 44px;
@@ -302,4 +312,52 @@
 			}
 		}
 	}
+
+	// Tiled Photos view
+	&__file-list.files-list-viewer {
+		div.file-container {
+			&::after {
+				display: none;
+			}
+
+			span.checkbox-radio-switch.selection-checkbox.checkbox-radio-switch-checkbox {
+				// make unchecked checkboxes always visible
+				display: block;
+				visibility: visible;
+
+				// restyle unchecked checkboxes 
+				.checkbox-radio-switch__label {
+					.material-design-icon::before {
+						background-color: white;
+					}
+
+					&:hover {
+						.material-design-icon::before {
+							border-color: black;
+						}
+					}
+				}
+
+				// checked checkboxes will be green
+				&.checkbox-radio-switch--checked {
+					span.material-design-icon.checkbox-marked-icon.checkbox-radio-switch__icon {
+						color: green;
+					}
+				}
+			}
+		}
+	}
+
+	&__navigation {
+		flex-basis: 248px;
+		border-right: 2px solid var(--color-text-maxcontrast);
+
+		&__month.selected,
+		&__month:not(.selected):hover {
+			background-color: var(--nmc-color-background-hover);
+			color: var(--color-primary);
+			border-radius: 10px;
+		}
+	}
+
 }
