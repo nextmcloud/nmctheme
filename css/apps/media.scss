@@ -206,9 +206,9 @@
 	#app-navigation-vue {
 
 		// toggle button icon change
-		&.app-navigation:not(.app-navigation--close) {
+		&.app-navigation {
 			button.app-navigation-toggle {
-				span.menu-icon {
+				span.menu-open-icon {
 					background-image: var(--icon-hide-menu-dark);
 					width: 100%;
 					height: 100%;
