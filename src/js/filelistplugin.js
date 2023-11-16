@@ -200,6 +200,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			const tr = fileList.findFileEl(fileName)
 			const model = fileList.getModelForFile(tr)
+			const path = model.attributes.path + '/' + model.attributes.name
 
 			if (fileList._currentFileModel) {
 				fileList._currentFileModel.off()
@@ -207,6 +208,10 @@ window.addEventListener('DOMContentLoaded', function() {
 			fileList.$fileList.children().removeClass('highlighted')
 			tr.addClass('highlighted')
 			fileList._currentFileModel = model
+
+			if (typeof show === 'undefined' || !!show || (OCA.Files.Sidebar.file !== '')) {
+				OCA.Files.Sidebar.open(path.replace('//', '/'))
+			}
 		},
 
 		_onClickCancelSelected(fileList) {
