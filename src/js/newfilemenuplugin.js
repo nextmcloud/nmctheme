@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					filePath: `${currentDirectory}/${name}`,
 				})
 
-				const options = _.extend({ scrollTo: true }, { showDetailsView: false } || {}) // eslint-disable-line
+				const options = _.extend({ scrollTo: false } || {}) // eslint-disable-line
 
 				await fileList?.addAndFetchFileInfo(name, undefined, options)
 				fileList.rename(name)
