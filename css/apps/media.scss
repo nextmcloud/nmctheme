@@ -206,9 +206,9 @@
 	#app-navigation-vue {
 
 		// toggle button icon change
-		&.app-navigation:not(.app-navigation--close) {
+		&.app-navigation {
 			button.app-navigation-toggle {
-				span.menu-icon {
+				span.menu-open-icon {
 					background-image: var(--icon-hide-menu-dark);
 					width: 100%;
 					height: 100%;
@@ -228,7 +228,12 @@
 				padding: 4rem 1.5rem 1.5rem;
 
 				li.app-navigation-entry-wrapper {
-					& > .app-navigation-entry:has(a[href$="shared"]) {
+
+					&[data-id-app-nav-item="shared-albums"],
+					&[data-id-app-nav-item="faces"],
+					&[data-id-app-nav-item="this-day"],
+					&[data-id-app-nav-item="shared"],
+					&[data-id-app-nav-item="maps"] {
 						display: none;
 					}
 
