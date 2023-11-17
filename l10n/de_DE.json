@@ -52,7 +52,10 @@
       "Expand storage": "Speicherplatz erweitern",
       "Memory used up to %s%%": "Speicher zu %s%% belegt ",
       "of": "von",
-      "_including %n hidden_::_including %n hidden_": ["davon %n versteckt","davon %n versteckt"]
+      "_including %n hidden_::_including %n hidden_": [
+        "davon %n versteckt",
+        "davon %n versteckt"
+      ]
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
@@ -156,7 +159,15 @@
   "photos": {
     "translations": {
       "Photos": "Fotos",
-      "Edit album details": "Album umbenennen"
+      "Edit album details": "Album umbenennen",
+      "Filter file list": "Dateiverzeichnis durchsuchen",
+      "All files": "Alle Dateien",
+      "Recent": "Kürzlich",
+      "Favorites": "Favoriten",
+      "New": "Neu",
+      "Name": "Name",
+      "Size": "Größe",
+      "Modified": "Geändert"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
