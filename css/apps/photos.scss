@@ -100,8 +100,20 @@
 		.grid-container .grid {
 			.grid-item-wrapper {
 				.folder {
+					border: 1px solid var(--telekom-color-functional-informational-subtle);
+
+					&:active,
+					&:hover,
+					&:focus {
+						.folder-name
+						{
+							opacity: 1;
+						}
+					}
+
 					.folder-name {
 						transition: none;
+						row-gap: 1rem;
 
 						// replace standart folder icon
 						span.icon-folder {
@@ -109,10 +121,21 @@
 							background-size: 130px;
 							opacity: 1;
 						}
+
+						&__name {
+							color: var(--color-text-light);
+							font-weight: bold;
+							text-shadow: none;
+						}
 					}
 
 					.cover {
 						transition: none;
+						opacity: 0;
+					}
+
+					.folder-content {
+						display: none;
 					}
 				}
 
@@ -136,6 +159,7 @@
 					height: 250px;
 
 					&--placeholder {
+
 						// empty album icon
 						span.image-multiple-icon {
 							background-image: var(--icon-albums-dark);
@@ -143,6 +167,7 @@
 							background-position: center;
 							background-size: 96px;
 							background-color: #f2f2f2;
+
 							svg {
 								display: none;
 							}
@@ -173,10 +198,12 @@
 				width: 120px;
 				height: 120px;
 				margin-bottom: 0;
+
 				span.image-plus-icon {
 					svg {
 						display: none;
 					}
+
 					background-image: var(--icon-all-media-dark);
 					width: 100%;
 					height: 100%;
@@ -195,6 +222,7 @@
 
 			&__action {
 				margin: 0;
+
 				button.album__empty__button {
 					margin: 0;
 				}
@@ -228,6 +256,11 @@
 				padding: 4rem 1.5rem 1.5rem;
 
 				li.app-navigation-entry-wrapper {
+
+					& > .app-navigation-entry:has(a[title="Shared with you"]),
+					& > .app-navigation-entry:has(a[title="Mit Ihnen geteilt"]) {
+						display: none;
+					}
 
 					&[data-id-app-nav-item="shared-albums"],
 					&[data-id-app-nav-item="faces"],
