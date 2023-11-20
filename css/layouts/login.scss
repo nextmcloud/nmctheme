@@ -7,6 +7,8 @@
  * Note: Take care of Telekom branding restrictions!
  */
 
+@import '../variables';
+
 #body-login {
     display: flex;
     flex-direction: column;
@@ -29,16 +31,29 @@
 
         // the bubble text is always on top center,
         // but clipped if window gets too small
-        background-image: url('../img/telekom/mcbubble.svg');
-        background-size: 45%;
+        background-image: url('../img/telekom/mcbubble-text.svg');
+        background-size: 80%;
         background-position: top center;
         background-repeat: no-repeat;
         background-clip: border-box;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 100vh;
         z-index: 500;
 
+        @media screen and (max-width: $breakpoint-mobile-small) {
+            background-size: 120%;
+        }
+
         .v-align {
-            margin-top: 100px;
             top: 0;
+
+            header {
+                display: none;
+            }
 
             header .brand .title {
                 visibility: hidden;
