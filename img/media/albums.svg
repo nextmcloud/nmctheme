@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg class="scale-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-<title>image-file</title>
-<g fill="currentColor">
-	<g>
-		<path d="M21 1v17l-5 5H6a3.003 3.003 0 01-2.995-2.824L3 20V1h18zm-1.5 1.5h-15V20c0 .776.598 1.42 1.356 1.493L6 21.5h9v-3c0-.781.593-1.42 1.355-1.493L16.5 17h3V2.5zm-6 6.5l4.27 5.5H6.23l3.13-4.035 1.5 1.935L13.5 9zM7.75 7a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z" fill-rule="evenodd">
-		</path>
-	</g>
-</g>
+<!-- Generator: Adobe Illustrator 27.9.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;}
+</style>
+<path class="st0" d="M21,4.3c-0.1-1.6-1.4-2.8-3-2.8H3v21h15l0.2,0c1.6-0.1,2.8-1.4,2.8-3v-15L21,4.3z M19.5,19.5l0,0.1
+	C19.4,20.4,18.8,21,18,21H4.5V3H18l0.1,0c0.8,0.1,1.4,0.7,1.4,1.5V19.5z"/>
+<polygon class="st0" points="13.5,10 17.8,15.5 6.2,15.5 9.4,11.5 10.9,13.4 "/>
+<circle class="st0" cx="7.7" cy="9.3" r="1.2"/>
 </svg>
