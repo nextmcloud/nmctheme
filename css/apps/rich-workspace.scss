@@ -328,7 +328,7 @@
 					width: 20px;
 
 					&.link-icon {
-						background-image: var(--icon-link-dark);
+						background-image: var(--icon-text-link-dark);
 	
 						svg {
 							display: none;
@@ -336,7 +336,7 @@
 					}
 	
 					&.file-document-icon {
-						background-image: var(--icon-file-dark);
+						background-image: var(--icon-text-file-dark);
 	
 						svg {
 							display: none;
