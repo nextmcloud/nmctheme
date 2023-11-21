@@ -21,6 +21,7 @@ use OC\URLGenerator;
 use OCA\NMCTheme\JSResourceLocatorExtension;
 use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
+use OCA\NMCTheme\Listener\CSPListener;
 use OCA\NMCTheme\NavigationManagerDecorator;
 use OCA\NMCTheme\Search\SearchComposerDecorator;
 use OCA\NMCTheme\Service\NMCFilesService;
@@ -45,14 +46,15 @@ use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\AppFramework\QueryException;
 use OCP\Files\IMimeTypeDetector;
 use OCP\IConfig;
+use OCP\INavigationManager;
 
 // FIXME: required private accesses; we have to find better ways
 // when integrating upstream
-use OCP\INavigationManager;
 use OCP\IServerContainer;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
 use OCP\L10N\IFactory;
+use OCP\Security\CSP\AddContentSecurityPolicyEvent;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
@@ -236,7 +238,7 @@ class Application extends App implements IBootstrap {
 		/**
 		 * Add listeners that can inject additional information or scripts before rendering
 		 */
-
+		$context->registerEventListener(AddContentSecurityPolicyEvent::class, CSPListener::class);
 		// the listener is helpful to enforce theme constraints and inject additional parts
 		$context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
 	}
