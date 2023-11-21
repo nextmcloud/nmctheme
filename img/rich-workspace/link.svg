@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/navigation/external-link/default@svg</title>
+    <defs>
+        <path d="M12.65,2.99999996 L14.15,4.49999996 L4.49999996,4.49999996 L4.49999996,18 C4.49999996,18.85 5.14999997,19.5 5.99999996,19.5 L5.99999996,19.5 L18,19.5 C18.85,19.5 19.5,18.85 19.5,18 L19.5,18 L19.5,9.84999999 L21,11.35 L21,18 C21,19.65 19.65,21 18,21 L18,21 L5.99999996,21 C4.34999997,21 2.99999996,19.65 2.99999996,18 L2.99999996,18 L2.99999996,2.99999996 L12.65,2.99999996 Z M22.7,1.34999996 L21.05,9.24999999 L18.45,6.64999998 L10.9,14.2 C10.75,14.35 10.55,14.4 10.35,14.4 C10.15,14.4 9.94999999,14.35 9.79999999,14.2 C9.49999999,13.9 9.49999999,13.45 9.79999999,13.15 L9.79999999,13.15 L17.35,5.59999997 L14.75,2.99999996 L22.7,1.34999996 Z" id="path-1"></path>
+    </defs>
+    <g id="icon/navigation/external-link/default" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#262626" xlink:href="#path-1"></use>
+    </g>
+</svg>
