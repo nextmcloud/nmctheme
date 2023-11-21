@@ -177,6 +177,10 @@
 		.content-wrapper {
 			padding: 1rem 0 !important;
 
+			&.text-editor__main {
+				overflow: auto !important;
+			}
+
 			.ProseMirror {
 
 				*:last-child {
@@ -310,6 +314,35 @@
 
 			.alert-decagram-icon {
 				background-image: var(--icon-warning-dark);
+			}
+		}
+
+		.tippy-box {
+			max-width: 100% !important;
+
+			.menububble {
+
+				.material-design-icon {
+					background-size: 20px;
+					height: 20px;
+					width: 20px;
+
+					&.link-icon {
+						background-image: var(--icon-text-link-dark);
+	
+						svg {
+							display: none;
+						}
+					}
+	
+					&.file-document-icon {
+						background-image: var(--icon-text-file-dark);
+	
+						svg {
+							display: none;
+						}
+					}
+				}
 			}
 		}
 	}

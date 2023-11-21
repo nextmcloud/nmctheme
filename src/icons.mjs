@@ -134,6 +134,8 @@ const icons = {
 	ul: path.join(__dirname, '../img', 'rich-workspace', 'ul.svg'),
 	underline: path.join(__dirname, '../img', 'rich-workspace', 'underline.svg'),
 	undo: path.join(__dirname, '../img', 'rich-workspace', 'undo.svg'),
+	'text-link': path.join(__dirname, '../img', 'rich-workspace', 'link.svg'),
+	'text-file': path.join(__dirname, '../img', 'rich-workspace', 'file.svg'),
 	albums: path.join(__dirname, '../img', 'media', 'albums.svg'),
 	'all-media': path.join(__dirname, '../img', 'media', 'all-media.svg'),
 	camera: path.join(__dirname, '../img', 'device', 'camera.svg'),

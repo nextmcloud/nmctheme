@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>/svg/icon/user_file/file/default</title>
+    <g id="icon/user_file/file/default" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M3,0.999999954 L3,20 C3,21.65 4.35000001,23 6,23 L16,23 L21,18 L21,0.999999954 L3,0.999999954 Z M4.50000001,20 L4.50000001,2.49999996 L19.5,2.49999996 L19.5,17 L16.5,17 C15.6500001,17 15,17.65 15,18.5 L15,21.5 L6.00000001,21.5 C5.15000001,21.5 4.50000001,20.85 4.50000001,20 Z" id="Icon" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>
