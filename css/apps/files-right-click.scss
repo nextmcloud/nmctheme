@@ -21,8 +21,9 @@
 				}
 			}
 
-			// hide 'details' and 'edit locally' buttons in the right click menu
-			&.option-editlocally, &.option-details {
+			// hide 'details' and 'edit locally' buttons in the right click menu and '...' button
+			&.option-editlocally, &.option-details,
+			&.action-editlocally, &.action-details {
 				display: none;
 			}
 
