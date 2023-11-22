@@ -51,6 +51,9 @@
 @import 'apps/rich-workspace.scss';
 @import 'apps/files-right-click.scss';
 
+/* login confirmation windows */
+@import 'login/grant.scss';
+
 /* v25 override */
 @import 'v25/ncappnavigation.scss';
 @import 'v25/header.scss';

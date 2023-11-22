@@ -44,4 +44,9 @@
 			}
 		}
 	}
+
+	// hide upload file menu item in Photos Album
+	li[data-upload-picker-add=""]{
+		display: none;
+	}
 }
