@@ -398,6 +398,19 @@
 
 // Add Photos modal window
 #body-user .modal-container .file-picker {
+	& + button.modal-container__close {
+		z-index: 10;
+		margin-right: 0.5rem;
+		margin-top: 0.5rem;
+		background-image: var(--icon-close-dark);
+		background-position: center;
+		background-repeat: no-repeat;
+
+		span[role="img"] {
+			display: none;
+		}
+	}
+
 	&__actions {
 		flex-direction: row-reverse;
 
