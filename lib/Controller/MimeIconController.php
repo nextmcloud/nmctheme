@@ -16,6 +16,7 @@ use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\DataDisplayResponse;
 use OCP\Files\IMimeTypeDetector;
 use OCP\IRequest;
+use Psr\Log\LoggerInterface;
 
 /**
  * Class MimeIconController
@@ -35,21 +36,24 @@ class MimeIconController extends Controller {
 
 	private IMimeTypeDetector $mimetypes;
 	private IAppManager $appManager;
+	private LoggerInterface $logger;
 
 	/**
 	 * AppendController for translation constructor.
 	 *
 	 * @param IRequest $request
 	 * @param IMimeTypeDetector mimetype metadata (standard + custom merged)
-	 * @param IAppAManager the application manager to get the app path
+	 * @param IAppManager the application manager to get the app path
 	 */
 	public function __construct(
 		IRequest $request,
 		IMimeTypeDetector $mimetypes,
-		IAppManager $appManager) {
+		IAppManager $appManager,
+		LoggerInterface $logger) {
 		parent::__construct(Application::APP_ID, $request);
 		$this->mimetypes = $mimetypes;
 		$this->appManager = $appManager;
+		$this->logger = $logger;
 	}
 
 	/**
@@ -118,12 +122,27 @@ class MimeIconController extends Controller {
 	public function getMimeIcon(string $iconname) {
 		$themeImgPath = $this->appManager->getAppPath(Application::APP_ID) . "/img/filetypes/";
 		$iconFile =
-			file_get_contents($themeImgPath . $iconname . '.svg');
+			@file_get_contents($themeImgPath . $iconname . '.svg');
 		if ($iconFile === false) {
-			$iconFile = file_get_contents(\OC::$SERVERROOT . '/core/img/filetypes/' . $iconname . '.svg');
+			$iconFile = @file_get_contents(\OC::$SERVERROOT . '/core/img/filetypes/' . $iconname . '.svg');
 		}
+
+		// search an icon for the mime category (e.g. >application<-xxx.svg, if any)
 		if ($iconFile === false) {
-			$iconFile = file_get_contents($themeImgPath . 'unknown-file.svg');
+			$catp = strpos($iconname, '-');
+			if ($catp !== false) {
+				$catname = substr($iconname, 0, $catp);
+				$iconFile = @file_get_contents($themeImgPath . $catname . '.svg');
+				if ($iconFile === false) {
+					$iconFile = @file_get_contents(\OC::$SERVERROOT . '/core/img/filetypes/' . $catname . '.svg');
+				}
+			}
+		}
+
+		// try fallback
+		if ($iconFile === false) {
+			$this->logger->warn("Unmapped mimeicon '" . $iconname . "'. Please extend mimetypealiases.json or mimetypemapping.json!");
+			$iconFile = @file_get_contents($themeImgPath . 'unknown-file.svg');
 		}
 
 		$response = new DataDisplayResponse($iconFile, Http::STATUS_OK,
