@@ -16,9 +16,10 @@ const colors = {
 	green: '46ba61',
 	grey: '969696',
 	magenta: 'e20074',
-	success: '008653',
-	danger: 'd91308',
-	warning: 'b63d00',
+	info: '2238df',
+	success: '00b367',
+	danger: 'e82010',
+	warning: 'f97012',
 }
 
 const colorSvg = function(svg = '', color = '000') {
@@ -167,7 +168,7 @@ const iconsColor = {
 	},
 	info: {
 		path: path.join(__dirname, '../img', 'rich-workspace', 'callout.svg'),
-		color: 'magenta',
+		color: 'info',
 	},
 	success: {
 		path: path.join(__dirname, '../img', 'rich-workspace', 'success.svg'),
@@ -178,7 +179,7 @@ const iconsColor = {
 		color: 'warning',
 	},
 	danger: {
-		path: path.join(__dirname, '../img', 'rich-workspace', 'alert.svg'),
+		path: path.join(__dirname, '../img', 'rich-workspace', 'danger.svg'),
 		color: 'danger',
 	},
 }
