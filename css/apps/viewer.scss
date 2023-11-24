@@ -22,6 +22,7 @@
             gap: var(--telekom-spacing-composition-space-04);
             & > button, button[aria-label="Actions"], button[aria-label="Aktionen"], button[aria-label*="Edit"], button[aria-label*="Bearbeiten"] {
                 border-radius: var(--telekom-radius-circle);
+                display: flex;
                 width: 44px;
                 height: 44px;
             }

@@ -26,6 +26,8 @@
     line-height: 1.125rem;
     min-height: var(--telekom-spacing-composition-space-13);
     min-width: var(--telekom-spacing-composition-space-13);
+    padding-left: var(--telekom-spacing-composition-space-07);
+    padding-right: var(--telekom-spacing-composition-space-07);
     transition: all var(--telekom-motion-duration-transition) var(--telekom-motion-easing-standard);
 
     &:after {
@@ -45,6 +47,12 @@
     &:focus:not(:disabled) {
         outline: var(--telekom-line-weight-highlight) solid var(--telekom-color-functional-focus-standard);
         outline-offset: var(--telekom-spacing-composition-space-01);
+    }
+
+    // Icon-only button
+    &--icon-only {
+        padding-left: var(--telekom-spacing-composition-space-05);
+        padding-right: var(--telekom-spacing-composition-space-05);
     }
 
     // Icon and text button
