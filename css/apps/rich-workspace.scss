@@ -186,6 +186,51 @@
 					margin-bottom: 0;
 				}
 
+				.image__view {
+
+					&:hover {
+
+						input[type=text] {
+							border: none !important;
+						}
+					}
+
+					.image__caption__delete {
+
+						.button-vue {
+
+							&::after {
+								display: none;
+							}
+
+							&--icon-only {
+								height: 32px;
+								width: 32px;
+								min-height: 32px;
+								min-width: 32px;
+							}
+
+							.button-vue__icon {
+								height: 32px;
+								width: 32px;
+								min-height: 32px;
+								min-width: 32px;
+	
+								.delete-icon {
+									background-image: var(--icon-delete-dark);
+									background-size: 16px;
+									height: 16px;
+									width: 16px;
+	
+									svg {
+										display: none;
+									}
+								}
+							}
+						}
+					}
+				}
+
 				.callout {
 
 					.callout__icon {
@@ -202,20 +247,36 @@
 
 					}
 
-					.information-icon {
-						background-image: var(--icon-info-magenta);
+					&--info {
+						background-color: var(--telekom-color-functional-informational-subtle);
+
+						.callout__icon {
+							background-image: var(--icon-info-info);
+						}
 					}
 
-					.checkbox-marked-circle-icon {
-						background-image: var(--icon-success-success);
+					&--success {
+						background-color: var(--telekom-color-functional-success-subtle);
+
+						.callout__icon {
+							background-image: var(--icon-success-success);
+						}
 					}
+
+					&--warn {
+						background-color: var(--telekom-color-functional-warning-subtle);
 		
-					.alert-icon {
-						background-image: var(--icon-warning-warning);
+						.callout__icon {
+							background-image: var(--icon-warning-warning);
+						}
 					}
+
+					&--error {
+						background-color: var(--telekom-color-functional-danger-subtle);
 		
-					.alert-decagram-icon {
-						background-image: var(--icon-danger-danger);
+						.callout__icon {
+							background-image: var(--icon-danger-danger);
+						}
 					}
 				}
 			}
@@ -314,6 +375,14 @@
 			.alert-decagram-icon {
 				background-image: var(--icon-warning-dark);
 			}
+
+			.upload-icon {
+				background-image: var(--icon-upload-dark);
+			}
+
+			.folder-icon {
+				background-image: var(--icon-folder-dark);
+			}
 		}
 
 		.tippy-box {
@@ -336,6 +405,14 @@
 	
 					&.file-document-icon {
 						background-image: var(--icon-text-file-dark);
+	
+						svg {
+							display: none;
+						}
+					}
+	
+					&.delete-icon {
+						background-image: var(--icon-delete-dark);
 	
 						svg {
 							display: none;
