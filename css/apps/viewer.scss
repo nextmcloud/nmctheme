@@ -1,10 +1,6 @@
 #viewer {
     --header-height: 64px;
 
-	button[aria-label*="Edit"], button[aria-label*="Bearbeiten"]  {
-        display: none;
-    }
-
     button.next, button.prev {
         svg {
             color: var(--telekom-color-text-and-icon-white-standard);
@@ -15,7 +11,7 @@
     .text-editor__session-list .session-list {
         display: none;
     }
-
+    
     .modal-header {
         .modal-title {
             font-size: 1rem;
@@ -24,7 +20,7 @@
         .icons-menu {
             padding: 12px 16px 12px 0;
             gap: var(--telekom-spacing-composition-space-04);
-            & > button, button[aria-label="Actions"], button[aria-label="Aktionen"] {
+            & > button, button[aria-label="Actions"], button[aria-label="Aktionen"], button[aria-label*="Edit"], button[aria-label*="Bearbeiten"] {
                 border-radius: var(--telekom-radius-circle);
                 width: 44px;
                 height: 44px;
@@ -49,7 +45,7 @@
     // set the correct background color of header buttons
     &.theme {
         &--default {
-            .icons-menu > button, button[aria-label="Actions"], button[aria-label="Aktionen"] {
+            .icons-menu > button, button[aria-label="Actions"], button[aria-label="Aktionen"], button[aria-label*="Edit"], button[aria-label*="Bearbeiten"] {
                 background-color: var(--color-background-dark);
                 &:hover, &:focus {
                     // overrides nextcloud style
@@ -59,7 +55,7 @@
         }
 
         &--dark {
-            .icons-menu > button, button[aria-label="Actions"], button[aria-label="Aktionen"] {
+            .icons-menu > button, button[aria-label="Actions"], button[aria-label="Aktionen"], button[aria-label*="Edit"], button[aria-label*="Bearbeiten"] {
                 background-color: var(--telekom-color-background-surface-highlight);
                 &:hover, &:focus {
                     // overrides nextcloud style
