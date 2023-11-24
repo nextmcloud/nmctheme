@@ -16,6 +16,9 @@
 
 				button.app-sidebar-header__star {
 					all: unset;
+					&:hover:not(:disabled) {
+						background-color: initial;
+					}
 					.button-vue__icon {
 						width: 1.5rem;
 						min-width: 1.5rem;
@@ -45,8 +48,8 @@
 				background-color: var(--color-main-background);
 				top: 1rem;
 				right: 1rem;
+				transition: none;
 				&:hover, &:active, &:focus {
-					background-color: var(--color-background-hover);
 					.button-vue__icon {
 						@include color-icon;
 					}

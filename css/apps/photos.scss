@@ -1,4 +1,4 @@
-@import '../mixins.scss';
+@import '../mixins';
 @import '../variables';
 
 .app-photos {
@@ -149,6 +149,10 @@
 
 		// 'Albums' page
 		.collections.albums-list {
+
+			.collections__list {
+				justify-content: normal;
+			}
 
 			.collection-cover {
 				border-radius: 0;
@@ -396,95 +400,131 @@
 	}
 }
 
-// Add Photos modal window
-#body-user .modal-container .file-picker {
-	& + button.modal-container__close {
+// Add Photos to the album modal window
+#body-user .modal-container {
+	button.modal-container__close {
 		z-index: 10;
-		margin-right: 0.5rem;
-		margin-top: 0.5rem;
-		background-image: var(--icon-close-dark);
-		background-position: center;
-		background-repeat: no-repeat;
-
-		span[role="img"] {
-			display: none;
-		}
-	}
-
-	&__actions {
-		flex-direction: row-reverse;
-
-		.upload-picker {
-			display: none;
+		&:hover:not(:disabled) {
+			.close-icon {
+				@include color-icon;
+			}
+			background-color: initial;
 		}
 
-		button {
-			&:disabled {
-				& .material-design-icon.image-plus-icon {
-					background-image: var(--icon-add-dark);
-				}
-			}
-
-			& .material-design-icon.image-plus-icon {
-				background-image: var(--icon-add-white);
-				width: 44px;
-				height: 44px;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: 24px;
-			}
-
+		.close-icon {
+			background-image: var(--icon-close-dark);
+			background-position: center;
+			background-repeat: no-repeat;
+			height: 100%;
+			width: 100%;
 			svg {
 				display: none;
 			}
 		}
 	}
 
-	// Tiled Photos view
-	&__file-list.files-list-viewer {
-		div.file-container {
-			&::after {
+	.file-picker {
+		& + button.modal-container__close {
+			margin-right: 1.3rem;
+			margin-top: 0.5rem;
+		}
+
+		&__actions {
+			flex-direction: row-reverse;
+	
+			.upload-picker {
 				display: none;
 			}
-
-			span.checkbox-radio-switch.selection-checkbox.checkbox-radio-switch-checkbox {
-				// make unchecked checkboxes always visible
-				display: block;
-				visibility: visible;
-
-				// restyle unchecked checkboxes 
-				.checkbox-radio-switch__label {
-					.material-design-icon::before {
-						background-color: white;
+	
+			button {
+				&:disabled {
+					& .material-design-icon.image-plus-icon {
+						background-image: var(--icon-add-dark);
 					}
-
-					&:hover {
+				}
+	
+				& .material-design-icon.image-plus-icon {
+					background-image: var(--icon-add-white);
+					width: 44px;
+					height: 44px;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 24px;
+				}
+	
+				svg {
+					display: none;
+				}
+			}
+		}
+	
+		// Tiled Photos view
+		&__file-list.files-list-viewer {
+			div.file-container {
+				&::after {
+					display: none;
+				}
+	
+				span.checkbox-radio-switch.selection-checkbox.checkbox-radio-switch-checkbox {
+					// make unchecked checkboxes always visible
+					display: block;
+					visibility: visible;
+	
+					// restyle unchecked checkboxes 
+					.checkbox-radio-switch__label {
 						.material-design-icon::before {
-							border-color: black;
+							background-color: white;
+						}
+	
+						&:hover {
+							.material-design-icon::before {
+								border-color: black;
+							}
+						}
+					}
+	
+					// checked checkboxes will be green
+					&.checkbox-radio-switch--checked {
+						span.material-design-icon.checkbox-marked-icon.checkbox-radio-switch__icon {
+							color: var(--telekom-color-text-and-icon-functional-success);
 						}
 					}
 				}
 
-				// checked checkboxes will be green
-				&.checkbox-radio-switch--checked {
-					span.material-design-icon.checkbox-marked-icon.checkbox-radio-switch__icon {
-						color: green;
+				span.star-icon {
+					background-image: var(--icon-starred-yellow);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 18px;
+					width: 24px;
+					height: 24px;
+
+					svg {
+						display: none;
 					}
+				}
+			}
+		}
+	
+		&__navigation {
+			flex-basis: 248px;
+			border-right: 2px solid var(--nmc-color-background-hover);
+
+			&__month {
+				border-radius: var(--telekom-radius-standard);
+				height: 44px;
+				text-align: left;
+				display: flex;
+  				align-items: center;
+
+				&.selected,
+				&:not(.selected):hover {
+					background-color: var(--nmc-color-background-hover);
+					color: var(--color-primary);
 				}
 			}
 		}
 	}
 
-	&__navigation {
-		flex-basis: 248px;
-		border-right: 2px solid var(--color-text-maxcontrast);
-
-		&__month.selected,
-		&__month:not(.selected):hover {
-			background-color: var(--nmc-color-background-hover);
-			color: var(--color-primary);
-			border-radius: 10px;
-		}
-	}
 
 }
