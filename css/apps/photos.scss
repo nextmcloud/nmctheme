@@ -150,6 +150,10 @@
 		// 'Albums' page
 		.collections.albums-list {
 
+			.collections__list {
+				justify-content: normal;
+			}
+
 			.collection-cover {
 				border-radius: 0;
 
@@ -399,7 +403,7 @@
 // Add Photos to the album modal window
 #body-user .modal-container {
 	button.modal-container__close {
-		z-index: 10;		
+		z-index: 10;
 		&:hover:not(:disabled) {
 			.close-icon {
 				@include color-icon;
@@ -486,18 +490,38 @@
 						}
 					}
 				}
+
+				span.star-icon {
+					background-image: var(--icon-starred-yellow);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 18px;
+					width: 24px;
+					height: 24px;
+
+					svg {
+						display: none;
+					}
+				}
 			}
 		}
 	
 		&__navigation {
 			flex-basis: 248px;
 			border-right: 2px solid var(--nmc-color-background-hover);
-	
-			&__month.selected,
-			&__month:not(.selected):hover {
-				background-color: var(--nmc-color-background-hover);
-				color: var(--color-primary);
-				border-radius: 10px;
+
+			&__month {
+				border-radius: var(--telekom-radius-standard);
+				height: 44px;
+				text-align: left;
+				display: flex;
+  				align-items: center;
+
+				&.selected,
+				&:not(.selected):hover {
+					background-color: var(--nmc-color-background-hover);
+					color: var(--color-primary);
+				}
 			}
 		}
 	}
