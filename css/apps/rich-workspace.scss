@@ -341,6 +341,14 @@
 							display: none;
 						}
 					}
+	
+					&.delete-icon {
+						background-image: var(--icon-delete-dark);
+	
+						svg {
+							display: none;
+						}
+					}
 				}
 			}
 		}
