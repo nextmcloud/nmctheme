@@ -14,6 +14,20 @@
 				display: none;
 			}
 
+			&__content-right {
+				margin-left: 8px;
+				// disable Share button for Albums, does not apply to empty album
+				form.upload-picker+button.button-vue--icon-only {
+					display: none;
+				}
+
+				// disable Share button for Albums incl. for empty Albums (not supported by Firefox)
+				button > .button-vue__wrapper > .button-vue__icon:has(span.share-variant-icon),
+				button:not(.action-item__menutoggle) {
+					display: none;
+				}
+			}
+
 			// 'Add', 'Add to album', 'Unselect all' and '...' buttons
 			&__content button,
 			&__content-right button {
@@ -40,15 +54,6 @@
 					.button-vue__text {
 						color: var(--telekom-color-text-and-icon-primary-hovered);
 					}
-				}
-			}
-
-			.photos-navigation__content-right {
-
-				// disable Share button for Albums
-				button > .button-vue__wrapper > .button-vue__icon:has(span.share-variant-icon),
-				button:not(.action-item__menutoggle) {
-					display: none;
 				}
 			}
 		}
@@ -105,8 +110,7 @@
 					&:active,
 					&:hover,
 					&:focus {
-						.folder-name
-						{
+						.folder-name {
 							opacity: 1;
 						}
 					}
@@ -199,10 +203,12 @@
 				&__icon {
 					width: 120px;
 					height: 120px;
+
 					span.folder-multiple-image-icon {
 						svg {
 							display: none;
 						}
+
 						background-image: var(--icon-albums-dark);
 						width: 100%;
 						height: 100%;
@@ -404,10 +410,12 @@
 #body-user .modal-container {
 	button.modal-container__close {
 		z-index: 10;
+
 		&:hover:not(:disabled) {
 			.close-icon {
 				@include color-icon;
 			}
+
 			background-color: initial;
 		}
 
@@ -417,6 +425,7 @@
 			background-repeat: no-repeat;
 			height: 100%;
 			width: 100%;
+
 			svg {
 				display: none;
 			}
@@ -424,25 +433,25 @@
 	}
 
 	.file-picker {
-		& + button.modal-container__close {
+		&+button.modal-container__close {
 			margin-right: 1.3rem;
 			margin-top: 0.5rem;
 		}
 
 		&__actions {
 			flex-direction: row-reverse;
-	
+
 			.upload-picker {
 				display: none;
 			}
-	
+
 			button {
 				&:disabled {
 					& .material-design-icon.image-plus-icon {
 						background-image: var(--icon-add-dark);
 					}
 				}
-	
+
 				& .material-design-icon.image-plus-icon {
 					background-image: var(--icon-add-white);
 					width: 44px;
@@ -451,38 +460,38 @@
 					background-repeat: no-repeat;
 					background-size: 24px;
 				}
-	
+
 				svg {
 					display: none;
 				}
 			}
 		}
-	
+
 		// Tiled Photos view
 		&__file-list.files-list-viewer {
 			div.file-container {
 				&::after {
 					display: none;
 				}
-	
+
 				span.checkbox-radio-switch.selection-checkbox.checkbox-radio-switch-checkbox {
 					// make unchecked checkboxes always visible
 					display: block;
 					visibility: visible;
-	
+
 					// restyle unchecked checkboxes 
 					.checkbox-radio-switch__label {
 						.material-design-icon::before {
 							background-color: white;
 						}
-	
+
 						&:hover {
 							.material-design-icon::before {
 								border-color: black;
 							}
 						}
 					}
-	
+
 					// checked checkboxes will be green
 					&.checkbox-radio-switch--checked {
 						span.material-design-icon.checkbox-marked-icon.checkbox-radio-switch__icon {
@@ -505,7 +514,7 @@
 				}
 			}
 		}
-	
+
 		&__navigation {
 			flex-basis: 248px;
 			border-right: 2px solid var(--nmc-color-background-hover);
@@ -515,7 +524,7 @@
 				height: 44px;
 				text-align: left;
 				display: flex;
-  				align-items: center;
+				align-items: center;
 
 				&.selected,
 				&:not(.selected):hover {
