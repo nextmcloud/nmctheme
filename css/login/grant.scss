@@ -12,12 +12,12 @@
         top: 10vh;
     }
 
-    p:first-child {
+    p:first-of-type {
         display: none;
     }
 
     #redirect-link {
-        #submit-wrapper {
+        #submit-wrapper input {
             @include primary-button;  
         }
     }
