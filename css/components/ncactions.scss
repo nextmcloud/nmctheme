@@ -25,6 +25,10 @@
 			background-position: center;
 		}
 
+		&.action-separator.action--disabled {
+			border-bottom: 1px solid var(--telekom-color-ui-border-pressed);
+		}
+
 		&.active {
 			background-color: initial;
 	
@@ -50,3 +54,30 @@
 		display: none;
 	}
 }
+
+.v-popper__popper {
+	.v-popper__inner {
+		.material-design-icon {
+			svg {
+				display: none;
+			}
+	
+			&.pencil-icon {
+				background-image: var(--icon-edit-dark);
+			}
+
+			&.download-multiple-icon {
+				background-image: var(--icon-download-dark);
+			}
+
+			&.star-icon {
+				background-image: var(--icon-star-dark);
+			}
+
+			&.close-icon {
+				background-image: var(--icon-close-dark);
+			}
+		}
+	}
+}
+

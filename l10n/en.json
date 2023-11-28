@@ -159,8 +159,7 @@
   },
   "photos": {
     "translations": {
-      "Photos": "Fotos",
-      "Edit album details": "Rename album"
+      "Photos": "Fotos"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
