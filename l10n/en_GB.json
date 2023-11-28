@@ -41,6 +41,7 @@
       "Cancel": "Cancel",
       "Confirm": "Confirm",
       "End-to-end encryption is currently disabled. You can set it up with the {productName} clients.": "End-to-end encryption is currently disabled. You can set it up with MagentaCLOUD clients.",
+      "End-to-End encryption is currently disabled. You can set it up with the {productName} clients.": "End-to-End encryption is currently disabled. You can set it up with MagentaCLOUD clients.",
       "You are not allowed to lock the root": "The lock of your complete file tree by end2end encryption was prohibited by the system!"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
@@ -188,7 +189,16 @@
       "Show folder info text": "Show folder info text",
       "Shared with you": "Shared with me",
       "Shared with others": "My shares",
-      "and": "and"
+      "and": "and",
+      "System Design (Standard)" : "System Design (Standard)",
+      "Enable system design" : "Enable system design",
+      "MagentaCLOUD adapts to the settings of your system." : "MagentaCLOUD adapts to the settings of your system.",
+      "Light Design" : "Light Design",
+      "Enable light design" : "Enable light design",
+      "A bright black on white design." : "A bright black on white design.",
+      "Dark Design" : "Dark Design",
+      "Enable dark design" : "Enable dark design",
+      "A dark design to relieve eye strain." : "A dark design to relieve eye strain."
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   }
