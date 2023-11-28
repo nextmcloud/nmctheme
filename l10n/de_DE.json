@@ -41,6 +41,7 @@
       "Cancel": "Abbrechen",
       "Confirm": "Bestätigen",
       "End-to-end encryption is currently disabled. You can set it up with the {productName} clients.": "Die Ende-zu-Ende Verschlüsselung ist deaktiviert. Sie können sie in den MagentaCLOUD Apps oder Desktop Clients einrichten.",
+      "End-to-End encryption is currently disabled. You can set it up with the {productName} clients.": "Die Ende-zu-Ende Verschlüsselung ist deaktiviert. Sie können sie in den MagentaCLOUD Apps oder Desktop Clients einrichten.",
       "You are not allowed to lock the root": "Das Sperren deines gesamten Verzeichnisbaumes durch E2E-Encryption wurde verhindert!"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
@@ -189,7 +190,16 @@
       "Show folder info text": "Ordnerinfotext anzeigen",
       "Shared with you": "Mit mir geteilt",
       "Shared with others": "Meine geteilten Inhalte",
-      "and": "und"
+      "and": "und",
+      "System Design (Standard)" : "System-Design (Standard)",
+      "Enable system design" : "System-Design aktivieren",
+      "MagentaCLOUD adapts to the settings of your system." : "MagentaCLOUD passt sich den Einstellungen Ihres Systems an.",
+      "Light Design" : "Helles Design",
+      "Enable light design" : "Helles Design aktivieren",
+      "A bright black on white design." : "Ein helles schwarz auf weiß Design.",
+      "Dark Design" : "Dunkles Design",
+      "Enable dark design" : "Dunkles Design aktivieren",
+      "A dark design to relieve eye strain." : "Ein dunkles Design zur Entlastung der Augen."
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   }
