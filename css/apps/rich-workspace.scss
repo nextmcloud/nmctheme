@@ -1,12 +1,5 @@
 @import '../_mixins.scss';
 
-:root {
-	--color-info: var(--telekom-color-text-and-icon-primary-standard);
-	--color-success: var(--telekom-color-text-and-icon-functional-success);
-	--color-warning: var(--telekom-color-text-and-icon-functional-warning);
-	--color-danger: var(--telekom-color-text-and-icon-functional-danger);
-}
-
 #rich-workspace {
 	padding-right: 0 !important;
 
