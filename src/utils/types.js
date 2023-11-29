@@ -15,6 +15,10 @@ const getFileTypes = () => {
 				extension: 'pptx',
 				mime: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
 			},
+			drawing: {
+				extension: 'odg',
+				mime: 'application/vnd.oasis.opendocument.graphics',
+			},
 		}
 	}
 	return {
@@ -29,6 +33,10 @@ const getFileTypes = () => {
 		presentation: {
 			extension: 'odp',
 			mime: 'application/vnd.oasis.opendocument.presentation',
+		},
+		drawing: {
+			extension: 'odg',
+			mime: 'application/vnd.oasis.opendocument.graphics',
 		},
 	}
 }
