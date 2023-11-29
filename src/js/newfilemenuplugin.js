@@ -1,15 +1,17 @@
 import axios from '@nextcloud/axios'
 import { showError } from '@nextcloud/dialogs' // eslint-disable-line
 import { generateOcsUrl } from '@nextcloud/router'
+import Types from '../utils/types.js'
 
 window.addEventListener('DOMContentLoaded', function() {
 	const NewFileMenuPlugin = {
 
 		attach(menu) {
 			const that = this
+			const fileList = menu.fileList
+			const isPublic = window.document.getElementById('isPublic')?.value === '1'
 
 			menu.render = function() {
-				const self = this
 
 				this.$el.html(this.template({
 					uploadMaxHumanFileSize: 'TODO',
@@ -40,15 +42,28 @@ window.addEventListener('DOMContentLoaded', function() {
 
 						const fileType = $target.data('filetype')
 						const name = $target.data('templatename')
-						const uniqueName = self.fileList.getUniqueName(name)
+						const uniqueName = fileList.getUniqueName(name)
 
-						if (fileType === 'file') {
-							that._createFile(uniqueName)
-						} else if (fileType === 'folder') {
-							Promise.all([self.fileList.createDirectory(uniqueName)]).then(() => {
-								self.fileList.rename(uniqueName)
+						if (fileType === 'folder') {
+							Promise.all([fileList.createDirectory(uniqueName)]).then(() => {
+								fileList.rename(uniqueName)
 								that._hideAllMenus()
 							})
+						} else if (fileType === 'file') {
+							if (isPublic) {
+								Promise.all([fileList.createFile(uniqueName)]).then(() => {
+									fileList.rename(uniqueName)
+									that._hideAllMenus()
+								})
+							} else {
+								that._createFile(uniqueName, fileList)
+							}
+						} else if (fileType.includes('x-office')) {
+							if (OC.getCapabilities().richdocuments?.templates) {
+								const docType = fileType.split(/[\s-]+/).pop()
+								const mime = Types.getFileType(docType).mime
+								that._createDocument(uniqueName, mime, fileList)
+							}
 						}
 					})
 				})
@@ -58,12 +73,9 @@ window.addEventListener('DOMContentLoaded', function() {
 			menu.removeMenuEntry('template-init')
 		},
 
-		async _createFile(name) {
-
+		async _createFile(name, fileList) {
 			const currentDirInfo = OCA?.Files?.App?.currentFileList?.dirInfo || { path: '/', name: '' }
 			const currentDirectory = `${currentDirInfo.path}/${currentDirInfo.name}`.replace(/\/\//gi, '/')
-
-			const fileList = OCA?.Files?.App?.currentFileList
 
 			try {
 				await axios.post(generateOcsUrl('apps/files/api/v1/templates/create'), {
@@ -82,9 +94,44 @@ window.addEventListener('DOMContentLoaded', function() {
 			}
 		},
 
+		_createDocument(name, mime, fileList) {
+			OCA.Files.Files.isFileNameValid(name)
+			name = fileList.getUniqueName(name)
+
+			this._createEmptyFile(mime, name).then((response) => {
+				if (response && response.status === 'success') {
+					fileList.add(response.data, { animate: true, scrollTo: true })
+					const fileModel = fileList.getModelForFile(name)
+					const fileAction = OCA.Files.fileActions.getDefaultFileAction(fileModel.get('mimetype'), 'file', OC.PERMISSION_ALL)
+					fileAction.action(name, {
+						$file: null,
+						dir: fileList.getCurrentDirectory(),
+						fileList,
+						fileActions: fileList.fileActions,
+					})
+				} else {
+					OC.dialogs.alert(response.data.message, t('core', 'Could not create file'))
+				}
+			})
+		},
+
+		async _createEmptyFile(mimeType, fileName) {
+			const shareToken = document.getElementById('sharingToken')?.value
+			const directoryPath = document.getElementById('dir')?.value
+
+			const response = await axios.post(generateOcsUrl('apps/richdocuments/api/v1', 2) + 'file', {
+				mimeType,
+				fileName,
+				directoryPath,
+				shareToken,
+			})
+
+			return response.data
+		},
+
 		_hideAllMenus() {
 			OC.hideMenus()
-			OCA.Files.Sidebar.close()
+			OCA.Files.Sidebar?.close()
 		},
 	}
 
