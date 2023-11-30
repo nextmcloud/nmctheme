@@ -129,7 +129,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			const shareToken = document.getElementById('sharingToken')?.value
 			const directoryPath = document.getElementById('dir')?.value
 
-			const response = await axios.post(generateOcsUrl('apps/richdocuments/api/v1', 2) + 'file', {
+			const response = await axios.post(generateOcsUrl('apps/richdocuments/api/v1/', 2) + 'file', {
 				mimeType,
 				fileName,
 				directoryPath,
