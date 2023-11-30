@@ -144,4 +144,9 @@
     #password-submit {
         opacity: 1;
     }
+
+    // hide request password link
+    #request-password-button-not-talk {
+        display: none;
+    }
 }
