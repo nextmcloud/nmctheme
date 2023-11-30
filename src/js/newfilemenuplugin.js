@@ -1,6 +1,7 @@
 import axios from '@nextcloud/axios'
 import { showError } from '@nextcloud/dialogs' // eslint-disable-line
 import { generateOcsUrl } from '@nextcloud/router'
+import Types from '../utils/types.js'
 
 window.addEventListener('DOMContentLoaded', function() {
 	const NewFileMenuPlugin = {
@@ -41,7 +42,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
 						const fileType = $target.data('filetype')
 						const name = $target.data('templatename')
-						const label = name.split('.').shift()
 						const uniqueName = fileList.getUniqueName(name)
 
 						if (fileType === 'folder') {
@@ -60,10 +60,9 @@ window.addEventListener('DOMContentLoaded', function() {
 							}
 						} else if (fileType.includes('x-office')) {
 							if (OC.getCapabilities().richdocuments?.templates) {
-								Promise.all([that._getTemplates()]).then((templates) => {
-									const result = templates[0].find(template => template.label === label)
-									that._createDocument(uniqueName, result.mimetypes.pop(), fileList)
-								})
+								const docType = fileType.split(/[\s-]+/).pop()
+								const mime = Types.getFileType(docType).mime
+								that._createDocument(uniqueName, mime, fileList)
 							}
 						}
 					})
