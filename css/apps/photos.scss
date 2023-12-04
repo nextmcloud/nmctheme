@@ -474,13 +474,13 @@
 					display: none;
 				}
 
-				span.checkbox-radio-switch.selection-checkbox.checkbox-radio-switch-checkbox {
+				.checkbox-radio-switch {
 					// make unchecked checkboxes always visible
 					display: block;
 					visibility: visible;
 
 					// restyle unchecked checkboxes 
-					.checkbox-radio-switch__label {
+					&__label {
 						.material-design-icon::before {
 							background-color: white;
 						}
@@ -493,9 +493,22 @@
 					}
 
 					// checked checkboxes will be green
-					&.checkbox-radio-switch--checked {
-						span.material-design-icon.checkbox-marked-icon.checkbox-radio-switch__icon {
-							color: var(--telekom-color-text-and-icon-functional-success);
+					&--checked {
+						.checkbox-radio-switch__label:before {
+							content: "";
+							background-image: var(--original-icon-check-white);
+							background-color: var(--telekom-color-text-and-icon-functional-success);
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: 18px;
+							border: none;
+							border-radius: var(--telekom-radius-circle);
+							height: 1.5rem;
+							width: 1.5rem;
+							margin: -2px -2px 0 0;
+						}
+						.checkbox-marked-icon {
+							display: none;
 						}
 					}
 				}
