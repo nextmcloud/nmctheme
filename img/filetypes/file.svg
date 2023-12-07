@@ -1,1 +1,27 @@
-<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 108"><defs><style>.cls-1{fill:url(#Unbenannter_Verlauf_11);}.cls-2{fill:#b9ada7;isolation:isolate;opacity:0.7;}</style><linearGradient id="Unbenannter_Verlauf_11" x1="-134.95" y1="-132.55" x2="-134.95" y2="-204.42" gradientTransform="translate(198.95 222.55)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ddd6d3"/><stop offset="0.39" stop-color="#e9e4e2"/><stop offset="1" stop-color="#e9e4e2"/></linearGradient></defs><path class="cls-1" d="M93.52,37.38V87.43A2.58,2.58,0,0,1,91,90H37.05a2.58,2.58,0,0,1-2.57-2.57V20.7a2.58,2.58,0,0,1,2.57-2.57H74.27Z"/><path class="cls-2" d="M93.52,37.38H76.83a2.57,2.57,0,0,1-2.56-2.57V18.13Z"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 72 72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Unbenannter_Verlauf_11);
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #b9ada7;
+        isolation: isolate;
+        opacity: .7;
+      }
+    </style>
+    <linearGradient id="Unbenannter_Verlauf_11" data-name="Unbenannter Verlauf 11" x1="-162.95" y1="-150.55" x2="-162.95" y2="-222.42" gradientTransform="translate(198.95 222.55)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ddd6d3"/>
+      <stop offset=".39" stop-color="#e9e4e2"/>
+      <stop offset="1" stop-color="#e9e4e2"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-1" d="m65.52,19.38v50.05c0,1.41-1.16,2.57-2.57,2.57H9.05c-1.41,0-2.57-1.16-2.57-2.57V2.7C6.48,1.28,7.64.13,9.05.13h37.22l19.25,19.25Z"/>
+  <path class="cls-2" d="m65.52,19.38h-16.68c-1.41,0-2.57-1.16-2.57-2.57V.13l19.25,19.25Z"/>
+</svg>

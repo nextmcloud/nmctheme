@@ -1,1 +1,32 @@
-<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 108"><defs><style>.cls-1{fill:url(#Unbenannter_Verlauf_2);}.cls-2{fill:#b9ada7;isolation:isolate;opacity:0.7;}.cls-3{fill:#948983;}</style><linearGradient id="Unbenannter_Verlauf_2" x1="461.3" y1="-169.84" x2="461.3" y2="-97.84" gradientTransform="matrix(1, 0, 0, -1, -397.3, -79.84)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ddd6d3"/><stop offset="0.39" stop-color="#e9e4e2"/><stop offset="1" stop-color="#e9e4e2"/></linearGradient></defs><path class="cls-1" d="M93.57,37.29V87.43A2.58,2.58,0,0,1,91,90H37a2.58,2.58,0,0,1-2.57-2.57V20.57A2.58,2.58,0,0,1,37,18H74.29Z"/><path class="cls-2" d="M93.57,37.29H76.86a2.58,2.58,0,0,1-2.57-2.58V18Z"/><path class="cls-3" d="M47.29,47.57H80.71v3.86H47.29Zm0,14.14H80.71V57.86H47.29Zm0,10.29H80.71V68.14H47.29Z"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 72 72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Unbenannter_Verlauf_2);
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #948983;
+      }
+
+      .cls-3 {
+        fill: #b9ada7;
+        isolation: isolate;
+        opacity: .7;
+      }
+    </style>
+    <linearGradient id="Unbenannter_Verlauf_2" data-name="Unbenannter Verlauf 2" x1="433.3" y1="-1080.9" x2="433.3" y2="-1008.9" gradientTransform="translate(-397.3 -1008.9) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ddd6d3"/>
+      <stop offset=".39" stop-color="#e9e4e2"/>
+      <stop offset="1" stop-color="#e9e4e2"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-1" d="m65.57,19.29v50.14c0,1.41-1.16,2.57-2.57,2.57H9c-1.41,0-2.57-1.16-2.57-2.57V2.57C6.43,1.16,7.59,0,9,0h37.29l19.29,19.29Z"/>
+  <path class="cls-3" d="m65.57,19.29h-16.71c-1.41,0-2.57-1.16-2.57-2.57V0l19.29,19.29Z"/>
+  <path class="cls-2" d="m19.29,29.57h33.43v3.86H19.29v-3.86Zm0,14.14h33.43v-3.86H19.29v3.86Zm0,10.29h33.43v-3.86H19.29v3.86Z"/>
+</svg>
