@@ -1,1 +1,31 @@
-<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 108"><defs><style>.cls-1{fill:#d94034;}.cls-2{fill:url(#Unbenannter_Verlauf_10);}.cls-3{fill:#fff;isolation:isolate;opacity:0.9;}</style><linearGradient id="Unbenannter_Verlauf_10" x1="-134.95" y1="-139.21" x2="-134.95" y2="-189.24" gradientTransform="translate(198.95 222.55)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#f05c51"/><stop offset="1" stop-color="#f37d74"/></linearGradient></defs><path class="cls-1" d="M51.14,24.43H30.57A2.58,2.58,0,0,0,28,27v6.43H60.14Z"/><path class="cls-2" d="M97.43,33.43H28V81a2.58,2.58,0,0,0,2.57,2.57H97.43A2.58,2.58,0,0,0,100,81V36A2.58,2.58,0,0,0,97.43,33.43Z"/><path class="cls-3" d="M55.13,72.39a.88.88,0,0,0,.9.9H71.84a.88.88,0,0,0,.9-.9l.9-21H54.36ZM68.24,56.57a1,1,0,0,1,1-1,1,1,0,0,1,1,1V68.14a1,1,0,0,1-1,1,1,1,0,0,1-1-1Zm-5.14,0a1,1,0,0,1,1-1,1,1,0,0,1,1,1V68.14a1,1,0,0,1-1,1,1,1,0,0,1-1-1Zm-5.14,0a1,1,0,0,1,1-1,.94.94,0,0,1,1,1V68.14a1,1,0,0,1-1,1,.94.94,0,0,1-1-1ZM74.67,46.8H68.24v-.51a1.42,1.42,0,0,0-1.41-1.42H61.17a1.42,1.42,0,0,0-1.41,1.42v.51H53.33a1.16,1.16,0,1,0,0,2.31H74.54A1.15,1.15,0,0,0,75.7,48,1,1,0,0,0,74.67,46.8Z"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 72 72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        isolation: isolate;
+        opacity: .9;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #d94034;
+      }
+
+      .cls-3 {
+        fill: url(#Unbenannter_Verlauf_10);
+      }
+    </style>
+    <linearGradient id="Unbenannter_Verlauf_10" data-name="Unbenannter Verlauf 10" x1="-162.95" y1="-157.21" x2="-162.95" y2="-207.24" gradientTransform="translate(198.95 222.55)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f05c51"/>
+      <stop offset="1" stop-color="#f37d74"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-2" d="m23.14,6.43H2.57c-1.41,0-2.57,1.16-2.57,2.57v6.43h32.14l-9-9Z"/>
+  <path class="cls-3" d="m69.43,15.43H0v47.57c0,1.41,1.16,2.57,2.57,2.57h66.86c1.41,0,2.57-1.16,2.57-2.57V18c0-1.41-1.16-2.57-2.57-2.57Z"/>
+  <path class="cls-1" d="m27.13,54.39c0,.51.39.9.9.9h15.81c.51,0,.9-.39.9-.9l.9-20.96h-19.29l.77,20.96Zm13.11-15.81c0-.51.39-1.03,1.03-1.03s1.03.39,1.03,1.03v11.57c0,.51-.39,1.03-1.03,1.03s-1.03-.39-1.03-1.03v-11.57Zm-5.14,0c0-.51.39-1.03,1.03-1.03s1.03.39,1.03,1.03v11.57c0,.51-.39,1.03-1.03,1.03s-1.03-.39-1.03-1.03v-11.57Zm-5.14,0c0-.51.39-1.03,1.03-1.03s1.03.39,1.03,1.03v11.57c0,.51-.39,1.03-1.03,1.03s-1.03-.39-1.03-1.03v-11.57Zm16.71-9.77h-6.43v-.51c0-.77-.64-1.41-1.41-1.41h-5.66c-.77,0-1.41.64-1.41,1.41v.51h-6.43c-.64,0-1.16.51-1.16,1.16s.51,1.16,1.16,1.16h21.21c.64,0,1.16-.51,1.16-1.16.13-.64-.39-1.16-1.03-1.16Z"/>
+</svg>
