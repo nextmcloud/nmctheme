@@ -22,4 +22,7 @@
 	<dependencies>
 		<nextcloud min-version="25" max-version="28"/>
 	</dependencies>
+    <commands>
+		<command>OCA\NMCTheme\Command\CacheBuster</command>
+	</commands>
 </info>
