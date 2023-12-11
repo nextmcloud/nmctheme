@@ -62,3 +62,15 @@ $CONFIG = array (
 NOTE: The theming icons are not directly exposed by the `nmctheme`app, but delivered for
 upload under `lib/icons/*.*`. You need to use absolute path for the occ theming upload command.
    
+.Busting user browser caches
+The theme delivers a command to "bust" all the client browser caches for the rollout of a
+modified theme. This is accomplished by changing a cachebuster query parameter `v=` that is
+appended to the URL of all theme elements.
+
+----
+# getting the current cachebuster value
+/usr/bin/php occ nmctheme:cachebuster
+
+# busting all user caches
+/usr/bin/php occ nmctheme:cachebuster --bust
+----
