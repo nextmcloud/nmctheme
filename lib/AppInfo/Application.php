@@ -102,7 +102,7 @@ class Application extends App implements IBootstrap {
 	 */
 	protected function registerMimeTypeCustomisations(IRegistrationContext $context) {
 		$this->getContainer()->getServer()->registerService(IMimeTypeDetector::class, function (ContainerInterface $c) {
-			return new \OCA\NMCTheme\Files\Type\Detection(
+			return new \OC\Files\Type\Detection(
 				$c->get(IURLGenerator::class),
 				$c->get(LoggerInterface::class),
 				$c->get(IAppManager::class)->getAppPath(self::APP_ID) . '/resources/config/',
