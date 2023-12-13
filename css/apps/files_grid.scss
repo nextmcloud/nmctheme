@@ -3,6 +3,7 @@
 	table.files-filestable.view-grid {
 
 		td {
+
 			// hide Share icons 
 			.fileactions .action-share {
 				display: none;
@@ -20,10 +21,10 @@
 				input {
 
 					&[type=checkbox] {
-			
+
 						&.checkbox {
 
-							&:checked + label:before {
+							&:checked+label:before {
 								margin-left: -4px;
 								margin-top: -4px;
 							}
@@ -41,7 +42,7 @@
 					padding: 0;
 					left: calc(50% - 22px);
 					top: calc(100% - 25px);
-					
+
 					.icon.icon-starred {
 						background-size: 24px;
 						min-width: 24px;
@@ -61,6 +62,20 @@
 					&.column-menu {
 						width: 1000vw;
 					}
+				}
+			}
+		}
+
+		tbody {
+			tr[data-type='file'] {
+				&:hover {
+					background-color: var(--nmc-color-background-selected-dark);
+				}
+
+				&:focus,
+				&:active,
+				&.selected {
+					background-color: var(--nmc-color-background-selected-dark);
 				}
 			}
 		}

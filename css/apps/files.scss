@@ -272,8 +272,12 @@ table.files-filestable {
 		tr {
 			height: 68px;
 
-			&:hover, &:active {
-				background-color: var(--nmc-color-background-hover);
+			&:hover {
+				
+			}
+
+			&:focus, &:active, &.selected {
+				background-color: var(--nmc-color-background-selected-dark);
 			}
 
 			td {

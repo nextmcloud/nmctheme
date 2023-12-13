@@ -98,4 +98,13 @@
 
   --nmc-breakpoint-mobile: 1024px;
   --nmc-color-background-hover: #EDEDED;
+  --nmc-color-background-surface-highlight: #242426;
+  --nmc-color-background-selected-dark: #48484B;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --nmc-color-background-selected-dark: var(--nmc-color-background-hover);
+    --nmc-color-background-surface-highlight: var(--nmc-color-background-hover);;
+  }
 }
