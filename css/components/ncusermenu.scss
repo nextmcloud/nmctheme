@@ -1,12 +1,28 @@
+@import '../variables';
+@import '../_mixins';
+
 #user-menu {
 
     .user-menu {
-    
+
         &__nav {
-            
+
             ul {
-                
+
                 li.menu-entry {
+
+                    &:hover span,
+                    &:hover a {
+                        // Style user menu colors for Darkmode
+                        @media (prefers-color-scheme: dark) {
+                            color: var(--nmc-color-text-and-icon-primary-standard);
+                            background-color: transparent;
+                            &::after {
+                                @include color-icon;
+                            }
+                        }
+
+                    }
 
                     a {
                         padding-left: 48px;
@@ -28,32 +44,32 @@
                             display: none;
                         }
                     }
-                    
-                    &#settings > a::after {
+
+                    &#settings>a::after {
                         background-image: var(--icon-settings-dark);
                     }
-                    
-                    &#help > a::after {
+
+                    &#help>a::after {
                         background-image: var(--icon-help-dark);
                     }
-                    
-                    &#customer_center > a::after {
+
+                    &#customer_center>a::after {
                         background-image: var(--icon-customercenter-dark);
                     }
-                    
-                    &#admin_settings > a::after {
+
+                    &#admin_settings>a::after {
                         background-image: var(--icon-admin-dark);
                     }
-                    
-                    &#core_apps > a::after {
+
+                    &#core_apps>a::after {
                         background-image: var(--icon-add-dark);
                     }
-                    
-                    &#core_users > a::after {
+
+                    &#core_users>a::after {
                         background-image: var(--icon-users-dark);
                     }
-                    
-                    &#logout > a::after {
+
+                    &#logout>a::after {
                         background-image: var(--icon-logout-dark);
                     }
                 }

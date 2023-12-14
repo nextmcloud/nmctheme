@@ -53,6 +53,7 @@ header {
 	// brand logo update
 	.brand {
 		display: flex;
+
 		.logo.logo-icon {
 			background-image: var(--image-logoheader);
 			position: initial;
@@ -60,6 +61,7 @@ header {
 			height: 60px;
 			margin: 6px 0 6px 1.5rem;
 		}
+
 		.title {
 			font-size: 25px;
 			margin: auto 2.5rem auto 1rem;
@@ -67,7 +69,8 @@ header {
 		}
 	}
 
-	#header-left, .header-left {
+	#header-left,
+	.header-left {
 		.app-menu {
 			&-entry {
 				&--label {
@@ -168,7 +171,6 @@ header {
 	}
 
 	.user-menu__nav {
-
 		ul {
 			width: 100%;
 		}
