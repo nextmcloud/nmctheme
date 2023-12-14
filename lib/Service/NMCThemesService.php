@@ -35,9 +35,6 @@ class NMCThemesService extends ThemesService {
 	private IUserSession $userSession;
 	private IConfig $config;
 
-	/** @var ITheme */
-	private array $defaultTheme;
-
 	/** @var ITheme[] */
 	private array $themeClasses;
 
@@ -82,12 +79,11 @@ class NMCThemesService extends ThemesService {
 		};
 		
 		// Register themes
-		$this->default = $default;
 		$this->staticThemeIds = array_map($mapThemeIds, $staticThemes); // TODO: check that default theme is not a font theme
 		// the default theme is registered dual: with identifier 'default' and with its self-given name
 
-		$nonStaticThemes = array_merge([$default, $default], $selectableThemes);
-		$nonStaticThemeIds = array_merge(['default', $default->getId()], array_map($mapThemeIds, $selectableThemes));
+		$nonStaticThemes = array_merge([$default], $selectableThemes);
+		$nonStaticThemeIds = array_merge(['default'], array_map($mapThemeIds, $selectableThemes));
 
 		$this->themeClasses = array_merge(array_combine($nonStaticThemeIds, $nonStaticThemes),
 			array_combine($this->staticThemeIds, $staticThemes));

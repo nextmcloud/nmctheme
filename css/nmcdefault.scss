@@ -8,7 +8,7 @@
  */
 @use "sass:color";
 
-:root {
+:root, [data-themes*=light], [data-themes*=dark] {
   --color-main-background: var(--telekom-color-background-canvas);
   --color-main-background-rgb: var(--telekom-color-background-canvas-rgb);
   --color-main-background-translucent: rgba(var(--color-main-background-rgb), .97);
@@ -116,4 +116,8 @@
     --nmc-color-background-backdrop: #242426;
     --nmc-color-text-and-icon-primary-standard: #ec59a5;
   }
+}
+
+[data-themes*=dark] {
+  --nmc-color-background-hover: var(--telekom-color-ui-faint);
 }

@@ -5,6 +5,10 @@
 	display: flex;
 	padding: 3rem 3rem 0;
 
+	@media screen and (max-width: $breakpoint-mobile) {
+		padding: 3rem 2rem 0;
+	}
+
 	.section {
 		margin-top: 0;
 		width: 100%;
@@ -405,6 +409,76 @@
 			display: none;
 		}
 	}
+
+	.theming {
+
+		p:first-child {
+			display: none;
+		}
+
+		h2 {
+
+			&.settings-section__title {
+				font-size: 32px;
+			}
+			
+			&.subheader {
+				margin-top: 2rem;
+			}
+		}
+	
+		.theming__preview-list {
+			grid-template-columns: 1fr 1fr 1fr;
+
+			.theming__preview {
+
+				&--default {
+					grid-column: unset;
+
+					.theming__preview-image {
+						position: relative;
+						background-position: top center;
+
+						&::after {
+							background-image: var(--original-icon-settings-white);
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: 64px;
+							content: "";
+							display: block;
+							position: absolute;
+							left: 0px;
+							top: 0px;
+							height: 100%;
+							width: 100%;
+						}
+					}
+				}
+				
+
+				.theming__preview-image {
+					border: 2px solid var(--telekom-color-primary-standard);
+					border-radius: unset;
+					flex-basis: calc(18px * var(--ratio));
+					height: calc(12px * var(--ratio));
+
+					@media screen and (max-width: $breakpoint-mobile-medium) {
+						flex-basis: calc(12px * var(--ratio));
+					}
+				}
+
+				h3 {
+					font-weight: bold;
+					margin-bottom: 0.5rem;
+					margin-top: 0.5rem;
+				}
+
+				p {
+					margin-bottom: 0.5rem;
+				}
+			}
+		}
+	}
 }
 
 #monthly-notifications-settings {
@@ -476,6 +550,18 @@
 	.settings-section {
 		padding: 1.5rem 3rem 0;
 		border: none;
+
+		&.theming {
+			padding: 0;
+		}
+
+		&--limit-width {
+			padding: 3rem 0;
+
+			p {
+				max-width: 800px;
+			}
+		}
 
 		.button-vue {
 
