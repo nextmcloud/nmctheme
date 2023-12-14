@@ -5,7 +5,7 @@ span.checkbox-radio-switch.checkbox-radio-switch-checkbox {
 		color: var(--telekom-color-ui-regular);
 	}
 
-	.checkbox-radio-switch__label {
+	.checkbox-radio-switch__label, .checkbox-radio-switch__content {
 		&::after {
 			display: none;
 		}
@@ -133,5 +133,31 @@ span.checkbox-radio-switch-radio.checkbox-radio-switch, .checkbox-radio-switch-c
 				cursor: not-allowed;
 			}
 		}
+	}
+}
+
+
+// v8.2 of nextcloud/vue
+span.checkbox-radio-switch.checkbox-radio-switch-checkbox {
+	&:not(&--disabled, &--checked):focus-within .checkbox-radio-switch__content,
+	&:not(&--disabled, &--checked) .checkbox-radio-switch__content:hover {
+		background-color: initial;
+	}
+
+	&--checked:not(&--disabled):focus-within .checkbox-radio-switch__content,
+	&--checked:not(&--disabled) .checkbox-radio-switch__content:hover {
+		background-color: initial;
+	}
+
+	&--checked:not(&--button-variant):not(&--disabled):focus-within .checkbox-radio-switch__content,
+	&--checked:not(&--button-variant):not(&--disabled) .checkbox-radio-switch__content:hover {
+		background-color: initial;
+	}
+}
+
+span.checkbox-radio-switch.checkbox-radio-switch-checkbox {
+	.checkbox-radio-switch__content {
+		padding: 0;
+		min-height: auto;
 	}
 }

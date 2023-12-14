@@ -92,7 +92,7 @@ export default {
 		color: var(--color-primary);
 		width: fit-content;
 		position: relative;
-		padding-left: 1.75rem;
+		padding-left: 1.5rem;
 		margin-bottom: 6px;
 		&:hover {
 			color: var(--color-primary-hover);
