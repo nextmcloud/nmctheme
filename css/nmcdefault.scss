@@ -100,11 +100,20 @@
   --nmc-color-background-hover: #EDEDED;
   --nmc-color-background-surface-highlight: #242426;
   --nmc-color-background-selected-dark: #48484B;
+  --nmc-color-background-backdrop: var(--telekom-color-background-surface);
+  --nmc-color-text-and-icon-primary-standard: var(--telekom-color-text-and-icon-primary-standard);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --nmc-color-background-selected-dark: var(--nmc-color-background-hover);
-    --nmc-color-background-surface-highlight: var(--nmc-color-background-hover);;
+    --nmc-color-background-surface-highlight: var(--nmc-color-background-hover);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --nmc-color-background-backdrop: #242426;
+    --nmc-color-text-and-icon-primary-standard: #ec59a5;
   }
 }
