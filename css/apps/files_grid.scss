@@ -70,16 +70,25 @@
 		}
 
 		tbody {
-			tr[data-type='file'] {
+
+			tr[data-type='file'],
+			tr[data-type='dir'] {
 				&:hover {
-					background-color: var(--nmc-color-background-selected-dark);
+					.thumbnail-wrapper,
+					.nametext,
+					.fileactions {
+						background-color: var(--nmc-color-background-surface-highlight);
+					}
 				}
 
-				&:focus,
-				&:active,
 				&.selected {
-					background-color: var(--nmc-color-background-selected-dark);
+					.thumbnail-wrapper,
+					.nametext,
+					.fileactions {
+						background-color: var(--nmc-color-background-selected-dark);
+					}
 				}
+
 			}
 		}
 	}

@@ -7,7 +7,7 @@
  * Note: Take care of Telekom branding restrictions!
  */
 
- @import '../_mixins.scss';
+@import '../_mixins.scss';
 
 .modal {
 
@@ -19,7 +19,7 @@
                 background-color: var(--telekom-color-primary-standard);
 
                 &.button-vue--vue-tertiary {
-                    background-color: var(--telekom-color-ui-base);
+                    @include darkmode-modal;
                     border: 1px solid var(--telekom-color-ui-border-standard) !important;
                     color: var(--telekom-color-text-and-icon-standard);
 
@@ -30,23 +30,30 @@
                 }
 
                 &:hover:not(:disabled) {
-					background-color: var(--telekom-color-primary-hovered);
+                    background-color: var(--telekom-color-primary-hovered);
                 }
             }
         }
     }
 }
 
-.oc-dialog, .dialog {
+#body-user .oc-dialog,
+.dialog {
     min-width: 448px;
+    background: var(--nmc-color-background-modal);
+
+    .oc-dialog-title {
+        @include darkmode-modal;
+    }
 
     button {
         border: 0;
-        border-radius: var(--telekom-radius-standard);
+        border-radius: var(--telekom-radius-small);
         opacity: 1;
 
         &.oc-dialog-close {
             background-color: var(--telekom-color-ui-base);
+            @include darkmode-modal;
             right: 7px;
             top: 12px;
 
@@ -58,6 +65,8 @@
     }
 
     .oc-dialog-buttonrow {
+        @include darkmode-modal;
+        background-image: none;
 
         &.twobuttons {
             justify-content: flex-end;
@@ -65,25 +74,30 @@
 
         button {
             border: 0;
-            border-radius: var(--telekom-radius-standard);
+            border-radius: var(--telekom-radius-small);
             margin: 0.25rem 0.5rem 0.25rem 0;
             opacity: 1;
 
             &:last-child {
                 margin-right: 0;
             }
-            
+
             &.primary {
                 background-color: var(--telekom-color-primary-standard);
                 color: var(--telekom-color-text-and-icon-white-standard);
+                border-radius: var(--telekom-radius-standard);
 
                 &:hover:not(:disabled) {
-					background-color: var(--telekom-color-primary-hovered);
+                    background-color: var(--telekom-color-primary-hovered);
+
+                    @media (prefers-color-scheme: dark) {
+                        background-color: var(--nmc-color-text-and-icon-primary-standard);
+                    }
                 }
             }
-            
+
             &:not(.primary) {
-                background-color: var(--telekom-color-ui-base);
+                @include darkmode-modal;
                 border: 1px solid var(--telekom-color-ui-border-standard) !important;
                 color: var(--telekom-color-text-and-icon-standard);
 
@@ -105,8 +119,9 @@
             margin-right: 0.75rem;
 
         }
-    
-        input[type=text], input[type=email] {
+
+        input[type=text],
+        input[type=email] {
             background-color: var(--color-main-background);
             border: 1px solid var(--telekom-color-text-and-icon-standard);
             border-radius: var(--telekom-radius-small);
@@ -124,7 +139,7 @@
     .modal-wrapper {
 
         .modal-container {
-            
+
             &__close {
                 top: 1rem !important;
                 right: 0.75rem !important;
@@ -150,6 +165,7 @@
 }
 
 #oc-dialog-filepicker-content {
+    background: var(--nmc-color-background-modal);
 
     .actions.creatable {
         background: unset;
@@ -166,7 +182,9 @@
             @include color-icon;
         }
 
-        input[type=text] + .icon-confirm, input[type=password] + .icon-confirm, input[type=email] + .icon-confirm {
+        input[type=text]+.icon-confirm,
+        input[type=password]+.icon-confirm,
+        input[type=email]+.icon-confirm {
             border: unset;
             margin-left: -40px !important;
             margin-top: 6px;
@@ -174,17 +192,24 @@
     }
 
     #picker-filestable {
+        @include darkmode-modal;
+
+        .column {
+            &-name, &-size, &-mtime {
+                @include darkmode-modal;
+            }
+        }
 
         &.filelist {
 
             tbody {
-    
+
                 td {
-    
+
                     &.filename {
                         background-position: left center;
                     }
-                    
+
                     &.date {
                         color: var(--telekom-color-text-and-icon-standard);
                     }
@@ -197,7 +222,9 @@
         opacity: 1;
         right: -1rem;
 
-        &:hover, &:active, &:focus {
+        &:hover,
+        &:active,
+        &:focus {
             box-shadow: unset;
             @include color-icon;
         }

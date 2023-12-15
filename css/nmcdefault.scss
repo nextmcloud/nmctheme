@@ -102,6 +102,7 @@
   --nmc-color-background-selected-dark: #48484B;
   --nmc-color-background-backdrop: var(--telekom-color-background-surface);
   --nmc-color-text-and-icon-primary-standard: var(--telekom-color-text-and-icon-primary-standard);
+  --nmc-color-background-modal: var(--telekom-color-ui-base);
 }
 
 @media (prefers-color-scheme: light) {
@@ -115,5 +116,7 @@
   :root {
     --nmc-color-background-backdrop: #242426;
     --nmc-color-text-and-icon-primary-standard: #ec59a5;
+    --nmc-color-text-and-icon-primary-pressed: #f080ba;
+    --nmc-color-background-modal: #1c1c1e;
   }
 }
