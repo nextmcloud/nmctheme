@@ -27,6 +27,7 @@ use OCA\NMCTheme\Service\NMCFilesService;
 use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Themes\Magenta;
 use OCA\NMCTheme\Themes\MagentaDark;
+use OCA\NMCTheme\Themes\MagentaLight;
 use OCA\NMCTheme\Themes\TeleNeoWebFont;
 use OCA\NMCTheme\URLGeneratorDecorator;
 use OCA\Theming\Service\ThemesService;
@@ -203,8 +204,7 @@ class Application extends App implements IBootstrap {
 				$c->get(IUserSession::class),
 				$c->get(IConfig::class),
 				$c->get(Magenta::class),
-				//[$c->get(MagentaDark::class)],    // FIXME
-				[],
+				[$c->get(MagentaLight::class), $c->get(MagentaDark::class)],
 				[$c->get(TeleNeoWebFont::class)],
 				$c->get(DefaultTheme::class),   // the rest is overhead due to undefined interface (yet)
 				$c->get(LightTheme::class),
@@ -236,6 +236,7 @@ class Application extends App implements IBootstrap {
 		/**
 		 * Add listeners that can inject additional information or scripts before rendering
 		 */
+
 		// the listener is helpful to enforce theme constraints and inject additional parts
 		$context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
 	}

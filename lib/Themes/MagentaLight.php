@@ -16,7 +16,7 @@ use OCP\App\IAppManager;
 use OCP\IL10N;
 use OCP\IURLGenerator;
 
-class MagentaDark extends Magenta implements ITheme {
+class MagentaLight extends Magenta implements ITheme {
 	public function __construct(
 		IAppManager $appManager,
 		IURLGenerator $urlGenerator,
@@ -26,22 +26,22 @@ class MagentaDark extends Magenta implements ITheme {
 	}
 
 	public function getId(): string {
-		return 'magenta25dark';
+		return 'magenta25light';
 	}
 
 	public function getTitle(): string {
-		return $this->l->t('Dark Design');
+		return $this->l->t('Light Design');
 	}
 
 	public function getEnableLabel(): string {
-		return $this->l->t('Enable dark design');
+		return $this->l->t('Enable light design');
 	}
 
 	public function getDescription(): string {
-		return $this->l->t('A dark design to relieve eye strain.');
+		return $this->l->t('A bright black on white design.');
 	}
 
 	public function getMediaQuery(): string {
-		return '(prefers-color-scheme: dark)';
+		return '(prefers-color-scheme: light)';
 	}
 }

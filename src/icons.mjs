@@ -144,6 +144,9 @@ const icons = {
 	'photo-camera': path.join(__dirname, '../img', 'device', 'photo-camera.svg'),
 	'hide-menu': path.join(__dirname, '../img', 'actions', 'hide-menu.svg'),
 	'photos-videos': path.join(__dirname, '../img', 'media', 'photos-videos.svg'),
+	appearance: path.join(__dirname, '../img', 'settings', 'appearance.svg'),
+	'arrow-previous': path.join(__dirname, '../img', 'back-nav.svg'),
+	'arrow-next': path.join(__dirname, '../img', 'breadcrumb-arrow.svg'),
 }
 
 const iconsColor = {
