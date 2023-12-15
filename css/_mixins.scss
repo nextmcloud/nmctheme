@@ -5,6 +5,12 @@
 	}
 }
 
+@mixin darkmode-modal {
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--nmc-color-background-modal);
+    }
+}
+
 @mixin color-icon-red {
 	filter: invert(21%) sepia(37%) saturate(6447%) hue-rotate(357deg) brightness(98%) contrast(99%);
 	@media (prefers-color-scheme: dark) {    
