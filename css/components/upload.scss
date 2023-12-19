@@ -41,7 +41,7 @@
 		right: 0;
 		background-image: var(--icon-close-x-dark);
 		&:hover {
-			@include color-icon;
+			filter: var(--nmc-color-icon)
 		}
 	}
 }

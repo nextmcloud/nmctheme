@@ -59,7 +59,7 @@
 			background-color: var(--nmc-color-background-hover);
 
 			&::after, img {
-				@include color-icon;
+				filter: var(--nmc-color-icon)
 			}
 		}
 

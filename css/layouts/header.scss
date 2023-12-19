@@ -135,7 +135,7 @@ header {
 		background-repeat: no-repeat;
 
 		&:hover {
-			@include color-icon;
+			filter: var(--nmc-color-icon)
 		}
 	}
 
@@ -157,7 +157,7 @@ header {
 		background-repeat: no-repeat;
 
 		&:hover {
-			@include color-icon;
+			filter: var(--nmc-color-icon)
 		}
 	}
 

@@ -59,7 +59,7 @@
 
             &:hover:not(:disabled) {
                 background-color: unset;
-                @include color-icon;
+                filter: var(--nmc-color-icon)
             }
         }
     }
@@ -146,7 +146,7 @@
 
                 &:hover:not(:disabled) {
                     background-color: unset !important;
-                    @include color-icon;
+                    filter: var(--nmc-color-icon)
                 }
 
                 .close-icon {
@@ -179,7 +179,7 @@
             height: 24px;
             opacity: 1;
             width: 24px;
-            @include color-icon;
+            filter: var(--nmc-color-icon)
         }
 
         input[type=text]+.icon-confirm,
@@ -226,7 +226,7 @@
         &:active,
         &:focus {
             box-shadow: unset;
-            @include color-icon;
+            filter: var(--nmc-color-icon)
         }
     }
 }
