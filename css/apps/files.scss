@@ -272,12 +272,12 @@ table.files-filestable {
 		tr {
 			height: 68px;
 
-			&:hover {
-				
+			&.highlighted, &.selected, &:not(.hidden):active, &:not(.hidden):focus, &:not(.hidden).mouseOver td {
+				background-color: var(--nmc-color-row-selected);
 			}
 
-			&:focus, &:active, &.selected {
-				background-color: var(--nmc-color-background-selected-dark);
+			&:not(.hidden):not(.highlighted):not(.selected):hover {
+				background-color: var(--nmc-color-row-hover);
 			}
 
 			td {
@@ -292,6 +292,10 @@ table.files-filestable {
 				}
 				
 				&.filename {
+
+					a.name:focus {
+						background-color: var(--nmc-color-row-selected);
+					}
 
 					input.filename {
 						margin-left: 70px !important;

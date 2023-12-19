@@ -98,18 +98,11 @@
 
   --nmc-breakpoint-mobile: 1024px;
   --nmc-color-background-hover: #EDEDED;
-  --nmc-color-background-surface-highlight: #242426;
-  --nmc-color-background-selected-dark: #48484B;
+  --nmc-color-row-hover: #EDEDED;
+  --nmc-color-row-selected: #dfdfe1;
   --nmc-color-background-backdrop: var(--telekom-color-background-surface);
   --nmc-color-text-and-icon-primary-standard: var(--telekom-color-text-and-icon-primary-standard);
   --nmc-color-background-modal: var(--telekom-color-ui-base);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --nmc-color-background-selected-dark: var(--nmc-color-background-hover);
-    --nmc-color-background-surface-highlight: var(--nmc-color-background-hover);
-  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -118,9 +111,15 @@
     --nmc-color-text-and-icon-primary-standard: #ec59a5;
     --nmc-color-text-and-icon-primary-pressed: #f080ba;
     --nmc-color-background-modal: #1c1c1e;
+
+    --nmc-color-background-hover: var(--telekom-color-ui-faint);
+    --nmc-color-row-hover: #242426;
+    --nmc-color-row-selected: #48484b;
   }
 }
 
 [data-themes*=dark] {
   --nmc-color-background-hover: var(--telekom-color-ui-faint);
+  --nmc-color-row-hover: #242426;
+  --nmc-color-row-selected: #48484b;
 }
