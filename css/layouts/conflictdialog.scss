@@ -31,7 +31,7 @@
 				width: 35px;
 				height: 35px;
 				&:hover {
-					@include color-icon;
+					filter: var(--nmc-color-icon)
 				}
 			}
 		}

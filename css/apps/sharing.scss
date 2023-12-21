@@ -51,7 +51,7 @@
 				transition: none;
 				&:hover, &:active, &:focus {
 					.button-vue__icon {
-						@include color-icon;
+						filter: var(--nmc-color-icon)
 					}
 				}
 				.button-vue__icon {
@@ -145,12 +145,12 @@
 			&.icon-clipboard {
 				background-image: var(--icon-clipboard-dark);
 				&:hover {
-					@include color-icon;
+					filter: var(--nmc-color-icon)
 				}
 			}
 
 			&.icon-add:hover {
-				@include color-icon;
+				filter: var(--nmc-color-icon)
 			}
 
 		}		

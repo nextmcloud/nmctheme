@@ -44,7 +44,7 @@
 
 				// color every icon except starred and filetype ones
 				.icon:not(.icon-starred, [class*="icon-filetype"]) {
-					@include color-icon;
+					filter: var(--nmc-color-icon)
 				}
 			}
 

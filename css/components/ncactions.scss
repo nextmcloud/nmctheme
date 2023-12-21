@@ -40,7 +40,7 @@
 
 		&:hover {
 			.action-button__icon, .material-design-icon {
-				@include color-icon;
+				filter: var(--nmc-color-icon)
 			}
 	
 			.action-button__text, .action-button__longtext, .action-link__text, .action-link__longtext {

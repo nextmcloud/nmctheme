@@ -18,7 +18,7 @@
                             color: var(--nmc-color-text-and-icon-primary-standard);
                             background-color: transparent;
                             &::after {
-                                @include color-icon;
+                                filter: var(--nmc-color-icon)
                             }
                         }
 

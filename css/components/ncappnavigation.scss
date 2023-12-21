@@ -63,7 +63,7 @@
 			color: var(--telekom-color-text-and-icon-primary-standard);
 		}
 		.app-navigation-entry-icon {
-			@include color-icon;
+			filter: var(--nmc-color-icon)
 		}
 	}
 
@@ -73,7 +73,7 @@
 			color: var(--telekom-color-text-and-icon-primary-standard);
 		}
 		.app-navigation-entry-icon {
-			@include color-icon;
+			filter: var(--nmc-color-icon)
 		}
 	}
 

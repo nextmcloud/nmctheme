@@ -20,7 +20,7 @@
 
 					&:hover:not(:disabled) {
 						background-color: unset;
-						@include color-icon;
+						filter: var(--nmc-color-icon)
 					}
 
 					&.action-menu-redo {
@@ -284,7 +284,7 @@
 					.button-vue {
 
 						&:hover:not(:disabled) {
-							@include color-icon;
+							filter: var(--nmc-color-icon)
 						}
 
 						.table-cog-icon {

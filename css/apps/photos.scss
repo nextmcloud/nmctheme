@@ -413,7 +413,7 @@
 
 		&:hover:not(:disabled) {
 			.close-icon {
-				@include color-icon;
+				filter: var(--nmc-color-icon)
 			}
 
 			background-color: initial;
