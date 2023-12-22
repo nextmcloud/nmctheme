@@ -408,6 +408,8 @@
 
 // Add Photos to the album modal window
 #body-user .modal-container {
+	background-color: var(--telekom-color-background-surface);
+
 	button.modal-container__close {
 		z-index: 10;
 
@@ -453,7 +455,7 @@
 				}
 
 				& .material-design-icon.image-plus-icon {
-					background-image: var(--icon-add-white);
+					background-image: var(--original-icon-add-white);
 					width: 44px;
 					height: 44px;
 					background-position: center;
@@ -469,6 +471,9 @@
 
 		// Tiled Photos view
 		&__file-list.files-list-viewer {
+			.files-list-viewer__section-header {
+				background-color: var(--telekom-color-background-surface);
+			}
 			div.file-container {
 				&::after {
 					display: none;
