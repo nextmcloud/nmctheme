@@ -1,7 +1,5 @@
 @mixin darkmode-modal {
-    @media (prefers-color-scheme: dark) {
-        background-color: var(--nmc-color-background-modal);
-    }
+    background-color: var(--telekom-color-background-surface);
 }
 
 @mixin color-icon-red {

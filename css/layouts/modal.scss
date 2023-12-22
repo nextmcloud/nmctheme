@@ -40,7 +40,7 @@
 #body-user .oc-dialog,
 .dialog {
     min-width: 448px;
-    background: var(--nmc-color-background-modal);
+    background-color: var(--telekom-color-background-surface);
 
     .oc-dialog-title {
         @include darkmode-modal;
@@ -165,7 +165,7 @@
 }
 
 #oc-dialog-filepicker-content {
-    background: var(--nmc-color-background-modal);
+    background-color: var(--telekom-color-background-surface);
 
     .actions.creatable {
         background: unset;
