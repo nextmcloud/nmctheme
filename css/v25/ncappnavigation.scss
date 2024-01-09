@@ -46,10 +46,6 @@
 					width: 24px;
     				height: 24px;
 					filter: var(--background-invert-if-dark);
-					
-					@media (prefers-color-scheme: dark) {
-						filter: var(--background-invert-if-bright);
-					}
 				}
 			}
 		}
