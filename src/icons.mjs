@@ -36,6 +36,7 @@ const colorSvg = function(svg = '', color = '000') {
 	// replace any fill or stroke colors
 	svg = svg.replace(/stroke="#([a-z0-9]{3,6})"/gmi, 'stroke="#' + color + '"')
 	svg = svg.replace(/fill="#([a-z0-9]{3,6})"/gmi, 'fill="#' + color + '"')
+	svg = svg.replace(/fill:#([a-z0-9]{3,6})/gmi, 'fill:#' + color)
 
 	return svg
 }

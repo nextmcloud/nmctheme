@@ -121,4 +121,8 @@
   --nmc-color-row-hover: #242426;
   --nmc-color-row-selected: #48484b;
   --nmc-color-icon: brightness(0) saturate(100%) invert(17%) sepia(87%) saturate(5418%) hue-rotate(319deg) brightness(85%) contrast(110%);
+  
+  --background-invert-if-dark: invert(100%);
+  --background-invert-if-bright: none;
+  --background-image-invert-if-bright: none;
 }
