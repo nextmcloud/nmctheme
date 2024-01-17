@@ -25,7 +25,7 @@
             filter: none;
     
             &:hover {
-                filter: var(--nmc-color-icon)
+                filter: var(--nmc-color-icon) !important;
             }
         }
     }
