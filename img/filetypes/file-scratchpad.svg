@@ -1,1 +1,37 @@
-<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 108"><defs><style>.cls-1{fill:url(#Unbenannter_Verlauf_22);}.cls-2{fill:#b9ada7;isolation:isolate;}.cls-2,.cls-3{opacity:0.7;}.cls-4{fill:#992c99;}</style><linearGradient id="Unbenannter_Verlauf_22" x1="-134.95" y1="-132.55" x2="-134.95" y2="-204.55" gradientTransform="translate(198.95 222.55)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ddd6d3"/><stop offset="0.39" stop-color="#e9e4e2"/><stop offset="1" stop-color="#e9e4e2"/></linearGradient></defs><path class="cls-1" d="M93.57,37.29V87.43A2.58,2.58,0,0,1,91,90H37a2.58,2.58,0,0,1-2.57-2.57V20.57A2.58,2.58,0,0,1,37,18H74.29Z"/><path class="cls-2" d="M93.57,37.29H76.86a2.58,2.58,0,0,1-2.57-2.58V18Z"/><g class="cls-3"><path class="cls-4" d="M79.43,47.57H48.57V45.64a2,2,0,0,1,1.93-1.93h27a2,2,0,0,1,1.93,1.93v1.93ZM48.57,50.14V72a2.76,2.76,0,0,0,2.57,2.57H76.86A2.76,2.76,0,0,0,79.43,72V50.14ZM62.71,69.43H52.43V66.86H62.71ZM62.84,63H52.43V60.43H62.84Zm0-6.43H52.43V54H62.84ZM75.57,69.43H65.29V66.86H75.57Zm0-6.43H65.29V60.43H75.57Zm0-6.43H65.29V54H75.57Z"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 72 72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Unbenannter_Verlauf_22);
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-4, .cls-3 {
+        opacity: .7;
+      }
+
+      .cls-2 {
+        fill: #992c99;
+      }
+
+      .cls-3 {
+        fill: #b9ada7;
+        isolation: isolate;
+      }
+    </style>
+    <linearGradient id="Unbenannter_Verlauf_22" data-name="Unbenannter Verlauf 22" x1="-162.95" y1="-150.55" x2="-162.95" y2="-222.55" gradientTransform="translate(198.95 222.55)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ddd6d3"/>
+      <stop offset=".39" stop-color="#e9e4e2"/>
+      <stop offset="1" stop-color="#e9e4e2"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-1" d="m65.57,19.29v50.14c0,1.41-1.16,2.57-2.57,2.57H9c-1.41,0-2.57-1.16-2.57-2.57V2.57C6.43,1.16,7.59,0,9,0h37.29l19.29,19.29Z"/>
+  <path class="cls-3" d="m65.57,19.29h-16.71c-1.41,0-2.57-1.16-2.57-2.57V0l19.29,19.29Z"/>
+  <g class="cls-4">
+    <path class="cls-2" d="m51.43,29.57h-30.86v-1.93c0-1.03.9-1.93,1.93-1.93h27c1.03,0,1.93.9,1.93,1.93v1.93h0Zm-30.86,2.57v21.86c0,1.29,1.29,2.57,2.57,2.57h25.71c1.29,0,2.57-1.29,2.57-2.57v-21.86h-30.86Zm14.14,19.29h-10.29v-2.57h10.29v2.57Zm.13-6.43h-10.41v-2.57h10.41v2.57Zm0-6.43h-10.41v-2.57h10.41v2.57Zm12.73,12.86h-10.29v-2.57h10.29v2.57Zm0-6.43h-10.29v-2.57h10.29v2.57Zm0-6.43h-10.29v-2.57h10.29v2.57Z"/>
+  </g>
+</svg>

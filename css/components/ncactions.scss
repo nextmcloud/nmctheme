@@ -1,4 +1,6 @@
-// NcActions
+@import '../_mixins.scss';
+
+// '...' button style
 .action-item .v-popper{
 	--open-background-color: initial;
 	.button-vue {
@@ -14,3 +16,68 @@
 		}
 	}
 }
+
+// dropdown menu styles
+.v-popper__inner {
+	li.action {
+		.action-button__icon {
+			background-size: 20px;
+			background-position: center;
+		}
+
+		&.action-separator.action--disabled {
+			border-bottom: 1px solid var(--telekom-color-ui-border-pressed);
+		}
+
+		&.active {
+			background-color: initial;
+	
+			// do not set Delete icon to red when hovered
+			.icon-delete:hover {
+				background-image: var(--icon-delete-dark);
+			}
+		}
+
+		&:hover {
+			.action-button__icon, .material-design-icon {
+				filter: var(--nmc-color-icon)
+			}
+	
+			.action-button__text, .action-button__longtext, .action-link__text, .action-link__longtext {
+				color: var(--telekom-color-primary-standard);
+			}
+		}
+	}
+
+	// hide upload file menu item in Photos Album
+	li[data-upload-picker-add=""]{
+		display: none;
+	}
+}
+
+.v-popper__popper {
+	.v-popper__inner {
+		.material-design-icon {
+			svg {
+				display: none;
+			}
+	
+			&.pencil-icon {
+				background-image: var(--icon-edit-dark);
+			}
+
+			&.download-multiple-icon {
+				background-image: var(--icon-download-dark);
+			}
+
+			&.star-icon {
+				background-image: var(--icon-star-dark);
+			}
+
+			&.close-icon {
+				background-image: var(--icon-close-dark);
+			}
+		}
+	}
+}
+

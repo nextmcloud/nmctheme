@@ -1,0 +1,17 @@
+#nmctooltip {
+	display: none;
+	position: absolute;
+	padding: 1rem;
+	max-width: 250px;
+	background-color: var(--color-main-background);
+	border-radius: var(--telekom-radius-large);
+	box-shadow: var(--telekom-shadow-floating-standard);
+}
+
+#nmctooltip_arrow {
+	position: absolute;
+	background: var(--color-main-background);
+	width: 8px;
+	height: 8px;
+	transform: rotate(45deg);
+}

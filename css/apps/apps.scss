@@ -1,13 +1,12 @@
-$breakpoint-mobile: 1024px;
-$breakpoint-mobile-small: 480px;
+@import '../variables';
 
 :root {
-	--body-height: calc(100% - 144px - var(--body-container-margin));
+	--body-height: calc(100% - 157px - var(--body-container-margin));
 }
 
 @media screen and (max-width: $breakpoint-mobile-small) {
-	:root {
-		--body-height: calc(100% - 132px - var(--body-container-margin));
+:root {
+		--body-height: calc(100% - 152px - var(--body-container-margin));
 	}
 }
 
@@ -27,12 +26,12 @@ $breakpoint-mobile-small: 480px;
 /* CONTENT  --------------------------------------------------------- */
 #content, #content-vue {
 	border-radius: 0;
-	margin: 76px 16px 0;
+	margin: 89px 16px 0;
 	height: var(--body-height);
 	width: calc(100% - 32px);
 
 	@media screen and (max-width: $breakpoint-mobile-small) {
-		margin: 60px 0 0;
+		margin: 73px 0 0;
 		width: 100%;
 	}
 }

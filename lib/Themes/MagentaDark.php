@@ -30,19 +30,18 @@ class MagentaDark extends Magenta implements ITheme {
 	}
 
 	public function getTitle(): string {
-		return $this->l->t('MagentaCLOUD dark');
+		return $this->l->t('Dark Design');
 	}
 
 	public function getEnableLabel(): string {
-		return $this->l->t('Enable MagentaCLOUD dark theme.');
+		return $this->l->t('Enable dark design');
 	}
 
 	public function getDescription(): string {
-		return $this->l->t('MagentaCLOUD new dark style for NC25 ff.');
+		return $this->l->t('A dark design to relieve eye strain.');
 	}
 
 	public function getMediaQuery(): string {
 		return '(prefers-color-scheme: dark)';
 	}
-
 }

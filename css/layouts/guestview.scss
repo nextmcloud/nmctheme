@@ -1,0 +1,152 @@
+// styling for guest view in file sharing app
+
+@import '../_mixins.scss';
+@import '../variables';
+
+#body-public {
+    .directDownload, #header {
+        a.button {
+            @include primary-button;
+            .icon-download {
+                opacity: 1;
+                background-image: var(--icon-download-white);
+                background-size: 16px;
+            }
+        }
+    }
+
+    #imgframe {
+        padding: 24px 0 16px;
+    }
+
+    #files-public-content {
+        padding-left: 16px;
+        padding-right: 4px;
+    }
+
+    #header {
+        .header-right {
+            padding-right: 24px;
+            #header-actions-toggle {
+                display: none;
+            }
+        }
+    }
+
+    .app-files_sharing #app-content {
+        position: fixed;
+        height: var(--body-height);
+        width: calc(100% - 2rem);
+        background-color: var(--color-main-background);
+
+        @media screen and (max-width: $breakpoint-mobile-small) {
+            width: 100%;
+        }
+
+        #files-public-content #preview {
+
+            & > .emptyfilelist.emptycontent .icon-folder {
+                background-image: url('../img/filetypes/folder.svg');
+                background-size: 192px;
+                height: 128px;
+                width: 128px;
+            }
+        }
+    }
+
+    .app-files_sharing + footer {
+        --footer-font: var(--telekom-text-style-caption-bold);
+    }
+
+    .app-files_sharing + footer[role="contentinfo"] {
+        position: fixed;
+        display: inline-block;
+        background-color: var(--color-main-background);
+        border-radius: 0px 0px 0.5rem 0.5rem;
+        font: var(--footer-font);
+        left: 1rem;
+        right: 1rem;
+        bottom: 24px;
+        height: 20px;
+        max-width: calc(100% - 4rem);
+        margin: auto;
+        z-index: 998;
+        border-top: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
+        padding: 16px 16px;
+
+        @media screen and (max-width: $breakpoint-mobile-small) {
+            height: 60px;
+            border-radius: 0;
+            padding: 16px 16px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            max-width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            flex-wrap: wrap;
+            gap: var(--telekom-spacing-composition-space-06);
+
+            @media screen and (max-width: $breakpoint-mobile-small) {
+                flex-direction: column;
+                align-content: first baseline;
+                gap: var(--telekom-spacing-composition-space-04);
+            }
+
+            #notice {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+            }
+
+            #navigation {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 16px;
+            }
+        }
+    }
+}
+
+// style password entry for guest view only, w/o overwriting general login
+.guest-box:not(.login-box) {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    position: relative;
+    top: 18vh;
+    padding-bottom: 2.5rem;
+
+    @media screen and (max-width: $breakpoint-mobile-small) {
+        top: 10vh;
+    }
+
+    form fieldset .warning-info {
+        font-size: 20px;
+        font-weight: bold;
+        padding-top: 0.5rem;
+        padding-bottom: 1rem;
+    }
+
+    // this is the password entry field
+    #password {
+        background: rgba(255, 255, 255, 0.4);
+        border: solid black 1px;
+        border-radius: 10px;
+        color: var(--color-text);
+    }
+
+    // form submit button icon
+    #password-submit {
+        opacity: 1;
+    }
+
+    // hide request password link
+    #request-password-button-not-talk {
+        display: none;
+    }
+}

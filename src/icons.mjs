@@ -10,12 +10,16 @@ const colors = {
 	dark: '000',
 	white: 'fff',
 	// gold but for backwards compatibility called yellow
-	yellow: 'a08b00',
+	yellow: 'fecb00',
 	red: 'e9322d',
 	orange: 'eca700',
 	green: '46ba61',
 	grey: '969696',
 	magenta: 'e20074',
+	info: '2238df',
+	success: '00b367',
+	danger: 'e82010',
+	warning: 'f97012',
 }
 
 const colorSvg = function(svg = '', color = '000') {
@@ -26,12 +30,13 @@ const colorSvg = function(svg = '', color = '000') {
 	}
 
 	// add fill (fill is not present on black elements)
-	const fillRe = /<((circle|rect|path)((?!fill)[a-z0-9 =".\-#():;,])+)\/>/gmi
+	const fillRe = /<((circle|rect|path|polygon)((?!fill)[a-z0-9 =".\-#():;,])+)\/>/gmi
 	svg = svg.replace(fillRe, '<$1 fill="#' + color + '"/>')
 
 	// replace any fill or stroke colors
 	svg = svg.replace(/stroke="#([a-z0-9]{3,6})"/gmi, 'stroke="#' + color + '"')
 	svg = svg.replace(/fill="#([a-z0-9]{3,6})"/gmi, 'fill="#' + color + '"')
+	svg = svg.replace(/fill:#([a-z0-9]{3,6})/gmi, 'fill:#' + color)
 
 	return svg
 }
@@ -60,6 +65,7 @@ const variables = {}
 const icons = {
 	add: path.join(__dirname, '../img', 'actions', 'add.svg'),
 	address: path.join(__dirname, '../img', 'actions', 'address.svg'),
+	'arrow-left': path.join(__dirname, '../img', 'actions', 'arrow-left.svg'),
 	download: path.join(__dirname, '../img', 'actions', 'download.svg'),
 	logout: path.join(__dirname, '../img', 'actions', 'logout.svg'),
 	menu: path.join(__dirname, '../img', 'actions', 'menu.svg'),
@@ -72,11 +78,13 @@ const icons = {
 	upload: path.join(__dirname, '../img', 'actions', 'upload.svg'),
 	user: path.join(__dirname, '../img', 'actions', 'user.svg'),
 	folder: path.join(__dirname, '../img', 'actions', 'folder.svg'),
+	'mime-folder': path.join(__dirname, '../img', 'filetypes', 'folder.svg'),
 	files: path.join(__dirname, '../img', 'places', 'files.svg'),
 	history: path.join(__dirname, '../img', 'actions', 'history.svg'),
 	tag: path.join(__dirname, '../img', 'actions', 'tag.svg'),
 	delete: path.join(__dirname, '../img', 'actions', 'delete.svg'),
 	close: path.join(__dirname, '../img', 'close.svg'),
+	'close-x': path.join(__dirname, '../img', 'actions', 'close.svg'),
 	home: path.join(__dirname, '../img', 'actions', 'home.svg'),
 	settings: path.join(__dirname, '../img', 'settings', 'admin.svg'),
 	help: path.join(__dirname, '../img', 'settings', 'help.svg'),
@@ -91,13 +99,65 @@ const icons = {
 	play: path.join(__dirname, '../img', 'actions', 'play.svg'),
 	'play-previous': path.join(__dirname, '../img', 'actions', 'play-previous.svg'),
 	'play-next': path.join(__dirname, '../img', 'actions', 'play-next.svg'),
+	'play-video': path.join(__dirname, '../img', 'icons', 'play-video.svg'),
 	external: path.join(__dirname, '../img', 'actions', 'copy-paste.svg'),
+	attachment: path.join(__dirname, '../img', 'actions', 'attachment.svg'),
+	edit: path.join(__dirname, '../img', 'email', 'edit.svg'),
+	'mail-opened': path.join(__dirname, '../img', 'email', 'opened.svg'),
+	'auto-login': path.join(__dirname, '../img', 'actions', 'auto-login.svg'),
+	warning: path.join(__dirname, '../img', 'settings', 'warning.svg'),
+	check: path.join(__dirname, '../img', 'checkmarktick.svg'),
+	'toggle-filelist': path.join(__dirname, '../img', 'actions', 'toggle-filelist.svg'),
+	'toggle-pictures': path.join(__dirname, '../img', 'actions', 'toggle-pictures.svg'),
+	restore: path.join(__dirname, '../img', 'actions', 'restore.svg'),
+	'cut-paste': path.join(__dirname, '../img', 'actions', 'cut-paste.svg'),
+	'compress-zip': path.join(__dirname, '../img', 'actions', 'compress-zip.svg'),
+	richdocuments: path.join(__dirname, '../img', 'actions', 'richdocuments.svg'),
+	alert: path.join(__dirname, '../img', 'rich-workspace', 'warning.svg'),
+	bold: path.join(__dirname, '../img', 'rich-workspace', 'bold.svg'),
+	checklist: path.join(__dirname, '../img', 'rich-workspace', 'checklist.svg'),
+	callout: path.join(__dirname, '../img', 'rich-workspace', 'callout.svg'),
+	code: path.join(__dirname, '../img', 'rich-workspace', 'code.svg'),
+	emoji: path.join(__dirname, '../img', 'rich-workspace', 'emoji.svg'),
+	h1: path.join(__dirname, '../img', 'rich-workspace', 'h1.svg'),
+	h2: path.join(__dirname, '../img', 'rich-workspace', 'h2.svg'),
+	h3: path.join(__dirname, '../img', 'rich-workspace', 'h3.svg'),
+	h4: path.join(__dirname, '../img', 'rich-workspace', 'h4.svg'),
+	h5: path.join(__dirname, '../img', 'rich-workspace', 'h5.svg'),
+	h6: path.join(__dirname, '../img', 'rich-workspace', 'h6.svg'),
+	image: path.join(__dirname, '../img', 'rich-workspace', 'image.svg'),
+	italic: path.join(__dirname, '../img', 'rich-workspace', 'italic.svg'),
+	ol: path.join(__dirname, '../img', 'rich-workspace', 'ol.svg'),
+	quote: path.join(__dirname, '../img', 'rich-workspace', 'quote.svg'),
+	redo: path.join(__dirname, '../img', 'rich-workspace', 'redo.svg'),
+	strikethrough: path.join(__dirname, '../img', 'rich-workspace', 'strikethrough.svg'),
+	success: path.join(__dirname, '../img', 'rich-workspace', 'success.svg'),
+	table: path.join(__dirname, '../img', 'rich-workspace', 'table.svg'),
+	'table-settings': path.join(__dirname, '../img', 'rich-workspace', 'table-settings.svg'),
+	ul: path.join(__dirname, '../img', 'rich-workspace', 'ul.svg'),
+	underline: path.join(__dirname, '../img', 'rich-workspace', 'underline.svg'),
+	undo: path.join(__dirname, '../img', 'rich-workspace', 'undo.svg'),
+	'text-link': path.join(__dirname, '../img', 'rich-workspace', 'link.svg'),
+	'text-file': path.join(__dirname, '../img', 'rich-workspace', 'file.svg'),
+	albums: path.join(__dirname, '../img', 'media', 'albums.svg'),
+	'all-media': path.join(__dirname, '../img', 'media', 'all-media.svg'),
+	camera: path.join(__dirname, '../img', 'device', 'camera.svg'),
+	'photo-camera': path.join(__dirname, '../img', 'device', 'photo-camera.svg'),
+	'hide-menu': path.join(__dirname, '../img', 'actions', 'hide-menu.svg'),
+	'photos-videos': path.join(__dirname, '../img', 'media', 'photos-videos.svg'),
+	appearance: path.join(__dirname, '../img', 'settings', 'appearance.svg'),
+	'arrow-previous': path.join(__dirname, '../img', 'back-nav.svg'),
+	'arrow-next': path.join(__dirname, '../img', 'breadcrumb-arrow.svg'),
 }
 
 const iconsColor = {
 	starred: {
-		path: path.join(__dirname, '../img', 'actions', 'star-dark.svg'),
+		path: path.join(__dirname, '../img', 'actions', 'starred.svg'),
 		color: 'yellow',
+	},
+	'delete-starred': {
+		path: path.join(__dirname, '../img', 'actions', 'delete.svg'),
+		color: 'warning',
 	},
 	file: {
 		path: path.join(__dirname, '../img', 'filetypes', 'text.svg'),
@@ -110,6 +170,22 @@ const iconsColor = {
 	checkmark: {
 		path: path.join(__dirname, '../img', 'email', 'checkmark.svg'),
 		color: 'magenta',
+	},
+	info: {
+		path: path.join(__dirname, '../img', 'rich-workspace', 'callout.svg'),
+		color: 'info',
+	},
+	success: {
+		path: path.join(__dirname, '../img', 'rich-workspace', 'success.svg'),
+		color: 'success',
+	},
+	warning: {
+		path: path.join(__dirname, '../img', 'rich-workspace', 'warning.svg'),
+		color: 'warning',
+	},
+	danger: {
+		path: path.join(__dirname, '../img', 'rich-workspace', 'danger.svg'),
+		color: 'danger',
 	},
 }
 

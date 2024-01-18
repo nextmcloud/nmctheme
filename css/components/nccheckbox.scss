@@ -1,32 +1,18 @@
 // checkbox button styling
 span.checkbox-radio-switch.checkbox-radio-switch-checkbox {	
-	// do not set background color when on hover
-	&:not(.checkbox-radio-switch--disabled) {
-		.checkbox-radio-switch__label:hover, .checkbox-radio-switch__label:focus-within {
-			background-color: initial;
-		}
-	}
-
-	// do not set background color when on focus
-	&.checkbox-radio-switch, &.checkbox-radio-switch--checked {
-		&:focus-within .checkbox-radio-switch__label {
-			background-color: initial;
-		}
-	}
-
 	// on hover unchecked inputs
 	&:not(.checkbox-radio-switch--checked):hover .checkbox-radio-switch__icon {
 		color: var(--telekom-color-ui-regular);
 	}
 
 	.checkbox-radio-switch__label {
-		// override min-height of checkbox
-		min-height: auto;
-		padding: 0px;
+		&::after {
+			display: none;
+		}
 		// replace box svg with custom element
 		.material-design-icon {
-			width: 16px;
-			height: 16px;
+			width: 20px;
+			height: 20px;
 
 			// hide original box icon
 			svg {
@@ -38,7 +24,7 @@ span.checkbox-radio-switch.checkbox-radio-switch-checkbox {
 				height: 14px;
 				width: 14px;
 				border-radius: var(--telekom-radius-small);
-				border: 1px solid #191919;
+				border: 1px solid var(--color-border-maxcontrast);
 			}
 	
 			// radio button is checked
@@ -67,41 +53,24 @@ span.checkbox-radio-switch.checkbox-radio-switch-checkbox {
 	}
 }
 
-@media (prefers-color-scheme: dark) {    
-	span.checkbox-radio-switch.checkbox-radio-switch-checkbox {
-		// set unchecked inputs to be white
-		&:not(.checkbox-radio-switch--checked) .checkbox-radio-switch__icon {
-			span.material-design-icon {
-				color: var(--telekom-color-ui-white);
-			}
-		}
-	}
-}
-
 // radio button styling
-span.checkbox-radio-switch.checkbox-radio-switch-radio {
+span.checkbox-radio-switch-radio.checkbox-radio-switch {
 
-	// do not set background color when hovered or focused
-	&:not(.checkbox-radio-switch--disabled) {
+	// change indicator color when hovered or focused
+	&:not(&--disabled) {
 		.checkbox-radio-switch__label:hover, .checkbox-radio-switch__label:focus-within {
-			background-color: initial;
-		}
-	}
-
-	// do not set background color when focused
-	&.checkbox-radio-switch, &.checkbox-radio-switch--checked {
-		&:focus-within .checkbox-radio-switch__label {
-			background-color: initial;
+			.material-design-icon::before {
+				border-color: var(--telekom-color-primary-standard);
+				cursor: pointer;
+			}
 		}
 	}
 
 	label.checkbox-radio-switch__label {
-		min-height: auto;
-		padding: 0px;
-
+		margin: 0;
+		
 		// replace circle svg with custom element
 		.material-design-icon {
-			width: 18px;
 
 			// hide original circle icon
 			svg {
@@ -110,40 +79,61 @@ span.checkbox-radio-switch.checkbox-radio-switch-radio {
 	
 			&::before {
 				content: '';
-				height: 14px;
-				width: 14px;
+				height: 18px;
+				width: 18px;
 				border-radius: 50%;
-				border: 1px solid #191919;
+				border: var(--telekom-line-weight-standard) solid var(--color-border-maxcontrast);
 			}
 	
 			// radio button is checked
 			&.radiobox-marked-icon::before {
-				box-shadow: inset 0px 0px 0px 5px var(--telekom-color-primary-standard);
+				background-color: var(--telekom-color-primary-standard);
+				box-shadow: inset 0px 0px 0px 3px var(--telekom-color-text-and-icon-inverted-standard);
 				border-color: var(--telekom-color-primary-standard);
 			}
 		}
+	}
+}
 
-		// color indicator when label is hovered
-		&:hover {
-			.material-design-icon::before {
-				border-color: var(--telekom-color-primary-standard);
-				cursor: pointer;
+span.checkbox-radio-switch-radio.checkbox-radio-switch, .checkbox-radio-switch-checkbox.checkbox-radio-switch {
+	&:not(&--disabled, &--checked):focus-within .checkbox-radio-switch__label,
+	&:not(&--disabled, &--checked) .checkbox-radio-switch__label:hover {
+		background-color: initial;
+	}
+
+	&--checked:not(&--disabled):focus-within .checkbox-radio-switch__label,
+	&--checked:not(&--disabled) .checkbox-radio-switch__label:hover {
+		background-color: initial;
+	}
+
+	// override min-height of checkbox
+	label.checkbox-radio-switch__label {
+		min-height: auto;
+		padding: 0px;
+	}
+
+	// if checked and disabled color them gray
+	&.checkbox-radio-switch--checked.checkbox-radio-switch--disabled {
+		label.checkbox-radio-switch__label {
+			.checkbox-radio-switch__icon {
+				.material-design-icon::before {
+					box-shadow: inset 0px 0px 0px 5px var(--telekom-color-ui-disabled);
+					border-color: var(--telekom-color-ui-border-disabled);
+				}
 			}
 		}
 	}
 
 	// disabled checkbox style
-	&.checkbox-radio-switch--disabled {
+	&--disabled {
 		label.checkbox-radio-switch__label:hover {
 			cursor: not-allowed;
 			.material-design-icon::before {
 				cursor: not-allowed;
-				border-color: initial;
 			}
 			.checkbox-radio-switch__label-text {
 				cursor: not-allowed;
 			}
 		}
 	}
-
 }

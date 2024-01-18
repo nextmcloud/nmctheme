@@ -43,8 +43,8 @@ class LanguageIteratorDecorator implements ILanguageIterator {
 		}
 	}
 
-	public function next(): bool {
-		return $this->decorated->next();
+	public function next(): void {
+		$this->decorated->next();
 	}
 
 	public function key(): int {
@@ -107,7 +107,7 @@ class FactoryDecorator implements IFactory {
 		$supportedLocales = $this->config->getSystemValue('nmc_supported_locales', false);
 		if (is_array($supportedLocales)) {
 			// the default en must be always supported
-			$this->supported_locales = array_unique(array_merge($supportedLocales, ['en', 'en_GB']));
+			$this->supported_locales = array_unique(array_merge($supportedLocales, ['en_GB']));
 		}
 	}
 

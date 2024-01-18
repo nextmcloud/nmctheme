@@ -5,11 +5,11 @@
 			<!-- eslint-disable-next-line vue/no-v-html -->
 			<p v-html="storageStatsTitle" />
 		</div>
-		<ProgressBar :percentage="memoryUsage" />
-		<p v-if="memoryUsage > 0">
+		<ProgressBar :percentage="memoryUsed" />
+		<p v-if="memoryUsed > 0">
 			{{ t('nmctheme', 'Memory used up to {memoryUsage}%', { memoryUsage }) }}
 		</p>
-		<a class="storage-quota__link"
+		<a class="button-vue--vue-secondary storage-quota__link"
 			target="_blank"
 			rel="noopener"
 			href="https://cloud.telekom-dienste.de/tarife">
@@ -26,7 +26,7 @@ import { throttle, debounce } from 'throttle-debounce'
 import { generateUrl } from '@nextcloud/router'
 import ProgressBar from './ProgressBar.vue'
 import axios from '@nextcloud/axios'
-import { translate } from '@nextcloud/l10n'
+import { translate, getCanonicalLocale } from '@nextcloud/l10n'
 
 export default {
 	components: {
@@ -40,8 +40,8 @@ export default {
 	},
 	computed: {
 		formattedStats() {
-			const usedQuotaByte = formatFileSize(this.storageStats?.used, false, true)
-			const quotaByte = formatFileSize(this.storageStats?.quota, false, true)
+			const usedQuotaByte = formatFileSize(this.storageStats?.used, false, true).replace(/iB/g, 'B')
+			const quotaByte = formatFileSize(this.storageStats?.quota, false, true).replace(/iB/g, 'B')
 			return { usedQuotaByte, quotaByte }
 		},
 		storageStatsTitle() {
@@ -53,8 +53,11 @@ export default {
 
 			return `<b>${usedQuotaByte}</b> ${t('nmctheme', 'of')} ${quotaByte}`
 		},
-		memoryUsage() {
+		memoryUsed() {
 			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toFixed(2)
+		},
+		memoryUsage() {
+			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toFixed(2).toLocaleString(getCanonicalLocale())
 		},
 	},
 	beforeMount() {
@@ -129,13 +132,8 @@ export default {
 	&__link {
 		width: fit-content;
 		padding: 0.5rem 1.5rem;
-		border-radius: var(--telekom-radius-small);
 		font: var(--telekom-text-style-body);
-		border: 1px solid #191919;
-		&:hover {
-			border-color: var(--telekom-color-primary-standard);
-			color: var(--telekom-color-primary-standard);
-		}
+		font-weight: bold;
 	}
 }
 </style>

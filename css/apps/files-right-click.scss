@@ -1,0 +1,101 @@
+@import '../_mixins.scss';
+
+// add current style to right click menu, to the '...' and 'Add' buttons in filetable
+#rightClickMenu,
+.fileActionsMenu,
+.newFileMenu {
+	padding: 20px 8px;
+	background-color: var(--telekom-color-background-surface);
+
+	ul li {
+
+		.menu-option,
+		.menuitem,
+		.customitem {
+			gap: 8px;
+			padding: 8px 14px 8px 16px;
+			line-height: 26px;
+
+			span.icon {
+				padding: 26px 0 0 26px;
+				background-position: center;
+				background-size: 24px;
+
+				&.icon-external {
+					background-image: var(--icon-cut-paste-dark);
+				}
+
+				&.icon-goto {
+					background-image: var(--icon-folder-dark);
+				}
+			}
+
+			// hide 'details' and 'edit locally' buttons in the right click menu and '...' button
+			&.option-editlocally,
+			&.option-details,
+			&.action-editlocally,
+			&.action-details {
+				display: none;
+			}
+
+			&:hover {
+				background-color: initial;
+				color: var(--nmc-color-text-and-icon-primary-standard);
+
+				// color every icon except starred and filetype ones
+				.icon:not(.icon-starred, [class*="icon-filetype"]) {
+					filter: var(--nmc-color-icon)
+				}
+			}
+
+			&:focus,
+			&:active,
+			&:focus-visible {
+				box-shadow: none;
+			}
+		}
+	}
+}
+
+// style overrides for '...' button in filetable
+#app-content {
+	.fileActionsMenu .menuitem {
+		padding: 8px 14px 8px 16px !important;
+
+		.icon {
+			background-size: 24px;
+		}
+
+		// Edit locally has an img instead of span
+		&.action-editlocally img {
+			padding: 2px;
+			width: 26px;
+			height: 26px;
+		}
+	}
+}
+
+// override global nextcloud hover styles
+body .icon-delete:hover {
+	background-image: var(--icon-delete-dark);
+}
+
+body .icon-starred:hover {
+	background-image: var(--icon-starred-yellow);
+}
+
+body .icon-rename {
+	background-image: var(--icon-edit-dark);
+}
+
+body .icon-favorite {
+	background-image: var(--icon-star-dark);
+}
+
+body .icon-zip {
+	background-image: var(--icon-compress-zip-dark);
+}
+
+body .icon-richdocuments {
+	background-image: var(--icon-richdocuments-dark);
+}

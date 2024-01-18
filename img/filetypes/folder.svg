@@ -1,1 +1,35 @@
-<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 108"><defs><style>.cls-1{fill:#53baf2;}.cls-2{fill:#317cb3;isolation:isolate;opacity:0.25;}.cls-3{fill:url(#Unbenannter_Verlauf_12);}</style><linearGradient id="Unbenannter_Verlauf_12" x1="-134.95" y1="-139.18" x2="-134.95" y2="-189.21" gradientTransform="translate(198.95 222.55)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#53baf2"/><stop offset="1" stop-color="#7ecbf5"/></linearGradient></defs><g id="Icons"><path class="cls-1" d="M51.14,24.43H30.57A2.58,2.58,0,0,0,28,27v6.43H60.14Z"/><path class="cls-2" d="M51.14,24.43H30.57A2.58,2.58,0,0,0,28,27v6.43H60.14Z"/><path class="cls-3" d="M97.43,33.43H28V81a2.58,2.58,0,0,0,2.57,2.57H97.43A2.58,2.58,0,0,0,100,81V36A2.58,2.58,0,0,0,97.43,33.43Z"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 72 72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #53baf2;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: url(#Unbenannter_Verlauf_12);
+      }
+
+      .cls-3 {
+        fill: #317cb3;
+        isolation: isolate;
+        opacity: .25;
+      }
+    </style>
+    <linearGradient id="Unbenannter_Verlauf_12" data-name="Unbenannter Verlauf 12" x1="-162.95" y1="-157.18" x2="-162.95" y2="-207.21" gradientTransform="translate(198.95 222.55)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#53baf2"/>
+      <stop offset="1" stop-color="#7ecbf5"/>
+    </linearGradient>
+  </defs>
+  <g id="Icons">
+    <g>
+      <path class="cls-1" d="m23.14,6.43H2.57c-1.41,0-2.57,1.16-2.57,2.57v6.43h32.14l-9-9Z"/>
+      <path class="cls-3" d="m23.14,6.43H2.57c-1.41,0-2.57,1.16-2.57,2.57v6.43h32.14l-9-9Z"/>
+      <path class="cls-2" d="m69.43,15.43H0v47.57c0,1.41,1.16,2.57,2.57,2.57h66.86c1.41,0,2.57-1.16,2.57-2.57V18c0-1.41-1.16-2.57-2.57-2.57Z"/>
+    </g>
+  </g>
+</svg>

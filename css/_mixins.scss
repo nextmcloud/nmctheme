@@ -1,6 +1,31 @@
-@mixin color-icon {
-	filter: invert(14%) sepia(83%) saturate(3815%) hue-rotate(313deg) brightness(89%) contrast(127%);
+@mixin darkmode-modal {
+    background-color: var(--telekom-color-background-surface);
+}
+
+@mixin color-icon-red {
+	filter: invert(21%) sepia(37%) saturate(6447%) hue-rotate(357deg) brightness(98%) contrast(99%);
 	@media (prefers-color-scheme: dark) {    
-		filter: brightness(0) saturate(100%) invert(14%) sepia(83%) saturate(3815%) hue-rotate(313deg) brightness(89%) contrast(127%);
+		filter: invert(30%) sepia(89%) saturate(7365%) hue-rotate(358deg) brightness(95%) contrast(92%);
 	}
+}
+
+// Scale primary button style
+@mixin primary-button {
+    border: none;
+    border-radius: var(--telekom-radius-standard);
+    background-color: var(--telekom-color-primary-standard);
+    color: var(--telekom-color-text-and-icon-white-standard);
+
+    &:hover:not(:disabled) {
+        background-color: var(--telekom-color-primary-hovered);
+    }
+
+    &:active {
+        background-color: var(--telekom-color-primary-pressed);
+    }
+
+    &:disabled {
+        background-color: var(--telekom-color-ui-disabled);
+        color: var(--telekom-color-text-and-icon-disabled);
+    }
 }

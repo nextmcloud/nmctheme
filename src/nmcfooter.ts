@@ -12,7 +12,7 @@ const footerContent = `
     <div id="notice">${copyright}</div>
     <ul id="navigation">
         <li><a href="https://static.magentacloud.de/licences/webui.htm" target="_blank" rel="noreferrer noopener">${opensource}</a>
-        <li><a href="http://www.telekom.de/impressum" target="_blank" rel="noreferrer noopener">${impressum}</a></li>
+        <li><a href="https://www.telekom.de/impressum" target="_blank" rel="noreferrer noopener">${impressum}</a></li>
         <li><a href="https://static.magentacloud.de/Datenschutz" target="_blank" rel="noreferrer noopener">${dataprotection}</a>
         </li>
         <li><a href="https://cloud.telekom-dienste.de/hilfe" target="_blank" rel="noreferrer noopener">${faq}</a></li>

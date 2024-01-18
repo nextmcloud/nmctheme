@@ -29,7 +29,7 @@ class Magenta implements ITheme {
 	}
 
 	public function getId(): string {
-		return 'magenta25';
+		return 'default';
 	}
 
 	public function getType(): int {
@@ -37,15 +37,15 @@ class Magenta implements ITheme {
 	}
 
 	public function getTitle(): string {
-		return $this->l->t('MagentaCLOUD');
+		return $this->l->t('System Design (Standard)');
 	}
 
 	public function getEnableLabel(): string {
-		return $this->l->t('Enable MagentaCLOUD default.');
+		return $this->l->t('Enable system design');
 	}
 
 	public function getDescription(): string {
-		return $this->l->t('MagentaCLOUD new style for NC25 ff.');
+		return $this->l->t('MagentaCLOUD adapts to the settings of your system.');
 	}
 
 	public function getMediaQuery(): string {
@@ -57,7 +57,6 @@ class Magenta implements ITheme {
 		$logoPath = $this->urlGenerator->imagePath('nmctheme', 'telekom/tlogocarrier.svg');
 		return [
 			'--image-favicon' => "url('" . $favIconPath . "')",
-			#            '--image-logo' =>  "url('" . $logoPath . "')",
 			'--image-logoheader' => "url('" . $logoPath . "')"
 		];
 	}

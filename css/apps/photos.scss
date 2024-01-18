@@ -1,0 +1,556 @@
+@import '../mixins';
+@import '../variables';
+
+.app-photos {
+	#app-content-vue {
+		.photos-navigation {
+			&__title__main {
+				font-size: 32px;
+			}
+
+			// hide 'Add' button breadcrumbs for all menu pages,
+			// unless it is for "Create a new album"/ "Ein neues Album erstellen."
+			&__content button:not([aria-label*='lbum']) {
+				display: none;
+			}
+
+			&__content-right {
+				margin-left: 8px;
+				// disable Share button for Albums, does not apply to empty album
+				form.upload-picker+button.button-vue--icon-only {
+					display: none;
+				}
+
+				// disable Share button for Albums incl. for empty Albums (not supported by Firefox)
+				button > .button-vue__wrapper > .button-vue__icon:has(span.share-variant-icon),
+				button:not(.action-item__menutoggle) {
+					display: none;
+				}
+			}
+
+			// 'Add', 'Add to album', 'Unselect all' and '...' buttons
+			&__content button,
+			&__content-right button {
+				all: unset;
+
+				.plus-icon {
+					border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
+					border-radius: 50%;
+				}
+
+				svg,
+				.button-vue__text {
+					color: var(--telekom-color-text-and-icon-primary-standard);
+				}
+
+				&:hover {
+					background-color: initial;
+
+					.plus-icon {
+						border: 1px solid var(--telekom-color-text-and-icon-primary-hovered);
+					}
+
+					svg,
+					.button-vue__text {
+						color: var(--telekom-color-text-and-icon-primary-hovered);
+					}
+				}
+			}
+		}
+
+		.files-list-viewer.timeline__file-list {
+			padding: 0 32px;
+
+			// Date container
+			.files-list-viewer__section-header {
+				height: auto !important;
+
+				h3 {
+					margin: 32px 0 8px;
+				}
+			}
+
+			li {
+				// prevent stretching a low number of photos in line to fill it
+				flex-grow: 0;
+
+				// new play icon for videos
+				span.video-icon {
+					background-image: var(--icon-play-video-white);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 32px;
+
+					svg {
+						display: none;
+					}
+				}
+
+				span.star-icon {
+					background-image: var(--icon-starred-yellow);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 24px;
+					width: 24px;
+					height: 24px;
+
+					svg {
+						display: none;
+					}
+				}
+			}
+		}
+
+		// grid view of files and folders
+		.grid-container .grid {
+			.grid-item-wrapper {
+				.folder {
+					border: 1px solid var(--telekom-color-functional-informational-subtle);
+
+					&:active,
+					&:hover,
+					&:focus {
+						.folder-name {
+							opacity: 1;
+						}
+					}
+
+					.folder-name {
+						transition: none;
+						row-gap: 1rem;
+
+						// replace standart folder icon
+						span.icon-folder {
+							background-image: var(--icon-mime-folder-dark);
+							opacity: 1;
+						}
+
+						&__name {
+							color: var(--color-text-light);
+							font-weight: bold;
+							text-shadow: none;
+						}
+					}
+
+					.cover {
+						transition: none;
+						opacity: 0;
+					}
+
+					.folder-content {
+						display: none;
+					}
+				}
+
+				.file {
+					.cover {
+						transition: none;
+					}
+				}
+			}
+		}
+
+		// 'Albums' page
+		.collections.albums-list {
+
+			.collections__list {
+				justify-content: normal;
+			}
+
+			.collection-cover {
+				border-radius: 0;
+
+				&__image {
+					border-radius: 0;
+					width: 250px;
+					height: 250px;
+
+					&--placeholder {
+
+						// empty album icon
+						span.image-multiple-icon {
+							background-image: var(--icon-albums-dark);
+							background-repeat: no-repeat;
+							background-position: center;
+							background-size: 96px;
+							background-color: #f2f2f2;
+
+							svg {
+								display: none;
+							}
+						}
+					}
+				}
+
+				&__details {
+					width: 250px;
+
+					&__title .album__name {
+						line-height: normal;
+						font-weight: bold;
+						margin-bottom: 4px;
+					}
+
+					&__subtitle .album__details {
+						color: var(--color-main-text);
+					}
+				}
+			}
+
+			// 'No albums' page
+			.empty-content {
+				&__icon {
+					width: 120px;
+					height: 120px;
+
+					span.folder-multiple-image-icon {
+						svg {
+							display: none;
+						}
+
+						background-image: var(--icon-albums-dark);
+						width: 100%;
+						height: 100%;
+						background-size: 120px;
+						background-repeat: no-repeat;
+						background-position: center;
+					}
+				}
+			}
+
+			&__title {
+				line-height: normal;
+				margin-top: 24px;
+			}
+		}
+
+		// 'Albums' - empty album page
+		.empty-content {
+			&__icon {
+				opacity: 1;
+				width: 120px;
+				height: 120px;
+				margin-bottom: 0;
+
+				span.image-plus-icon {
+					svg {
+						display: none;
+					}
+
+					background-image: var(--icon-all-media-dark);
+					width: 100%;
+					height: 100%;
+					background-size: 120px;
+					background-repeat: no-repeat;
+					background-position: center;
+
+				}
+			}
+
+			&__title {
+				line-height: normal;
+				margin-top: 24px;
+				margin-bottom: 32px;
+			}
+
+			&__action {
+				margin: 0;
+
+				button.album__empty__button {
+					margin: 0;
+				}
+			}
+		}
+	}
+
+	// sidebar navigation
+	#app-navigation-vue {
+
+		// toggle button icon change
+		&.app-navigation {
+			button.app-navigation-toggle {
+				span.menu-open-icon {
+					background-image: var(--icon-hide-menu-dark);
+					width: 100%;
+					height: 100%;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 24px;
+
+					svg {
+						display: none;
+					}
+				}
+			}
+		}
+
+		.app-navigation__content {
+			ul.app-navigation__list {
+				padding: 4rem 1.5rem 1.5rem;
+
+				li.app-navigation-entry-wrapper {
+
+					& > .app-navigation-entry:has(a[title="Shared with you"]),
+					& > .app-navigation-entry:has(a[title="Mit Ihnen geteilt"]) {
+						display: none;
+					}
+
+					&[data-id-app-nav-item="shared-albums"],
+					&[data-id-app-nav-item="faces"],
+					&[data-id-app-nav-item="this-day"],
+					&[data-id-app-nav-item="shared"],
+					&[data-id-app-nav-item="maps"] {
+						display: none;
+					}
+
+					.app-navigation-entry-icon {
+						background-image: none;
+
+						span.material-design-icon {
+							width: 44px;
+							height: 44px;
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: 24px;
+
+							svg {
+								display: none;
+							}
+
+							&.star-icon {
+								background-image: var(--icon-star-dark);
+							}
+
+							&.folder-icon {
+								background-image: var(--icon-folder-dark);
+							}
+
+							&.camera-icon {
+								background-image: var(--icon-photo-camera-dark);
+							}
+
+							&.video-icon {
+								background-image: var(--icon-camera-dark);
+							}
+
+							&.folder-multiple-image-icon {
+								background-image: var(--icon-albums-dark);
+							}
+
+							&.image-icon {
+								background-image: var(--icon-photos-videos-dark);
+							}
+
+							&.share-variant-icon {
+								background-image: var(--icon-attachment-dark);
+							}
+						}
+					}
+				}
+
+			}
+
+			// contains 'Photos settings' button
+			&>li.app-navigation-entry-wrapper {
+				display: none;
+			}
+		}
+
+	}
+}
+
+// New album modal window
+.modal-container {
+	form.album-form {
+		height: auto;
+		padding: 50px 50px 24px 24px;
+
+		div.form-inputs {
+
+			// 'Name of the album' input field
+			.input-field {
+				margin-bottom: 1rem;
+			}
+
+			// hide 'Location of the album' input
+			&>label {
+				display: none;
+			}
+		}
+
+		.form-buttons {
+			.right-buttons {
+
+				// Hide 'Add collaborators' button 
+				.button-vue--vue-secondary {
+					display: none;
+				}
+
+				// 'Create album' button
+				.button-vue--vue-primary {
+					margin: 0 !important;
+
+					.button-vue__icon {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+#body-user .modal-header {
+	h2.modal-title {
+		display: none;
+	}
+}
+
+// Add Photos to the album modal window
+#body-user .modal-container {
+	background-color: var(--telekom-color-background-surface);
+
+	button.modal-container__close {
+		z-index: 10;
+
+		&:hover:not(:disabled) {
+			.close-icon {
+				filter: var(--nmc-color-icon)
+			}
+
+			background-color: initial;
+		}
+
+		.close-icon {
+			background-image: var(--icon-close-dark);
+			background-position: center;
+			background-repeat: no-repeat;
+			height: 100%;
+			width: 100%;
+
+			svg {
+				display: none;
+			}
+		}
+	}
+
+	.file-picker {
+		&+button.modal-container__close {
+			margin-right: 1.3rem;
+			margin-top: 0.5rem;
+		}
+
+		&__actions {
+			flex-direction: row-reverse;
+
+			.upload-picker {
+				display: none;
+			}
+
+			button {
+				&:disabled {
+					& .material-design-icon.image-plus-icon {
+						background-image: var(--icon-add-dark);
+					}
+				}
+
+				& .material-design-icon.image-plus-icon {
+					background-image: var(--original-icon-add-white);
+					width: 44px;
+					height: 44px;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 24px;
+				}
+
+				svg {
+					display: none;
+				}
+			}
+		}
+
+		// Tiled Photos view
+		&__file-list.files-list-viewer {
+			.files-list-viewer__section-header {
+				background-color: var(--telekom-color-background-surface);
+			}
+			div.file-container {
+				&::after {
+					display: none;
+				}
+
+				.checkbox-radio-switch {
+					// make unchecked checkboxes always visible
+					display: block;
+					visibility: visible;
+
+					// restyle unchecked checkboxes 
+					&__label {
+						.material-design-icon::before {
+							background-color: white;
+						}
+
+						&:hover {
+							.material-design-icon::before {
+								border-color: black;
+							}
+						}
+					}
+
+					// checked checkboxes will be green
+					&--checked {
+						.checkbox-radio-switch__label:before {
+							content: "";
+							background-image: var(--original-icon-check-white);
+							background-color: var(--telekom-color-text-and-icon-functional-success);
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: 18px;
+							border: none;
+							border-radius: var(--telekom-radius-circle);
+							height: 1.5rem;
+							width: 1.5rem;
+							margin: -2px -2px 0 0;
+						}
+						.checkbox-marked-icon {
+							display: none;
+						}
+					}
+				}
+
+				span.star-icon {
+					background-image: var(--icon-starred-yellow);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 18px;
+					width: 24px;
+					height: 24px;
+
+					svg {
+						display: none;
+					}
+				}
+			}
+		}
+
+		&__navigation {
+			flex-basis: 248px;
+			border-right: 2px solid var(--nmc-color-background-hover);
+
+			&__month {
+				border-radius: var(--telekom-radius-standard);
+				height: 44px;
+				text-align: left;
+				display: flex;
+				align-items: center;
+
+				&.selected,
+				&:not(.selected):hover {
+					background-color: var(--nmc-color-background-hover);
+					color: var(--color-primary);
+				}
+			}
+		}
+	}
+
+
+}

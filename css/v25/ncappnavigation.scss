@@ -1,6 +1,5 @@
-@import '../_mixins.scss';
-
-$breakpoint-mobile: 1024px;
+@import '../mixins.scss';
+@import '../variables';
 
 /**
 * Sidebar navigation styling for v25
@@ -10,7 +9,7 @@ $breakpoint-mobile: 1024px;
 	// hide scrollbar which appears due to incorrect container height
 	overflow: hidden;
 	backdrop-filter: none;
-
+	border-top-left-radius: 0;
 	// add vertical line to demarcate app navigation
 	border-right: 1px solid var(--telekom-color-ui-faint);
 	
@@ -24,6 +23,11 @@ $breakpoint-mobile: 1024px;
 	}
 
 	& > ul > li {
+		// remove already hidden from DOM so they won't take up space
+		&.hidden-visually{
+			display: none;
+		}
+
 		font: var(--telekom-text-style-ui-bold);
 		margin-bottom: var(--telekom-spacing-composition-space-03);
 
@@ -47,10 +51,11 @@ $breakpoint-mobile: 1024px;
 		}
 
 		& > a:hover,  & > a.active, &.active > a {
-			color: var(--color-hover);
-			background-color: #EDEDED;
-			&::after {
-				@include color-icon;
+			color: var(--telekom-color-text-and-icon-primary-standard);
+			background-color: var(--nmc-color-background-hover);
+
+			&::after, img {
+				filter: var(--nmc-color-icon)
 			}
 		}
 
@@ -90,6 +95,9 @@ $breakpoint-mobile: 1024px;
 	.nav-icon-favorites::after {
 		background-image: var(--icon-star-dark);
 	}
+	.nav-icon-favorites-starred::after {
+		background-image: var(--icon-starred-yellow);
+	}
 	.nav-icon-shareoverview::after {
 		background-image: var(--icon-share-dark);
 	}
@@ -99,6 +107,15 @@ $breakpoint-mobile: 1024px;
 	.nav-icon-trashbin::after {
 		background-image: var(--icon-delete-dark);
 	}
+	.nav-icon-trashbin-starred::after {
+		background-image: var(--icon-delete-starred-warning);
+	}
+	.nav-icon-sharingout::after {
+		background-image: var(--icon-share-dark);
+	}
+	.nav-icon-sharingin::after {
+		background-image: var(--icon-attachment-dark);
+	}
 
 	// hide nextcloud Storage quota element
 	#quota {
@@ -106,7 +123,7 @@ $breakpoint-mobile: 1024px;
 	}
 }
 
-@media screen and (max-width: $breakpoint-mobile) {
+@media screen and (max-width: 1023px) {
 	
 	#app-navigation:not(.vue) {
 		border-radius: 0;

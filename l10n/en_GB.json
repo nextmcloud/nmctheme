@@ -1,137 +1,205 @@
-{ "core": { "translations": {
-    "File conflict" : "File conflict",
-    "The file nextcloud.log already exist in the location." : "The file {filename} already exist in the location.",
-    "Do you want to replace it with files you're moving?" : "Do you want to replace it with files you're moving?",
-    "Keep both files": "Keep both files",
-    "More details" : "More details",
-    "Replace file" : "Replace file",
-    "The file {filename} already exist in the location." : "The file {filename} already exist in the location.",
-    "The files already exist in the location." : "The files already exist in the location.",
-    "{conflictCount} File conflicts" : "{conflictCount} File conflicts",
-    "Keep both files for all" : "Keep both files for everybody",
-    "Replace all files" : "Replace all files",
-    "Search": "Search"
-    }, "pluralForm": "nplurals=2; plural=(n != 1);" }, 
-  "dav": { "translations": {
-    "Expected filesize of %1$s but read (from Nextcloud client) and wrote (to Nextcloud storage) %2$s. Could either be a network problem on the sending side or a problem writing to the storage on the server side." : "Expected filesize of %1$s but read (from MagentaCLOUD client) and wrote (to MagentaCLOUD storage) %2$s. Could either be a network problem on the sending side or a problem writing to the storage on the server side."
-    },"pluralForm" :"nplurals=2; plural=(n != 1);" },
-  "end_to_end_encryption": { "translations": {
-    "Reset End-to-End encryption" : "Reset encryption",
-    "Please read carefully before resetting your end-to-end encryption keys" : "Please read carefully before resetting your end-to-end encryption keys!",
-    "Once your end-to-end encryption keys are reset, all files stored in your encrypted folder will be inaccessible." : "Once your encryption keys are reset, all encrypted data will be inaccessible and will be also deleted.",
-    "You should only reset your end-to-end encryption keys if you lost your secure key words (mnemonic)." : "If you just forgot your passphrase, you can retrieve it in the MagentaCLOUD apps or desktop client. Key reset is not mandatory.",
-    "Check on all connected devices if you can retrieve your mnemonic." : "If you still want to reset the encryption even though your keys are still available in the apps or desktop clients, then remember to delete the keys also locally on the other devices.",
-    "Any still connected device might cause problems after deleting the keys, so it is better to disconnect and reconnect the devices again." : "Alternatively, after key reset, you can also set the apps to initial state and reconnect to your MagentaCLOUD account.",
-    "Confirm and reset End-to-End encryption" : "Confirm and reset",
-    "This is the final warning: Do you really want to reset your keys?" : "This the final warning: Do you really want to reset your encryption. Encrypted data are lost and will be deleted.",
-    "End-to-End encryption is currently enabled and correctly setup." : "End to end encryption is currently enabled.",
-    "Cancel" : "Cancel",
-    "Confirm" : "Confirm",
-    "End to end encryption is currently disabled. You can set it up with the {productName} clients." : "End-to-end encryption is currently disabled. You can set it up with MagentaCLOUD clients.",
-    "You are not allowed to lock the root": "The lock of your complete file tree by end2end encryption was prohibited by the system!"
-  },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-  "files": { "translations": {
-    "Crop image previews": "Crop image previews",
-    "My shares": "My shares",
-    "Shared with me": "Shared with me",
-    "All": "All",
-    "Toggle grid view" : "Toggle grid view",
-    "Display settings": "Display settings",
-    "Expand storage"  : "Expand storage",
-    "Memory used up to %s%%": "Memory used up to %s%%",
-    "of" : "von"
-    },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-  "files_sharing": { "translations": {
-        "Cancel" : "Cancel",
-        "Next" : "Next",
-        "Confirm" : "Confirm",
-        "Send share" : "Send share",
-        "Send email" : "Send email",
-        "Send new mail" : "Send new email",
-        "Read only" : "Read only",
-        "Read, write and upload" : "Can edit",
-        "File drop (upload only)" : "File drop only",
-        "Read and write" : "Can edit",
-        "Add link" : "Add link",
-        "Personal sharing via email" : "Personal sharing via email",
-        "Resharing is not allowed" : "Resharing is not allowed",
-        "Resharing is allowed." : "Resharing is allowed.",
-        "You can create links or send shares by mail. If you invite MagentaCLOUD users, you have more opportunities for collaboration." : "You can create links or send shares by mail. If you invite MagentaCLOUD users, you have more opportunities for collaboration.",
-        "Your shares" : "Your shares",
-        "No shares created yet." : "No shares created yet.",
-        "Advanced permission" : "Advanced permission",
-        "Advanced" : "Advanced",
-        "Permissions" : "Permissions",
-        "Shared by {owner}": "Shared by {owner}",
-        "With File drop, only uploading is allowed. Only you can see files and folders that have been uploaded." : "With File drop, only uploading is allowed. Only you can see files and folders that have been uploaded.",
-        "There are no editing functions for files shared with non-MagentaCLOUD users." : "There are no editing functions for files shared with non-MagentaCLOUD users.",
-        "The password is not sent with the email to maintain confidentiality." : "The password is not sent with the email to maintain confidentiality.",
-        "Received": "Received",
-        "Shared by": "Shared by",
-        "is Telekom's secure and free online storage. Ideal for your photos, videos and any other files you want to store securely. You can upload your data directly from your smartphone, tablet or PC, access it from anywhere and easily share it with family and friends.": "is Telekom's secure and free online storage. Ideal for your photos, videos and any other files you want to store securely. You can upload your data directly from your smartphone, tablet or PC, access it from anywhere and easily share it with family and friends.",
-        "Inform Now": "Get your information now!",
-        "The": "The",
-        "Add Link": "Add Link",
-        "Your Message": "Your Message",
-        "Your message": "Your message",
-        "You can attach a message to the share.": "You can attach a message to the share.",
-        "Share label": "Share label",
-        "The password must contain 10 characters and will not be sent with the mail to maintain confidentiality.": "The password must contain 10 characters and will not be sent with the mail to maintain confidentiality.",
-        "Link to file": "Link to file",
-        "Link to folder": "Link to folder",
-        "No recommendations. Start typing.": "No recommendation. Type.."
-    },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-    "files_trashbin": { "translations": {
-        "All": "All"
-      },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-    "files_zip":{ "translations": {
-        "Compress to Zip": "Compress to Zip",
-        "Archive": "Archive",
-        "Select a name for the Zip archive": "Select a name for the Zip archive",
-        "Compress files": "Create archive",
-        "File name": "File name",
-        "Cancel": "Cancel",
-        "Compress {files} file": "Compress {files} element",
-        "_Compress {files} file_::_Compress {files} files_" : ["{files} element to compress","{files} elements to compress"],
-        "Creating Zip archive started. We will notify you as soon as the archive is available.": "Creating zip archive started. The duration can differ depending on the volume.",
-        "An error happened when trying to compress the file.": "An error happened when trying to compress the file.",
-        "Your files have been stored as a Zip archive in {path}." : "Your files have been stored as a Zip archive in {path}."
-      },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-    "monthly_status_email": { "translations": {
-        "Regular mails": "Regular mails",
-        "Activity Report": "Activity Report",
-        "Monthly Status Report": "Monthly Status Report",
-        "The status report informs you monthly by email about storage space, your shares and gives you useful tips about the MagentaCLOUD.": "The status report informs you monthly by email about storage space, your shares and gives you useful tips about the MagentaCLOUD."
-      },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-    "richdocuments":  { "translations": {
-        "Edit with {productName}" : "Edit with Office",
-        "Open with {productName}" : "Open with Office"
-      },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-    "sharebymail": { "translations": {
-        "»%s« added a note to a file shared with you" : "%s has added a message to a file shared with you",
-        "%1$s shared »%2$s« with you and wants to add" : "%1$s shared '%2$s' with you and wants to add"
-    },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-    "text": { "translations": {
-        "Add Link": "Add Link"
-    },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-    "photos": { "translations": {
-        "Photos": "Fotos"
-    },"pluralForm" :"nplurals=2; plural=(n != 1);"},
-    "nmctheme": { "translations": {
-        "PhotosMedia": "Media",
-        "Search": "Search",
-        "Customer center": "Customer center",
-        "Account settings": "Settings",
-        "Copyright": "©Telekom Deutschland GmbH",
-        "OpenSource": "Open Source licenses",
-        "Impressum": "Impressum",
-        "Data protection": "Data protection",
-        "Faq": "Help & FAQ",
-        "Expand storage": "Expand storage",
-        "Memory used up to {memoryUsage}%": "Memory used up to {memoryUsage}&#x25;",
-        "of": "of",
-        "used": "used",
-        "Display settings": "Display settings",
-        "Show folder info text": "Show folder info text"
-    },"pluralForm" :"nplurals=2; plural=(n != 1);"}
+{
+  "core": {
+    "translations": {
+      "File conflict": "File conflict",
+      "The file nextcloud.log already exist in the location.": "The file {filename} already exist in the location.",
+      "Do you want to replace it with files you're moving?": "Do you want to replace it with files you're moving?",
+      "Keep both files": "Keep both files",
+      "More details": "More details",
+      "Replace file": "Replace file",
+      "The file {filename} already exist in the location.": "The file {filename} already exist in the location.",
+      "The files already exist in the location.": "The files already exist in the location.",
+      "{conflictCount} File conflicts": "{conflictCount} File conflicts",
+      "Keep both files for all": "Keep both files for everybody",
+      "Replace all files": "Replace all files",
+      "Search": "Search",
+      "Email": "E-Mail",
+      "Internal Server Error" : "Internal processing problems",
+      "The server was unable to complete your request." : "MagentaCLOUD is not able to serve your request.",
+      "If this happens again, please send the technical details below to the server administrator." : "It is possible that the system is not available. Please retry in a few minutes.",
+      "More details can be found in the server log." : "Your Telekom."
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "dav": {
+    "translations": {
+      "Expected filesize of %1$s but read (from Nextcloud client) and wrote (to Nextcloud storage) %2$s. Could either be a network problem on the sending side or a problem writing to the storage on the server side.": "Expected filesize of %1$s but read (from MagentaCLOUD client) and wrote (to MagentaCLOUD storage) %2$s. Could either be a network problem on the sending side or a problem writing to the storage on the server side."
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "end_to_end_encryption": {
+    "translations": {
+      "Reset end-to-end encryption": "Reset encryption",
+      "Please read carefully before resetting your end-to-end encryption keys": "Please read carefully before resetting your end-to-end encryption keys!",
+      "Once your end-to-end encryption keys are reset, all files stored in your encrypted folder will be inaccessible.": "Once your encryption keys are reset, all encrypted data will be inaccessible and will be also deleted.",
+      "You should only reset your end-to-end encryption keys if you lost your secure key words (mnemonic).": "If you just forgot your passphrase, you can retrieve it in the MagentaCLOUD apps or desktop client. Key reset is not mandatory.",
+      "Check on all connected devices if you can retrieve your mnemonic.": "If you still want to reset the encryption even though your keys are still available in the apps or desktop clients, then remember to delete the keys also locally on the other devices.",
+      "Any still connected device might cause problems after deleting the keys, so it is better to disconnect and reconnect the devices again.": "Alternatively, after key reset, you can also set the apps to initial state and reconnect to your MagentaCLOUD account.",
+      "Confirm and reset End-to-End encryption": "Confirm and reset",
+      "This is the final warning: Do you really want to reset your keys?": "This the final warning: Do you really want to reset your encryption. Encrypted data are lost and will be deleted.",
+      "End-to-End encryption is currently enabled and correctly setup.": "End to end encryption is currently enabled.",
+      "Cancel": "Cancel",
+      "Confirm": "Confirm",
+      "End-to-end encryption is currently disabled. You can set it up with the {productName} clients.": "End-to-end encryption is currently disabled. You can set it up with MagentaCLOUD clients.",
+      "End-to-End encryption is currently disabled. You can set it up with the {productName} clients.": "End-to-End encryption is currently disabled. You can set it up with MagentaCLOUD clients.",
+      "You are not allowed to lock the root": "The lock of your complete file tree by end2end encryption was prohibited by the system!"
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "files": {
+    "translations": {
+      "Crop image previews": "Crop image previews",
+      "My shares": "My shares",
+      "Shared with me": "Shared with me",
+      "All": "All",
+      "Toggle grid view": "Toggle grid view",
+      "Display settings": "Display settings",
+      "Expand storage": "Expand storage",
+      "Memory used up to %s%%": "Memory used up to %s%%",
+      "of": "von",
+      "_including %n hidden_::_including %n hidden_": ["with %n hidden","with %n hidden"]
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "files_sharing": {
+    "translations": {
+      "Cancel": "Cancel",
+      "Next": "Next",
+      "Confirm": "Confirm",
+      "Send share": "Send share",
+      "Send email": "Send email",
+      "Send new mail": "Send new email",
+      "Read only": "Read only",
+      "Read, write and upload": "Can edit",
+      "File drop (upload only)": "File drop only",
+      "Read and write": "Can edit",
+      "Add link": "Add link",
+      "Personal sharing via email": "Personal sharing via email",
+      "Resharing is not allowed": "Resharing is not allowed",
+      "Resharing is allowed.": "Resharing is allowed.",
+      "You can create links or send shares by mail. If you invite MagentaCLOUD users, you have more opportunities for collaboration.": "You can create links or send shares by mail. If you invite MagentaCLOUD users, you have more opportunities for collaboration.",
+      "Your shares": "Your shares",
+      "No shares created yet.": "No shares created yet.",
+      "Advanced permission": "Advanced permission",
+      "Advanced": "Advanced",
+      "Permissions": "Permissions",
+      "Shared by {owner}": "Shared by {owner}",
+      "With File drop, only uploading is allowed. Only you can see files and folders that have been uploaded.": "With File drop, only uploading is allowed. Only you can see files and folders that have been uploaded.",
+      "There are no editing functions for files shared with non-MagentaCLOUD users.": "There are no editing functions for files shared with non-MagentaCLOUD users.",
+      "The password is not sent with the email to maintain confidentiality.": "The password is not sent with the email to maintain confidentiality.",
+      "Received": "Received",
+      "Shared by": "Shared by",
+      "is Telekom's secure and free online storage. Ideal for your photos, videos and any other files you want to store securely. You can upload your data directly from your smartphone, tablet or PC, access it from anywhere and easily share it with family and friends.": "is Telekom's secure and free online storage. Ideal for your photos, videos and any other files you want to store securely. You can upload your data directly from your smartphone, tablet or PC, access it from anywhere and easily share it with family and friends.",
+      "Inform Now": "Get your information now!",
+      "The": "The",
+      "Add Link": "Add Link",
+      "Your Message": "Your Message",
+      "Your message": "Your message",
+      "You can attach a message to the share.": "You can attach a message to the share.",
+      "Share label": "Share label",
+      "The password must contain 10 characters and will not be sent with the mail to maintain confidentiality.": "The password must contain 10 characters and will not be sent with the mail to maintain confidentiality.",
+      "Link to file": "Link to file",
+      "Link to folder": "Link to folder",
+      "No recommendations. Start typing.": "No recommendation. Type.."
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "files_trashbin": {
+    "translations": {
+      "All": "All"
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "files_zip": {
+    "translations": {
+      "Compress to Zip": "Compress to Zip",
+      "Archive": "Archive",
+      "Select a name for the Zip archive": "Select a name for the Zip archive",
+      "Compress files": "Create archive",
+      "File name": "File name",
+      "Cancel": "Cancel",
+      "Compress {files} file": "Compress {files} element",
+      "_Compress {files} file_::_Compress {files} files_": [
+        "{files} element to compress",
+        "{files} elements to compress"
+      ],
+      "Creating Zip archive started. We will notify you as soon as the archive is available.": "Creating zip archive started. The duration can differ depending on the volume.",
+      "An error happened when trying to compress the file.": "An error happened when trying to compress the file.",
+      "Your files have been stored as a Zip archive in {path}.": "Your files have been stored as a Zip archive in {path}."
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "monthly_status_email": {
+    "translations": {
+      "Regular mails": "Regular mails",
+      "Activity Report": "Activity Report",
+      "Monthly Status Report": "Monthly Status Report",
+      "The status report informs you monthly by email about storage space, your shares and gives you useful tips about the MagentaCLOUD.": "The status report informs you monthly by email about storage space, your shares and gives you useful tips about the MagentaCLOUD."
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "richdocuments": {
+    "translations": {
+      "Edit with {productName}": "Edit with Office",
+      "Open with {productName}": "Open with Office"
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "sharebymail": {
+    "translations": {
+      "»%s« added a note to a file shared with you": "%s has added a message to a file shared with you",
+      "%1$s shared »%2$s« with you and wants to add": "%1$s shared '%2$s' with you and wants to add"
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "text": {
+    "translations": {
+      "Add Link": "Add Link"
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "photos": {
+    "translations": {
+      "Photos": "Fotos"
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "viewer": {
+    "translations": {
+      "Open sidebar": "Share"
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  },
+  "nmctheme": {
+    "translations": {
+      "PhotosMedia": "Photos & Videos",
+      "Search": "Search",
+      "Customer center": "Customer center",
+      "Account settings": "Settings",
+      "Copyright": "©Telekom Deutschland GmbH",
+      "OpenSource": "Open Source",
+      "Impressum": "Impressum",
+      "Data protection": "Data protection",
+      "Faq": "Help & FAQ",
+      "Expand storage": "Expand storage",
+      "Memory used up to {memoryUsage}%": "Memory used up to {memoryUsage}%",
+      "of": "of",
+      "used": "used",
+      "Display settings": "Display settings",
+      "Show folder info text": "Show folder info text",
+      "Shared with you": "Shared with me",
+      "Shared with others": "My shares",
+      "and": "and",
+      "System Design (Standard)" : "System Design (Standard)",
+      "Enable system design" : "Enable system design",
+      "MagentaCLOUD adapts to the settings of your system." : "MagentaCLOUD adapts to the settings of your system.",
+      "Light Design" : "Light Design",
+      "Enable light design" : "Enable light design",
+      "A bright black on white design." : "A bright black on white design.",
+      "Dark Design" : "Dark Design",
+      "Enable dark design" : "Enable dark design",
+      "A dark design to relieve eye strain." : "A dark design to relieve eye strain."
+    },
+    "pluralForm": "nplurals=2; plural=(n != 1);"
+  }
 }

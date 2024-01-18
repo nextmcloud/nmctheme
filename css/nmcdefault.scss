@@ -8,7 +8,7 @@
  */
 @use "sass:color";
 
-:root {
+:root, [data-themes*=light], [data-themes*=dark] {
   --color-main-background: var(--telekom-color-background-canvas);
   --color-main-background-rgb: var(--telekom-color-background-canvas-rgb);
   --color-main-background-translucent: rgba(var(--color-main-background-rgb), .97);
@@ -62,7 +62,7 @@
   --default-clickable-area: 48px;
   --default-line-height: 22px;
   --default-grid-baseline: 4px;
-  --header-height: 60px;
+  --header-height: 73px;
   --navigation-width: 300px;
   --sidebar-min-width: 300px;
   --sidebar-max-width: 500px;
@@ -79,7 +79,7 @@
   --color-primary: var(--telekom-color-primary-standard);
   --color-primary-default: var(--telekom-color-primary-standard);
   --color-primary-text: var(--telekom-color-text-and-icon-standard);
-  --color-primary-hover: var(--telekom-color-text-and-icon-primary-hovered);
+  --color-primary-hover: #E20074;
   --color-primary-light: var(--telekom-color-ui-subtle);
   --color-primary-light-text: var(--telekom-color-text-and-icon-standard);
   --color-primary-light-hover: var(--telekom-color-ui-faint);
@@ -97,4 +97,39 @@
   --color-background-plain: var(--telekom-color-background-canvas);
 
   --nmc-breakpoint-mobile: 1024px;
+  --nmc-color-background-hover: #EDEDED;
+  --nmc-color-row-hover: #EDEDED;
+  --nmc-color-row-selected: #dfdfe1;
+  --nmc-color-text-and-icon-primary-standard: var(--telekom-color-text-and-icon-primary-standard);
+  --nmc-color-icon: invert(17%) sepia(87%) saturate(5418%) hue-rotate(319deg) brightness(85%) contrast(110%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --nmc-color-text-and-icon-primary-standard: #ec59a5;
+    --nmc-color-text-and-icon-primary-pressed: #f080ba;
+
+    --nmc-color-background-hover: var(--telekom-color-ui-faint);
+    --nmc-color-row-hover: #242426;
+    --nmc-color-row-selected: #48484b;
+    --nmc-color-icon: brightness(0) saturate(100%) invert(17%) sepia(87%) saturate(5418%) hue-rotate(319deg) brightness(85%) contrast(110%);
+  
+    --background-invert-if-dark: invert(100%);
+    --background-invert-if-bright: none;
+    --background-image-invert-if-bright: none;
+  }
+}
+
+[data-themes*=dark] {
+  --nmc-color-text-and-icon-primary-standard: #ec59a5;
+  --nmc-color-text-and-icon-primary-pressed: #f080ba;
+
+  --nmc-color-background-hover: var(--telekom-color-ui-faint);
+  --nmc-color-row-hover: #242426;
+  --nmc-color-row-selected: #48484b;
+  --nmc-color-icon: brightness(0) saturate(100%) invert(17%) sepia(87%) saturate(5418%) hue-rotate(319deg) brightness(85%) contrast(110%);
+  
+  --background-invert-if-dark: invert(100%);
+  --background-invert-if-bright: none;
+  --background-image-invert-if-bright: none;
 }

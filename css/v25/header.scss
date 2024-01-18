@@ -25,7 +25,7 @@
             filter: none;
     
             &:hover {
-                @include color-icon;
+                filter: var(--nmc-color-icon)
             }
         }
     }
@@ -49,7 +49,7 @@
 
         .header-menu__trigger {
             background-position-x: 12px;
-            font-weight: bold;
+            font-weight: normal;
             padding: 0 12px 0 48px;
             width: auto;
         }

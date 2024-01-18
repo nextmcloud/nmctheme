@@ -1,0 +1,53 @@
+@import '../_mixins.scss';
+
+// upload progress bar styles
+#uploadprogresswrapper {
+	position: relative;
+
+	#uploadprogressbar {
+		border-radius: var(--telekom-radius-standard);
+		height: 36px;
+		border-color: var(--color-primary);
+		font-size: 16px;
+		
+		// we do this to override border-right: 0 from nextcloud styles
+		&.ui-widget.ui-widget-content {
+			border-right: 1px solid var(--color-primary);
+		}
+
+		.ui-progressbar-value {
+			margin: 0;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+		}
+		
+		.label {
+			font-size: 16px;
+			// inner label that appears once the progress bar reaches it
+			&.inner {
+				color: white;
+			}
+		}
+	}
+
+	button.stop.icon-close {
+		padding: 0;
+		border: none;
+		background-color: transparent;
+		height: auto;
+		width: 36px;
+		position: absolute;
+		right: 0;
+		background-image: var(--icon-close-x-dark);
+		&:hover {
+			filter: var(--nmc-color-icon)
+		}
+	}
+}
+
+// this wrapper contains + button and progress bar
+.actions.creatable {
+	gap: var(--telekom-spacing-composition-space-10);
+	align-items: center;
+}

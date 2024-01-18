@@ -1,0 +1,232 @@
+/**
+ * The MagentaCLOUD modal general layout (w/o header, footer)
+ *
+ * @copyright Copyright (c) 2023 T-Systems International
+ * @author Mauro Mura <Mauro-Efisio.Mura@t-systems.com>
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ * Note: Take care of Telekom branding restrictions!
+ */
+
+@import '../_mixins.scss';
+
+.modal {
+
+    .modal-container {
+
+        button {
+
+            &.button-vue {
+                background-color: var(--telekom-color-primary-standard);
+
+                &.button-vue--vue-tertiary {
+                    @include darkmode-modal;
+                    border: 1px solid var(--telekom-color-ui-border-standard) !important;
+                    color: var(--telekom-color-text-and-icon-standard);
+
+                    &:hover:not(:disabled) {
+                        background-color: var(--color-background-hover);
+                        border: 1px solid var(--telekom-color-ui-border-hovered) !important;
+                    }
+                }
+
+                &:hover:not(:disabled) {
+                    background-color: var(--telekom-color-primary-hovered);
+                }
+            }
+        }
+    }
+}
+
+#body-user .oc-dialog,
+.dialog {
+    min-width: 448px;
+    background-color: var(--telekom-color-background-surface);
+
+    .oc-dialog-title {
+        @include darkmode-modal;
+    }
+
+    button {
+        border: 0;
+        border-radius: var(--telekom-radius-small);
+        opacity: 1;
+
+        &.oc-dialog-close {
+            background-color: var(--telekom-color-ui-base);
+            @include darkmode-modal;
+            right: 7px;
+            top: 12px;
+
+            &:hover:not(:disabled) {
+                background-color: unset;
+                filter: var(--nmc-color-icon)
+            }
+        }
+    }
+
+    .oc-dialog-buttonrow {
+        @include darkmode-modal;
+        background-image: none;
+
+        &.twobuttons {
+            justify-content: flex-end;
+        }
+
+        button {
+            border: 0;
+            border-radius: var(--telekom-radius-small);
+            margin: 0.25rem 0.5rem 0.25rem 0;
+            opacity: 1;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.primary {
+                background-color: var(--telekom-color-primary-standard);
+                color: var(--telekom-color-text-and-icon-white-standard);
+                border-radius: var(--telekom-radius-standard);
+
+                &:hover:not(:disabled) {
+                    background-color: var(--telekom-color-primary-hovered);
+
+                    @media (prefers-color-scheme: dark) {
+                        background-color: var(--nmc-color-text-and-icon-primary-standard);
+                    }
+                }
+            }
+
+            &:not(.primary) {
+                @include darkmode-modal;
+                border: 1px solid var(--telekom-color-ui-border-standard) !important;
+                color: var(--telekom-color-text-and-icon-standard);
+
+                &:hover:not(:disabled) {
+                    background-color: var(--color-background-hover);
+                    border: 1px solid var(--telekom-color-ui-border-hovered) !important;
+                }
+            }
+        }
+    }
+
+    .oc-dialog-content {
+
+        p {
+            margin-bottom: 0.75rem;
+        }
+
+        label {
+            margin-right: 0.75rem;
+
+        }
+
+        input[type=text],
+        input[type=email] {
+            background-color: var(--color-main-background);
+            border: 1px solid var(--telekom-color-text-and-icon-standard);
+            border-radius: var(--telekom-radius-small);
+            color: var(--telekom-color-text-and-icon-standard);
+            height: 3rem !important;
+            padding: 0.75rem;
+            width: 400px;
+        }
+    }
+
+    &__container {
+        margin: 1.5rem !important;
+    }
+
+    .modal-wrapper {
+
+        .modal-container {
+
+            &__close {
+                top: 1rem !important;
+                right: 0.75rem !important;
+
+                &:hover:not(:disabled) {
+                    background-color: unset !important;
+                    filter: var(--nmc-color-icon)
+                }
+
+                .close-icon {
+                    background-image: var(--icon-close-dark);
+                    height: 24px;
+                    width: 24px;
+
+                    svg {
+                        display: none;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+#oc-dialog-filepicker-content {
+    background-color: var(--telekom-color-background-surface);
+
+    .actions.creatable {
+        background: unset;
+        border: unset;
+        left: 0;
+        top: 0;
+
+        .icon.icon-add.button.button-add {
+            background-color: unset;
+            border-color: var(--telekom-color-primary-standard);
+            height: 24px;
+            opacity: 1;
+            width: 24px;
+            filter: var(--nmc-color-icon)
+        }
+
+        input[type=text]+.icon-confirm,
+        input[type=password]+.icon-confirm,
+        input[type=email]+.icon-confirm {
+            border: unset;
+            margin-left: -40px !important;
+            margin-top: 6px;
+        }
+    }
+
+    #picker-filestable {
+        @include darkmode-modal;
+
+        .column {
+            &-name, &-size, &-mtime {
+                @include darkmode-modal;
+            }
+        }
+
+        &.filelist {
+
+            tbody {
+
+                td {
+
+                    &.filename {
+                        background-position: left center;
+                    }
+
+                    &.date {
+                        color: var(--telekom-color-text-and-icon-standard);
+                    }
+                }
+            }
+        }
+    }
+
+    #picker-showgridview {
+        opacity: 1;
+        right: -1rem;
+
+        &:hover,
+        &:active,
+        &:focus {
+            box-shadow: unset;
+            filter: var(--nmc-color-icon)
+        }
+    }
+}

@@ -9,9 +9,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  * Note: Take care of Telekom branding restrictions!
  */
- 
-$breakpoint-mobile: 1024px;
-$breakpoint-mobile-small: 480px;
+
+@import '../variables';
 
 header {
 	--shadow: 0px 2px 9px rgba(0, 0, 0, 0.15);
@@ -54,17 +53,30 @@ header {
 	// brand logo update
 	.brand {
 		display: flex;
+
 		.logo.logo-icon {
 			background-image: var(--image-logoheader);
 			position: initial;
 			width: 60px;
 			height: 60px;
-			margin-left: 1.5rem;
+			margin: 6px 0 6px 1.5rem;
 		}
+
 		.title {
 			font-size: 25px;
 			margin: auto 2.5rem auto 1rem;
-			width: 200px;
+			width: 167px;
+		}
+	}
+
+	#header-left,
+	.header-left {
+		.app-menu {
+			&-entry {
+				&--label {
+					font-weight: 800;
+				}
+			}
 		}
 	}
 
@@ -105,6 +117,15 @@ header {
 	}
 }
 
+#notifications {
+	display: none;
+}
+
+.header-menu__trigger {
+	font-size: 12px;
+	font-weight: normal;
+}
+
 #unified-search {
 
 	.header-menu__trigger {
@@ -114,7 +135,7 @@ header {
 		background-repeat: no-repeat;
 
 		&:hover {
-			@include color-icon;
+			filter: var(--nmc-color-icon)
 		}
 	}
 
@@ -136,7 +157,7 @@ header {
 		background-repeat: no-repeat;
 
 		&:hover {
-			@include color-icon;
+			filter: var(--nmc-color-icon)
 		}
 	}
 
@@ -150,16 +171,8 @@ header {
 	}
 
 	.user-menu__nav {
-
 		ul {
 			width: 100%;
-		}
-	}
-
-	&.header-menu--opened {
-
-		.header-menu__carret {
-			display: block !important;
 		}
 	}
 }

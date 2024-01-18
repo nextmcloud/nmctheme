@@ -1,0 +1,24 @@
+@import '../_mixins.scss';
+@import '../variables';
+
+.picker-window.small {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    position: relative;
+    top: 18vh;
+    padding-bottom: 2.5rem;
+
+    @media screen and (max-width: $breakpoint-mobile-small) {
+        top: 10vh;
+    }
+
+    p:first-of-type {
+        display: none;
+    }
+
+    #redirect-link {
+        #submit-wrapper input {
+            @include primary-button;  
+        }
+    }
+}

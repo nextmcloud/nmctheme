@@ -1,1 +1,40 @@
-<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 108"><defs><style>.cls-1{fill:url(#Unbenannter_Verlauf_29);}.cls-2{fill:#b4b4b4;}.cls-3{fill:#66676a;}.cls-4{fill:url(#Unbenannter_Verlauf_30);}</style><linearGradient id="Unbenannter_Verlauf_29" x1="-159.89" y1="-201.57" x2="-159.89" y2="-132.98" gradientTransform="matrix(1, 0, 0, -1, 223.89, -112.54)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ddd6d3"/><stop offset="0.39" stop-color="#e9e4e2"/><stop offset="1" stop-color="#e9e4e2"/></linearGradient><linearGradient id="Unbenannter_Verlauf_30" x1="-134.95" y1="-174.75" x2="-134.95" y2="-204.55" gradientTransform="translate(198.95 222.55)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#808083"/><stop offset="1" stop-color="#a6a6ae"/></linearGradient></defs><path class="cls-1" d="M92.55,87.52A2.49,2.49,0,0,1,90.07,90H37.93a2.49,2.49,0,0,1-2.48-2.48V23a2.49,2.49,0,0,1,2.48-2.49H90.07A2.49,2.49,0,0,1,92.55,23Z"/><path class="cls-2" d="M64,75.1V72.62h6.21V65.17H64V62.69h6.21V55.24H64V52.76h6.21v-5H57.79v9.93H64v2.49H57.79v7.45H64v2.48H57.79v7.45H64v2.48H57.79v3.72H70.21V75.1Z"/><path class="cls-3" d="M57.79,47.79H70.21v2.49H57.79Z"/><path class="cls-4" d="M64,18a6.15,6.15,0,0,0-6.21,6.21V47.79H70.21V24.21A6.15,6.15,0,0,0,64,18Zm2.48,26.07h-5V37.86h5Z"/><path class="cls-3" d="M61.52,35.38h5v2.48h-5Z"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 72 72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Unbenannter_Verlauf_29);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #66676a;
+      }
+
+      .cls-3 {
+        fill: url(#Unbenannter_Verlauf_30);
+      }
+
+      .cls-4 {
+        fill: #b4b4b4;
+      }
+    </style>
+    <linearGradient id="Unbenannter_Verlauf_29" data-name="Unbenannter Verlauf 29" x1="-187.89" y1="-1112.63" x2="-187.89" y2="-1044.04" gradientTransform="translate(223.89 -1041.6) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ddd6d3"/>
+      <stop offset=".39" stop-color="#e9e4e2"/>
+      <stop offset="1" stop-color="#e9e4e2"/>
+    </linearGradient>
+    <linearGradient id="Unbenannter_Verlauf_30" data-name="Unbenannter Verlauf 30" x1="-162.95" y1="-192.75" x2="-162.95" y2="-222.55" gradientTransform="translate(198.95 222.55)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#808083"/>
+      <stop offset="1" stop-color="#a6a6ae"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-1" d="m64.55,69.52c0,1.37-1.12,2.48-2.48,2.48H9.93c-1.37,0-2.48-1.12-2.48-2.48V4.97c0-1.37,1.12-2.48,2.48-2.48h52.14c1.37,0,2.48,1.12,2.48,2.48v64.55Z"/>
+  <path class="cls-4" d="m36,57.1v-2.48h6.21v-7.45h-6.21v-2.48h6.21v-7.45h-6.21v-2.48h6.21v-4.97h-12.41v9.93h6.21v2.48h-6.21v7.45h6.21v2.48h-6.21v7.45h6.21v2.48h-6.21v3.72h12.41v-8.69h-6.21Z"/>
+  <path class="cls-2" d="m29.79,29.79h12.41v2.48h-12.41v-2.48Z"/>
+  <path class="cls-3" d="m36,0C32.52,0,29.79,2.73,29.79,6.21v23.59h12.41V6.21C42.21,2.73,39.48,0,36,0Zm2.48,26.07h-4.97v-6.21h4.97v6.21Z"/>
+  <path class="cls-2" d="m33.52,17.38h4.97v2.48h-4.97v-2.48Z"/>
+</svg>

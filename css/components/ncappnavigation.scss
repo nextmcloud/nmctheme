@@ -1,10 +1,7 @@
 @import '../_mixins.scss';
-
-$breakpoint-mobile: 1024px;
+@import '../variables';
 
 :root {
-	--color-hover: var(--telekom-color-text-and-icon-primary-hovered);
-	--color-active: var(--telekom-color-text-and-icon-primary-pressed);
 	--internal-padding: 0;
 }
 
@@ -15,15 +12,19 @@ $breakpoint-mobile: 1024px;
 }
 
 .app-navigation {
+	// TODO compare with v27
+	// add vertical line to demarcate app navigation
+	border-right: 1px solid var(--telekom-color-ui-faint);
+
 	// prevent mobile navigation toggle button to visually overlap underlying content
 	.app-navigation-toggle {
 		background-color: var(--color-main-background) !important;
 	}
 
 	// add vertical line to demarcate app navigation
-	.app-navigation__content {
-		border-right: 1px solid var(--telekom-color-ui-faint);
-	}
+	// .app-navigation__content {
+	// 	border-right: 1px solid var(--telekom-color-ui-faint);
+	// }
 
 	// remove gaps between navigation items
 	.app-navigation__content .app-navigation__list {
@@ -33,24 +34,14 @@ $breakpoint-mobile: 1024px;
 
 	// default navbar link styling
 	.app-navigation-entry {
-		border-bottom: 1px solid var(--telekom-color-ui-faint);
-		border-radius: 0;
+		border-radius: var(--telekom-radius-standard);
 		font: var(--telekom-text-style-ui-bold);
+		transition: none;
 		.app-navigation-entry-link {
 			padding: 0.25rem;
 		}
-		// left border styling
-		&::before {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 0px;
-			height: 100%;
-			border-left: 2px solid transparent;
-		}
-		// highlight only border on focus
-		&:focus-within {
-			background-color: transparent;
+		&:hover,  &.active {
+			background-color: var(--nmc-color-background-hover);
 		}
 		// do not pin app navigation entries to the bottom
 		&--pinned {
@@ -65,39 +56,30 @@ $breakpoint-mobile: 1024px;
 
 	// active link styling
 	.app-navigation-entry.active {
-		background-color: transparent !important;
 		&::before {
 			background-color: var(--telekom-color-primary-standard);
 		}
 		span {
-			color: var(--color-active);
+			color: var(--telekom-color-text-and-icon-primary-standard);
 		}
 		.app-navigation-entry-icon {
-			@include color-icon;
+			filter: var(--nmc-color-icon)
 		}
 	}
 
 	// on hover link styling
 	.app-navigation-entry:hover {
-		background-color: transparent !important;
 		span {
-			color: var(--color-hover);
+			color: var(--telekom-color-text-and-icon-primary-standard);
 		}
 		.app-navigation-entry-icon {
-			@include color-icon;
+			filter: var(--nmc-color-icon)
 		}
 	}
 
 	// hide Collapse buttons
 	.app-navigation-entry--collapsible button.icon-collapse{
 		display: none;
-	}
-}
-
-@media (prefers-color-scheme: dark) {    
-	:root {
-		--color-hover: var(--telekom-color-text-and-icon-primary-pressed);
-		--color-active: var(--telekom-color-text-and-icon-primary-hovered);
 	}
 }
 
