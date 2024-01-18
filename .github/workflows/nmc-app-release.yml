@@ -16,8 +16,6 @@
 name: MCLOUD app release
 
 on:
-  schedule:
-    - cron: "00 11,15 * * *"
 
   workflow_dispatch:
     inputs:
