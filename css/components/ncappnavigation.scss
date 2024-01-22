@@ -11,75 +11,82 @@
 	}
 }
 
-.app-navigation {
-	// TODO compare with v27
-	// add vertical line to demarcate app navigation
+#app-navigation-vue.app-navigation {
 	border-right: 1px solid var(--telekom-color-ui-faint);
 
 	// prevent mobile navigation toggle button to visually overlap underlying content
 	.app-navigation-toggle {
-		background-color: var(--color-main-background) !important;
+		background-color: transparent;
 	}
 
-	// add vertical line to demarcate app navigation
-	// .app-navigation__content {
-	// 	border-right: 1px solid var(--telekom-color-ui-faint);
-	// }
+	.app-navigation__content {
+		// remove gaps between navigation items
+		.app-navigation__list {
+			gap: var(--telekom-spacing-composition-space-03);
+			padding: 4rem 1.5rem 1.5rem;
 
-	// remove gaps between navigation items
-	.app-navigation__content .app-navigation__list {
-		gap: var(--telekom-spacing-composition-space-03);
-		padding-left: var(--internal-padding);
-	}
+			[data-cy-files-navigation-item="recent"],
+			[data-cy-files-navigation-item="shareoverview"] {
+				display: none;
+			}
 
-	// default navbar link styling
-	.app-navigation-entry {
-		border-radius: var(--telekom-radius-standard);
-		font: var(--telekom-text-style-ui-bold);
-		transition: none;
-		.app-navigation-entry-link {
-			padding: 0.25rem;
-		}
-		&:hover,  &.active {
-			background-color: var(--nmc-color-background-hover);
-		}
-		// do not pin app navigation entries to the bottom
-		&--pinned {
-			margin-top: initial;
-			margin-bottom: auto;
-		}
-		// hide nextcloud quota and files settings links
-		&__settings li{
-			display: none;
-		}
-	}
+			// default navbar link styling
+			.app-navigation-entry {
+				border-radius: var(--telekom-radius-standard);
+				font: var(--telekom-text-style-ui-bold);
+				transition: none;
+				.app-navigation-entry-link {
+					padding: 0.25rem;
+				}
+				&-icon {
+					background-size: 24px;
+					background-position: center;
+				}
+				&:hover,  &.active {
+					background-color: var(--nmc-color-background-hover);
+				}
+				// do not pin app navigation entries to the bottom
+				&--pinned {
+					margin-top: initial;
+					margin-bottom: auto;
+				}
 
-	// active link styling
-	.app-navigation-entry.active {
-		&::before {
-			background-color: var(--telekom-color-primary-standard);
-		}
-		span {
-			color: var(--telekom-color-text-and-icon-primary-standard);
-		}
-		.app-navigation-entry-icon {
-			filter: var(--nmc-color-icon)
-		}
-	}
+				// active link styling
+				&.active {
+					&::before {
+						background-color: var(--telekom-color-primary-standard);
+					}
+					span {
+						color: var(--telekom-color-text-and-icon-primary-standard);
+					}
+					.app-navigation-entry-icon {
+						filter: var(--nmc-color-icon)
+					}
+				}
 
-	// on hover link styling
-	.app-navigation-entry:hover {
-		span {
-			color: var(--telekom-color-text-and-icon-primary-standard);
-		}
-		.app-navigation-entry-icon {
-			filter: var(--nmc-color-icon)
-		}
-	}
+				// on hover link styling
+				&:hover {
+					span {
+						color: var(--telekom-color-text-and-icon-primary-standard);
+					}
+					.app-navigation-entry-icon {
+						filter: var(--nmc-color-icon)
+					}
+				}
 
-	// hide Collapse buttons
-	.app-navigation-entry--collapsible button.icon-collapse{
-		display: none;
+				// hide Collapse buttons
+				&--collapsible button.icon-collapse{
+					display: none;
+				}
+			}
+		}
+
+		.app-navigation-entry__settings {
+			// hide nextcloud quota and files settings links
+			.app-navigation-entry-wrapper {
+				display: none;
+			}
+		}
 	}
 }
 
