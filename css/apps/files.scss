@@ -38,14 +38,20 @@
 	background-color: var(--color-main-background);
 	opacity: 0.97;
 	padding-top: 0;
+
+	li.crumbhome {
+		margin-right: 5px;
+	}
 }
 
 .actions.creatable {
 
 	// 'Add new file/folder' button inside breadcrumb
 	& > a.button.new {
+		padding: 9px;
 		background-color: var(--color-main-background);
-		border-color: var(--telekom-color-text-and-icon-primary-standard);
+		border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
+		border-radius: 50%;
 		min-height: unset;
 		height: 24px;
 		width: 24px;
@@ -55,6 +61,11 @@
 			@include magenta-icon;
 			background-size: 16px 16px;
 			opacity: 1;
+		}
+
+		// Do not display text "New" after file add breadcrumb
+		span:nth-child(2) {
+			display: none;	
 		}
 	}
 
