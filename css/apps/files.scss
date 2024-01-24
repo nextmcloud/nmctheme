@@ -68,6 +68,13 @@
 			display: none;	
 		}
 	}
+	
+	.newFileMenu {
+		// hide "Add description" menu item
+		[data-action=rich-workspace-init] { 
+			display: none;
+		}
+	}
 
 	// change position of popover menu arrow
 	.newFileMenu::after {

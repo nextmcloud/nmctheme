@@ -138,6 +138,10 @@
 						.help-circle-icon {
 							background-image: var(--icon-help-dark);
 						}
+
+						.link-icon {
+							background-image: var(--icon-link-dark);
+						}
 					}
 				}
 
@@ -375,6 +379,22 @@
 
 			.folder-icon {
 				background-image: var(--icon-folder-dark);
+			}
+
+			.web-icon {
+				background-image: var(--icon-text-link-dark);
+			}
+
+			.file-document-icon {
+				background-image: var(--icon-text-file-dark);
+			}
+
+			.link-off-icon {
+				background-image: var(--icon-delete-dark);
+			}
+
+			[data-text-action-entry=insert-link-picker] { 
+				display: none;
 			}
 		}
 
