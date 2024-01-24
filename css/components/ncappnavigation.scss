@@ -96,28 +96,24 @@
 	span.icon-vue {
 		display: none;
 	}
-	// add telekom icons as background images
-	.nav-icon-systemtagsfilter {
-		background-image: var(--icon-tag-dark);
+
+	.app-navigation-entry-icon.nav-icon-favorites {
+		background-image: var(--icon-star-dark);
 	}
-	a[title="Favorites"] {
-		.app-navigation-entry-icon {
-			background-image: var(--icon-star-dark);
-		}
+
+	.app-navigation-entry-icon.nav-icon-files {
+		background-image: var(--icon-folder-dark);
 	}
-	a[title="Recent"] {
-		.app-navigation-entry-icon {
-			background-image: var(--icon-history-dark);
-		}
+
+	.app-navigation-entry-icon.nav-icon-sharingout {
+		background-image: var(--icon-share-dark);
 	}
-	a[title="Deleted files"] {
-		.app-navigation-entry-icon {
-			background-image: var(--icon-delete-dark);
-		}
+
+	.app-navigation-entry-icon.nav-icon-sharingin {
+		background-image: var(--icon-attachment-dark);
 	}
-	a[title="Shares"] {
-		.app-navigation-entry-icon {
-			background-image: var(--icon-share-dark);
-		}
+
+	[data-cy-files-navigation-item=trashbin] .app-navigation-entry-icon {
+		background-image: var(--icon-delete-dark);
 	}
 }
