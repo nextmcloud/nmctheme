@@ -476,6 +476,15 @@
 				p {
 					margin-bottom: 0.5rem;
 				}
+
+				.checkbox-radio-switch {
+					input.focus-visible + label, input:focus-visible + label {
+						.checkbox-radio-switch__icon {
+							border-radius: 2rem;
+							outline: 2px solid blue;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -547,8 +556,12 @@
 
 #app-content {
 
+	& > .section {
+		padding: 2rem;
+	}
+
 	.settings-section {
-		padding: 1.5rem 3rem 0;
+		padding: 2rem;
 		border: none;
 
 		&.theming {
@@ -556,10 +569,13 @@
 		}
 
 		&--limit-width {
-			padding: 3rem 0;
 
 			p {
 				max-width: 800px;
+			}
+
+			&:not(:last-child) {
+				border-bottom: 1px solid var(--color-border);
 			}
 		}
 
