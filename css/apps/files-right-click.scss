@@ -94,6 +94,7 @@ body .icon-favorite {
 
 body .icon-zip {
 	background-image: var(--icon-compress-zip-dark);
+	filter: unset;
 }
 
 body .icon-richdocuments {

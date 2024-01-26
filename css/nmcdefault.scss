@@ -102,6 +102,7 @@
   --nmc-color-row-selected: #dfdfe1;
   --nmc-color-text-and-icon-primary-standard: var(--telekom-color-text-and-icon-primary-standard);
   --nmc-color-icon: invert(17%) sepia(87%) saturate(5418%) hue-rotate(319deg) brightness(85%) contrast(110%);
+  --nmc-color-sceme: light;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -113,6 +114,7 @@
     --nmc-color-row-hover: #242426;
     --nmc-color-row-selected: #48484b;
     --nmc-color-icon: brightness(0) saturate(100%) invert(17%) sepia(87%) saturate(5418%) hue-rotate(319deg) brightness(85%) contrast(110%);
+    --nmc-color-sceme: dark;
   
     --background-invert-if-dark: invert(100%);
     --background-invert-if-bright: none;
@@ -128,6 +130,7 @@
   --nmc-color-row-hover: #242426;
   --nmc-color-row-selected: #48484b;
   --nmc-color-icon: brightness(0) saturate(100%) invert(17%) sepia(87%) saturate(5418%) hue-rotate(319deg) brightness(85%) contrast(110%);
+  --nmc-color-sceme: dark;
   
   --background-invert-if-dark: invert(100%);
   --background-invert-if-bright: none;
