@@ -362,6 +362,7 @@
 // New album modal window
 .modal-container {
 	form.album-form {
+		background-color: var(--telekom-color-background-surface);
 		height: auto;
 		padding: 50px 50px 24px 24px;
 
@@ -407,7 +408,6 @@
 
 // Add Photos to the album modal window
 #body-user .modal-container {
-	background-color: var(--telekom-color-background-surface);
 
 	button.modal-container__close {
 		z-index: 10;
@@ -434,6 +434,7 @@
 	}
 
 	.file-picker {
+		background-color: var(--telekom-color-background-surface);
 		&+button.modal-container__close {
 			margin-right: 1.3rem;
 			margin-top: 0.5rem;
