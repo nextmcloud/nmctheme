@@ -5,10 +5,85 @@
 	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%);
 }
 
+@mixin thumbnail-icons {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	border: none;
+	height: 44px;
+	margin-top: 0.2rem;
+	width: 44px;
+
+	svg {
+		display: none;
+	}
+}
+
+@mixin header-menu-files {
+	button {
+		border: none;
+		border-radius: 0;
+		filter: var(--nmc-color-icon);
+
+		&:nth-of-type(1) {
+			.button-vue__icon {
+				background-image: var(--original-icon-restore-dark);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 1.25rem;
+
+				svg {
+					display: none;
+				}
+			}
+		}
+
+		&:nth-of-type(2) {
+			.button-vue__icon {
+				background-image: var(--icon-delete-dark);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 1.25rem;
+
+				svg {
+					display: none;
+				}
+			}
+		}
+
+		&:active,
+		&:focus,
+		&:focus-visible {
+			outline: none;
+		}
+
+		&:hover {
+			background-color: transparent;
+
+			.button-vue__wrapper {
+				&::before {
+					background-color: var(--color-primary);
+					content: " ";
+					display: block;
+					height: 4px;
+					left: 50%;
+					opacity: 1;
+					pointer-events: none;
+					position: fixed;
+					bottom: 4px;
+					transform: translateX(-50%);
+					transition: all .1s ease-in-out;
+					width: 80%;
+				}
+			}
+		}
+	}
+}
+
 // add small gap between app content and app navigation
 .app-files #app-content {
 
-	&> .viewcontainer {
+	&>.viewcontainer {
 		padding-left: 8px;
 	}
 
@@ -33,6 +108,164 @@
 	}
 }
 
+// Deleted Files list table and header
+#app-content-vue {
+	.files-list__header {
+
+		.breadcrumb__crumbs {
+			a {
+
+				&:active,
+				&:focus,
+				&:focus-visible {
+					background-color: transparent;
+					outline: none;
+				}
+
+				&:hover {
+					background-color: transparent;
+					outline: none;
+					opacity: 0.7;
+				}
+			}
+
+			span.material-design-icon.home-icon {
+				background-image: var(--icon-delete-dark);
+				background-size: 24px;
+				height: 24px;
+				width: 24px;
+
+				svg {
+					display: none;
+				}
+			}
+
+			span.material-design-icon.chevron-right-icon.vue-crumb__separator {
+				background-image: var(--icon-breadcrumb-arrow-grey);
+				background-size: 24px;
+				height: 24px;
+				width: 24px;
+				background-position: center;
+				background-repeat: no-repeat;
+
+				svg {
+					display: none;
+				}
+			}
+
+		}
+
+		// Context menu when table header checkbox is checked
+		&+.vue-recycle-scroller {
+			
+			.files-list__row-column-custom.files-list__row-trashbin-deleted {
+				color: var(--color-main-text);
+			}
+
+			.files-list__row-checkbox {
+
+				.checkbox-radio-switch {
+					display: flex;
+					justify-content: flex-start;
+
+					--icon-size: var(--checkbox-size);
+
+					label.checkbox-radio-switch__label {
+						margin-left: 20px;
+						margin-right: 16px;
+					}
+				}
+			}
+
+			.files-list__row-size {
+				display: none;
+			}
+
+			span.checkbox-radio-switch--checked {
+
+				label.checkbox-radio-switch__label>span.checkbox-radio-switch__icon {
+					background-image: var(--original-icon-check-white);
+					background-color: var(--telekom-color-functional-success-standard);
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 18px;
+					border: none;
+					border-radius: var(--telekom-radius-circle);
+					height: 1.5rem;
+					width: 1.5rem;
+					margin: -2px -2px 0 0;
+				}
+
+				svg {
+					display: none;
+				}
+			}
+
+			.files-list__row-actions {
+				.button-vue__wrapper {
+					color: var(--color-main-text);
+				}
+			}
+
+			.files-list__row-icon {
+				margin-right: 16px;
+				margin-left: 24px;
+				z-index: 100;
+
+				.material-design-icon.folder-icon {
+					background-image: var(--icon-mime-folder-dark);
+					@include thumbnail-icons();
+				}
+			}
+		}
+	}
+
+	.files-list {
+		&__column {
+			width: fit-content;
+
+			&.files-list__row-size {
+				display: none;
+			}
+
+			&.files-list__row-name.files-list__column--sortable > .files-list__row-icon {
+				display: none;
+			}
+
+			&-sort-button {
+
+				&:hover,
+				&:active,
+				&:focus,
+				&:focus-visible {
+					background-color: transparent;
+					color: var(--telekom-color-text-and-icon-primary-standard);
+					outline: none;
+				}
+
+				span.button-vue__text {
+					font-weight: normal;
+					overflow: visible;
+					white-space: nowrap;
+				}
+			}
+
+			&.files-list__row-actions-batch {
+				@include header-menu-files();
+
+				.action-item--single.files-list__row-actions-batch-restore {
+					padding-left: 0;
+				}
+
+				.action-item--single.files-list__row-actions-batch-delete {
+					padding-left: 0;
+				}
+			}
+		}
+
+	}
+}
+
 // breadcrumb wrapper
 .files-controls {
 	background-color: var(--color-main-background);
@@ -47,7 +280,7 @@
 .actions.creatable {
 
 	// 'Add new file/folder' button inside breadcrumb
-	& > a.button.new {
+	&>a.button.new {
 		padding: 9px;
 		background-color: var(--color-main-background);
 		border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
@@ -65,13 +298,14 @@
 
 		// Do not display text "New" after file add breadcrumb
 		span:nth-child(2) {
-			display: none;	
+			display: none;
 		}
 	}
-	
+
 	.newFileMenu {
+
 		// hide "Add description" menu item
-		[data-action=rich-workspace-init] { 
+		[data-action=rich-workspace-init] {
 			display: none;
 		}
 	}
@@ -107,7 +341,7 @@ table.files-filestable {
 					display: none;
 				}
 
-				.filesSelectMenu  {
+				.filesSelectMenu {
 					display: flex !important;
 					filter: unset;
 					justify-content: flex-end;
@@ -115,14 +349,14 @@ table.files-filestable {
 					padding: 0;
 					position: unset;
 					transform: unset;
-			
+
 					ul {
 						flex-direction: row;
-			
+
 						li.item-toggleSelectionMode {
 							display: none;
 						}
-			
+
 						a.menuitem.action {
 							border: none;
 							border-radius: 0;
@@ -133,7 +367,7 @@ table.files-filestable {
 							margin-right: 1rem;
 							padding: 0 !important;
 							position: relative;
-			
+
 							.icon {
 								@include magenta-icon;
 								background-position-x: left;
@@ -146,7 +380,7 @@ table.files-filestable {
 									background-image: var(--original-icon-restore-dark);
 								}
 							}
-			
+
 							&::before {
 								background-color: var(--color-primary);
 								border-radius: 0;
@@ -162,11 +396,12 @@ table.files-filestable {
 								transition: all .1s ease-in-out;
 								width: 100%;
 							}
-			
-							&:hover, &:focus {
+
+							&:hover,
+							&:focus {
 								background: none;
 								border: none;
-			
+
 								&::before {
 									opacity: 1;
 								}
@@ -176,7 +411,9 @@ table.files-filestable {
 				}
 			}
 
-			&.column-mtime, &.column-size, &.column-last {
+			&.column-mtime,
+			&.column-size,
+			&.column-last {
 				min-width: 140px;
 				text-align: right;
 
@@ -197,7 +434,7 @@ table.files-filestable {
 
 			.columntitle {
 				color: var(--color-main-text);
-				
+
 				&:hover {
 					color: var(--telekom-color-text-and-icon-primary-standard);
 
@@ -205,7 +442,7 @@ table.files-filestable {
 						filter: var(--nmc-color-icon)
 					}
 				}
-				
+
 				&.name {
 					margin-left: 20px;
 					padding-right: 2rem;
@@ -218,7 +455,7 @@ table.files-filestable {
 
 			.selectedActions {
 
-				&> a.actions-selected {
+				&>a.actions-selected {
 					color: var(--telekom-color-text-and-icon-primary-standard);
 					font-weight: bold;
 					margin: 0 1rem 0 0;
@@ -233,7 +470,7 @@ table.files-filestable {
 					.icon {
 						@include magenta-icon;
 					}
-			
+
 					&::before {
 						background-color: var(--color-primary);
 						border-radius: 0;
@@ -250,7 +487,8 @@ table.files-filestable {
 						width: 100%;
 					}
 
-					&:hover, &:focus {
+					&:hover,
+					&:focus {
 						background: none;
 						border: none;
 
@@ -275,7 +513,7 @@ table.files-filestable {
 					}
 
 					ul {
-			
+
 						li.item-toggleSelectionMode {
 							display: none;
 						}
@@ -290,7 +528,11 @@ table.files-filestable {
 		tr {
 			height: 68px;
 
-			&.highlighted, &.selected, &:not(.hidden):active, &:not(.hidden):focus, &:not(.hidden).mouseOver td {
+			&.highlighted,
+			&.selected,
+			&:not(.hidden):active,
+			&:not(.hidden):focus,
+			&:not(.hidden).mouseOver td {
 				background-color: var(--nmc-color-row-selected);
 			}
 
@@ -299,8 +541,9 @@ table.files-filestable {
 			}
 
 			td {
-	
-				&.date, &.column-last {
+
+				&.date,
+				&.column-last {
 					min-width: 140px;
 					text-align: right;
 
@@ -308,7 +551,7 @@ table.files-filestable {
 						color: var(--color-main-text) !important;
 					}
 				}
-				
+
 				&.filename {
 
 					a.name:focus {
@@ -319,11 +562,11 @@ table.files-filestable {
 						margin-left: 70px !important;
 					}
 				}
-				
+
 				&.filesize {
 					min-width: 90px;
 				}
-	
+
 				.nametext {
 					padding-left: 20px;
 				}
@@ -346,7 +589,8 @@ table.files-filestable {
 						}
 
 						// color shared files in magenta
-						&.shared-style, &.action-restore {
+						&.shared-style,
+						&.action-restore {
 							color: var(--color-primary);
 							opacity: 1;
 
@@ -383,7 +627,7 @@ table.files-filestable {
 								min-width: 24px;
 								min-height: 24px;
 							}
-				
+
 							&.icon-more {
 								margin: 0 1rem;
 								min-width: 24px;
@@ -401,11 +645,11 @@ table.files-filestable {
 					}
 				}
 			}
-	
+
 			.thumbnail-wrapper {
 				height: 50px;
 				width: 50px;
-	
+
 				.thumbnail {
 					background-position: center;
 					background-repeat: no-repeat;
@@ -414,12 +658,12 @@ table.files-filestable {
 					height: 44px;
 					margin-top: 0.2rem;
 					width: 44px;
-	
+
 					.favorite-mark {
 						bottom: -6px;
 						right: -12px;
 						top: unset;
-	
+
 						.icon {
 							background-size: 24px;
 							min-width: 24px;
@@ -441,14 +685,14 @@ table.files-filestable {
 			}
 		}
 	}
-	
+
 	input {
 
 		&[type=checkbox] {
 
 			&.checkbox {
 
-				+ label {
+				+label {
 					display: inline-block;
 					padding: 16px 0;
 					text-align: center;
@@ -463,13 +707,13 @@ table.files-filestable {
 					}
 				}
 
-				&:not(:disabled):not(:checked):hover + label:before {
+				&:not(:disabled):not(:checked):hover+label:before {
 					background: var(--telekom-color-ui-state-fill-hovered);
 					border-color: var(--telekom-color-ui-border-hovered);
 					color: var(--color-icon-checked-active);
 				}
 
-				&:checked + label:before {
+				&:checked+label:before {
 					background-image: var(--original-icon-check-white);
 					background-color: var(--telekom-color-functional-success-standard);
 					background-repeat: no-repeat;
@@ -486,7 +730,7 @@ table.files-filestable {
 
 			&.select-all {
 
-				+ label {
+				+label {
 					height: 50px;
 					padding: 15px;
 
@@ -511,12 +755,14 @@ table.files-filestable {
 	}
 }
 
-#app-content-favorites, #app-content-sharingout, #app-content-sharingin {
+#app-content-favorites,
+#app-content-sharingout,
+#app-content-sharingin {
 	margin-top: 54px;
 }
 
 #app-content-trashbin {
-	
+
 	.item-files_zip {
 		display: none;
 	}
