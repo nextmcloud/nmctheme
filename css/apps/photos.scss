@@ -1,6 +1,23 @@
 @import '../mixins';
 @import '../variables';
 
+@mixin magenta-icon {
+	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%);
+}
+
+@mixin thumbnail-icons {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	border: none;
+	height: 44px;
+	width: 44px;
+
+	svg {
+		display: none;
+	}
+}
+
 .app-photos {
 	#app-content-vue {
 		.photos-navigation {
@@ -361,11 +378,12 @@
 }
 
 // New album modal window
-.modal-container {
-	form.album-form {
+#body-user .modal-container {
+
+	.album-form, .album-picker {
 		background-color: var(--telekom-color-background-surface);
 		height: auto;
-		padding: 50px 50px 24px 24px;
+		padding: 1.5rem !important;
 
 		div.form-inputs {
 
@@ -381,6 +399,15 @@
 		}
 
 		.form-buttons {
+
+			.left-buttons {
+
+				// 'Back' button
+				.button-vue--vue-tertiary {
+					border: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-border-standard);
+				}
+			}
+
 			.right-buttons {
 
 				// Hide 'Add collaborators' button 
@@ -398,6 +425,41 @@
 				}
 			}
 		}
+
+		h2 {
+			font-size: 1.5rem;
+			height: auto !important;
+			margin-bottom: 1.5rem;
+		}
+
+		.albums-container {
+			overflow-x: unset !important;
+			overflow-y: auto;
+			margin-bottom: 1.5rem;
+
+			.album {
+
+				.list-item {
+					border-radius: var(--telekom-radius-standard);
+					padding: 0.5rem !important;
+				}
+			}
+		}
+
+		.new-album-button {
+			background-color: var(--telekom-color-primary-standard);
+			border: 0;
+			color: var(--telekom-color-text-and-icon-white-standard);
+			margin-right: 0;
+
+			&:hover:not(:disabled) {
+				background-color: var(--telekom-color-primary-hovered);
+			}
+
+			.button-vue__icon {
+				margin-left: -1rem;
+			}
+		}
 	}
 }
 
@@ -409,8 +471,11 @@
 
 // Add Photos to the album modal window
 #body-user .modal-container {
+	background-color: var(--telekom-color-background-surface);
+	width: 624px;
 
 	button.modal-container__close {
+		border: none;
 		z-index: 10;
 
 		&:hover:not(:disabled) {
@@ -434,11 +499,24 @@
 		}
 	}
 
+	.dialog__name {
+		font-size: 24px;
+		height: unset;
+		line-height: unset;
+		margin-block: 1.5rem 1rem;
+		min-height: unset;
+	}
+
 	.file-picker {
-		background-color: var(--telekom-color-background-surface);
+
+		.dialog__wrapper {
+			margin-inline: 1.5rem;
+    		margin-block: 0 1.5rem;
+		}
+
 		&+button.modal-container__close {
-			margin-right: 1.3rem;
-			margin-top: 0.5rem;
+			margin-right: 0.75rem;
+			margin-top: 0.75rem;
 		}
 
 		&__actions {
@@ -531,12 +609,24 @@
 						display: none;
 					}
 				}
+
+				span.folder-icon {
+					background-image: var(--icon-folder-dark);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 18px;
+					width: 24px;
+					height: 24px;
+
+					svg {
+						display: none;
+					}
+				}
 			}
 		}
 
 		&__navigation {
-			flex-basis: 248px;
-			border-right: 2px solid var(--nmc-color-background-hover);
+			display: block;
 
 			&__month {
 				border-radius: var(--telekom-radius-standard);
@@ -549,6 +639,172 @@
 				&:not(.selected):hover {
 					background-color: var(--nmc-color-background-hover);
 					color: var(--color-primary);
+				}
+			}
+
+			.v-select.select {
+				display: none;
+			}
+
+			.input-field {
+				max-width: 100%;
+			}
+		}
+
+		&__breadcrumbs {
+
+			nav {
+				display: inline-flex;
+				flex-grow: 0;
+				min-width: unset;
+
+				.vue-crumb {
+
+					& > a {
+						min-width: unset;
+						
+						&:hover {
+							background-color: unset;
+						}
+					}
+
+					&:last-child {
+						min-width: unset;
+					}
+				}
+
+				span.home-icon {
+					background-image: var(--icon-home-dark);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 24px;
+					width: 24px;
+					height: 24px;
+
+					svg {
+						display: none;
+					}
+				}
+
+				span.vue-crumb__separator {
+					display: flex;
+					background-image: var(--icon-breadcrumb-arrow-grey);
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 24px;
+					width: 24px;
+					height: 24px;
+
+					svg {
+						display: none;
+					}
+				}
+			}
+
+			.breadcrumb__actions {
+
+				button {
+					border: none;
+					margin: 0;
+					padding: 0;
+
+					.plus-icon {
+						border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
+						border-radius: 50%;
+					}
+	
+					svg {
+						color: var(--telekom-color-text-and-icon-primary-standard);
+					}
+	
+					.button-vue__text {
+						display: none;
+					}
+					
+					&:hover {
+						background-color: unset;
+					}
+				}
+			}
+		}
+
+		&__files {
+			overflow: auto;
+
+			th {
+				background-color: unset;
+
+				.button-vue {
+					border: none;
+					margin: 0;
+					padding: 0;
+
+
+					&:hover:not(:disabled) {
+						background-color: unset;
+						border-color: unset;
+						color: unset;
+					}
+
+					&:focus:not(:disabled) {
+						outline: unset;
+						outline-offset: unset;
+					}
+
+					.button-vue__icon {
+						min-width: 20px;
+						width: 20px;
+					}
+				}
+
+				&.row-name {
+
+					.file-picker__header-preview {
+						width: 30px;
+					}
+				}
+
+				&.row-modified {
+
+					.button-vue__wrapper {
+						justify-content: end;
+    					flex-direction: row;
+					}
+				}
+			}
+
+			td {
+				.file-picker__file-icon {
+					width: 20px;
+					height: 20px;
+					min-width: 20px;
+					min-height: 20px;
+				}
+				
+				.material-design-icon {
+					background-position: center;
+					background-repeat: no-repeat;
+
+					svg {
+						display: none;
+					}
+
+					&.folder-icon {
+						background-image: var(--icon-mime-folder-dark);
+						@include thumbnail-icons();
+					}
+
+					&.file-icon {
+						background-image: var(--icon-text-file-dark);
+					}
+				}
+
+				&.row-name {
+					padding-left: 0.5rem;
+				}
+
+				&.row-modified {
+					text-align: right;
 				}
 			}
 		}

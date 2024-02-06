@@ -272,6 +272,10 @@
 	opacity: 0.97;
 	padding-top: 0;
 
+	@media screen and (min-width: $breakpoint-mobile) {
+		padding-left: 0;
+	}
+
 	li.crumbhome {
 		margin-right: 5px;
 	}
