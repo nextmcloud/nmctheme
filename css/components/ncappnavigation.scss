@@ -17,6 +17,10 @@
 	// prevent mobile navigation toggle button to visually overlap underlying content
 	.app-navigation-toggle {
 		background-color: transparent;
+
+		@media screen and (min-width: $breakpoint-mobile) {
+			display: none;
+		}
 	}
 
 	.app-navigation__content {

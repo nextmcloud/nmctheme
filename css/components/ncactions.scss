@@ -77,6 +77,22 @@
 			&.close-icon {
 				background-image: var(--icon-close-dark);
 			}
+
+			&.folder-icon {
+				background-image: var(--icon-folder-dark);
+			}
+		}
+
+		li:last-child > .action-input  {
+			padding-bottom: 0;
+
+			.action-input__form {
+				padding-right: 0;
+			}
+
+			label {
+				display: none;
+			}
 		}
 	}
 }
