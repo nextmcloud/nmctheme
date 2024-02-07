@@ -157,7 +157,7 @@
 
 		// Context menu when table header checkbox is checked
 		&+.vue-recycle-scroller {
-			
+
 			.files-list__row-column-custom.files-list__row-trashbin-deleted {
 				color: var(--color-main-text);
 			}
@@ -228,7 +228,7 @@
 				display: none;
 			}
 
-			&.files-list__row-name.files-list__column--sortable > .files-list__row-icon {
+			&.files-list__row-name.files-list__column--sortable>.files-list__row-icon {
 				display: none;
 			}
 
@@ -770,4 +770,16 @@ table.files-filestable {
 	.item-files_zip {
 		display: none;
 	}
+}
+
+#app-content-files {
+	// Hide Set Reminder item from 3-dot menu popup 
+	.fileActionsMenu .action-setreminder-container {
+		display: none;
+	}
+}
+
+// Hide Set Reminder item from right-click menu popup
+#content .rightClickMenu .menu-option.option-setreminder {
+	display: none;
 }
