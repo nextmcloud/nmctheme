@@ -15,7 +15,7 @@
         "@nextcloud/vue": "8.0.0-beta.5",
         "@telekom/design-tokens": "^1.0.0-beta.9",
         "pinia": "^2.1.6",
-        "vue": "^2.7.14"
+        "vue": "^3.4.17"
     },
     "devDependencies": {
         "@nextcloud/babel-config": "^1.0.0",
