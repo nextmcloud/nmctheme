@@ -1,7 +1,12 @@
 @import '../_mixins.scss';
 @import '../variables';
 
-#nmcsettings, .nmcsettings {
+@mixin magenta-icon {
+	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%);
+}
+
+#nmcsettings,
+.nmcsettings {
 	display: flex;
 	padding: 3rem 3rem 0;
 
@@ -14,7 +19,7 @@
 		width: 100%;
 	}
 
-	& > .section {
+	&>.section {
 		padding: 0;
 	}
 
@@ -31,7 +36,7 @@
 	&:last-child {
 		padding-bottom: 3rem;
 	}
-	
+
 	.personal-settings-account-container {
 		display: flex;
 		flex-direction: column;
@@ -51,8 +56,7 @@
 			vertical-align: baseline;
 
 			input[type='text'],
-			input[type='email']
-			{
+			input[type='email'] {
 				width: 400px;
 				height: 3rem !important;
 				padding: 0.75rem;
@@ -74,7 +78,7 @@
 				}
 			}
 
-			button  {
+			button {
 				background: none;
 				margin: 0;
 			}
@@ -94,7 +98,7 @@
 				}
 			}
 
-			&.clients-box  {
+			&.clients-box {
 				margin: 0;
 
 				&.desktop {
@@ -105,7 +109,7 @@
 				a {
 					padding-right: 0.5rem;
 				}
-				
+
 				img {
 					height: 4rem;
 				}
@@ -113,17 +117,17 @@
 
 			&.webdav-box {
 				max-width: 800px;
-			
+
 				span {
 					color: var(--telekom-color-primary-standard);
 				}
 			}
 
 			&.authtokens-box {
-		
+
 				#security {
 					max-width: 800px;
-					
+
 					table {
 
 						th {
@@ -172,7 +176,8 @@
 			font-weight: bold;
 		}
 
-		section, .section {
+		section,
+		.section {
 			padding: 0;
 		}
 
@@ -194,7 +199,8 @@
 				min-height: 1.5rem;
 				padding: 0;
 
-				&:hover, &:focus {
+				&:hover,
+				&:focus {
 					border: none;
 					outline: none;
 				}
@@ -222,7 +228,7 @@
 				width: 400px;
 
 				.email__actions-container {
-					
+
 					.email__actions {
 						opacity: 1 !important;
 					}
@@ -255,7 +261,7 @@
 					}
 				}
 			}
-	
+
 			em {
 				color: var(--telekom-color-primary-standard);
 				display: block;
@@ -290,7 +296,7 @@
 		}
 
 		.quota-box {
-	
+
 			.icon-quota {
 				background: none;
 				margin: 1rem 0;
@@ -341,36 +347,36 @@
 				#files,
 				#photos,
 				#backup,
-				#bin{
+				#bin {
 					border-radius: 30px;
 					width: 1rem;
 					height: 0.5rem;
 					display: inline-block;
 					margin: 0.125rem 0.25rem;
 				}
-				
+
 				.recycle-paragraph {
 					margin-top: 1.5rem;
 				}
 			}
-			
+
 			.progress-bar {
 				height: 0.5rem;
 			}
-				
-			.files-usage{
+
+			.files-usage {
 				background-color: #22adb9;
 			}
 
-			.photos-usage{
+			.photos-usage {
 				background-color: #b682bd;
 			}
 
-			.backup-usage{
+			.backup-usage {
 				background-color: #828ac4;
 			}
 
-			.bin-usage{
+			.bin-usage {
 				background-color: #fc9a55;
 			}
 		}
@@ -386,12 +392,12 @@
 		font-size: 1rem;
 		margin: 1rem 0 0;
 
-		&:hover{
+		&:hover {
 			border: 1px solid var(--telekom-color-primary-standard);
 			color: var(--telekom-color-primary-standard);
 		}
 
-		&.button-vue--icon-only:hover{
+		&.button-vue--icon-only:hover {
 			border: none;
 		}
 	}
@@ -421,12 +427,12 @@
 			&.settings-section__title {
 				font-size: 32px;
 			}
-			
+
 			&.subheader {
 				margin-top: 2rem;
 			}
 		}
-	
+
 		.theming__preview-list {
 			grid-template-columns: 1fr 1fr 1fr;
 
@@ -454,7 +460,7 @@
 						}
 					}
 				}
-				
+
 
 				.theming__preview-image {
 					border: 2px solid var(--telekom-color-primary-standard);
@@ -478,7 +484,9 @@
 				}
 
 				.checkbox-radio-switch {
-					input.focus-visible + label, input:focus-visible + label {
+
+					input.focus-visible+label,
+					input:focus-visible+label {
 						.checkbox-radio-switch__icon {
 							border-radius: 2rem;
 							outline: 2px solid blue;
@@ -520,8 +528,7 @@
 		}
 	}
 
-	input[type='password']
-	{
+	input[type='password'] {
 		width: 400px;
 		height: 3rem !important;
 		padding: 1rem;
@@ -543,12 +550,12 @@
 		opacity: 1;
 		padding: 0 1.5rem;
 
-		&:hover{
+		&:hover {
 			border: 1px solid var(--telekom-color-primary-standard);
 			color: var(--telekom-color-primary-standard);
 		}
 
-		&.button-vue--icon-only:hover{
+		&.button-vue--icon-only:hover {
 			border: none;
 		}
 	}
@@ -556,7 +563,7 @@
 
 #app-content {
 
-	& > .section {
+	&>.section {
 		padding: 2rem;
 	}
 
@@ -581,7 +588,8 @@
 
 		.button-vue {
 
-			&.button-vue--vue-warning, &.button-vue--vue-error {
+			&.button-vue--vue-warning,
+			&.button-vue--vue-error {
 				background-color: var(--telekom-color-primary-standard);
 
 				&:hover:not(:disabled) {
@@ -608,10 +616,80 @@
 
 // TODO this should be done by the icon generation script
 
-body .icon-mail-opened, body .icon-mail-opened-dark {
-    background-image: var(--icon-mail-opened-dark);
+body .icon-mail-opened,
+body .icon-mail-opened-dark {
+	background-image: var(--icon-mail-opened-dark);
 }
 
-body .icon-auto-login, body .icon-auto-login-dark {
-    background-image: var(--icon-auto-login-dark);
+body .icon-auto-login,
+body .icon-auto-login-dark {
+	background-image: var(--icon-auto-login-dark);
+}
+
+// Welcome Popup Settings Screen
+#app-content {
+	.section {
+		input[type='button'] {
+			@include primary-button;
+		}
+
+		.add-slide a.button {
+			margin-left: 8px;
+			background-color: var(--color-main-background);
+			border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
+			border-radius: 50%;
+			min-height: unset;
+			height: 24px;
+			width: 24px;
+	
+			span.icon-add {
+				@include magenta-icon;
+				background-size: 16px 16px;
+				opacity: 1;
+			}
+		}
+
+		.uploadButton > .image-label {
+			#uploadimage {
+					@include primary-button;
+					background-image: var(--icon-upload-white);
+				}
+		}
+	}
+
+	.section.section-deutsch,
+	.section.section-english {
+		@media only screen and (max-width: $breakpoint-mobile) {
+			width: 100vw;
+
+			input,
+			textarea {
+				width: 100%;
+			}
+		}
+
+		width: 33vw;
+
+		input,
+		textarea {
+			width: 80%;
+		}
+
+		input[id^="de_DE-"], input[id^="en_GB-"] {
+			border: 1px solid var(--vs-border-color);
+			height: 44px;
+
+			&:hover, &:focus, &:focus-visible {
+				border: 1px solid var(--color-primary-element);
+			}
+		}
+
+		textarea {
+			border: 1px solid var(--vs-border-color);
+
+			&:hover, &:focus, &:focus-visible {
+				border: 1px solid var(--color-primary-element);
+			}
+		}
+	}
 }
