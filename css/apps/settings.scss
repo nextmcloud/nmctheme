@@ -654,6 +654,12 @@ body .icon-auto-login-dark {
 					@include primary-button;
 					background-image: var(--icon-upload-white);
 				}
+			.icon-delete {
+				background-image: var(--icon-delete-dark);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 1rem;
+			}
 		}
 	}
 
