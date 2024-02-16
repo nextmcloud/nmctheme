@@ -39,7 +39,7 @@
         "typescript": "^5.1.6",
         "vue-loader": "^15.10.2",
         "vue-template-compiler": "^2.7.14",
-        "webpack": "^5.79.0",
+        "webpack": "^5.90.2",
         "webpack-cli": "^5.1.4"
     },
     "//": "seems to be needed to make it work atm",
