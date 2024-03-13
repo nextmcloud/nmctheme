@@ -772,7 +772,7 @@ table.files-filestable {
 	}
 }
 
-#app-content-files {
+#app-content-sharingout {
 	// Hide Set Reminder item from 3-dot menu popup 
 	.fileActionsMenu .action-setreminder-container {
 		display: none;
@@ -780,6 +780,6 @@ table.files-filestable {
 }
 
 // Hide Set Reminder item from right-click menu popup
-#content .rightClickMenu .menu-option.option-setreminder {
+#rightClickMenus .menu-option.option-setreminder {
 	display: none;
 }
