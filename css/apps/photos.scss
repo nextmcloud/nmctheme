@@ -730,6 +730,10 @@
 		&__files {
 			overflow: auto;
 
+			table {
+				width: 100%;
+			}
+
 			th {
 				background-color: unset;
 
@@ -760,6 +764,10 @@
 
 					.file-picker__header-preview {
 						width: 30px;
+					}
+
+					.button-vue__wrapper {
+						justify-content: start;
 					}
 				}
 

@@ -32,13 +32,6 @@
     "ext-mbstring": "*",
     "nextcloud/ocp": "dev-master"
   },
-  "config": {
-    "optimize-autoloader": true,
-    "classmap-authoritative": true,
-    "platform": {
-        "php": "8.0"
-    }
-  },
   "scripts": {
     "lint": "find . -name \\*.php -not -path './vendor/*' -print0 | xargs -0 -n1 php -l",
     "cs:check": "php-cs-fixer fix --dry-run --diff",
