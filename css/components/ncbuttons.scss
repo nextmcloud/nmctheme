@@ -122,5 +122,13 @@
         }
     }
 
+    &.action-button {
+
+        .action-button__text, .action-button__longtext {
+            padding: 0.75rem 0;
+            line-height: 1.25rem;
+        }
+    }
+
     // No basic tertiary button styling, those should be styled in superior components if needed.
 }
