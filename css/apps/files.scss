@@ -783,3 +783,10 @@ table.files-filestable {
 #rightClickMenus .menu-option.option-setreminder {
 	display: none;
 }
+
+// Hide right click menu if it contains only one element (case for "Select" menu appearing when clicking on gaps in grid view)
+#rightClickMenus:has(+ #rightClickDetector[style="display: block;"]) {
+	#rightClickMenu:not(:has(> ul > li:nth-child(2))) {
+		display: none;
+	}
+}
