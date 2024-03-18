@@ -164,6 +164,13 @@
     }
 }
 
+.dialog__modal[name="Pick plain text files"] {
+
+    .dialog__name {
+        visibility: hidden;
+    }
+}
+
 #oc-dialog-filepicker-content {
     background-color: var(--telekom-color-background-surface);
 
