@@ -263,6 +263,12 @@
 			}
 		}
 
+		.vue-recycle-scroller__slot {
+			
+			th, td {
+				color: var(--color-main-text) !important;
+			}
+		}
 	}
 }
 
