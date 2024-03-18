@@ -72,6 +72,10 @@
 }
 
 .v-popper__inner {
+    span.fullscreen-icon {
+        background-image: var(--icon-fullscreen-dark);
+    }
+
     span.download-icon {
         background-image: var(--icon-download-dark);
         svg {
@@ -81,5 +85,5 @@
 
     span.icon-menu-sidebar {
         background-image: var(--icon-share-dark);
-    }
+    } 
 }
