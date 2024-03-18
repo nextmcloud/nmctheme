@@ -33,13 +33,14 @@
 
 			&__content-right {
 				margin-left: 8px;
+
 				// disable Share button for Albums, does not apply to empty album
 				form.upload-picker+button.button-vue--icon-only {
 					display: none;
 				}
 
 				// disable Share button for Albums incl. for empty Albums (not supported by Firefox)
-				button > .button-vue__wrapper > .button-vue__icon:has(span.share-variant-icon),
+				button>.button-vue__wrapper>.button-vue__icon:has(span.share-variant-icon),
 				button:not(.action-item__menutoggle) {
 					display: none;
 				}
@@ -307,8 +308,8 @@
 
 				li.app-navigation-entry-wrapper {
 
-					& > .app-navigation-entry:has(a[title="Shared with you"]),
-					& > .app-navigation-entry:has(a[title="Mit Ihnen geteilt"]) {
+					&>.app-navigation-entry:has(a[title="Shared with you"]),
+					&>.app-navigation-entry:has(a[title="Mit Ihnen geteilt"]) {
 						display: none;
 					}
 
@@ -380,7 +381,8 @@
 // New album modal window
 #body-user .modal-container {
 
-	.album-form, .album-picker {
+	.album-form,
+	.album-picker {
 		background-color: var(--telekom-color-background-surface);
 		height: auto;
 		padding: 1.5rem !important;
@@ -510,7 +512,7 @@
 
 		.dialog__wrapper {
 			margin-inline: 1.5rem;
-    		margin-block: 0 1.5rem;
+			margin-block: 0 1.5rem;
 		}
 
 		&+button.modal-container__close {
@@ -552,6 +554,7 @@
 			.files-list-viewer__section-header {
 				background-color: var(--telekom-color-background-surface);
 			}
+
 			div.file-container {
 				&::after {
 					display: none;
@@ -590,6 +593,7 @@
 							width: 1.5rem;
 							margin: -2px -2px 0 0;
 						}
+
 						.checkbox-marked-icon {
 							display: none;
 						}
@@ -659,9 +663,9 @@
 
 				.vue-crumb {
 
-					& > a {
+					&>a {
 						min-width: unset;
-						
+
 						&:hover {
 							background-color: unset;
 						}
@@ -711,15 +715,15 @@
 						border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
 						border-radius: 50%;
 					}
-	
+
 					svg {
 						color: var(--telekom-color-text-and-icon-primary-standard);
 					}
-	
+
 					.button-vue__text {
 						display: none;
 					}
-					
+
 					&:hover {
 						background-color: unset;
 					}
@@ -775,7 +779,11 @@
 
 					.button-vue__wrapper {
 						justify-content: end;
-    					flex-direction: row;
+						flex-direction: row;
+
+						span.button-vue__text {
+							padding-right: 8px;
+						}
 					}
 				}
 			}
@@ -787,7 +795,7 @@
 					min-width: 20px;
 					min-height: 20px;
 				}
-				
+
 				.material-design-icon {
 					background-position: center;
 					background-repeat: no-repeat;
@@ -812,6 +820,10 @@
 
 				&.row-modified {
 					text-align: right;
+
+					span {
+						padding-right: 8px;
+					}
 				}
 			}
 		}
