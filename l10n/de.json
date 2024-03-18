@@ -57,15 +57,11 @@
       "Expand storage": "Speicherplatz erweitern",
       "Memory used up to %s%%": "Speicher zu %s%% belegt ",
       "of": "von",
-      "%n folder" : "%n Ordner",
-      "%n file" : "%n Datei",
-      "%n folders_" : "%n Ordner",
-      "%n files" : "%n Dateien",
       "Delete file" : "Datei löschen",
       "Delete folder" : "Ordner löschen",
-      "_%n folder_::_%n folders_" : ["%n Ordner","%n Ordner"],
-      "_%n file_::_%n files_" : ["%n Datei","%n Dateien"],
-      "{dirs} and {files}" : "{dirs} und {files}",
+      "_{count} folder_::_{count} folders_" : ["{count} Ordner","{count} Ordner"],
+      "_{count} file_::_{count} files_" : ["{count} Datei","{count} Dateien"],
+      "{summaryFile} and {summaryFolder}" : "{summaryFile} und {summaryFolder}",
       "_including %n hidden_::_including %n hidden_": ["davon %n versteckt","davon %n versteckt"]
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
