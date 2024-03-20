@@ -160,7 +160,9 @@
   },
   "photos": {
     "translations": {
-      "Photos": "Fotos"
+      "Photos": "Photos",
+      "Add": "Add",
+      "Add photos to this album" : "Add photos and videos to this album"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
