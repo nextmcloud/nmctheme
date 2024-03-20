@@ -165,7 +165,9 @@
   },
   "photos": {
     "translations": {
-      "Photos": "Fotos"
+      "Photos": "Fotos",
+      "Add": "Hinzufügen",
+      "Add photos to this album" : "Fotos und Videos zum Album hinzufügen"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
