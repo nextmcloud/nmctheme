@@ -797,3 +797,14 @@ table.files-filestable {
 		display: none;
 	}
 }
+
+#app-content-files {
+	.filelist-header {
+		#editor-container {
+			.text-menubar__entries {
+				margin-top: 8px;
+			}
+		}
+	}
+}
+
