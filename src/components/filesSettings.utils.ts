@@ -52,3 +52,8 @@ export const updateDisplaySettings = async (key: string, value: boolean) => {
 		}
 	} catch (error) { }
 }
+
+export const sendUtagInfo = (data: Record<string, string>) => {
+	if (typeof utag === 'undefined' || !utag.view()) return
+	utag.view(data)
+}

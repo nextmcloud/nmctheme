@@ -5,6 +5,9 @@ declare global {
         OCA: { Theming: {cacheBuster: string }, Viewer: any, Files: any }
         OC: { requestToken: string }
     }
+    const utag: {
+        view: (data?: any) => boolean
+    }
 }
 
 export default global

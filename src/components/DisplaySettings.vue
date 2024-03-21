@@ -27,6 +27,7 @@
 
 <script>
 import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
+import { sendUtagInfo } from './filesSettings.utils.ts'
 import { useUserConfigStore } from '../store/userconfig.ts'
 import { loadState } from '@nextcloud/initial-state'
 import { translate } from '@nextcloud/l10n'
@@ -56,6 +57,11 @@ export default {
 	},
 	methods: {
 		setConfig(key, value) {
+			sendUtagInfo({
+				wt_link_id: `checkbox.${key}`,
+				page_content_id: 'files.displaysettings',
+				page_type: 'files',
+			})
 			this.userConfigStore.update(key, value)
 		},
 		toggleOpen() {
