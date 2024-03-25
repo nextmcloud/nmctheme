@@ -264,8 +264,9 @@
 		}
 
 		.vue-recycle-scroller__slot {
-			
-			th, td {
+
+			th,
+			td {
 				color: var(--color-main-text) !important;
 			}
 		}
@@ -806,5 +807,9 @@ table.files-filestable {
 			}
 		}
 	}
-}
 
+	// Hide Set Reminder item from 3-dot menu popup 
+	.files-filestable .fileActionsMenu .action-setreminder-container {
+		display: none;
+	}
+}
