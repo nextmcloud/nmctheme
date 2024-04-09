@@ -11,7 +11,7 @@
 	}
 }
 
-#app-navigation-vue.app-navigation {
+.app-navigation {
 	border-right: 1px solid var(--telekom-color-ui-faint);
 
 	// prevent mobile navigation toggle button to visually overlap underlying content
@@ -23,73 +23,89 @@
 		}
 	}
 
-	.app-navigation__content {
-		// remove gaps between navigation items
-		.app-navigation__list {
-			gap: var(--telekom-spacing-composition-space-03);
-			padding: 4rem 1.5rem 1.5rem;
+	// remove gaps between navigation items
+	nav.app-navigation__content ul.app-navigation__list {
+		gap: var(--telekom-spacing-composition-space-03);
+		padding: 4rem 1.5rem 1.5rem;
 
-			[data-cy-files-navigation-item="recent"],
-			[data-cy-files-navigation-item="shareoverview"] {
-				display: none;
-			}
+		[data-cy-files-navigation-item="recent"] {
+			display: none;
+		}
 
-			// default navbar link styling
-			.app-navigation-entry {
-				border-radius: var(--telekom-radius-standard);
-				font: var(--telekom-text-style-ui-bold);
-				transition: none;
-				.app-navigation-entry-link {
-					padding: 0.25rem;
-				}
-				&-icon {
+		// default navbar link styling
+		.app-navigation-entry {
+			border-radius: var(--telekom-radius-standard);
+			font: var(--telekom-text-style-ui-bold);
+			transition: none;
+			.app-navigation-entry-link {
+				padding: 0.25rem;
+				.app-navigation-entry-icon {
 					background-size: 24px;
 					background-position: center;
 				}
-				&:hover,  &.active {
-					background-color: var(--nmc-color-background-hover);
-				}
-				// do not pin app navigation entries to the bottom
-				&--pinned {
-					margin-top: initial;
-					margin-bottom: auto;
-				}
+			}
+			&:hover,  &.active, &.active:hover {
+				background-color: var(--nmc-color-background-hover) !important;
+			}
+			// do not pin app navigation entries to the bottom
+			&--pinned {
+				margin-top: initial;
+				margin-bottom: auto;
+			}
 
-				// active link styling
-				&.active {
-					&::before {
-						background-color: var(--telekom-color-primary-standard);
-					}
-					span {
-						color: var(--telekom-color-text-and-icon-primary-standard);
-					}
-					.app-navigation-entry-icon {
-						filter: var(--nmc-color-icon)
-					}
+			// active link styling
+			&.active {
+				&::before {
+					background-color: var(--telekom-color-primary-standard);
 				}
-
-				// on hover link styling
-				&:hover {
-					span {
-						color: var(--telekom-color-text-and-icon-primary-standard);
-					}
-					.app-navigation-entry-icon {
-						filter: var(--nmc-color-icon)
-					}
+				span {
+					color: var(--telekom-color-text-and-icon-primary-standard);
 				}
+				.app-navigation-entry-icon {
+					filter: var(--nmc-color-icon)
+				}
+			}
 
-				// hide Collapse buttons
-				&--collapsible button.icon-collapse{
+			// on hover link styling
+			&:hover {
+				span {
+					color: var(--telekom-color-text-and-icon-primary-standard);
+				}
+				.app-navigation-entry-icon {
+					filter: var(--nmc-color-icon)
+				}
+			}
+
+			// hide Collapse buttons
+			&--collapsible button.icon-collapse{
+				display: none;
+			}
+
+			&--collapsible[data-cy-files-navigation-item=shareoverview] {
+				// hide 'Shares' link
+				> div.app-navigation-entry {
 					display: none;
+				}
+
+				.app-navigation-entry {
+					padding-left: 0px;
+				}
+
+				// hide every subentry except 'Shared with you' and 'Shared with others'
+				ul.app-navigation-entry__children {
+					display: flex;
+					li:not([data-cy-files-navigation-item=sharingin]):not([data-cy-files-navigation-item=sharingout]) {
+						display: none;
+					}
 				}
 			}
 		}
+	}
 
-		.app-navigation-entry__settings {
-			// hide nextcloud quota and files settings links
-			.app-navigation-entry-wrapper {
-				display: none;
-			}
+	&__content &-entry__settings {
+		// hide nextcloud quota and files settings links
+		.app-navigation-entry-wrapper {
+			display: none;
 		}
 	}
 }
@@ -101,19 +117,19 @@
 		display: none;
 	}
 
-	.app-navigation-entry-icon.nav-icon-favorites {
+	[data-cy-files-navigation-item=favorites] .app-navigation-entry-icon {
 		background-image: var(--icon-star-dark);
 	}
 
-	.app-navigation-entry-icon.nav-icon-files {
+	[data-cy-files-navigation-item=files] .app-navigation-entry-icon {
 		background-image: var(--icon-folder-dark);
 	}
 
-	.app-navigation-entry-icon.nav-icon-sharingout {
+	[data-cy-files-navigation-item=shareoverview] [data-cy-files-navigation-item=sharingout] .app-navigation-entry-icon {
 		background-image: var(--icon-share-dark);
 	}
 
-	.app-navigation-entry-icon.nav-icon-sharingin {
+	[data-cy-files-navigation-item=shareoverview] [data-cy-files-navigation-item=sharingin] .app-navigation-entry-icon {
 		background-image: var(--icon-attachment-dark);
 	}
 
