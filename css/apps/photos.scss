@@ -302,7 +302,7 @@
 			}
 		}
 
-		.app-navigation__content {
+		&.app-navigation__content {
 			ul.app-navigation__list {
 				padding: 4rem 1.5rem 1.5rem;
 
@@ -370,7 +370,7 @@
 			}
 
 			// contains 'Photos settings' button
-			&>li.app-navigation-entry-wrapper {
+			.app-navigation__footer {
 				display: none;
 			}
 		}
