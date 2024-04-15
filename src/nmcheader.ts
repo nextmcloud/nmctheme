@@ -26,26 +26,32 @@ window.addEventListener('DOMContentLoaded', function() {
 	const head = document.querySelector('head')
 	if (head !== null) {
 		const user = head.attributes['data-user-displayname'].value
-
-		const menuButton = document.querySelector('#user-menu > a')
+		const menuButton = document.querySelector('#user-menu > button')
 		if (menuButton !== null) {
-			menuButton.innerHTML = '<span>' + user + '</span>'
+			const username = document.createElement('span')
+			username.className="button-vue__label"
+			username.innerText = user
+			menuButton.appendChild(username)
 		}
 	}
 
-	const searchButton = document.querySelector('#unified-search > a')
+	const searchButton = document.querySelector('button.unified-search__button')
 	if (searchButton !== null) {
-		searchButton.innerHTML = '<span>' + t(app, 'Search') + '</span>'
+		const searchlabel = document.createElement('span')
+		searchlabel.className="button-vue__label"
+		searchlabel.innerText = t(app, 'Search')
+		searchButton.appendChild(searchlabel)
 	}
 
 	const menuElements = document.createElement('div')
 	menuElements.id = 'nmcsettings-menu'
 
-	const userMenu = document.querySelector('nav.user-menu__nav ul')
+	const userMenu = document.querySelector('#header-menu-user-menu .header-menu__content ul')
 	if (userMenu !== null) {
 		userMenu.prepend(menuElements)
 	}
 
+	// @ts-ignore
 	const View = Vue.extend(UserMenu)
 	new View({ propsData: { menuItems } }).$mount('#nmcsettings-menu')
 })
