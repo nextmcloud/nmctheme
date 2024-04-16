@@ -131,10 +131,9 @@
   },
   "monthly_status_email": {
     "translations": {
-      "Regular mails": "Regular mails",
-      "Activity Report": "Activity Report",
-      "Monthly Status Report": "Monthly Status Report",
-      "The status report informs you monthly by email about storage space, your shares and gives you useful tips about the MagentaCLOUD.": "The status report informs you monthly by email about storage space, your shares and gives you useful tips about the MagentaCLOUD."
+      "Monthly Status Email": "Monthly Status Report",
+      "Receive monthly status mails with a summary of usaged storage and usage hints": "The status report informs you monthly by email about storage space, your shares and gives you useful tips about the MagentaCLOUD.",
+      "Send status email": "Receive status mail"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
