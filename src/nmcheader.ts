@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		const menuButton = document.querySelector('#user-menu > button')
 		if (menuButton !== null) {
 			const username = document.createElement('span')
-			username.className="button-vue__label"
+			username.className = 'button-vue__label'
 			username.innerText = user
 			menuButton.appendChild(username)
 		}
@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	const searchButton = document.querySelector('button.unified-search__button')
 	if (searchButton !== null) {
 		const searchlabel = document.createElement('span')
-		searchlabel.className="button-vue__label"
+		searchlabel.className = 'button-vue__label'
 		searchlabel.innerText = t(app, 'Search')
 		searchButton.appendChild(searchlabel)
 	}
@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		userMenu.prepend(menuElements)
 	}
 
-	// @ts-ignore
+	// @ts-expect-error no typescript support for extend
 	const View = Vue.extend(UserMenu)
 	new View({ propsData: { menuItems } }).$mount('#nmcsettings-menu')
 })
