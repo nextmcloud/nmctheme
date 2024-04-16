@@ -498,24 +498,6 @@
 	}
 }
 
-#monthly-notifications-settings {
-	border: none;
-	display: block;
-	padding: 1.5rem 3rem 0;
-
-	&.section {
-
-		h2 {
-			margin-bottom: 1rem;
-		}
-
-		.settings-hint {
-			margin: 0 0 1rem;
-			opacity: unset;
-		}
-	}
-}
-
 #ocDefaultEncryptionModule {
 	border: none;
 	display: block;
@@ -609,6 +591,24 @@
 				.checkbox-radio-switch__input:hover+.checkbox-radio-switch__label {
 					background-color: unset;
 				}
+			}
+		}
+	}
+
+	#monthly-notifications-settings {
+		border: none;
+		display: block;
+		padding: 1.5rem 3rem 0;
+	
+		&.section {
+	
+			h2 {
+				margin-bottom: 1rem;
+			}
+	
+			.settings-hint {
+				margin: 0 0 1rem;
+				opacity: unset;
 			}
 		}
 	}
