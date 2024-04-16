@@ -28,10 +28,6 @@ header {
 	}
 }
 
-@mixin color-icon {
-	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%) !important;
-}
-
 // main header styles
 #body-user #header,
 #body-settings #header,
@@ -121,43 +117,95 @@ header {
 	display: none;
 }
 
-.header-menu__trigger {
-	font-size: 12px;
-	font-weight: normal;
-}
+#header {
+    box-shadow: 0 2px 9px var(--color-box-shadow);
+	.header-right {
+		// hide 'Search contacts' button
+		#contactsmenu {
+			display: none;
+		}
 
-#unified-search {
+		// general styling for buttons in the header
+		.header-menu {
+			width: auto;
+			button.button-vue {
+				width: auto !important;
+				padding-left: 0;
+				.button-vue__label {
+					font-size: 12px;
+					font-weight: normal;
+				}
 
-	.header-menu__trigger {
-		background-image: var(--icon-search);
-		background-size: auto 24px;
-		background-position: center;
-		background-repeat: no-repeat;
+				.button-vue__wrapper {
+					width: 44px;
+					.button-vue__icon {
+						background-size: auto 24px;
+						background-position: center;
+						background-repeat: no-repeat;
+						svg {
+							display: none;
+						}
+					}
+				}
 
-		&:hover {
-			filter: var(--nmc-color-icon)
+				&:hover {
+					&::before {
+						background-color: var(--color-primary);
+						content: " ";
+						display: block;
+						height: 4px;
+						bottom: 8px;
+						width: 100%;
+						position: absolute;
+					}
+		
+					.button-vue__label {
+						color: var(--color-primary);
+						cursor: pointer;
+					}
+		
+					.button-vue__icon {
+						filter: var(--nmc-color-icon) !important;
+					}
+				}
+
+				@media screen and (max-width: $breakpoint-mobile) {
+					padding-right: 0;
+                    .button-vue__label {
+                        display: none;
+                    }
+                }
+			}
 		}
 	}
+}
 
-	.unified-search__trigger {
-		display: none;
+// Custom styling for the 'Search' button
+#header .header-right .header-menu:not(.user-menu) {
+	button.unified-search__button {
+		border: none;
+		border-radius: 0;
+		height: 100%;
+		.button-vue__wrapper {
+			.button-vue__icon {
+				background-image: var(--icon-search-dark);
+			}
+		}
+		
 	}
 }
 
+// Custom styling for the 'User' button
 #user-menu {
-
 	@media screen and (max-width: $breakpoint-mobile) {
 		margin-right: var(--telekom-spacing-composition-space-03);
 	}
 
-	.header-menu__trigger {
-		background-image: var(--icon-user);
-		background-size: auto 24px;
-		background-position: center;
-		background-repeat: no-repeat;
-
-		&:hover {
-			filter: var(--nmc-color-icon)
+	button.header-menu__trigger {
+		.button-vue__wrapper {
+			.button-vue__icon {
+				background-image: var(--icon-user);
+			}
 		}
 	}
 
@@ -168,12 +216,6 @@ header {
 	//adapted functional menu styles to user menu for uniformity
 	.header-menu__content {
 		width: 350px !important;
-	}
-
-	.user-menu__nav {
-		ul {
-			width: 100%;
-		}
 	}
 }
 
