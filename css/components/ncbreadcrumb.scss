@@ -68,8 +68,8 @@
 			display: none;
 		}
 
-		.upload-picker.files-list__header-upload-button {
-			// 'Add new file/folder' button inside breadcrumb
+		// 'Add new file/folder' button inside breadcrumb
+		.files-list__header-upload-button {
 			button {
 				all: unset;
 				display: flex;
@@ -105,6 +105,11 @@
 				.button-vue__text {
 					display: none;
 				}
+			}
+
+			// Hide if disabled
+			&--disabled {
+				display: none;
 			}
 		}
 	}
