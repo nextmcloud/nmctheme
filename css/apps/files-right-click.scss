@@ -84,6 +84,10 @@ body .icon-starred:hover {
 	background-image: var(--icon-starred-yellow);
 }
 
+body .favorite-marker-icon {
+	background-image: var(--icon-starred-yellow);
+}
+
 body .icon-rename {
 	background-image: var(--icon-edit-dark);
 }
