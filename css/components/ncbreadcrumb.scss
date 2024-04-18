@@ -1,38 +1,117 @@
-.breadcrumb {
-	.crumb {
-		// change arrow icon
-		background-image: var(--icon-breadcrumb-arrow-grey);
-		padding: 0px;
-		// link text styling
-		& > a {
-			margin-right: 1.5rem;
-			font-size: var(--telekom-typography-font-size-body);
-			opacity: 1;
-			color: var(--telekom-color-text-and-icon-standart);
+@import '../_mixins.scss';
+@import '../variables';
 
-			&:hover {
-				color: var(--color-hover);
+#content-vue .breadcrumb {
+	nav {
+		height: 44px;
+		ul.breadcrumb__crumbs {
+			// Display root as a Home icon
+			li.vue-crumb:first-child {
+				.button-vue__icon {
+					background-image: var(--icon-home-dark);
+					background-position: center;
+					background-repeat: no-repeat;
+					svg {
+						display: none;
+					}
+				}
+				.button-vue__text {
+					display: none;
+				}
+				&:hover {
+					.button-vue__icon {
+						opacity: 0.7;
+					}
+				}
+
 			}
+	
+			li.vue-crumb {
+				a.button-vue {
+					margin: 0;
+					padding: 0 6px;
+					&:hover {
+						background-color: initial;
+					}
+					&:focus {
+						outline: none;
+						background-color: initial;
+					}
+				}
 
-			&.icon-home {
-				margin-left: 2px;
+				// Three dot button for navigation across folders
+				button.action-item__menutoggle {
+					&:hover {
+						background-color: initial;
+						svg {
+							color: initial;
+						}
+					}
+				}
+	
+				// Right arrow change
+				span.chevron-right-icon {
+					background-image: var(--icon-breadcrumb-arrow-grey);
+					width: 24px;
+					height: 24px;
+					svg {
+						display: none;
+					}
+				}
 			}
 		}
+	}
 
-		// hide 'Shared' icon
-		span.shared, span.icon-shared {
+	.breadcrumb__actions {
+		// hide Share button
+		button.files-list__header-share-button {
 			display: none;
 		}
-	}
 
-	// style flyout menu
-	.crumbmenu .crumblist {
-		a {
-			opacity: 1;
+		// 'Add new file/folder' button inside breadcrumb
+		.files-list__header-upload-button {
+			button {
+				all: unset;
+				display: flex;
+				background-color: var(--color-main-background);
+				border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
+				border-radius: 50%;
+				min-height: unset;
+				height: 24px;
+				width: 24px;
+				margin: auto 0;
+				margin-left: 6px;
+		
+				&:hover:not(:disabled) {
+					background-color: initial;
+					border-color: var(--telekom-color-text-and-icon-primary-standard);
+				}
+		
+				.button-vue__icon {
+					@include magenta-icon;
+					background-image: var(--icon-add-white);
+					background-size: 16px 16px;
+					opacity: 1;
+					width: 16px;
+					height: 16px;
+					background-position: center;
+					background-repeat: no-repeat;
+					svg {
+						display: none;
+					}
+				}
+		
+				// Do not display text "New" in the button
+				.button-vue__text {
+					display: none;
+				}
+			}
+
+			// Hide if disabled
+			&--disabled {
+				display: none;
+			}
 		}
-		&:hover > a {
-			background-color: var(--color-main-background);
-			color: var(--color-hover);
-		}	
 	}
+	
 }

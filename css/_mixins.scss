@@ -9,6 +9,10 @@
 	}
 }
 
+@mixin magenta-icon {
+	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%);
+}
+
 // Scale primary button style
 @mixin primary-button {
     border: none;

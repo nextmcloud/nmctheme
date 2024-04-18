@@ -112,49 +112,6 @@
 #app-content-vue {
 	.files-list__header {
 
-		.breadcrumb__crumbs {
-			a {
-
-				&:active,
-				&:focus,
-				&:focus-visible {
-					background-color: transparent;
-					outline: none;
-				}
-
-				&:hover {
-					background-color: transparent;
-					outline: none;
-					opacity: 0.7;
-				}
-			}
-
-			span.material-design-icon.home-icon {
-				background-image: var(--icon-delete-dark);
-				background-size: 24px;
-				height: 24px;
-				width: 24px;
-
-				svg {
-					display: none;
-				}
-			}
-
-			span.material-design-icon.chevron-right-icon.vue-crumb__separator {
-				background-image: var(--icon-breadcrumb-arrow-grey);
-				background-size: 24px;
-				height: 24px;
-				width: 24px;
-				background-position: center;
-				background-repeat: no-repeat;
-
-				svg {
-					display: none;
-				}
-			}
-
-		}
-
 		// Context menu when table header checkbox is checked
 		&+.vue-recycle-scroller {
 
@@ -270,60 +227,6 @@
 				color: var(--color-main-text) !important;
 			}
 		}
-	}
-}
-
-// breadcrumb wrapper
-.files-controls {
-	background-color: var(--color-main-background);
-	opacity: 0.97;
-	padding-top: 0;
-
-	@media screen and (min-width: $breakpoint-mobile) {
-		padding-left: 0;
-	}
-
-	li.crumbhome {
-		margin-right: 5px;
-	}
-}
-
-.actions.creatable {
-
-	// 'Add new file/folder' button inside breadcrumb
-	&>a.button.new {
-		padding: 9px;
-		background-color: var(--color-main-background);
-		border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
-		border-radius: 50%;
-		min-height: unset;
-		height: 24px;
-		width: 24px;
-		margin: auto 0;
-
-		.icon.icon-add {
-			@include magenta-icon;
-			background-size: 16px 16px;
-			opacity: 1;
-		}
-
-		// Do not display text "New" after file add breadcrumb
-		span:nth-child(2) {
-			display: none;
-		}
-	}
-
-	.newFileMenu {
-
-		// hide "Add description" menu item
-		[data-action=rich-workspace-init] {
-			display: none;
-		}
-	}
-
-	// change position of popover menu arrow
-	.newFileMenu::after {
-		left: 51px !important;
 	}
 }
 
