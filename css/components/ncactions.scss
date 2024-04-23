@@ -16,6 +16,29 @@
 		}
 	}
 }
+#body-user {
+	.v-popper__popper {
+		.v-popper__wrapper {
+			.v-popper__inner {
+				ul li.action {
+					&.active {
+						background-color: initial;
+					}
+
+					button.action-button {
+						padding-left: 0px;
+						font-weight: normal;
+	
+						&:hover, &:focus {
+							outline: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 
 // dropdown menu styles
 .v-popper__inner {
@@ -39,8 +62,8 @@
 		}
 
 		&:hover {
-			.action-button__icon, .material-design-icon {
-				filter: var(--nmc-color-icon)
+			.action-button__icon, .material-design-icon, .icon-vue {
+				filter: var(--nmc-color-icon);
 			}
 	
 			.action-button__text, .action-button__longtext, .action-link__text, .action-link__longtext {
@@ -58,9 +81,6 @@
 .v-popper__popper {
 	.v-popper__inner {
 		.material-design-icon {
-			svg {
-				display: none;
-			}
 	
 			&.pencil-icon {
 				background-image: var(--icon-edit-dark);

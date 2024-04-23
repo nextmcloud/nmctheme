@@ -477,7 +477,7 @@
 
 	button.modal-container__close {
 		border: none;
-		z-index: 10;
+		z-index: 20;
 
 		&:hover:not(:disabled) {
 			.close-icon {

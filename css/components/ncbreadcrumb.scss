@@ -70,7 +70,7 @@
 
 		// 'Add new file/folder' button inside breadcrumb
 		.files-list__header-upload-button {
-			button {
+			button.action-item__menutoggle {
 				all: unset;
 				display: flex;
 				background-color: var(--color-main-background);
@@ -79,6 +79,7 @@
 				min-height: unset;
 				height: 24px;
 				width: 24px;
+				max-width: 24px;
 				margin: auto 0;
 				margin-left: 6px;
 		
