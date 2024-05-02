@@ -44,11 +44,6 @@
         border-radius: var(--telekom-radius-standard);
     }
 
-    &:focus:not(:disabled) {
-        outline: var(--telekom-line-weight-highlight) solid var(--telekom-color-functional-focus-standard);
-        outline-offset: var(--telekom-spacing-composition-space-01);
-    }
-
     // Icon-only button
     &--icon-only {
         padding-left: var(--telekom-spacing-composition-space-05);
@@ -109,10 +104,6 @@
         &:disabled {
             color: var(--telekom-color-text-and-icon-disabled);
             background-color: none;
-        }
-
-        &:focus {
-            border-color: var(--telekom-color-functional-focus-standard);
         }
 
         // Icon-only button
