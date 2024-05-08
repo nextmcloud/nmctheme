@@ -231,7 +231,7 @@ class Application extends App implements IBootstrap {
 		$this->registerMimeTypeCustomisations($context);
 
 		// blacklist unwanted search providers for full-text search
-		$this->registerSearchComposerDecorator($context);
+		// $this->registerSearchComposerDecorator($context);
 
 		/**
 		 * Add listeners that can inject additional information or scripts before rendering
