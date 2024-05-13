@@ -23,5 +23,11 @@ return [
 			'url' => '/mime/img/{iconname}.svg',
 			'verb' => 'GET',
 		],
+		[
+			'name' => 'TouchIcon#getTouchIcon',
+			'url' => '/touchicon/{app}',
+			'verb' => 'GET',
+			'defaults' => ['app' => 'nmctheme'],
+		],
 	]
 ];
