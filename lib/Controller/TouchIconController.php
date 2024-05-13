@@ -1,4 +1,5 @@
 <?php
+
 namespace OCA\NMCTheme\Controller;
 
 use OC\IntegrityCheck\Helpers\FileAccessHelper;
@@ -15,7 +16,7 @@ class TouchIconController extends Controller {
 	private $fileAccessHelper;
 
 	/** @var IAppManager */
-	private  $appManager;
+	private $appManager;
 
 	public function __construct(
 		IRequest $request,
