@@ -1,5 +1,6 @@
-// styling for search popover from header
+@import '../_mixins.scss';
 
+// styling for search popover from header
 .header-right {
 
     .header-menu__content {
@@ -61,6 +62,118 @@
         &:focus {
             background-color: var(--nmc-color-background-hover);
             border: none;
+        }
+    }
+}
+
+#unified-search .unified-search-modal {
+    &__header {
+        .input-field {
+            label.input-field__label {
+                display: none;
+            }
+        }
+
+        div.unified-search-modal__filters {
+            gap: 1rem;
+
+            // Hide People filter
+            > .v-popper.v-popper--theme-dropdown {
+                display: none;
+            }
+
+            button.button-vue {
+                all: unset !important;
+                .button-vue__text {
+                    color: var(--color-primary);
+                }
+
+                .button-vue__icon {
+                    .material-design-icon {
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 24px;
+                        width: 26px;
+                        height: 26px;
+                        filter: var(--nmc-color-icon);
+                    }
+
+                    .filter-icon {
+                        background-image: var(--icon-filter-dark);
+                    }
+
+                    .calendar-range-icon {
+                        background-image: var(--icon-calendar-dark);
+                    }
+
+                    svg {
+                        display: none;
+                    }
+                }
+                svg {
+                    color: var(--color-primary);
+                }
+            }
+        }
+
+        .unified-search-modal__filters-applied {
+            .chip {
+                .icon {
+                    display: none;
+                }
+
+                background: var(--telekom-color-ui-faint);
+                border-radius: 2px;
+                border: 1px solid transparent;
+            }
+        }
+    }
+
+    &__results {
+        .result {
+            &-title {
+                padding-bottom: 8px;
+                span {
+                    color: var(--color-primary-text);
+                }
+            }
+
+            &-items {
+                &__item {
+                    .list-item {
+                        margin: 0;
+                        padding: 1rem;
+                        border-radius: 4px;
+
+                        &:hover {
+                            background-color: var(--nmc-color-background-hover);
+                        }
+
+                        &__anchor {
+                            height: 38px;
+                            &:hover {
+                                border: 2px solid rgba(0,0,0,0);
+                                background-color: transparent;
+                            }
+
+                            .result-items__item-icon {
+                                width: 42px;
+                                height: 42px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-footer {
+                // 'Load more results' button
+                button {
+                    color: var(--color-primary);
+                    .button-vue__icon {
+                        display: none;
+                    }
+                }
+            }
         }
     }
 }

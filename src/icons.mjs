@@ -148,6 +148,8 @@ const icons = {
 	appearance: path.join(__dirname, '../img', 'settings', 'appearance.svg'),
 	'arrow-previous': path.join(__dirname, '../img', 'back-nav.svg'),
 	'arrow-next': path.join(__dirname, '../img', 'breadcrumb-arrow.svg'),
+	filter: path.join(__dirname, '../img', 'actions', 'filter.svg'),
+	calendar: path.join(__dirname, '../img', 'content', 'calendar.svg'),
 }
 
 const iconsColor = {
