@@ -116,3 +116,12 @@
 	}
 	
 }
+
+// do not color specific icons
+.v-popper__inner {
+	ul li {
+		&:hover .action-button__icon.icon-filetype-text {
+			filter: none;
+		}
+	}
+}

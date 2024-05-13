@@ -1,76 +1,57 @@
 @import '../_mixins.scss';
 
-// add current style to right click menu, to the '...' and 'Add' buttons in filetable
-#rightClickMenu,
-.fileActionsMenu,
-.newFileMenu {
-	padding: 20px 8px;
-	background-color: var(--telekom-color-background-surface);
-
-	ul li {
-
-		.menu-option,
-		.menuitem,
-		.customitem {
-			gap: 8px;
-			padding: 8px 14px 8px 16px;
-			line-height: 26px;
-
-			span.icon {
-				padding: 26px 0 0 26px;
-				background-position: center;
-				background-size: 24px;
-
-				&.icon-external {
-					background-image: var(--icon-cut-paste-dark);
-				}
-
-				&.icon-goto {
-					background-image: var(--icon-folder-dark);
+.files-list {
+	.v-popper__popper {
+		ul li {
+			&.action {
+				button {
+					svg {
+						display: none;
+					}
 				}
 			}
 
-			// hide 'details' and 'edit locally' buttons in the right click menu and '...' button
-			&.option-editlocally,
-			&.option-details,
-			&.action-editlocally,
-			&.action-details {
+			&[data-cy-files-list-row-action="details"],
+			&[data-cy-files-list-row-action="edit-locally"],
+			&[data-cy-files-list-row-action="view"] {
 				display: none;
 			}
 
-			&:hover {
-				background-color: initial;
-				color: var(--nmc-color-text-and-icon-primary-standard);
+			&[data-cy-files-list-row-action="favorite"] {
+				span.icon-vue {
+					background-image: var(--icon-starred-yellow);
+				}
 
-				// color every icon except starred and filetype ones
-				.icon:not(.icon-starred, [class*="icon-filetype"]) {
-					filter: var(--nmc-color-icon)
+				&:hover {
+					span.icon-vue {
+						filter: none;
+					}
 				}
 			}
 
-			&:focus,
-			&:active,
-			&:focus-visible {
-				box-shadow: none;
+			&[data-cy-files-list-row-action="rename"] {
+				span.icon-vue {
+					background-image: var(--icon-edit-dark);
+				}
 			}
-		}
-	}
-}
 
-// style overrides for '...' button in filetable
-#app-content {
-	.fileActionsMenu .menuitem {
-		padding: 8px 14px 8px 16px !important;
+			&[data-cy-files-list-row-action="move-copy"] {
+				span.icon-vue {
+					background-image: var(--icon-cut-paste-dark);
+				}
+			}
 
-		.icon {
-			background-size: 24px;
-		}
+			&[data-cy-files-list-row-action="download"] {
+				span.icon-vue {
+					background-image: var(--icon-download-dark);
+				}
+			}
 
-		// Edit locally has an img instead of span
-		&.action-editlocally img {
-			padding: 2px;
-			width: 26px;
-			height: 26px;
+			&[data-cy-files-list-row-action="delete"] {
+				span.icon-vue {
+					background-image: var(--icon-delete-dark);
+				}
+			}
 		}
 	}
 }
