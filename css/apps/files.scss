@@ -1,10 +1,6 @@
 @import '../_mixins.scss';
 @import '../variables';
 
-@mixin magenta-icon {
-	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%);
-}
-
 @mixin thumbnail-icons {
 	background-position: center;
 	background-repeat: no-repeat;
@@ -24,6 +20,13 @@
 		border: none;
 		border-radius: 0;
 		filter: var(--nmc-color-icon);
+		padding-right: 0;
+
+		.button-vue__wrapper {
+			.button-vue__text {
+				padding-right: 1rem;
+			}
+		}
 
 		&:nth-of-type(1) {
 			.button-vue__icon {
@@ -61,19 +64,18 @@
 			background-color: transparent;
 
 			.button-vue__wrapper {
+				position: relative;
 				&::before {
 					background-color: var(--color-primary);
+					position: absolute;
 					content: " ";
 					display: block;
 					height: 4px;
-					left: 50%;
 					opacity: 1;
 					pointer-events: none;
-					position: fixed;
-					bottom: 4px;
-					transform: translateX(-50%);
+					bottom: 0;
 					transition: all .1s ease-in-out;
-					width: 80%;
+					width: 100%;
 				}
 			}
 		}
@@ -121,43 +123,52 @@
 }
 
 @mixin files-checkboxes-v28 {
-	span.checkbox-content__icon.checkbox-radio-switch__icon {
-		&:not(.checkbox-content__icon--checked) {
-
-			.checkbox-blank-outline-icon,
-			.minus-box-icon {
-				width: 20px;
-				height: 20px;
-				border: 1px solid black;
-				border-radius: 20%;
-
-				svg {
-					display: none;
-				}
-
-				&:hover {
-					background-color: red;
-				}
+	span.checkbox-radio-switch-checkbox {
+		span.checkbox-content {
+			padding: 0;
+			&:hover {
+				background-color: initial;
 			}
-		}
 
-		&.checkbox-content__icon--checked {
-			background-image: var(--original-icon-check-white);
-			background-color: var(--telekom-color-functional-success-standard);
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: 18px;
-			border: none;
-			border-radius: 3rem;
-			height: 1.5rem;
-			margin-left: -2px;
-			margin-right: -2px;
-			margin-top: -2px;
-			width: 1.5rem;
-
-			.checkbox-marked-icon {
-				svg {
-					display: none;
+			span.checkbox-content__icon.checkbox-radio-switch__icon {
+				&:not(.checkbox-content__icon--checked) {
+		
+					.checkbox-blank-outline-icon,
+					.minus-box-icon {
+						width: 16px;
+						height: 16px;
+						border: 1px solid black;
+						border-radius: 20%;
+		
+						svg {
+							display: none;
+						}
+		
+						&:hover {
+							background-color: red;
+						}
+					}
+				}
+		
+				&.checkbox-content__icon--checked {
+					background-image: var(--original-icon-check-white);
+					background-color: var(--telekom-color-functional-success-standard);
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 18px;
+					border: none;
+					border-radius: 3rem;
+					height: 1.5rem;
+					margin-left: -2px;
+					margin-right: -2px;
+					margin-top: -2px;
+					width: 1.5rem;
+		
+					.checkbox-marked-icon {
+						svg {
+							display: none;
+						}
+					}
 				}
 			}
 		}
@@ -265,7 +276,36 @@ table.files-filestable {
 /*------------------------------------ v28 - specific styling ------------------------------------*/
 
 #app-content-vue {
+	.files-list__header {
+		button.files-list__header-grid-button {
+			&:hover:not(:disabled), &:active {
+				background-color: transparent;
+				span.material-design-icon {
+					@include magenta-icon;
+				}
+			}
+			span.view-grid-icon {
+				width: 24px;
+				height: 24px;
+				background-image: var(--icon-toggle-pictures-dark);
+				svg {
+					display: none;
+				}
+			}
+
+			span.format-list-bulleted-square-icon {
+				width: 24px;
+				height: 24px;
+				background-image: var(--icon-toggle-filelist-dark);
+				svg {
+					display: none;
+				}
+			}
+		}
+	}
+
 	.files-list {
+
 
 		// Files table and grid
 		table.files-list__table {
@@ -347,14 +387,20 @@ table.files-filestable {
 							}
 
 							.files-list__row-icon-favorite {
-								bottom: -6px;
-								right: -12px;
+								bottom: -3px;
+								right: -16px;
 								top: unset;
+								width: 24px;
+								height: 24px;
 
 								.icon-vue {
 									background-size: 24px;
-									min-width: 24px;
-									min-height: 24px;
+									width: 24px;
+									height: 24px;
+
+									svg {
+										display: none;
+									}
 								}
 							}
 						}
@@ -433,30 +479,45 @@ table.files-filestable {
 			}
 
 			tbody.files-list__tbody--grid {
-				td.files-list__row-checkbox {
-					@include files-checkboxes-v28;
-				}
-
-				.files-list__row-icon {
-					margin-right: 16px;
-					margin-left: 24px;
-					z-index: 100;
-
-					.material-design-icon.folder-icon {
-						background-image: var(--icon-mime-folder-dark);
-						@include thumbnail-icons();
-
-						width: calc(100% - 2* 14px);
-						height: calc(100% - 2* 14px);
+				margin: 15px 0;
+				tr {
+					&.files-list__row {
+						&:hover, &:focus, &:active, &--active {
+							background-color: var(--nmc-color-row-hover);
+						}
 					}
 
-					.files-list__row-icon-favorite {
-						position: absolute;
-						display: block;
-						top: 120px;
-						right: revert-layer;
-						line-height: 100%;
-						text-align: center;
+					td.files-list__row-checkbox {
+						width: 26px;
+						height: 26px;
+						@include files-checkboxes-v28;
+	
+						span.checkbox-content {
+							padding: 0;
+						}
+					}
+	
+					.files-list__row-icon {
+						.material-design-icon.folder-icon {
+							background-image: var(--icon-mime-folder-dark);
+							@include thumbnail-icons();
+	
+							width: calc(100% - 2* 14px);
+							height: calc(100% - 2* 14px);
+						}
+	
+						.files-list__row-icon-favorite {
+							top: calc(100% - 25px);
+							left: calc(50% - 22px);
+	
+							.icon-vue {
+								width: 24px;
+								height: 24px;
+								 svg {
+									display: none;
+								 }
+							}
+						}
 					}
 				}
 			}
