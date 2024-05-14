@@ -80,12 +80,9 @@
 			padding: 0 32px;
 
 			// Date container
-			.files-list-viewer__section-header {
+			.section-header {
 				height: auto !important;
-
-				h3 {
-					margin: 32px 0 8px;
-				}
+				margin: 32px 0 8px;
 			}
 
 			li {
@@ -104,16 +101,36 @@
 					}
 				}
 
-				span.star-icon {
-					background-image: var(--icon-starred-yellow);
-					background-repeat: no-repeat;
-					background-position: center;
-					background-size: 24px;
-					width: 24px;
-					height: 24px;
-
+				.favorite-marker-icon.favorite-state.icon-vue {
+					width: 32px;
+					height: 32px;
 					svg {
 						display: none;
+					}
+				}
+
+				.checkbox-radio-switch.selection-checkbox {
+					top: 2px;
+					right: 3px;
+					.checkbox-content {
+						background: transparent;
+
+						span.material-design-icon.checkbox-marked-icon {
+							background-image: var(--original-icon-check-white);
+							background-color: var(--telekom-color-functional-success-standard);
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: 18px;
+							border: none;
+							border-radius: var(--telekom-radius-circle);
+							height: 1.5rem;
+							width: 1.5rem;
+							margin: -2px -2px 0 0;
+
+							svg {
+								display: none;
+							}
+						}
 					}
 				}
 			}
