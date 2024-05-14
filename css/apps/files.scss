@@ -317,9 +317,7 @@ table.files-filestable {
 
 				th.files-list__column.files-list__ {
 					&row-checkbox {
-						margin-left: -20px;
-						min-width: 100px;
-						width: 100px;
+						width: 55px;
 					}
 
 					&row-name {
@@ -422,55 +420,46 @@ table.files-filestable {
 						&.files-list__row-actions {
 							display: flex;
 
-							// 'Share' status styles
 							.action-items {
-								display: flex;
-								flex-direction: row;
-								height: 50px;
-								opacity: 1;
-								padding: 0;
-								width: 100%;
+								// 'Share' status styles
+								button.action-item {
+									padding: 0;
 
-								.button-vue.action-item,
-								.action-item {
-
-									&:focus,
-									&:focus-within,
 									&:active,
 									&:hover {
 										background: none;
-										border: none;
-
 									}
 
-									opacity: 1;
+									.button-vue__wrapper {
+										.button-vue__text {
+											margin: 0;
+										}
 
-									span.icon-vue {
-										background-image: var(--icon-shared-dark);
-										background-repeat: no-repeat;
-										background-position: center;
-										background-size: 24px;
-										margin-left: 0.5rem;
-										margin-top: -0.25rem;
-										min-width: 24px;
-										min-height: 24px;
-
-										svg {
-											display: none;
+										.button-vue__icon {
+											background-image: var(--icon-shared-dark);
+											background-position: center;
+											background-repeat: no-repeat;
+											background-size: 24px;
+	
+											svg {
+												display: none;
+											}
 										}
 									}
 
-									button.action-item__menutoggle {
-										&:hover {
-											color: var(--color-main-text);
-										}
+									// color Shared icon
+									&.button-vue--icon-and-text .button-vue__icon {
+										@include magenta-icon;
 									}
 								}
 
-								span.dots-horizontal-icon {
-									margin: 0 1rem;
-									min-width: 24px;
-									min-height: 24px;
+								// ... action menu
+								div.action-item {
+									button.action-item__menutoggle {
+										&:hover svg {
+											color: var(--color-main-text);
+										}
+									}
 								}
 							}
 						}
