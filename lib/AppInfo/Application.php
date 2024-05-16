@@ -14,6 +14,7 @@ use OC\AppFramework\Bootstrap\Coordinator;
 use OC\AppFramework\DependencyInjection\DIContainer;
 use OC\L10N\Factory;
 use OC\NavigationManager;
+use OC\Preview\MimeIconProvider;
 use OC\Search\SearchComposer;
 use OC\Template\JSCombiner;
 use OC\Template\JSResourceLocator;
@@ -21,6 +22,7 @@ use OC\URLGenerator;
 use OCA\NMCTheme\JSResourceLocatorExtension;
 use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
+use OCA\NMCTheme\MimeIconProviderDecorator;
 use OCA\NMCTheme\NavigationManagerDecorator;
 use OCA\NMCTheme\Search\SearchComposerDecorator;
 use OCA\NMCTheme\Service\NMCFilesService;
@@ -47,13 +49,14 @@ use OCP\AppFramework\QueryException;
 use OCP\Files\IMimeTypeDetector;
 use OCP\IConfig;
 use OCP\INavigationManager;
+use OCP\IServerContainer;
 
 // FIXME: required private accesses; we have to find better ways
 // when integrating upstream
-use OCP\IServerContainer;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
 use OCP\L10N\IFactory;
+use OCP\Preview\IMimeIconProvider;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
@@ -122,6 +125,21 @@ class Application extends App implements IBootstrap {
 				$c->get(LoggerInterface::class),
 				$this->getContainer()->getServer()->query(JSCombiner::class),
 				$c->get(IAppManager::class)
+			);
+		});
+	}
+
+
+	/**
+	 * Decorate the IMimeIconProvider.
+	 */
+	protected function registerMimeIconProviderDecorator(IRegistrationContext $context) {
+		$this->getContainer()->getServer()->registerService(IMimeIconProvider::class, function (ContainerInterface $c) {
+			return new MimeIconProviderDecorator(
+				$c->get(IConfig::class),
+				$this->getContainer()->getServer()->query(MimeIconProvider::class),
+				$c->get(IMimeTypeDetector::class),
+				$c->get(IURLGenerator::class),
 			);
 		});
 	}
@@ -220,6 +238,9 @@ class Application extends App implements IBootstrap {
 		
 		// intercept requests for favicons to enforce own behavior
 		$this->registerURLGeneratorDecorator($context);
+
+		// intercept requests for main navigation elements
+		$this->registerMimeIconProviderDecorator($context);
 
 		// intercept requests for main navigation elements
 		$this->registerNavigationManagerDecorator($context);

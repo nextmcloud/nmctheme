@@ -8,6 +8,8 @@
 	border: none;
 	height: 44px;
 	margin-top: 0.2rem;
+    max-width: unset;
+    max-height: unset;
 	width: 44px;
 
 	svg {
@@ -342,9 +344,20 @@ table.files-filestable {
 					margin-left: 24px;
 					z-index: 100;
 
-					.material-design-icon.folder-icon {
-						background-image: var(--icon-mime-folder-dark);
+					.material-design-icon {
 						@include thumbnail-icons();
+
+						&.folder-icon {
+							background-image: var(--icon-mime-folder-dark);
+						}
+	
+						&.link-icon {
+							background-image: var(--icon-mime-folder-shared-dark);
+						}
+	
+						&.key-icon {
+							background-image: var(--icon-mime-folder-encrypted-dark);
+						}
 					}
 				}
 
@@ -487,12 +500,27 @@ table.files-filestable {
 					}
 	
 					.files-list__row-icon {
-						.material-design-icon.folder-icon {
-							background-image: var(--icon-mime-folder-dark);
+
+						.material-design-icon {
 							@include thumbnail-icons();
-	
-							width: calc(100% - 2* 14px);
-							height: calc(100% - 2* 14px);
+							margin: 0;
+							max-width: calc(100% - 2 * 14px);
+							max-height: calc(100% - 2 * 14px);
+							width: calc(100% - 2 * 14px);
+							height: calc(100% - 2 * 14px);
+							position: absolute;
+
+							&.folder-icon {
+								background-image: var(--icon-mime-folder-dark);
+							}
+		
+							&.link-icon {
+								background-image: var(--icon-mime-folder-shared-dark);
+							}
+		
+							&.key-icon {
+								background-image: var(--icon-mime-folder-encrypted-dark);
+							}
 						}
 	
 						.files-list__row-icon-favorite {
