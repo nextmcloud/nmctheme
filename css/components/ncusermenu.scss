@@ -3,75 +3,76 @@
 
 #user-menu {
 
-    .user-menu {
+    .header-menu__wrapper {
 
-        &__nav {
+        ul {
 
-            ul {
+            li.menu-entry {
 
-                li.menu-entry {
+                &#profile {
+                    display: none;
+                }
 
-                    &:hover span,
-                    &:hover a {
-                        // Style user menu colors for Darkmode
-                        @media (prefers-color-scheme: dark) {
-                            color: var(--nmc-color-text-and-icon-primary-standard);
-                            background-color: transparent;
-                            &::after {
-                                filter: var(--nmc-color-icon)
-                            }
-                        }
-
-                    }
-
-                    a {
-                        padding-left: 48px;
-
+                &:hover span,
+                &:hover a {
+                    // Style user menu colors for Darkmode
+                    @media (prefers-color-scheme: dark) {
+                        color: var(--nmc-color-text-and-icon-primary-standard);
+                        background-color: transparent;
                         &::after {
-                            content: "";
-                            display: block;
-                            position: absolute;
-                            top: 0px;
-                            left: 2px;
-                            height: 100%;
-                            width: 44px;
-                            background-repeat: no-repeat;
-                            background-position: center;
-                            background-size: 24px 24px;
-                        }
-
-                        img {
-                            display: none;
+                            filter: var(--nmc-color-icon)
                         }
                     }
 
-                    &#settings>a::after {
-                        background-image: var(--icon-settings-dark);
+                }
+
+                a {
+                    padding-left: 48px;
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 0px;
+                        left: 2px;
+                        height: 100%;
+                        width: 44px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 24px 24px;
                     }
 
-                    &#help>a::after {
-                        background-image: var(--icon-help-dark);
+                    img {
+                        display: none;
                     }
+                }
 
-                    &#customer_center>a::after {
-                        background-image: var(--icon-customercenter-dark);
-                    }
+                &#settings>a::after {
+                    background-image: var(--icon-settings-dark);
+                }
 
-                    &#admin_settings>a::after {
-                        background-image: var(--icon-admin-dark);
-                    }
+                &#help>a::after {
+                    background-image: var(--icon-help-dark);
+                }
 
-                    &#core_apps>a::after {
-                        background-image: var(--icon-add-dark);
-                    }
+                &#customer_center>a::after {
+                    background-image: var(--icon-customercenter-dark);
+                }
 
-                    &#core_users>a::after {
-                        background-image: var(--icon-users-dark);
-                    }
+                &#admin_settings>a::after {
+                    background-image: var(--icon-admin-dark);
+                }
 
-                    &#logout>a::after {
-                        background-image: var(--icon-logout-dark);
-                    }
+                &#core_apps>a::after {
+                    background-image: var(--icon-add-dark);
+                }
+
+                &#core_users>a::after {
+                    background-image: var(--icon-users-dark);
+                }
+
+                &#logout>a::after {
+                    background-image: var(--icon-logout-dark);
                 }
             }
         }

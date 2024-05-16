@@ -51,7 +51,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		userMenu.prepend(menuElements)
 	}
 
-	// @ts-expect-error no typescript support for extend
 	const View = Vue.extend(UserMenu)
 	new View({ propsData: { menuItems } }).$mount('#nmcsettings-menu')
 })
