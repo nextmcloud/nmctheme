@@ -22,8 +22,8 @@ use OC\URLGenerator;
 use OCA\NMCTheme\JSResourceLocatorExtension;
 use OCA\NMCTheme\L10N\FactoryDecorator;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
-use OCA\NMCTheme\NavigationManagerDecorator;
 use OCA\NMCTheme\MimeIconProviderDecorator;
+use OCA\NMCTheme\NavigationManagerDecorator;
 use OCA\NMCTheme\Search\SearchComposerDecorator;
 use OCA\NMCTheme\Service\NMCFilesService;
 use OCA\NMCTheme\Service\NMCThemesService;
@@ -49,14 +49,14 @@ use OCP\AppFramework\QueryException;
 use OCP\Files\IMimeTypeDetector;
 use OCP\IConfig;
 use OCP\INavigationManager;
-use OCP\Preview\IMimeIconProvider;
+use OCP\IServerContainer;
 
 // FIXME: required private accesses; we have to find better ways
 // when integrating upstream
-use OCP\IServerContainer;
 use OCP\IURLGenerator;
 use OCP\IUserSession;
 use OCP\L10N\IFactory;
+use OCP\Preview\IMimeIconProvider;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 

@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace OCA\NMCTheme;
 
-use OCP\IConfig;
 use OCP\Files\IMimeTypeDetector;
+use OCP\IConfig;
 use OCP\IURLGenerator;
 use OCP\Preview\IMimeIconProvider;
 
