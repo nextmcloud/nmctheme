@@ -461,6 +461,11 @@
 				.list-item {
 					border-radius: var(--telekom-radius-standard);
 					padding: 0.5rem !important;
+					margin-left: 0;
+					transition: none;
+					&:hover {
+						background-color: var(--nmc-color-row-hover);
+					}
 				}
 			}
 		}
@@ -470,6 +475,7 @@
 			border: 0;
 			color: var(--telekom-color-text-and-icon-white-standard);
 			margin-right: 0;
+			margin-left: 0;
 
 			&:hover:not(:disabled) {
 				background-color: var(--telekom-color-primary-hovered);
@@ -478,6 +484,24 @@
 			.button-vue__icon {
 				margin-left: -1rem;
 			}
+		}
+	}
+
+	.album-form {
+		padding-top: 3rem !important;
+		.form-inputs {
+			.input-field:nth-child(2) {
+				display: none;
+			}
+
+			.input-field__main-wrapper {
+				label {
+					display: none;
+				}
+			}
+		}
+		.form-buttons {
+			flex-direction: row;
 		}
 	}
 }
@@ -845,6 +869,4 @@
 			}
 		}
 	}
-
-
 }
