@@ -4,20 +4,26 @@
 #content-vue .breadcrumb {
 	nav {
 		height: 44px;
+
 		ul.breadcrumb__crumbs {
+
 			// Display root as a Home icon
 			li.vue-crumb:first-child {
+
 				.button-vue__icon {
 					background-image: var(--icon-home-dark);
 					background-position: center;
 					background-repeat: no-repeat;
+
 					svg {
 						display: none;
 					}
 				}
+
 				.button-vue__text {
 					display: none;
 				}
+
 				&:hover {
 					.button-vue__icon {
 						opacity: 0.7;
@@ -25,14 +31,16 @@
 				}
 
 			}
-	
+
 			li.vue-crumb {
 				a.button-vue {
 					margin: 0;
 					padding: 0 6px;
+
 					&:hover {
 						background-color: initial;
 					}
+
 					&:focus {
 						outline: none;
 						background-color: initial;
@@ -43,17 +51,21 @@
 				button.action-item__menutoggle {
 					&:hover {
 						background-color: initial;
+
 						svg {
 							color: initial;
 						}
 					}
 				}
-	
+
 				// Right arrow change
 				span.chevron-right-icon {
+					display: block;
+					margin-right: 8px;
 					background-image: var(--icon-breadcrumb-arrow-grey);
 					width: 24px;
 					height: 24px;
+
 					svg {
 						display: none;
 					}
@@ -63,6 +75,7 @@
 	}
 
 	.breadcrumb__actions {
+
 		// hide Share button
 		button.files-list__header-share-button {
 			display: none;
@@ -82,12 +95,12 @@
 				max-width: 24px;
 				margin: auto 0;
 				margin-left: 6px;
-		
+
 				&:hover:not(:disabled) {
 					background-color: initial;
 					border-color: var(--telekom-color-text-and-icon-primary-standard);
 				}
-		
+
 				.button-vue__icon {
 					@include magenta-icon;
 					background-image: var(--icon-add-white);
@@ -97,11 +110,12 @@
 					height: 16px;
 					background-position: center;
 					background-repeat: no-repeat;
+
 					svg {
 						display: none;
 					}
 				}
-		
+
 				// Do not display text "New" in the button
 				.button-vue__text {
 					display: none;
@@ -114,7 +128,7 @@
 			}
 		}
 	}
-	
+
 }
 
 // do not color specific icons

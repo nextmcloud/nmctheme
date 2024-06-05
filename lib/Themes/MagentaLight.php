@@ -44,4 +44,11 @@ class MagentaLight extends Magenta implements ITheme {
 	public function getMediaQuery(): string {
 		return '(prefers-color-scheme: light)';
 	}
+
+	public function getMeta(): array {
+		return [[
+		  'name' => '',
+		  'content' => '',
+		]];
+	  }
 }

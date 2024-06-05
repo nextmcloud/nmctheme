@@ -52,6 +52,13 @@ class Magenta implements ITheme {
 		return '';
 	}
 
+	public function getMeta(): array {
+		return [[
+		  'name' => '',
+		  'content' => '',
+		]];
+	  }
+
 	public function getCSSVariables(): array {
 		$favIconPath = $this->urlGenerator->imagePath('nmctheme', 'favicon.svg');
 		$logoPath = $this->urlGenerator->imagePath('nmctheme', 'telekom/tlogocarrier.svg');

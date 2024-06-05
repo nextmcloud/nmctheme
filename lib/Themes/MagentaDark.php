@@ -44,4 +44,11 @@ class MagentaDark extends Magenta implements ITheme {
 	public function getMediaQuery(): string {
 		return '(prefers-color-scheme: dark)';
 	}
+
+	public function getMeta(): array {
+		return [[
+		  'name' => '',
+		  'content' => '',
+		]];
+	  }
 }

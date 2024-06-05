@@ -64,6 +64,13 @@ class TeleNeoWebFont implements ITheme {
 		return [];
 	}
 
+  public function getMeta(): array {
+		return [[
+		  'name' => '',
+		  'content' => '',
+		]];
+	  }
+
 	public function getCustomCss(): string {
 		// avoid existence check of each file
 		$fontPrefixUrl = $this->appManager->getAppWebPath("nmctheme") . "/fonts/TeleNeoWeb/TeleNeoWeb";
