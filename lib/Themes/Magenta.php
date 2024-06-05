@@ -75,4 +75,11 @@ class Magenta implements ITheme {
 			@import url('{$themeStyle}');
 		";
 	}
+
+	public function getMeta(): array {
+		return [[
+			'name' => '',
+			'content' => '',
+		]];
+	}
 }
