@@ -11,7 +11,6 @@ namespace OCA\NMCTheme\AppInfo;
 
 use Closure;
 use OC\AppFramework\Bootstrap\Coordinator;
-use OC\AppFramework\Bootstrap\RegistrationContext;
 use OC\AppFramework\DependencyInjection\DIContainer;
 use OC\L10N\Factory;
 use OC\NavigationManager;
@@ -199,12 +198,7 @@ class Application extends App implements IBootstrap {
 						'users',
 						'systemtags', // from apps/systemtags (first candidate to enable in the future!)
 						'comments'    // from apps comments, (to enable as soon as comments is supported)
-					],
-					$c->get(Coordinator::class),
-					$c->get(ContainerInterface::class),
-					$c->get(IURLGenerator::class),
-					$c->get(LoggerInterface::class),
-					$c->get(RegistrationContext::class),
+					]
 				);
 			});
 	}
