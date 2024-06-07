@@ -8,7 +8,7 @@
 #app-navigation:not(.vue) {
 
 	.app-navigation-caption {
-		padding: 2.5rem 1.5rem 1.5rem;
+		padding: 2.5rem 1.5rem 0;
 
 	}
 
@@ -18,6 +18,7 @@
 		border-top-left-radius: 0;
 		// add vertical line to demarcate app navigation
 		border-right: 1px solid var(--telekom-color-ui-faint);
+		padding: 1.5rem 0 0;
 
 		&>ul {
 			padding: 0 1.5rem;
