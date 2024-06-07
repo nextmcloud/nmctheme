@@ -17,7 +17,9 @@
       "Internal Server Error" : "Internal processing problems",
       "The server was unable to complete your request." : "MagentaCLOUD is not able to serve your request.",
       "If this happens again, please send the technical details below to the server administrator." : "It is possible that the system is not available. Please retry in a few minutes.",
-      "More details can be found in the server log." : "Your Telekom."
+      "More details can be found in the server log." : "Your Telekom.",
+      "Search apps, files, tags, messages" : "Search for files or folders",
+      "Unified search" : "Search"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },

@@ -49,7 +49,6 @@ use OCP\AppFramework\QueryException;
 use OCP\Files\IMimeTypeDetector;
 use OCP\IConfig;
 use OCP\INavigationManager;
-use OCP\IServerContainer;
 
 // FIXME: required private accesses; we have to find better ways
 // when integrating upstream
@@ -186,10 +185,12 @@ class Application extends App implements IBootstrap {
 				return new SearchComposerDecorator(
 					new SearchComposer(
 						$c->get(Coordinator::class),
-						$c->get(IServerContainer::class),
+						$c->get(ContainerInterface::class),
+						$c->get(IURLGenerator::class),
 						$c->get(LoggerInterface::class)
 					),
-					['contacts', // from apps/dav
+					[
+						'contacts', // from apps/dav
 						'calendar',
 						'tasks',
 						'settings_apps', // from apps/settings
@@ -252,7 +253,7 @@ class Application extends App implements IBootstrap {
 		$this->registerMimeTypeCustomisations($context);
 
 		// blacklist unwanted search providers for full-text search
-		// $this->registerSearchComposerDecorator($context);
+		$this->registerSearchComposerDecorator($context);
 
 		/**
 		 * Add listeners that can inject additional information or scripts before rendering
