@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace OCA\NMCTheme\Search;
 
+use OC\Search\FilterCollection;
 use OC\Search\SearchComposer;
 use OCP\IUser;
 use OCP\Search\ISearchQuery;
-
 use OCP\Search\SearchResult;
 
 /**
@@ -27,9 +27,10 @@ class SearchComposerDecorator extends SearchComposer {
 	protected SearchComposer $decorated;
 	protected array $providerBlacklist = [];
 
-
-	public function __construct(SearchComposer $decorated,
-		array $providerBlacklist) {
+	public function __construct(
+		SearchComposer $decorated,
+		array $providerBlacklist
+	) {
 		$this->decorated = $decorated;
 		$this->providerBlacklist = $providerBlacklist;
 	}
@@ -39,32 +40,23 @@ class SearchComposerDecorator extends SearchComposer {
 	 */
 	public function getProviders(string $route, array $routeParameters): array {
 		$providers = $this->decorated->getProviders($route, $routeParameters);
+
 		return array_values(array_filter($providers, function ($p) {
 			return !in_array($p['id'], $this->providerBlacklist);
 		}));
 	}
 
 	/**
-	 * Query an individual search provider for results
-	 *
-	 * @param IUser $user
-	 * @param string $providerId one of the IDs received by `getProviders`
-	 * @param ISearchQuery $query
-	 *
-	 * @return SearchResult
-	 * @throws InvalidArgumentException when the $providerId does not correspond to a registered provider
+	 * No decoration, only delegate.
 	 */
-	public function search(IUser $user,
-		string $providerId,
-		ISearchQuery $query): SearchResult {
-		
-		if (in_array($providerId, $this->providerBlacklist)) {
-			// for performance reasons, we do not use the correct app name for blacklisted searches
-			// anyway, this is only shown if somebody tries to mess around with search
-			return SearchResult::complete($providerId, []);
-		} else {
-			return $this->decorated->search($user, $providerId, $query);
-		}
+	public function search(IUser $user, string $providerId, ISearchQuery $query): SearchResult {
+		return $this->decorated->search($user, $providerId, $query);
 	}
 
+	/**
+	 * No decoration, only delegate.
+	 */
+	public function buildFilterList(string $providerId, array $parameters): FilterCollection {
+		return $this->decorated->buildFilterList($providerId, $parameters);
+	}
 }

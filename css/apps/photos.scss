@@ -513,7 +513,7 @@
 }
 
 // Add Photos to the album modal window
-#body-user .modal-container {
+#body-user .modal-container, #body-settings .modal-container {
 	background-color: var(--telekom-color-background-surface);
 
 	button.modal-container__close {
