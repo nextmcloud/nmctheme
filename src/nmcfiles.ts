@@ -3,11 +3,10 @@ import { translate as t } from '@nextcloud/l10n'
 import { sidebarAction } from './utils/sidebar.js'
 
 const Navigation = getNavigation()
-const Views = Navigation.views
 
 const sharinginView = Navigation.views.find(view => view.id === 'sharingin')
 
-if(sharinginView) {
+if (sharinginView) {
 	sharinginView.order = 3
 	Navigation.remove('sharingin')
 	Navigation.register(sharinginView)
@@ -15,13 +14,13 @@ if(sharinginView) {
 
 const filesView = Navigation.views.find(view => view.id === 'files')
 
-if(filesView) {
+if (filesView) {
 	filesView.order = 10
 	Navigation.remove('files')
 	Navigation.register(filesView)
 }
 
-const handleCancel = async (dir: string, nodes: Node[]) => {
+const handleCancel = async () => {
 	return true
 }
 
@@ -34,15 +33,15 @@ const fileAction = new FileAction({
 	displayName() {
 		return t('files', 'Cancel')
 	},
-	enabled(nodes: Node[]) {
+	enabled() {
 		return true
 	},
-	async execBatch(nodes: Node[], view: View, dir: string) {
-		const result = handleCancel(dir, nodes)
+	async execBatch(nodes: Node[]) {
+		const result = handleCancel()
 		return Promise.all(nodes.map(() => result))
 	},
-	async exec(node: Node, view: View, dir: string): Promise<boolean|null> {
-		const result = handleCancel(dir, [node])
+	async exec(): Promise<boolean|null> {
+		const result = handleCancel()
 		return result
 	},
 })
@@ -53,10 +52,8 @@ const FileActions = getFileActions()
 
 const sharingStatusAction = FileActions.find(action => action.id === 'sharing-status')
 
-if(sharingStatusAction) {
+if (sharingStatusAction) {
 
-	const sharingStatusActionExec = sharingStatusAction.exec
-	
 	const sharingStatusMenuAction = new FileAction({
 		id: 'sharing-status-menu',
 		order: -100,
@@ -77,7 +74,7 @@ if(sharingStatusAction) {
 			return null
 		},
 	})
-	
+
 	registerFileAction(sharingStatusMenuAction)
 
 }
