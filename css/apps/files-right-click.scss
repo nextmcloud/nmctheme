@@ -13,7 +13,8 @@
 
 			&[data-cy-files-list-row-action="details"],
 			&[data-cy-files-list-row-action="edit-locally"],
-			&[data-cy-files-list-row-action="view"] {
+			&[data-cy-files-list-row-action="view"],
+			&[data-cy-files-list-row-action="cancel_select"] {
 				display: none;
 			}
 
@@ -28,6 +29,11 @@
 					}
 				}
 			}
+
+			span.icon-vue {
+				background-size: 24px;
+			}
+
 
 			&[data-cy-files-list-row-action="rename"] {
 				span.icon-vue {
@@ -50,6 +56,24 @@
 			&[data-cy-files-list-row-action="delete"] {
 				span.icon-vue {
 					background-image: var(--icon-delete-dark);
+				}
+			}
+
+			&[data-cy-files-list-row-action="view-in-folder"] {
+				span.icon-vue {
+					background-image: var(--icon-folder-dark);
+				}
+			}
+
+			&[data-cy-files-list-row-action="files_zip"] {
+				span.icon-vue {
+					background-image: var(--icon-compress-zip-dark);
+				}
+			}
+
+			&[data-cy-files-list-row-action="sharing-status-menu"] {
+				span.icon-vue {
+					background-image: var(--icon-shared-dark);
 				}
 			}
 		}

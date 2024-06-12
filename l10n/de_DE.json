@@ -44,15 +44,14 @@
       "Confirm": "Bestätigen",
       "End-to-end encryption is currently disabled. You can set it up with the {productName} clients.": "Die Ende-zu-Ende Verschlüsselung ist deaktiviert. Sie können sie in den MagentaCLOUD Apps oder Desktop Clients einrichten.",
       "End-to-End encryption is currently disabled. You can set it up with the {productName} clients.": "Die Ende-zu-Ende Verschlüsselung ist deaktiviert. Sie können sie in den MagentaCLOUD Apps oder Desktop Clients einrichten.",
-      "You are not allowed to lock the root": "Das Sperren deines gesamten Verzeichnisbaumes durch E2E-Encryption wurde verhindert!"
+      "You are not allowed to lock the root": "Das Sperren deines gesamten Verzeichnisbaumes durch E2E-Encryption wurde verhindert!",
+      "Confirm and reset end-to-end encryption": "Bestätigen und Ende-zu-Ende Verschlüsselung zurücksetzen"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
   "files": {
     "translations": {
       "Crop image previews": "Vorschaubilder  beschneiden",
-      "My shares": "Meine geteilten Inhalte",
-      "Shared with me": "Mit mir geteilt",
       "All": "Alle",
       "Toggle grid view": "Ansicht ändern",
       "Display settings": "Anzeigeeinstellungen",
@@ -64,7 +63,8 @@
       "_{count} folder_::_{count} folders_" : ["{count} Ordner","{count} Ordner"],
       "_{count} file_::_{count} files_" : ["{count} Datei","{count} Dateien"],
       "{summaryFile} and {summaryFolder}" : "{summaryFile} und {summaryFolder}",
-      "_including %n hidden_::_including %n hidden_": ["davon %n versteckt","davon %n versteckt"]
+      "_including %n hidden_::_including %n hidden_": ["davon %n versteckt","davon %n versteckt"],
+      "\"{displayName}\" batch action executed successfully" : "Aktion \"{displayName}\" erfolgreich ausgeführt"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
@@ -107,6 +107,8 @@
       "The password must contain 10 characters and will not be sent with the mail to maintain confidentiality.": "Das Passwort muss 10 Zeichen enthalten und wird nicht mit der E-Mail verschickt, um die Vertraulichkeit zu wahren.",
       "Link to file": "Link zur Datei",
       "Link to folder": "Link zum Ordner",
+      "Shared with others": "Meine geteilten Inhalte",
+      "Shared with you": "Mit mir geteilt",
       "No recommendations. Start typing.": "Keine Empfehlungen.Beginnen..."
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
@@ -195,8 +197,6 @@
       "used": "genutzt",
       "Display settings": "Anzeigeeinstellungen",
       "Show folder info text": "Ordnerinfotext anzeigen",
-      "Shared with you": "Mit mir geteilt",
-      "Shared with others": "Meine geteilten Inhalte",
       "and": "und",
       "System Design (Standard)" : "System-Design (Standard)",
       "Enable system design" : "System-Design aktivieren",

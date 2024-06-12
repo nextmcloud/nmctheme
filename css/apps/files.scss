@@ -28,31 +28,61 @@
 			.button-vue__text {
 				padding-right: 1rem;
 			}
-		}
 
-		&:nth-of-type(1) {
 			.button-vue__icon {
-				background-image: var(--original-icon-star-dark);
 				background-repeat: no-repeat;
 				background-position: center;
 				background-size: 1.25rem;
-
+	
 				svg {
 					display: none;
 				}
 			}
 		}
 
-		&:nth-of-type(2) {
+		&.action-item__menutoggle {
+			padding-right: 1rem;
+		}
+
+		&.files-list__row-actions-batch-favorite {
+			.button-vue__icon {
+				background-image: var(--original-icon-star-dark);
+			}
+		}
+
+		&.files-list__row-actions-batch-move-copy {
 			.button-vue__icon {
 				background-image: var(--icon-external-dark);
-				background-repeat: no-repeat;
-				background-position: center;
-				background-size: 1.25rem;
+			}
+		}
 
-				svg {
-					display: none;
-				}
+		&.files-list__row-actions-batch-download {
+			.button-vue__icon {
+				background-image: var(--icon-download-dark);
+			}
+		}
+
+		&.files-list__row-actions-batch-delete {
+			.button-vue__icon {
+				background-image: var(--icon-delete-dark);
+			}
+		}
+
+		&.files-list__row-actions-batch-restore {
+			.button-vue__icon {
+				background-image: var(--icon-restore-dark);
+			}
+		}
+
+		&.files-list__row-actions-batch-files_zip {
+			.button-vue__icon {
+				background-image: var(--icon-compress-zip-dark);
+			}
+		}
+
+		&.files-list__row-actions-batch-cancel_select {
+			.button-vue__icon {
+				background-image: var(--icon-close-dark);
 			}
 		}
 
@@ -85,7 +115,7 @@
 
 	.action-item {
 		button .button-vue__icon {
-			background-image: var(--icon-delete-dark);
+			background-image: var(--icon-more-dark);
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: 1.25rem;
@@ -388,6 +418,7 @@ table.files-filestable {
 							width: 50px;
 
 							img {
+								background-color: unset;
 								background-position: center;
 								background-repeat: no-repeat;
 								background-size: contain;
@@ -434,7 +465,7 @@ table.files-filestable {
 							display: flex;
 
 							.action-items {
-								// 'Share' status styles
+
 								button.action-item {
 									padding: 0;
 
@@ -444,12 +475,12 @@ table.files-filestable {
 									}
 
 									.button-vue__wrapper {
+										
 										.button-vue__text {
 											margin: 0;
 										}
 
 										.button-vue__icon {
-											background-image: var(--icon-shared-dark);
 											background-position: center;
 											background-repeat: no-repeat;
 											background-size: 24px;
@@ -460,9 +491,23 @@ table.files-filestable {
 										}
 									}
 
-									// color Shared icon
-									&.button-vue--icon-and-text .button-vue__icon {
-										@include magenta-icon;
+									&.files-list__row-action-restore {
+
+										.button-vue__icon {
+											background-image: var(--icon-restore-dark);
+											@include magenta-icon;
+										}
+									}
+
+									&.files-list__row-action-sharing-status {
+
+										.button-vue__icon {
+											background-image: var(--icon-shared-dark);
+										}
+
+										&.button-vue--icon-and-text .button-vue__icon {
+											@include magenta-icon;
+										}
 									}
 								}
 
@@ -638,6 +683,10 @@ table.files-filestable {
 		&__column {
 			width: fit-content;
 
+			& > .action-items {
+				justify-content: end;
+			}
+
 			&.files-list__row-size {
 				display: none;
 			}
@@ -667,11 +716,7 @@ table.files-filestable {
 			&.files-list__row-actions-batch {
 				@include header-menu-files();
 
-				.action-item--single.files-list__row-actions-batch-restore {
-					padding-left: 0;
-				}
-
-				.action-item--single.files-list__row-actions-batch-delete {
+				.action-item--single {
 					padding-left: 0;
 				}
 			}
@@ -683,6 +728,45 @@ table.files-filestable {
 			td {
 				color: var(--color-main-text) !important;
 			}
+		}
+	}
+}			
+
+// Files actions menu items
+.v-popper__popper.action-item__popper {
+
+	li.action {
+
+		.icon-vue {
+			background-size: 24px;
+		}
+
+		.icon-vue svg {
+			display: none;
+		}
+
+		&.files-list__row-actions-batch-delete .icon-vue {
+			background-image: var(--icon-delete-dark);
+		}
+		
+		&.files-list__row-actions-batch-favorite .icon-vue {
+			background-image: var(--original-icon-star-dark);
+		}
+
+		&.files-list__row-actions-batch-move-copy .icon-vue {
+			background-image: var(--icon-external-dark);
+		}
+
+		&.files-list__row-actions-batch-download .icon-vue {
+			background-image: var(--icon-download-dark);
+		}
+
+		&.files-list__row-actions-batch-files_zip .icon-vue {
+			background-image: var(--icon-compress-zip-dark);
+		}
+
+		&.files-list__row-actions-batch-cancel_select .icon-vue {
+			background-image: var(--icon-close-dark);
 		}
 	}
 }

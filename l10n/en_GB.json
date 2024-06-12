@@ -44,22 +44,22 @@
       "Confirm": "Confirm",
       "End-to-end encryption is currently disabled. You can set it up with the {productName} clients.": "End-to-end encryption is currently disabled. You can set it up with MagentaCLOUD clients.",
       "End-to-End encryption is currently disabled. You can set it up with the {productName} clients.": "End-to-End encryption is currently disabled. You can set it up with MagentaCLOUD clients.",
-      "You are not allowed to lock the root": "The lock of your complete file tree by end2end encryption was prohibited by the system!"
+      "You are not allowed to lock the root": "The lock of your complete file tree by end2end encryption was prohibited by the system!",
+      "Confirm and reset end-to-end encryption": "Confirm and reset end-to-end encryption"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
   "files": {
     "translations": {
       "Crop image previews": "Crop image previews",
-      "My shares": "My shares",
-      "Shared with me": "Shared with me",
       "All": "All",
       "Toggle grid view": "Toggle grid view",
       "Display settings": "Display settings",
       "Expand storage": "Expand storage",
       "Memory used up to %s%%": "Memory used up to %s%%",
       "of": "von",
-      "_including %n hidden_::_including %n hidden_": ["with %n hidden","with %n hidden"]
+      "_including %n hidden_::_including %n hidden_": ["with %n hidden","with %n hidden"],
+      "\"{displayName}\" batch action executed successfully" : "\"{displayName}\" action executed successfully"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
@@ -102,6 +102,8 @@
       "The password must contain 10 characters and will not be sent with the mail to maintain confidentiality.": "The password must contain 10 characters and will not be sent with the mail to maintain confidentiality.",
       "Link to file": "Link to file",
       "Link to folder": "Link to folder",
+      "Shared with others": "My shares",
+      "Shared with you": "Shared with me",
       "No recommendations. Start typing.": "No recommendation. Type.."
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
@@ -190,8 +192,6 @@
       "used": "used",
       "Display settings": "Display settings",
       "Show folder info text": "Show folder info text",
-      "Shared with you": "Shared with me",
-      "Shared with others": "My shares",
       "and": "and",
       "System Design (Standard)" : "System Design (Standard)",
       "Enable system design" : "Enable system design",

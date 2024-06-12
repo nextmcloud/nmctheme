@@ -550,7 +550,7 @@
 	}
 
 	.settings-section {
-		padding: 2rem;
+		padding: 3rem 3rem 0;
 		border: none;
 
 		&.theming {
@@ -561,10 +561,6 @@
 
 			p {
 				max-width: 800px;
-			}
-
-			&:not(:last-child) {
-				border-bottom: 1px solid var(--color-border);
 			}
 		}
 

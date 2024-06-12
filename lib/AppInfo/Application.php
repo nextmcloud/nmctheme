@@ -9,7 +9,6 @@
 
 namespace OCA\NMCTheme\AppInfo;
 
-use Closure;
 use OC\AppFramework\Bootstrap\Coordinator;
 use OC\AppFramework\DependencyInjection\DIContainer;
 use OC\L10N\Factory;
@@ -25,7 +24,6 @@ use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\MimeIconProviderDecorator;
 use OCA\NMCTheme\NavigationManagerDecorator;
 use OCA\NMCTheme\Search\SearchComposerDecorator;
-use OCA\NMCTheme\Service\NMCFilesService;
 use OCA\NMCTheme\Service\NMCThemesService;
 use OCA\NMCTheme\Themes\Magenta;
 use OCA\NMCTheme\Themes\MagentaDark;
@@ -264,11 +262,6 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function boot(IBootContext $context): void {
-		$context->injectFn(Closure::fromCallable([$this, 'modifyNavigation']));
-	}
 
-	protected function modifyNavigation(NMCFilesService $filesService): void {
-		$filesService->rearrangeFilesAppNavigation();
-		$filesService->addFilesAppNavigationEntries();
 	}
 }
