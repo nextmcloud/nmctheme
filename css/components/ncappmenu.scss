@@ -1,15 +1,3 @@
-header {
-	--icon-menu: var(--original-icon-menu-dark);
-	--icon-close: var(--original-icon-close-dark);
-}
-
-@media (prefers-color-scheme: dark) {
-	header {
-		--icon-menu: var(--original-icon-menu-white);
-		--icon-close: var(--original-icon-close-white);
-	}
-}
-
 // main navigation menu styles
 #header {
 
@@ -98,7 +86,7 @@ header {
 					min-height: 32px;
 					min-width: 32px;
 			
-					background-image: var(--icon-menu);
+					background-image: var(--icon-menu-dark);
 					background-size: auto 24px;
 					background-position: center;
 					background-repeat: no-repeat;
@@ -114,7 +102,7 @@ header {
 				.action-item__menutoggle {
 				
 					&.button-vue--icon-only {
-						background-image: var(--icon-close);
+						background-image: var(--icon-close-dark);
 					}
 				}
 			}
