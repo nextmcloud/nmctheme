@@ -500,6 +500,19 @@ table.files-filestable {
 									}
 
 									&.files-list__row-action-sharing-status {
+										display: none;
+
+										.button-vue__icon {
+											background-image: var(--icon-shared-dark);
+										}
+
+										&.button-vue--icon-and-text .button-vue__icon {
+											@include magenta-icon;
+										}
+									}
+
+									&.files-list__row-action-sharing-status-magentacloud {
+										direction: rtl;
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
