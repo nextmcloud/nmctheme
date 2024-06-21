@@ -169,8 +169,8 @@
 					.minus-box-icon {
 						width: 16px;
 						height: 16px;
-						border: 1px solid black;
-						border-radius: 20%;
+						border: 1px solid var(--telekom-color-ui-border-standard);
+						border-radius: var(--telekom-radius-small);
 		
 						svg {
 							display: none;
@@ -370,8 +370,8 @@ table.files-filestable {
 			tbody:not(.files-list__tbody--grid) {
 
 				.files-list__row-icon {
-					margin-right: 16px;
-					margin-left: 24px;
+					margin-right: 1rem;
+					margin-left: 1rem;
 					z-index: 100;
 
 					.material-design-icon {

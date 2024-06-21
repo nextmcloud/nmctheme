@@ -16,6 +16,7 @@
 		}
 	}
 }
+
 #body-user {
 	.v-popper__popper {
 		.v-popper__wrapper {
@@ -39,81 +40,107 @@
 	}
 }
 
-
 // dropdown menu styles
-.v-popper__inner {
-	li.action {
-		.action-button__icon {
-			background-size: 20px;
-			background-position: center;
-		}
+.v-popper--theme-dropdown {
 
-		&.action-separator.action--disabled {
-			border-bottom: 1px solid var(--telekom-color-ui-border-pressed);
-		}
+	&.v-popper__popper {
 
-		&.active {
-			background-color: initial;
+		.v-popper__wrapper {
 	
-			// do not set Delete icon to red when hovered
-			.icon-delete:hover {
-				background-image: var(--icon-delete-dark);
-			}
-		}
-
-		&:hover {
-			.action-button__icon, .material-design-icon, .icon-vue {
-				filter: var(--nmc-color-icon);
-			}
+			.v-popper__inner {
+				background-color: var(--telekom-color-background-surface);
 	
-			.action-button__text, .action-button__longtext, .action-link__text, .action-link__longtext {
-				color: var(--telekom-color-primary-standard);
+				.material-design-icon {
+			
+					&.pencil-icon {
+						background-image: var(--icon-edit-dark);
+					}
+	
+					&.download-multiple-icon {
+						background-image: var(--icon-download-dark);
+					}
+	
+					&.star-icon {
+						background-image: var(--icon-star-dark);
+					}
+	
+					&.close-icon {
+						background-image: var(--icon-close-dark);
+					}
+	
+					&.folder-icon {
+						background-image: var(--icon-folder-dark);
+					}
+				}
+			
+				li.action {
+	
+					.action-button__icon {
+						background-size: 20px;
+						background-position: center;
+					}
+			
+					&.action-separator.action--disabled {
+						border-bottom: 1px solid var(--telekom-color-ui-border-pressed);
+					}
+			
+					&.active {
+						background-color: initial;
+				
+						// do not set Delete icon to red when hovered
+						.icon-delete:hover {
+							background-image: var(--icon-delete-dark);
+						}
+					}
+			
+					&:hover {
+						.action-button__icon, .material-design-icon, .icon-vue {
+							filter: var(--nmc-color-icon);
+						}
+				
+						.action-button__text, .action-button__longtext, .action-link__text, .action-link__longtext {
+							color: var(--telekom-color-primary-standard);
+						}
+					}
+				}
+			
+				// hide upload file menu item in Photos Album
+				li[data-upload-picker-add=""]{
+					display: none;
+				}
+	
+				li:last-child > .action-input  {
+					padding-bottom: 0;
+	
+					.action-input__form {
+						padding-right: 0;
+					}
+	
+					label {
+						display: none;
+					}
+				}
 			}
 		}
-	}
 
-	// hide upload file menu item in Photos Album
-	li[data-upload-picker-add=""]{
-		display: none;
+		&[data-popper-placement^=top] {
+
+			.v-popper__wrapper {
+
+				.v-popper__arrow-container {
+					border-top-color: var(--telekom-color-background-surface);
+				}
+			}
+		}
+
+		&[data-popper-placement^=bottom] {
+			
+			.v-popper__wrapper {
+
+				.v-popper__arrow-container {
+					border-bottom-color: var(--telekom-color-background-surface);
+				}
+			}
+		}
 	}
 }
-
-.v-popper__popper {
-	.v-popper__inner {
-		.material-design-icon {
-	
-			&.pencil-icon {
-				background-image: var(--icon-edit-dark);
-			}
-
-			&.download-multiple-icon {
-				background-image: var(--icon-download-dark);
-			}
-
-			&.star-icon {
-				background-image: var(--icon-star-dark);
-			}
-
-			&.close-icon {
-				background-image: var(--icon-close-dark);
-			}
-
-			&.folder-icon {
-				background-image: var(--icon-folder-dark);
-			}
-		}
-
-		li:last-child > .action-input  {
-			padding-bottom: 0;
-
-			.action-input__form {
-				padding-right: 0;
-			}
-
-			label {
-				display: none;
-			}
-		}
-	}
-}
-
