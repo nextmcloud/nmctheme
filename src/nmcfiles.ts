@@ -61,7 +61,7 @@ if (sharingStatusAction) {
 			return ''
 		},
 		displayName() {
-			return t('files_sharing', 'Show sharing options')
+			return t('files_sharing', 'Sharing')
 		},
 		enabled() {
 			return true
