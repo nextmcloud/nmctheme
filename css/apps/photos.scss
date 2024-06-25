@@ -25,9 +25,8 @@
 				font-size: 32px;
 			}
 
-			// hide 'Add' button breadcrumbs for all menu pages,
-			// unless it is for "Create a new album"/ "Ein neues Album erstellen."
-			&__content button:not([aria-label*='lbum']) {
+			// hide 'Add' button breadcrumbs for all menu pages
+			&__content button.button-vue {
 				display: none;
 			}
 
@@ -74,6 +73,16 @@
 					}
 				}
 			}
+		}
+
+		.albums-list {
+			.photos-navigation {	
+				// show 'Add' button for "Create a new album"
+				&__content button.button-vue {
+					display: flex;
+				}
+			}
+			
 		}
 
 		.files-list-viewer.timeline__file-list {

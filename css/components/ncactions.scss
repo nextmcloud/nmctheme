@@ -33,6 +33,18 @@
 						&:hover, &:focus {
 							outline: none;
 						}
+
+						.icon-vue {
+							background-image: var(--icon-folder-dark);
+						}
+
+						.material-design-icon.upload-icon {
+							background-image: var(--icon-upload-dark);
+						}
+
+						.material-design-icon svg {
+							display: none;
+						}
 					}
 				}
 			}
