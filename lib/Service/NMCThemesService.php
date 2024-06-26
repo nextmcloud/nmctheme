@@ -23,6 +23,7 @@ use OCA\Theming\Themes\HighContrastTheme;
 use OCA\Theming\Themes\LightTheme;
 use OCP\IConfig;
 use OCP\IUserSession;
+use Psr\Log\LoggerInterface;
 
 /**
  * An alternative ThemesService with the following properties:
@@ -59,6 +60,7 @@ class NMCThemesService extends ThemesService {
 	public function __construct(
 		IUserSession $userSession,
 		IConfig $config,
+		LoggerInterface $logger,
 		ITheme $default,
 		array $selectableThemes,
 		array $staticThemes,
@@ -68,7 +70,7 @@ class NMCThemesService extends ThemesService {
 		HighContrastTheme $highContrastTheme,
 		DarkHighContrastTheme $darkHighContrastTheme,
 		DyslexiaFont $dyslexiaFont) {
-		parent::__construct($userSession, $config, $defaultTheme, $lightTheme,
+		parent::__construct($userSession, $config, $logger, $defaultTheme, $lightTheme,
 			$darkTheme, $highContrastTheme, $darkHighContrastTheme, $dyslexiaFont);
 
 		$this->userSession = $userSession;

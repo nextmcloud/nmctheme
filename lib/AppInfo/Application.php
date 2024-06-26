@@ -220,6 +220,7 @@ class Application extends App implements IBootstrap {
 			return new NMCThemesService(
 				$c->get(IUserSession::class),
 				$c->get(IConfig::class),
+				$c->get(LoggerInterface::class),
 				$c->get(Magenta::class),
 				[$c->get(MagentaLight::class), $c->get(MagentaDark::class)],
 				[$c->get(TeleNeoWebFont::class)],
