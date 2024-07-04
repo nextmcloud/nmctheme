@@ -70,24 +70,24 @@
 
 				button {
 					all: unset;
-	
+
 					.plus-icon {
 						border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
 						border-radius: 50%;
 					}
-	
+
 					svg,
 					.button-vue__text {
 						color: var(--telekom-color-text-and-icon-primary-standard);
 					}
-	
+
 					&:hover {
 						background-color: initial;
-	
+
 						.plus-icon {
 							border: 1px solid var(--telekom-color-text-and-icon-primary-hovered);
 						}
-	
+
 						svg,
 						.button-vue__text {
 							color: var(--telekom-color-text-and-icon-primary-hovered);
@@ -98,7 +98,8 @@
 		}
 
 		.albums-list {
-			.photos-navigation {	
+			.photos-navigation {
+
 				// show 'Add' button for "Create a new album"
 				&__content button.button-vue {
 					display: flex;
@@ -134,6 +135,7 @@
 				.favorite-marker-icon.favorite-state.icon-vue {
 					width: 32px;
 					height: 32px;
+
 					svg {
 						display: none;
 					}
@@ -142,6 +144,7 @@
 				.checkbox-radio-switch.selection-checkbox {
 					top: 2px;
 					right: 3px;
+
 					.checkbox-content {
 						background: transparent;
 
@@ -220,7 +223,8 @@
 		}
 
 		// 'Albums' page
-		.collections, .collection {
+		.collections,
+		.collection {
 
 			.collections__list {
 				justify-content: normal;
@@ -437,6 +441,15 @@
 	}
 }
 
+// Breadcrumb context menu on click
+#body-user .v-popper__popper .v-popper__inner {
+	ul[role="menu"] li:first-of-type {
+		button {
+			display: none;
+		}
+	}
+}
+
 // New album modal window
 #body-user .modal-container {
 
@@ -505,6 +518,7 @@
 					padding: 0.5rem !important;
 					margin-left: 0;
 					transition: none;
+
 					&:hover {
 						background-color: var(--nmc-color-row-hover);
 					}
@@ -531,6 +545,7 @@
 
 	.album-form {
 		padding-top: 3rem !important;
+
 		.form-inputs {
 			.input-field:nth-child(2) {
 				display: none;
@@ -542,6 +557,7 @@
 				}
 			}
 		}
+
 		.form-buttons {
 			flex-direction: row;
 		}
@@ -555,7 +571,8 @@
 }
 
 // Add Photos to the album modal window
-#body-user .modal-container, #body-settings .modal-container {
+#body-user .modal-container,
+#body-settings .modal-container {
 	background-color: var(--telekom-color-background-surface);
 
 	button.modal-container__close {
