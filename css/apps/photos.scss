@@ -19,19 +19,38 @@
 }
 
 .app-photos {
+
 	#app-content-vue {
+
+		// hide 'Add' button breadcrumbs for all menu pages
+		.timeline {
+
+			.photos-navigation {
+
+				&__content button.button-vue {
+					display: none;
+				}
+			}
+		}
+
 		.photos-navigation {
 			&__title__main {
 				font-size: 32px;
 			}
 
-			// hide 'Add' button breadcrumbs for all menu pages
-			&__content button.button-vue {
-				display: none;
+			&__content {
+
+				.upload-picker button {
+					display: none;
+				}
 			}
 
 			&__content-right {
-				margin-left: 8px;
+				margin: 0;
+
+				.upload-picker {
+					margin-right: 1rem;
+				}
 
 				// disable Share button for Albums, does not apply to empty album
 				form.upload-picker+button.button-vue--icon-only {
@@ -46,30 +65,33 @@
 			}
 
 			// 'Add', 'Add to album', 'Unselect all' and '...' buttons
-			&__content button,
-			&__content-right button {
-				all: unset;
+			&__content,
+			&__content-right {
 
-				.plus-icon {
-					border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
-					border-radius: 50%;
-				}
-
-				svg,
-				.button-vue__text {
-					color: var(--telekom-color-text-and-icon-primary-standard);
-				}
-
-				&:hover {
-					background-color: initial;
-
+				button {
+					all: unset;
+	
 					.plus-icon {
-						border: 1px solid var(--telekom-color-text-and-icon-primary-hovered);
+						border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
+						border-radius: 50%;
 					}
-
+	
 					svg,
 					.button-vue__text {
-						color: var(--telekom-color-text-and-icon-primary-hovered);
+						color: var(--telekom-color-text-and-icon-primary-standard);
+					}
+	
+					&:hover {
+						background-color: initial;
+	
+						.plus-icon {
+							border: 1px solid var(--telekom-color-text-and-icon-primary-hovered);
+						}
+	
+						svg,
+						.button-vue__text {
+							color: var(--telekom-color-text-and-icon-primary-hovered);
+						}
 					}
 				}
 			}
@@ -82,7 +104,6 @@
 					display: flex;
 				}
 			}
-			
 		}
 
 		.files-list-viewer.timeline__file-list {
@@ -146,59 +167,67 @@
 		}
 
 		// grid view of files and folders
-		.grid-container .grid {
-			.grid-item-wrapper {
-				.folder {
-					border: 1px solid var(--telekom-color-functional-informational-subtle);
+		.grid-container {
+			padding: 2rem 3rem;
 
-					&:active,
-					&:hover,
-					&:focus {
+			.grid {
+				.grid-item-wrapper {
+					.folder {
+						border: 1px solid var(--telekom-color-functional-informational-subtle);
+
+						&:active,
+						&:hover,
+						&:focus {
+							.folder-name {
+								opacity: 1;
+							}
+						}
+
 						.folder-name {
-							opacity: 1;
+							transition: none;
+							row-gap: 1rem;
+
+							// replace standart folder icon
+							span.icon-folder {
+								background-image: var(--icon-mime-folder-dark);
+								opacity: 1;
+							}
+
+							&__name {
+								color: var(--color-text-light);
+								font-weight: bold;
+								text-shadow: none;
+							}
+						}
+
+						.cover {
+							transition: none;
+							opacity: 0;
+						}
+
+						.folder-content {
+							display: none;
 						}
 					}
 
-					.folder-name {
-						transition: none;
-						row-gap: 1rem;
-
-						// replace standart folder icon
-						span.icon-folder {
-							background-image: var(--icon-mime-folder-dark);
-							opacity: 1;
+					.file {
+						.cover {
+							transition: none;
 						}
-
-						&__name {
-							color: var(--color-text-light);
-							font-weight: bold;
-							text-shadow: none;
-						}
-					}
-
-					.cover {
-						transition: none;
-						opacity: 0;
-					}
-
-					.folder-content {
-						display: none;
-					}
-				}
-
-				.file {
-					.cover {
-						transition: none;
 					}
 				}
 			}
 		}
 
 		// 'Albums' page
-		.collections.albums-list {
+		.collections, .collection {
 
 			.collections__list {
 				justify-content: normal;
+			}
+
+			.collection__media {
+				padding: 2rem 3rem;
 			}
 
 			.collection-cover {
@@ -304,6 +333,10 @@
 					margin: 0;
 				}
 			}
+		}
+
+		.album__location {
+			display: none;
 		}
 	}
 
@@ -556,6 +589,13 @@
 		line-height: unset;
 		margin-block: 1.5rem 1rem;
 		min-height: unset;
+	}
+
+	.dialog__actions {
+
+		.upload-picker {
+			display: block;
+		}
 	}
 
 	.file-picker {
