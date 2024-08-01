@@ -441,15 +441,6 @@
 	}
 }
 
-// Breadcrumb context menu on click
-#body-user .v-popper__popper .v-popper__inner {
-	ul[role="menu"] li:first-of-type {
-		button {
-			display: none;
-		}
-	}
-}
-
 // New album modal window
 #body-user .modal-container {
 
