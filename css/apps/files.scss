@@ -337,6 +337,14 @@ table.files-filestable {
 	}
 
 	.files-list {
+		div[role="thead"] {
+			.files-list__row-trashbin-original-location {
+				width: 150px !important;
+				button.files-list__column-sort-button {
+					padding-left: 4px;					
+				}
+			}
+		}
 
 
 		// Files table and grid
