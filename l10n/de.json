@@ -64,7 +64,8 @@
       "_{count} file_::_{count} files_" : ["{count} Datei","{count} Dateien"],
       "{summaryFile} and {summaryFolder}" : "{summaryFile} und {summaryFolder}",
       "_including %n hidden_::_including %n hidden_": ["davon %n versteckt","davon %n versteckt"],
-      "\"{displayName}\" batch action executed successfully" : "Aktion \"{displayName}\" erfolgreich ausgeführt"
+      "\"{displayName}\" batch action executed successfully" : "Aktion \"{displayName}\" erfolgreich ausgeführt",
+      "Delete permanently": "Endgültig löschen"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
