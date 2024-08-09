@@ -75,6 +75,22 @@
 				background-color: var(--telekom-color-background-surface);
 	
 				.material-design-icon {
+
+					&.information-icon {
+						background-image: var(--icon-callout-dark);
+					}
+
+					&.checkbox-marked-circle-icon {
+						background-image: var(--icon-success-dark);
+					}
+
+					&.alert-icon {
+						background-image: var(--icon-alert-dark);
+					}
+
+					&.alert-decagram-icon {
+						background-image: var(--icon-error-dark);
+					}
 			
 					&.pencil-icon {
 						background-image: var(--icon-edit-dark);
