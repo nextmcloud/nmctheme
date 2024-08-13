@@ -87,3 +87,17 @@
         background-image: var(--icon-share-dark);
     } 
 }
+
+.viewer__image-editor,
+.SfxModal-Wrapper,
+.SfxPopper-wrapper {
+    *, label {
+        font-family: inherit !important;
+    }
+}
+.SfxModal-Container {
+	.SfxModal-root,
+	.SfxModalTitle-root {
+		text-align: center;
+	}
+}
