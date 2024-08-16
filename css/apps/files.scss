@@ -8,8 +8,8 @@
 	border: none;
 	height: 44px;
 	margin-top: 0.2rem;
-    max-width: unset;
-    max-height: unset;
+	max-width: unset;
+	max-height: unset;
 	width: 44px;
 
 	svg {
@@ -33,7 +33,7 @@
 				background-repeat: no-repeat;
 				background-position: center;
 				background-size: 1.25rem;
-	
+
 				svg {
 					display: none;
 				}
@@ -97,6 +97,7 @@
 
 			.button-vue__wrapper {
 				position: relative;
+
 				&::before {
 					background-color: var(--color-primary);
 					position: absolute;
@@ -158,30 +159,31 @@
 	span.checkbox-radio-switch-checkbox {
 		span.checkbox-content {
 			padding: 0;
+
 			&:hover {
 				background-color: initial;
 			}
 
 			span.checkbox-content__icon.checkbox-radio-switch__icon {
 				&:not(.checkbox-content__icon--checked) {
-		
+
 					.checkbox-blank-outline-icon,
 					.minus-box-icon {
 						width: 16px;
 						height: 16px;
 						border: 1px solid var(--telekom-color-ui-border-standard);
 						border-radius: var(--telekom-radius-small);
-		
+
 						svg {
 							display: none;
 						}
-		
+
 						&:hover {
 							background-color: red;
 						}
 					}
 				}
-		
+
 				&.checkbox-content__icon--checked {
 					background-image: var(--original-icon-check-white);
 					background-color: var(--telekom-color-functional-success-standard);
@@ -195,7 +197,7 @@
 					margin-right: -2px;
 					margin-top: -2px;
 					width: 1.5rem;
-		
+
 					.checkbox-marked-icon {
 						svg {
 							display: none;
@@ -310,16 +312,21 @@ table.files-filestable {
 #app-content-vue {
 	.files-list__header {
 		button.files-list__header-grid-button {
-			&:hover:not(:disabled), &:active {
+
+			&:hover:not(:disabled),
+			&:active {
 				background-color: transparent;
+
 				span.material-design-icon {
 					@include magenta-icon;
 				}
 			}
+
 			span.view-grid-icon {
 				width: 24px;
 				height: 24px;
 				background-image: var(--icon-toggle-pictures-dark);
+
 				svg {
 					display: none;
 				}
@@ -329,6 +336,7 @@ table.files-filestable {
 				width: 24px;
 				height: 24px;
 				background-image: var(--icon-toggle-filelist-dark);
+
 				svg {
 					display: none;
 				}
@@ -340,8 +348,9 @@ table.files-filestable {
 		div[role="thead"] {
 			.files-list__row-trashbin-original-location {
 				width: 150px !important;
+
 				button.files-list__column-sort-button {
-					padding-left: 4px;					
+					padding-left: 4px;
 				}
 			}
 		}
@@ -388,11 +397,11 @@ table.files-filestable {
 						&.folder-icon {
 							background-image: var(--icon-mime-folder-dark);
 						}
-	
+
 						&.link-icon {
 							background-image: var(--icon-mime-folder-shared-dark);
 						}
-	
+
 						&.key-icon {
 							background-image: var(--icon-mime-folder-encrypted-dark);
 						}
@@ -483,7 +492,7 @@ table.files-filestable {
 									}
 
 									.button-vue__wrapper {
-										
+
 										.button-vue__text {
 											margin: 0;
 										}
@@ -492,7 +501,7 @@ table.files-filestable {
 											background-position: center;
 											background-repeat: no-repeat;
 											background-size: 24px;
-	
+
 											svg {
 												display: none;
 											}
@@ -548,9 +557,14 @@ table.files-filestable {
 
 			tbody.files-list__tbody--grid {
 				margin: 15px 0;
+
 				tr {
 					&.files-list__row {
-						&:hover, &:focus, &:active, &--active {
+
+						&:hover,
+						&:focus,
+						&:active,
+						&--active {
 							background-color: var(--nmc-color-row-hover);
 						}
 					}
@@ -559,12 +573,12 @@ table.files-filestable {
 						width: 26px;
 						height: 26px;
 						@include files-checkboxes-v28;
-	
+
 						span.checkbox-content {
 							padding: 0;
 						}
 					}
-	
+
 					.files-list__row-icon {
 
 						.material-design-icon {
@@ -579,26 +593,27 @@ table.files-filestable {
 							&.folder-icon {
 								background-image: var(--icon-mime-folder-dark);
 							}
-		
+
 							&.link-icon {
 								background-image: var(--icon-mime-folder-shared-dark);
 							}
-		
+
 							&.key-icon {
 								background-image: var(--icon-mime-folder-encrypted-dark);
 							}
 						}
-	
+
 						.files-list__row-icon-favorite {
 							top: calc(100% - 25px);
 							left: calc(50% - 22px);
-	
+
 							.icon-vue {
 								width: 24px;
 								height: 24px;
-								 svg {
+
+								svg {
 									display: none;
-								 }
+								}
 							}
 						}
 					}
@@ -618,15 +633,22 @@ table.files-filestable {
 		}
 
 		// Files menu items
-		.v-popper__popper .v-popper__wrapper .v-popper__inner ul li.action button.action-button {
-			li.action.files-list__row-action-favorite {
+		.v-popper__popper .v-popper__wrapper .v-popper__inner ul li.action {
+			&.files-list__row-action-sharing-status {
+				display: none;
+			}
 
-				button.action-button {
-					span svg {
-						display: none;
+			&>button.action-button {
+				li.action.files-list__row-action-favorite {
+
+					button.action-button {
+						span svg {
+							display: none;
+						}
 					}
 				}
 			}
+
 		}
 	}
 }
@@ -704,7 +726,7 @@ table.files-filestable {
 		&__column {
 			width: fit-content;
 
-			& > .action-items {
+			&>.action-items {
 				justify-content: end;
 			}
 
@@ -751,7 +773,7 @@ table.files-filestable {
 			}
 		}
 	}
-}			
+}
 
 // Files actions menu items
 .v-popper__popper.action-item__popper {
@@ -769,7 +791,7 @@ table.files-filestable {
 		&.files-list__row-actions-batch-delete .icon-vue {
 			background-image: var(--icon-delete-dark);
 		}
-		
+
 		&.files-list__row-actions-batch-favorite .icon-vue {
 			background-image: var(--original-icon-star-dark);
 		}
