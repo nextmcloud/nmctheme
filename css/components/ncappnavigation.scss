@@ -77,7 +77,7 @@
 			}
 
 			// hide Collapse buttons
-			&--collapsible button.icon-collapse{
+			&--collapsible button.icon-collapse {
 				display: none;
 			}
 
@@ -97,6 +97,13 @@
 					li:not([data-cy-files-navigation-item=sharingin]):not([data-cy-files-navigation-item=sharingout]) {
 						display: none;
 					}
+				}
+			}
+
+			&--collapsible[data-cy-files-navigation-item=favorites] {
+				// hide every subentry
+				ul.app-navigation-entry__children {
+					display: none !important;
 				}
 			}
 		}

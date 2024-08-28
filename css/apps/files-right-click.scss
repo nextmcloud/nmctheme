@@ -14,7 +14,11 @@
 			&[data-cy-files-list-row-action="details"],
 			&[data-cy-files-list-row-action="edit-locally"],
 			&[data-cy-files-list-row-action="view"],
-			&[data-cy-files-list-row-action="cancel_select"] {
+			&[data-cy-files-list-row-action="cancel_select"],
+			&[data-cy-files-list-row-action="sharing-status"],
+			&[data-cy-files-list-row-action="sharing-status-magentacloud"],
+			&[data-cy-files-list-row-action="office-open-pdf"]
+			{
 				display: none;
 			}
 

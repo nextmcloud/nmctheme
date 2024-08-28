@@ -157,6 +157,10 @@ const icons = {
 	'arrow-next': path.join(__dirname, '../img', 'breadcrumb-arrow.svg'),
 	filter: path.join(__dirname, '../img', 'actions', 'filter.svg'),
 	calendar: path.join(__dirname, '../img', 'content', 'calendar.svg'),
+	'filetype-diagram': path.join(__dirname, '../img', 'filetypes', 'x-office-drawing.svg'),
+	'filetype-document': path.join(__dirname, '../img', 'filetypes', 'x-office-document.svg'),
+	'filetype-presentation': path.join(__dirname, '../img', 'filetypes', 'x-office-presentation.svg'),
+	'filetype-spreadsheet': path.join(__dirname, '../img', 'filetypes', 'x-office-spreadsheet.svg'),
 }
 
 const iconsColor = {
