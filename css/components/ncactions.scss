@@ -31,6 +31,22 @@
 						.icon-vue {
 							background-image: var(--icon-folder-dark);
 						}
+
+						.icon-filetype-draw {
+							background-image: var(--icon-filetype-diagram-dark);
+						}
+
+						.icon-filetype-document {
+							background-image: var(--icon-filetype-document-dark);
+						}
+
+						.icon-filetype-presentation {
+							background-image: var(--icon-filetype-presentation-dark);
+						}
+
+						.icon-filetype-spreadsheet {
+							background-image: var(--icon-filetype-spreadsheet-dark);
+						}
 					}
 	
 					&:hover {
