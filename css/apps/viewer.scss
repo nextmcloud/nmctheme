@@ -19,7 +19,7 @@
         height: var(--header-height);
         .icons-menu {
             padding: 12px 16px 12px 0;
-            gap: var(--telekom-spacing-composition-space-04);
+            gap: var(--telekom-spacing-composition-space-03);
             & > button, button[aria-label="Actions"], button[aria-label="Aktionen"], button[aria-label*="Edit"], button[aria-label*="Bearbeiten"] {
                 border-radius: var(--telekom-radius-circle);
                 display: flex;
