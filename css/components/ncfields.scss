@@ -12,6 +12,7 @@
 #body-public .input-field,
 #body-login .input-field {
     border-radius: var(--telekom-radius-small);
+    margin-block-start: 0;
 
     &__main-wrapper {
         height: 44px;
@@ -58,10 +59,19 @@
 		}
     }
 
+    &__label {
+        display: none;
+    }
+
     &__icon {
         &--leading {
-            bottom: 6px;
-            left: 6px;
+            bottom: -2px;
+            left: -2px;
+
+            svg {
+                height: 20px;
+                width: 20px;
+            }
         }
 
         &--trailing {

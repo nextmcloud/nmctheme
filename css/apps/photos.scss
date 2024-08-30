@@ -107,7 +107,7 @@
 			}
 		}
 
-		.files-list-viewer.timeline__file-list {
+		.files-list-viewer {
 			padding: 0 32px;
 
 			// Date container
@@ -176,7 +176,6 @@
 			.grid {
 				.grid-item-wrapper {
 					.folder {
-						border: 1px solid var(--telekom-color-functional-informational-subtle);
 
 						&:active,
 						&:hover,

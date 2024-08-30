@@ -26,7 +26,7 @@ class MagentaLight extends Magenta implements ITheme {
 	}
 
 	public function getId(): string {
-		return 'magenta25light';
+		return 'light-magenta';
 	}
 
 	public function getTitle(): string {
