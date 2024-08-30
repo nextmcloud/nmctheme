@@ -26,7 +26,7 @@ class MagentaDark extends Magenta implements ITheme {
 	}
 
 	public function getId(): string {
-		return 'magenta25dark';
+		return 'dark-magenta';
 	}
 
 	public function getTitle(): string {

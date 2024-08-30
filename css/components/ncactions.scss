@@ -127,12 +127,16 @@
 					&.folder-icon {
 						background-image: var(--icon-folder-dark);
 					}
+
+					svg {
+						display: none;
+					}
 				}
 			
 				li.action {
 	
 					.action-button__icon {
-						background-size: 20px;
+						background-size: 25px;
 						background-position: center;
 					}
 			

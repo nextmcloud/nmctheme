@@ -79,18 +79,19 @@
         div.unified-search-modal__filters {
             gap: 0;
 
-            // Hide People filter
-            > .v-popper.v-popper--theme-dropdown {
+            // Hide people and places filter
+            > [data-cy-unified-search-filter="people"],
+            > [data-cy-unified-search-filter="places"] {
                 display: none;
             }
 
             button.button-vue {
                 all: unset !important;
 
-                &[title="Dateien"], &[title="Files"] {
+                &[title="Dateien"], &[title="Files"], &[data-cy-unified-search-filter="current-view"] {
                     display: none !important;
                 }
-                
+
                 .button-vue__text {
                     color: var(--color-primary);
                 }

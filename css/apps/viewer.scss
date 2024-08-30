@@ -93,11 +93,83 @@
 .SfxPopper-wrapper {
     *, label {
         font-family: inherit !important;
+		text-align: center;
     }
 }
+
 .SfxModal-Container {
 	.SfxModal-root,
 	.SfxModalTitle-root {
 		text-align: center;
 	}
+}
+
+.viewer__image-editor {
+
+    .FIE_topbar-buttons-wrapper {
+
+        .FIE_tabs_toggle_btn {
+            margin-right: 1rem !important;
+        }
+
+        .FIE_topbar-save-button  {
+            border-radius: var(--telekom-radius-standard);
+            background-color: var(--telekom-color-primary-standard);
+            color: var(--telekom-color-text-and-icon-white-standard);
+            border: 0;
+            border-radius: var(--telekom-radius-standard);
+            font: var(--telekom-text-style-body);
+            font-weight: var(--telekom-typography-font-weight-bold);
+            line-height: 1.125rem;
+            margin-left: 1rem;
+            min-height: var(--telekom-spacing-composition-space-13);
+            min-width: var(--telekom-spacing-composition-space-13);
+            padding-left: var(--telekom-spacing-composition-space-07);
+            padding-right: var(--telekom-spacing-composition-space-07);
+            transition: all var(--telekom-motion-duration-transition) var(--telekom-motion-easing-standard);
+
+            &:after {
+                top: 0;
+                left: 0;
+                width: 100%;
+                border: var(--telekom-spacing-composition-space-01) solid transparent;
+                height: 100%;
+                content: '';
+                display: block;
+                position: absolute;
+                box-sizing: border-box;
+                pointer-events: none;
+                border-radius: var(--telekom-radius-standard);
+            }
+    
+            &:hover:not(:disabled) {
+                background-color: var(--telekom-color-primary-hovered);
+            }
+    
+            &:active {
+                background-color: var(--telekom-color-primary-pressed);
+            }
+    
+            &:disabled {
+                background-color: var(--telekom-color-ui-disabled);
+                color: var(--telekom-color-text-and-icon-disabled);
+            }
+        }
+    }
+
+    .FIE_topbar-close-button {
+        background-image: var(--icon-close-dark);
+        background-position: center;
+        background-repeat: no-repeat;
+        
+        &:hover {
+            background: var(--icon-close-dark);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    
+        svg {
+            display: none;
+        }
+    }
 }

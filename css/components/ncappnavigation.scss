@@ -28,8 +28,30 @@
 		gap: var(--telekom-spacing-composition-space-03);
 		padding: 4rem 1.5rem 1.5rem;
 
-		[data-cy-files-navigation-item="recent"] {
+		[data-cy-files-navigation-item="recent"],
+		[data-cy-files-navigation-item="personal"] {
 			display: none;
+		}
+
+		[data-cy-files-navigation-item="favorites"] {
+			order: 1;
+		}
+		
+		[data-cy-files-navigation-item="files"] {
+			order: 2;
+		}
+		
+		[data-cy-files-navigation-item="sharingout"],
+		[data-cy-files-navigation-item="shareoverview"] {
+			order: 3;
+		}
+		
+		[data-cy-files-navigation-item="sharingin"] {
+			order: 4;
+		}
+		
+		[data-cy-files-navigation-item="trashbin"] {
+			order: 5;
 		}
 
 		// default navbar link styling
