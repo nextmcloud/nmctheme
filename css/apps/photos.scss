@@ -605,6 +605,22 @@
 		}
 	}
 
+	.photos-picker {
+		
+		.file-container {
+		
+			.favorite-marker-icon {
+				background-image: var(--icon-starred-yellow);
+				width: 32px;
+				height: 32px;
+
+				svg {
+					display: none;
+				}
+			}
+		}
+	}
+
 	.file-picker {
 
 		.dialog__wrapper {
