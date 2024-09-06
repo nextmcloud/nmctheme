@@ -149,7 +149,6 @@
 
 		.button-vue__icon .files-list__column-sort-button-icon {
 			margin-right: 4px;
-			margin-top: 4px;
 			opacity: 1;
 		}
 	}
@@ -375,9 +374,15 @@ table.files-filestable {
 						@include files-table-columns-v28;
 					}
 
-					&row-mtime {
+					&row-mtime, &row-size, &row-trashbin-original-location, &row-trashbin-deleted {
 						min-width: 140px;
 						text-align: right;
+
+						.files-list__column-sort-button {
+							padding: 0;
+							margin-left: 0;
+							margin-right: 0;
+						}
 
 						@include files-table-columns-v28;
 					}
@@ -465,6 +470,9 @@ table.files-filestable {
 						}
 
 						&.files-list__row-mtime,
+						&.files-list__row-size, 
+						&.files-list__row-trashbin-original-location, 
+						&.files-list__row-trashbin-deleted,
 						&.column-last {
 							min-width: 140px;
 							text-align: right;
@@ -679,10 +687,6 @@ table.files-filestable {
 				}
 			}
 
-			.files-list__row-size {
-				display: none;
-			}
-
 			span.checkbox-radio-switch--checked {
 
 				label.checkbox-radio-switch__label>span.checkbox-radio-switch__icon {
@@ -728,10 +732,6 @@ table.files-filestable {
 
 			&>.action-items {
 				justify-content: end;
-			}
-
-			&.files-list__row-size {
-				display: none;
 			}
 
 			&.files-list__row-name.files-list__column--sortable>.files-list__row-icon {
