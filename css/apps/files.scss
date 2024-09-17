@@ -307,6 +307,15 @@ table.files-filestable {
 }
 
 /*------------------------------------ v28 - specific styling ------------------------------------*/
+#body-user {
+	// files modal search input
+	.modal-mask.dialog__modal {
+		& .modal-wrapper.modal-wrapper--large input {
+			padding-left: 2.5rem;
+		}
+	}
+}
+
 
 #app-content-vue {
 	.files-list__header {
@@ -374,7 +383,10 @@ table.files-filestable {
 						@include files-table-columns-v28;
 					}
 
-					&row-mtime, &row-size, &row-trashbin-original-location, &row-trashbin-deleted {
+					&row-mtime,
+					&row-size,
+					&row-trashbin-original-location,
+					&row-trashbin-deleted {
 						min-width: 140px;
 						text-align: right;
 
@@ -470,8 +482,8 @@ table.files-filestable {
 						}
 
 						&.files-list__row-mtime,
-						&.files-list__row-size, 
-						&.files-list__row-trashbin-original-location, 
+						&.files-list__row-size,
+						&.files-list__row-trashbin-original-location,
 						&.files-list__row-trashbin-deleted,
 						&.column-last {
 							min-width: 140px;
