@@ -37,6 +37,10 @@ class URLGeneratorDecorator implements IURLGenerator {
 	 * No decoration, only delegate.
 	 */
 	public function linkToRoute(string $routeName, array $arguments = []): string {
+		if ($routeName === 'theming.Icon.getTouchIcon') {
+			return $this->decorated->linkToRoute('nmctheme.TouchIcon.getTouchIcon', $arguments);
+		}
+		
 		return $this->decorated->linkToRoute($routeName, $arguments);
 	}
 
