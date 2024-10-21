@@ -314,6 +314,17 @@ table.files-filestable {
 			padding-left: 2.5rem;
 		}
 	}
+
+	// fix table header overlab with tbody in modal
+	.modal-container__content {
+		.dialog__content.file-picker__content {
+			.file-picker__files {
+				thead th {
+					background-color: var(--telekom-color-background-surface);
+				}
+			}
+		}
+	}
 }
 
 
