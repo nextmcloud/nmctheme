@@ -380,6 +380,7 @@ table.files-filestable {
 			thead {
 				background-color: var(--color-main-background);
 				opacity: 0.97;
+				top: -2px;
 
 				@include files-checkboxes-v28;
 
