@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		}
 	}
 
-	const searchButton = document.querySelector('button.unified-search__button')
+	const searchButton = document.querySelector('.unified-search-menu > button')
 	if (searchButton !== null) {
 		const searchlabel = document.createElement('span')
 		searchlabel.className = 'button-vue__label'

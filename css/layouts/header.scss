@@ -181,8 +181,8 @@ header {
 }
 
 // Custom styling for the 'Search' button
-#header .header-right .header-menu:not(.user-menu) {
-	button.unified-search__button {
+#header .header-right .header-menu.unified-search-menu {
+	button {
 		border: none;
 		border-radius: 0;
 		height: 100%;
