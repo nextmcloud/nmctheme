@@ -65,7 +65,8 @@
       "{summaryFile} and {summaryFolder}" : "{summaryFile} und {summaryFolder}",
       "_including %n hidden_::_including %n hidden_": ["davon %n versteckt","davon %n versteckt"],
       "\"{displayName}\" batch action executed successfully" : "Aktion \"{displayName}\" erfolgreich ausgeführt",
-      "Delete permanently": "Endgültig löschen"
+      "Delete permanently": "Endgültig löschen",
+      "Unknown error during upload": "Das Hochladen wurde abgebrochen"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },

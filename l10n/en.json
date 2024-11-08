@@ -60,7 +60,8 @@
       "of": "von",
       "_including %n hidden_::_including %n hidden_": ["with %n hidden","with %n hidden"],
       "\"{displayName}\" batch action executed successfully" : "\"{displayName}\" action executed successfully",
-      "Delete permanently": "Delete permanently"
+      "Delete permanently": "Delete permanently",
+      "Unknown error during upload": "Upload has been cancelled"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
