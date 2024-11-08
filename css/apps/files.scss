@@ -611,6 +611,28 @@ table.files-filestable {
 						}
 					}
 
+					td.files-list__row-name {
+
+						.files-list__row-name-link {
+							padding: 0.5rem;
+							width: 90%;
+						}
+
+						.files-list__row-name-text {
+							padding: 0;
+						}
+					}
+
+					td.files-list__row-actions {
+							width: 1.5rem;
+
+							.action-item__menutoggle {
+								padding: 0;
+								min-width: 1.5rem;
+								width: 1.5rem !important;
+							}
+					}
+
 					.files-list__row-icon {
 
 						.material-design-icon {
