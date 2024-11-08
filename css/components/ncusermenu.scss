@@ -14,7 +14,7 @@
                 }
 
                 &:hover span,
-                &:hover a {
+                &:hover a, &:hover button {
                     // Style user menu colors for Darkmode
                     @media (prefers-color-scheme: dark) {
                         color: var(--nmc-color-text-and-icon-primary-standard);
@@ -26,7 +26,7 @@
 
                 }
 
-                a {
+                a, button {
                     padding-left: 48px;
 
                     &::after {
@@ -73,6 +73,10 @@
 
                 &#logout>a::after {
                     background-image: var(--icon-logout-dark);
+                }
+
+                &#nmc_welcome_popup-about>button::after {
+                    background-image: var(--icon-news-dark);
                 }
             }
         }
