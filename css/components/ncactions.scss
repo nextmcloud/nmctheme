@@ -21,56 +21,122 @@
 	.v-popper__popper {
 		.v-popper__wrapper {
 			.v-popper__inner {
-				ul li.action {
-					&.active {
-						background-color: initial;
+				ul {
+					display: flex;
+					flex-direction: column;
+
+					li.action-separator, li.app-navigation-caption {
+						display: none;
 					}
 
-					&.upload-picker__menu-entry {
-
-						.icon-vue {
-							background-image: var(--icon-folder-dark);
+					li.action {
+						
+						&.active {
+							background-color: initial;
 						}
+						
+						&.upload-picker__menu-entry {
 
-						.icon-filetype-draw {
-							background-image: var(--icon-filetype-diagram-dark);
-						}
-
-						.icon-filetype-document {
-							background-image: var(--icon-filetype-document-dark);
-						}
-
-						.icon-filetype-presentation {
-							background-image: var(--icon-filetype-presentation-dark);
-						}
-
-						.icon-filetype-spreadsheet {
-							background-image: var(--icon-filetype-spreadsheet-dark);
-						}
-					}
-	
-					&:hover {
-						.action-button__icon {
-							filter: none;
-						}
-					}
-
-					button.action-button {
-						padding-left: 0px;
-						font-weight: normal;
-	
-						&:hover, &:focus {
-							outline: none;
-						}
-
-						.material-design-icon {
-
-							&.upload-icon {
-								background-image: var(--icon-upload-dark);
+							&[data-cy-upload-picker-menu-entry="newFolder"] , &[data-cy-upload-picker-menu-entry="template-picker"] {
+								.icon-vue {
+									background-image: var(--icon-folder-dark);
+								}
 							}
 
-							svg {
-								display: none;
+							&[data-cy-upload-picker-menu-entry="rich-workspace-init"] {
+								.icon-vue {
+									background-image: var(--icon-folder-description-dark);
+								}
+							}
+
+							&[data-cy-upload-picker-menu-entry="template-new-richdocuments-1"] {
+								order: 1;
+
+								.icon-vue {
+									background-image: var(--icon-filetype-document-dark);
+								}
+		
+								&:hover {
+									.icon-vue {
+										filter: none;
+									}
+								}
+							}
+
+							&[data-cy-upload-picker-menu-entry="template-new-richdocuments-2"] {
+								order: 2;
+
+								.icon-vue {
+									background-image: var(--icon-filetype-spreadsheet-dark);
+								}
+		
+								&:hover {
+									.icon-vue {
+										filter: none;
+									}
+								}
+							}
+
+							&[data-cy-upload-picker-menu-entry="template-new-richdocuments-3"] {
+								order: 3;
+
+								.icon-vue {
+									background-image: var(--icon-filetype-presentation-dark);
+								}
+		
+								&:hover {
+									.icon-vue {
+										filter: none;
+									}
+								}
+							}
+
+							&[data-cy-upload-picker-menu-entry="template-new-richdocuments-4"] {
+								order: 4;
+
+								.icon-vue {
+									background-image: var(--icon-filetype-diagram-dark);
+								}
+		
+								&:hover {
+									.icon-vue {
+										filter: none;
+									}
+								}
+							}
+
+							&[data-cy-upload-picker-menu-entry="template-new-text-0"] {
+								order: 5;
+								
+								.icon-vue {
+									background-image: var(--icon-file-grey);
+								}
+		
+								&:hover {
+									.icon-vue {
+										filter: none;
+									}
+								}
+							}
+						}
+
+						button.action-button {
+							padding-left: 0px;
+							font-weight: normal;
+		
+							&:hover, &:focus {
+								outline: none;
+							}
+
+							.material-design-icon {
+
+								&.upload-icon {
+									background-image: var(--icon-upload-dark);
+								}
+
+								svg {
+									display: none;
+								}
 							}
 						}
 					}
