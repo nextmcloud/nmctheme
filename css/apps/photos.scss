@@ -941,4 +941,15 @@
 			}
 		}
 	}
+
+	.file-container {
+		&:focus-within::after {
+			outline: none;
+			pointer-events: none;
+		}
+
+		img {
+			cursor: default;
+		}
+	}
 }
