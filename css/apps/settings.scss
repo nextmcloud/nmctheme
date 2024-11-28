@@ -414,6 +414,12 @@
 		option:disabled {
 			display: none;
 		}
+
+		&:not(:disabled):focus{
+			background-color: var(--color-background-hover);
+			border: 2px solid var(--color-main-text);
+			box-shadow: 0 0 0 2px var(--color-main-background);
+		}
 	}
 
 	.theming {

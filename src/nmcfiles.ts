@@ -26,7 +26,7 @@ const handleCancel = async () => {
 
 const fileAction = new FileAction({
 	id: 'cancel_select',
-	order: -100,
+	order: 10000000,
 	iconSvgInline() {
 		return ''
 	},

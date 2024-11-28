@@ -28,7 +28,6 @@
     min-width: var(--telekom-spacing-composition-space-13);
     padding-left: var(--telekom-spacing-composition-space-07);
     padding-right: var(--telekom-spacing-composition-space-07);
-    transition: all var(--telekom-motion-duration-transition) var(--telekom-motion-easing-standard);
 
     &:after {
         top: 0;
@@ -122,4 +121,8 @@
     }
 
     // No basic tertiary button styling, those should be styled in superior components if needed.
+}
+
+:focus {
+    outline: var(--telekom-color-primary-standard) auto 2px;
 }
