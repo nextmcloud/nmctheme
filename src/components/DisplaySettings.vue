@@ -9,21 +9,22 @@
 			@click.stop="toggleOpen">
 			{{ t('nmctheme', 'Display settings') }}
 		</button>
-		<div id="display-settings-list" class="display-settings__list" :class="{open: isOpened}" aria-labelledby="display-settings-btn">
+		<div id="display-settings-list"
+			class="display-settings__list"
+			:class="{open: isOpened}"
+			aria-labelledby="display-settings-btn">
 			<NcCheckboxRadioSwitch v-if="textAvailable"
 				:checked="userConfig.show_folder_info"
 				:disabled="isOpened ? false : true"
 				@update:checked="setConfig('show_folder_info', $event)">
 				{{ t('nmctheme', 'Show folder info text') }}
 			</NcCheckboxRadioSwitch>
-			<NcCheckboxRadioSwitch 
-				:checked="userConfig.show_hidden"
+			<NcCheckboxRadioSwitch :checked="userConfig.show_hidden"
 				:disabled="isOpened ? false : true"
 				@update:checked="setConfig('show_hidden', $event)">
 				{{ t('files', 'Show hidden files') }}
 			</NcCheckboxRadioSwitch>
-			<NcCheckboxRadioSwitch 
-				:checked="userConfig.crop_image_previews"
+			<NcCheckboxRadioSwitch :checked="userConfig.crop_image_previews"
 				:disabled="isOpened ? false : true"
 				@update:checked="setConfig('crop_image_previews', $event)">
 				{{ t('files', 'Crop image previews') }}
@@ -92,7 +93,7 @@ export default {
 
 		&:hover {
 			color: var(--color-primary-hover);
-    		cursor: pointer;
+			cursor: pointer;
 		}
 
 		// arrow

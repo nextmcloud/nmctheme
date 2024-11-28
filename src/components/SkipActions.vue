@@ -1,36 +1,36 @@
 <template>
 	<div id="content-vue" :class="['content', `app-${appName.toLowerCase()}`]">
-        <!-- TODO: with vue3 the `selector` attribute needs to be changed to `to="#skip-actions"` -->
-        <Teleport selector="#skip-actions">
-            <div class="vue-skip-actions__container">
-                <div class="vue-skip-actions__headline">
-                    {{ t('core', 'Keyboard navigation help') }}
-                </div>
-                <div class="vue-skip-actions__buttons">
-                    <NcButton v-show="hasAppNavigation"
-                        type="tertiary"
-                        href="#app-navigation-vue"
-                        @click.prevent="openAppNavigation"
-                        @focusin="currentFocus = 'navigation'"
-                        @mouseover="currentFocus = 'navigation'">
-                        {{ t('core', 'Skip to app navigation') }}
-                    </NcButton>
-                    <NcButton type="tertiary"
-                        href="#app-content-vue"
-                        @focusin="currentFocus = 'content'"
-                        @mouseover="currentFocus = 'content'">
-                        {{ t('core', 'Skip to main content') }}
-                    </NcButton>
-                </div>
+		<!-- TODO: with vue3 the `selector` attribute needs to be changed to `to="#skip-actions"` -->
+		<Teleport selector="#skip-actions">
+			<div class="vue-skip-actions__container">
+				<div class="vue-skip-actions__headline">
+					{{ t('core', 'Keyboard navigation help') }}
+				</div>
+				<div class="vue-skip-actions__buttons">
+					<NcButton v-show="hasAppNavigation"
+						type="tertiary"
+						href="#app-navigation-vue"
+						@click.prevent="openAppNavigation"
+						@focusin="currentFocus = 'navigation'"
+						@mouseover="currentFocus = 'navigation'">
+						{{ t('core', 'Skip to app navigation') }}
+					</NcButton>
+					<NcButton type="tertiary"
+						href="#app-content-vue"
+						@focusin="currentFocus = 'content'"
+						@mouseover="currentFocus = 'content'">
+						{{ t('core', 'Skip to main content') }}
+					</NcButton>
+				</div>
 				<NcIconSvgWrapper v-show="!isMobile"
 					class="vue-skip-actions__image"
 					:svg="currentImage"
 					size="auto" />
-            </div>
+			</div>
             &nbsp;<!-- TODO: Remove with vue3! This is a bug of vue-simple-portal that does not allow a single child, ref LinusBorg/vue-simple-portal#20 -->
-        </Teleport>
-        <slot />
-    </div>
+		</Teleport>
+		<slot />
+	</div>
 </template>
 
 <script>
@@ -74,7 +74,6 @@ export default {
 	},
 	computed: {
 		currentImage() {
-            console.log(this.currentFocus)
 			if (this.currentFocus === 'navigation') {
 				return navigationSvg
 			}
@@ -101,7 +100,6 @@ export default {
 			})
 		},
 		setAppNavigation(value) {
-            console.log(value)
 			this.hasAppNavigation = value
 			// If app navigation is available and no focus was set yet, set it to navigation as it is the first button
 			if (this.currentFocus === '') {

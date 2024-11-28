@@ -9,7 +9,6 @@ window.addEventListener('DOMContentLoaded', function() {
 	if (!skipActions) return
 	const anchor = document.createElement('div')
 
-
 	anchor.id = 'skip-actions-app'
 	skipActions.appendChild(anchor)
 
