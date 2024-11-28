@@ -1,26 +1,34 @@
 @import '../_mixins.scss';
 
 // '...' button style
-.action-item .v-popper{
+.action-item .v-popper {
 	--open-background-color: initial;
+
 	.button-vue {
+
 		&:hover:not(:disabled) {
 			background-color: initial;
+
 			svg {
 				color: var(--telekom-color-text-and-icon-primary-standard);
 			}
 		}
-
-		&:focus:not(:disabled) {
-			outline: none;
-		}
 	}
 }
 
-#body-user {
+#body-user,
+#body-settings,
+#body-public {
+
 	.v-popper__popper {
+
 		.v-popper__wrapper {
+
 			.v-popper__inner {
+
+				background-color: var(--telekom-color-background-surface);
+				padding: 0.5rem;
+
 				ul {
 					display: flex;
 					flex-direction: column;
@@ -30,12 +38,24 @@
 					}
 
 					li.action {
+
+						.icon-vue {
+							background-size: 24px;
+						}
 						
 						&.active {
 							background-color: initial;
 						}
 						
 						&.upload-picker__menu-entry {
+
+							.icon-vue {
+								background-size: 24px;
+							}
+								
+							svg {
+								display: none;
+							}
 
 							&[data-cy-upload-picker-menu-entry="newFolder"] , &[data-cy-upload-picker-menu-entry="template-picker"] {
 								.icon-vue {
@@ -123,22 +143,109 @@
 						button.action-button {
 							padding-left: 0px;
 							font-weight: normal;
-		
-							&:hover, &:focus {
+
+							&:hover {
 								outline: none;
 							}
+						}
 
-							.material-design-icon {
+						.material-design-icon {
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: 24px;
 
-								&.upload-icon {
-									background-image: var(--icon-upload-dark);
+							&.upload-icon {
+								background-image: var(--icon-upload-dark);
+							
+								svg {
+									display: none;
 								}
+							}
+
+							&.fullscreen-icon {
+								background-image: var(--icon-fullscreen-dark);
+							
+								svg {
+									display: none;
+								}
+							}
+							
+							&.download-icon {
+								background-image: var(--icon-download-dark);
+							
+								svg {
+									display: none;
+								}
+							}
+							
+							&.icon-menu-sidebar {
+								background-image: var(--icon-share-dark);
+							
+								svg {
+									display: none;
+								}
+							} 
+			
+							&.delete-icon {
+								background-image: var(--icon-delete-dark);
 
 								svg {
 									display: none;
 								}
 							}
 						}
+    
+						&.files-list__row-actions-batch-delete .icon-vue {
+							background-image: var(--icon-delete-dark);
+
+							svg {
+								display: none;
+							}
+						}
+				
+						&.files-list__row-actions-batch-favorite .icon-vue {
+							background-image: var(--original-icon-star-dark);
+
+							svg {
+								display: none;
+							}
+						}
+				
+						&.files-list__row-actions-batch-move-copy .icon-vue {
+							background-image: var(--icon-external-dark);
+
+							svg {
+								display: none;
+							}
+						}
+				
+						&.files-list__row-actions-batch-download .icon-vue {
+							background-image: var(--icon-download-dark);
+
+							svg {
+								display: none;
+							}
+						}
+				
+						&.files-list__row-actions-batch-files_zip .icon-vue {
+							background-image: var(--icon-compress-zip-dark);
+
+							svg {
+								display: none;
+							}
+						}
+				
+						&.files-list__row-actions-batch-cancel_select .icon-vue {
+							background-image: var(--icon-close-dark);
+
+							svg {
+								display: none;
+							}
+						}
+					}
+
+					.nc-button-group-content {
+						flex-direction: row;
 					}
 				}
 			}
@@ -160,49 +267,81 @@
 
 					&.information-icon {
 						background-image: var(--icon-callout-dark);
+
+						svg {
+							display: none;
+						}
 					}
 
 					&.checkbox-marked-circle-icon {
 						background-image: var(--icon-success-dark);
+
+						svg {
+							display: none;
+						}
 					}
 
 					&.alert-icon {
 						background-image: var(--icon-alert-dark);
+
+						svg {
+							display: none;
+						}
 					}
 
 					&.alert-decagram-icon {
 						background-image: var(--icon-error-dark);
+
+						svg {
+							display: none;
+						}
 					}
 			
 					&.pencil-icon {
 						background-image: var(--icon-edit-dark);
+
+						svg {
+							display: none;
+						}
 					}
 	
 					&.download-multiple-icon {
 						background-image: var(--icon-download-dark);
+
+						svg {
+							display: none;
+						}
 					}
 	
 					&.star-icon {
 						background-image: var(--icon-star-dark);
+
+						svg {
+							display: none;
+						}
 					}
 	
 					&.close-icon {
 						background-image: var(--icon-close-dark);
+
+						svg {
+							display: none;
+						}
 					}
 	
 					&.folder-icon {
 						background-image: var(--icon-folder-dark);
-					}
 
-					svg {
-						display: none;
+						svg {
+							display: none;
+						}
 					}
 				}
 			
 				li.action {
 	
 					.action-button__icon {
-						background-size: 25px;
+						background-size: 24px;
 						background-position: center;
 					}
 			

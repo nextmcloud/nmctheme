@@ -369,6 +369,7 @@
 				padding: 4rem 1.5rem 1.5rem;
 
 				li.app-navigation-entry-wrapper {
+					order: 2;
 
 					&>.app-navigation-entry:has(a[title="Shared with you"]),
 					&>.app-navigation-entry:has(a[title="Mit Ihnen geteilt"]) {
@@ -384,12 +385,19 @@
 						display: none;
 					}
 
+					&[data-id-app-nav-item="favorites"] {
+						order: 1;
+					}
+
 					.app-navigation-entry-icon {
 						background-image: none;
+						width: 48px;
+						height: 48px;
+						flex: 0 0 48px;
 
 						span.material-design-icon {
-							width: 44px;
-							height: 44px;
+							width: 48px;
+							height: 48px;
 							background-position: center;
 							background-repeat: no-repeat;
 							background-size: 24px;
@@ -596,13 +604,6 @@
 		line-height: unset;
 		margin-block: 1.5rem 1rem;
 		min-height: unset;
-	}
-
-	.dialog__actions {
-
-		.upload-picker {
-			display: block;
-		}
 	}
 
 	.photos-picker {

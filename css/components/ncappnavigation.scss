@@ -60,6 +60,7 @@
 			font: var(--telekom-text-style-ui-bold);
 			transition: none;
 			.app-navigation-entry-link {
+				border-radius: var(--telekom-radius-standard);
 				padding: 0.25rem;
 				.app-navigation-entry-icon {
 					background-size: 24px;

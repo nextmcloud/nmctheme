@@ -157,6 +157,7 @@
 @mixin files-checkboxes-v28 {
 	span.checkbox-radio-switch-checkbox {
 		span.checkbox-content {
+			background: unset;
 			padding: 0;
 
 			&:hover {
@@ -390,7 +391,13 @@ table.files-filestable {
 					}
 
 					&row-name {
+						margin-left: 1rem;
 						width: 100vw;
+
+						.files-list__column-sort-button {
+							padding: 0;
+							margin: 0;
+						}
 
 						@include files-table-columns-v28;
 					}
@@ -404,8 +411,7 @@ table.files-filestable {
 
 						.files-list__column-sort-button {
 							padding: 0;
-							margin-left: 0;
-							margin-right: 0;
+							margin: 0;
 						}
 
 						@include files-table-columns-v28;
@@ -416,6 +422,7 @@ table.files-filestable {
 			tbody:not(.files-list__tbody--grid) {
 
 				.files-list__row-icon {
+					flex: 0 0 3rem;
 					margin-right: 1rem;
 					margin-left: 1rem;
 					z-index: 100;
@@ -460,8 +467,6 @@ table.files-filestable {
 
 					td {
 						.files-list__row-icon {
-							height: 50px;
-							width: 50px;
 
 							img {
 								background-color: unset;
@@ -697,25 +702,6 @@ table.files-filestable {
 				}
 			}
 		}
-
-		// Files menu items
-		.v-popper__popper .v-popper__wrapper .v-popper__inner ul li.action {
-			&.files-list__row-action-sharing-status {
-				display: none;
-			}
-
-			&>button.action-button {
-				li.action.files-list__row-action-favorite {
-
-					button.action-button {
-						span svg {
-							display: none;
-						}
-					}
-				}
-			}
-
-		}
 	}
 }
 
@@ -829,45 +815,6 @@ table.files-filestable {
 			td {
 				color: var(--color-main-text) !important;
 			}
-		}
-	}
-}
-
-// Files actions menu items
-.v-popper__popper.action-item__popper {
-
-	li.action {
-
-		.icon-vue {
-			background-size: 24px;
-		}
-
-		.icon-vue svg {
-			display: none;
-		}
-
-		&.files-list__row-actions-batch-delete .icon-vue {
-			background-image: var(--icon-delete-dark);
-		}
-
-		&.files-list__row-actions-batch-favorite .icon-vue {
-			background-image: var(--original-icon-star-dark);
-		}
-
-		&.files-list__row-actions-batch-move-copy .icon-vue {
-			background-image: var(--icon-external-dark);
-		}
-
-		&.files-list__row-actions-batch-download .icon-vue {
-			background-image: var(--icon-download-dark);
-		}
-
-		&.files-list__row-actions-batch-files_zip .icon-vue {
-			background-image: var(--icon-compress-zip-dark);
-		}
-
-		&.files-list__row-actions-batch-cancel_select .icon-vue {
-			background-image: var(--icon-close-dark);
 		}
 	}
 }
