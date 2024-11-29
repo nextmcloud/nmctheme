@@ -25,7 +25,6 @@
     background-repeat: no-repeat;
 
     .wrapper {
-
         border-top: 0px;
         margin-top: 0px;
 
@@ -48,26 +47,42 @@
             background-size: 120%;
         }
 
-        .v-align {
-            top: 0;
+        header {
+            display: none;
+        }
 
-            header {
-                display: none;
+        header .brand .title {
+            visibility: hidden;
+        }
+
+        header .brand .logo {
+            visibility: hidden;
+            background-image: unset;
+        }
+
+        main .update {
+            background-color: var(--telekom-color-background-surface);
+            border-radius: 1rem;
+            margin: 0 auto;
+            padding: 1rem;
+
+            h2, p {
+                color: var(--color-text-light);
+                margin-bottom: 1rem;
             }
 
-            header .brand .title {
-                visibility: hidden;
-            }
-
-            header .brand .logo {
-                visibility: hidden;
-                background-image: unset;
-            }
-
-            main .update {
-                background-color: white;
-                border-radius: 10px;
-                padding-bottom: 1rem;
+            .buttons .primary {
+                border: 0;
+                border-radius: var(--telekom-radius-standard);
+                background-color: var(--telekom-color-primary-standard);
+                color: var(--telekom-color-text-and-icon-white-standard);
+                font: var(--telekom-text-style-body);
+                font-weight: var(--telekom-typography-font-weight-bold);
+                line-height: 1.125rem;
+                min-height: var(--telekom-spacing-composition-space-13);
+                min-width: var(--telekom-spacing-composition-space-13);
+                padding-left: var(--telekom-spacing-composition-space-07);
+                padding-right: var(--telekom-spacing-composition-space-07);
             }
         }
 

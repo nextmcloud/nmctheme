@@ -66,7 +66,7 @@ const generateSharedWithMe = (action, owner) => {
 }
 
 window.addEventListener('DOMContentLoaded', function() {
-	if (!OCA.Sharing) return
+	if (!OCA.Sharing.Util) return
 	OCA.Sharing.Util._markFileAsShared = function($tr, hasShares, hasLink) {
 		const action = $tr.find('.fileactions .action[data-action="Share"]')
 		const type = $tr.data('type')

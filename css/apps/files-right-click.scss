@@ -83,6 +83,12 @@
 						background-image: var(--icon-shared-dark);
 					}
 				}
+	
+				&[data-cy-files-list-row-action="restore"] {
+					span.icon-vue {
+						background-image: var(--icon-restore-dark);
+					}
+				}
 			}
 		}
 	}
