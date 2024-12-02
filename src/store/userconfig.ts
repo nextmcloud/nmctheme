@@ -53,7 +53,7 @@ export const useUserConfigStore = function(...args) {
 		subscribe('files:config:updated', (params) => {
 			const userParams = params as { key: string; value: boolean }
 			userConfigStore.onUpdate(userParams.key, userParams.value)
-fixed		})
+		})
 		userConfigStore.onUpdate('_initialized', true)
 	}
 
