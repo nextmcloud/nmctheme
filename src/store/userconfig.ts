@@ -50,9 +50,9 @@ export const useUserConfigStore = function(...args) {
 
 	// Make sure we only register the listeners once
 	if (!userConfigStore._initialized) {
-		subscribe('files:config:updated', (params) => { 
-			if (params) {			
-				userConfigStore.onUpdate(params["key"], params["value"])
+		subscribe('files:config:updated', (params) => {
+			if (params) {
+				userConfigStore.onUpdate(params.key, params.value)
 			}
 		})
 		userConfigStore.onUpdate('_initialized', true)
