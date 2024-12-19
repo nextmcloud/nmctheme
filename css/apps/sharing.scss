@@ -119,6 +119,7 @@
 	}
 
 	.sharing-entry__avatar, .button-vue__icon {
+
 		.icon {
 			display: block;
 			height: 100%;
@@ -167,6 +168,46 @@
 	}
 }
 
+.button-vue__icon {
+
+	.icon {
+		display: block;
+		height: 100%;
+		width: 100%;
+
+		&.icon-default {
+			background-image: var(--icon-link-dark);
+		}
+		&.icon-link {
+			background-image: var(--icon-link-dark);
+		}
+
+		&.icon-user {
+			background-image: var(--icon-user-dark);
+		}
+
+		&.icon-upload-to-cloud {
+			background-image: var(--icon-upload-to-cloud-dark);
+		}
+
+		&.icon-checkmark-magenta {
+			background-image: var(--icon-checkmark-magenta);
+		}
+
+		&.icon-clipboard {
+			background-image: var(--icon-clipboard-dark);
+			&:hover {
+				filter: var(--nmc-color-icon)
+			}
+		}
+
+		&.icon-add:hover {
+			filter: var(--nmc-color-icon)
+		}
+
+	}		
+}
+
 // Sharing details container
 .sharingTabDetailsView {
 	margin: 0 !important;
@@ -175,4 +216,51 @@
 // TODO this should be done by the icon generation script
 body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
     background-image: var(--icon-upload-to-cloud-dark);
+}
+
+.sharingPopup__content, .sharingTab__content, .sharingTabDetailsView {
+
+	.button-vue {
+		padding: 0 0.5rem !important;
+		min-height: 2rem !important;
+
+		&__text {
+			font-size: 14px;
+		}
+
+		&__icon {
+			min-width: 2rem !important;
+			width: 2rem !important;
+			min-height: 2rem !important;
+			height: 2rem !important;
+			margin-left: -0.5rem !important;
+
+			.icon {
+				background-size: 18px;
+			}
+		}
+	}
+}
+
+.sharingPopup__success {
+
+	.check-circle-outline-icon {
+		margin: 3rem 0 1rem;
+
+		svg {
+			color: var(--telekom-color-functional-success-standard);
+		}
+	}
+
+	.message {
+		text-align: center;
+		font-size: 24px;
+		margin-bottom: 1rem;
+	}
+
+	.recipients {
+		text-align: center;
+		color: var(--color-text-maxcontrast);
+		margin-bottom: 3rem;
+	}
 }

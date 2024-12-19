@@ -35,7 +35,7 @@
 
 		.photos-navigation {
 			&__title__main {
-				font-size: 32px;
+				font-size: 2rem;
 			}
 
 			&__content {
@@ -46,53 +46,91 @@
 			}
 
 			&__content-right {
-				margin: 0;
 
 				.upload-picker {
 					margin-right: 1rem;
 				}
 
-				// disable Share button for Albums, does not apply to empty album
-				form.upload-picker+button.button-vue--icon-only {
-					display: none;
-				}
-
 				// disable Share button for Albums incl. for empty Albums (not supported by Firefox)
-				button>.button-vue__wrapper>.button-vue__icon:has(span.share-variant-icon),
-				button:not(.action-item__menutoggle) {
-					display: none;
-				}
+				// button>.button-vue__wrapper>.button-vue__icon:has(span.share-variant-icon),
+				// button:not(.action-item__menutoggle) {
+				// 	display: none;
+				// }
 			}
 
 			// 'Add', 'Add to album', 'Unselect all' and '...' buttons
 			&__content,
-			&__content-right {
+			&__content-right,
+			&__content-buttons {
 
 				button {
-					all: unset;
+					line-height: 1rem;
+					min-height: unset;
+					min-width: unset;
+					padding-left: 0;
+					padding-right: 0;
+					margin: 0;
+					
 
-					.plus-icon {
-						border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
-						border-radius: 50%;
+					.button-vue__icon {
+						height: 2rem;
+						min-height: 2rem;
+						width: 2rem;
+						min-width: 2rem;
+
+						svg {
+							height: 20px;
+							width: 20px;
+						}
+
+						.material-design-icon {
+							width: 100%;
+							height: 100%;
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: 18px;
+						}
+
+						.delete-icon {
+							background-image: var(--icon-delete-dark);
+
+							svg {
+								display: none;
+							}
+						}
+
+						.star-icon {
+							background-image: var(--icon-star-dark);
+
+							svg {
+								display: none;
+							}
+						}
 					}
 
-					svg,
 					.button-vue__text {
-						color: var(--telekom-color-text-and-icon-primary-standard);
+						padding: 0;
+						font-weight: normal;
+						font-size: 14px;
+						padding-right: 0.5rem;
 					}
 
 					&:hover {
 						background-color: initial;
-
-						.plus-icon {
-							border: 1px solid var(--telekom-color-text-and-icon-primary-hovered);
-						}
 
 						svg,
 						.button-vue__text {
 							color: var(--telekom-color-text-and-icon-primary-hovered);
 						}
 					}
+				}
+			}
+
+			&__content-buttons {
+
+				button {
+					padding-right: 0;
+					width: 2.25rem !important;
 				}
 			}
 		}
@@ -108,12 +146,17 @@
 		}
 
 		.files-list-viewer {
-			padding: 0 32px;
+			padding: 0 2rem;
+
+			@media only screen and (max-width: 640px) {
+				padding: 0 1rem;
+			}
 
 			// Date container
 			.section-header {
+				font-size: 1rem;
 				height: auto !important;
-				margin: 32px 0 8px;
+				margin: 2rem 0 0.5rem;
 			}
 
 			li {
@@ -132,12 +175,49 @@
 					}
 				}
 
-				.favorite-marker-icon.favorite-state.icon-vue {
-					width: 32px;
-					height: 32px;
+				.favorite-marker-icon.favorite-state {
+
+					&.icon-vue {
+						width: 3rem;
+						height: 3rem;
+						background-size: 1.5rem;
+	
+						svg {
+							display: none;
+						}
+					}
+				}
+
+				.hover-overlay {
+					height: 3rem;
+					background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+				}
+
+				.delete-icon {
+					background-image: var(--icon-delete-white);
+					width: 3rem;
+					height: 3rem;
 
 					svg {
 						display: none;
+					}
+
+					&:active {
+						background-size: 2rem;
+					}
+				}
+
+				.star-icon {
+					background-image: var(--icon-star-white);
+					width: 3rem;
+					height: 3rem;
+
+					svg {
+						display: none;
+					}
+
+					&:active {
+						background-size: 2rem;
 					}
 				}
 
@@ -225,8 +305,32 @@
 		.collections,
 		.collection {
 
-			.collections__list {
-				justify-content: normal;
+			#collection-add {
+				.button-vue {
+
+					&__wrapper {
+						flex-direction: column;
+					}
+
+					&__icon {
+						background-image: var(--icon-add-dark);
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: 4rem;
+						margin-bottom: 1rem;
+						filter: var(--nmc-color-icon) !important;
+
+						svg {
+							display: none;
+						}
+					}
+
+					&__text {
+						font-weight: bold;
+						font-size: 1.25rem;
+						line-height: 1.5rem;
+					}
+				}
 			}
 
 			.collection__media {
@@ -234,12 +338,9 @@
 			}
 
 			.collection-cover {
-				border-radius: 0;
+				background-color: var(--telekom-color-background-surface);
 
 				&__image {
-					border-radius: 0;
-					width: 250px;
-					height: 250px;
 
 					&--placeholder {
 
@@ -255,20 +356,6 @@
 								display: none;
 							}
 						}
-					}
-				}
-
-				&__details {
-					width: 250px;
-
-					&__title .album__name {
-						line-height: normal;
-						font-weight: bold;
-						margin-bottom: 4px;
-					}
-
-					&__subtitle .album__details {
-						color: var(--color-main-text);
 					}
 				}
 			}
@@ -371,15 +458,10 @@
 				li.app-navigation-entry-wrapper {
 					order: 2;
 
-					&>.app-navigation-entry:has(a[title="Shared with you"]),
-					&>.app-navigation-entry:has(a[title="Mit Ihnen geteilt"]) {
-						display: none;
-					}
-
-					&[data-id-app-nav-item="shared-albums"],
+					&[data-id-app-nav-item="shared"],
 					&[data-id-app-nav-item="faces"],
 					&[data-id-app-nav-item="this-day"],
-					&[data-id-app-nav-item="shared"],
+					// &[data-id-app-nav-item="shared"],
 					&[data-id-app-nav-item="maps"],
 					&[data-id-app-nav-item="places"] {
 						display: none;
@@ -432,6 +514,10 @@
 
 							&.share-variant-icon {
 								background-image: var(--icon-attachment-dark);
+							}
+
+							&.account-group-icon {
+								background-image: var(--icon-shared-dark);
 							}
 						}
 					}
@@ -599,7 +685,7 @@
 	}
 
 	.dialog__name {
-		font-size: 24px;
+		font-size: 1.5rem;
 		height: unset;
 		line-height: unset;
 		margin-block: 1.5rem 1rem;

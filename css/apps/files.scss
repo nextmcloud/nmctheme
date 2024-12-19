@@ -331,6 +331,8 @@ table.files-filestable {
 
 #app-content-vue {
 	.files-list__header {
+		margin-block: 1rem;
+
 		button.files-list__header-grid-button {
 
 			&:hover:not(:disabled),
@@ -566,7 +568,6 @@ table.files-filestable {
 									}
 
 									&.files-list__row-action-sharing-status {
-										display: none;
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
@@ -574,6 +575,10 @@ table.files-filestable {
 
 										&.button-vue--icon-and-text .button-vue__icon {
 											@include magenta-icon;
+										}
+
+										.button-vue__text {
+											display: none;
 										}
 									}
 

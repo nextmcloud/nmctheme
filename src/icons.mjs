@@ -164,6 +164,8 @@ const icons = {
 	'filetype-presentation': path.join(__dirname, '../img', 'filetypes', 'x-office-presentation.svg'),
 	'filetype-spreadsheet': path.join(__dirname, '../img', 'filetypes', 'x-office-spreadsheet.svg'),
 	video: path.join(__dirname, '../img', 'actions', 'play.svg'),
+	export: path.join(__dirname, '../img', 'actions', 'export.svg'),
+	import: path.join(__dirname, '../img', 'actions', 'import.svg'),
 }
 
 const iconsColor = {
