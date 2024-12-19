@@ -28,6 +28,8 @@ on:
           - stable26
           - stable27
           - stable28
+          - stable29
+          - nmc/ux-optimization
       increment:
         description: 'Release increment'
         required: true
