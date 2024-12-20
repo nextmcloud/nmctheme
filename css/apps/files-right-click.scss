@@ -84,6 +84,12 @@
 					}
 				}
 	
+				&[data-cy-files-list-row-action="sharing-manage"] {
+					span.icon-vue {
+						background-image: var(--icon-users-dark);
+					}
+				}
+	
 				&[data-cy-files-list-row-action="restore"] {
 					span.icon-vue {
 						background-image: var(--icon-restore-dark);
