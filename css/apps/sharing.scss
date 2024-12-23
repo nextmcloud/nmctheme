@@ -1,85 +1,86 @@
 @import '../_mixins.scss';
 
 #app-sidebar-vue {
+
 	.app-sidebar-header {
-			&__desc {
-				padding: var(--telekom-spacing-composition-space-04) var(--telekom-spacing-composition-space-06) var(--telekom-spacing-composition-space-08);
-				// hide '...' actions button
-				.app-sidebar-header__menu {
-					display: none;
-				}
-
-				// container of the Star button
-				.app-sidebar-header__tertiary-actions {
-					width: 1.5rem;
-				}
-
-				button.app-sidebar-header__star {
-					all: unset;
-					&:hover:not(:disabled) {
-						background-color: initial;
-					}
-					.button-vue__icon {
-						width: 1.5rem;
-						min-width: 1.5rem;
-						.material-design-icon {
-							width: 1.5rem;
-							height: 1.5rem;
-						}
-					}
-					.star-outline-icon {
-						background-image: var(--icon-star-dark);
-						svg {
-							display: none;
-						}
-					}
-					.star-icon {
-						background-image: var(--icon-starred-yellow);
-						svg {
-							display: none;
-						}
-					}
-				}
+		&__desc {
+			padding: var(--telekom-spacing-composition-space-04) var(--telekom-spacing-composition-space-06) var(--telekom-spacing-composition-space-08);
+			// hide '...' actions button
+			.app-sidebar-header__menu {
+				display: none;
 			}
 
-			// 'Close' button
-			button.app-sidebar__close {
-				opacity: 1;
-				background-color: var(--color-main-background);
-				top: 1rem;
-				right: 1rem;
-				transition: none;
-				&:hover, &:active, &:focus {
-					.button-vue__icon {
-						filter: var(--nmc-color-icon)
-					}
+			// container of the Star button
+			.app-sidebar-header__tertiary-actions {
+				width: 1.5rem;
+			}
+
+			button.app-sidebar-header__star {
+				all: unset;
+				&:hover:not(:disabled) {
+					background-color: initial;
 				}
 				.button-vue__icon {
-					background-image: var(--icon-close-dark);
-					background-position: center;
-					background-repeat: no-repeat;
-					// hide initial icon
+					width: 1.5rem;
+					min-width: 1.5rem;
+					.material-design-icon {
+						width: 1.5rem;
+						height: 1.5rem;
+					}
+				}
+				.star-outline-icon {
+					background-image: var(--icon-star-dark);
+					svg {
+						display: none;
+					}
+				}
+				.star-icon {
+					background-image: var(--icon-starred-yellow);
 					svg {
 						display: none;
 					}
 				}
 			}
+		}
 
-			&__maintitle-container {
-				min-height: auto;
+		// 'Close' button
+		button.app-sidebar__close {
+			opacity: 1;
+			background-color: var(--color-main-background);
+			top: 1rem;
+			right: 1rem;
+			transition: none;
+			&:hover, &:active, &:focus {
+				.button-vue__icon {
+					filter: var(--nmc-color-icon)
+				}
 			}
-			&__maintitle {
-				font-size: var(--telekom-typography-font-size-body);
-				min-height: auto;
-				line-height: 22px;
+			.button-vue__icon {
+				background-image: var(--icon-close-dark);
+				background-position: center;
+				background-repeat: no-repeat;
+				// hide initial icon
+				svg {
+					display: none;
+				}
 			}
-			&__subtitle {
-				font-size: 14px;
-				opacity: 1;
-			}
-			&__figure {
-				background-size: cover;
-			}
+		}
+
+		&__maintitle-container {
+			min-height: auto;
+		}
+		&__maintitle {
+			font-size: var(--telekom-typography-font-size-body);
+			min-height: auto;
+			line-height: 22px;
+		}
+		&__subtitle {
+			font-size: 14px;
+			opacity: 1;
+		}
+		&__figure {
+			background-size: cover;
+		}
 	}
 
 	.app-sidebar-header--compact {
@@ -108,53 +109,68 @@
 
 	// remove left and right padding in sharing tab
 	.app-sidebar-tabs__content {
+
 		.app-sidebar__tab {
+			padding: 0;
+			overflow: unset;
+
 			&:focus {
 				box-shadow: none;
 				border-color: initial;
 			}
-			padding: 0;
-			overflow: unset;
 		}
 	}
 
-	.sharing-entry__avatar, .button-vue__icon {
+	.sharing-entry__avatar, .button-vue {
 
-		.icon {
-			display: block;
-			height: 100%;
-			width: 100%;
-			&.icon-default {
-				background-image: var(--icon-link-dark);
-			}
-			&.icon-link {
-				background-image: var(--icon-link-dark);
-			}
+		&__icon {
 
-			&.icon-user {
-				background-image: var(--icon-user-dark);
-			}
-
-			&.icon-upload-to-cloud {
-				background-image: var(--icon-upload-to-cloud-dark);
-			}
-
-			&.icon-checkmark-magenta {
-				background-image: var(--icon-checkmark-magenta);
-			}
-
-			&.icon-clipboard {
-				background-image: var(--icon-clipboard-dark);
-				&:hover {
+			.icon {
+				display: block;
+				height: 100%;
+				width: 100%;
+				&.icon-default {
+					background-image: var(--icon-link-dark);
+				}
+				&.icon-link {
+					background-image: var(--icon-link-dark);
+				}
+	
+				&.icon-user {
+					background-image: var(--icon-user-dark);
+				}
+	
+				&.icon-upload-to-cloud {
+					background-image: var(--icon-upload-to-cloud-dark);
+				}
+	
+				&.icon-checkmark-magenta {
+					background-image: var(--icon-checkmark-magenta);
+				}
+	
+				&.icon-clipboard {
+					background-image: var(--icon-clipboard-dark);
+	
+					&:hover {
+						filter: var(--nmc-color-icon)
+					}
+				}
+	
+				&.icon-add:hover {
 					filter: var(--nmc-color-icon)
 				}
-			}
+	
+			}		
+		}
 
-			&.icon-add:hover {
-				filter: var(--nmc-color-icon)
+		@media only screen and (max-width: 1280px) {
+			&__text {
+				display: none;
 			}
-
-		}		
+			&__icon {
+				margin-left: 0 !important;
+			}
+		}
 	}
 
 	// '...' button in internal shares list
@@ -243,6 +259,7 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 }
 
 .sharingPopup__success {
+	padding: 1rem;
 
 	.check-circle-outline-icon {
 		margin: 3rem 0 1rem;
