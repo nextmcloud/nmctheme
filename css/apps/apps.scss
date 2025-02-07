@@ -34,4 +34,23 @@
 		margin: 73px 0 0;
 		width: 100%;
 	}
+	
+	.app-navigation {
+		.storage-quota {
+			&__title {
+				.icon-vue {
+					height: 30px;
+					width: 30px;
+					min-height: 30px;
+					min-width: 30px;
+					svg {
+						height: 30px;
+						width: 30px;
+						max-height: 30px;
+						max-width: 30px;
+					}
+				}
+			}
+		}
+	}
 }

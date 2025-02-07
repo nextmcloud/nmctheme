@@ -429,7 +429,7 @@ table.files-filestable {
 					margin-left: 1rem;
 					z-index: 100;
 
-					.material-design-icon {
+					.material-design-icon:not(.play-circle-icon) {
 						@include thumbnail-icons();
 
 						&.folder-icon {
@@ -665,7 +665,7 @@ table.files-filestable {
 
 					.files-list__row-icon {
 
-						.material-design-icon {
+						.material-design-icon:not(.play-circle-icon) {
 							@include thumbnail-icons();
 							margin: 0;
 							max-width: calc(100% - 2 * 14px);

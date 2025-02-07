@@ -66,71 +66,72 @@ const generateSharedWithMe = (action, owner) => {
 }
 
 window.addEventListener('DOMContentLoaded', function() {
-	if (!OCA.Sharing.Util) return
-	OCA.Sharing.Util._markFileAsShared = function($tr, hasShares, hasLink) {
-		const action = $tr.find('.fileactions .action[data-action="Share"]')
-		const type = $tr.data('type')
-		const icon = action.find('.icon')
-		let recipients, avatars, shareTypes
-		const ownerId = $tr.attr('data-share-owner-id')
-		const owner = $tr.attr('data-share-owner')
-		const mountType = $tr.attr('data-mounttype')
-		let shareFolderIcon
-		let iconClass = 'icon-shared'
-		action.removeClass('shared-style')
-		// update folder icon
-		if (type === 'dir' && (hasShares || hasLink || ownerId)) {
-			if (typeof mountType !== 'undefined' && mountType !== 'shared-root' && mountType !== 'shared') {
-				shareFolderIcon = OC.MimeType.getIconUrl('dir-' + mountType)
-			} else if (hasLink) {
-				shareFolderIcon = OC.MimeType.getIconUrl('dir-public')
-			} else {
-				shareFolderIcon = OC.MimeType.getIconUrl('dir-shared')
-			}
-			$tr.find('.filename .thumbnail').css('background-image', 'url(' + shareFolderIcon + ')')
-			$tr.attr('data-icon', shareFolderIcon)
-		} else if (type === 'dir') {
-			const isEncrypted = $tr.attr('data-e2eencrypted')
-			// FIXME: duplicate of FileList._createRow logic for external folder,
-			// need to refactor the icon logic into a single code path eventually
-			if (isEncrypted === 'true') {
-				shareFolderIcon = OC.MimeType.getIconUrl('dir-encrypted')
+	if (OCA.Files && OCA.Sharing.Util) {
+		OCA.Sharing.Util._markFileAsShared = function($tr, hasShares, hasLink) {
+			const action = $tr.find('.fileactions .action[data-action="Share"]')
+			const type = $tr.data('type')
+			const icon = action.find('.icon')
+			let recipients, avatars, shareTypes
+			const ownerId = $tr.attr('data-share-owner-id')
+			const owner = $tr.attr('data-share-owner')
+			const mountType = $tr.attr('data-mounttype')
+			let shareFolderIcon
+			let iconClass = 'icon-shared'
+			action.removeClass('shared-style')
+			// update folder icon
+			if (type === 'dir' && (hasShares || hasLink || ownerId)) {
+				if (typeof mountType !== 'undefined' && mountType !== 'shared-root' && mountType !== 'shared') {
+					shareFolderIcon = OC.MimeType.getIconUrl('dir-' + mountType)
+				} else if (hasLink) {
+					shareFolderIcon = OC.MimeType.getIconUrl('dir-public')
+				} else {
+					shareFolderIcon = OC.MimeType.getIconUrl('dir-shared')
+				}
+				$tr.find('.filename .thumbnail').css('background-image', 'url(' + shareFolderIcon + ')')
 				$tr.attr('data-icon', shareFolderIcon)
-			} else if (mountType && mountType.indexOf('external') === 0) {
-				shareFolderIcon = OC.MimeType.getIconUrl('dir-external')
-				$tr.attr('data-icon', shareFolderIcon)
-			} else {
-				shareFolderIcon = OC.MimeType.getIconUrl('dir')
-				// back to default
-				$tr.removeAttr('data-icon')
+			} else if (type === 'dir') {
+				const isEncrypted = $tr.attr('data-e2eencrypted')
+				// FIXME: duplicate of FileList._createRow logic for external folder,
+				// need to refactor the icon logic into a single code path eventually
+				if (isEncrypted === 'true') {
+					shareFolderIcon = OC.MimeType.getIconUrl('dir-encrypted')
+					$tr.attr('data-icon', shareFolderIcon)
+				} else if (mountType && mountType.indexOf('external') === 0) {
+					shareFolderIcon = OC.MimeType.getIconUrl('dir-external')
+					$tr.attr('data-icon', shareFolderIcon)
+				} else {
+					shareFolderIcon = OC.MimeType.getIconUrl('dir')
+					// back to default
+					$tr.removeAttr('data-icon')
+				}
+				$tr.find('.filename .thumbnail').css('background-image', 'url(' + shareFolderIcon + ')')
 			}
-			$tr.find('.filename .thumbnail').css('background-image', 'url(' + shareFolderIcon + ')')
-		}
-		// update share action text / icon
-		if (hasShares || ownerId) {
-			recipients = $tr.data('share-recipient-data')
-			shareTypes = $tr.data('share-types')
-			action.addClass('shared-style')
+			// update share action text / icon
+			if (hasShares || ownerId) {
+				recipients = $tr.data('share-recipient-data')
+				shareTypes = $tr.data('share-types')
+				action.addClass('shared-style')
 
-			avatars = '<span>' + t('files_sharing', 'Shared') + '</span>'
-			action.html(avatars).prepend(icon)
-			// even if reshared, only show "Shared by"
-			if (ownerId) {
-				generateSharedWithMe(action, owner)
-			} else if (recipients) {
-				generateShareList(action, recipients, shareTypes)
-			// in case file has only link shares and the user is on 'My shares' page
-			} else if (window.location.href.includes('view=sharingout')) {
-				const iconEl = document.createElement('span')
-				iconEl.classList.add('icon', 'icon-link')
-				action.html(iconEl)
+				avatars = '<span>' + t('files_sharing', 'Shared') + '</span>'
+				action.html(avatars).prepend(icon)
+				// even if reshared, only show "Shared by"
+				if (ownerId) {
+					generateSharedWithMe(action, owner)
+				} else if (recipients) {
+					generateShareList(action, recipients, shareTypes)
+				// in case file has only link shares and the user is on 'My shares' page
+				} else if (window.location.href.includes('view=sharingout')) {
+					const iconEl = document.createElement('span')
+					iconEl.classList.add('icon', 'icon-link')
+					action.html(iconEl)
+				}
+			} else {
+				action.html('<span class="hidden-visually">' + t('files_sharing', 'Shared') + '</span>').prepend(icon)
 			}
-		} else {
-			action.html('<span class="hidden-visually">' + t('files_sharing', 'Shared') + '</span>').prepend(icon)
+			if (hasLink) {
+				iconClass = 'icon-public'
+			}
+			icon.removeClass('icon-shared icon-public').addClass(iconClass)
 		}
-		if (hasLink) {
-			iconClass = 'icon-public'
-		}
-		icon.removeClass('icon-shared icon-public').addClass(iconClass)
 	}
 })

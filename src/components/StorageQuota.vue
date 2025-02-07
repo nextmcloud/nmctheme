@@ -1,7 +1,7 @@
 <template>
 	<div class="storage-quota">
 		<div class="storage-quota__title" @click.stop.prevent="debounceUpdateStorageStats">
-			<img class="" src="../../img/app-logo.svg" alt="">
+			<NcIconSvgWrapper :svg="currentImage" size="auto" />
 			<!-- eslint-disable-next-line vue/no-v-html -->
 			<p v-html="storageStatsTitle" />
 		</div>
@@ -27,10 +27,13 @@ import { generateUrl } from '@nextcloud/router'
 import ProgressBar from './ProgressBar.vue'
 import axios from '@nextcloud/axios'
 import { translate, getCanonicalLocale } from '@nextcloud/l10n'
+import { NcIconSvgWrapper } from '@nextcloud/vue'
+import cloudSvg from '../../img/app-logo.svg'
 
 export default {
 	components: {
 		ProgressBar,
+		NcIconSvgWrapper,
 	},
 	data() {
 		return {
@@ -58,6 +61,9 @@ export default {
 		},
 		memoryUsage() {
 			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toFixed(2).toLocaleString(getCanonicalLocale())
+		},
+		currentImage() {
+			return cloudSvg
 		},
 	},
 	beforeMount() {
