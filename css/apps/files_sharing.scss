@@ -79,10 +79,11 @@
         background-image: var(--icon-arrow-previous-dark);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 1.5rem;
+        background-size: 1.25rem;
         width: 2rem;
         height: 2rem;
         padding: 0;
+        margin-left: -0.25rem;
         
         svg {
             display: none;

@@ -119,6 +119,18 @@
 				border-color: initial;
 			}
 		}
+
+		#tab-sharing-manage {
+
+			button {
+				margin: 0 var(--telekom-spacing-composition-space-04) 0 0;
+				text-align: left;
+
+				&:last-child {
+					margin: 0;
+				}
+			}
+		}
 	}
 
 	.sharing-entry__avatar, .button-vue {
@@ -246,7 +258,6 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 			width: 2rem !important;
 			min-height: 2rem !important;
 			height: 2rem !important;
-			margin-left: -0.5rem !important;
 
 			.icon {
 				background-size: 18px;
