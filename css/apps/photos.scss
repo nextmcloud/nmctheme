@@ -181,7 +181,11 @@
 						width: 3rem;
 						height: 3rem;
 						background-size: 1.5rem;
-	
+						bottom: 0;
+						left: 0;
+						right: unset;
+						top: unset;
+
 						svg {
 							display: none;
 						}
@@ -218,6 +222,13 @@
 
 					&:active {
 						background-size: 2rem;
+					}
+				}
+
+				.file__favorite {
+
+					.star-icon {
+						background-image: var(--icon-starred-yellow);
 					}
 				}
 
@@ -458,12 +469,13 @@
 				li.app-navigation-entry-wrapper {
 					order: 2;
 
-					&[data-id-app-nav-item="shared"],
+					&[data-id-app-nav-item="shared-albums"],
 					&[data-id-app-nav-item="faces"],
 					&[data-id-app-nav-item="this-day"],
-					// &[data-id-app-nav-item="shared"],
+					&[data-id-app-nav-item="shared"],
 					&[data-id-app-nav-item="maps"],
-					&[data-id-app-nav-item="places"] {
+					&[data-id-app-nav-item="places"],
+					&[data-id-app-nav-item="tags"] {
 						display: none;
 					}
 

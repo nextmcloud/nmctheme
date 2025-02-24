@@ -12,7 +12,7 @@
 #body-user .button-vue,
 #body-settings .button-vue,
 #body-public .button-vue,
-#body-login .button-vue,
+#body-login .button-vue, #body-login .ods-dialog-button,
 #body-status .button-vue,
 #error .button-vue {
     // we keep coloring of the default button as it is for the moment,
@@ -57,10 +57,14 @@
         margin-bottom: var(--telekom-spacing-composition-space-03);
     }
 
+    &_left {
+        margin-right: auto;
+    }
+
     // Button types
 
     // Primary
-    &--vue-primary {
+    &--vue-primary, &_primary {
         border-radius: var(--telekom-radius-standard);
         background-color: var(--telekom-color-primary-standard);
         color: var(--telekom-color-text-and-icon-white-standard);
@@ -80,7 +84,7 @@
     }
 
     // Secondary
-    &--vue-secondary {
+    &--vue-secondary, &_secondary {
         background: transparent;
         border-radius: var(--telekom-radius-standard);
         border: var(--telekom-spacing-composition-space-01) solid currentColor;
