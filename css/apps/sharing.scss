@@ -119,18 +119,6 @@
 				border-color: initial;
 			}
 		}
-
-		#tab-sharing-manage {
-
-			button {
-				margin: 0 var(--telekom-spacing-composition-space-04) 0 0;
-				text-align: left;
-
-				&:last-child {
-					margin: 0;
-				}
-			}
-		}
 	}
 
 	.sharing-entry__avatar, .button-vue {
@@ -160,12 +148,12 @@
 					background-image: var(--icon-checkmark-magenta);
 				}
 	
+				&.icon-checkmark {
+					background-image: var(--icon-checkmark-white);
+				}
+	
 				&.icon-clipboard {
 					background-image: var(--icon-clipboard-dark);
-	
-					&:hover {
-						filter: var(--nmc-color-icon)
-					}
 				}
 	
 				&.icon-add:hover {
@@ -218,12 +206,13 @@
 		&.icon-checkmark-magenta {
 			background-image: var(--icon-checkmark-magenta);
 		}
+	
+		&.icon-checkmark {
+			background-image: var(--icon-checkmark-white);
+		}
 
 		&.icon-clipboard {
 			background-image: var(--icon-clipboard-dark);
-			&:hover {
-				filter: var(--nmc-color-icon)
-			}
 		}
 
 		&.icon-add:hover {
@@ -248,6 +237,7 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 	.button-vue {
 		padding: 0 0.5rem !important;
 		min-height: 2rem !important;
+		margin: 0 !important;
 
 		&__text {
 			font-size: 14px;
@@ -266,7 +256,7 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 	}
 
 	.sharing-entry {
-		gap: 1rem;
+		gap: .5rem;
 	}
 }
 
@@ -274,10 +264,16 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 	padding: 1rem;
 
 	.check-circle-outline-icon {
+		background-image: var(--icon-popup-success-success);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 10rem;
 		margin: 3rem 0 1rem;
-
+		height: 10rem;
+		width: 10rem;
+		
 		svg {
-			color: var(--telekom-color-functional-success-standard);
+			display: none;
 		}
 	}
 

@@ -593,6 +593,17 @@ table.files-filestable {
 										&.button-vue--icon-and-text .button-vue__icon {
 											@include magenta-icon;
 										}
+
+										&.button-vue--icon-and-text[aria-label="Mit mir geteilt"] .button-vue__icon, 
+										&.button-vue--icon-and-text[aria-label="Shared with me"] .button-vue__icon {
+											background-image: var(--icon-upload-to-cloud-dark);
+											filter: invert(61%) sepia(98%) saturate(4546%) hue-rotate(181deg) brightness(99%) contrast(109%);
+										}
+
+										&.button-vue--icon-and-text[aria-label="Mit mir geteilt"] .button-vue__text,
+										&.button-vue--icon-and-text[aria-label="Shared with me"] .button-vue__text {
+											filter: invert(61%) sepia(98%) saturate(4546%) hue-rotate(181deg) brightness(99%) contrast(109%);
+										}
 									}
 
 									&.files-list__row-action-sharing-manage {
