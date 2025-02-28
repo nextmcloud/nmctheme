@@ -89,6 +89,10 @@
 							background-position: center;
 							background-repeat: no-repeat;
 							background-size: 18px;
+
+							&.view-dashboard-outline-icon {
+								rotate: 90deg;
+							}
 						}
 
 						.delete-icon {
@@ -145,7 +149,7 @@
 			}
 		}
 
-		.files-list-viewer {
+		.files-list-viewer, .photos-picker {
 			padding: 0 2rem;
 
 			@media only screen and (max-width: 640px) {
@@ -234,26 +238,42 @@
 
 				.checkbox-radio-switch.selection-checkbox {
 					top: 2px;
-					right: 3px;
-
+					right: 2px;
+		
 					.checkbox-content {
 						background: transparent;
-
-						span.material-design-icon.checkbox-marked-icon {
-							background-image: var(--original-icon-check-white);
-							background-color: var(--telekom-color-functional-success-standard);
-							background-position: center;
-							background-repeat: no-repeat;
-							background-size: 18px;
-							border: none;
-							border-radius: var(--telekom-radius-circle);
-							height: 1.5rem;
-							width: 1.5rem;
-							margin: -2px -2px 0 0;
-
-							svg {
-								display: none;
+		
+						.material-design-icon {
+							background-color: var(--color-main-background);
+							border: 1px solid var(--color-primary-element);
+							border-radius: var(--telekom-radius-small);
+							height: 18px;
+							width: 18px;
+							margin: 0;
+		
+							&.checkbox-marked-icon {
+								background-image: var(--original-icon-check-white);
+								background-color: var(--color-primary-element);
+								background-position: center;
+								background-repeat: no-repeat;
+								background-size: 18px;
 							}
+						}
+		
+						&:hover {
+		
+							.material-design-icon {
+								background-color: var(--color-background-hover);
+								border: 1px solid var(--color-primary-element-hover);
+			
+								&.checkbox-marked-icon {
+									background-color: var(--color-primary-element-hover);
+								}
+							}
+						}
+		
+						svg {
+							display: none;
 						}
 					}
 				}
@@ -704,6 +724,13 @@
 		min-height: unset;
 	}
 
+	.photos-picker__actions {
+
+		.button-vue__icon {
+			display: none;
+		}
+	}
+
 	.photos-picker {
 		
 		.file-container {
@@ -712,6 +739,48 @@
 				background-image: var(--icon-starred-yellow);
 				width: 32px;
 				height: 32px;
+
+				svg {
+					display: none;
+				}
+			}
+		}
+
+		.checkbox-radio-switch.selection-checkbox {
+			top: 2px;
+			right: 2px;
+
+			.checkbox-content {
+				background: transparent;
+
+				.material-design-icon {
+					background-color: var(--color-main-background);
+					border: 1px solid var(--color-primary-element);
+					border-radius: var(--telekom-radius-small);
+					height: 1rem;
+					width: 1rem;
+					margin: 0;
+
+					&.checkbox-marked-icon {
+						background-image: var(--original-icon-check-white);
+						background-color: var(--color-primary-element);
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: 18px;
+					}
+				}
+
+				&:hover {
+
+					.material-design-icon {
+						background-color: var(--color-background-hover);
+						border: 1px solid var(--color-primary-element-hover);
+	
+						&.checkbox-marked-icon {
+							background-color: var(--color-primary-element-hover);
+						}
+					}
+				}
 
 				svg {
 					display: none;
