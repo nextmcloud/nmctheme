@@ -3,16 +3,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		const filesTable = document.querySelector('.files-list');
 	
 		if (filesTable) {
-			// Gehe durch alle Zeilen der Tabelle
 			$(filesTable).find('.files-list__row').each(function() {
-				// Überprüfe, ob in dieser Zeile ein .key-icon (E2EE) vorhanden ist
+				// check if row contains .key-icon (E2EE)
 				if ($(this).find('.key-icon').length > 0) {
-					// Wenn ja, verstecke das .action-item in dieser Zeile
+					// if it dows hide .action-item of this row
 					$(this).find('.action-item').css('display', 'none');
 				}
 			});
-		} else {
-			console.log('Tabelle mit der Klasse "files-list" nicht gefunden');
 		}
 	}, 500);
 });
