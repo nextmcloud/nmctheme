@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (filesTable) {
 			// Gehe durch alle Zeilen der Tabelle
 			$(filesTable).find('.files-list__row').each(function() {
-				// Überprüfe, ob in dieser Zeile ein .lock-icon vorhanden ist
-				if ($(this).find('.lock-icon').length > 0) {
+				// Überprüfe, ob in dieser Zeile ein .key-icon (E2EE) vorhanden ist
+				if ($(this).find('.key-icon').length > 0) {
 					// Wenn ja, verstecke das .action-item in dieser Zeile
 					$(this).find('.action-item').css('display', 'none');
 				}
