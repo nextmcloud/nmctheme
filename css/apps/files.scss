@@ -585,6 +585,7 @@ table.files-filestable {
 
 									&.files-list__row-action-sharing-popup {
 										direction: rtl;
+										margin: 0;
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
