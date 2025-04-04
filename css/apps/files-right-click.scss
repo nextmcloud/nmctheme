@@ -23,7 +23,8 @@
 				&[data-cy-files-list-row-action="edit-locally"],
 				&[data-cy-files-list-row-action="view"],
 				&[data-cy-files-list-row-action="sharing-status"],
-				&[data-cy-files-list-row-action="sharing-status-magentacloud"],
+				&[data-cy-files-list-row-action="sharing-status-menu"],
+				&[data-cy-files-list-row-action="sharing-popup"],
 				&[data-cy-files-list-row-action="office-open-pdf"],
 				&[data-cy-files-list-row-action="cancel_select"]
 				{
@@ -78,9 +79,15 @@
 					}
 				}
 	
-				&[data-cy-files-list-row-action="sharing-status-menu"] {
+				&[data-cy-files-list-row-action="sharing-popup-menu"] {
 					span.icon-vue {
 						background-image: var(--icon-shared-dark);
+					}
+				}
+	
+				&[data-cy-files-list-row-action="sharing-manage"] {
+					span.icon-vue {
+						background-image: var(--icon-users-dark);
 					}
 				}
 	

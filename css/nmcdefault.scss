@@ -14,8 +14,7 @@
   --color-main-background-translucent: rgba(var(--color-main-background-rgb), .97);
   --color-main-background-blur: rgba(var(--color-main-background-rgb), .8);
   --filter-background-blur: blur(25px);
-  --gradient-main-background: var(--color-main-background) 0%, var(--color-main-background-translucent) 85%, transparent 100%;
-  --color-background-hover: var(--telekom-color-ui-faint);
+  --color-background-hover: var(--telekom-color-ui-subtle);
   --color-background-dark: var(--telekom-color-ui-faint);
   --color-background-darker: var(--telekom-color-ui-regular);
   --color-placeholder-light: var(--telekom-color-ui-subtle);
@@ -91,6 +90,7 @@
   --color-primary-element-light-hover: var(--telekom-color-ui-faint);
   --color-primary-element-light-text: var(--telekom-color-text-and-icon-standard);
   --color-primary-element-text-dark: var(--telekom-color-text-and-icon-inverted-standard);
+  --gradient-main-background: var(--color-main-background) 0%, var(--color-main-background-translucent) 85%, transparent 100%;
   --gradient-primary-background: linear-gradient(40deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
   --image-background: none;
   --image-background-default: none;

@@ -105,6 +105,7 @@ const icons = {
 	mail: path.join(__dirname, '../img', 'actions', 'mail.svg'),
 	users: path.join(__dirname, '../img', 'settings', 'users.svg'),
 	play: path.join(__dirname, '../img', 'actions', 'play.svg'),
+	'popup-success': path.join(__dirname, '../img', 'actions', 'popup-success.svg'),
 	'play-previous': path.join(__dirname, '../img', 'actions', 'play-previous.svg'),
 	'play-next': path.join(__dirname, '../img', 'actions', 'play-next.svg'),
 	'play-video': path.join(__dirname, '../img', 'icons', 'play-video.svg'),
@@ -164,6 +165,8 @@ const icons = {
 	'filetype-presentation': path.join(__dirname, '../img', 'filetypes', 'x-office-presentation.svg'),
 	'filetype-spreadsheet': path.join(__dirname, '../img', 'filetypes', 'x-office-spreadsheet.svg'),
 	video: path.join(__dirname, '../img', 'actions', 'play.svg'),
+	export: path.join(__dirname, '../img', 'actions', 'export.svg'),
+	import: path.join(__dirname, '../img', 'actions', 'import.svg'),
 }
 
 const iconsColor = {
@@ -193,6 +196,10 @@ const iconsColor = {
 	},
 	success: {
 		path: path.join(__dirname, '../img', 'rich-workspace', 'success.svg'),
+		color: 'success',
+	},
+	'popup-success': {
+		path: path.join(__dirname, '../img', 'actions', 'popup-success.svg'),
 		color: 'success',
 	},
 	warning: {

@@ -14,13 +14,9 @@
 .app-navigation {
 	border-right: 1px solid var(--telekom-color-ui-faint);
 
-	// prevent mobile navigation toggle button to visually overlap underlying content
-	.app-navigation-toggle {
-		background-color: transparent;
-
-		@media screen and (min-width: $breakpoint-mobile) {
-			display: none;
-		}
+	.app-navigation-toggle-wrapper {
+		top: 1rem !important;
+		right: calc(0px - 1rem) !important;
 	}
 
 	// remove gaps between navigation items

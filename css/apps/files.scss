@@ -331,6 +331,8 @@ table.files-filestable {
 
 #app-content-vue {
 	.files-list__header {
+		margin-block: 1rem;
+
 		button.files-list__header-grid-button {
 
 			&:hover:not(:disabled),
@@ -427,7 +429,7 @@ table.files-filestable {
 					margin-left: 1rem;
 					z-index: 100;
 
-					.material-design-icon {
+					.material-design-icon:not(.play-circle-icon) {
 						@include thumbnail-icons();
 
 						&.folder-icon {
@@ -575,10 +577,15 @@ table.files-filestable {
 										&.button-vue--icon-and-text .button-vue__icon {
 											@include magenta-icon;
 										}
+
+										.button-vue__text {
+											display: none;
+										}
 									}
 
-									&.files-list__row-action-sharing-status-magentacloud {
+									&.files-list__row-action-sharing-popup {
 										direction: rtl;
+										margin: 0;
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
@@ -586,6 +593,24 @@ table.files-filestable {
 
 										&.button-vue--icon-and-text .button-vue__icon {
 											@include magenta-icon;
+										}
+
+										&.button-vue--icon-and-text[aria-label="Mit mir geteilt"] .button-vue__icon, 
+										&.button-vue--icon-and-text[aria-label="Shared with me"] .button-vue__icon {
+											background-image: var(--icon-upload-to-cloud-dark);
+											filter: invert(61%) sepia(98%) saturate(4546%) hue-rotate(181deg) brightness(99%) contrast(109%);
+										}
+
+										&.button-vue--icon-and-text[aria-label="Mit mir geteilt"] .button-vue__text,
+										&.button-vue--icon-and-text[aria-label="Shared with me"] .button-vue__text {
+											filter: invert(61%) sepia(98%) saturate(4546%) hue-rotate(181deg) brightness(99%) contrast(109%);
+										}
+									}
+
+									&.files-list__row-action-sharing-manage {
+
+										.button-vue__icon {
+											background-image: var(--icon-users-dark);
 										}
 									}
 								}
@@ -652,7 +677,7 @@ table.files-filestable {
 
 					.files-list__row-icon {
 
-						.material-design-icon {
+						.material-design-icon:not(.play-circle-icon) {
 							@include thumbnail-icons();
 							margin: 0;
 							max-width: calc(100% - 2 * 14px);

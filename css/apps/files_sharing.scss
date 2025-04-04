@@ -44,8 +44,63 @@
     }
 }
 
+#openSharing_button {
+    padding-left: 0.5rem;
+
+    .material-design-icon.share-circle-icon {
+        background-image: var(--icon-shared-dark);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 24px;
+        width: 100%;
+        height: 100%;
+        
+        svg {
+            display: none;
+        }
+    }
+}
+
 .sharingTabDetailsView {
+
     #share-date-picker {
         color-scheme: var(--nmc-color-sceme);
+    }
+}
+
+#app-sidebar-vue.app-sidebar--full {
+    width: 0%;
+}
+
+.sharingTabDetailsView, .sharingPopupDetailsView {
+
+    
+    .material-design-icon.back-button {
+        background-image: var(--icon-arrow-previous-dark);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 1.25rem;
+        width: 2rem;
+        height: 2rem;
+        padding: 0;
+        margin-left: -0.25rem;
+        
+        svg {
+            display: none;
+        }
+    }
+
+    .sharingTabDetailsView__quick-permissions {
+
+        .checkbox-radio-switch {
+    
+            &__label {
+                padding-left: 0 !important;
+            }
+        }
+
+        .sharing_permission-desc {
+            margin-top: 0.5rem;
+        }
     }
 }

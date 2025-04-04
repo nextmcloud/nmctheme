@@ -138,6 +138,20 @@
 									}
 								}
 							}
+
+							&[data-cy-upload-picker-menu-entry="album-add"] {
+								order: 9;
+								
+								.icon-vue {
+									background-image: var(--icon-import-dark);
+								}
+		
+								&:hover {
+									.icon-vue {
+										filter: none;
+									}
+								}
+							}
 						}
 
 						button.action-button {

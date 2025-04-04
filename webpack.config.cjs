@@ -6,6 +6,7 @@ const webpackRules = require('@nextcloud/webpack-vue-config/rules')
 webpackConfig.entry = {
 	...webpackConfig.entry,
 	filessettings: path.join(__dirname, 'src', 'js', 'filessettings.js'),
+	filelistplugin: path.join(__dirname, 'src', 'js', 'filelistplugin.js'),
 	skipactions: path.join(__dirname, 'src', 'js', 'skipactions.js'),
 	conflictdialog: path.join(__dirname, 'src', 'js', 'conflictdialog.js'),
 	mimetypes: path.join(__dirname, 'src', 'js', 'mimetypes.js'),
@@ -13,8 +14,8 @@ webpackConfig.entry = {
 	nmcheader: path.join(__dirname, 'src', 'nmcheader.ts'),
 	nmclogo: path.join(__dirname, 'src', 'nmclogo.ts'),
 	nmcfiles: path.join(__dirname, 'src', 'nmcfiles.ts'),
-	shareicons: path.join(__dirname, 'src', 'js', 'shareicons.js'),
-	tooltip: path.join(__dirname, 'src', 'js', 'tooltip.js'),
+	// shareicons: path.join(__dirname, 'src', 'js', 'shareicons.js'),
+	// tooltip: path.join(__dirname, 'src', 'js', 'tooltip.js'),
 }
 
 // Load raw SVGs to be able to inject them via v-html
