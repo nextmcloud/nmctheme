@@ -1,15 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
 	setTimeout(() => {
-		const filesTable = document.querySelector('.files-list');
-	
+		const filesTable = document.querySelector('.files-list')
+
 		if (filesTable) {
-			$(filesTable).find('.files-list__row').each(function() {
+			filesTable.querySelectorAll('.files-list__row').forEach(row => {
 				// check if row contains .key-icon (E2EE)
-				if ($(this).find('.key-icon').length > 0) {
-					// if it dows hide .action-item of this row
-					$(this).find('.action-item').css('display', 'none');
+				if (row.querySelector('.key-icon')) {
+					// if it does, hide .action-item of this row
+					const actionItem = row.querySelector('.action-item')
+					if (actionItem) {
+						actionItem.style.display = 'none'
+					}
 				}
-			});
+			})
 		}
-	}, 500);
-});
+	}, 500)
+})
