@@ -1,7 +1,7 @@
 <template>
 	<div class="storage-quota">
 		<div class="storage-quota__title" @click.stop.prevent="debounceUpdateStorageStats">
-			<NcIconSvgWrapper :svg="currentImage" size="auto" />
+			<NcIconSvgWrapper :svg="currentImage" size="30" />
 			<!-- eslint-disable-next-line vue/no-v-html -->
 			<p v-html="storageStatsTitle" />
 		</div>
