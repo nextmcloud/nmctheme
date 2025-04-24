@@ -377,6 +377,11 @@ table.files-filestable {
 			}
 		}
 
+		.files-list__filters .file-list-filters__filter {
+			.file-list-filter-accounts {
+				display: none;
+			}
+		}
 
 		// Files table and grid
 		table.files-list__table {
