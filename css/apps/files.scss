@@ -846,5 +846,14 @@ table.files-filestable {
 				color: var(--color-main-text) !important;
 			}
 		}
+
+		// 3-dot menu on rows
+		.v-popper__popper--shown .v-popper__wrapper .v-popper__inner {
+			ul[role="menu"] {
+				li.files-list__row-action.files-list__row-action-rename, li.files-list__row-action-sharing-status, li.files-list__row-action-sharing-manage {
+					display: none;
+				}
+			}
+		}
 	}
 }
