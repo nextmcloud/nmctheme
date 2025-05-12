@@ -29,7 +29,7 @@ on:
           - stable27
           - stable28
           - stable29
-          - nmc/ux-optimization
+          - stable30
       increment:
         description: 'Release increment'
         required: true
