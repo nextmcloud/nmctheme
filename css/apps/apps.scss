@@ -5,7 +5,7 @@
 }
 
 @media screen and (max-width: $breakpoint-mobile-small) {
-:root {
+	:root {
 		--body-height: calc(100% - 152px - var(--body-container-margin));
 	}
 }
@@ -24,7 +24,8 @@
 }
 
 /* CONTENT  --------------------------------------------------------- */
-#content, #content-vue {
+#content,
+#content-vue {
 	border-radius: 0;
 	margin: 89px 16px 0;
 	height: var(--body-height);
@@ -54,6 +55,15 @@
 						max-width: 30px;
 					}
 				}
+			}
+		}
+	}
+
+	.app-navigation-personal,
+	.app-navigation-administration {
+		>ul {
+			>li {
+				border-radius: var(--border-radius-pill);
 			}
 		}
 	}
