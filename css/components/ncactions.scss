@@ -57,6 +57,10 @@
 								display: none;
 							}
 
+							&[data-cy-upload-picker-menu-entry="file-request"] {
+								display: none;
+							}
+
 							&[data-cy-upload-picker-menu-entry="newFolder"] , &[data-cy-upload-picker-menu-entry="template-picker"] {
 								.icon-vue {
 									background-image: var(--icon-folder-dark);

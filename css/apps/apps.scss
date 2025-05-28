@@ -1,6 +1,7 @@
 @import '../variables';
 
 :root {
+	--body-container-margin: calc(var(--default-grid-baseline) * 2);
 	--body-height: calc(100% - 157px - var(--body-container-margin));
 }
 

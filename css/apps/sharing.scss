@@ -225,6 +225,16 @@
 // Sharing details container
 .sharingTabDetailsView {
 	margin: 0 !important;
+	
+	&__advanced {
+		.input-field {
+			&__main-wrapper {
+				.input-field__icon--trailing {
+					display: none;
+				}
+			}
+		}
+	}
 }
 
 // TODO this should be done by the icon generation script
