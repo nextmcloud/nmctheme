@@ -311,8 +311,10 @@ table.files-filestable {
 #body-user {
 	// files modal search input
 	.modal-mask.dialog__modal {
-		& .modal-wrapper.modal-wrapper--large input {
-			padding-left: 2.5rem;
+		& .modal-wrapper.modal-wrapper--large {
+			input, .input-field__main-wrapper .input-field__input {
+				padding-left: 2.5rem;
+			}
 		}
 	}
 
