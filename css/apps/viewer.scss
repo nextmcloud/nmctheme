@@ -29,8 +29,8 @@
                 background-color: var(--telekom-color-ui-regular);
                 border-radius: var(--telekom-radius-circle);
                 display: flex;
-                width: 44px;
-                height: 44px;
+                width: 48px;
+                height: 48px;
 
                 svg {
                     color: var(--telekom-color-text-and-icon-standard);
@@ -46,19 +46,26 @@
             }
 
             button.play-pause-icons {
+                margin: calc((var(--header-height) - var(--default-clickable-area)) / 2);
+                padding-left: var(--telekom-spacing-composition-space-05);
+                padding-right: var(--telekom-spacing-composition-space-05);
 
                 & > span.material-design-icon {
                     margin: 0;
                 }
 
                 svg.progress-ring {
-                    width: 44px;
+                    width: 48px;
                     height: 44px;
                     circle {
                         cx: 22;
                         cy: 22;
                     }
                 }
+            }
+
+            div.action-items {
+                gap: var(--telekom-spacing-composition-space-03);
             }
         }
     }
