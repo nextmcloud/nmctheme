@@ -11,18 +11,23 @@ declare(strict_types=1);
 namespace OCA\NMCTheme\Themes;
 
 use OCA\Theming\ITheme;
+use OCA\Theming\Util;
 use OCP\App\IAppManager;
 use OCP\IL10N;
 use OCP\IURLGenerator;
 
 class Magenta implements ITheme {
+	protected Util $themingUtil;
 	protected IAppManager $appManager;
 	protected IURLGenerator $urlGenerator;
 	protected IL10N $l;
 
-	public function __construct(IAppManager $appManager,
+	public function __construct(
+		Util $themingUtil,
+		IAppManager $appManager,
 		IURLGenerator $urlGenerator,
 		IL10N $l) {
+		$this->themingUtil = $themingUtil;
 		$this->appManager = $appManager;
 		$this->urlGenerator = $urlGenerator;
 		$this->l = $l;
@@ -67,7 +72,13 @@ class Magenta implements ITheme {
 		$iconsVariables = $this->urlGenerator->linkTo('nmctheme', 'dist/icons.css');
 		$themeStyle = $this->urlGenerator->linkTo('nmctheme', 'css/nmcstyle.css');
 
-		
+		$cacheBuster = $this->themingUtil->getCacheBuster();
+
+		$telekomVariables .= '?nmcv=' . $cacheBuster;
+		$themeVariables .= '?nmcv=' . $cacheBuster;
+		$iconsVariables .= '?nmcv=' . $cacheBuster;
+		$themeStyle .= '?nmcv=' . $cacheBuster;
+
 		return "
 			@import url('{$telekomVariables}');
 			@import url('{$themeVariables}');
