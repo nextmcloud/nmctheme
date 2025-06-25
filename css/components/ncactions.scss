@@ -47,6 +47,10 @@
 							background-color: initial;
 						}
 						
+						&[data-cy-upload-picker-menu-entry="upload-folder"] {
+							display: none;
+						}
+						
 						&.upload-picker__menu-entry {
 
 							.icon-vue {
