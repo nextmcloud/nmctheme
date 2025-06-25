@@ -393,6 +393,169 @@ table.files-filestable {
 			}
 		}
 
+		// File Grid View for v30
+		&.files-list--grid {
+
+			tbody.files-list__tbody {
+				--clickable-area: 44px;
+				--half-clickable-area: calc(var(--clickable-area) / 2);
+				--row-width: 160px;
+				--row-height-cus: calc(var(--row-width) - var(--half-clickable-area)) !important;
+				--icon-preview-size: calc(var(--row-width) - var(--clickable-area));
+			
+				margin: 15px 0;
+				grid-gap: 15px;
+    			row-gap: 15px;
+				grid-template-columns: repeat(auto-fill, var(--row-width));
+
+				min-height: unset !important;
+
+				tr {
+					width: var(--row-width);
+					height: calc(var(--row-height-cus) + var(--clickable-area)) !important;
+					border: none;
+					border-radius: var(--border-radius);
+					padding: unset;
+
+					&.files-list__row {
+
+						&:hover,
+						&:focus,
+						&:active,
+						&--active {
+							background-color: var(--nmc-color-row-hover);
+						}
+					}
+
+					td.files-list__row-checkbox {
+						width: 26px;
+						height: 26px;
+						@include files-checkboxes-v28;
+
+						span.checkbox-content {
+							padding: 0;
+						}
+						top: 0;
+    					left: 0;
+					}
+
+					td.files-list__row-name {
+						.files-list__row-icon {
+							width: 100%;
+    						height: 100%;
+    						padding-top: var(--half-clickable-area);
+							margin-right: unset;
+							margin-left: unset;
+							z-index: unset;
+
+							.material-design-icon:not(.play-circle-icon) {
+								@include thumbnail-icons();
+								margin: 0;
+								max-width: calc(100% - 2 * 14px);
+								max-height: calc(100% - 2 * 14px);
+								width: calc(100% - 2 * 14px);
+								height: calc(100% - 2 * 14px);
+								position: absolute;
+
+								svg {
+									width: calc(var(--icon-preview-size) + 6px);
+    								height: calc(var(--icon-preview-size) + 6px);
+								}
+							}
+						}
+
+						.files-list__row-name-link {
+							padding: 0.5rem;
+							width: 90%;
+						}
+
+						.files-list__row-name-text {
+							padding: 0;
+						}
+
+						display: grid;
+						flex-direction: column;
+						justify-content: stretch;
+						width: 100%;
+						height: 100%;
+						grid-auto-rows: var(--row-height-cus) var(--clickable-area) !important;
+					}
+
+					td.files-list__row-actions {
+							width: 1.5rem;
+
+							.action-item__menutoggle {
+								padding: 0;
+								min-width: 1.5rem;
+								width: 1.5rem !important;
+							}
+
+							right: 0;
+    						bottom: 0;
+					}
+
+					.files-list__row-icon {
+
+						.material-design-icon:not(.play-circle-icon) {
+							@include thumbnail-icons();
+							margin: 0;
+							max-width: calc(100% - 2 * 14px);
+							max-height: calc(100% - 2 * 14px);
+							width: calc(100% - 2 * 14px);
+							height: calc(100% - 2 * 14px);
+							position: absolute;
+
+							&.folder-icon {
+								background-image: var(--icon-mime-folder-dark);
+							}
+
+							&.link-icon {
+								background-image: var(--icon-mime-folder-shared-dark);
+							}
+
+							&.key-icon {
+								background-image: var(--icon-mime-folder-encrypted-dark);
+							}
+						}
+
+						.files-list__row-icon-favorite {
+							top: calc(100% - 25px) !important;
+							left: calc(50% - 22px);
+							width: var(--clickable-area) !important;
+    						height: var(--clickable-area) !important;
+
+							.icon-vue {
+								width: 24px;
+								height: 24px;
+
+								svg {
+									display: none;
+								}
+							}
+						}
+
+						img {
+							    overflow: hidden;
+								width: var(--icon-preview-size) !important;
+								height: var(--icon-preview-size) !important;
+								border-radius: var(--border-radius);
+								object-fit: contain;
+								object-position: center;
+
+								background-color: unset;
+								background-position: center;
+								background-repeat: no-repeat;
+								background-size: contain;
+								border: none;
+								height: 44px;
+								margin-top: 0.2rem;
+								width: 44px;
+						}
+					}
+				}
+			}
+		}
+
 		// Files table and grid
 		table.files-list__table {
 			thead {

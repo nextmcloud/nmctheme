@@ -79,6 +79,93 @@
                     background-image: var(--icon-news-dark);
                 }
             }
+            
+            // Account Menu Entry UI Settings as per v29 for v30
+            li.account-menu-entry {
+                padding: 0px !important;
+                &#profile {
+                    display: none;
+                }
+
+                &:hover span,
+                &:hover a, &:hover button {
+                    // Style user menu colors for Darkmode
+                    @media (prefers-color-scheme: dark) {
+                        color: var(--nmc-color-text-and-icon-primary-standard);
+                        background-color: transparent;
+                        &::after {
+                            filter: var(--nmc-color-icon)
+                        }
+                    }
+
+                }
+
+                a, button {
+                    padding-left: 48px;
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 0px;
+                        left: 2px;
+                        height: 100%;
+                        width: 44px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 24px 24px;
+                    }
+
+                    img {
+                        display: none;
+                    }
+                }
+
+                &>.list-item {
+                    --list-item-height: var(--header-menu-item-height) !important;
+                    --list-item-padding: 0px !important;
+
+                    .list-item-content {
+                        padding-inline-start: 0% !important;
+
+                        .list-item-content__name{
+                            font-weight: inherit !important;
+                        }
+                    }
+                    
+                    > a#logout::after {
+                        background-image: var(--icon-logout-dark);
+                    }
+
+                    > a#settings::after {
+                        background-image: var(--icon-settings-dark);
+                    }
+
+                    > a#help::after {
+                        background-image: var(--icon-help-dark);
+                    }
+
+                    > a#customer_center::after {
+                        background-image: var(--icon-customercenter-dark);
+                    }
+
+                    > a#admin_settings::after {
+                        background-image: var(--icon-admin-dark);
+                    }
+
+                    > a#core_apps::after {
+                        background-image: var(--icon-add-dark);
+                    }
+
+                    > a#core_users::after {
+                        background-image: var(--icon-users-dark);
+                    }
+                    
+                    > a#nmc_welcome_popup-about::after {
+                        background-image: var(--icon-news-dark);
+                    }
+                }
+            }
         }
     }
 }

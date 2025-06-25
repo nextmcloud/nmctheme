@@ -80,6 +80,10 @@
                             background-color: transparent
                         }
                     }
+                    
+                    li.list-item__wrapper:first-of-type {
+                        display: none;
+                    }
                 }
             }
         }
