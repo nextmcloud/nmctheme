@@ -68,9 +68,37 @@ header {
 	#header-left,
 	.header-left {
 		.app-menu {
-			&-entry {
+			    width: 100%;
+    			display: flex;
+   				flex-shrink: 1;
+    			flex-wrap: wrap;
+		&-entry {
 				&--label {
 					font-weight: 800;
+				}
+			}
+
+			button.action-item__menutoggle {
+				height: 32px;
+				width: 32px !important;
+				min-height: 32px;
+				min-width: 32px;
+
+				background-image: var(--icon-menu-dark);
+    			background-size: auto 24px;
+    			background-position: center;
+    			background-repeat: no-repeat;
+
+				svg {
+					display: none;
+				}
+
+				.button-vue__wrapper {
+					display: none;
+				}
+
+				&[aria-expanded="true"] {
+					background-image: var(--icon-close-dark);
 				}
 			}
 		}
