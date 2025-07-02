@@ -103,4 +103,17 @@
             margin-top: 0.5rem;
         }
     }
+
+    .header-permissions {
+        h2 {
+            margin-bottom: unset;
+        }
+    }
+}
+
+.sharingPopup__content {
+    h2 {
+        font-size: 20px;
+        margin-top: unset;
+    }
 }
