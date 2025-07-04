@@ -49,6 +49,16 @@
 		[data-cy-files-navigation-item="sharingout"],
 		[data-cy-files-navigation-item="shareoverview"] {
 			order: 3;
+			
+			[data-cy-files-navigation-item ="sharinglinks"] {
+					display: none;
+			}
+			[data-cy-files-navigation-item="filerequest"] {
+				display: none;
+			}
+			[data-cy-files-navigation-item="deletedshares"] {
+				display: none;
+			}
 		}
 		
 		[data-cy-files-navigation-item="sharingin"] {
