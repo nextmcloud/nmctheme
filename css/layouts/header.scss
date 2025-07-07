@@ -72,6 +72,12 @@ header {
     			display: flex;
    				flex-shrink: 1;
     			flex-wrap: wrap;
+				margin-right: var(--telekom-spacing-composition-space-06);
+		
+		&__list {
+			margin: 0;
+		}
+
 		&-entry {
 				&--label {
 					font-weight: 800;
@@ -88,6 +94,10 @@ header {
     			background-size: auto 24px;
     			background-position: center;
     			background-repeat: no-repeat;
+
+				margin: unset !important;
+				filter: unset !important;
+				opacity: unset !important;
 
 				svg {
 					display: none;
@@ -133,6 +143,7 @@ header {
 			flex-grow: 1;
 			flex-shrink: unset;
 			order: 2;
+			margin: 0;
 		}
 
 		.brand .title {
