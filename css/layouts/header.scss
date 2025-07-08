@@ -68,17 +68,29 @@ header {
 	#header-left,
 	.header-left {
 		.app-menu {
-			    width: 100%;
-    			display: flex;
-   				flex-shrink: 1;
-    			flex-wrap: wrap;
-				margin-right: var(--telekom-spacing-composition-space-06);
-		
-		&__list {
-			margin: 0;
-		}
+			width: 100%;
+			display: flex;
+			flex-shrink: 1;
+			flex-wrap: wrap;
+			margin-right: var(--telekom-spacing-composition-space-06);
 
-		&-entry {
+			&__list {
+				margin: 0;
+			}
+
+			--app-menu-entry-growth: unset;
+
+			&__overflow {
+				margin-right: var(--telekom-spacing-composition-space-06);
+
+				.button-vue--vue-tertiary {
+					opacity: 1;
+					margin: 0;
+					filter: unset;
+				}
+			}
+
+			&-entry {
 				&--label {
 					font-weight: 800;
 				}
@@ -91,9 +103,9 @@ header {
 				min-width: 32px;
 
 				background-image: var(--icon-menu-dark);
-    			background-size: auto 24px;
-    			background-position: center;
-    			background-repeat: no-repeat;
+				background-size: auto 24px;
+				background-position: center;
+				background-repeat: no-repeat;
 
 				margin: unset !important;
 				filter: unset !important;
@@ -157,8 +169,10 @@ header {
 }
 
 #header {
-    box-shadow: 0 2px 9px var(--color-box-shadow);
+	box-shadow: 0 2px 9px var(--color-box-shadow);
+
 	.header-right {
+
 		// hide 'Search contacts' button
 		#contactsmenu {
 			display: none;
@@ -167,9 +181,11 @@ header {
 		// general styling for buttons in the header
 		.header-menu {
 			width: auto;
+
 			button.button-vue {
 				width: auto !important;
 				padding-left: 0;
+
 				.button-vue__label {
 					font-size: 12px;
 					font-weight: normal;
@@ -177,10 +193,12 @@ header {
 
 				.button-vue__wrapper {
 					width: 44px;
+
 					.button-vue__icon {
 						background-size: auto 24px;
 						background-position: center;
 						background-repeat: no-repeat;
+
 						svg {
 							display: none;
 						}
@@ -197,12 +215,12 @@ header {
 						width: 100%;
 						position: absolute;
 					}
-		
+
 					.button-vue__label {
 						color: var(--color-primary);
 						cursor: pointer;
 					}
-		
+
 					.button-vue__icon {
 						filter: var(--nmc-color-icon) !important;
 					}
@@ -210,10 +228,11 @@ header {
 
 				@media screen and (max-width: $breakpoint-mobile) {
 					padding-right: 0;
-                    .button-vue__label {
-                        display: none;
-                    }
-                }
+
+					.button-vue__label {
+						display: none;
+					}
+				}
 			}
 		}
 	}
@@ -225,12 +244,13 @@ header {
 		border: none;
 		border-radius: 0;
 		height: 100%;
+
 		.button-vue__wrapper {
 			.button-vue__icon {
 				background-image: var(--icon-search-dark);
 			}
 		}
-		
+
 	}
 }
 
