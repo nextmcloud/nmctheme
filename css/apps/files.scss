@@ -319,6 +319,22 @@ table.files-filestable {
 				padding-left: 2.5rem;
 			}
 		}
+
+		& .modal-wrapper.modal-wrapper--small {
+			input .input-field__input.input-field__input--error {
+				padding-left: 2.5rem;
+			}
+
+			p {
+				margin-top: 1rem;
+			}
+
+			.input-field__icon.input-field__icon--trailing {	
+				top: 0;
+				bottom: 0;
+				right: 0;
+			}
+		}
 	}
 
 	// fix table header overlab with tbody in modal
