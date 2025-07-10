@@ -73,6 +73,8 @@ const icons = {
 	share: path.join(__dirname, '../img', 'actions', 'share.svg'),
 	shared: path.join(__dirname, '../img', 'actions', 'share.svg'),
 	public: path.join(__dirname, '../img', 'actions', 'share.svg'),
+	'share-pending': path.join(__dirname, '../img', 'actions', 'share-pending.svg'),
+	'share-with-me': path.join(__dirname, '../img', 'actions', 'share-with-me.svg'),
 	star: path.join(__dirname, '../img', 'actions', 'star.svg'),
 	starred: path.join(__dirname, '../img', 'actions', 'starred.svg'),
 	upload: path.join(__dirname, '../img', 'actions', 'upload.svg'),
@@ -100,6 +102,7 @@ const icons = {
 	admin: path.join(__dirname, '../img', 'settings', 'apps.svg'),
 	apps: path.join(__dirname, '../img', 'actions', 'add.svg'),
 	link: path.join(__dirname, '../img', 'actions', 'link.svg'),
+	lock: path.join(__dirname, '../img', 'actions', 'lock.svg'),
 	'upload-to-cloud': path.join(__dirname, '../img', 'actions', 'upload-to-cloud.svg'),
 	clipboard: path.join(__dirname, '../img', 'actions', 'clipboard.svg'),
 	mail: path.join(__dirname, '../img', 'actions', 'mail.svg'),
@@ -167,6 +170,8 @@ const icons = {
 	video: path.join(__dirname, '../img', 'actions', 'play.svg'),
 	export: path.join(__dirname, '../img', 'actions', 'export.svg'),
 	import: path.join(__dirname, '../img', 'actions', 'import.svg'),
+	'folder-overlay-lock': path.join(__dirname, '../img', 'actions', 'lock.svg'),
+	'folder-overlay-share': path.join(__dirname, '../img', 'actions', 'share.svg'),
 }
 
 const iconsColor = {

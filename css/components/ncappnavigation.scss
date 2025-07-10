@@ -42,27 +42,27 @@
 			order: 2;
 		}
 
-		// [data-cy-files-navigation-item="shareoverview"] {
-		// 	order: 3;
-		// }
-
-		[data-cy-files-navigation-item="sharingout"],
 		[data-cy-files-navigation-item="shareoverview"] {
 			order: 3;
-			
-			[data-cy-files-navigation-item ="sharinglinks"] {
-					display: none;
-			}
-			[data-cy-files-navigation-item="filerequest"] {
-				display: none;
-			}
+
+			[data-cy-files-navigation-item ="sharinglinks"],
+			[data-cy-files-navigation-item="filerequest"],
 			[data-cy-files-navigation-item="deletedshares"] {
 				display: none;
 			}
 		}
+
+
+		[data-cy-files-navigation-item="sharingout"] {
+			order: 3;
+		}
 		
 		[data-cy-files-navigation-item="sharingin"] {
 			order: 4;
+		}
+		
+		[data-cy-files-navigation-item="pendingshares"] {
+			order: 5;
 		}
 
 		[data-cy-files-navigation-item="trashbin"] {
@@ -91,7 +91,8 @@
 }
 
 // default navbar link styling
-li[id^="app-navigation-item-"] {
+#app-navigation-vue .app-navigation-entry-wrapper {
+
 	.app-navigation-entry {
 		border-radius: var(--telekom-radius-standard);
 		font: var(--telekom-text-style-ui-bold);
@@ -171,23 +172,21 @@ li[id^="app-navigation-item-"] {
 			}
 		}
 
-		&--collapsible[data-cy-files-navigation-item=favorites] {
-
-			// hide every subentry
-			ul.app-navigation-entry__children {
-				display: none !important;
-			}
-		}
-
 		// Hide all the SVGs
 		span.icon-vue {
 			display: none;
 		}
-		
-		&--collapsible[data-cy-files-navigation-item=favorites] {
-			> button {
-				display: none;
-			}
+	}
+
+	&[data-cy-files-navigation-item=favorites] {
+
+		// hide every subentry
+		ul.app-navigation-entry__children {
+			display: none !important;
+		}
+
+		> button {
+			display: none;
 		}
 	}
 
@@ -219,6 +218,14 @@ li[id^="app-navigation-item-"] {
 
 	&[data-cy-files-navigation-item=shareoverview] .app-navigation-entry-icon {
 		background-image: var(--icon-share-dark);
+	}
+
+	&[data-cy-files-navigation-item=sharingin] .app-navigation-entry-icon {
+		background-image: var(--icon-share-with-me-dark);
+	}
+
+	&[data-cy-files-navigation-item=pendingshares] .app-navigation-entry-icon {
+		background-image: var(--icon-share-pending-dark);
 	}
 
 	&[data-cy-files-navigation-item=trashbin] .app-navigation-entry-icon {
