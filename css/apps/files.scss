@@ -385,6 +385,11 @@ table.files-filestable {
 				}
 			}
 		}
+
+		.upload-picker__progress {
+			width: 320px;
+			max-width: 320px;
+		}
 	}
 
 	.files-list {
