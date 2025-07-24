@@ -403,6 +403,10 @@ table.files-filestable {
 			}
 		}
 
+		.files-list__row-trashbin-deleted-by {
+			display: none;
+		}
+
 		.files-list__filters {
 			display: none;
 		}
