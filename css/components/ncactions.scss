@@ -33,7 +33,16 @@
 					display: flex;
 					flex-direction: column;
 
-					li.action-separator, li.app-navigation-caption {
+					li {
+						&:hover {
+							cursor: pointer;
+						}
+					}
+
+
+
+					li.action-separator,
+					li.app-navigation-caption {
 						display: none;
 					}
 
@@ -42,21 +51,21 @@
 						.icon-vue {
 							background-size: 24px;
 						}
-						
+
 						&.active {
 							background-color: initial;
 						}
-						
+
 						&[data-cy-upload-picker-menu-entry="upload-folder"] {
 							display: none;
 						}
-						
+
 						&.upload-picker__menu-entry {
 
 							.icon-vue {
 								background-size: 24px;
 							}
-								
+
 							svg {
 								display: none;
 							}
@@ -65,7 +74,8 @@
 								display: none;
 							}
 
-							&[data-cy-upload-picker-menu-entry="newFolder"] , &[data-cy-upload-picker-menu-entry="template-picker"] {
+							&[data-cy-upload-picker-menu-entry="newFolder"],
+							&[data-cy-upload-picker-menu-entry="template-picker"] {
 								.icon-vue {
 									background-image: var(--icon-folder-dark);
 								}
@@ -83,7 +93,7 @@
 								.icon-vue {
 									background-image: var(--icon-filetype-document-dark);
 								}
-		
+
 								&:hover {
 									.icon-vue {
 										filter: none;
@@ -97,7 +107,7 @@
 								.icon-vue {
 									background-image: var(--icon-filetype-spreadsheet-dark);
 								}
-		
+
 								&:hover {
 									.icon-vue {
 										filter: none;
@@ -111,7 +121,7 @@
 								.icon-vue {
 									background-image: var(--icon-filetype-presentation-dark);
 								}
-		
+
 								&:hover {
 									.icon-vue {
 										filter: none;
@@ -125,7 +135,7 @@
 								.icon-vue {
 									background-image: var(--icon-filetype-diagram-dark);
 								}
-		
+
 								&:hover {
 									.icon-vue {
 										filter: none;
@@ -135,11 +145,11 @@
 
 							&[data-cy-upload-picker-menu-entry="template-new-text-0"] {
 								order: 5;
-								
+
 								.icon-vue {
 									background-image: var(--icon-file-grey);
 								}
-		
+
 								&:hover {
 									.icon-vue {
 										filter: none;
@@ -149,11 +159,11 @@
 
 							&[data-cy-upload-picker-menu-entry="album-add"] {
 								order: 9;
-								
+
 								.icon-vue {
 									background-image: var(--icon-import-dark);
 								}
-		
+
 								&:hover {
 									.icon-vue {
 										filter: none;
@@ -178,7 +188,7 @@
 
 							&.upload-icon {
 								background-image: var(--icon-upload-dark);
-							
+
 								svg {
 									display: none;
 								}
@@ -186,28 +196,28 @@
 
 							&.fullscreen-icon {
 								background-image: var(--icon-fullscreen-dark);
-							
+
 								svg {
 									display: none;
 								}
 							}
-							
+
 							&.download-icon {
 								background-image: var(--icon-download-dark);
-							
+
 								svg {
 									display: none;
 								}
 							}
-							
+
 							&.icon-menu-sidebar {
 								background-image: var(--icon-share-dark);
-							
+
 								svg {
 									display: none;
 								}
-							} 
-			
+							}
+
 							&.delete-icon {
 								background-image: var(--icon-delete-dark);
 
@@ -216,7 +226,7 @@
 								}
 							}
 						}
-    
+
 						&.files-list__row-actions-batch-delete .icon-vue {
 							background-image: var(--icon-delete-dark);
 
@@ -224,7 +234,7 @@
 								display: none;
 							}
 						}
-				
+
 						&.files-list__row-actions-batch-favorite .icon-vue {
 							background-image: var(--original-icon-star-dark);
 
@@ -232,7 +242,7 @@
 								display: none;
 							}
 						}
-				
+
 						&.files-list__row-actions-batch-move-copy .icon-vue {
 							background-image: var(--icon-external-dark);
 
@@ -240,7 +250,7 @@
 								display: none;
 							}
 						}
-				
+
 						&.files-list__row-actions-batch-download .icon-vue {
 							background-image: var(--icon-download-dark);
 
@@ -248,7 +258,7 @@
 								display: none;
 							}
 						}
-				
+
 						&.files-list__row-actions-batch-files_zip .icon-vue {
 							background-image: var(--icon-compress-zip-dark);
 
@@ -256,7 +266,7 @@
 								display: none;
 							}
 						}
-				
+
 						&.files-list__row-actions-batch-cancel_select .icon-vue {
 							background-image: var(--icon-close-dark);
 
@@ -281,10 +291,10 @@
 	&.v-popper__popper {
 
 		.v-popper__wrapper {
-	
+
 			.v-popper__inner {
 				background-color: var(--telekom-color-background-surface);
-	
+
 				.material-design-icon {
 
 					&.information-icon {
@@ -318,7 +328,7 @@
 							display: none;
 						}
 					}
-			
+
 					&.pencil-icon {
 						background-image: var(--icon-edit-dark);
 
@@ -326,7 +336,7 @@
 							display: none;
 						}
 					}
-	
+
 					&.download-multiple-icon {
 						background-image: var(--icon-download-dark);
 
@@ -334,7 +344,7 @@
 							display: none;
 						}
 					}
-	
+
 					&.star-icon {
 						background-image: var(--icon-star-dark);
 
@@ -342,7 +352,7 @@
 							display: none;
 						}
 					}
-	
+
 					&.close-icon {
 						background-image: var(--icon-close-dark);
 
@@ -350,7 +360,7 @@
 							display: none;
 						}
 					}
-	
+
 					&.folder-icon {
 						background-image: var(--icon-folder-dark);
 
@@ -359,50 +369,57 @@
 						}
 					}
 				}
-			
+
 				li.action {
-	
+
 					.action-button__icon {
 						background-size: 24px;
 						background-position: center;
 					}
-			
+
 					&.action-separator.action--disabled {
 						border-bottom: 1px solid var(--telekom-color-ui-border-pressed);
 					}
-			
+
 					&.active {
 						background-color: initial;
-				
+
 						// do not set Delete icon to red when hovered
 						.icon-delete:hover {
 							background-image: var(--icon-delete-dark);
 						}
 					}
-			
+
 					&:hover {
-						.action-button__icon, .material-design-icon, .icon-vue {
+
+						.action-button__icon,
+						.material-design-icon,
+						.icon-vue {
 							filter: var(--nmc-color-icon);
 						}
-				
-						.action-button__text, .action-button__longtext, .action-link__text, .action-link__longtext {
+
+						.action-button__text,
+						.action-button__longtext,
+						.action-link__text,
+						.action-link__longtext {
+							cursor: pointer;
 							color: var(--telekom-color-primary-standard);
 						}
 					}
 				}
-			
+
 				// hide upload file menu item in Photos Album
-				li[data-upload-picker-add=""]{
+				li[data-upload-picker-add=""] {
 					display: none;
 				}
-	
-				li:last-child > .action-input  {
+
+				li:last-child>.action-input {
 					padding-bottom: 0;
-	
+
 					.action-input__form {
 						padding-right: 0;
 					}
-	
+
 					label {
 						display: none;
 					}
@@ -421,7 +438,7 @@
 		}
 
 		&[data-popper-placement^=bottom] {
-			
+
 			.v-popper__wrapper {
 
 				.v-popper__arrow-container {
