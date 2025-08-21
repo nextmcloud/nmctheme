@@ -69,6 +69,10 @@
 #unified-search .unified-search-modal {
     padding-block: 1rem 0;
     
+    &__content {
+        --dialog-height: min(65vh, 700px);
+    }
+
     &__header {
         .input-field {
             label.input-field__label {
