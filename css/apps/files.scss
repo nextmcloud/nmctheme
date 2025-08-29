@@ -337,12 +337,29 @@ table.files-filestable {
 		}
 	}
 
-	// fix table header overlab with tbody in modal
+	// fix table header overlap with tbody in modal
 	.modal-container__content {
 		.dialog__content.file-picker__content {
 			.file-picker__files {
 				thead th {
 					background-color: var(--telekom-color-background-surface);
+				}
+
+				tbody {
+					td {
+						span.icon-vue {
+							background-image: var(--original-icon-folder-overlay-share-white);
+							width: 16px;
+							height: 16px;
+							background-repeat: no-repeat;
+							background-position: center;
+							background-size: 16px;
+
+							svg {
+								display: none;
+							}
+						}
+					}
 				}
 			}
 		}
