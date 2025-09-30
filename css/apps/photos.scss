@@ -690,6 +690,7 @@
 #body-user .modal-container,
 #body-settings .modal-container {
 	background-color: var(--telekom-color-background-surface);
+	padding: 1.5rem;
 
 	button.modal-container__close {
 		border: none;
@@ -722,6 +723,7 @@
 		line-height: unset;
 		margin-block: 1.5rem 1rem;
 		min-height: unset;
+		text-align: left;
 	}
 
 	.photos-picker__actions {

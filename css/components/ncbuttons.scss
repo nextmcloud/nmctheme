@@ -84,7 +84,7 @@
     }
 
     // Secondary
-    &--vue-secondary, &_secondary {
+    &--vue-secondary, &_secondary, &--vue-tertiary, &_tertiary {
         background: transparent;
         border-radius: var(--telekom-radius-standard);
         border: var(--telekom-spacing-composition-space-01) solid currentColor;
