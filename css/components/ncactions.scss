@@ -39,8 +39,6 @@
 						}
 					}
 
-
-
 					li.action-separator,
 					li.app-navigation-caption {
 						display: none;
@@ -59,6 +57,11 @@
 						&[data-cy-upload-picker-menu-entry="upload-folder"] {
 							display: none;
 						}
+
+
+						&:has(span.delete-icon) {
+							display: none;
+						} 
 
 						&.upload-picker__menu-entry {
 
