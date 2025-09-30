@@ -221,7 +221,7 @@
 								}
 							}
 
-							&.delete-icon {
+							&.delete-icon, &.trash-can-icon {
 								background-image: var(--icon-delete-dark);
 
 								svg {

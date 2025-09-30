@@ -114,3 +114,18 @@
         margin-top: unset;
     }
 }
+
+#files-public-content:has(.plyr) {
+
+    #preview {
+        
+        .plyr__video-wrapper {
+
+            height: 890px;
+
+            video {
+                width: auto;
+            }
+        }
+    }
+}
