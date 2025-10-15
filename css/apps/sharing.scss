@@ -234,7 +234,14 @@
 				}
 			}
 		}
+		
+		section {
+			display: flex;
+			flex-direction: column;
+			gap: 3px;
+		}
 	}
+
 }
 
 // TODO this should be done by the icon generation script
@@ -267,6 +274,10 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 
 	.sharing-entry {
 		gap: .5rem;
+
+		&__desc {
+			overflow: auto;
+		}
 	}
 }
 
