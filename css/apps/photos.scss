@@ -495,7 +495,8 @@
 					&[data-id-app-nav-item="shared"],
 					&[data-id-app-nav-item="maps"],
 					&[data-id-app-nav-item="places"],
-					&[data-id-app-nav-item="tags"] {
+					&[data-id-app-nav-item="tags"],
+					&[data-id-app-nav-item="folders"] {
 						display: none;
 					}
 
@@ -559,7 +560,7 @@
 
 			// contains 'Photos settings' button
 			.app-navigation__footer {
-				display: none;
+				// display: none;
 			}
 		}
 
@@ -1120,6 +1121,15 @@
 		img {
 			cursor: default;
 		}
+	}
+
+	.app-settings-section {
+		margin-bottom: 2rem;
+	}
+	
+	#settings-section_layout-settings,
+	.app-settings__navigation {
+		display: none;
 	}
 }
 
