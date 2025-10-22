@@ -225,6 +225,7 @@
 // Sharing details container
 .sharingTabDetailsView {
 	margin: 0 !important;
+	padding: unset !important;
 	
 	&__advanced {
 		.input-field {
@@ -233,12 +234,8 @@
 					display: none;
 				}
 			}
-		}
-		
-		section {
-			display: flex;
-			flex-direction: column;
-			gap: 3px;
+			
+			margin-bottom: 5px;
 		}
 	}
 
