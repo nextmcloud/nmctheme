@@ -24,12 +24,8 @@ on:
         description: Branch to build a package from HEAD
         options: 
           - main
-          - stable25
-          - stable26
-          - stable27
-          - stable28
-          - stable29
           - stable30
+          - stable30-versions
       increment:
         description: 'Release increment'
         required: true
