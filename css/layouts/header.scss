@@ -170,7 +170,11 @@ header {
 }
 
 #notifications {
-	display: none;
+	// display: none;
+	
+	svg {
+		display: block !important;
+	}
 }
 
 #header {

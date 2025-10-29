@@ -104,7 +104,19 @@
 
 	// remove tab navigation
 	.app-sidebar-tabs__nav {
-		display: none;
+		// display: none;
+
+		#tab-button-sharing {
+			display: none;
+		}
+
+		#tab-button-sharing-manage {
+			order: 1;
+		}
+
+		#tab-button-version_vue {
+			order: 2;
+		}
 	}
 
 	// remove left and right padding in sharing tab
