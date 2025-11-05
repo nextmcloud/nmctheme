@@ -71,30 +71,30 @@ class NavigationManagerDecorator implements INavigationManager {
 	}
 
 	/**
-     * No decoration, only delegate.
-     */
-    public function get(string $id): ?array {
-        return $this->decorated->get($id);
-    }
- 
-    /**
-     * No decoration, only delegate.
-     */
+	 * No decoration, only delegate.
+	 */
+	public function get(string $id): ?array {
+		return $this->decorated->get($id);
+	}
+
+	/**
+	 * No decoration, only delegate.
+	 */
     public function getDefaultEntryIdForUser(?\OCP\IUser $user = null, bool $withFallbacks = true): string {
-        return $this->decorated->getDefaultEntryIdForUser($user, $withFallbacks);
-    }
- 
-    /**
-     * No decoration, only delegate.
-     */
+		return $this->decorated->getDefaultEntryIdForUser($user, $withFallbacks);
+	}
+
+	/**
+	 * No decoration, only delegate.
+	 */
     public function getDefaultEntryIds(): array {
         return $this->decorated->getDefaultEntryIds();
     }
- 
-    /**
-     * No decoration, only delegate.
-     */
-    public function setDefaultEntryIds(array $ids): void {
-        $this->decorated->setDefaultEntryIds($ids);
-    }
+
+	/**
+	 * No decoration, only delegate.
+	 */
+	public function setDefaultEntryIds(array $ids): void {
+		$this->decorated->setDefaultEntryIds($ids);
+	}
 }

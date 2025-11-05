@@ -1,7 +1,7 @@
 <template>
 	<div class="storage-quota">
 		<div class="storage-quota__title" @click.stop.prevent="debounceUpdateStorageStats">
-			<NcIconSvgWrapper :svg="currentImage" size="30" />
+			<NcIconSvgWrapper :svg="currentImage" class="storage-quota__icon" />
 			<!-- eslint-disable-next-line vue/no-v-html -->
 			<p v-html="storageStatsTitle" />
 		</div>
@@ -128,6 +128,7 @@ export default {
 		gap: var(--telekom-spacing-composition-space-04);
 		align-items: end;
 		img {
+			height: 30px;
 			width: 30px;
 		}
 		p {

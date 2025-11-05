@@ -741,28 +741,36 @@ table.files-filestable {
 					td {
 						.files-list__row-icon {
 
-							img {
-								background-color: unset;
-								background-position: center;
-								background-repeat: no-repeat;
-								background-size: contain;
-								border: none;
-								height: 44px;
-								margin-top: 0.2rem;
-								width: 44px;
-							}
+							.files-list__row-icon-preview-container {
+								    position: unset;
+									overflow: unset;
+									width: unset;
+									height: unset;
+									border-radius: unset;
 
-							.files-list__row-icon-favorite {
-								width: 24px;
-								height: 24px;
+								img {
+									background-color: unset;
+									background-position: center;
+									background-repeat: no-repeat;
+									background-size: contain;
+									border: none;
+									height: 44px;
+									margin-top: 0.2rem;
+									width: 44px;
+								}
 
-								.icon-vue {
-									background-size: 24px;
+								.files-list__row-icon-favorite {
 									width: 24px;
 									height: 24px;
 
-									svg {
-										display: none;
+									.icon-vue {
+										background-size: 24px;
+										width: 24px;
+										height: 24px;
+
+										svg {
+											display: none;
+										}
 									}
 								}
 							}

@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			menuButton.appendChild(username)
 		}
 
-		const searchButton = document.querySelector('.unified-search-menu > button')
+		const searchButton = document.querySelector('#unified-search > button')
 		if (searchButton !== null) {
 			const searchlabel = document.createElement('span')
 			searchlabel.className = 'button-vue__label'

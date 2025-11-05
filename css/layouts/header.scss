@@ -155,8 +155,8 @@ header {
 			order: 3;
 		}
 
-		#header-right,
-		.header-right {
+		#header-end,
+		.header-end {
 			flex-grow: 1;
 			flex-shrink: unset;
 			order: 2;
@@ -176,7 +176,19 @@ header {
 #header {
 	box-shadow: 0 2px 9px var(--color-box-shadow);
 
-	.header-right {
+	.header-end {
+
+		#notifications {
+			order: 1;
+
+			button.button-vue {
+				padding: 0 1rem;
+			}
+
+			#header-menu-notifications {
+				border-radius: var(--border-radius-large);
+			}
+		}
 
 		// hide 'Search contacts' button
 		#contactsmenu {
@@ -244,7 +256,7 @@ header {
 }
 
 // Custom styling for the 'Search' button
-#header .header-right .header-menu.unified-search-menu {
+#header .header-end .unified-search-menu {
 	button {
 		border: none;
 		border-radius: 0;
