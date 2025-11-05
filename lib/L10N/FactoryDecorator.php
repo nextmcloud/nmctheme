@@ -350,15 +350,6 @@ class FactoryDecorator implements IFactory {
 	}
 
 	/**
-	 * decorate standard IFactory with supported locale filter
-	 * @see public\L10N\IFactory
-	 * @see private\L10N\Factory
-	 */
-	public function getLanguageDirection(string $language): string {
-		return $this->decoratedFactory->getLanguageDirection($language);
-	}
-
-	/**
      * decorate standard IFactory with supported locale filter
      * @see public\L10N\IFactory
      * @see private\L10N\Factory
