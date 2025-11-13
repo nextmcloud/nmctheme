@@ -3,7 +3,7 @@
 
 #user-menu {
     .header-menu__carret {
-        display: none !important;
+        display: none;
     }
 
     .header-menu__wrapper {
@@ -15,7 +15,7 @@
         li:has(a#admin_settings),
         li:has(a#core_apps),
         li:has(a#core_users) {
-            display: none !important;
+            display: none;
         }
 
         ul {
@@ -27,7 +27,7 @@
 
             li.menu-entry {
                 width: 100%;
-                padding: 2px 0 !important;
+                padding: 2px 0;
                 margin: 0;
                 box-sizing: border-box;
 
@@ -85,7 +85,7 @@
             // Account Menu Entry (for Log out)
             li.account-menu-entry {
                 width: 100%;
-                padding: 2px 0 !important;
+                padding: 2px 0;
                 margin: 0;
                 box-sizing: border-box;
 
@@ -124,15 +124,15 @@
                 }
 
                 &>.list-item {
-                    --list-item-height: auto !important;
-                    --list-item-padding: 0px !important;
-                    min-height: 52px !important;
+                    --list-item-height: auto;
+                    --list-item-padding: 0px;
+                    min-height: 52px;
 
                     .list-item-content {
-                        padding-inline-start: 0% !important;
+                        padding-inline-start: 0%;
 
                         .list-item-content__name{
-                            font-weight: inherit !important;
+                            font-weight: inherit;
                         }
                     }
                     
