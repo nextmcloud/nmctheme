@@ -20,6 +20,11 @@ const menuItems = [{
 	name: t(app, 'Customer center'),
 	url: 'https://www.telekom.de/mein-kundencenter',
 	target: '_blank',
+}, {
+	id: 'nmc_welcome_popup-about',
+	name: t(app, 'News'),
+	url: '#',
+	target: '_self',
 }]
 
 window.addEventListener('DOMContentLoaded', function() {
