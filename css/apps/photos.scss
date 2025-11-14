@@ -1137,3 +1137,102 @@
 #body-settings .modal-wrapper--small > .modal-container {
 	width: 550px;
 }
+
+// Share Album modal window
+#body-user .modal-container {
+	.sharingAlbum{
+		&__divider {
+			border-bottom: 1px solid var(--color-border);
+			margin-bottom: 1rem;
+			text-align: center;
+		}
+
+		&__or {
+			background-color: var(--telekom-color-background-surface);
+			bottom: -0.75rem;
+			font-size: 14px;
+			padding: 0.75rem;
+			position: relative;
+		}
+	}
+
+	.manage-collaborators{
+		height: 130px;
+		.actions {
+			display: block;
+		}
+
+		&__title {
+			margin: unset;
+			font-size: 20px;
+			line-height: initial;
+		}
+
+		.album-sharing-search form {
+			min-width: auto;
+    		width: 100%;
+    		margin: 0.75rem 0;
+			.vs__dropdown-toggle {
+				margin: 0.75rem 0;
+			}
+		}
+
+		.actions {
+			h2 {
+				margin: unset;
+				font-size: 20px;
+				line-height: initial;
+				display: flex;
+				align-items: center;
+				min-height: 2rem;
+				margin-bottom: unset;
+			}
+			
+			&__sharing-entry {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				padding: 0.5rem;
+				line-height: 1rem;
+				margin-right: auto;
+				overflow: auto;
+
+				.share-select {
+					margin-top: unset;
+				}
+			}
+
+			&__public-link {
+				min-height: 2rem;
+    			// justify-content: flex-end;
+    			gap: 0.5rem;
+				margin-top: 1rem;
+			}
+			
+			.button-vue {
+				padding: 0 0.5rem !important;
+				min-height: 2rem !important;
+				margin: 0 !important;
+
+				&__text {
+					font-size: 14px;
+				}
+
+				&__icon {
+					min-width: 2rem !important;
+					width: 2rem !important;
+					min-height: 2rem !important;
+					height: 2rem !important;
+
+					.icon {
+						background-size: 18px;
+					}
+				}
+			}
+
+			&__slot{
+				display:none;
+			}
+		}
+	}
+}
