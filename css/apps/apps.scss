@@ -15,22 +15,13 @@
 	background-color: var(--color-main-background);
 }
 
-#body-user,
-#body-settings,
-#body-public {
-	background-image: url('../img/telekom/mcfluffy.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: top center;
-}
-
 /* CONTENT  --------------------------------------------------------- */
 #content,
 #content-vue {
 	border-radius: 0;
-	margin: 89px 16px 0;
+	margin: 73px 0 0;
 	height: var(--body-height);
-	width: calc(100% - 32px);
+	width: 100%;
 
 	@media screen and (max-width: $breakpoint-mobile-small) {
 		margin: 73px 0 0;
