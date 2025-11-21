@@ -350,10 +350,10 @@ class FactoryDecorator implements IFactory {
 	}
 
 	/**
-     * decorate standard IFactory with supported locale filter
-     * @see public\L10N\IFactory
-     * @see private\L10N\Factory
-     */
+	 * decorate standard IFactory with supported locale filter
+	 * @see public\L10N\IFactory
+	 * @see private\L10N\Factory
+	 */
 	public function localeExists($locale) {
 		if (!$this->isSupportedLocale($locale)) {
 			return false;

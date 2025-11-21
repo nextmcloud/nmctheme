@@ -80,16 +80,16 @@ class NavigationManagerDecorator implements INavigationManager {
 	/**
 	 * No decoration, only delegate.
 	 */
-    public function getDefaultEntryIdForUser(?\OCP\IUser $user = null, bool $withFallbacks = true): string {
+	public function getDefaultEntryIdForUser(?\OCP\IUser $user = null, bool $withFallbacks = true): string {
 		return $this->decorated->getDefaultEntryIdForUser($user, $withFallbacks);
 	}
 
 	/**
 	 * No decoration, only delegate.
 	 */
-    public function getDefaultEntryIds(): array {
-        return $this->decorated->getDefaultEntryIds();
-    }
+	public function getDefaultEntryIds(): array {
+		return $this->decorated->getDefaultEntryIds();
+	}
 
 	/**
 	 * No decoration, only delegate.
