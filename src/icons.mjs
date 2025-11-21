@@ -69,6 +69,7 @@ const icons = {
 	download: path.join(__dirname, '../img', 'actions', 'download.svg'),
 	logout: path.join(__dirname, '../img', 'actions', 'logout.svg'),
 	menu: path.join(__dirname, '../img', 'actions', 'menu.svg'),
+	notification: path.join(__dirname, '../img', 'actions', 'notification.svg'),
 	search: path.join(__dirname, '../img', 'actions', 'search.svg'),
 	share: path.join(__dirname, '../img', 'actions', 'share.svg'),
 	shared: path.join(__dirname, '../img', 'actions', 'share.svg'),
