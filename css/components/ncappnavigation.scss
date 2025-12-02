@@ -198,6 +198,10 @@
 				}
 			}
 		}
+
+		.button-vue.icon-collapse {
+			background-color: var(--telekom-color-background-canvas) !important;
+		}
 	}
 
 	&[data-cy-files-navigation-item=favorites] {
