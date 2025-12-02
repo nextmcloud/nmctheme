@@ -1,18 +1,20 @@
 <template>
 	<div class="storage-quota">
-		<div class="storage-quota__title" @click.stop.prevent="debounceUpdateStorageStats">
-			<NcIconSvgWrapper :svg="currentImage" class="storage-quota__icon" />
-			<!-- eslint-disable-next-line vue/no-v-html -->
-			<p v-html="storageStatsTitle" />
+		<div class="storage-quota__header">
+			<div class="storage-quota__title" @click.stop.prevent="debounceUpdateStorageStats">
+				<!-- eslint-disable-next-line vue/no-v-html -->
+				<p v-html="storageStatsTitle" />
+			</div>
+			<div v-if="storageStats?.quota >= 0" class="storage-quota__total">
+				{{ formattedStats.quotaByte }}
+			</div>
 		</div>
 		<ProgressBar :percentage="memoryUsed" />
-		<p v-if="memoryUsed > 0">
-			{{ t('nmctheme', 'Memory used up to {memoryUsage}%', { memoryUsage }) }}
-		</p>
-		<a class="button-vue--vue-secondary storage-quota__link"
+		<a class="storage-quota__link"
 			target="_blank"
 			rel="noopener"
 			href="https://cloud.telekom-dienste.de/tarife">
+			<NcIconSvgWrapper :svg="cloudIconSvg" class="storage-quota__link-icon" />
 			{{ t('nmctheme', 'Expand storage') }}
 		</a>
 	</div>
@@ -29,6 +31,7 @@ import axios from '@nextcloud/axios'
 import { translate, getCanonicalLocale } from '@nextcloud/l10n'
 import { NcIconSvgWrapper } from '@nextcloud/vue'
 import cloudSvg from '../../img/app-logo.svg'
+import cloudIconSvg from '../../img/actions/cloud.svg'
 
 export default {
 	components: {
@@ -48,13 +51,13 @@ export default {
 			return { usedQuotaByte, quotaByte }
 		},
 		storageStatsTitle() {
-			const { usedQuotaByte, quotaByte } = this.formattedStats
+			const { usedQuotaByte } = this.formattedStats
 
 			if (this.storageStats?.quota < 0) {
 				return `<b>${usedQuotaByte}</b> ` + t('nmctheme', 'used')
 			}
 
-			return `<b>${usedQuotaByte}</b> ${t('nmctheme', 'of')} ${quotaByte}`
+			return `${usedQuotaByte} <span class="storage-percentage">(${t('nmctheme', 'Storage at {percentage}% used', { percentage: Math.round(this.memoryUsed) })})</span>`
 		},
 		memoryUsed() {
 			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toFixed(2)
@@ -64,6 +67,9 @@ export default {
 		},
 		currentImage() {
 			return cloudSvg
+		},
+		cloudIconSvg() {
+			return cloudIconSvg
 		},
 	},
 	beforeMount() {
@@ -87,7 +93,12 @@ export default {
 			this.updateStorageStats(event)
 		}),
 		async loadStorageStats() {
-			this.storageStats = await loadStats()
+			// Temporarily hardcoded for testing
+			this.storageStats = {
+				used: 22737367449.6,  // 21.2 GB in bytes
+				quota: 26843545600,    // 25 GB in bytes
+			}
+			// this.storageStats = await loadStats()
 		},
 		async updateStorageStats(event = null) {
 			if (this.loadingStorageStats) {
@@ -120,27 +131,54 @@ export default {
 .storage-quota {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+	}
 
 	&__title {
-		display: flex;
-		flex-wrap: nowrap;
-		gap: var(--telekom-spacing-composition-space-04);
-		align-items: end;
-		img {
-			height: 30px;
-			width: 30px;
-		}
 		p {
-			font: var(--telekom-text-style-lead-text);
+			font-size: var(--telekom-typography-font-size-small);
+			color: #6C7C8C;
+			margin: 0;
 		}
+
+		.storage-percentage {
+			font-weight: normal;
+		}
+	}
+
+	&__total {
+		font-size: var(--telekom-typography-font-size-small);
+		color: #6C7C8C;
+		font-weight: 500;
 	}
 
 	&__link {
 		width: fit-content;
-		padding: 0.5rem 1.5rem;
+		padding: 0.625rem 1.2rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
 		font: var(--telekom-text-style-body);
 		font-weight: bold;
+		background-color: #D2E2FC;
+		border-radius: 9999px;
+		margin-top: 0.5rem;
+
+		&-icon {
+			width: 20px;
+			height: 20px;
+			min-width: 20px !important;
+      		min-height: 20px !important;
+
+			:deep(svg) {
+				fill: currentColor;
+				color: #000000;
+			}
+		}
 	}
 }
 </style>
