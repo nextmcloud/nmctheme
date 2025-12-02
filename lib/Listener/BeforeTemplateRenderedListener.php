@@ -100,6 +100,7 @@ class BeforeTemplateRenderedListener implements IEventListener {
 		\OCP\Util::addScript("nmctheme", "nmctheme-skipactions", "core");
 		\OCP\Util::addScript("nmctheme", "nmctheme-filessettings", "files");
 		\OCP\Util::addScript("nmctheme", "nmctheme-filelistplugin", "files");
+		\OCP\Util::addScript("nmctheme", "nmctheme-actions", "files");
 		// \OCP\Util::addScript("nmctheme", "nmctheme-conflictdialog");
 		// \OCP\Util::addScript("nmctheme", "nmctheme-tooltip");
 		// \OCP\Util::addScript("nmctheme", "nmctheme-shareicons");

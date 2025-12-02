@@ -14,6 +14,7 @@ webpackConfig.entry = {
 	nmcheader: path.join(__dirname, 'src', 'nmcheader.ts'),
 	nmclogo: path.join(__dirname, 'src', 'nmclogo.ts'),
 	nmcfiles: path.join(__dirname, 'src', 'nmcfiles.ts'),
+	actions: path.join(__dirname, 'src', 'actions.ts'),
 	// shareicons: path.join(__dirname, 'src', 'js', 'shareicons.js'),
 	// tooltip: path.join(__dirname, 'src', 'js', 'tooltip.js'),
 }

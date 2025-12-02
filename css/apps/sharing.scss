@@ -116,6 +116,20 @@
 
 		#tab-button-version_vue {
 			order: 2;
+
+			.svg-icon {
+				background-image: var(--icon-history-dark);
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 20px;
+				display: block;
+				height: 24px;
+				width: 24px;
+
+				svg {
+					display: none;
+				}
+			}
 		}
 	}
 

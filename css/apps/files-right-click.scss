@@ -96,6 +96,12 @@
 						background-image: var(--icon-restore-dark);
 					}
 				}
+	
+				&[data-cy-files-list-row-action="versions"] {
+					span.icon-vue {
+						background-image: var(--icon-history-dark);
+					}
+				}
 			}
 		}
 	}
