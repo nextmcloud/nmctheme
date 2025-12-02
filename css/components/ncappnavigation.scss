@@ -101,7 +101,6 @@
 
 		.app-navigation-entry-link {
 			border-radius: var(--telekom-radius-standard);
-			padding: 0.25rem;
 
 			.app-navigation-entry-icon {
 				background-size: 24px;
@@ -188,6 +187,20 @@
 		}
 	}
 
+	// Target the specific ul with higher specificity
+	&[data-cy-files-navigation-item=shareoverview] {
+		> ul.app-navigation-entry__children {
+			margin-left: 2rem !important;
+
+			// Change text color of submenu items to regular color
+			li {
+				.app-navigation-entry__name {
+					color: var(--telekom-color-ui-regular) !important;
+				}
+			}
+		}
+	}
+
 	&[data-cy-files-navigation-item=favorites] {
 
 		// hide every subentry
@@ -232,10 +245,16 @@
 
 	&[data-cy-files-navigation-item=sharingin] .app-navigation-entry-icon {
 		background-image: var(--icon-share-with-me-dark);
+		display: none;
+	}
+
+	&[data-cy-files-navigation-item=sharingout] .app-navigation-entry-icon {
+		display: none;
 	}
 
 	&[data-cy-files-navigation-item=pendingshares] .app-navigation-entry-icon {
 		background-image: var(--icon-share-pending-dark);
+		display: none;
 	}
 
 	&[data-cy-files-navigation-item=trashbin] .app-navigation-entry-icon {
