@@ -187,15 +187,14 @@
 		}
 	}
 
-	// Target the specific ul with higher specificity
 	&[data-cy-files-navigation-item=shareoverview] {
 		> ul.app-navigation-entry__children {
-			margin-left: 2rem !important;
+			padding-inline-start: 0 !important;
 
-			// Change text color of submenu items to regular color
 			li {
 				.app-navigation-entry__name {
 					color: var(--telekom-color-ui-regular) !important;
+					margin-left: 48px;
 				}
 			}
 		}

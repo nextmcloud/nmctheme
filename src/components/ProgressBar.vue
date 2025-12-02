@@ -46,7 +46,7 @@ export default {
 .progress-bar::after {
 	content: "";
 	position: absolute;
-	right: 0;
+	right: 2px;
 	top: 50%;
 	transform: translateY(-50%);
 	width: 4px;
