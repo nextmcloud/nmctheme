@@ -101,6 +101,7 @@
 
 		.app-navigation-entry-link {
 			border-radius: var(--telekom-radius-standard);
+			background-color: transparent !important;
 
 			.app-navigation-entry-icon {
 				background-size: 24px;
@@ -110,7 +111,9 @@
 
 		&:hover,
 		&.active,
-		&.active:hover {
+		&.active:hover,
+		&:focus,
+		&:focus-within {
 			background-color: transparent !important;
 		}
 
@@ -200,7 +203,7 @@
 		}
 
 		.button-vue.icon-collapse {
-			background-color: var(--telekom-color-background-canvas) !important;
+			background-color: transparent !important;
 		}
 	}
 
