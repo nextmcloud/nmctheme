@@ -94,6 +94,7 @@
 #app-navigation-vue .app-navigation-entry-wrapper {
 
 	.app-navigation-entry {
+		position: relative;
 		border-radius: var(--telekom-radius-standard);
 		font: var(--telekom-text-style-ui-bold);
 		transition: none;
@@ -111,7 +112,7 @@
 		&:hover,
 		&.active,
 		&.active:hover {
-			background-color: var(--nmc-color-background-hover) !important;
+			background-color: transparent !important;
 		}
 
 		// do not pin app navigation entries to the bottom
@@ -123,7 +124,15 @@
 		// active link styling
 		&.active {
 			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				height: 24px;
+				width: 4px;
 				background-color: var(--telekom-color-primary-standard);
+				border-radius: 4px;
 			}
 
 			span {
@@ -138,11 +147,12 @@
 		// on hover link styling
 		&:hover {
 			span {
-				color: var(--telekom-color-text-and-icon-primary-standard);
+				color: var(--telekom-color-text-and-icon-primary-hovered);
+				text-decoration: underline;
 			}
 
 			.app-navigation-entry-icon {
-				filter: var(--nmc-color-icon)
+				filter: var(--nmc-color-icon-hovered);
 			}
 		}
 
