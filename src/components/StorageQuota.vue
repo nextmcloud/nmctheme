@@ -93,12 +93,7 @@ export default {
 			this.updateStorageStats(event)
 		}),
 		async loadStorageStats() {
-			// Temporarily hardcoded for testing
-			this.storageStats = {
-				used: 22737367449.6,  // 21.2 GB in bytes
-				quota: 26843545600,    // 25 GB in bytes
-			}
-			// this.storageStats = await loadStats()
+				this.storageStats = await loadStats()
 		},
 		async updateStorageStats(event = null) {
 			if (this.loadingStorageStats) {

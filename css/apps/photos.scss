@@ -521,36 +521,60 @@
 								display: none;
 							}
 
-							&.star-icon {
+							// Star icons (Favorites)
+							&.star-icon,
+							&.star-outline-icon {
 								background-image: var(--icon-star-dark);
 							}
 
-							&.folder-icon {
+							// Folder icons (Folders)
+							&.folder-icon,
+							&.folder-outline-icon {
 								background-image: var(--icon-folder-dark);
 							}
 
-							&.camera-icon {
-								background-image: var(--icon-photo-camera-dark);
+							// Camera icons (Photos)
+							&.camera-icon,
+							&.camera-outline-icon {
+								background-image: var(--icon-photo-camera-media-dark);
 							}
 
-							&.video-icon {
-								background-image: var(--icon-camera-dark);
+							// Video icons (Videos)
+							&.video-icon,
+							&.video-outline-icon {
+								background-image: var(--icon-video-camera-media-dark);
 							}
 
-							&.folder-multiple-image-icon {
+							// Image Multiple icons (Albums)
+							&.folder-multiple-image-icon,
+							&.image-multiple-icon,
+							&.image-multiple-outline-icon {
 								background-image: var(--icon-albums-dark);
 							}
 
-							&.image-icon {
-								background-image: var(--icon-photos-videos-dark);
+							// Image icons (All media)
+							&.image-icon,
+							&.image-outline-icon {
+								background-image: var(--icon-all-media-dark);
 							}
 
-							&.share-variant-icon {
-								background-image: var(--icon-attachment-dark);
-							}
-
-							&.account-group-icon {
+							// Share/Account Group icons (Collaborative albums)
+							&.share-variant-icon,
+							&.account-group-icon,
+							&.account-group-outline-icon {
 								background-image: var(--icon-shared-dark);
+							}
+
+							// Calendar icons (On this day)
+							&.calendar-today-icon,
+							&.calendar-today-outline-icon {
+								background-image: var(--icon-calendar-dark);
+							}
+
+							// Account Box Multiple icons (People/Faces)
+							&.account-box-multiple-icon,
+							&.account-box-multiple-outline-icon {
+								background-image: var(--icon-people-dark);
 							}
 						}
 					}
