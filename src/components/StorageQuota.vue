@@ -93,7 +93,7 @@ export default {
 			this.updateStorageStats(event)
 		}),
 		async loadStorageStats() {
-				this.storageStats = await loadStats()
+			this.storageStats = await loadStats()
 		},
 		async updateStorageStats(event = null) {
 			if (this.loadingStorageStats) {
@@ -167,7 +167,7 @@ export default {
 			width: 20px;
 			height: 20px;
 			min-width: 20px !important;
-      		min-height: 20px !important;
+			min-height: 20px !important;
 
 			:deep(svg) {
 				fill: currentColor;
