@@ -100,6 +100,11 @@ class BeforeTemplateRenderedListener implements IEventListener {
 		\OCP\Util::addScript("nmctheme", "nmctheme-skipactions", "core");
 		\OCP\Util::addScript("nmctheme", "nmctheme-filessettings", "files");
 		\OCP\Util::addScript("nmctheme", "nmctheme-filelistplugin", "files");
+		\OCP\Util::addStyle('nmctheme', 'telekom-design-tokens.all');
+		\OCP\Util::addStyle('nmctheme', 'icons');
+		\OCP\Util::addStyle('nmctheme', 'nmcdefault');
+		\OCP\Util::addStyle('nmctheme', 'nmcstyle');
+
 		// \OCP\Util::addScript("nmctheme", "nmctheme-conflictdialog");
 		// \OCP\Util::addScript("nmctheme", "nmctheme-tooltip");
 		// \OCP\Util::addScript("nmctheme", "nmctheme-shareicons");

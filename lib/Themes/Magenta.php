@@ -79,12 +79,7 @@ class Magenta implements ITheme {
 		$iconsVariables .= '?nmcv=' . $cacheBuster;
 		$themeStyle .= '?nmcv=' . $cacheBuster;
 
-		return "
-			@import url('{$telekomVariables}');
-			@import url('{$themeVariables}');
-			@import url('{$iconsVariables}');
-			@import url('{$themeStyle}');
-		";
+		return "";
 	}
 
 	public function getMeta(): array {

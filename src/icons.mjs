@@ -263,6 +263,6 @@ css += '[data-themes*=dark] {'
 css += generateVariablesAliases(variables, true)
 css += '}'
 
-const distFolder = path.join(__dirname, '../dist')
+const distFolder = path.join(__dirname, '../css')
 fs.mkdirSync(distFolder, { recursive: true })
 fs.writeFileSync(path.join(distFolder, 'icons.css'), sass.compileString(css).css)
