@@ -94,13 +94,14 @@
 #app-navigation-vue .app-navigation-entry-wrapper {
 
 	.app-navigation-entry {
+		position: relative;
 		border-radius: var(--telekom-radius-standard);
 		font: var(--telekom-text-style-ui-bold);
 		transition: none;
 
 		.app-navigation-entry-link {
 			border-radius: var(--telekom-radius-standard);
-			padding: 0.25rem;
+			background-color: transparent !important;
 
 			.app-navigation-entry-icon {
 				background-size: 24px;
@@ -110,8 +111,10 @@
 
 		&:hover,
 		&.active,
-		&.active:hover {
-			background-color: var(--nmc-color-background-hover) !important;
+		&.active:hover,
+		&:focus,
+		&:focus-within {
+			background-color: transparent !important;
 		}
 
 		// do not pin app navigation entries to the bottom
@@ -123,7 +126,15 @@
 		// active link styling
 		&.active {
 			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				height: 24px;
+				width: 4px;
 				background-color: var(--telekom-color-primary-standard);
+				border-radius: 4px;
 			}
 
 			span {
@@ -138,11 +149,12 @@
 		// on hover link styling
 		&:hover {
 			span {
-				color: var(--telekom-color-text-and-icon-primary-standard);
+				color: var(--telekom-color-text-and-icon-primary-hovered);
+				text-decoration: underline;
 			}
 
 			.app-navigation-entry-icon {
-				filter: var(--nmc-color-icon)
+				filter: var(--nmc-color-icon-hovered);
 			}
 		}
 
@@ -175,6 +187,23 @@
 		// Hide all the SVGs
 		span.icon-vue {
 			display: none;
+		}
+	}
+
+	&[data-cy-files-navigation-item=shareoverview] {
+		> ul.app-navigation-entry__children {
+			padding-inline-start: 0 !important;
+
+			li {
+				.app-navigation-entry__name {
+					color: var(--telekom-color-ui-regular) !important;
+					margin-left: 48px;
+				}
+			}
+		}
+
+		.button-vue.icon-collapse {
+			background-color: transparent !important;
 		}
 	}
 
@@ -222,10 +251,16 @@
 
 	&[data-cy-files-navigation-item=sharingin] .app-navigation-entry-icon {
 		background-image: var(--icon-share-with-me-dark);
+		display: none;
+	}
+
+	&[data-cy-files-navigation-item=sharingout] .app-navigation-entry-icon {
+		display: none;
 	}
 
 	&[data-cy-files-navigation-item=pendingshares] .app-navigation-entry-icon {
 		background-image: var(--icon-share-pending-dark);
+		display: none;
 	}
 
 	&[data-cy-files-navigation-item=trashbin] .app-navigation-entry-icon {

@@ -22,9 +22,9 @@ export default {
 
 .progress-bar {
 	width: 100%;
-	background-color: var(--telekom-color-ui-faint);
-	height: 6px;
-	border-radius: var(--telekom-radius-small);
+	background-color: #C8D9EF;
+	height: 8px;
+	border-radius: 9999px;
 	position: relative;
 }
 
@@ -39,8 +39,22 @@ export default {
 		--telekom-motion-easing-standard : cubic-bezier(0.4,0,0.6,1)
 	*/
 	transition: width 100ms cubic-bezier(0.4,0,0.6,1);
-	border-radius: var(--telekom-radius-small);
-	background: var(--telekom-color-primary-standard);
+	border-radius: 9999px;
+	background: #5B7290;
+}
+
+.progress-bar::after {
+	content: "";
+	position: absolute;
+	right: 2px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 4px;
+	height: 4px;
+	background: #5B7290;
+	border-radius: 50%;
+	border: 1px solid #FFFFFF;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 </style>
