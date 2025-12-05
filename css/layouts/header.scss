@@ -47,8 +47,7 @@ header {
 	}
 
 	.logo {
-		left: 24px;
-		width: 60px;
+		width: 72px;
 	}
 
 	// brand logo update
@@ -58,15 +57,20 @@ header {
 		.logo.logo-icon {
 			background-image: var(--image-logoheader);
 			position: initial;
-			width: 60px;
-			height: 60px;
-			margin: 6px 0 6px 1.5rem;
+			width: 72px;
+			height:72px;
+			margin:0
 		}
 
 		.title {
-			font-size: 25px;
-			margin: auto 2.5rem auto 1rem;
-			width: 167px;
+			font-weight: var(--telekom-typography-font-weight-bold);
+			font-style: normal;
+			font-size: var(--telekom-typography-font-size-callout);
+			line-height: var(--telekom-typography-line-spacing-standard);
+			letter-spacing: var(--telekom-typography-letter-spacing-standard);
+			color: var(--color-primary);
+			margin: auto 3rem;
+			width: 130px;
 		}
 	}
 
@@ -92,12 +96,6 @@ header {
 					opacity: 1;
 					margin: 0;
 					filter: unset;
-				}
-			}
-
-			&-entry {
-				&--label {
-					font-weight: 800;
 				}
 			}
 
@@ -137,7 +135,7 @@ header {
 		margin: 0 var(--telekom-spacing-baseline-space-10) 0 0;
 		overflow: visible;
 		padding: 0;
-		padding-left: 60px; // logo width
+		padding-left: 72px; // logo width
 	}
 
 	// hide logo and application name in mobile view - show logolayer instead
@@ -169,12 +167,8 @@ header {
 	}
 }
 
-#notifications {
-	display: none;
-}
 
 #header {
-	box-shadow: 0 2px 9px var(--color-box-shadow);
 
 	.header-end {
 
@@ -183,6 +177,17 @@ header {
 
 			button.button-vue {
 				padding: 0 1rem;
+
+				.button-vue__icon {
+					background-image: var(--icon-notification-dark);
+					background-size: auto 24px;
+					background-position: center;
+					background-repeat: no-repeat;
+
+					svg {
+						display: none;
+					}
+				}
 			}
 
 			#header-menu-notifications {
