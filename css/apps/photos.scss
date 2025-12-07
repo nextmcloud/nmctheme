@@ -326,7 +326,7 @@
 
 							// replace standart folder icon
 							span.icon-folder {
-								background-image: var(--icon-mime-folder-dark);
+								background-image: var(--icon-mime-folder-blue);
 								opacity: 1;
 							}
 
@@ -1136,7 +1136,7 @@
 					}
 
 					&.folder-icon {
-						background-image: var(--icon-mime-folder-dark);
+						background-image: var(--icon-mime-folder-blue);
 						@include thumbnail-icons();
 					}
 

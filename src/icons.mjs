@@ -20,6 +20,7 @@ const colors = {
 	success: '00b367',
 	danger: 'e82010',
 	warning: 'f97012',
+	blue: '84B0F5',
 }
 
 const colorSvg = function(svg = '', color = '000') {
@@ -82,7 +83,6 @@ const icons = {
 	user: path.join(__dirname, '../img', 'actions', 'user.svg'),
 	folder: path.join(__dirname, '../img', 'actions', 'folder.svg'),
 	'folder-description': path.join(__dirname, '../img', 'actions', 'folder-description.svg'),
-	'mime-folder': path.join(__dirname, '../img', 'filetypes', 'folder.svg'),
 	'mime-folder-audio': path.join(__dirname, '../img', 'filetypes', 'folder-audio.svg'),
 	'mime-folder-encrypted': path.join(__dirname, '../img', 'filetypes', 'folder-encrypted.svg'),
 	'mime-folder-photo': path.join(__dirname, '../img', 'filetypes', 'folder-photo.svg'),
@@ -217,6 +217,10 @@ const iconsColor = {
 	danger: {
 		path: path.join(__dirname, '../img', 'rich-workspace', 'danger.svg'),
 		color: 'danger',
+	},
+	'mime-folder': {
+		path: path.join(__dirname, '../img', 'filetypes', 'folder.svg'),
+		color: 'blue',
 	},
 }
 
