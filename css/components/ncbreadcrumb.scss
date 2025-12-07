@@ -75,23 +75,28 @@
 			button.action-item__menutoggle {
 				all: unset;
 				display: flex;
-				background-color: var(--color-main-background);
-				border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
+				align-items: center;
+				justify-content: center;
+				background-color: var(--telekom-color-primary-standard);
+				border: none;
 				border-radius: 50%;
 				min-height: unset;
-				height: 24px;
-				width: 24px;
-				max-width: 24px;
+				height: 40px;
+				width: 40px;
+				max-width: 40px;
 				margin: auto 0;
 				margin-left: 6px;
-		
+				cursor: pointer;
+
 				&:hover:not(:disabled) {
-					background-color: initial;
-					border-color: var(--telekom-color-text-and-icon-primary-standard);
+					background-color: var(--telekom-color-primary-hovered);
 				}
-		
+
+				&:active:not(:disabled) {
+					background-color: var(--telekom-color-primary-pressed);
+				}
+
 				.button-vue__icon {
-					@include magenta-icon;
 					background-image: var(--icon-add-white);
 					background-size: 16px 16px;
 					opacity: 1;
@@ -99,6 +104,7 @@
 					height: 16px;
 					background-position: center;
 					background-repeat: no-repeat;
+					filter: brightness(0) invert(1);
 					svg {
 						display: none;
 					}
