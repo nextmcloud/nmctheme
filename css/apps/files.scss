@@ -424,10 +424,6 @@ table.files-filestable {
 			display: none;
 		}
 
-		.files-list__filters {
-			display: none;
-		}
-
 		&__thead-overlay {
 			top: 0;
 		}
@@ -435,6 +431,72 @@ table.files-filestable {
 		.files-list__filters .file-list-filters__filter {
 			.file-list-filter-accounts {
 				display: none;
+			}
+
+			// Style for filter dropdown buttons (Type, Modified, etc.)
+			.action-item button.action-item__menutoggle {
+				background-color: #84B0F5;
+				color: var(--telekom-color-text-and-icon-black-standard);
+				border-radius: 8px;
+				border: none;
+				height: 28px;
+				min-height: 28px;
+				padding-right: 20px;
+				font-weight: normal;
+				display: flex;
+				align-items: center;
+				box-sizing: border-box;
+
+				&:hover {
+					background-color: #D2E2FC;
+				}
+
+				// Hide the left icon
+				.button-vue__icon {
+					display: none;
+				}
+
+				.button-vue__text {
+					color: var(--telekom-color-text-and-icon-black-standard);
+				}
+
+				// Add down arrow icon after the wrapper
+				.button-vue__wrapper::after {
+					content: '';
+					display: inline-block;
+					width: 6px;
+					height: 6px;
+					border-left: 1.5px solid var(--telekom-color-ui-black);
+					border-bottom: 1.5px solid var(--telekom-color-ui-black);
+					transform: rotate(-45deg);
+					margin-left: 8px;
+					margin-bottom: 2px;
+					transition: transform 0.2s ease;
+				}
+
+				// Rotate arrow when dropdown is open
+				&[aria-expanded="true"] .button-vue__wrapper::after {
+					transform: rotate(135deg);
+					margin-bottom: -2px;
+				}
+			}
+
+			// Style for active filter chips
+			.file-list-filter-chip {
+				background-color: #8FB4DD;
+				color: white;
+				border-radius: 8px;
+				border: none;
+				height: 28px;
+				padding: 0 12px;
+
+				&:hover {
+					background-color: #A5C4E6;
+				}
+
+				button {
+					color: white;
+				}
 			}
 		}
 
