@@ -899,10 +899,6 @@ table.files-filestable {
 											outline-offset: 2px;
 										}
 
-										&.button-vue--icon-and-text .button-vue__icon {
-											@include magenta-icon;
-										}
-
 										&.button-vue--icon-and-text[aria-label="Mit mir geteilt"] .button-vue__icon,
 										&.button-vue--icon-and-text[aria-label="Shared with me"] .button-vue__icon {
 											background-image: var(--icon-upload-to-cloud-dark);
