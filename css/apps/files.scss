@@ -863,9 +863,40 @@ table.files-filestable {
 									&.files-list__row-action-sharing-popup {
 										direction: rtl;
 										margin: 0;
+										border: 1px solid var(--telekom-color-ui-black);
+										border-radius: 50%;
+										width: 40px;
+										height: 40px;
+										box-sizing: border-box;
+										display: flex;
+										align-items: center;
+										justify-content: center;
+										background-color: transparent;
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
+											background-size: 16px 16px;
+											width: 16px;
+											height: 16px;
+											filter: brightness(0);
+										}
+
+										&:hover {
+											border: none;
+											background-color: #ECF3FE;
+										}
+
+										&:active {
+											border: none;
+											background-color: transparent;
+										}
+
+										&:focus,
+										&:focus-visible {
+											border: none;
+											background-color: #D2E2FC;
+											outline: 2px solid var(--telekom-color-ui-black);
+											outline-offset: 2px;
 										}
 
 										&.button-vue--icon-and-text .button-vue__icon {
@@ -895,8 +926,41 @@ table.files-filestable {
 								// ... action menu
 								div.action-item {
 									button.action-item__menutoggle {
-										&:hover svg {
-											color: var(--color-main-text);
+										border: 1px solid var(--telekom-color-ui-black);
+										border-radius: 50%;
+										width: 40px;
+										height: 40px;
+										box-sizing: border-box;
+										display: flex;
+										align-items: center;
+										justify-content: center;
+										background-color: transparent;
+
+										&:hover {
+											border: none;
+											background-color: #ECF3FE;
+
+											svg {
+												color: var(--color-main-text);
+											}
+										}
+
+										&:active {
+											border: none;
+											background-color: transparent;
+										}
+
+										&:focus,
+										&:focus-visible {
+											border: none;
+											background-color: #D2E2FC;
+											outline: 2px solid var(--telekom-color-ui-black);
+											outline-offset: 2px;
+										}
+
+										svg {
+											width: 16px;
+											height: 16px;
 										}
 									}
 								}
