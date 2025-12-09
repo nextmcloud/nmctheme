@@ -480,22 +480,61 @@ table.files-filestable {
 					margin-bottom: -2px;
 				}
 			}
+		}
 
-			// Style for active filter chips
-			.file-list-filter-chip {
-				background-color: #8FB4DD;
-				color: white;
-				border-radius: 8px;
-				border: none;
-				height: 28px;
-				padding: 0 12px;
+		// Style for active filter chips
+		.files-list__filters .nc-chip {
+			background-color: #84B0F5 !important;
+			color: #000000;
+			border-radius: 8px;
+			border: none;
+			height: 28px;
+			padding: 0 12px;
 
-				&:hover {
-					background-color: #A5C4E6;
+			&:hover {
+				background-color: #D2E2FC !important;
+			}
+
+			// Hide the leading icon
+			.nc-chip__icon {
+				display: none;
+			}
+
+			// Style the text
+			.nc-chip__text {
+				color: #000000;
+			}
+
+			// Style the X button
+			button {
+				color: #000000;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				margin-left: 0 !important;
+				margin-right: 0 !important;
+				min-width: 16px !important;
+				width: auto !important;
+
+				.button-vue__wrapper {
+					margin-left: 0 !important;
+					margin-right: 0 !important;
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+					min-width: 16px !important;
+					width: auto !important;
 				}
 
-				button {
-					color: white;
+				.button-vue__icon {
+					width: 16px !important;
+					height: 16px !important;
+					margin-left: 0 !important;
+					margin-right: 0 !important;
+				}
+
+				svg {
+					color: #000000;
+					width: 16px;
+					height: 16px;
 				}
 			}
 		}
