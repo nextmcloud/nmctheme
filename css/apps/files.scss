@@ -429,22 +429,21 @@ table.files-filestable {
 		}
 
 		.files-list__filters {
-			display: flex;
 			margin-bottom: 16px;
+			margin-top: 16px;
 
 			.file-list-filters {
 				display: flex;
 				flex-direction: row;
 				align-items: center;
+				gap: 8px;
 			}
 
 			// Add separator before active filters
 			.file-list-filters__active {
-				display: flex;
 				gap: 8px;
 				list-style: none;
 				padding: 0;
-				margin-left: auto;
 				margin: 0;
 
 				&:not(:empty)::before {
@@ -452,7 +451,7 @@ table.files-filestable {
 					display: block;
 					width: 1px;
 					height: 28px;
-					background-color: var(--color-border-dark);
+					background-color: var(--telekom-color-ui-border-standard);
 					margin: 0 4px;
 				}
 			}
@@ -520,7 +519,7 @@ table.files-filestable {
 			border-radius: 8px;
 			border: none;
 			height: 28px;
-			padding: 0 8px;
+			padding-left: 8px;
 
 			&:hover {
 				background-color: #D2E2FC;
@@ -547,17 +546,6 @@ table.files-filestable {
 				min-width: 16px;
 				width: auto;
 
-				.button-vue__wrapper {
-					min-width: 16px !important;
-					width: auto !important;
-				}
-
-				.button-vue__icon {
-					width: 16px !important;
-					height: 16px !important;
-					margin-left: 0 !important;
-					margin-right: 0 !important;
-				}
 
 				svg {
 					color: #000000;
