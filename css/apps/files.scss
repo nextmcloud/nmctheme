@@ -428,6 +428,36 @@ table.files-filestable {
 			top: 0;
 		}
 
+		.files-list__filters {
+			display: flex;
+			margin-bottom: 16px;
+
+			.file-list-filters {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+			}
+
+			// Add separator before active filters
+			.file-list-filters__active {
+				display: flex;
+				gap: 8px;
+				list-style: none;
+				padding: 0;
+				margin-left: auto;
+				margin: 0;
+
+				&:not(:empty)::before {
+					content: '';
+					display: block;
+					width: 1px;
+					height: 28px;
+					background-color: var(--color-border-dark);
+					margin: 0 4px;
+				}
+			}
+		}
+
 		.files-list__filters .file-list-filters__filter {
 			.file-list-filter-accounts {
 				display: none;
@@ -441,11 +471,12 @@ table.files-filestable {
 				border: none;
 				height: 28px;
 				min-height: 28px;
-				padding-right: 20px;
+				padding: 0 10px;
 				font-weight: normal;
 				display: flex;
 				align-items: center;
 				box-sizing: border-box;
+				margin: 0;
 
 				&:hover {
 					background-color: #D2E2FC;
@@ -484,15 +515,15 @@ table.files-filestable {
 
 		// Style for active filter chips
 		.files-list__filters .nc-chip {
-			background-color: #84B0F5 !important;
+			background-color: #84B0F5;
 			color: #000000;
 			border-radius: 8px;
 			border: none;
 			height: 28px;
-			padding: 0 12px;
+			padding: 0 8px;
 
 			&:hover {
-				background-color: #D2E2FC !important;
+				background-color: #D2E2FC;
 			}
 
 			// Hide the leading icon
@@ -503,23 +534,20 @@ table.files-filestable {
 			// Style the text
 			.nc-chip__text {
 				color: #000000;
+				font-weight: var(--telekom-typography-font-weight-bold);
 			}
 
 			// Style the X button
 			button {
 				color: #000000;
-				padding-left: 0 !important;
-				padding-right: 0 !important;
-				margin-left: 0 !important;
-				margin-right: 0 !important;
-				min-width: 16px !important;
-				width: auto !important;
+				padding-left: 0;
+				padding-right: 0;
+				margin-left: 0;
+				margin-right: 0;
+				min-width: 16px;
+				width: auto;
 
 				.button-vue__wrapper {
-					margin-left: 0 !important;
-					margin-right: 0 !important;
-					padding-left: 0 !important;
-					padding-right: 0 !important;
 					min-width: 16px !important;
 					width: auto !important;
 				}
