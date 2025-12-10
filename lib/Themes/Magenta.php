@@ -67,9 +67,9 @@ class Magenta implements ITheme {
 	}
 
 	public function getCustomCss(): string {
-		$telekomVariables = $this->urlGenerator->linkTo('nmctheme', 'dist/telekom-design-tokens.all.css');
+		$telekomVariables = $this->urlGenerator->linkTo('nmctheme', 'css/telekom-design-tokens.all.css');
 		$themeVariables = $this->urlGenerator->linkTo('nmctheme', 'css/nmcdefault.css');
-		$iconsVariables = $this->urlGenerator->linkTo('nmctheme', 'dist/icons.css');
+		$iconsVariables = $this->urlGenerator->linkTo('nmctheme', 'css/icons.css');
 		$themeStyle = $this->urlGenerator->linkTo('nmctheme', 'css/nmcstyle.css');
 
 		$cacheBuster = $this->themingUtil->getCacheBuster();
@@ -79,7 +79,12 @@ class Magenta implements ITheme {
 		$iconsVariables .= '?nmcv=' . $cacheBuster;
 		$themeStyle .= '?nmcv=' . $cacheBuster;
 
-		return "";
+		return "
+			@import url('{$telekomVariables}');
+			@import url('{$themeVariables}');
+			@import url('{$iconsVariables}');
+			@import url('{$themeStyle}');
+		";
 	}
 
 	public function getMeta(): array {
