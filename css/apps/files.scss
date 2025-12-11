@@ -503,7 +503,7 @@ table.files-filestable {
 								position: absolute;
 
 								&.folder-icon {
-									background-image: var(--icon-mime-folder-dark);
+									background-image: var(--icon-mime-folder-blue);
 								}
 
 								&.files-list__row-icon-overlay {
@@ -697,7 +697,7 @@ table.files-filestable {
 					@include thumbnail-icons();
 
 					&.folder-icon {
-						background-image: var(--icon-mime-folder-dark);
+						background-image: var(--icon-mime-folder-blue);
 					}
 
 					&.files-list__row-icon-overlay {
@@ -967,7 +967,7 @@ table.files-filestable {
 				z-index: 100;
 
 				.material-design-icon.folder-icon {
-					background-image: var(--icon-mime-folder-dark);
+					background-image: var(--icon-mime-folder-blue);
 					@include thumbnail-icons();
 				}
 			}
