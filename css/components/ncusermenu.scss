@@ -139,6 +139,17 @@
                     > a#logout::after {
                         background-image: var(--icon-logout-dark);
                     }
+
+                    > a#nmc_welcome_popup-about {
+
+                        .loading-icon {
+                            display: none;
+                        }
+                        
+                        &::after {
+                            background-image: var(--icon-news-dark);
+                        }
+                    }
                 }
             }
         }
