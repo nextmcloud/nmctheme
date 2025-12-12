@@ -464,7 +464,7 @@ table.files-filestable {
 
 			// Style for filter dropdown buttons (Type, Modified, etc.)
 			.action-item button.action-item__menutoggle {
-				background-color: #84B0F5;
+				background-color: var(--nmc-custom-blue-primary);
 				color: var(--telekom-color-text-and-icon-black-standard);
 				border-radius: 8px;
 				border: none;
@@ -478,7 +478,15 @@ table.files-filestable {
 				margin: 0;
 
 				&:hover {
-					background-color: #D2E2FC;
+					background-color: var(--nmc-custom-blue-hover);
+				}
+
+				&:active {
+					background-color: var(--nmc-custom-blue-pressed);
+				}
+
+				&[aria-expanded="true"] {
+					background-color: var(--nmc-custom-blue-active);
 				}
 
 				// Hide the left icon
@@ -514,7 +522,7 @@ table.files-filestable {
 
 		// Style for active filter chips
 		.files-list__filters .nc-chip {
-			background-color: #84B0F5;
+			background-color: var(--nmc-custom-blue-active);
 			color: #000000;
 			border-radius: 8px;
 			border: none;
@@ -522,7 +530,11 @@ table.files-filestable {
 			padding-left: 8px;
 
 			&:hover {
-				background-color: #D2E2FC;
+				background-color: var(--nmc-custom-blue-hover);
+			}
+
+			&:active {
+				background-color: var(--nmc-custom-blue-pressed);
 			}
 
 			// Hide the leading icon

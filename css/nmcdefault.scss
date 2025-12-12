@@ -105,6 +105,10 @@
   --nmc-color-icon: invert(17%) sepia(87%) saturate(5418%) hue-rotate(319deg) brightness(85%) contrast(110%);
   --nmc-color-icon-hovered: brightness(0) saturate(100%) invert(11%) sepia(93%) saturate(6579%) hue-rotate(321deg) brightness(71%) contrast(107%);
   --nmc-color-sceme: light;
+  --nmc-custom-blue-primary: #D2E2FC;
+  --nmc-custom-blue-active: #9EC1F7;
+  --nmc-custom-blue-hover: #ECF3FE;
+  --nmc-custom-blue-pressed: #FFFFFF;
 }
 
 @media (prefers-color-scheme: dark) {

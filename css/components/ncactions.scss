@@ -24,8 +24,7 @@
 
 		.v-popper__wrapper {
 			box-shadow: none;
-			border: 1px solid #000000;
-			transform: translateX(50px);
+			border: 1px solid var(--telekom-color-ui-black);
 
 			.v-popper__arrow-container {
 				display: none;
@@ -49,13 +48,13 @@
 							display: none;
 
 							svg path {
-								fill: #000000;
+								fill: var(--telekom-color-ui-black);
 							}
 						}
 
 						.icon-vue {
 							svg path {
-								fill: #000000;
+								fill: var(--telekom-color-ui-black);
 							}
 						}
 					}
