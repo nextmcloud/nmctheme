@@ -863,7 +863,7 @@ table.files-filestable {
 									&.files-list__row-action-sharing-popup {
 										direction: rtl;
 										margin: 0;
-										border: 1px solid var(--telekom-color-ui-black);
+										border: none;
 										border-radius: 50%;
 										width: 40px;
 										height: 40px;
@@ -871,7 +871,7 @@ table.files-filestable {
 										display: flex;
 										align-items: center;
 										justify-content: center;
-										background-color: transparent;
+										background-color: #D2E2FC;
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
@@ -883,12 +883,12 @@ table.files-filestable {
 
 										&:hover {
 											border: none;
-											background-color: #ECF3FE;
+											background-color: #9EC1F7;
 										}
 
 										&:active {
-											border: none;
-											background-color: transparent;
+											border: 1px solid var(--telekom-color-ui-black);
+											background-color: #FFFFFF;
 										}
 
 										&:focus,
@@ -922,7 +922,7 @@ table.files-filestable {
 								// ... action menu
 								div.action-item {
 									button.action-item__menutoggle {
-										border: 1px solid var(--telekom-color-ui-black);
+										border: none;
 										border-radius: 50%;
 										width: 40px;
 										height: 40px;
@@ -930,11 +930,11 @@ table.files-filestable {
 										display: flex;
 										align-items: center;
 										justify-content: center;
-										background-color: transparent;
+										background-color: #D2E2FC;
 
 										&:hover {
 											border: none;
-											background-color: #ECF3FE;
+											background-color: #9EC1F7;
 
 											svg {
 												color: var(--color-main-text);
@@ -942,8 +942,8 @@ table.files-filestable {
 										}
 
 										&:active {
-											border: none;
-											background-color: transparent;
+											border: 1px solid var(--telekom-color-ui-black);
+											background-color: #FFFFFF;
 										}
 
 										&:focus,
