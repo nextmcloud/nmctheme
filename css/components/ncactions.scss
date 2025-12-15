@@ -23,6 +23,12 @@
 	.v-popper__popper {
 
 		.v-popper__wrapper {
+			box-shadow: none;
+			border: 1px solid var(--telekom-color-ui-black);
+
+			.v-popper__arrow-container {
+				display: none;
+			}
 
 			.v-popper__inner {
 
@@ -37,6 +43,20 @@
 						&:hover {
 							cursor: pointer;
 						}
+
+						.action-button__icon {
+							display: none;
+
+							svg path {
+								fill: var(--telekom-color-ui-black);
+							}
+						}
+
+						.icon-vue {
+							svg path {
+								fill: var(--telekom-color-ui-black);
+							}
+						}
 					}
 
 					li.action-separator,
@@ -50,9 +70,6 @@
 							background-size: 24px;
 						}
 
-						&.active {
-							background-color: initial;
-						}
 
 						&[data-cy-upload-picker-menu-entry="upload-folder"] {
 							display: none;
@@ -294,6 +311,12 @@
 	&.v-popper__popper {
 
 		.v-popper__wrapper {
+			box-shadow: none;
+			border: 1px solid var(--telekom-color-ui-black);
+
+			.v-popper__arrow-container {
+				display: none;
+			}
 
 			.v-popper__inner {
 				background-color: var(--telekom-color-background-surface);
