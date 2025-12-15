@@ -23,21 +23,29 @@ const colors = {
 	blue: '84B0F5',
 }
 
-const colorSvg = function(svg = '', color = '000') {
-	if (!color.match(/^[0-9a-f]{3,6}$/i)) {
-		// Prevent not-sane colors from being written into the SVG
+const COLOR_VALUE_RE = '(?:#[0-9a-f]{3,6}|black|white)'
+
+const colorSvg = function (svg = '', color = '000') {
+	if (!/^[0-9a-f]{3,6}$/i.test(color)) {
 		console.warn(color, 'does not match the required format')
 		color = '000'
 	}
 
-	// add fill (fill is not present on black elements)
-	const fillRe = /<((circle|rect|path|polygon)((?!fill)[a-z0-9 =".\-#():;,])+)\/>/gmi
+	// add fill if missing
+	const fillRe = /<((circle|rect|path|polygon)((?!fill)[^/>])*)\/>/gmi
 	svg = svg.replace(fillRe, '<$1 fill="#' + color + '"/>')
 
-	// replace any fill or stroke colors
-	svg = svg.replace(/stroke="#([a-z0-9]{3,6})"/gmi, 'stroke="#' + color + '"')
-	svg = svg.replace(/fill="#([a-z0-9]{3,6})"/gmi, 'fill="#' + color + '"')
-	svg = svg.replace(/fill:#([a-z0-9]{3,6})/gmi, 'fill:#' + color)
+	// replace fill/stroke attributes (hex + named colors)
+	svg = svg.replace(
+		new RegExp(`(fill|stroke)="(${COLOR_VALUE_RE})"`, 'gmi'),
+		(_, attr) => `${attr}="#${color}"`
+	)
+
+	// replace inline styles
+	svg = svg.replace(
+		new RegExp(`(fill|stroke):(${COLOR_VALUE_RE})`, 'gmi'),
+		(_, attr) => `${attr}:#${color}`
+	)
 
 	return svg
 }
