@@ -863,13 +863,40 @@ table.files-filestable {
 									&.files-list__row-action-sharing-popup {
 										direction: rtl;
 										margin: 0;
+										border: none;
+										border-radius: 50%;
+										width: 40px;
+										height: 40px;
+										box-sizing: border-box;
+										display: flex;
+										align-items: center;
+										justify-content: center;
+										background-color: #D2E2FC;
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
+											background-size: 16px 16px;
+											width: 16px;
+											height: 16px;
+											filter: brightness(0);
 										}
 
-										&.button-vue--icon-and-text .button-vue__icon {
-											@include magenta-icon;
+										&:hover {
+											border: none;
+											background-color: #9EC1F7;
+										}
+
+										&:active {
+											border: 1px solid var(--telekom-color-ui-black);
+											background-color: #FFFFFF;
+										}
+
+										&:focus,
+										&:focus-visible {
+											border: none;
+											background-color: #D2E2FC;
+											outline: 2px solid var(--telekom-color-ui-black);
+											outline-offset: 2px;
 										}
 
 										&.button-vue--icon-and-text[aria-label="Mit mir geteilt"] .button-vue__icon,
@@ -895,8 +922,41 @@ table.files-filestable {
 								// ... action menu
 								div.action-item {
 									button.action-item__menutoggle {
-										&:hover svg {
-											color: var(--color-main-text);
+										border: none;
+										border-radius: 50%;
+										width: 40px;
+										height: 40px;
+										box-sizing: border-box;
+										display: flex;
+										align-items: center;
+										justify-content: center;
+										background-color: #D2E2FC;
+
+										&:hover {
+											border: none;
+											background-color: #9EC1F7;
+
+											svg {
+												color: var(--color-main-text);
+											}
+										}
+
+										&:active {
+											border: 1px solid var(--telekom-color-ui-black);
+											background-color: #FFFFFF;
+										}
+
+										&:focus,
+										&:focus-visible {
+											border: none;
+											background-color: #D2E2FC;
+											outline: 2px solid var(--telekom-color-ui-black);
+											outline-offset: 2px;
+										}
+
+										svg {
+											width: 16px;
+											height: 16px;
 										}
 									}
 								}
