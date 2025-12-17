@@ -746,14 +746,14 @@
 
 		&:hover:not(:disabled) {
 			.close-icon {
-				filter: var(--nmc-color-icon)
+				filter: var(--nmc-color-icon);
 			}
 
 			background-color: initial;
 		}
 
 		.close-icon {
-			background-image: var(--icon-close-dark);
+			background-image: var(--icon-close-x-dark);
 			background-position: center;
 			background-repeat: no-repeat;
 			height: 100%;

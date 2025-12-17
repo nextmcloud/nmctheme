@@ -322,6 +322,10 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 				min-width: 40px;
 				min-height: 40px;
 				border: 1px solid var(--telekom-color-ui-black);
+
+				.icon-delete {
+					background-image: var(--icon-close-x-dark);
+				}
 			}
 		}
 	}
