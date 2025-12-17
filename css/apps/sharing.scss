@@ -295,6 +295,36 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 		.share-select button.trigger-text {
 			color: #2E466A;
 			font-weight: 400;
+
+			.eye-circle-outline-icon {
+				width: 16px;
+				height: 16px;
+				display: inline-block;
+				background-image: var(--icon-visibility-on-dark);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+				filter: invert(20%) sepia(19%) saturate(1540%) hue-rotate(182deg) brightness(95%) contrast(88%);
+
+				svg {
+					display: none !important;
+				}
+			}
+
+			.calendar-month-icon {
+				width: 16px;
+				height: 16px;
+				display: inline-block;
+				background-image: var(--icon-calendar-dark);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+				filter: invert(20%) sepia(19%) saturate(1540%) hue-rotate(182deg) brightness(95%) contrast(88%);
+
+				svg {
+					display: none !important;
+				}
+			}
 		}
 
 		// Border for sharing entry items
