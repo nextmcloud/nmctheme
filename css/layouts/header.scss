@@ -175,6 +175,10 @@ header {
 
 #header {
 
+	.header-menu__caret {
+        display: none;
+	}
+
 	.header-end {
 
 		#notifications {
@@ -196,7 +200,9 @@ header {
 			}
 
 			#header-menu-notifications {
+				background-color: var(--telekom-color-background-surface);
 				border-radius: var(--border-radius-large);
+        		margin-top: 8px;
 			}
 		}
 

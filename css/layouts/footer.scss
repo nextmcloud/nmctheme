@@ -20,33 +20,28 @@ footer {
 
 footer[role="contentinfo"] {
     background-color: var(--color-main-background);
-    border-radius: 0px 0px 0.5rem 0.5rem;
     font: var(--footer-font);
     position: fixed;
-    left: 1rem;
-    right: 1rem;
-    bottom: 24px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     max-height: 60px;
     max-width: calc(100% - 2rem);
     z-index: 998;
     border-top: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
-    padding: 16px 16px;
+    padding: 1.5rem;
 
     @media screen and (max-width: $breakpoint-mobile-small) {
-        border-radius: 0;
-        padding: 16px 16px;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        padding: 1rem;
         max-width: 100%;
     }
 
     .footer-content {        
-        display: flex;
-        justify-content: space-between;
         align-content: center;
+        display: flex;
         flex-wrap: wrap;
-        gap: var(--telekom-spacing-composition-space-06);
+        gap: var(--telekom-spacing-composition-space-08);
+        line-height: 1.5rem;
 
         @media screen and (max-width: $breakpoint-mobile-small) {
             gap: var(--telekom-spacing-composition-space-04);
@@ -62,7 +57,11 @@ footer[role="contentinfo"] {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 16px;
+            gap: var(--telekom-spacing-composition-space-08);
+
+            @media screen and (max-width: $breakpoint-mobile-small) {
+                gap: var(--telekom-spacing-composition-space-04);
+            }
         }
 
         li a {

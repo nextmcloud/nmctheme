@@ -68,6 +68,11 @@
 		[data-cy-files-navigation-item="trashbin"] {
 			order: 5;
 		}
+
+		[data-cy-files-navigation-settings-button] {
+			display: flex;
+			order: 6;
+		}
 	}
 
 	.app-navigation-toggle-wrapper {
@@ -76,6 +81,9 @@
 	}
 
 	.app-navigation-entry__settings {
+
+		padding: 0 0 1rem;
+
 		> li {
 			display: none;
 		}

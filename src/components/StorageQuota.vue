@@ -126,6 +126,7 @@ export default {
 .storage-quota {
 	display: flex;
 	flex-direction: column;
+	padding: 0 1rem;
 
 	&__header {
 		display: flex;
@@ -152,6 +153,7 @@ export default {
 	}
 
 	&__link {
+		color: var(--telekom-color-text-and-icon-black-standard);
 		width: fit-content;
 		padding: 0.625rem 1.2rem;
 		display: flex;
