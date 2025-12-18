@@ -226,6 +226,10 @@ const iconsColor = {
 		path: path.join(__dirname, '../img', 'rich-workspace', 'danger.svg'),
 		color: 'danger',
 	},
+	'mime-folder': {
+		path: path.join(__dirname, '../img', 'filetypes', 'folder.svg'),
+		color: 'blue',
+	},
 }
 
 let css = ''
