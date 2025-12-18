@@ -628,9 +628,9 @@ table.files-filestable {
 
 								&.folder-icon svg,
 								&.folder-open-icon svg {
-									width: 44px;
-									height: 44px;
-									color: #84B0F5;
+									width: 45px;
+									height: 36px;
+									color: var(--nmc-ods-blue-active);
 								}
 
 								&.files-list__row-icon-overlay {
@@ -825,9 +825,9 @@ table.files-filestable {
 
 					&.folder-icon svg,
 					&.folder-open-icon svg {
-						width: 44px;
-						height: 44px;
-						color: #84B0F5;
+						width: 45px;
+						height: 36px;
+						color: var(--nmc-ods-blue-active);
 					}
 
 					&.files-list__row-icon-overlay {
@@ -1001,7 +1001,7 @@ table.files-filestable {
 										display: flex;
 										align-items: center;
 										justify-content: center;
-										background-color: #D2E2FC;
+										background-color: var(--nmc-ods-blue-primary);
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
@@ -1013,18 +1013,18 @@ table.files-filestable {
 
 										&:hover {
 											border: none;
-											background-color: #9EC1F7;
+											background-color: var(--nmc-ods-blue-active);
 										}
 
 										&:active {
 											border: 1px solid var(--telekom-color-ui-black);
-											background-color: #FFFFFF;
+											background-color: var(--nmc-ods-blue-pressed);
 										}
 
 										&:focus,
 										&:focus-visible {
 											border: none;
-											background-color: #D2E2FC;
+											background-color: var(--nmc-ods-blue-primary);
 											outline: 2px solid var(--telekom-color-ui-black);
 											outline-offset: 2px;
 										}
@@ -1060,11 +1060,11 @@ table.files-filestable {
 										display: flex;
 										align-items: center;
 										justify-content: center;
-										background-color: #D2E2FC;
+										background-color: var(--nmc-ods-blue-primary);
 
 										&:hover {
 											border: none;
-											background-color: #9EC1F7;
+											background-color: var(--nmc-ods-blue-active);
 
 											svg {
 												color: var(--color-main-text);
@@ -1073,13 +1073,13 @@ table.files-filestable {
 
 										&:active {
 											border: 1px solid var(--telekom-color-ui-black);
-											background-color: #FFFFFF;
+											background-color: var(--nmc-ods-blue-pressed);
 										}
 
 										&:focus,
 										&:focus-visible {
 											border: none;
-											background-color: #D2E2FC;
+											background-color: var(--nmc-ods-blue-primary);
 											outline: 2px solid var(--telekom-color-ui-black);
 											outline-offset: 2px;
 										}
