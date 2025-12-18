@@ -628,8 +628,8 @@ table.files-filestable {
 
 								&.folder-icon svg,
 								&.folder-open-icon svg {
-									width: 45px;
-									height: 36px;
+									width: 44px;
+									height: 44px;
 									color: var(--nmc-ods-blue-active);
 								}
 
@@ -639,6 +639,10 @@ table.files-filestable {
 									width: calc(50% - 2 * 14px);
 									height: calc(50% - 2 * 14px);
 									margin-top: 10px;
+
+									svg {
+										display: none;
+									}
 
 									&.link-icon, &.account-plus-icon {
 										background-image: var(--original-icon-folder-overlay-share-white);
@@ -825,8 +829,8 @@ table.files-filestable {
 
 					&.folder-icon svg,
 					&.folder-open-icon svg {
-						width: 45px;
-						height: 36px;
+						width: 44px;
+						height: 44px;
 						color: var(--nmc-ods-blue-active);
 					}
 
@@ -834,6 +838,10 @@ table.files-filestable {
 						width: 22px;
 						height: 22px;
 						margin-top: 10px;
+
+						svg {
+							display: none;
+						}
 
 						&.link-icon, &.account-plus-icon {
 							background-image: var(--original-icon-folder-overlay-share-white);
