@@ -11,10 +11,6 @@
 	max-width: unset;
 	max-height: unset;
 	width: 44px;
-
-	svg {
-		display: none;
-	}
 }
 
 @mixin header-menu-files {
@@ -630,10 +626,6 @@ table.files-filestable {
 								height: calc(100% - 2 * 14px);
 								position: absolute;
 
-								&.folder-icon {
-									background-image: var(--icon-mime-folder-blue);
-								}
-
 								&.files-list__row-icon-overlay {
 									max-width: calc(50% - 2 * 14px);
 									max-height: calc(50% - 2 * 14px);
@@ -823,10 +815,6 @@ table.files-filestable {
 
 				.material-design-icon:not(.play-circle-icon) {
 					@include thumbnail-icons();
-
-					&.folder-icon {
-						background-image: var(--icon-mime-folder-blue);
-					}
 
 					&.files-list__row-icon-overlay {
 						width: 22px;
@@ -1153,11 +1141,6 @@ table.files-filestable {
 				margin-right: 16px;
 				margin-left: 24px;
 				z-index: 100;
-
-				.material-design-icon.folder-icon {
-					background-image: var(--icon-mime-folder-blue);
-					@include thumbnail-icons();
-				}
 			}
 		}
 	}
