@@ -11,10 +11,6 @@
 	max-width: unset;
 	max-height: unset;
 	width: 44px;
-
-	svg {
-		display: none;
-	}
 }
 
 @mixin header-menu-files {
@@ -630,8 +626,11 @@ table.files-filestable {
 								height: calc(100% - 2 * 14px);
 								position: absolute;
 
-								&.folder-icon {
-									background-image: var(--icon-mime-folder-blue);
+								&.folder-icon svg,
+								&.folder-open-icon svg {
+									width: 44px;
+									height: 44px;
+									color: var(--nmc-ods-blue-active);
 								}
 
 								&.files-list__row-icon-overlay {
@@ -640,6 +639,10 @@ table.files-filestable {
 									width: calc(50% - 2 * 14px);
 									height: calc(50% - 2 * 14px);
 									margin-top: 10px;
+
+									svg {
+										display: none;
+									}
 
 									&.link-icon, &.account-plus-icon {
 										background-image: var(--original-icon-folder-overlay-share-white);
@@ -824,14 +827,21 @@ table.files-filestable {
 				.material-design-icon:not(.play-circle-icon) {
 					@include thumbnail-icons();
 
-					&.folder-icon {
-						background-image: var(--icon-mime-folder-blue);
+					&.folder-icon svg,
+					&.folder-open-icon svg {
+						width: 44px;
+						height: 44px;
+						color: var(--nmc-ods-blue-active);
 					}
 
 					&.files-list__row-icon-overlay {
 						width: 22px;
 						height: 22px;
 						margin-top: 10px;
+
+						svg {
+							display: none;
+						}
 
 						&.link-icon, &.account-plus-icon {
 							background-image: var(--original-icon-folder-overlay-share-white);
@@ -999,7 +1009,7 @@ table.files-filestable {
 										display: flex;
 										align-items: center;
 										justify-content: center;
-										background-color: #D2E2FC;
+										background-color: var(--nmc-ods-blue-primary);
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
@@ -1011,18 +1021,18 @@ table.files-filestable {
 
 										&:hover {
 											border: none;
-											background-color: #9EC1F7;
+											background-color: var(--nmc-ods-blue-active);
 										}
 
 										&:active {
 											border: 1px solid var(--telekom-color-ui-black);
-											background-color: #FFFFFF;
+											background-color: var(--nmc-ods-blue-pressed);
 										}
 
 										&:focus,
 										&:focus-visible {
 											border: none;
-											background-color: #D2E2FC;
+											background-color: var(--nmc-ods-blue-primary);
 											outline: 2px solid var(--telekom-color-ui-black);
 											outline-offset: 2px;
 										}
@@ -1058,11 +1068,11 @@ table.files-filestable {
 										display: flex;
 										align-items: center;
 										justify-content: center;
-										background-color: #D2E2FC;
+										background-color: var(--nmc-ods-blue-primary);
 
 										&:hover {
 											border: none;
-											background-color: #9EC1F7;
+											background-color: var(--nmc-ods-blue-active);
 
 											svg {
 												color: var(--color-main-text);
@@ -1071,13 +1081,13 @@ table.files-filestable {
 
 										&:active {
 											border: 1px solid var(--telekom-color-ui-black);
-											background-color: #FFFFFF;
+											background-color: var(--nmc-ods-blue-pressed);
 										}
 
 										&:focus,
 										&:focus-visible {
 											border: none;
-											background-color: #D2E2FC;
+											background-color: var(--nmc-ods-blue-primary);
 											outline: 2px solid var(--telekom-color-ui-black);
 											outline-offset: 2px;
 										}
@@ -1153,11 +1163,6 @@ table.files-filestable {
 				margin-right: 16px;
 				margin-left: 24px;
 				z-index: 100;
-
-				.material-design-icon.folder-icon {
-					background-image: var(--icon-mime-folder-blue);
-					@include thumbnail-icons();
-				}
 			}
 		}
 	}
