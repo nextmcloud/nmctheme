@@ -112,6 +112,15 @@
     h2 {
         font-size: 20px;
         margin: unset;
+
+        strong {
+            font-weight: 600;
+        }
+    }
+
+    .sharingPopup__header {
+        font-weight: 600;
+        margin-bottom: 16px !important;
     }
 }
 

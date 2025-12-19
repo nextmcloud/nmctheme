@@ -268,6 +268,97 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 			}
 		}
 	}
+}
+
+#body-user, #body-public, #body-settings {
+	.sharingPopup__content, .sharingTab__content, .sharingTabDetailsView {
+		.button-vue--vue-primary {
+			background-color: var(--nmc-ods-blue-primary);
+			border-radius: var(--telekom-radius-pill);
+			color: var(--telekom-color-text-and-icon-standard)
+		}
+
+		// Container for "Create new link" button
+		#addlink_button {
+			background-color: var(--nmc-ods-blue-primary);
+			border-radius: var(--telekom-radius-pill);
+			border-width: 0;
+		}
+
+		// Parent div of the "Create new link" button
+		div:has(> #addlink_button) {
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		// Quick share options dropdown button
+		.share-select button.trigger-text {
+			color: #2E466A;
+			font-weight: 400;
+
+			.eye-circle-outline-icon {
+				width: 16px;
+				height: 16px;
+				display: inline-block;
+				background-image: var(--icon-visibility-on-dark);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+				filter: invert(20%) sepia(19%) saturate(1540%) hue-rotate(182deg) brightness(95%) contrast(88%);
+
+				svg {
+					display: none !important;
+				}
+			}
+
+			.calendar-month-icon {
+				width: 16px;
+				height: 16px;
+				display: inline-block;
+				background-image: var(--icon-calendar-dark);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+				filter: invert(20%) sepia(19%) saturate(1540%) hue-rotate(182deg) brightness(95%) contrast(88%);
+
+				svg {
+					display: none !important;
+				}
+			}
+		}
+
+		// Border for sharing entry items
+		.sharing-entry.sharing-entry__link.sharing-entry--share {
+			border-bottom: 1px solid #B6B6B6;
+			padding: 0.5rem 0;
+		}
+
+		// Remove margin-bottom from "Link to Copy" heading
+		.sharing-link-list-caption {
+			margin-bottom: 0;
+		}
+
+		.button-vue--vue-secondary {
+			&#addlink_button {
+				background-color: var(--nmc-ods-blue-primary);
+				border-radius: var(--telekom-radius-pill);
+				border-width: 0;
+			}
+
+			&.button-vue--icon-only {
+				border-radius: 50%;
+				width: 40px;
+				height: 40px;
+				min-width: 40px;
+				min-height: 40px;
+				border: 1px solid var(--telekom-color-ui-black);
+
+				.icon-delete {
+					background-image: var(--icon-close-x-dark);
+				}
+			}
+		}
+	}
 
 	.sharing-entry {
 		gap: .5rem;

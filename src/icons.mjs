@@ -25,7 +25,7 @@ const colors = {
 
 const COLOR_VALUE_RE = '(?:#[0-9a-f]{3,6}|black|white)'
 
-const colorSvg = function (svg = '', color = '000') {
+const colorSvg = function(svg = '', color = '000') {
 	if (!/^[0-9a-f]{3,6}$/i.test(color)) {
 		console.warn(color, 'does not match the required format')
 		color = '000'
@@ -38,13 +38,13 @@ const colorSvg = function (svg = '', color = '000') {
 	// replace fill/stroke attributes (hex + named colors)
 	svg = svg.replace(
 		new RegExp(`(fill|stroke)="(${COLOR_VALUE_RE})"`, 'gmi'),
-		(_, attr) => `${attr}="#${color}"`
+		(_, attr) => `${attr}="#${color}"`,
 	)
 
 	// replace inline styles
 	svg = svg.replace(
 		new RegExp(`(fill|stroke):(${COLOR_VALUE_RE})`, 'gmi'),
-		(_, attr) => `${attr}:#${color}`
+		(_, attr) => `${attr}:#${color}`,
 	)
 
 	return svg
@@ -183,6 +183,7 @@ const icons = {
 	import: path.join(__dirname, '../img', 'actions', 'import.svg'),
 	'folder-overlay-lock': path.join(__dirname, '../img', 'actions', 'lock.svg'),
 	'folder-overlay-share': path.join(__dirname, '../img', 'actions', 'share.svg'),
+	'visibility-on': path.join(__dirname, '../img', 'actions', 'visibility-on.svg'),
 }
 
 const iconsColor = {
