@@ -175,6 +175,11 @@ header {
 
 #header {
 
+	button.button-vue {
+		border: none;
+		border-radius: 0;
+	}
+
 	.header-menu__caret {
         display: none;
 	}
@@ -201,7 +206,7 @@ header {
 
 			#header-menu-notifications {
 				background-color: var(--telekom-color-background-surface);
-				border-radius: var(--border-radius-large);
+				border-radius: var(--border-radius);
         		margin-top: 8px;
 			}
 		}
@@ -274,8 +279,6 @@ header {
 // Custom styling for the 'Search' button
 #header .header-end .unified-search-menu {
 	button {
-		border: none;
-		border-radius: 0;
 		height: 100%;
 
 		.button-vue__wrapper {

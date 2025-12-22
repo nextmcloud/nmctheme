@@ -18,7 +18,7 @@
 			margin: -15px -15px 0 0;
 			width: 35px;
 			height: 35px;
-			border-radius: var(--telekom-radius-standard);
+			border-radius: var(--border-radius-pill);
 			&:hover {
 				background-color: var(--nmc-color-background-hover);
 			}
@@ -48,7 +48,7 @@
 
 		button {
 			min-height: var(--telekom-size-generic-size-12);
-			border-radius: var(--telekom-radius-standard);
+			border-radius: var(--border-radius-pill);
 			text-align: center;
 			border: 1px solid #191919;
 			padding: 0 var(--telekom-spacing-composition-space-07);

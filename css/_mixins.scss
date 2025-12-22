@@ -16,7 +16,7 @@
 // Scale primary button style
 @mixin primary-button {
     border: none;
-    border-radius: var(--telekom-radius-standard);
+    border-radius: var(--border-radius-pill);
     background-color: var(--telekom-color-primary-standard);
     color: var(--telekom-color-text-and-icon-white-standard);
 

@@ -45,6 +45,11 @@
 				}
 			}
 
+			button {
+				padding: 0;
+				width: auto !important;
+			}
+
 			&__content-right {
 
 				.upload-picker {
@@ -64,12 +69,17 @@
 			&__content-buttons {
 
 				button {
+					border-radius: var(--border-radius-pill);
+					border: var(--telekom-spacing-composition-space-01) solid currentColor;
+					background-color: var(--telekom-color-ui-state-fill-standard);
+					border-color: var(--telekom-color-ui-border-standard);
 					line-height: 1rem;
+					margin: 0;
 					min-height: unset;
 					min-width: unset;
 					padding-left: 0;
 					padding-right: 0;
-					margin: 0;
+					width: auto !important;
 					
 
 					.button-vue__icon {
@@ -95,7 +105,7 @@
 							}
 						}
 
-						.delete-icon {
+						.trash-can-outline-icon {
 							background-image: var(--icon-delete-dark);
 
 							svg {
@@ -189,6 +199,7 @@
 						left: 0;
 						right: unset;
 						top: unset;
+						z-index: 999;
 
 						svg {
 							display: none;
@@ -197,8 +208,9 @@
 				}
 
 				.hover-overlay {
-					height: 3rem;
-					background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+					background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+					height: 50%;
+					min-height: 3rem;
 					justify-content: space-between;
 
 					.actions-right{
@@ -232,6 +244,13 @@
 
 					&:active {
 						background-size: 2rem;
+					}
+				}
+
+				.file__favorite {
+
+					.star-icon {
+						background-image: var(--icon-starred-yellow);
 					}
 				}
 				
@@ -389,7 +408,7 @@
 			}
 
 			.collection__media {
-				padding: 2rem 3rem;
+				padding: 2rem;
 			}
 
 			.collection-cover {

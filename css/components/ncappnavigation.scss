@@ -78,6 +78,11 @@
 	.app-navigation-toggle-wrapper {
 		top: 1rem !important;
 		right: calc(0px - 1rem) !important;
+
+		button {
+			padding: 0;
+			width: auto !important;
+		}
 	}
 
 	.app-navigation-entry__settings {

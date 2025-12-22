@@ -20,7 +20,7 @@
 
     border: 0;
     padding: 0;
-    border-radius: var(--telekom-radius-standard);
+    border-radius: var(--border-radius-pill);
     font: var(--telekom-text-style-body);
     font-weight: var(--telekom-typography-font-weight-bold);
     line-height: 1.125rem;
@@ -30,17 +30,16 @@
     padding-right: var(--telekom-spacing-composition-space-07);
 
     &:after {
-        top: 0;
-        left: 0;
-        width: 100%;
         border: var(--telekom-spacing-composition-space-01) solid transparent;
-        height: 100%;
+        box-sizing: border-box;
         content: '';
         display: block;
-        position: absolute;
-        box-sizing: border-box;
+        height: 100%;
+        left: 0;
         pointer-events: none;
-        border-radius: var(--telekom-radius-standard);
+        position: absolute;
+        top: 0;
+        width: 100%;
     }
 
     // Icon-only button
@@ -65,7 +64,7 @@
 
     // Primary
     &--vue-primary, &_primary {
-        border-radius: var(--telekom-radius-standard);
+        border-radius: var(--border-radius-pill);
         background-color: var(--telekom-color-primary-standard);
         color: var(--telekom-color-text-and-icon-white-standard);
 
@@ -86,7 +85,7 @@
     // Secondary
     &--vue-secondary, &_secondary {
         background: transparent;
-        border-radius: var(--telekom-radius-standard);
+        border-radius: var(--border-radius-pill);
         border: var(--telekom-spacing-composition-space-01) solid currentColor;
         color: var(--telekom-color-text-and-icon-standard);
         background-color: var(--telekom-color-ui-state-fill-standard);
