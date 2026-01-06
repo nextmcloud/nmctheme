@@ -5,6 +5,9 @@
 	--open-background-color: initial;
 
 	.button-vue {
+		svg {
+			color: var(--telekom-color-ui-black);
+		}
 
 		&:hover:not(:disabled) {
 			background-color: initial;
