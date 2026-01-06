@@ -1117,7 +1117,7 @@ table.files-filestable {
 								// ... action menu
 								div.action-item {
 									button.action-item__menutoggle {
-										border: none;
+										border: 1px solid var(--telekom-color-ui-black);
 										border-radius: 50%;
 										width: 40px !important;
 										height: 40px !important;
@@ -1127,20 +1127,73 @@ table.files-filestable {
 										display: flex;
 										align-items: center;
 										justify-content: center;
-										background-color: var(--nmc-ods-blue-primary);
+										background-color: transparent;
+
+										svg {
+											width: 16px;
+											height: 16px;
+											color: var(--telekom-color-ui-black);
+										}
+
+										// Dark mode normal state
+										[data-themes*=dark] & {
+											border-color: var(--telekom-color-ui-white);
+
+											svg {
+												color: var(--telekom-color-ui-white);
+											}
+										}
 
 										&:hover {
 											border: none;
 											background-color: var(--nmc-ods-blue-active);
 
 											svg {
-												color: var(--color-main-text);
+												color: var(--telekom-color-ui-black);
+											}
+
+											// Dark mode hover
+											[data-themes*=dark] & {
+												background-color: var(--nmc-ods-blue-hover);
+
+												svg {
+													color: var(--telekom-color-ui-black);
+												}
 											}
 										}
 
 										&:active {
-											border: 1px solid var(--telekom-color-ui-black);
+											border: none;
 											background-color: var(--nmc-ods-blue-pressed);
+
+											svg {
+												color: var(--telekom-color-ui-black);
+											}
+
+											// Dark mode pressed
+											[data-themes*=dark] & {
+												svg {
+													color: var(--telekom-color-ui-black);
+												}
+											}
+										}
+
+										// Active/existing state
+										&.active,
+										&[aria-pressed="true"] {
+											border: none;
+											background-color: var(--nmc-ods-blue-primary);
+
+											svg {
+												color: var(--telekom-color-ui-black);
+											}
+
+											// Dark mode active
+											[data-themes*=dark] & {
+												svg {
+													color: var(--telekom-color-ui-black);
+												}
+											}
 										}
 
 										&:focus,
@@ -1149,11 +1202,19 @@ table.files-filestable {
 											background-color: var(--nmc-ods-blue-primary);
 											outline: 2px solid var(--telekom-color-ui-black);
 											outline-offset: 2px;
-										}
 
-										svg {
-											width: 16px;
-											height: 16px;
+											svg {
+												color: var(--telekom-color-ui-black);
+											}
+
+											// Dark mode focus
+											[data-themes*=dark] & {
+												outline-color: var(--telekom-color-ui-white);
+
+												svg {
+													color: var(--telekom-color-ui-black);
+												}
+											}
 										}
 									}
 								}
