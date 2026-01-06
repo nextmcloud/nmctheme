@@ -488,7 +488,7 @@ li.action button.action-button {
 
 		// Hide inline SVGs only in the icon area (left side)
 		svg {
-			display: none !important;
+			display: none;
 		}
 	}
 
@@ -499,55 +499,55 @@ li.action button.action-button {
 		background-size: 20px;
 
 		svg {
-			display: none !important;
+			display: none;
 		}
 	}
 }
 
-// Show folder icon on the right side only when button is actually checked/selected
+// Show checkmark icon on the right side only when button is actually checked/selected
 li.action button.action-button[aria-checked="true"] {
 	.action-button__pressed-icon {
-		background-image: var(--icon-folder-dark) !important;
+		background-image: var(--icon-checkmark-dark);
 	}
 }
 
 // Assign different icons to each button based on position (left side only)
 // Documents (1st button)
 li.action:nth-child(1) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-filetype-document-dark) !important;
+	background-image: var(--icon-folder-dark);
 }
 
 // Spreadsheets (2nd button)
 li.action:nth-child(2) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-filetype-spreadsheet-dark) !important;
+	background-image: var(--icon-folder-dark);
 }
 
 // Presentations (3rd button)
 li.action:nth-child(3) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-filetype-presentation-dark) !important;
+	background-image: var(--icon-folder-dark);
 }
 
 // PDFs (4th button)
 li.action:nth-child(4) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-filetype-pdf-dark) !important;
+	background-image: var(--icon-folder-dark);
 }
 
 // Folders (5th button)
 li.action:nth-child(5) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-folder-dark) !important;
+	background-image: var(--icon-folder-dark);
 }
 
 // Audio (6th button)
 li.action:nth-child(6) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-filetype-audio-dark) !important;
+	background-image: var(--icon-music-dark);
 }
 
 // Images (7th button)
 li.action:nth-child(7) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-filetype-image-dark) !important;
+	background-image: var(--icon-folder-dark);
 }
 
 // Videos (8th button)
 li.action:nth-child(8) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-filetype-video-dark) !important;
+	background-image: var(--icon-folder-dark);
 }

@@ -184,6 +184,8 @@ const icons = {
 	'folder-overlay-lock': path.join(__dirname, '../img', 'actions', 'lock.svg'),
 	'folder-overlay-share': path.join(__dirname, '../img', 'actions', 'share.svg'),
 	'visibility-on': path.join(__dirname, '../img', 'actions', 'visibility-on.svg'),
+	checkmark: path.join(__dirname, '../img', 'actions', 'checkmark.svg'),
+	music: path.join(__dirname, '../img', 'actions', 'music.svg'),
 }
 
 const iconsColor = {
