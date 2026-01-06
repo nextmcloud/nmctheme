@@ -70,7 +70,13 @@
 					li.action {
 
 						.icon-vue {
+							background-position: center;
+							background-repeat: no-repeat;
 							background-size: 24px;
+
+							svg {
+								display: none;
+							}
 						}
 
 
@@ -478,21 +484,8 @@
 	}
 }
 
-// Replace inline SVG icons in action buttons with custom icons
+// Pressed icon (right side) styling
 li.action button.action-button {
-	// Target only the left icon, not the pressed icon on the right
-	.icon-vue:not(.action-button__pressed-icon) {
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: 24px;
-
-		// Hide inline SVGs only in the icon area (left side)
-		svg {
-			display: none;
-		}
-	}
-
-	// Replace checkmark with folder icon on the right side
 	.action-button__pressed-icon {
 		background-position: center;
 		background-repeat: no-repeat;
@@ -502,52 +495,19 @@ li.action button.action-button {
 			display: none;
 		}
 	}
-}
 
-// Show checkmark icon on the right side only when button is actually checked/selected
-li.action button.action-button[aria-checked="true"] {
-	.action-button__pressed-icon {
+	// Show checkmark icon only when button is actually checked/selected
+	&[aria-checked="true"] .action-button__pressed-icon {
 		background-image: var(--icon-checkmark-dark);
 	}
 }
 
-// Assign different icons to each button based on position (left side only)
-// Documents (1st button)
-li.action:nth-child(1) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-folder-dark);
-}
-
-// Spreadsheets (2nd button)
-li.action:nth-child(2) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-folder-dark);
-}
-
-// Presentations (3rd button)
-li.action:nth-child(3) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-folder-dark);
-}
-
-// PDFs (4th button)
-li.action:nth-child(4) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-folder-dark);
-}
-
-// Folders (5th button)
-li.action:nth-child(5) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-folder-dark);
-}
-
-// Audio (6th button)
-li.action:nth-child(6) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-music-dark);
-}
-
-// Images (7th button)
-li.action:nth-child(7) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-folder-dark);
-}
-
-// Videos (8th button)
-li.action:nth-child(8) button.action-button .icon-vue:not(.action-button__pressed-icon) {
-	background-image: var(--icon-folder-dark);
-}
+// Assign different icons to each button based on position
+li.action:nth-child(1) button.action-button .icon-vue:not(.action-button__pressed-icon) { background-image: var(--icon-folder-dark); }        // Documents
+li.action:nth-child(2) button.action-button .icon-vue:not(.action-button__pressed-icon) { background-image: var(--icon-folder-dark); }        // Spreadsheets
+li.action:nth-child(3) button.action-button .icon-vue:not(.action-button__pressed-icon) { background-image: var(--icon-folder-dark); }        // Presentations
+li.action:nth-child(4) button.action-button .icon-vue:not(.action-button__pressed-icon) { background-image: var(--icon-folder-dark); }        // PDFs
+li.action:nth-child(5) button.action-button .icon-vue:not(.action-button__pressed-icon) { background-image: var(--icon-folder-dark); }        // Folders
+li.action:nth-child(6) button.action-button .icon-vue:not(.action-button__pressed-icon) { background-image: var(--icon-music-dark); }         // Audio
+li.action:nth-child(7) button.action-button .icon-vue:not(.action-button__pressed-icon) { background-image: var(--icon-folder-dark); }        // Images
+li.action:nth-child(8) button.action-button .icon-vue:not(.action-button__pressed-icon) { background-image: var(--icon-folder-dark); }        // Videos
