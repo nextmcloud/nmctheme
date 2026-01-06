@@ -626,11 +626,21 @@ table.files-filestable {
 								height: calc(100% - 2 * 14px);
 								position: absolute;
 
-								&.folder-icon svg,
-								&.folder-open-icon svg {
-									width: 44px;
-									height: 44px;
-									color: var(--nmc-ods-blue-active);
+								&.folder-icon,
+								&.folder-open-icon {
+									width: 45px;
+									height: 36px;
+
+									svg {
+										width: 45px;
+										height: 36px;
+										color: var(--nmc-ods-blue-active);
+
+										path {
+											transform: scale(1.5, 1.5);
+											transform-origin: center;
+										}
+									}
 								}
 
 								&.files-list__row-icon-overlay {
@@ -827,11 +837,21 @@ table.files-filestable {
 				.material-design-icon:not(.play-circle-icon) {
 					@include thumbnail-icons();
 
-					&.folder-icon svg,
-					&.folder-open-icon svg {
-						width: 44px;
-						height: 44px;
-						color: var(--nmc-ods-blue-active);
+					&.folder-icon,
+					&.folder-open-icon {
+						width: 45px;
+						height: 36px;
+
+						svg {
+							width: 45px;
+							height: 36px;
+							color: var(--nmc-ods-blue-active);
+
+							path {
+								transform: scale(1.5, 1.5);
+								transform-origin: center;
+							}
+						}
 					}
 
 					&.files-list__row-icon-overlay {
