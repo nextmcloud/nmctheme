@@ -47,19 +47,13 @@
 							cursor: pointer;
 						}
 
+						// This acts as padding for the button since there is no icon displayed.
+						// If display: none is used, padding cannot be applied to this element.
 						.action-button__icon {
-							display: none;
-
-							svg path {
-								fill: var(--telekom-color-ui-black);
-							}
+							width: 16px;
+							height: 16px;
 						}
 
-						.icon-vue {
-							svg path {
-								fill: var(--telekom-color-ui-black);
-							}
-						}
 					}
 
 					li.action-separator,
