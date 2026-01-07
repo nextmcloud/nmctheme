@@ -626,11 +626,21 @@ table.files-filestable {
 								height: calc(100% - 2 * 14px);
 								position: absolute;
 
-								&.folder-icon svg,
-								&.folder-open-icon svg {
-									width: 44px;
-									height: 44px;
-									color: var(--nmc-ods-blue-active);
+								&.folder-icon,
+								&.folder-open-icon {
+									width: 45px;
+									height: 36px;
+
+									svg {
+										width: 45px;
+										height: 36px;
+										color: var(--nmc-ods-blue-active);
+
+										path {
+											transform: scale(1.5, 1.5);
+											transform-origin: center;
+										}
+									}
 								}
 
 								&.files-list__row-icon-overlay {
@@ -827,11 +837,21 @@ table.files-filestable {
 				.material-design-icon:not(.play-circle-icon) {
 					@include thumbnail-icons();
 
-					&.folder-icon svg,
-					&.folder-open-icon svg {
-						width: 44px;
-						height: 44px;
-						color: var(--nmc-ods-blue-active);
+					&.folder-icon,
+					&.folder-open-icon {
+						width: 45px;
+						height: 36px;
+
+						svg {
+							width: 45px;
+							height: 36px;
+							color: var(--nmc-ods-blue-active);
+
+							path {
+								transform: scale(1.5, 1.5);
+								transform-origin: center;
+							}
+						}
 					}
 
 					&.files-list__row-icon-overlay {
@@ -1001,40 +1021,86 @@ table.files-filestable {
 									&.files-list__row-action-sharing-popup {
 										direction: rtl;
 										margin: 0;
-										border: none;
+										border: 1px solid var(--telekom-color-text-and-icon-standard);
 										border-radius: 50%;
-										width: 40px;
-										height: 40px;
+										width: 40px !important;
+										height: 40px !important;
+										min-width: 40px !important;
+										min-height: 40px !important;
 										box-sizing: border-box;
 										display: flex;
 										align-items: center;
 										justify-content: center;
-										background-color: var(--nmc-ods-blue-primary);
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
 											background-size: 16px 16px;
 											width: 16px;
 											height: 16px;
-											filter: brightness(0);
 										}
 
 										&:hover {
 											border: none;
 											background-color: var(--nmc-ods-blue-active);
+
+											.button-vue__icon {
+												filter: brightness(0);
+											}
+
+											[data-themes*=dark] & {
+												background-color: var(--nmc-ods-blue-hover);
+											}
 										}
 
 										&:active {
-											border: 1px solid var(--telekom-color-ui-black);
+											border: none;
 											background-color: var(--nmc-ods-blue-pressed);
+
+											.button-vue__icon {
+												filter: brightness(0);
+											}
+
+											[data-themes*=dark] & {
+												.button-vue__icon {
+													filter: brightness(0);
+												}
+											}
+										}
+
+										// Active/existing share state
+										&.active,
+										&[aria-pressed="true"] {
+											border: none;
+											background-color: var(--nmc-ods-blue-primary);
+
+											.button-vue__icon {
+												filter: brightness(0);
+											}
+
+											[data-themes*=dark] & {
+												.button-vue__icon {
+													filter: brightness(0);
+												}
+											}
 										}
 
 										&:focus,
 										&:focus-visible {
 											border: none;
 											background-color: var(--nmc-ods-blue-primary);
-											outline: 2px solid var(--telekom-color-ui-black);
+											outline: 2px solid var(--telekom-color-text-and-icon-standard);
 											outline-offset: 2px;
+
+											.button-vue__icon {
+												filter: brightness(0);
+											}
+
+											[data-themes*=dark] & {
+
+												.button-vue__icon {
+													filter: brightness(0);
+												}
+											}
 										}
 
 										&.button-vue--icon-and-text[aria-label="Mit mir geteilt"] .button-vue__icon,
@@ -1060,41 +1126,92 @@ table.files-filestable {
 								// ... action menu
 								div.action-item {
 									button.action-item__menutoggle {
-										border: none;
+										border: 1px solid var(--telekom-color-text-and-icon-standard);
 										border-radius: 50%;
-										width: 40px;
-										height: 40px;
+										width: 40px !important;
+										height: 40px !important;
+										min-width: 40px !important;
+										min-height: 40px !important;
 										box-sizing: border-box;
 										display: flex;
 										align-items: center;
 										justify-content: center;
-										background-color: var(--nmc-ods-blue-primary);
+
+										svg {
+											width: 16px;
+											height: 16px;
+											color: var(--telekom-color-text-and-icon-standard);
+										}
 
 										&:hover {
 											border: none;
 											background-color: var(--nmc-ods-blue-active);
 
 											svg {
-												color: var(--color-main-text);
+												color: var(--telekom-color-ui-black);
+											}
+
+											// Dark mode hover
+											[data-themes*=dark] & {
+												background-color: var(--nmc-ods-blue-hover);
+
+												svg {
+													color: var(--telekom-color-ui-black);
+												}
 											}
 										}
 
 										&:active {
-											border: 1px solid var(--telekom-color-ui-black);
+											border: none;
 											background-color: var(--nmc-ods-blue-pressed);
+
+											svg {
+												color: var(--telekom-color-ui-black);
+											}
+
+											// Dark mode pressed
+											[data-themes*=dark] & {
+												svg {
+													color: var(--telekom-color-ui-black);
+												}
+											}
+										}
+
+										// Active/existing state
+										&.active,
+										&[aria-pressed="true"] {
+											border: none;
+											background-color: var(--nmc-ods-blue-primary);
+
+											svg {
+												color: var(--telekom-color-ui-black);
+											}
+
+											// Dark mode active
+											[data-themes*=dark] & {
+												svg {
+													color: var(--telekom-color-ui-black);
+												}
+											}
 										}
 
 										&:focus,
 										&:focus-visible {
 											border: none;
 											background-color: var(--nmc-ods-blue-primary);
-											outline: 2px solid var(--telekom-color-ui-black);
+											outline: 2px solid var(--telekom-color-text-and-icon-standard);
 											outline-offset: 2px;
-										}
 
-										svg {
-											width: 16px;
-											height: 16px;
+											svg {
+												color: var(--telekom-color-ui-black);
+											}
+
+											// Dark mode focus
+											[data-themes*=dark] & {
+												svg {
+													color: var(--telekom-color-ui-black);
+												}
+											}
 										}
 									}
 								}

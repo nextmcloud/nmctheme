@@ -275,13 +275,14 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 		.button-vue--vue-primary {
 			background-color: var(--nmc-ods-blue-primary);
 			border-radius: var(--telekom-radius-pill);
-			color: var(--telekom-color-text-and-icon-standard)
+			color: var(--telekom-color-ui-black);
 		}
 
 		// Container for "Create new link" button
 		#addlink_button {
 			background-color: var(--nmc-ods-blue-primary);
 			border-radius: var(--telekom-radius-pill);
+			color: var(--telekom-color-ui-black);
 			border-width: 0;
 		}
 
@@ -293,18 +294,16 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 
 		// Quick share options dropdown button
 		.share-select button.trigger-text {
-			color: #2E466A;
+			color: var(--telekom-color-text-and-icon-link-standard);
 			font-weight: 400;
 
 			.eye-circle-outline-icon {
 				width: 16px;
 				height: 16px;
 				display: inline-block;
-				background-image: var(--icon-visibility-on-dark);
-				background-repeat: no-repeat;
-				background-position: center;
-				background-size: contain;
-				filter: invert(20%) sepia(19%) saturate(1540%) hue-rotate(182deg) brightness(95%) contrast(88%);
+				background-color: var(--telekom-color-text-and-icon-link-standard);
+				mask: var(--icon-visibility-on-dark) no-repeat center;
+				mask-size: contain;
 
 				svg {
 					display: none !important;
@@ -315,11 +314,9 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 				width: 16px;
 				height: 16px;
 				display: inline-block;
-				background-image: var(--icon-calendar-dark);
-				background-repeat: no-repeat;
-				background-position: center;
-				background-size: contain;
-				filter: invert(20%) sepia(19%) saturate(1540%) hue-rotate(182deg) brightness(95%) contrast(88%);
+				background-color: var(--telekom-color-text-and-icon-link-standard);
+				mask: var(--icon-calendar-dark) no-repeat center;
+				mask-size: contain;
 
 				svg {
 					display: none !important;
@@ -347,11 +344,11 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 
 			&.button-vue--icon-only {
 				border-radius: 50%;
-				width: 40px;
+				width: 40px !important;
 				height: 40px;
 				min-width: 40px;
 				min-height: 40px;
-				border: 1px solid var(--telekom-color-ui-black);
+				border: 1px solid var(--telekom-color-text-and-icon-standard);
 
 				.icon-delete {
 					background-image: var(--icon-close-x-dark);
