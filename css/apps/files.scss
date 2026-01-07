@@ -1021,7 +1021,7 @@ table.files-filestable {
 									&.files-list__row-action-sharing-popup {
 										direction: rtl;
 										margin: 0;
-										border: 1px solid var(--telekom-color-ui-black);
+										border: 1px solid var(--telekom-color-text-and-icon-standard);
 										border-radius: 50%;
 										width: 40px !important;
 										height: 40px !important;
@@ -1031,22 +1031,12 @@ table.files-filestable {
 										display: flex;
 										align-items: center;
 										justify-content: center;
-										background-color: transparent;
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
 											background-size: 16px 16px;
 											width: 16px;
 											height: 16px;
-											filter: brightness(0);
-										}
-
-										[data-themes*=dark] & {
-											border-color: var(--telekom-color-ui-white);
-
-											.button-vue__icon {
-												filter: brightness(0) invert(1);
-											}
 										}
 
 										&:hover {
@@ -1098,7 +1088,7 @@ table.files-filestable {
 										&:focus-visible {
 											border: none;
 											background-color: var(--nmc-ods-blue-primary);
-											outline: 2px solid var(--telekom-color-ui-black);
+											outline: 2px solid var(--telekom-color-text-and-icon-standard);
 											outline-offset: 2px;
 
 											.button-vue__icon {
@@ -1106,7 +1096,6 @@ table.files-filestable {
 											}
 
 											[data-themes*=dark] & {
-												outline-color: var(--telekom-color-ui-white);
 
 												.button-vue__icon {
 													filter: brightness(0);
@@ -1137,7 +1126,7 @@ table.files-filestable {
 								// ... action menu
 								div.action-item {
 									button.action-item__menutoggle {
-										border: 1px solid var(--telekom-color-ui-black);
+										border: 1px solid var(--telekom-color-text-and-icon-standard);
 										border-radius: 50%;
 										width: 40px !important;
 										height: 40px !important;
@@ -1147,21 +1136,11 @@ table.files-filestable {
 										display: flex;
 										align-items: center;
 										justify-content: center;
-										background-color: transparent;
 
 										svg {
 											width: 16px;
 											height: 16px;
-											color: var(--telekom-color-ui-black);
-										}
-
-										// Dark mode normal state
-										[data-themes*=dark] & {
-											border-color: var(--telekom-color-ui-white);
-
-											svg {
-												color: var(--telekom-color-ui-white);
-											}
+											color: var(--telekom-color-text-and-icon-standard);
 										}
 
 										&:hover {
@@ -1220,7 +1199,7 @@ table.files-filestable {
 										&:focus-visible {
 											border: none;
 											background-color: var(--nmc-ods-blue-primary);
-											outline: 2px solid var(--telekom-color-ui-black);
+											outline: 2px solid var(--telekom-color-text-and-icon-standard);
 											outline-offset: 2px;
 
 											svg {
@@ -1229,8 +1208,6 @@ table.files-filestable {
 
 											// Dark mode focus
 											[data-themes*=dark] & {
-												outline-color: var(--telekom-color-ui-white);
-
 												svg {
 													color: var(--telekom-color-ui-black);
 												}
