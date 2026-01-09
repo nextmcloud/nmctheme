@@ -1047,33 +1047,52 @@
 				}
 
 				span.home-icon {
-					background-image: var(--icon-home-dark);
-					background-repeat: no-repeat;
-					background-position: center;
-					background-size: 24px;
-					width: 24px;
-					height: 24px;
+					display: none;
+				}
 
-					svg {
-						display: none;
+				// Show "Start" text instead of home icon
+				&.vue-crumb:first-child {
+					.button-vue__text {
+						display: block !important;
+						visibility: hidden;
+						position: relative;
+					}
+					.button-vue__text::before {
+						content: 'Start';
+						visibility: visible;
+						position: absolute;
+						left: 0;
 					}
 				}
 
 				span.vue-crumb__separator {
 					display: flex;
-					background-image: var(--icon-breadcrumb-arrow-grey);
-					background-repeat: no-repeat;
-					background-position: center;
-					background-size: 24px;
+					align-items: center;
+					justify-content: center;
 					width: 24px;
 					height: 24px;
 
 					svg {
 						display: none;
 					}
-				}
+					&::before {
+						content: '';
+						width: 4px;
+						height: 4px;
+						border-radius: 50%;
+						background-color: currentColor;
+						opacity: 0.5;
+					}
+				}	
 			}
+		}
 
+		// Override at root level
+		.breadcrumb--collapsed .vue-crumb:last-child {
+			min-width: 60px !important;
+		}
+
+		&__breadcrumbs {
 			.breadcrumb__actions {
 
 				button {

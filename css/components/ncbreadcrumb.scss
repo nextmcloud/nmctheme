@@ -5,23 +5,21 @@
 	nav {
 		height: 44px;
 		ul.breadcrumb__crumbs {
-			// Display root as a Home icon
+			// Display root as "Start" text
 			li.vue-crumb:first-child {
 				.button-vue__icon {
-					background-image: var(--icon-home-dark);
-					background-position: center;
-					background-repeat: no-repeat;
-					svg {
-						display: none;
-					}
-				}
-				.button-vue__text {
 					display: none;
 				}
-				&:hover {
-					.button-vue__icon {
-						opacity: 0.7;
-					}
+				.button-vue__text {
+					display: block !important;
+					visibility: hidden;
+					position: relative;
+				}
+				.button-vue__text::before {
+					content: 'Start';
+					visibility: visible;
+					position: absolute;
+					left: 0;
 				}
 
 			}
@@ -49,21 +47,44 @@
 					}
 				}
 	
-				// Right arrow change
+				// Dot separator
 				span.chevron-right-icon {
-					display: block;
+					display: flex;
+					align-items: center;
+					justify-content: center;
 					margin-right: 8px;
-					background-image: var(--icon-breadcrumb-arrow-grey);
 					width: 24px;
 					height: 24px;
 					svg {
 						display: none;
 					}
+					&::before {
+						content: '';
+						width: 4px;
+						height: 4px;
+						border-radius: 50%;
+						background-color: currentColor;
+						opacity: 0.5;
+					}
+				}
+			}
+
+			// Hide dot after last item (no separator after the last breadcrumb)
+			li.vue-crumb:last-child {
+				span.chevron-right-icon {
+					display: none;
 				}
 			}
 		}
 	}
+}
 
+// Override at root level to ensure it applies
+.breadcrumb--collapsed .vue-crumb:last-child {
+	min-width: 60px !important;
+}
+
+#content-vue .breadcrumb {
 	.breadcrumb__actions {
 		// hide Share button
 		button.files-list__header-share-button {
