@@ -129,7 +129,7 @@
 	.button-vue__wrapper {
 		&:hover {
 			.files-list__column-sort-button-text {
-				color: var(--telekom-color-text-and-icon-primary-standard);
+				color: var(--color-primary);
 			}
 
 			.button-vue__icon {
@@ -167,8 +167,8 @@
 					.minus-box-icon {
 						width: 18px;
 						height: 18px;
-						border: 1px solid var(--telekom-color-ui-border-standard);
-						border-radius: var(--telekom-radius-small);
+						border: 1px solid var(--color-border);
+						border-radius: var(-border-radius);
 
 						svg {
 							display: none;
@@ -182,7 +182,7 @@
 
 				&.checkbox-content__icon--checked {
 					background-image: var(--original-icon-check-white);
-					background-color: var(--telekom-color-functional-success-standard);
+					background-color: var(--color-success);
 					background-position: center;
 					background-repeat: no-repeat;
 					background-size: 18px;
@@ -338,7 +338,7 @@ table.files-filestable {
 		.dialog__content.file-picker__content {
 			.file-picker__files {
 				thead th {
-					background-color: var(--telekom-color-background-surface);
+					background-color: var(--color-main-background);
 				}
 
 				tbody {
@@ -447,7 +447,7 @@ table.files-filestable {
 					display: block;
 					width: 1px;
 					height: 28px;
-					background-color: var(--telekom-color-ui-border-standard);
+					background-color: var(--color-border);
 					margin: 0 4px;
 				}
 			}
@@ -461,7 +461,7 @@ table.files-filestable {
 			// Style for filter dropdown buttons (Type, Modified, etc.)
 			.action-item button.action-item__menutoggle {
 				background-color: var(--nmc-ods-blue-primary);
-				color: var(--telekom-color-text-and-icon-black-standard);
+				color: var(--nmc-color-text-and-icon-black);
 				border-radius: 8px;
 				border: none;
 				height: 28px;
@@ -491,7 +491,7 @@ table.files-filestable {
 				}
 
 				.button-vue__text {
-					color: var(--telekom-color-text-and-icon-black-standard);
+					color: var(--nmc-color-text-and-icon-black);
 				}
 
 				// Add down arrow icon after the wrapper
@@ -500,8 +500,8 @@ table.files-filestable {
 					display: inline-block;
 					width: 6px;
 					height: 6px;
-					border-left: 1.5px solid var(--telekom-color-ui-black);
-					border-bottom: 1.5px solid var(--telekom-color-ui-black);
+					border-left: 1.5px solid var(--nmc-color-text-and-icon-black);
+					border-bottom: 1.5px solid var(--nmc-color-text-and-icon-black);
 					transform: rotate(-45deg);
 					margin-left: 8px;
 					margin-bottom: 2px;
@@ -519,7 +519,7 @@ table.files-filestable {
 		// Style for active filter chips
 		.files-list__filters .nc-chip {
 			background-color: var(--nmc-ods-blue-active);
-			color: var(--telekom-color-text-and-icon-black-standard);
+			color: var(--nmc-color-text-and-icon-black);
 			border-radius: 8px;
 			border: none;
 			height: 28px;
@@ -540,8 +540,8 @@ table.files-filestable {
 
 			// Style the text
 			.nc-chip__text {
-				color: var(--telekom-color-text-and-icon-black-standard);
-				font-weight: var(--telekom-typography-font-weight-bold);
+				color: var(--nmc-color-text-and-icon-black);
+				font-weight: bold;
 			}
 
 			// Style the X button
@@ -555,7 +555,7 @@ table.files-filestable {
 
 
 				svg {
-					color: var(--telekom-color-ui-black);
+					color: var(--nmc-color-text-and-icon-black);
 					width: 16px;
 					height: 16px;
 				}
@@ -591,7 +591,7 @@ table.files-filestable {
 						&:focus,
 						&:active,
 						&--active {
-							background-color: var(--nmc-color-row-hover);
+							background-color: var(--color-background-hover);
 						}
 					}
 
@@ -800,11 +800,11 @@ table.files-filestable {
 
 						&:hover {
 							svg {
-								color: var(--telekom-color-text-and-icon-primary-standard);
+								color: var(--color-primary);
 							}
 
 							span.files-list__column-sort-button-text {
-								color: var(--telekom-color-text-and-icon-primary-standard);
+								color: var(--color-primary);
 							}
 						}
 					}
@@ -889,11 +889,11 @@ table.files-filestable {
 					&:not(.hidden):active,
 					&:not(.hidden):focus,
 					&:not(.hidden).mouseOver td {
-						background-color: var(--nmc-color-row-selected);
+						background-color: var(--color-background-dark);
 					}
 
 					&:not(.hidden):not(.highlighted):not(.selected):hover {
-						background-color: var(--nmc-color-row-hover);
+						background-color: var(--color-background-hover);
 					}
 
 					td {
@@ -1021,7 +1021,7 @@ table.files-filestable {
 									&.files-list__row-action-sharing-popup {
 										direction: rtl;
 										margin: 0;
-										border: 1px solid var(--telekom-color-text-and-icon-standard);
+										border: 1px solid var(--color-main-text);
 										border-radius: 50%;
 										width: 40px !important;
 										height: 40px !important;
@@ -1088,7 +1088,7 @@ table.files-filestable {
 										&:focus-visible {
 											border: none;
 											background-color: var(--nmc-ods-blue-primary);
-											outline: 2px solid var(--telekom-color-text-and-icon-standard);
+											outline: 2px solid var(--color-main-text);
 											outline-offset: 2px;
 
 											.button-vue__icon {
@@ -1126,7 +1126,7 @@ table.files-filestable {
 								// ... action menu
 								div.action-item {
 									button.action-item__menutoggle {
-										border: 1px solid var(--telekom-color-text-and-icon-standard);
+										border: 1px solid var(--color-main-text);
 										border-radius: 50%;
 										width: 40px !important;
 										height: 40px !important;
@@ -1140,7 +1140,7 @@ table.files-filestable {
 										svg {
 											width: 16px;
 											height: 16px;
-											color: var(--telekom-color-text-and-icon-standard);
+											color: var(--color-main-text);
 										}
 
 										&:hover {
@@ -1148,7 +1148,7 @@ table.files-filestable {
 											background-color: var(--nmc-ods-blue-active);
 
 											svg {
-												color: var(--telekom-color-ui-black);
+												color: var(--nmc-color-text-and-icon-black);
 											}
 
 											// Dark mode hover
@@ -1156,7 +1156,7 @@ table.files-filestable {
 												background-color: var(--nmc-ods-blue-hover);
 
 												svg {
-													color: var(--telekom-color-ui-black);
+													color: var(--nmc-color-text-and-icon-black);
 												}
 											}
 										}
@@ -1166,13 +1166,13 @@ table.files-filestable {
 											background-color: var(--nmc-ods-blue-pressed);
 
 											svg {
-												color: var(--telekom-color-ui-black);
+												color: var(--nmc-color-text-and-icon-black);
 											}
 
 											// Dark mode pressed
 											[data-themes*=dark] & {
 												svg {
-													color: var(--telekom-color-ui-black);
+													color: var(--nmc-color-text-and-icon-black);
 												}
 											}
 										}
@@ -1184,13 +1184,13 @@ table.files-filestable {
 											background-color: var(--nmc-ods-blue-primary);
 
 											svg {
-												color: var(--telekom-color-ui-black);
+												color: var(--nmc-color-text-and-icon-black);
 											}
 
 											// Dark mode active
 											[data-themes*=dark] & {
 												svg {
-													color: var(--telekom-color-ui-black);
+													color: var(--nmc-color-text-and-icon-black);
 												}
 											}
 										}
@@ -1199,17 +1199,17 @@ table.files-filestable {
 										&:focus-visible {
 											border: none;
 											background-color: var(--nmc-ods-blue-primary);
-											outline: 2px solid var(--telekom-color-text-and-icon-standard);
+											outline: 2px solid var(--color-main-text);
 											outline-offset: 2px;
 
 											svg {
-												color: var(--telekom-color-ui-black);
+												color: var(--nmc-color-text-and-icon-black);
 											}
 
 											// Dark mode focus
 											[data-themes*=dark] & {
 												svg {
-													color: var(--telekom-color-ui-black);
+													color: var(--nmc-color-text-and-icon-black);
 												}
 											}
 										}
@@ -1254,12 +1254,12 @@ table.files-filestable {
 
 				label.checkbox-radio-switch__label>span.checkbox-radio-switch__icon {
 					background-image: var(--original-icon-check-white);
-					background-color: var(--telekom-color-functional-success-standard);
+					background-color: var(--color-success);
 					background-position: center;
 					background-repeat: no-repeat;
 					background-size: 18px;
 					border: none;
-					border-radius: var(--telekom-radius-circle);
+					border-radius: var(--border-radius-pill);
 					height: 1.5rem;
 					width: 1.5rem;
 					margin: -2px -2px 0 0;
@@ -1303,7 +1303,7 @@ table.files-filestable {
 				&:focus,
 				&:focus-visible {
 					background-color: transparent;
-					color: var(--telekom-color-text-and-icon-primary-standard);
+					color: var(--color-primary);
 					outline: none;
 				}
 

@@ -10,8 +10,8 @@
 #error,
 #body-status {
     // this is needed as background for the scrollbar
-    background-color: var(--telekom-color-primary-standard);
-    scrollbar-color: var(--telekom-color-primary-pressed) var(--telekom-color-text-and-icon-primary-standard);
+    background-color: var(--color-primary);
+    scrollbar-color: var(--color-primary-pressed) var(--color-primary);
 
     // this is the dedicated background image for login
     background-image: url('../img/telekom/consent.svg');
@@ -35,7 +35,7 @@
 #error #body-status footer[role="contentinfo"],
 #body-status footer[role="contentinfo"] {
     opacity: var(--telekom-opacity-semi-transparent);
-    color: var(--telekom-color-text-and-icon-white-standard);
+    color: var(--nmc-color-text-and-icon-white);
 }
 
 @media (prefers-color-scheme: dark) {

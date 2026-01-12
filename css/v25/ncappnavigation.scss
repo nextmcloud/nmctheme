@@ -7,7 +7,7 @@
 
 #app-navigation:not(.vue) {
 	// add vertical line to demarcate app navigation
-	border-right: 1px solid var(--telekom-color-ui-faint);
+	border-right: 1px solid var(--color-border);
 
 	.app-navigation-caption {
 		padding: 2.5rem 1.5rem 0;
@@ -31,12 +31,12 @@
 				display: none;
 			}
 
-			font: var(--telekom-text-style-ui-bold);
+			font: var(--default-font-style-bold);
 			margin-bottom: var(--telekom-spacing-composition-space-03);
 
 			// nav links with icons
 			&>a {
-				border-radius: var(--telekom-radius-standard);
+				border-radius: var(--border-radius-large);
 				// increase sidebar link height
 				line-height: 52px;
 				min-height: 52px;
@@ -56,8 +56,8 @@
 			&>a:hover,
 			&>a.active,
 			&.active>a {
-				color: var(--telekom-color-text-and-icon-primary-standard);
-				background-color: var(--nmc-color-background-hover);
+				color: var(--color-primary);
+				background-color: var(--color-background-hover);
 
 				&::after,
 				img {

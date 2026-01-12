@@ -14,9 +14,7 @@
 
 header {
 	--shadow: 0px 2px 9px rgba(0, 0, 0, 0.15);
-	--font-size-app-name: var(--telekom-typography-font-size-small);
-	--line-height-app-name: var(--telekom-typography-line-spacing-tight);
-	--font-weight-app-name: var(--telekom-typography-font-weight-extra-bold);
+	--font-size-app-name: var(--font-size-small);
 	--icon-search: var(--original-icon-search-dark);
 	--icon-user: var(--original-icon-user-dark);
 }
@@ -32,8 +30,8 @@ header {
 #body-user #header,
 #body-settings #header,
 #body-public #header {
-	background: var(--telekom-color-background-surface) !important;
-	border-bottom: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
+	background: var(--color-main-background) !important;
+	border-bottom: var(--telekom-spacing-composition-space-01) solid var(--color-border);
 	border-radius: 0;
 	height: var(--header-height);
 	margin: 0;
@@ -63,11 +61,9 @@ header {
 		}
 
 		.title {
-			font-weight: var(--telekom-typography-font-weight-bold);
+			font-weight: bold;
 			font-style: normal;
-			font-size: var(--telekom-typography-font-size-callout);
-			line-height: var(--telekom-typography-line-spacing-standard);
-			letter-spacing: var(--telekom-typography-letter-spacing-standard);
+			font-size: 1.25rem;
 			color: var(--color-primary);
 			margin: auto 3rem;
 			width: 130px;
@@ -205,7 +201,7 @@ header {
 			}
 
 			#header-menu-notifications {
-				background-color: var(--telekom-color-background-surface);
+				background-color: var(--color-main-background);
 				border-radius: var(--border-radius);
         		margin-top: 8px;
 			}
@@ -225,6 +221,7 @@ header {
 				padding-left: 0;
 
 				.button-vue__label {
+					color: var(--color-main-text);
 					font-size: 12px;
 					font-weight: normal;
 				}
@@ -325,7 +322,7 @@ header {
 			display: inline-flex;
 			flex: 1;
 			font-size: var(--font-size-app-name);
-			font-weight: var(--font-weight-app-name);
+			font-weight: bold;
 			justify-content: flex-end;
 			margin-right: var(--telekom-spacing-composition-space-10);
 			overflow: unset;
@@ -347,7 +344,7 @@ header {
 
 	.header-shared-by {
 		font-size: var(--font-size-app-name);
-		font-weight: var(--font-weight-app-name);
-		line-height: var(--line-height-app-name);
+		font-weight: bold;
+		line-height: 1.25;
 	}
 }

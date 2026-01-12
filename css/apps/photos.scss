@@ -71,8 +71,8 @@
 				button {
 					border-radius: var(--border-radius-pill);
 					border: var(--telekom-spacing-composition-space-01) solid currentColor;
-					background-color: var(--telekom-color-ui-state-fill-standard);
-					border-color: var(--telekom-color-ui-border-standard);
+
+					border-color: var(--color-border);
 					line-height: 1rem;
 					margin: 0;
 					min-height: unset;
@@ -134,7 +134,7 @@
 
 						svg,
 						.button-vue__text {
-							color: var(--telekom-color-text-and-icon-primary-hovered);
+							color: var(--color-primary-hover);
 						}
 					}
 				}
@@ -370,7 +370,7 @@
 							}
 
 							&__name {
-								color: var(--color-text-light);
+								color: var(--color-text-lighter);
 								font-weight: bold;
 								text-shadow: none;
 							}
@@ -432,7 +432,7 @@
 			}
 
 			.collection-cover {
-				background-color: var(--telekom-color-background-surface);
+				background-color: var(--color-main-background);
 
 				&__image {
 
@@ -659,7 +659,7 @@
 
 	.album-form,
 	.album-picker {
-		background-color: var(--telekom-color-background-surface);
+		background-color: var(--color-main-background);
 		height: auto;
 		padding: 1.5rem !important;
 
@@ -682,7 +682,7 @@
 
 				// 'Back' button
 				.button-vue--vue-tertiary {
-					border: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-border-standard);
+					border: var(--telekom-spacing-composition-space-01) solid var(--color-border);
 				}
 			}
 
@@ -718,27 +718,27 @@
 			.album {
 
 				.list-item {
-					border-radius: var(--telekom-radius-standard);
+					border-radius: var(--border-radius-large);
 					padding: 0.5rem !important;
 					margin-left: 0;
 					transition: none;
 
 					&:hover {
-						background-color: var(--nmc-color-row-hover);
+						background-color: var(--color-background-hover);
 					}
 				}
 			}
 		}
 
 		.new-album-button {
-			background-color: var(--telekom-color-primary-standard);
+			background-color: var(--color-primary);
 			border: 0;
-			color: var(--telekom-color-text-and-icon-white-standard);
+			color: var(--nmc-color-text-and-icon-white);
 			margin-right: 0;
 			margin-left: 0;
 
 			&:hover:not(:disabled) {
-				background-color: var(--telekom-color-primary-hovered);
+				background-color: var(--color-primary-hover);
 			}
 
 			.button-vue__icon {
@@ -777,7 +777,7 @@
 // Add Photos to the album modal window
 #body-user .modal-container,
 #body-settings .modal-container {
-	background-color: var(--telekom-color-background-surface);
+	background-color: var(--color-main-background);
 
 	button.modal-container__close {
 		border: none;
@@ -845,7 +845,7 @@
 				.material-design-icon {
 					background-color: var(--color-main-background);
 					border: 1px solid var(--color-primary-element);
-					border-radius: var(--telekom-radius-small);
+					border-radius: var(-border-radius);
 					height: 1rem;
 					width: 1rem;
 					margin: 0;
@@ -922,7 +922,7 @@
 		// Tiled Photos view
 		&__file-list.files-list-viewer {
 			.files-list-viewer__section-header {
-				background-color: var(--telekom-color-background-surface);
+				background-color: var(--color-main-background);
 			}
 
 			div.file-container {
@@ -953,12 +953,12 @@
 						.checkbox-radio-switch__label:before {
 							content: "";
 							background-image: var(--original-icon-check-white);
-							background-color: var(--telekom-color-text-and-icon-functional-success);
+							background-color: var(--color-success);
 							background-position: center;
 							background-repeat: no-repeat;
 							background-size: 18px;
 							border: none;
-							border-radius: var(--telekom-radius-circle);
+							border-radius: var(--border-radius-pill);
 							height: 1.5rem;
 							width: 1.5rem;
 							margin: -2px -2px 0 0;
@@ -1002,7 +1002,7 @@
 			display: block;
 
 			&__month {
-				border-radius: var(--telekom-radius-standard);
+				border-radius: var(--border-radius-large);
 				height: 44px;
 				text-align: left;
 				display: flex;
@@ -1010,7 +1010,7 @@
 
 				&.selected,
 				&:not(.selected):hover {
-					background-color: var(--nmc-color-background-hover);
+					background-color: var(--color-background-hover);
 					color: var(--color-primary);
 				}
 			}
@@ -1082,12 +1082,12 @@
 					padding: 0;
 
 					.plus-icon {
-						border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
+						border: 1px solid var(--color-primary);
 						border-radius: 50%;
 					}
 
 					svg {
-						color: var(--telekom-color-text-and-icon-primary-standard);
+						color: var(--color-primary);
 					}
 
 					.button-vue__text {
@@ -1109,7 +1109,7 @@
 			}
 
 			th {
-				background-color: var(--telekom-color-background-surface);
+				background-color: var(--color-main-background);
 
 				.button-vue {
 					border: none;
@@ -1235,7 +1235,7 @@
 		}
 
 		&__or {
-			background-color: var(--telekom-color-background-surface);
+			background-color: var(--color-main-background);
 			bottom: -0.75rem;
 			font-size: 14px;
 			padding: 0.75rem;
@@ -1256,7 +1256,7 @@
 				align-items: center;
 				font-size: 14px;
 				gap: 2px;
-				color: var(--telekom-color-text-and-icon-disabled);
+				color: var(--color-text-lighter);
 				font-weight: bold;
 			}
 		}

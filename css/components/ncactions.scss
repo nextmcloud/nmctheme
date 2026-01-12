@@ -10,7 +10,7 @@
 			background-color: initial;
 
 			svg {
-				color: var(--telekom-color-text-and-icon-primary-standard);
+				color: var(--color-primary);
 			}
 		}
 	}
@@ -24,7 +24,7 @@
 
 		.v-popper__wrapper {
 			box-shadow: none;
-			border: 1px solid var(--telekom-color-ui-black);
+			border: 1px solid var(--nmc-color-text-and-icon-black);
 
 			.v-popper__arrow-container {
 				display: none;
@@ -32,7 +32,7 @@
 
 			.v-popper__inner {
 
-				background-color: var(--telekom-color-background-surface);
+				background-color: var(--color-main-background);
 				padding: 0.5rem;
 
 				ul {
@@ -53,7 +53,7 @@
 
 						.icon-vue {
 							svg path {
-								fill: var(--telekom-color-text-and-icon-standard);
+								fill: var(--color-main-text);
 							}
 						}
 					}
@@ -311,14 +311,14 @@
 
 		.v-popper__wrapper {
 			box-shadow: none;
-			border: 1px solid var(--telekom-color-ui-black);
+			border: 1px solid var(--nmc-color-text-and-icon-black);
 
 			.v-popper__arrow-container {
 				display: none;
 			}
 
 			.v-popper__inner {
-				background-color: var(--telekom-color-background-surface);
+				background-color: var(--color-main-background);
 
 				.material-design-icon {
 
@@ -403,7 +403,7 @@
 					}
 
 					&.action-separator.action--disabled {
-						border-bottom: 1px solid var(--telekom-color-ui-border-pressed);
+						border-bottom: 1px solid var(--color-border-maxcontrast);
 					}
 
 					&.active {
@@ -428,7 +428,7 @@
 						.action-link__text,
 						.action-link__longtext {
 							cursor: pointer;
-							color: var(--telekom-color-primary-standard);
+							color: var(--color-primary);
 						}
 					}
 				}
@@ -457,7 +457,7 @@
 			.v-popper__wrapper {
 
 				.v-popper__arrow-container {
-					border-top-color: var(--telekom-color-background-surface);
+					border-top-color: var(--color-main-background);
 				}
 			}
 		}
@@ -467,7 +467,7 @@
 			.v-popper__wrapper {
 
 				.v-popper__arrow-container {
-					border-bottom-color: var(--telekom-color-background-surface);
+					border-bottom-color: var(--color-main-background);
 				}
 			}
 		}

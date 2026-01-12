@@ -34,10 +34,6 @@ export default {
 	height: 100%;
 	max-width: 100%;
 	width: var(--percentage);
-	/** Add new variables
-		--telekom-motion-duration-immediate : 100ms
-		--telekom-motion-easing-standard : cubic-bezier(0.4,0,0.6,1)
-	*/
 	transition: width 100ms cubic-bezier(0.4,0,0.6,1);
 	border-radius: 9999px;
 	background: #5B7290;

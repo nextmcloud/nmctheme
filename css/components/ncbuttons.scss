@@ -21,8 +21,8 @@
     border: 0;
     padding: 0;
     border-radius: var(--border-radius-pill);
-    font: var(--telekom-text-style-body);
-    font-weight: var(--telekom-typography-font-weight-bold);
+    font: var(--default-font-style);
+    font-weight: bold;
     line-height: 1.125rem;
     min-height: var(--telekom-spacing-composition-space-13);
     min-width: var(--telekom-spacing-composition-space-13);
@@ -65,20 +65,20 @@
     // Primary
     &--vue-primary, &_primary {
         border-radius: var(--border-radius-pill);
-        background-color: var(--telekom-color-primary-standard);
-        color: var(--telekom-color-text-and-icon-white-standard);
+        background-color: var(--color-primary);
+        color: var(--nmc-color-text-and-icon-white);
 
         &:hover:not(:disabled) {
-            background-color: var(--telekom-color-primary-hovered);
+            background-color: var(--color-primary-hover);
         }
 
         &:active {
-            background-color: var(--telekom-color-primary-pressed);
+            background-color: var(--color-primary-pressed);
         }
 
         &:disabled {
-            background-color: var(--telekom-color-ui-disabled);
-            color: var(--telekom-color-text-and-icon-disabled);
+            background-color: var(--color-background-dark);
+            color: var(--color-text-lighter);
         }
     }
 
@@ -87,24 +87,22 @@
         background: transparent;
         border-radius: var(--border-radius-pill);
         border: var(--telekom-spacing-composition-space-01) solid currentColor;
-        color: var(--telekom-color-text-and-icon-standard);
-        background-color: var(--telekom-color-ui-state-fill-standard);
-        border-color: var(--telekom-color-ui-border-standard);
+        color: var(--color-main-text);
+        border-color: var(--color-border);
 
         &:hover:not(:disabled) {
-            color: var(--telekom-color-text-and-icon-standard);
-            background-color: var(--nmc-color-background-hover);
-            border-color: var(--telekom-color-ui-border-hovered);
+            color: var(--color-main-text);
+            background-color: var(--color-background-hover);
+            border-color: var(--color-border-dark);
         }
 
         &:active {
-            color: var(--telekom-color-text-and-icon-standard);
-            background-color: var(--telekom-color-ui-state-fill-pressed);
-            border-color: var(--telekom-color-ui-border-pressed);
+            color: var(--color-main-text);
+            border-color: var(--color-border-maxcontrast);
         }
 
         &:disabled {
-            color: var(--telekom-color-text-and-icon-disabled);
+            color: var(--color-text-lighter);
             background-color: none;
         }
 
@@ -127,5 +125,5 @@
 }
 
 :focus {
-    outline-color: var(--telekom-color-primary-standard);
+    outline-color: var(--color-primary);
 }

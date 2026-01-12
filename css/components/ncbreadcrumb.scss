@@ -77,7 +77,7 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				background-color: var(--telekom-color-primary-standard);
+				background-color: var(--color-primary);
 				border: none;
 				border-radius: 50%;
 				min-height: unset;
@@ -89,11 +89,11 @@
 				cursor: pointer;
 
 				&:hover:not(:disabled) {
-					background-color: var(--telekom-color-primary-hovered);
+					background-color: var(--color-primary-hover);
 				}
 
 				&:active:not(:disabled) {
-					background-color: var(--telekom-color-primary-pressed);
+					background-color: var(--color-primary-pressed);
 				}
 
 				.button-vue__icon {

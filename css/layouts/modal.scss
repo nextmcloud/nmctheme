@@ -23,7 +23,7 @@
 }
 
 #oc-dialog-filepicker-content {
-    background-color: var(--telekom-color-background-surface);
+    background-color: var(--color-main-background);
 
     .actions.creatable {
         background: unset;
@@ -33,7 +33,7 @@
 
         .icon.icon-add.button.button-add {
             background-color: unset;
-            border-color: var(--telekom-color-primary-standard);
+            border-color: var(--color-primary);
             height: 24px;
             opacity: 1;
             width: 24px;
@@ -69,7 +69,7 @@
                     }
 
                     &.date {
-                        color: var(--telekom-color-text-and-icon-standard);
+                        color: var(--color-main-text);
                     }
                 }
             }

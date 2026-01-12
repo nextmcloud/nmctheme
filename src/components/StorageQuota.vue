@@ -136,7 +136,7 @@ export default {
 
 	&__title {
 		p {
-			font-size: var(--telekom-typography-font-size-small);
+			font-size: var(--font-size-small);
 			color: #6C7C8C;
 			margin: 0;
 		}
@@ -147,19 +147,19 @@ export default {
 	}
 
 	&__total {
-		font-size: var(--telekom-typography-font-size-small);
+		font-size: var(--font-size-small);
 		color: #6C7C8C;
 		font-weight: 500;
 	}
 
 	&__link {
-		color: var(--telekom-color-text-and-icon-black-standard);
+		color: var(--nmc-color-text-and-icon-black);
 		width: fit-content;
 		padding: 0.625rem 1.2rem;
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		font: var(--telekom-text-style-body);
+		font: var(--default-font-style);
 		font-weight: bold;
 		background-color: #D2E2FC;
 		border-radius: 9999px;

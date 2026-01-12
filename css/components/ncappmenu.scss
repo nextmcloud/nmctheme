@@ -12,10 +12,14 @@
 				margin-right: var(--telekom-spacing-composition-space-10);
 				width: auto;
 
+				&::before {
+					display: none;
+				}
+
 				&__link {
 					width: calc(100% - 4px);
 					height: calc(100% - 4px);
-					color: var(--color-primary-text);
+					color: var(--color-main-text);
 					position: relative;
 					display: flex;
 					justify-content: unset;
@@ -37,8 +41,8 @@
 					}
 
 					.app-menu-entry__label {
-						font-size: var(--telekom-typography-font-size-body);
-						font-weight: var(--telekom-typography-font-weight-regular);
+						font-size: var(--default-font-size);
+						font-weight: bold;
 						letter-spacing: normal;
 						opacity: 1;
 						position: relative;

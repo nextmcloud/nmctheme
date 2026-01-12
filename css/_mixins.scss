@@ -1,5 +1,5 @@
 @mixin darkmode-modal {
-    background-color: var(--telekom-color-background-surface);
+    background-color: var(--color-main-background);
 }
 
 @mixin color-icon-red {
@@ -17,19 +17,19 @@
 @mixin primary-button {
     border: none;
     border-radius: var(--border-radius-pill);
-    background-color: var(--telekom-color-primary-standard);
-    color: var(--telekom-color-text-and-icon-white-standard);
+    background-color: var(--color-primary);
+    color: var(--nmc-color-text-and-icon-white);
 
     &:hover:not(:disabled) {
-        background-color: var(--telekom-color-primary-hovered);
+        background-color: var(--color-primary-hover);
     }
 
     &:active {
-        background-color: var(--telekom-color-primary-pressed);
+        background-color: var(--color-primary-pressed);
     }
 
     &:disabled {
-        background-color: var(--telekom-color-ui-disabled);
-        color: var(--telekom-color-text-and-icon-disabled);
+        background-color: var(--color-background-dark);
+        color: var(--color-text-lighter);
     }
 }

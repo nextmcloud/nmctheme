@@ -11,7 +11,7 @@
 #body-settings .input-field,
 #body-public .input-field,
 #body-login .input-field {
-    border-radius: var(--telekom-radius-small);
+    border-radius: var(-border-radius);
     margin-block-start: 0;
 
     &__main-wrapper {
@@ -20,30 +20,30 @@
 
     &__input {
         padding: 0 var(--telekom-spacing-composition-space-05);
-        border: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-border-standard);
+        border: var(--telekom-spacing-composition-space-01) solid var(--color-border);
         height: 44px !important;
 
         &:active:disabled,
         &:hover:disabled,
         &:focus:disabled {
             background: none;
-            color: var(--telekom-color-text-and-icon-disabled);
-            border-color: var(--telekom-color-ui-border-disabled);
+            color: var(--color-text-lighter);
+            border-color: var(--color-background-dark);
         }
 
         &:active:not([disabled]) {
-            color: var(--telekom-color-text-and-icon-disabled);
-            border-color: var(--telekom-color-ui-border-hovered);
+            color: var(--color-text-lighter);
+            border-color: var(--color-border-dark);
 
         }
 
         &:hover:not([disabled]) {
             cursor: text;
-            border-color: var(--telekom-color-ui-border-hovered);
+            border-color: var(--color-border-dark);
         }
 
         &:focus:not([disabled]) {
-            border: var(--telekom-line-weight-highlight) solid var(--telekom-color-functional-focus-standard);
+            border: var(--telekom-line-weight-highlight) solid var(--color-element-info);
         }
 
         &--leading-icon {

@@ -20,7 +20,7 @@
 			height: 35px;
 			border-radius: var(--border-radius-pill);
 			&:hover {
-				background-color: var(--nmc-color-background-hover);
+				background-color: var(--color-background-hover);
 			}
 			a {
 				display: block;
@@ -52,13 +52,13 @@
 			text-align: center;
 			border: 1px solid #191919;
 			padding: 0 var(--telekom-spacing-composition-space-07);
-			font: var(--telekom-text-style-body-bold);
+			font: var(--default-font-style-bold);
 			background-color: var(--color-main-background);
 
 			&:hover {
 				cursor: pointer;
 				border: 1px solid #191919;
-				background-color: var(--nmc-color-background-hover);
+				background-color: var(--color-background-hover);
 			}
 
 			&.primary:active, &.primary:focus, &.primary:hover {
@@ -69,17 +69,17 @@
 
 			// separate styling for 'Replace' button
 			&.oc-conflict-pre-dlg-replace-button {
-				border: 1px solid var(--telekom-color-primary-standard);
-				background-color: var(--telekom-color-primary-standard);
+				border: 1px solid var(--color-primary);
+				background-color: var(--color-primary);
 				color: var(--color-main-background);
 
 				&:hover {
-					background-color: var(--telekom-color-primary-hovered);
+					background-color: var(--color-primary-hover);
 				}
 
 				&.primary:active, &.primary:focus, &.primary:hover {
-					border: 1px solid var(--telekom-color-primary-standard);
-					background-color: var(--telekom-color-primary-standard);
+					border: 1px solid var(--color-primary);
+					background-color: var(--color-primary);
 					color: var(--color-main-background);
 				}
 			}
@@ -89,6 +89,6 @@
 
 @media (prefers-color-scheme: dark) {
 	.oc-dialog.oc-conflict-pre-dlg {
-		border: 1px solid var(--telekom-color-ui-regular);
+		border: 1px solid var(--color-border);
 	}
 }

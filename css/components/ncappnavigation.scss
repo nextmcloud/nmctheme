@@ -12,7 +12,7 @@
 }
 
 #content-vue .app-navigation {
-	border-right: 1px solid var(--telekom-color-ui-faint) !important;
+	border-right: 1px solid var(--color-border) !important;
 
 	.app-navigation__search {
 		display: none;
@@ -108,12 +108,12 @@
 
 	.app-navigation-entry {
 		position: relative;
-		border-radius: var(--telekom-radius-standard);
+		border-radius: var(--border-radius-large);
 		font: var(--telekom-text-style-ui-bold);
 		transition: none;
 
 		.app-navigation-entry-link {
-			border-radius: var(--telekom-radius-standard);
+			border-radius: var(--border-radius-large);
 			background-color: transparent !important;
 
 			.app-navigation-entry-icon {
@@ -146,12 +146,12 @@
 				transform: translateY(-50%);
 				height: 24px;
 				width: 4px;
-				background-color: var(--telekom-color-primary-standard);
+				background-color: var(--color-primary);
 				border-radius: 4px;
 			}
 
 			span {
-				color: var(--telekom-color-text-and-icon-primary-standard);
+				color: var(--color-primary);
 			}
 
 			.app-navigation-entry-icon {
@@ -162,7 +162,7 @@
 		// on hover link styling
 		&:hover {
 			span {
-				color: var(--telekom-color-text-and-icon-primary-hovered);
+				color: var(--color-primary-hover);
 			}
 
 			.app-navigation-entry-icon {
@@ -208,7 +208,7 @@
 
 			li {
 				.app-navigation-entry__name {
-					color: var(--telekom-color-ui-regular) !important;
+					color: var(--nmc-color-strong) !important;
 					margin-left: 48px;
 				}
 			}

@@ -3,7 +3,7 @@
 #rich-workspace {
 	padding: 0 0 0 2rem !important;
 	margin-bottom: 2rem !important;
-    border-bottom: 1px solid var(--telekom-color-ui-faint);
+    border-bottom: 1px solid var(--color-border);
 }
 
 #editor-container {
@@ -36,7 +36,7 @@
 
 					&.button-vue--vue-primary {
 						background-color: unset;
-						outline: 1px solid var(--telekom-color-primary-standard);
+						outline: 1px solid var(--color-primary);
 					}
 	
 					&__icon {
@@ -290,7 +290,7 @@
 					}
 
 					&--info {
-						background-color: var(--telekom-color-functional-informational-subtle);
+						background-color: var(--color-info-text);
 
 						.callout__icon {
 							background-image: var(--icon-info-info);
@@ -298,7 +298,7 @@
 					}
 
 					&--success {
-						background-color: var(--telekom-color-functional-success-subtle);
+						background-color: var(--color-success-text);
 
 						.callout__icon {
 							background-image: var(--icon-success-success);
@@ -306,7 +306,7 @@
 					}
 
 					&--warn {
-						background-color: var(--telekom-color-functional-warning-subtle);
+						background-color: var(--color-warning-text);
 		
 						.callout__icon {
 							background-image: var(--icon-warning-warning);
@@ -314,7 +314,7 @@
 					}
 
 					&--error {
-						background-color: var(--telekom-color-functional-danger-subtle);
+						background-color: var(--color-error-text);
 		
 						.callout__icon {
 							background-image: var(--icon-danger-danger);

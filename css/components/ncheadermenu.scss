@@ -7,7 +7,7 @@
 
             // reposition flyout menus
             &__wrapper {
-                background-color: var(--telekom-color-background-surface);
+                background-color: var(--color-main-background);
                 box-shadow: var(--telekom-shadow-raised-standard);
                 filter: none;
                 margin: 0.5rem 2rem 0 0;
@@ -29,8 +29,8 @@
             }
 
             &__carret {
-                background-color: var(--telekom-color-background-surface);
-                border: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
+                background-color: var(--color-main-background);
+                border: var(--telekom-spacing-composition-space-01) solid var(--color-border);
                 border-bottom: none;
                 border-right: none;
                 bottom: -8px;

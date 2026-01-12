@@ -175,7 +175,7 @@
 		margin-left: auto;
 		&:hover {
 			svg {
-				color: var(--telekom-color-text-and-icon-primary-standard);
+				color: var(--color-primary);
 			}
 		}
 	}
@@ -274,15 +274,15 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 	.sharingPopup__content, .sharingTab__content, .sharingTabDetailsView {
 		.button-vue--vue-primary {
 			background-color: var(--nmc-ods-blue-primary);
-			border-radius: var(--telekom-radius-pill);
-			color: var(--telekom-color-ui-black);
+			border-radius: var(--border-radius-pill);
+			color: var(--nmc-color-text-and-icon-black);
 		}
 
 		// Container for "Create new link" button
 		#addlink_button {
 			background-color: var(--nmc-ods-blue-primary);
-			border-radius: var(--telekom-radius-pill);
-			color: var(--telekom-color-ui-black);
+			border-radius: var(--border-radius-pill);
+			color: var(--nmc-color-text-and-icon-black);
 			border-width: 0;
 		}
 
@@ -294,14 +294,14 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 
 		// Quick share options dropdown button
 		.share-select button.trigger-text {
-			color: var(--telekom-color-text-and-icon-link-standard);
+			color: var(--nmc-color-text-and-icon-link);
 			font-weight: 400;
 
 			.eye-circle-outline-icon {
 				width: 16px;
 				height: 16px;
 				display: inline-block;
-				background-color: var(--telekom-color-text-and-icon-link-standard);
+				background-color: var(--nmc-color-text-and-icon-link);
 				mask: var(--icon-visibility-on-dark) no-repeat center;
 				mask-size: contain;
 
@@ -314,7 +314,7 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 				width: 16px;
 				height: 16px;
 				display: inline-block;
-				background-color: var(--telekom-color-text-and-icon-link-standard);
+				background-color: var(--nmc-color-text-and-icon-link);
 				mask: var(--icon-calendar-dark) no-repeat center;
 				mask-size: contain;
 
@@ -338,7 +338,7 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 		.button-vue--vue-secondary {
 			&#addlink_button {
 				background-color: var(--nmc-ods-blue-primary);
-				border-radius: var(--telekom-radius-pill);
+				border-radius: var(--border-radius-pill);
 				border-width: 0;
 			}
 
@@ -348,7 +348,7 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 				height: 40px;
 				min-width: 40px;
 				min-height: 40px;
-				border: 1px solid var(--telekom-color-text-and-icon-standard);
+				border: 1px solid var(--color-main-text);
 
 				.icon-delete {
 					background-image: var(--icon-close-x-dark);

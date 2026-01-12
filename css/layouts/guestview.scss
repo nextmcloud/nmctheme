@@ -55,7 +55,7 @@
     }
 
     .app-files_sharing + footer {
-        --footer-font: var(--telekom-text-style-caption-bold);
+        --footer-font: var(--default-font-style-bold);
     }
 
     footer[role="contentinfo"] {
@@ -70,7 +70,7 @@
         max-height: 60px;
         max-width: calc(100% - 4rem);
         z-index: 998;
-        border-top: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
+        border-top: var(--telekom-spacing-composition-space-01) solid var(--color-border);
         padding: 16px 16px;
 
         @media screen and (max-width: $breakpoint-mobile-small) {

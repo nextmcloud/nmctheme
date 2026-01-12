@@ -43,7 +43,7 @@
 		max-width: 1280px;
 
 		h2 {
-			color: var(--telekom-color-text-and-icon-standard);
+			color: var(--color-main-text);
 			font-size: 1.25rem;
 			font-weight: bold;
 			margin-bottom: 1rem;
@@ -60,21 +60,21 @@
 				width: 340px;
 				height: 3rem !important;
 				padding: 0.75rem;
-				background-color: var(--telekom-color-ui-subtle);
-				border: 1px solid var(--telekom-color-ui-subtle);
-				border-radius: var(--telekom-radius-small);
+				background-color: var(--color-border);
+				border: 1px solid var(--color-border);
+				border-radius: var(-border-radius);
 
 				&.additional {
 					background-color: var(--color-main-background);
-					border: 1px solid var(--telekom-color-text-and-icon-standard);
+					border: 1px solid var(--color-main-text);
 
 					&.notification {
-						color: var(--telekom-color-primary-standard);
+						color: var(--color-primary);
 					}
 				}
 
 				&:disabled {
-					color: var(--telekom-color-text-and-icon-disabled);
+					color: var(--color-text-lighter);
 				}
 			}
 
@@ -119,7 +119,7 @@
 				max-width: 800px;
 
 				span {
-					color: var(--telekom-color-primary-standard);
+					color: var(--color-primary);
 				}
 			}
 
@@ -131,8 +131,8 @@
 					table {
 
 						th {
-							background-color: var(--telekom-color-ui-subtle);
-							color: var(--telekom-color-text-and-icon-standard);
+							background-color: var(--color-border);
+							color: var(--color-main-text);
 							font-weight: bold;
 							opacity: 1;
 						}
@@ -172,7 +172,7 @@
 		}
 
 		a {
-			color: var(--telekom-color-primary-standard);
+			color: var(--color-primary);
 			font-weight: bold;
 		}
 
@@ -182,7 +182,7 @@
 		}
 
 		.headerbar-label {
-			color: var(--telekom-color-ui-strong);
+			color: var(--nmc-color-strong);
 			font-size: 1rem;
 			font-weight: normal;
 			height: 1.5rem;
@@ -263,13 +263,13 @@
 			}
 
 			em {
-				color: var(--telekom-color-primary-standard);
+				color: var(--color-primary);
 				display: block;
 				margin-bottom: 0.75rem;
 				padding-left: 0.75rem;
 
 				&.additional-emails-label {
-					color: var(--telekom-color-ui-strong);
+					color: var(--nmc-color-strong);
 					margin-bottom: 0;
 					margin-top: 1.5rem;
 				}
@@ -277,8 +277,8 @@
 
 			button {
 				border: none;
-				color: var(--telekom-color-primary-standard);
-				font: var(--telekom-text-style-body);
+				color: var(--color-primary);
+				font: var(--default-font-style);
 				line-height: 3rem;
 				padding: 0;
 
@@ -287,7 +287,7 @@
 				}
 
 				.plus-icon {
-					border: 1px solid var(--telekom-color-primary-standard);
+					border: 1px solid var(--color-primary);
 					border-radius: 1rem;
 					height: 1.5rem;
 					width: 1.5rem;
@@ -320,7 +320,7 @@
 				display: flex;
 				height: 0.5rem;
 				width: 100%;
-				background: var(--telekom-color-ui-subtle);
+				background: var(--color-border);
 				border-radius: 0.5rem;
 
 				.progress-bar {
@@ -333,7 +333,7 @@
 						height: 0.5rem;
 						border-top-right-radius: 0.5rem;
 						border-bottom-right-radius: 0.5rem;
-						background: var(--telekom-color-ui-base);
+						background: var(--color-background-dark);
 					}
 				}
 			}
@@ -385,16 +385,16 @@
 	button {
 		height: 40px;
 		padding: 0 1.5rem;
-		background-color: var(--telekom-color-ui-base);
-		border-color: var(--telekom-color-text-and-icon-standard);
-		color: var(--telekom-color-text-and-icon-standard);
-		border-radius: var(--telekom-radius-small);
+		background-color: var(--color-background-dark);
+		border-color: var(--color-main-text);
+		color: var(--color-main-text);
+		border-radius: var(-border-radius);
 		font-size: 1rem;
 		margin: 1rem 0 0;
 
 		&:hover {
-			border: 1px solid var(--telekom-color-primary-standard);
-			color: var(--telekom-color-primary-standard);
+			border: 1px solid var(--color-primary);
+			color: var(--color-primary);
 		}
 
 		&.button-vue--icon-only:hover {
@@ -406,9 +406,9 @@
 		width: 400px;
 		height: 3rem;
 		padding: 0.75rem;
-		background-color: var(--telekom-color-ui-base);
-		border: 1px solid var(--telekom-color-text-and-icon-standard);
-		border-radius: var(--telekom-radius-small);
+		background-color: var(--color-background-dark);
+		border: 1px solid var(--color-main-text);
+		border-radius: var(-border-radius);
 		display: inline-block;
 
 		option:disabled {
@@ -469,7 +469,7 @@
 
 
 				.theming__preview-image {
-					border: 2px solid var(--telekom-color-primary-standard);
+					border: 2px solid var(--color-primary);
 					border-radius: unset;
 					flex-basis: calc(18px * var(--ratio));
 					height: calc(12px * var(--ratio));
@@ -520,17 +520,17 @@
 		width: 400px;
 		height: 3rem !important;
 		padding: 1rem;
-		background-color: var(--telekom-color-ui-subtle);
-		border: 1px solid var(--telekom-color-ui-subtle);
-		border-radius: var(--telekom-radius-small);
+		background-color: var(--color-border);
+		border: 1px solid var(--color-border);
+		border-radius: var(-border-radius);
 		margin: 1rem 0.5rem 0 0;
 	}
 
 	button {
-		background-color: var(--telekom-color-ui-base);
-		border-color: var(--telekom-color-text-and-icon-standard);
-		border-radius: var(--telekom-radius-small);
-		color: var(--telekom-color-text-and-icon-standard);
+		background-color: var(--color-background-dark);
+		border-color: var(--color-main-text);
+		border-radius: var(-border-radius);
+		color: var(--color-main-text);
 		cursor: pointer;
 		font-size: 1rem;
 		height: 40px;
@@ -539,8 +539,8 @@
 		padding: 0 1.5rem;
 
 		&:hover {
-			border: 1px solid var(--telekom-color-primary-standard);
-			color: var(--telekom-color-primary-standard);
+			border: 1px solid var(--color-primary);
+			color: var(--color-primary);
 		}
 
 		&.button-vue--icon-only:hover {
@@ -574,16 +574,16 @@
 
 			&.button-vue--vue-warning,
 			&.button-vue--vue-error {
-				background-color: var(--telekom-color-primary-standard);
+				background-color: var(--color-primary);
 
 				&:hover:not(:disabled) {
-					background-color: var(--telekom-color-primary-hovered);
+					background-color: var(--color-primary-hover);
 				}
 			}
 		}
 
 		.notecard.warning {
-			background-color: var(--telekom-color-background-canvas-subtle) !important;
+			background-color: var(--color-background-dark) !important;
 			border: unset;
 			border-radius: unset;
 			max-width: 800px;
@@ -638,7 +638,7 @@ body .icon-auto-login-dark {
 		.add-slide a.button {
 			margin-left: 8px;
 			background-color: var(--color-main-background);
-			border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
+			border: 1px solid var(--color-primary);
 			border-radius: 50%;
 			min-height: unset;
 			height: 24px;
