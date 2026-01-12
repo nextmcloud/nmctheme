@@ -23,7 +23,7 @@
 
         .icons-menu {
             padding: 12px 16px 12px 0;
-            gap: var(--telekom-spacing-composition-space-03);
+            gap: 0.25rem;
 
             & > button, button[aria-label="Actions"], button[aria-label="Aktionen"], button[aria-label*="Edit"], button[aria-label*="Bearbeiten"] {
                 background-color: var(--nmc-color-regular);
@@ -47,8 +47,8 @@
 
             button.play-pause-icons {
                 margin: calc((var(--header-height) - var(--clickable-area-large)) / 2);
-                padding-left: var(--telekom-spacing-composition-space-05);
-                padding-right: var(--telekom-spacing-composition-space-05);
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
 
                 & > span.material-design-icon {
                     margin: 0;
@@ -65,7 +65,7 @@
             }
 
             div.action-items {
-                gap: var(--telekom-spacing-composition-space-03);
+                gap: 0.25rem;
             }
         }
     }
@@ -100,21 +100,20 @@
             color: var(--nmc-color-text-and-icon-white);
             border: 0;
             border-radius: var(--border-radius-pill);
-            font: var(--default-font-style);
-            font-weight: var(--telekom-typography-font-weight-bold);
+            font: var(--default-font-style-bold);
             line-height: 1.125rem;
             margin-left: 1rem;
-            min-height: var(--telekom-spacing-composition-space-13);
-            min-width: var(--telekom-spacing-composition-space-13);
-            padding-left: var(--telekom-spacing-composition-space-07);
-            padding-right: var(--telekom-spacing-composition-space-07);
-            transition: all var(--telekom-motion-duration-transition) var(--telekom-motion-easing-standard);
+            min-height: var(--default-clickable-area);
+            min-width: var(--default-clickable-area);
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+            transition: all var(--animation-slow) var(---animation-slow);
 
             &:after {
                 top: 0;
                 left: 0;
                 width: 100%;
-                border: var(--telekom-spacing-composition-space-01) solid transparent;
+                border: 1px solid transparent;
                 height: 100%;
                 content: '';
                 display: block;

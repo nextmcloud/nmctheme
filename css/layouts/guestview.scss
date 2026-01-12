@@ -70,7 +70,7 @@
         max-height: 60px;
         max-width: calc(100% - 4rem);
         z-index: 998;
-        border-top: var(--telekom-spacing-composition-space-01) solid var(--color-border);
+        border-top: 1px solid var(--color-border);
         padding: 16px 16px;
 
         @media screen and (max-width: $breakpoint-mobile-small) {
@@ -86,12 +86,12 @@
             justify-content: space-between;
             align-content: center;
             flex-wrap: wrap;
-            gap: var(--telekom-spacing-composition-space-06);
+            gap: 1rem;
 
             @media screen and (max-width: $breakpoint-mobile-small) {
                 flex-direction: column;
                 align-content: first baseline;
-                gap: var(--telekom-spacing-composition-space-04);
+                gap: 0.5rem;
             }
 
             #notice {

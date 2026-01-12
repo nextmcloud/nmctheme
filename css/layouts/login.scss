@@ -79,10 +79,10 @@
                 font: var(--default-font-style);
                 font-weight: bold;
                 line-height: 1.125rem;
-                min-height: var(--telekom-spacing-composition-space-13);
-                min-width: var(--telekom-spacing-composition-space-13);
-                padding-left: var(--telekom-spacing-composition-space-07);
-                padding-right: var(--telekom-spacing-composition-space-07);
+                min-height: var(--default-clickable-area);
+                min-width: var(--default-clickable-area);
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
             }
         }
     }

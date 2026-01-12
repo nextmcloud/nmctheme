@@ -31,7 +31,7 @@ header {
 #body-settings #header,
 #body-public #header {
 	background: var(--color-main-background) !important;
-	border-bottom: var(--telekom-spacing-composition-space-01) solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
 	border-radius: 0;
 	height: var(--header-height);
 	margin: 0;
@@ -77,7 +77,7 @@ header {
 			display: flex;
 			flex-shrink: 1;
 			flex-wrap: wrap;
-			margin-right: var(--telekom-spacing-composition-space-06);
+			margin-right: 1rem;
 
 			&__list {
 				margin: 0;
@@ -86,7 +86,7 @@ header {
 			--app-menu-entry-growth: unset;
 
 			&__overflow {
-				margin-right: var(--telekom-spacing-composition-space-06);
+				margin-right: 1rem;
 
 				.button-vue--vue-tertiary {
 					opacity: 1;
@@ -207,12 +207,12 @@ header {
 			}
 		}
 
-		// hide 'Search contacts' button
+		// Hide 'Contacts' button
 		#contactsmenu {
 			display: none;
 		}
 
-		// general styling for buttons in the header
+		// Custom styling for buttons in the header
 		.header-menu {
 			width: auto;
 
@@ -241,6 +241,7 @@ header {
 				}
 
 				&:hover {
+
 					&::before {
 						background-color: var(--color-primary);
 						content: " ";
@@ -270,44 +271,45 @@ header {
 				}
 			}
 		}
-	}
-}
 
-// Custom styling for the 'Search' button
-#header .header-end .unified-search-menu {
-	button {
-		height: 100%;
+		// Custom styling for the 'Search' button
+		.unified-search-menu {
 
-		.button-vue__wrapper {
-			.button-vue__icon {
-				background-image: var(--icon-search-dark);
+			button {
+				height: 100%;
+
+				.button-vue__wrapper {
+					.button-vue__icon {
+						background-image: var(--icon-search-dark);
+					}
+				}
+
 			}
 		}
 
-	}
-}
+		// Custom styling for the 'User' button
+		#user-menu {
+			@media screen and (max-width: $breakpoint-mobile) {
+				margin-right: 0.25rem;
+			}
 
-// Custom styling for the 'User' button
-#user-menu {
-	@media screen and (max-width: $breakpoint-mobile) {
-		margin-right: var(--telekom-spacing-composition-space-03);
-	}
+			button.header-menu__trigger {
+				.button-vue__wrapper {
+					.button-vue__icon {
+						background-image: var(--icon-user-dark);
+					}
+				}
+			}
 
-	button.header-menu__trigger {
-		.button-vue__wrapper {
-			.button-vue__icon {
-				background-image: var(--icon-user-dark);
+			.user-menu__avatar {
+				display: none;
+			}
+
+			//adapted functional menu styles to user menu for uniformity
+			.header-menu__content {
+				width: 350px !important;
 			}
 		}
-	}
-
-	.user-menu__avatar {
-		display: none;
-	}
-
-	//adapted functional menu styles to user menu for uniformity
-	.header-menu__content {
-		width: 350px !important;
 	}
 }
 
@@ -324,7 +326,7 @@ header {
 			font-size: var(--font-size-app-name);
 			font-weight: bold;
 			justify-content: flex-end;
-			margin-right: var(--telekom-spacing-composition-space-10);
+			margin-right: 2rem;
 			overflow: unset;
 			padding: 0;
 		}

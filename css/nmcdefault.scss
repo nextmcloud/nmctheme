@@ -101,6 +101,7 @@
   --default-font-size: var(--body-m-regular-font-size);
   --default-font-style: 400 1rem/1.4 TeleNeoWeb, sans-serif;
   --default-font-style-bold: 700 1rem/1 TeleNeoWeb, sans-serif;
+  --default-font--style-small-bold: 700 0.75rem/1.35 TeleNeoWeb, sans-serif;
   --font-size-small: var(--microcopy-regular-font-size);
 
   --animation-quick: 100ms;
@@ -159,10 +160,11 @@
   --nmc-color-icon-hovered: brightness(0) saturate(100%) invert(11%) sepia(93%) saturate(6579%) hue-rotate(321deg) brightness(71%) contrast(107%);
   --nmc-color-sceme: light;
 
-  --nmc-ods-blue-primary: #D2E2FC;
-  --nmc-ods-blue-active: #9EC1F7;
-  --nmc-ods-blue-hover: #ECF3FE;
-  --nmc-ods-blue-pressed: #FFFFFF;
+  --nmc-ods-blue-primary: var(--colours-shades-accent-shades-accent-extra-dominant);
+  --nmc-ods-blue-active: var(--colours-basic-background-subtle);
+  --nmc-ods-blue-hover: var(--colours-interaction-states-hover-background-hover);
+  --nmc-ods-blue-pressed: var(--colours-interaction-states-pressed-background-pressed);
+  --nmc-ods-blue-contrast: var(--colours-shades-accent-shades-accent-extra-recessive);
 }
 
 @media (prefers-color-scheme: dark) {

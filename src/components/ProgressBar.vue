@@ -22,7 +22,7 @@ export default {
 
 .progress-bar {
 	width: 100%;
-	background-color: #C8D9EF;
+	background-color: var(--nmc-ods-blue-primary);
 	height: 8px;
 	border-radius: 9999px;
 	position: relative;
@@ -36,7 +36,7 @@ export default {
 	width: var(--percentage);
 	transition: width 100ms cubic-bezier(0.4,0,0.6,1);
 	border-radius: 9999px;
-	background: #5B7290;
+	background: var(--nmc-ods-blue-contrast);
 }
 
 .progress-bar::after {
@@ -47,9 +47,9 @@ export default {
 	transform: translateY(-50%);
 	width: 4px;
 	height: 4px;
-	background: #5B7290;
+	background: var(--nmc-ods-blue-contrast);
 	border-radius: 50%;
-	border: 1px solid #FFFFFF;
+	border: 1px solid var(--nmc-color-text-and-icon-white);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 

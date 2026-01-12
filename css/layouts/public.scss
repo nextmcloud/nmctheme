@@ -18,7 +18,7 @@
             font-size: var(--font-size-app-name);
             font-weight: var(--font-weight-app-name);
             justify-content: flex-end;
-            margin-right: var(--telekom-spacing-composition-space-10);
+            margin-right: 2rem;
             overflow: unset;
             padding: 0;
         }
@@ -54,7 +54,7 @@
         max-height: 60px;
         max-width: calc(100% - 2rem);
         z-index: 998;
-        border-top: var(--telekom-spacing-composition-space-01) solid var(--color-border);
+        border-top: 1px solid var(--color-border);
         padding: 1rem;
         display: block;
     }

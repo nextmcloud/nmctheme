@@ -19,8 +19,8 @@
     }
 
     &__input {
-        padding: 0 var(--telekom-spacing-composition-space-05);
-        border: var(--telekom-spacing-composition-space-01) solid var(--color-border);
+        padding: 0 0.75rem;
+        border: 1px solid var(--color-border);
         height: 44px !important;
 
         &:active:disabled,
@@ -43,7 +43,7 @@
         }
 
         &:focus:not([disabled]) {
-            border: var(--telekom-line-weight-highlight) solid var(--color-element-info);
+            border: 1px solid var(--color-element-info);
         }
 
         &--leading-icon {
@@ -87,7 +87,7 @@
 	}
 
     &__helper-text-message {
-        font: var(--telekom-text-style-small-bold);
+        font: var(--default-font--style-small-bold);
         padding: 5px;
         align-items: center;
 

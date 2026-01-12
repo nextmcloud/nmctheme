@@ -23,7 +23,7 @@
 
 	// remove gaps between navigation items
 	#app-navigation-vue .app-navigation__body ul.app-navigation-list {
-		gap: var(--telekom-spacing-composition-space-03) !important;
+		gap: 0.25rem !important;
 		padding: 4rem 1.5rem 1.5rem !important;
 
 		[data-cy-files-navigation-item="recent"],
@@ -109,7 +109,7 @@
 	.app-navigation-entry {
 		position: relative;
 		border-radius: var(--border-radius-large);
-		font: var(--telekom-text-style-ui-bold);
+		font: var(--default-font-style-bold);
 		transition: none;
 
 		.app-navigation-entry-link {

@@ -9,7 +9,7 @@
 			// visuals for navigation entries
 			.app-menu-entry {
 				height: 74px;
-				margin-right: var(--telekom-spacing-composition-space-10);
+				margin-right: 2rem;
 				width: auto;
 
 				&::before {
@@ -91,7 +91,7 @@
 		// mobile menu button
 		.app-menu-more {
 			// increase distance of menu button to screen edge
-			margin-right: var(--telekom-spacing-composition-space-06);
+			margin-right: 1rem;
 
 			.button-vue--vue-tertiary {
 				opacity: 1;

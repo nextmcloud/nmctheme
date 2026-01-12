@@ -137,7 +137,7 @@ export default {
 	&__title {
 		p {
 			font-size: var(--font-size-small);
-			color: #6C7C8C;
+			color: var(--nmc-ods-blue-contrast);
 			margin: 0;
 		}
 
@@ -148,7 +148,7 @@ export default {
 
 	&__total {
 		font-size: var(--font-size-small);
-		color: #6C7C8C;
+		color: var(--nmc-ods-blue-contrast);
 		font-weight: 500;
 	}
 
@@ -161,7 +161,7 @@ export default {
 		gap: 0.5rem;
 		font: var(--default-font-style);
 		font-weight: bold;
-		background-color: #D2E2FC;
+		background-color: var(--nmc-ods-blue-primary);;
 		border-radius: 9999px;
 		margin-top: 0.5rem;
 
@@ -173,7 +173,7 @@ export default {
 
 			:deep(svg) {
 				fill: currentColor;
-				color: #000000;
+				color: var(--nmc-color-text-and-icon-black);
 			}
 		}
 	}
