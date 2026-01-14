@@ -1,3 +1,4 @@
+@import '../_variables.scss';
 @import '../_mixins.scss';
 
 // styling for search popover from header
@@ -66,6 +67,12 @@
     }
 }
 
+#unified-search {
+    .modal-container__content {
+        align-items: flex-start;
+    }
+}
+
 #unified-search .unified-search-modal {
     padding-block: 1rem 0;
     
@@ -90,41 +97,79 @@
             }
 
             button.button-vue {
-                all: unset !important;
-
                 &[title="Dateien"], &[title="Files"], &[data-cy-unified-search-filter="current-view"] {
                     display: none !important;
                 }
 
-                .button-vue__text {
-                    color: var(--color-primary);
-                }
+                // Style for filter dropdown buttons (Date, Filter, etc.)
+                &.action-item__menutoggle {
+                    background-color: var(--nmc-ods-blue-primary);
+                    color: var(--nmc-color-text-and-icon-black);
+                    border-radius: var(--border-radius-element);
+                    border: none;
+                    height: 28px;
+                    min-height: 28px;
+                    padding: 0 12px;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    box-sizing: border-box;
+                    margin-top: 4px;
 
-                .button-vue__icon {
-
-                    .material-design-icon {
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        background-size: 24px;
-                        width: 26px;
-                        height: 26px;
-                        filter: var(--nmc-color-icon);
+                    &:hover {
+                        background-color: var(--nmc-ods-blue-hover);
                     }
 
-                    .filter-icon {
-                        background-image: var(--icon-filter-dark);
+                    &:active {
+                        background-color: var(--nmc-ods-blue-pressed);
                     }
 
-                    .calendar-range-icon {
-                        background-image: var(--icon-calendar-dark);
+                    &[aria-expanded="true"] {
+                        background-color: var(--nmc-ods-blue-active);
                     }
 
-                    svg {
+                    // Hide the left icon
+                    .button-vue__icon {
                         display: none;
                     }
-                }
-                svg {
-                    color: var(--color-primary);
+
+                    .button-vue__text {
+                        color: var(--nmc-color-text-and-icon-black);
+                        font-size: 0;
+                        display: inline-flex;
+                        align-items: center;
+
+                        &::before {
+                            content: 'Modified';
+                            font-size: var(--default-font-size);
+                            line-height: 1;
+                        }
+                    }
+
+                    // Add down arrow icon after the wrapper
+                    .button-vue__wrapper {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+
+                        &::after {
+                            content: '';
+                            display: inline-block;
+                            width: 6px;
+                            height: 6px;
+                            border-left: 1.5px solid var(--nmc-color-text-and-icon-black);
+                            border-bottom: 1.5px solid var(--nmc-color-text-and-icon-black);
+                            transform: rotate(-45deg);
+                            margin-top: -2px;
+                            transition: transform 0.2s ease;
+                        }
+                    }
+
+                    // Rotate arrow when dropdown is open
+                    &[aria-expanded="true"] .button-vue__wrapper::after {
+                        transform: rotate(135deg);
+                        margin-top: 2px;
+                    }
                 }
             }
         }
@@ -195,16 +240,24 @@
     &__no-content {
 
         .empty-content__icon {
-            height: 128px;
-            width: 128px;
+            height: 318px;
+            width: 411px;
+            max-width: 100%;
             opacity: 1;
 
+            @media screen and (max-width: $breakpoint-mobile-small) {
+                height: 200px;
+                width: 258px;
+            }
+
             .magnify-icon {
-                background-image: var(--icon-search-dark);
-                background-size: 128px;
-                height: 128px;
-                width: 128px;
-    
+                background-image: url('../img/decorative_images/cautious-dog-pana.svg');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                height: 100%;
+                width: 100%;
+
                 svg {
                     display: none;
                 }
@@ -214,6 +267,7 @@
 
         .empty-content__name {
             font-weight: 400;
+            font-size: var(--default-font-size);
         }
     }
 }
