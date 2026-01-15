@@ -81,6 +81,10 @@
     }
 
     &__header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
         .input-field {
             label.input-field__label {
                 display: none;
@@ -115,6 +119,7 @@
                     align-items: center;
                     box-sizing: border-box;
                     margin-top: 4px;
+                    margin-left: 0px;
 
                     &:hover {
                         background-color: var(--nmc-ods-blue-hover);
@@ -175,6 +180,9 @@
         }
 
         .unified-search-modal__filters-applied {
+            display: flex;
+            align-items: center;
+
             .chip {
                 .icon {
                     display: none;
