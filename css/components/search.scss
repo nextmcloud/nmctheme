@@ -210,7 +210,11 @@
     &__results {
         .result {
             &-title {
-                padding-bottom: 8px;
+                color: var(--nmc-color-text-primary);
+                font-size: var(--font-size-title-large);
+                margin-top: 1rem;
+                margin-bottom: 0px;
+
                 span {
                     color: var(--color-primary-text);
                 }
@@ -243,10 +247,29 @@
                 }
             }
 
+            &-item__icon {
+                &.icon-folder,
+                &--no-preview {
+                    width: 42px;
+                    height: 42px;
+                    background-image: var(--icon-mime-folder-blue) !important;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+
             &-footer {
                 // 'Load more results' button
                 button {
-                    color: var(--color-primary);
+                    background-color: var(--nmc-ods-blue-primary);
+                    color: var(--nmc-color-text-and-icon-black);
+                    margin-left: 6px;
+
+                    &:hover {
+                        background-color: var(--colours-shades-accent-shades-accent-subtle);
+                    }
+
                     .button-vue__icon {
                         display: none;
                     }
