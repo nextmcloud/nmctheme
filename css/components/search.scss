@@ -36,7 +36,7 @@
 .unified-search__form {
     & #unified-search__input {
         border: 2px solid var(--color-border);
-        border-radius: 5px;
+        border-radius: var(--border-radius-container);
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
         padding-left: 1rem;
@@ -71,6 +71,10 @@
     .modal-container__content {
         align-items: flex-start;
     }
+
+    .dialog__name {
+        margin-left: 6px;
+    }
 }
 
 #unified-search .unified-search-modal {
@@ -84,9 +88,15 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        margin-left: 6px;
 
         .input-field {
             label.input-field__label {
+                display: block;
+            }
+
+            &:hover label.input-field__label,
+            &:focus-within label.input-field__label {
                 display: none;
             }
         }
@@ -189,7 +199,7 @@
                 }
 
                 background: var(--color-background-darker);
-                border-radius: 2px;
+                border-radius: var(--border-radius-element);
                 border: 1px solid transparent;
             }
         }

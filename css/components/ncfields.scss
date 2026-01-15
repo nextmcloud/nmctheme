@@ -11,7 +11,7 @@
 #body-settings .input-field,
 #body-public .input-field,
 #body-login .input-field {
-    border-radius: var(-border-radius);
+    border-radius: var(--border-radius-container);
     margin-block-start: 0;
 
     &__main-wrapper {
@@ -20,7 +20,7 @@
 
     &__input {
         padding: 0 0.75rem;
-        border: 1px solid var(--color-border);
+        border: 1px solid var(--color-main-text);
         height: 44px !important;
 
         &:active:disabled,
@@ -34,16 +34,20 @@
         &:active:not([disabled]) {
             color: var(--color-text-lighter);
             border-color: var(--color-border-dark);
-
+            background-color: var(--color-background-hover);
         }
 
         &:hover:not([disabled]) {
             cursor: text;
             border-color: var(--color-border-dark);
+            background-color: var(--color-background-hover);
         }
 
         &:focus:not([disabled]) {
-            border: 1px solid var(--color-element-info);
+            border: 1px solid var(--color-border-dark);
+            background-color: var(--color-background-hover);
+            outline: 2px solid var(--color-main-text);
+            outline-offset: 3px;
         }
 
         &--leading-icon {
