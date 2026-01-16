@@ -93,11 +93,18 @@
         .input-field {
             label.input-field__label {
                 display: block;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: var(--default-font-size);
             }
 
             &:hover label.input-field__label,
             &:focus-within label.input-field__label {
-                display: none;
+                top: 18%;
+                left: -1%;
+                transform: translateY(-50%);
+                background-color: transparent;
+                font-size: var(--font-size-small);
             }
 
             .input-field__input {
