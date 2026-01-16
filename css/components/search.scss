@@ -88,7 +88,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        margin-left: 6px;
+        margin: 0 6px;
 
         .input-field {
             label.input-field__label {
@@ -98,6 +98,14 @@
             &:hover label.input-field__label,
             &:focus-within label.input-field__label {
                 display: none;
+            }
+
+            .input-field__input {
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: var(--background-input-hover-focus);
+                }
             }
         }
 
