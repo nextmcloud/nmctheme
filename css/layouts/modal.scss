@@ -11,7 +11,11 @@
 #body-user .dialog__modal {
 
     .modal-wrapper .modal-container {
-        padding-block: 8px;
+        padding: 1.5rem;
+    }
+
+    &#unified-search .modal-container .dialog__name {
+        margin-block: 0 !important;
     }
 }
 

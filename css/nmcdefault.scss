@@ -103,6 +103,7 @@
   --default-font-style-bold: 700 1rem/1 TeleNeoWeb, sans-serif;
   --default-font--style-small-bold: 700 0.75rem/1.35 TeleNeoWeb, sans-serif;
   --font-size-small: var(--microcopy-regular-font-size);
+  --font-size-title-large: var(--body-l-font-size);
 
   --animation-quick: 100ms;
   --animation-slow: 300ms;
@@ -148,6 +149,7 @@
 
   --border-width-input: var(--strokes-1);
   --border-width-input-focused: var(--strokes-2);
+  --background-input-hover-focus: var(--mode-shades-neutral-shades-200);
 
   --nmc-color-regular: var(--mode-shades-neutral-shades-500);
   --nmc-color-strong: var(--mode-shades-neutral-shades-700);
@@ -156,6 +158,8 @@
   --nmc-color-text-and-icon-link: var(--colours-basic-text-link);
   --nmc-color-text-and-icon-black: #000;
   --nmc-color-text-and-icon-white: #FFF;
+  --nmc-color-text-primary: var(--mode-basic-text); //light mode: dark; dark mode: white 
+  --nmc-color-text-on-accent: var(--mode-basic-text-on-accent);//light mode: white; dark mode: dark 
   --nmc-color-icon: invert(17%) sepia(87%) saturate(5418%) hue-rotate(319deg) brightness(85%) contrast(110%);
   --nmc-color-icon-hovered: brightness(0) saturate(100%) invert(11%) sepia(93%) saturate(6579%) hue-rotate(321deg) brightness(71%) contrast(107%);
   --nmc-color-sceme: light;
