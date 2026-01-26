@@ -16,6 +16,14 @@
         li:has(a#admin_settings),
         li:has(a#core_apps),
         li:has(a#core_users) {
+            order: 2;
+        }
+
+        li#nmc_welcome_popup-about {
+            order: 1;
+        }
+
+        li#profile {
             display: none;
         }
 

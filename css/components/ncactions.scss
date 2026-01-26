@@ -65,6 +65,32 @@
 
 					li.action {
 
+						&:last-child > .action-input {
+							margin: 0;
+							padding: 0;
+
+							.action-input__form {
+								margin: 0;
+								padding: 0;
+							}
+
+							.action-input__icon-wrapper {
+
+								.folder-icon {
+									background-image: var(--icon-create-folder-dark);
+									background-size: 36px;
+
+									svg {
+										display: none;
+									}
+								}
+							}
+						}
+
+						.action-input__text-label {
+							display: none;
+						}
+
 						.icon-vue {
 							background-size: 24px;
 						}

@@ -16,11 +16,14 @@
 
     &__main-wrapper {
         height: 44px;
+        padding: 0;
     }
 
     &__input {
         padding: 0 0.75rem;
         border: 1px solid var(--color-main-text);
+        border-radius: var(--border-radius-pill);
+        box-shadow: none;
         height: 44px !important;
 
         &:active:disabled,
@@ -70,7 +73,7 @@
     &__icon {
         &--leading {
             bottom: -2px;
-            left: -2px;
+            left: 0px;
 
             svg {
                 height: 20px;
@@ -82,6 +85,11 @@
             bottom: 10px;
             right: 2px;
         }
+    }
+
+    &__trailing-button.button-vue {
+        right: -2px;
+        top: -2px;
     }
 
 	&__clear-button.button-vue {

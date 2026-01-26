@@ -551,6 +551,7 @@
 		}
 
 		&.app-navigation__content {
+
 			ul.app-navigation__list {
 				padding: 4rem 1.5rem 1.5rem;
 
@@ -646,13 +647,34 @@
 							}
 						}
 					}
+
+					button {
+						margin: 0;
+						padding: 0;
+
+						.button-vue__icon {
+							width: 48px;
+							height: 48px;
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: 24px;
+
+							svg {
+								width: 24px;
+								height: 24px;
+							}
+						}
+
+						&:hover:not(:disabled) {
+							background-color: transparent;
+						}
+					}
 				}
 
 			}
 
-			// contains 'Photos settings' button
 			.app-navigation__footer {
-				// display: none;
+				display: none;
 			}
 		}
 
@@ -813,8 +835,9 @@
 		font-size: 1.5rem;
 		height: unset;
 		line-height: unset;
-		margin-block: 1.5rem 1rem;
+		margin: 1.5rem;
 		min-height: unset;
+		text-align: left;
 	}
 
 	.photos-picker__actions {
@@ -883,15 +906,31 @@
 	}
 
 	.file-picker {
+		overflow: visible;
 
 		.dialog__wrapper {
-			margin-inline: 1.5rem;
 			margin-block: 0 1.5rem;
+			padding-inline: 1.5rem;
+			overflow: visible;
+
+			.dialog__content {
+				margin-top: 0.5rem;
+				padding: 0;
+			}
+		}
+
+		.dialog__actions {
+			margin-block: 0 1.5rem;
+			padding-inline: 0 1.5rem;
 		}
 
 		&+button.modal-container__close {
 			margin-right: 0.75rem;
 			margin-top: 0.75rem;
+		}
+
+		&__breadcrumbs {
+			flex-grow: unset;
 		}
 
 		&__actions {
@@ -1004,6 +1043,8 @@
 
 		&__navigation {
 			display: block;
+			padding: 0;
+			overflow: visible;
 
 			&__month {
 				border-radius: var(--border-radius-large);
@@ -1025,6 +1066,7 @@
 
 			.input-field {
 				max-width: 100%;
+				margin: 0;
 			}
 		}
 
@@ -1107,13 +1149,26 @@
 
 		&__files {
 			overflow: auto;
+			margin: 0;
 
 			table {
 				width: 100%;
+
+				tbody {
+
+					tr {
+						height: 60px;
+					}
+
+					tr:not(.group-header):hover, tbody tr:not(.group-header):focus, tbody tr:not(.group-header):active {
+						background-color: var(--color-background-hover);
+					}
+				}
 			}
 
 			th {
 				background-color: var(--color-main-background);
+				border-bottom: 1px solid var(--color-border) !important;
 
 				.button-vue {
 					border: none;
@@ -1141,7 +1196,7 @@
 				&.row-name {
 
 					.file-picker__header-preview {
-						width: 30px;
+						width: 52px;
 					}
 
 					.button-vue__wrapper {
@@ -1163,39 +1218,42 @@
 			}
 
 			td {
-				.file-picker__file-icon {
-					width: 20px;
-					height: 20px;
-					min-width: 20px;
-					min-height: 20px;
-				}
-
-				.material-design-icon {
-					background-position: center;
-					background-repeat: no-repeat;
-
-					svg {
-						display: none;
-					}
-
-					&.folder-icon {
-						background-image: var(--icon-mime-folder-blue);
-						@include thumbnail-icons();
-					}
-
-					&.file-icon {
-						background-image: var(--icon-text-file-dark);
-					}
-				}
+				border-bottom: 1px solid var(--color-border) !important;
+				cursor: pointer;
 
 				&.row-name {
-					padding-left: 0.5rem;
+					padding: 0;
+
+					.file-picker__name-container {
+						cursor: pointer;
+						display: flex;
+
+						div {
+							cursor: pointer;
+							height: 44px;
+							width: 44px;
+							min-height: 44px;
+							min-width: 44px;
+							line-height: 44px;
+
+							&.file-picker__file-name {
+								padding-left: 0.5rem;
+							}
+
+							svg {
+								color: var(--nmc-ods-blue-active);
+								height: 44px;
+								width: 44px;
+							}
+						}
+					}
 				}
 
-				&.row-modified {
+				&.row-modified, &.row-size {
 					text-align: right;
 
 					span {
+						cursor: pointer;
 						padding-right: 8px;
 					}
 				}

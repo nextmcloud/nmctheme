@@ -178,7 +178,9 @@
     "translations": {
       "Photos": "Fotos",
       "Add": "Hinzufügen",
-      "Add photos to this album" : "Fotos und Videos zum Album hinzufügen"
+      "Add photos to this album" : "Fotos und Videos zum Album hinzufügen",
+      "Choose the folders from where photos and videos are shown." : "Ordner, aus denen Fotos und Videos angezeigt werden. Aus den ausgewählten Ordnern werden Medien für Alben und für die Ansicht - Alle Medien - verwendet.",
+      "Choose the folder where photos and albums are uploaded to." : "Ordner, in den Fotos und Videos hochgeladen werden. Dieser Ordner wird für neue Uploads und beim Erstellen von Alben verwendet. Tipp: Wir empfehlen, den Ordner auf „Kamera-Medien“ zu belassen, da er auch von den MagentaCLOUD-Apps genutzt wird."
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },

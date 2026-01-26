@@ -173,7 +173,9 @@
     "translations": {
       "Photos": "Photos",
       "Add": "Add",
-      "Add photos to this album" : "Add photos and videos to this album"
+      "Add photos to this album" : "Add photos and videos to this album",
+      "Choose the folders from where photos and videos are shown." : "Here you can set whether your media area displays photos and videos from your entire cloud, or only from one or more specific folders.",
+      "Choose the folder where photos and albums are uploaded to." : "When you upload photos or videos within the media area, they must be saved. Click here which folder they should be saved in."
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
