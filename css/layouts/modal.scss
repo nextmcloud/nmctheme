@@ -14,9 +14,15 @@
     .modal-wrapper .modal-container {
         padding: 0;
 
-        .app-settings {
+        .dialog {
+            overflow: visible;
+
+            &__wrapper {
+                overflow: visible;
+            }
 
             &__content {
+                overflow: visible;
                 padding-inline: 1.5rem;
 
                 .button-vue--vue-secondary {
@@ -68,10 +74,6 @@
 
     .modal-wrapper--large > .modal-container {
         width: 650px;
-    }
-
-    &#unified-search .modal-container .dialog__name {
-        margin-block: 0 !important;
     }
 }
 

@@ -78,7 +78,6 @@
 }
 
 #unified-search .unified-search-modal {
-    padding-block: 1rem 0;
     
     &__content {
         --dialog-height: min(65vh, 700px);
@@ -88,7 +87,6 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        margin: 0 6px;
 
         .input-field {
             label.input-field__label {
