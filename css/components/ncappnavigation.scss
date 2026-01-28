@@ -86,21 +86,15 @@
 	}
 
 	.app-navigation-entry__settings {
-
 		padding: 0 0 1rem;
-
-		> li {
-			display: none;
-		}
 	}
 
-	&__content &-entry__settings {
-
-		// hide nextcloud quota and files settings links
-		.app-navigation-entry-wrapper {
-			display: none;
-		}
-	}
+	// Show nextcloud quota and files settings links
+	// &__content &-entry__settings {
+	// 	.app-navigation-entry-wrapper {
+	// 		display: none;
+	// 	}
+	// }
 }
 
 // default navbar link styling
