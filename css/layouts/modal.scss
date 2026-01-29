@@ -8,6 +8,7 @@
  */
 
 @import '../_mixins.scss';
+@import '../_variables.scss';
 
 #body-user .dialog__modal {
 
@@ -18,6 +19,10 @@
 
             &__content {
                 padding-inline: 1.5rem;
+
+                @media screen and (max-width: $breakpoint-mobile-small) {
+                    padding-inline: 1rem;
+                }
 
                 .button-vue--vue-secondary {
                     background: var(--nmc-ods-blue-primary);
@@ -60,7 +65,7 @@
                 }
 
                 .app-settings-section__name, .app-settings-section__content, .setting-section-subline, .photos-locations {
-                    margin: 0 0 0.75rem;
+                    margin: 0;
                 }
             }
         }
@@ -68,6 +73,29 @@
 
     .modal-wrapper--large > .modal-container {
         width: 650px;
+
+        @media screen and (max-width: $breakpoint-mobile-medium) {
+            width: 90vw;
+            max-width: 600px;
+        }
+
+        @media screen and (max-width: $breakpoint-mobile-small) {
+            width: 95vw;
+            max-width: none;
+        }
+    }
+
+    .modal-container {
+        @media screen and (max-width: $breakpoint-mobile-small) {
+            margin: 1rem;
+        }
+
+        .dialog__name {
+            @media screen and (max-width: $breakpoint-mobile-small) {
+                font-size: 1.25rem;
+                padding: 1rem 1rem 0.5rem;
+            }
+        }
     }
 
     &#unified-search .modal-container .dialog__name {

@@ -102,8 +102,10 @@ span.checkbox-radio-switch-radio.checkbox-radio-switch, .checkbox-radio-switch-c
 	}
 
 	&--checked:not(&--disabled):focus-within .checkbox-radio-switch__label,
-	&--checked:not(&--disabled) .checkbox-radio-switch__label:hover {
-		background-color: initial;
+	&--checked:not(&--disabled) .checkbox-radio-switch__label:hover,
+	&--checked:not(&--disabled):focus-within .checkbox-radio-switch__content,
+	&--checked:not(&--disabled) .checkbox-radio-switch__content:hover {
+		background-color: var(--color-background-hover);
 	}
 
 	// override min-height of checkbox
