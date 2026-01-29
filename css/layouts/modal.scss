@@ -16,15 +16,21 @@
         padding: 0;
 
         .dialog {
-            overflow: visible;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
 
             &__wrapper {
-                overflow: visible;
+                max-height: 80vh;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
             }
 
             &__content {
-                overflow: visible;
+                overflow-y: auto;
                 padding-inline: 1.5rem;
+                padding-bottom: 1.5rem;
 
                 @media screen and (max-width: $breakpoint-mobile-small) {
                     padding-inline: 1rem;
