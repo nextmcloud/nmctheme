@@ -15,9 +15,15 @@
     .modal-wrapper .modal-container {
         padding: 0;
 
-        .app-settings {
+        .dialog {
+            overflow: visible;
+
+            &__wrapper {
+                overflow: visible;
+            }
 
             &__content {
+                overflow: visible;
                 padding-inline: 1.5rem;
 
                 @media screen and (max-width: $breakpoint-mobile-small) {
@@ -96,10 +102,6 @@
                 padding: 1rem 1rem 0.5rem;
             }
         }
-    }
-
-    &#unified-search .modal-container .dialog__name {
-        margin-block: 0 !important;
     }
 }
 
