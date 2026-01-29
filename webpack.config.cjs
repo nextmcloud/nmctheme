@@ -1,5 +1,6 @@
 // webpack with standard nextcloud config
 const path = require('path')
+const webpack = require('webpack')
 const webpackConfig = require('@nextcloud/webpack-vue-config')
 const webpackRules = require('@nextcloud/webpack-vue-config/rules')
 
@@ -28,5 +29,15 @@ webpackConfig.module.rules = Object.values(webpackRules)
 
 // Workaround for https://github.com/nextcloud/webpack-vue-config/pull/432 causing problems with nextcloud-vue-collections
 webpackConfig.resolve.alias = {}
+
+// Fix process is not defined error
+webpackConfig.plugins.push(
+	new webpack.DefinePlugin({
+		'process.env': '{}',
+		'process.version': '""',
+		'process.platform': '""',
+		'process.browser': 'true',
+	})
+)
 
 module.exports = webpackConfig
