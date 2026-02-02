@@ -1273,7 +1273,7 @@
 	}
 
 	.app-settings-section {
-		margin-bottom: 2rem;
+		margin-bottom: 0;
 	}
 	
 	#settings-section_layout-settings,
@@ -1285,6 +1285,16 @@
 // Device Sessions modal window
 #body-settings .modal-wrapper--small > .modal-container {
 	width: 550px;
+
+	@media screen and (max-width: $breakpoint-mobile-medium) {
+		width: 90vw;
+		max-width: 500px;
+	}
+
+	@media screen and (max-width: $breakpoint-mobile-small) {
+		width: 95vw;
+		max-width: none;
+	}
 }
 
 // Share Album modal window

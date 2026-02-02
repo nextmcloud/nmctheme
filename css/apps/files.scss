@@ -1225,6 +1225,15 @@ table.files-filestable {
 	}
 }
 
+// Hide WebDAV, Warnings, and Keyboard shortcuts sections in Files settings
+.app-settings__content {
+	#settings-section_webdav,
+	#settings-section_warning,
+	#settings-section_shortcuts {
+		display: none;
+	}
+}
+
 // Deleted Files list table and header
 #app-content-vue {
 	.files-list__header {
