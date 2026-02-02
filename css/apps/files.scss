@@ -366,8 +366,12 @@ table.files-filestable {
 #app-content-vue {
 
 	// Override favorite marker stroke color
-	.favorite-marker-icon svg path {
-		stroke: var(--color-favorite) !important;
+	.favorite-marker-icon svg  {
+		color: var(--color-favorite) !important;
+
+		path{
+			stroke: var(--color-favorite) !important;
+		}
 	}
 
 	.files-list__header {
