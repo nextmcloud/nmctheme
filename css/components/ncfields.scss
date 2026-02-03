@@ -10,21 +10,28 @@
 #body-user .input-field,
 #body-settings .input-field,
 #body-public .input-field,
-#body-login .input-field {
+#body-login .input-field, 
+#body-user .native-datetime-picker, 
+#body-settings .native-datetime-picker, 
+#body-public .native-datetime-picker, 
+#body-login .native-datetime-picker {
     border-radius: var(--border-radius-container);
     margin-block-start: 0;
 
     &__main-wrapper {
-        height: 44px;
+        height: 54px !important;
+        margin-top: 0.25px;
         padding: 0;
     }
 
-    &__input {
-        padding: 0 0.75rem;
+    &__input, &--input {
         border: 1px solid var(--color-main-text);
         border-radius: var(--border-radius-pill);
         box-shadow: none;
         height: 44px !important;
+        margin: 5px;
+        padding: 0 0.75rem;
+        width: calc(100% - 10px);
 
         &:active:disabled,
         &:hover:disabled,
@@ -72,8 +79,8 @@
 
     &__icon {
         &--leading {
-            bottom: -2px;
-            left: 0px;
+            bottom: 2px;
+            left: 4px;
 
             svg {
                 height: 20px;
@@ -88,14 +95,14 @@
     }
 
     &__trailing-button.button-vue {
-        right: -2px;
-        top: -2px;
+            right: 2px;
+            top: 2px;
     }
 
 	&__clear-button.button-vue {
 		border-radius: var(--border-radius-pill);
         height: 100%;
-		top: 0;
+		top: 2px;
 	}
 
     &__helper-text-message {

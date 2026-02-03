@@ -774,8 +774,19 @@
 		}
 	}
 
+	.timeline__heading {
+		margin: 0;
+		padding: 0;
+	}
+
 	.album-form {
-		padding-top: 3rem !important;
+		margin: 0;
+		padding: 0 !important;
+
+		.form-cover {
+			text-align: center;
+			padding: 1rem;
+		}
 
 		.form-inputs {
 			.input-field:nth-child(2) {
@@ -835,7 +846,7 @@
 		font-size: 1.5rem;
 		height: unset;
 		line-height: unset;
-		margin: 1.5rem;
+		margin-bottom: 1.5rem;
 		min-height: unset;
 		text-align: left;
 	}
@@ -910,18 +921,18 @@
 
 		.dialog__wrapper {
 			margin-block: 0 1.5rem;
-			padding-inline: 1.5rem;
+			padding-inline: 0;
 			overflow: visible;
 
 			.dialog__content {
-				margin-top: 0.5rem;
+				margin-top: 1rem;
 				padding: 0;
 			}
 		}
 
 		.dialog__actions {
-			margin-block: 0 1.5rem;
-			padding-inline: 0 1.5rem;
+			margin-block: 0;
+			padding-inline: 0;
 		}
 
 		&+button.modal-container__close {
@@ -1070,82 +1081,6 @@
 			}
 		}
 
-		&__breadcrumbs {
-
-			nav {
-				display: inline-flex;
-				flex-grow: 0;
-				min-width: unset;
-
-				.vue-crumb {
-
-					&>a {
-						min-width: unset;
-
-						&:hover {
-							background-color: unset;
-						}
-					}
-
-					&:last-child {
-						min-width: unset;
-					}
-				}
-
-				span.home-icon {
-					background-image: var(--icon-home-dark);
-					background-repeat: no-repeat;
-					background-position: center;
-					background-size: 24px;
-					width: 24px;
-					height: 24px;
-
-					svg {
-						display: none;
-					}
-				}
-
-				span.vue-crumb__separator {
-					display: flex;
-					background-image: var(--icon-breadcrumb-arrow-grey);
-					background-repeat: no-repeat;
-					background-position: center;
-					background-size: 24px;
-					width: 24px;
-					height: 24px;
-
-					svg {
-						display: none;
-					}
-				}
-			}
-
-			.breadcrumb__actions {
-
-				button {
-					border: none;
-					margin: 0;
-					padding: 0;
-
-					.plus-icon {
-						border: 1px solid var(--color-primary);
-						border-radius: 50%;
-					}
-
-					svg {
-						color: var(--color-primary);
-					}
-
-					.button-vue__text {
-						display: none;
-					}
-
-					&:hover {
-						background-color: unset;
-					}
-				}
-			}
-		}
 
 		&__files {
 			overflow: auto;
@@ -1272,8 +1207,8 @@
 		}
 	}
 
-	.app-settings-section {
-		margin-bottom: 0;
+	.app-settings-section:not(:last-child) {
+		margin-bottom: 1.5rem;
 	}
 	
 	#settings-section_layout-settings,

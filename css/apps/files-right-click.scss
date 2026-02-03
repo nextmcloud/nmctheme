@@ -112,6 +112,12 @@ body .icon-starred:hover {
 
 body .favorite-marker-icon {
 	background-image: var(--icon-starred-yellow);
+	height: 20px;
+	width: 20px;
+
+	svg {
+		display: none;
+	}
 }
 
 body .icon-rename {

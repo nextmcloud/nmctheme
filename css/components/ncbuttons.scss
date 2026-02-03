@@ -16,8 +16,7 @@
 #body-status .button-vue,
 #error .button-vue {
     // we keep coloring of the default button as it is for the moment,
-    // but us ethe Telekom roundings instead of Nextcloud full-round sides
-
+    // but use the Telekom roundings instead of Nextcloud full-round sides
     border: 0;
     padding: 0;
     border-radius: var(--border-radius-pill);
