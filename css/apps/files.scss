@@ -365,6 +365,16 @@ table.files-filestable {
 
 
 #app-content-vue {
+
+	// Override favorite marker stroke color
+	.favorite-marker-icon svg  {
+		color: var(--color-favorite) !important;
+
+		path{
+			stroke: var(--color-favorite) !important;
+		}
+	}
+
 	.files-list__header {
 		margin-block: 0.8rem;
 		margin-inline: 2.5rem;
@@ -630,12 +640,12 @@ table.files-filestable {
 
 								&.folder-icon,
 								&.folder-open-icon {
-									width: 45px;
-									height: 36px;
+									width: 150px;
+									height: 120px;
 
 									svg {
-										width: 45px;
-										height: 36px;
+										width: 150px;
+										height: 120px;
 										color: var(--nmc-ods-blue-active);
 
 										path {
@@ -718,6 +728,7 @@ table.files-filestable {
 								}
 							}
 						}
+
 
 						img {
 							    overflow: hidden;
@@ -1033,12 +1044,40 @@ table.files-filestable {
 										display: flex;
 										align-items: center;
 										justify-content: center;
+										transition: all 0.15s ease-in-out;
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
 											background-size: 16px 16px;
 											width: 16px;
 											height: 16px;
+											transition: filter 0.15s ease-in-out;
+										}
+
+										.button-vue__text {
+											transition: color 0.15s ease-in-out;
+										}
+
+										// Active/existing share state - when file is shared
+										&.active,
+										&[aria-pressed="true"],
+										&.button-vue--icon-and-text {
+											border: none;
+											background-color: var(--nmc-ods-blue-primary) !important;
+
+											.button-vue__icon {
+												filter: brightness(0);
+											}
+
+											.button-vue__text {
+												color: var(--nmc-color-text-and-icon-black);
+											}
+
+											[data-themes*=dark] & {
+												.button-vue__icon {
+													filter: brightness(0);
+												}
+											}
 										}
 
 										&.button-vue--icon-and-text {
@@ -1059,6 +1098,13 @@ table.files-filestable {
 											}
 										}
 
+										// When shared, maintain blue on hover with lighter shade
+										&.active:hover,
+										&[aria-pressed="true"]:hover,
+										&.button-vue--icon-and-text:hover {
+											background-color: var(--nmc-ods-blue-hover) !important;
+										}
+
 										&:active {
 											border: none;
 											background-color: var(--nmc-ods-blue-pressed);
@@ -1074,36 +1120,22 @@ table.files-filestable {
 											}
 										}
 
-										// Active/existing share state
-										&.active,
-										&[aria-pressed="true"] {
-											border: none;
-											background-color: var(--nmc-ods-blue-primary);
+										&:focus,
+										&:focus-visible {
+											outline: 2px solid var(--color-main-text);
+											outline-offset: 2px;
 
-											.button-vue__icon {
-												filter: brightness(0);
-											}
+											// Only apply blue bg on focus if not already shared
+											&:not(.active):not([aria-pressed="true"]):not(.button-vue--icon-and-text) {
+												border: none;
+												background-color: var(--nmc-ods-blue-primary);
 
-											[data-themes*=dark] & {
 												.button-vue__icon {
 													filter: brightness(0);
 												}
 											}
-										}
-
-										&:focus,
-										&:focus-visible {
-											border: none;
-											background-color: var(--nmc-ods-blue-primary);
-											outline: 2px solid var(--color-main-text);
-											outline-offset: 2px;
-
-											.button-vue__icon {
-												filter: brightness(0);
-											}
 
 											[data-themes*=dark] & {
-
 												.button-vue__icon {
 													filter: brightness(0);
 												}

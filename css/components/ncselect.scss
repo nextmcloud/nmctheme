@@ -21,6 +21,7 @@
 			height: 2rem !important;
 			margin: 6px 2px !important;
 			min-height: 2rem !important;
+      background: var(--nmc-ods-blue-primary) !important;
 
 			.option {
 				font-size: 14px;
@@ -29,6 +30,16 @@
 				&__avatar, &__icon {
 					display: none;
 				}
+			}
+
+			&__lineone {
+				color: var(--nmc-color-text-and-icon-black) !important;
+			}
+		}
+
+		.vs__deselect {
+			svg {
+				fill: var(--nmc-color-text-and-icon-black) !important;
 			}
 		}
 	}
