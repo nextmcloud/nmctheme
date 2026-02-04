@@ -72,6 +72,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const variables = {}
 
 const icons = {
+	magentacloud: path.join(__dirname, '../img', 'magentacloud.svg'),
 	add: path.join(__dirname, '../img', 'actions', 'add.svg'),
 	address: path.join(__dirname, '../img', 'actions', 'address.svg'),
 	'arrow-left': path.join(__dirname, '../img', 'actions', 'arrow-left.svg'),

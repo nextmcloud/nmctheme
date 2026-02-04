@@ -26,7 +26,7 @@
 
     &__input, &--input {
         border: 1px solid var(--color-main-text);
-        border-radius: var(--border-radius-pill);
+        border-radius: var(--border-radius-large);
         box-shadow: none;
         height: 44px !important;
         margin: 5px;
@@ -54,10 +54,12 @@
         }
 
         &:focus:not([disabled]) {
-            border: 1px solid var(--color-border-dark);
+            border: 1px solid var(--color-border-dark) !important;
+            border-color: var(--color-border-dark) !important;
             background-color: var(--color-background-hover);
             outline: 2px solid var(--color-main-text);
             outline-offset: 3px;
+            box-shadow: unset!important;
         }
 
         &--leading-icon {

@@ -325,7 +325,7 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 		}
 
 		// Border for sharing entry items
-		.sharing-entry.sharing-entry__link.sharing-entry--share {
+		.sharing-entry.sharing-entry__link.sharing-entry--share:not(:last-child) {
 			border-bottom: 1px solid var(--nmc-color-faint);
 			padding: 0.5rem 0;
 		}
@@ -343,6 +343,7 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 			}
 
 			&.button-vue--icon-only {
+				background-color: unset;
 				border-radius: 50%;
 				width: 40px !important;
 				height: 40px;

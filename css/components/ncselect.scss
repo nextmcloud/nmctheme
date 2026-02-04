@@ -6,7 +6,7 @@
 		.vs__dropdown-toggle {
 			border-width: 1px;
 			border-color: var(--color-main-text);
-			border-radius: var(--border-radius-rounded);
+			border-radius: var(--border-radius-large);
 			box-shadow: none;
 		}
 
@@ -21,7 +21,7 @@
 			height: 2rem !important;
 			margin: 6px 2px !important;
 			min-height: 2rem !important;
-      background: var(--nmc-ods-blue-primary) !important;
+      		background: var(--nmc-ods-blue-primary) !important;
 
 			.option {
 				font-size: 14px;
@@ -50,7 +50,7 @@
 }
 
 .vs__dropdown-menu--floating {
-	border-radius: 0 0 var(--border-radius-rounded) var(--border-radius-rounded) !important;
+	border-radius: 0 0 var(--border-radius-large) var(--border-radius-large) !important;
 	width: max-content;
 	position: absolute;
 	top: 0;

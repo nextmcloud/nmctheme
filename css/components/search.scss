@@ -98,8 +98,8 @@
 
             &:hover label.input-field__label,
             &:focus-within label.input-field__label {
-                top: 18%;
-                left: -1%;
+                top: 30%;
+                left: 0;
                 transform: translateY(-50%);
                 background-color: transparent;
                 font-size: var(--font-size-small);
@@ -110,6 +110,7 @@
                 &:focus,
                 &:active {
                     background-color: var(--background-input-hover-focus);
+                    padding-top: 1rem;
                 }
             }
         }

@@ -303,45 +303,54 @@
 					}
 				}
 
-				.checkbox-radio-switch.selection-checkbox {
-					top: 2px;
-					right: 2px;
-		
+				.checkbox-radio-switch-checkbox {
+					top: -2px;
+					left: 2px;
+
 					.checkbox-content {
-						background: transparent;
-		
-						.material-design-icon {
-							background-color: white;
-							border: 1px solid black;
-							border-radius: var(--border-radius);
-							height: 20px;
-							width: 20px;
-							margin: 0;
-		
-							&.checkbox-marked-icon {
-								background-image: var(--original-icon-check-white);
-								background-color: var(--color-primary-element);
-								background-position: center;
-								background-repeat: no-repeat;
-								background-size: 18px;
-								border: 1px solid var(--color-primary-element);
-							}
-						}
-		
+						background: none;
+
 						&:hover {
-		
-							.material-design-icon {
-								background-color: var(--color-background-hover);
-								border: 1px solid var(--color-primary-element-hover);
-			
-								&.checkbox-marked-icon {
-									background-color: var(--color-primary-element-hover);
+							background: none;
+						}
+
+						&__icon {
+
+							&:not(.checkbox-content__icon--checked) {
+
+								.checkbox-blank-outline-icon {
+									background-color: var(--nmc-color-text-and-icon-white);
+									border: 1px solid var(--nmc-color-text-and-icon-black);
+									border-radius: var(--border-radius-small);
+									width: 20px;
+									height: 20px;
+
+									svg {
+										display: none;
+									}
+
+									&:hover {
+										border-color: var(--color-border-dark);
+										background-color: var(--color-background-hover);
+									}
 								}
 							}
-						}
-		
-						svg {
-							display: none;
+
+							&.checkbox-content__icon--checked {
+								background-image: var(--original-icon-check-white);
+								background-color: var(--color-primary);
+								background-position: center;
+								background-repeat: no-repeat;
+								background-size: 16px;
+								border: 1px solid var(--color-primary);
+								border-radius: var(--border-radius-small);
+								width: 20px;
+								height: 20px;
+
+								.checkbox-marked-icon {
+									display: none;
+								}
+							}
 						}
 					}
 				}
@@ -1207,6 +1216,92 @@
 		}
 	}
 
+	.app-settings-section {
+
+		.photos-locations-container, .photos-location {
+
+			.photos-locations {
+				display: flex;
+				gap: 0.5rem;
+
+				li {
+					display: inline-flex;
+					margin-bottom: 0.5rem;
+
+					.folder {    
+						background-color: var(--nmc-ods-blue-primary);
+    					border-radius: var(--border-radius-pill);
+    					border-width: 0;
+						cursor: pointer;
+						display: inline-flex;
+						gap: 0;
+						min-width: 0;
+						padding-right: 0;
+
+						.folder-multiple-outline-icon {
+							background-image: var(--icon-magentacloud-dark);
+							margin-inline: 1rem 0.5rem;
+							height: 24px;
+							width: 24px;
+
+							svg {
+								display: none;
+							}
+						}
+
+						.folder-outline-icon {
+							background-image: var(--icon-folder-dark);
+							margin-inline: 1rem 0.5rem;
+							height: 24px;
+							width: 24px;
+
+							svg {
+								display: none;
+							}
+						}
+						.button-vue--vue-tertiary {
+
+							&:hover:not(:disabled) {
+								background-color: transparent;
+							}
+						}
+					}
+				}
+			}
+
+			.button-vue--vue-secondary {
+				background: transparent;
+				border-radius: var(--border-radius-pill);
+				border: 1px solid currentColor;
+				color: var(--color-main-text);
+				border-color: var(--color-border);
+				margin: 0;
+
+				&:hover:not(:disabled) {
+					color: var(--color-main-text);
+					background-color: var(--color-background-hover);
+					border-color: var(--color-border-dark);
+				}
+
+				&:active {
+					color: var(--color-main-text);
+					border-color: var(--color-border-maxcontrast);
+				}
+
+				&:disabled {
+					color: var(--color-text-lighter);
+					background-color: none;
+				}
+
+				// Icon-only button
+				&--icon-only {
+					padding-left: calc(0.25rem - 1px);
+					padding-right: calc(0.25rem - 1px);
+				}
+			}
+		}
+	}
+
 	.app-settings-section:not(:last-child) {
 		margin-bottom: 1.5rem;
 	}
@@ -1234,6 +1329,7 @@
 
 // Share Album modal window
 #body-user .modal-container {
+
 	.sharingAlbum{
 		&__divider {
 			border-bottom: 1px solid var(--color-border);
@@ -1252,6 +1348,7 @@
 
 	.manage-collaborators{
 		height: 130px;
+
 		.actions {
 			display: block;
 

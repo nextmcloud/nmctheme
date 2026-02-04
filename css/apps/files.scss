@@ -151,7 +151,9 @@
 }
 
 @mixin files-checkboxes-v28 {
+
 	span.checkbox-radio-switch-checkbox {
+
 		span.checkbox-content {
 			background: unset;
 			padding: 0;
@@ -161,38 +163,37 @@
 			}
 
 			span.checkbox-content__icon.checkbox-radio-switch__icon {
+
 				&:not(.checkbox-content__icon--checked) {
 
 					.checkbox-blank-outline-icon,
 					.minus-box-icon {
-						width: 18px;
-						height: 18px;
-						border: 1px solid var(--color-border);
-						border-radius: var(-border-radius);
+						width: 20px;
+						height: 20px;
+						border: 1px solid var(--nmc-color-text-and-icon-black);
+						border-radius: var(--border-radius-small);
 
 						svg {
 							display: none;
 						}
 
 						&:hover {
-							background-color: red;
+							border-color: var(--color-border-dark);
+							background-color: var(--color-background-hover);
 						}
 					}
 				}
 
 				&.checkbox-content__icon--checked {
 					background-image: var(--original-icon-check-white);
-					background-color: var(--color-success);
+					background-color: var(--color-primary);
 					background-position: center;
 					background-repeat: no-repeat;
-					background-size: 18px;
-					border: none;
-					border-radius: 3rem;
-					height: 1.5rem;
-					margin-left: -2px;
-					margin-right: -2px;
-					margin-top: -2px;
-					width: 1.5rem;
+					background-size: 16px;
+					border: 1px solid var(--color-primary);
+					border-radius: var(--border-radius-small);
+					width: 20px;
+					height: 20px;
 
 					.checkbox-marked-icon {
 						svg {
@@ -433,6 +434,7 @@ table.files-filestable {
 		}
 
 		&__thead-overlay {
+			margin-inline-start: 3.25rem;
 			top: 0;
 		}
 
@@ -615,7 +617,7 @@ table.files-filestable {
 						span.checkbox-content {
 							padding: 0;
 						}
-						top: 0.5rem;
+						top: 0.75rem;
     					left: 0.5rem;
 					}
 
@@ -716,8 +718,9 @@ table.files-filestable {
 					.files-list__row-icon {
 
 						.files-list__row-icon-favorite {
-							width: var(--clickable-area) !important;
     						height: var(--clickable-area) !important;
+							width: var(--clickable-area) !important;
+							top: 4px;
 
 							.icon-vue {
 								width: 24px;
@@ -945,6 +948,10 @@ table.files-filestable {
 									}
 								}
 							}
+						}
+
+						&.files-list__row-checkbox {
+							width: 55px;
 						}
 
 						.files-list__row-name-link {
