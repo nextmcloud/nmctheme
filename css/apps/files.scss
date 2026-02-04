@@ -350,6 +350,7 @@ table.files-filestable {
 							background-repeat: no-repeat;
 							background-position: center;
 							background-size: 16px;
+							top: 14px;
 
 							svg {
 								display: none;
@@ -1077,6 +1078,11 @@ table.files-filestable {
 													filter: brightness(0);
 												}
 											}
+										}
+
+										&.button-vue--icon-and-text {
+											border-color: var(--nmc-ods-blue-primary);
+											background-color: var(--nmc-ods-blue-primary);
 										}
 
 										&:hover {
