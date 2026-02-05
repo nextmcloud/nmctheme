@@ -22,5 +22,3 @@ if (headerElement !== null) {
     <div class="logo logo-icon"></div>
     <div class="title">MagentaCLOUD</div>`
 }
-
-document.body.setAttribute('data-scheme', 'macaw')

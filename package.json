@@ -15,7 +15,6 @@
         "@nextcloud/typings": "^1.7.0",
         "@nextcloud/vue": "^8.17.0",
         "@telekom-ods/react-ui-kit": "^2.4.0",
-        "@telekom/design-tokens": "^1.0.0-beta.9",
         "pinia": "^2.1.6",
         "vue": "^2.7.14"
     },
@@ -63,7 +62,7 @@
         "sass": "sass --style compressed --load-path css css/",
         "sass:watch": "sass --watch --load-path css css/",
         "sass:icons": "node src/icons.mjs",
-        "postinstall": "mkdir -p dist && sed 's/data-mode/data-themes*/g' node_modules/@telekom-ods/design-tokens/dist/design-tokens.css > css/telekom-design-tokens.ods.css",
+        "postinstall": "node src/fix-ods-tokens.mjs",
         "test": "jest --verbose",
         "test:watch": "jest --watchAll",
         "test:coverage": "jest --coverage"

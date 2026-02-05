@@ -782,11 +782,15 @@ table.files-filestable {
 						@include files-table-columns-v28;
 					}
 
+
+					&row-trashbin-files_trashbin--deleted-by {
+						display: none;
+					}
 					
 					&row-size,					
 					&row-mtime,
-					&row-trashbin-original-location,
-					&row-trashbin-deleted {
+					&row-trashbin-files_trashbin--original-location,
+					&row-trashbin-files_trashbin--deleted {
 						min-width: 140px;
 						text-align: right;
 
@@ -796,6 +800,10 @@ table.files-filestable {
 						}
 
 						@include files-table-columns-v28;
+					}
+
+					&row-trashbin-files_trashbin--original-location {
+						min-width: 162px;
 					}
 				}
 
@@ -954,6 +962,10 @@ table.files-filestable {
 							width: 55px;
 						}
 
+						&.files-list__row-trashbin-files_trashbin--deleted-by {
+							display: none;
+						}
+
 						.files-list__row-name-link {
 							display: flex;
 							align-items: center;
@@ -968,8 +980,8 @@ table.files-filestable {
 
 						&.files-list__row-mtime,
 						&.files-list__row-size,
-						&.files-list__row-trashbin-original-location,
-						&.files-list__row-trashbin-deleted,
+						&.files-list__row-trashbin-files_trashbin--original-location,
+						&.files-list__row-trashbin-files_trashbin--deleted,
 						&.column-last {
 							min-width: 140px;
 							text-align: right;
@@ -977,6 +989,10 @@ table.files-filestable {
 							span {
 								color: var(--color-main-text);
 							}
+						}
+
+						&.files-list__row-trashbin-files_trashbin--original-location {
+							min-width: 162px;
 						}
 
 						&.files-list__row-size {

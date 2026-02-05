@@ -73,7 +73,7 @@
     }
 
     .dialog__name {
-        margin-left: 6px;
+        margin-left: 5px;
     }
 }
 
@@ -87,6 +87,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        padding: 0;
 
         .input-field {
             label.input-field__label {
@@ -142,8 +143,8 @@
                     display: flex;
                     align-items: center;
                     box-sizing: border-box;
-                    margin-top: 4px;
-                    margin-left: 0px;
+                    margin-top: 0;
+                    margin-left: 5px;
 
                     &:hover {
                         background-color: var(--nmc-ods-blue-hover);
