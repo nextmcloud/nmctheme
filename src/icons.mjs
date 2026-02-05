@@ -131,6 +131,8 @@ const icons = {
 	check: path.join(__dirname, '../img', 'checkmarktick.svg'),
 	'toggle-filelist': path.join(__dirname, '../img', 'actions', 'toggle-filelist.svg'),
 	'toggle-pictures': path.join(__dirname, '../img', 'actions', 'toggle-pictures.svg'),
+	grid: path.join(__dirname, '../img', 'actions', 'grid.svg'),
+	'list-bulleted': path.join(__dirname, '../img', 'actions', 'list-bulleted.svg'),
 	restore: path.join(__dirname, '../img', 'actions', 'restore.svg'),
 	'cut-paste': path.join(__dirname, '../img', 'actions', 'cut-paste.svg'),
 	'compress-zip': path.join(__dirname, '../img', 'actions', 'compress-zip.svg'),
