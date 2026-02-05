@@ -1290,6 +1290,27 @@ table.files-filestable {
 	}
 }
 
+#body-user,
+#body-public {
+
+	.conflict-picker {
+
+		.conflict-picker__header, .conflict-picker-description, .conflict-picker__form {
+			padding: 0 0 1.5rem;
+		}
+		
+		.dialog__actions {
+			margin: 0;
+			padding: 0;
+
+			.button-vue--vue-primary, .button-vue--vue-secondary, .button-vue--vue-tertiary  {
+				margin-block: 0.5rem;
+				margin-inline: 0;
+			}
+		}
+	}
+}
+
 // Hide WebDAV, Warnings, and Keyboard shortcuts sections in Files settings
 .app-settings__content {
 	#settings-section_webdav,
