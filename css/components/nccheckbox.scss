@@ -1,137 +1,95 @@
-// checkbox button styling
-span.checkbox-radio-switch.checkbox-radio-switch-checkbox {	
-	// on hover unchecked inputs
-	&:not(.checkbox-radio-switch--checked):hover .checkbox-radio-switch__icon {
-		color: var(--nmc-color-regular);
-	}
+.checkbox-radio-switch-checkbox, .checkbox-radio-switch-radio {
 
 	.checkbox-radio-switch__label {
-		&::after {
-			display: none;
-		}
-		// replace box svg with custom element
-		.material-design-icon {
-			width: 20px;
-			height: 20px;
+		min-height: 0 !important;
+		padding-block: 0.25rem !important;
+		padding-inline: 0.5rem 0.75rem !important;
 
-			// hide original box icon
-			svg {
-				display: none;
-			}
-	
-			&::before {
-				content: '';
-				height: 18px;
-				width: 18px;
-				border: 1px solid var(--nmc-color-text-and-icon-black);
-				border-radius: var(--border-radius-small);
-			}
-	
-			// radio button is checked
-			&.checkbox-marked-icon {
-				svg {
-					display: inline-block;
-				}
-				&::before {
-					display: none;
-				}
-				// box-shadow: inset 0px 0px 0px 5px var(--color-primary);
-				// border-color: var(--color-primary);
-			}
-		}
-
-		// color indicator when label is hovered
-		&:hover {
-			.material-design-icon::before {
-				border-color: var(--color-primary);
-			}
-		}
-
-		&-text {
-			line-height: 1rem;
-		}
-	}
-}
-
-// radio button styling
-span.checkbox-radio-switch-radio.checkbox-radio-switch {
-
-	// change indicator color when hovered or focused
-	&:not(&--disabled) {
-		.checkbox-radio-switch__label:hover, .checkbox-radio-switch__label:focus-within {
-			.material-design-icon::before {
-				border-color: var(--color-primary);
-				cursor: pointer;
-			}
-		}
-	}
-
-	label.checkbox-radio-switch__label {
-		margin: 0;
 		
-		// replace circle svg with custom element
-		.material-design-icon {
+		&:hover, &:focus, &:active {
+			background-color: var(--color-background-hover) !important;
+		}
+	}
 
-			// hide original circle icon
+	&.checkbox-radio-switch--checked {
+
+		.checkbox-radio-switch__label {
+
+			&:hover, &:focus, &:active {
+				background-color: var(--color-background-hover) !important;
+			}
+		}
+
+		&:focus-within {
+
+			.checkbox-radio-switch__label {
+				background-color: var(--color-background-hover) !important;
+			}
+		}
+	}
+
+	.checkbox-radio-switch__icon {
+
+		.checkbox-blank-outline-icon,
+		.radiobox-blank-icon,
+		.minus-box-icon {
+			border: 1px solid var(--nmc-color-text-and-icon-black);
+			border-radius: var(--border-radius-small);
+			height: 18px;
+			width: 18px;
+
 			svg {
 				display: none;
 			}
-	
-			&::before {
-				content: '';
-				height: 18px;
-				width: 18px;
-				border-radius: 50%;
-				border: 1px solid var(--color-border-maxcontrast);
-			}
-	
-			// radio button is checked
-			&.radiobox-marked-icon::before {
-				background-color: var(--color-primary);
-				box-shadow: inset 0px 0px 0px 3px var(--nmc-color-text-and-icon-inverted);
-				border-color: var(--color-primary);
+
+			&:hover {
+				background-color: var(--color-background-hover);
+				border-color: var(--color-border-dark);
 			}
 		}
-	}
-}
 
-span.checkbox-radio-switch-radio.checkbox-radio-switch, .checkbox-radio-switch-checkbox.checkbox-radio-switch {
-	&:not(&--disabled, &--checked):focus-within .checkbox-radio-switch__label,
-	&:not(&--disabled, &--checked) .checkbox-radio-switch__label:hover {
-		background-color: initial;
-	}
+		.checkbox-marked-icon {
+			background-color: var(--color-primary);
+			background-image: var(--original-icon-check-white);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 16px;
+			border: 1px solid var(--color-primary);
+			border-radius: var(--border-radius-small);
+			height: 18px;
+			width: 18px;
 
-	&--checked:not(&--disabled):focus-within .checkbox-radio-switch__label,
-	&--checked:not(&--disabled) .checkbox-radio-switch__label:hover,
-	&--checked:not(&--disabled):focus-within .checkbox-radio-switch__content,
-	&--checked:not(&--disabled) .checkbox-radio-switch__content:hover {
-		background-color: var(--color-background-hover);
-	}
-
-	// override min-height of checkbox
-	label.checkbox-radio-switch__label {
-		min-height: auto;
-	}
-
-	// if checked and disabled color them gray
-	&.checkbox-radio-switch--checked.checkbox-radio-switch--disabled {
-		label.checkbox-radio-switch__label {
-			.checkbox-radio-switch__icon {
-				.material-design-icon::before {
-					box-shadow: inset 0px 0px 0px 5px var(--color-background-dark);
-					border-color: var(--color-background-dark);
-				}
+			svg {
+				display: none;
 			}
 		}
+
+		.radiobox-blank-icon {
+			border-radius: var(--border-radius-pill);
+		}
+
+		.radiobox-marked-icon {
+			background-color: var(--nmc-color-text-and-icon-white);
+			border: 7px solid var(--color-primary);
+			border-radius: var(--border-radius-pill);
+			height: 6px;
+			width: 6px;
+
+			svg {
+				display: none;
+			}
+		}
+
 	}
 
-	// disabled checkbox style
 	&--disabled {
 		label.checkbox-radio-switch__label:hover {
 			cursor: not-allowed;
+
 			.material-design-icon::before {
 				cursor: not-allowed;
 			}
+			
 			.checkbox-radio-switch__label-text {
 				cursor: not-allowed;
 			}

@@ -70,7 +70,6 @@
 
 .sharingTabDetailsView, .sharingPopupDetailsView {
 
-    
     .material-design-icon.back-button {
         background-image: var(--icon-arrow-previous-dark);
         background-repeat: no-repeat;
@@ -88,19 +87,13 @@
 
     .sharingTabDetailsView__quick-permissions {
 
-        .checkbox-radio-switch {
-    
-            &__label {
-                padding-left: 0 !important;
-            }
-        }
-
         .sharing_permission-desc {
             margin-top: 0.5rem;
         }
     }
 
     .header-permissions {
+
         h2 {
             margin-bottom: unset;
             margin-top: unset;
@@ -122,6 +115,10 @@
         font-weight: 600;
         margin-bottom: 16px !important;
     }
+
+	.sharingPopup__fileinfo {
+		font-size: var(--font-size-small);
+	}
 }
 
 #files-public-content:has(.plyr) {

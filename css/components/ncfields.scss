@@ -7,6 +7,47 @@
  */
 
 // there should be no inputs on status/error pages
+#body-user textarea,
+#body-settings textarea,
+#body-public textarea,
+#body-login textarea {
+        border: 1px solid var(--color-main-text);
+        border-radius: var(--border-radius-large);
+        box-shadow: none;
+        margin: 5px;
+        padding: 0.75rem;
+        width: calc(100% - 10px);
+
+        &:active:disabled,
+        &:hover:disabled,
+        &:focus:disabled {
+            background: none;
+            color: var(--color-text-lighter);
+            border-color: var(--color-background-dark);
+        }
+
+        &:active:not([disabled]) {
+            color: var(--color-text-lighter);
+            border-color: var(--color-border-dark);
+            background-color: var(--color-background-hover);
+        }
+
+        &:hover:not([disabled]) {
+            cursor: text;
+            border-color: var(--color-border-dark);
+            background-color: var(--color-background-hover);
+        }
+
+        &:focus:not([disabled]) {
+            border: 1px solid var(--color-border-dark) !important;
+            border-color: var(--color-border-dark) !important;
+            background-color: var(--color-background-hover);
+            outline: 2px solid var(--color-main-text);
+            outline-offset: 3px;
+            box-shadow: unset!important;
+        }
+}
+
 #body-user .input-field,
 #body-settings .input-field,
 #body-public .input-field,

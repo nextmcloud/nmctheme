@@ -962,6 +962,10 @@ table.files-filestable {
 							width: 55px;
 						}
 
+						&.files-list__row-name {
+							overflow: visible;
+						}
+
 						&.files-list__row-trashbin-files_trashbin--deleted-by {
 							display: none;
 						}
