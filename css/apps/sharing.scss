@@ -3,6 +3,15 @@
 #app-sidebar-vue {
 
 	.app-sidebar-header {
+
+		.user-bubble__avatar {
+			display: none;
+		}
+		
+		.user-bubble__name {
+			padding-inline: 0.5rem;
+		}
+
 		&__desc {
 			padding: 0.5rem 1rem 1.5rem;
 			// hide '...' actions button
@@ -272,6 +281,7 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 
 #body-user, #body-public, #body-settings {
 	.sharingPopup__content, .sharingTab__content, .sharingTabDetailsView {
+
 		.button-vue--vue-primary {
 			background-color: var(--nmc-ods-blue-primary);
 			border-radius: var(--border-radius-pill);
