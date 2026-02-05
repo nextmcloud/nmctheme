@@ -86,6 +86,8 @@
 
 #content-vue .breadcrumb {
 	.breadcrumb__actions {
+		margin-left: auto;
+
 		// hide Share button
 		button.files-list__header-share-button {
 			display: none;
@@ -93,21 +95,21 @@
 
 		// 'Add new file/folder' button inside breadcrumb
 		.files-list__header-upload-button {
+			flex-direction: row-reverse;
+
 			button.action-item__menutoggle {
-				all: unset;
-				display: flex;
 				align-items: center;
-				justify-content: center;
+				all: unset;
 				background-color: var(--color-primary);
 				border: none;
-				border-radius: 50%;
+				border-radius: var(--border-radius-rounded);
+				cursor: pointer;
+				display: flex;
+				justify-content: center;
+				margin: auto 0;
 				min-height: unset;
 				height: 40px;
-				width: 40px;
-				max-width: 40px;
-				margin: auto 0;
-				margin-left: 6px;
-				cursor: pointer;
+				padding-right: 1rem;
 
 				&:hover:not(:disabled) {
 					background-color: var(--color-primary-hover);
@@ -118,22 +120,20 @@
 				}
 
 				.button-vue__icon {
-					background-image: var(--icon-add-white);
-					background-size: 16px 16px;
+					background-image: var(--original-icon-add-white);
+					background-size: 18px;
 					opacity: 1;
-					width: 16px;
-					height: 16px;
+					width: 18px;
+					height: 18px;
 					background-position: center;
 					background-repeat: no-repeat;
-					filter: brightness(0) invert(1);
 					svg {
 						display: none;
 					}
 				}
-		
-				// Do not display text "New" in the button
+
 				.button-vue__text {
-					display: none;
+					color:  var(--nmc-color-text-and-icon-white);
 				}
 			}
 
