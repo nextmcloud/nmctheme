@@ -53,6 +53,10 @@ footer[role="contentinfo"] {
         gap: 5rem;
         line-height: 1.5rem;
 
+        @media screen and (max-width: $breakpoint-mobile) {
+            gap: 1.5rem;
+        }
+
         @media screen and (max-width: $breakpoint-mobile-small) {
             gap: 0.5rem;
             font-size: 0.875rem;
