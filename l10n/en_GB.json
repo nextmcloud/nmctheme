@@ -171,6 +171,9 @@
   },
   "photos": {
     "translations": {
+      "Entire MagentaCLOUD": "Entire MagentaCLOUD",
+      "Upload folder not part of media folder": "Upload folder not part of media folder",
+      "Uploaded items will not appear in the Photos & Videos section.": "Uploaded items will not appear in the Photos & Videos section.",
       "Photos": "Photos",
       "Add": "Add",
       "Add photos to this album" : "Add photos and videos to this album",
