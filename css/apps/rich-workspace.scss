@@ -11,7 +11,6 @@
 	.editor {
 
 		.text-menubar {
-			padding: 0;
 			
 			&__slot {
 				padding-top: 0.5rem;
@@ -21,6 +20,7 @@
 				padding-top: 0.5rem;
 
 				.button-vue {
+					background: none;
 					border: none;
 					padding: 0;
 					transition: none;
@@ -40,6 +40,7 @@
 					}
 	
 					&__icon {
+						justify-content: center !important;
 
 						svg {
 							display: none;
@@ -49,6 +50,15 @@
 							background-position: center;
 							height: 24px;
 							width: 24px;
+						}
+
+						.format-size-icon, 
+						.code-brackets-icon, 
+						.unfold-more-horizontal-icon, 
+						.dots-horizontal-icon {
+							svg {
+								display: block;
+							}
 						}
 
 						.arrow-u-left-top-icon {
@@ -157,10 +167,6 @@
 
 						.upload-icon {
 							background-image: var(--icon-attachment-dark);
-						}
-
-						.dots-horizontal-icon svg {
-							display: block;
 						}
 					}
 				}
@@ -419,11 +425,11 @@
 				background-image: var(--icon-warning-dark);
 			}
 
-			.upload-icon {
+			.tray-arrow-up-icon {
 				background-image: var(--icon-upload-dark);
 			}
 
-			.folder-icon {
+			.folder-outline-icon {
 				background-image: var(--icon-folder-dark);
 			}
 
@@ -439,13 +445,14 @@
 				background-image: var(--icon-delete-dark);
 			}
 
-			.help-circle-icon {
+			.help-circle-outline-icon {
 				background-image: var(--icon-help-dark);
 			}
 
-			[data-text-action-entry=insert-link-picker] { 
+			[data-text-action-entry=insert-link-picker],
+			[data-text-action-entry=insert-attachment-add-text-0] { 
 				display: none;
-			}
+			}			
 			
 			.alphabetical-variant-icon svg {
 				display: block;

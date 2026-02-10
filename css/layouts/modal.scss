@@ -15,7 +15,9 @@
     .modal-wrapper {
 
         &.modal-wrapper--full {
+
             .modal-container {
+                box-shadow: none;
                 padding: 0;
                 max-height: 100vh;
             }
