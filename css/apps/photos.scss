@@ -487,6 +487,7 @@
 			}
 
 			&__icon {
+				background-color: var(--nmc-color-text-and-icon-white);
 				height: 320px;
 				margin-top: 2.5rem;
 				opacity: 1;
@@ -517,6 +518,7 @@
 			padding: 1.5rem;
 
 			.empty-content__wrapper {
+				background-color: var(--nmc-color-text-and-icon-white);
 				margin-top: 2.5rem;
 				height: 320px;
 				width: 420px;
@@ -815,6 +817,10 @@
 		.form-cover {
 			text-align: center;
 			padding: 1rem;
+
+			&__image {
+				background-color: var(--nmc-color-text-and-icon-white);
+			}
 		}
 
 		.form-inputs {

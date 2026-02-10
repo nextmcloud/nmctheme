@@ -95,13 +95,14 @@
     .header-permissions {
 
         h2 {
+            font-size: 20px;
             margin-bottom: unset;
             margin-top: unset;
         }
     }
 }
 
-.sharingPopup__content {
+.sharingPopup__content, .sharingTab__content {
     h2 {
         font-size: 20px;
         margin: unset;
@@ -111,12 +112,12 @@
         }
     }
 
-    .sharingPopup__header {
+    .sharingPopup__header, .sharingTab__header {
         font-weight: 600;
         margin-bottom: 16px !important;
     }
 
-	.sharingPopup__fileinfo {
+	.sharingPopup__fileinfo, .sharingTab__fileinfo {
 		font-size: var(--font-size-small);
 	}
 }

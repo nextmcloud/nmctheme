@@ -15,6 +15,7 @@
     .modal-wrapper {
 
         .modal-container {
+            box-shadow: 0 0 40px var(--color-border-maxcontrast);
             padding: 1.5rem;
             max-height: 80vh;
             display: flex;

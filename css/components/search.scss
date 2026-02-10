@@ -296,6 +296,7 @@
     &__no-content {
 
         .empty-content__icon {
+            background-color: var(--nmc-color-text-and-icon-white);
             height: 318px;
             width: 411px;
             max-width: 100%;
