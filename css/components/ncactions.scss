@@ -8,10 +8,6 @@
 
 		&:hover:not(:disabled) {
 			background-color: initial;
-
-			svg {
-				color: var(--color-primary);
-			}
 		}
 	}
 }
