@@ -20,32 +20,51 @@ footer {
 
 footer[role="contentinfo"] {
     background-color: var(--color-main-background);
-    display: none;
+    display: block;
     font: var(--footer-font);
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    max-height: 60px;
-    max-width: calc(100% - 2rem);
+    height: 46px;
+    width: 100%;
     z-index: 998;
     border-top: 1px solid var(--color-border);
-    padding: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    box-sizing: border-box;
 
-    @media screen and (max-width: $breakpoint-mobile-small) {
-        padding: 1rem;
-        max-width: 100%;
+    @media screen and (max-width: $breakpoint-mobile) {
+        height: auto;
+        min-height: 46px;
     }
 
-    .footer-content {        
+    @media screen and (max-width: $breakpoint-mobile-small) {
+        padding: 0.5rem 1rem;
+    }
+
+    @media screen and (max-width: 400px) {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .footer-content {
         align-content: center;
         display: flex;
         flex-wrap: wrap;
-        gap: 1.5rem;
+        gap: 5rem;
         line-height: 1.5rem;
+
+        @media screen and (max-width: $breakpoint-mobile) {
+            gap: 1.5rem;
+        }
 
         @media screen and (max-width: $breakpoint-mobile-small) {
             gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        @media screen and (max-width: 400px) {
+            gap: 0.25rem;
+            font-size: 0.75rem;
         }
 
         #notice {
@@ -61,7 +80,15 @@ footer[role="contentinfo"] {
             gap: 1.5rem;
 
             @media screen and (max-width: $breakpoint-mobile-small) {
-                gap: 0.5rem;
+                flex-wrap: nowrap;
+                gap: 0.25rem;
+                justify-content: flex-start;
+                font-size: 0.75rem;
+            }
+
+            @media screen and (max-width: 400px) {
+                gap: 0.125rem;
+                font-size: 0.75rem;
             }
         }
 
@@ -69,6 +96,17 @@ footer[role="contentinfo"] {
             font: var(--footer-font); // override NC guest.scss
             padding: 0.5rem;
             margin: calc(-1 * 0.5rem) 0;
+
+            @media screen and (max-width: $breakpoint-mobile-small) {
+                padding: 0.25rem;
+                margin: calc(-1 * 0.25rem) 0;
+            }
+
+            @media screen and (max-width: 400px) {
+                padding: 0.125rem;
+                margin: calc(-1 * 0.125rem) 0;
+                font-size: 0.75rem;
+            }
         }
 
         li a:hover {
