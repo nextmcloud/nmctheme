@@ -31,6 +31,88 @@
 					display: none;
 				}
 			}
+
+			.icon-minus {
+				width: 24px;
+				height: 24px;
+				display: inline-grid;
+				place-items: center;
+				background: #e5007d;
+				border: 0;
+				border-radius: min(30%, 28px);
+				padding: 0;
+				cursor: pointer;
+
+				box-shadow:
+					0 1px 2px rgba(0,0,0,.15),
+					inset 0 0 0 1px rgba(255,255,255,.08);
+			}
+
+			.icon-minus::before{
+				content: "";
+				width: 50%;
+				height: 2px;
+				background: #fff;
+				border-radius: 999px;
+				box-shadow: 0 0 0.5px rgba(0,0,0,.15);
+			}
+
+			&__filters{
+				padding: 0 2rem;
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				&__count {
+					font-weight: 500;
+					color: var(--color-text-secondary);
+				}
+				.button-vue {
+					background-color: var(--nmc-ods-blue-primary);
+    				border-radius: 9999px;
+					margin: 0;
+					min-height: unset;
+					min-width: unset;
+					padding: 5px 24px;
+
+					&__icon {
+						height: 2rem;
+    					min-height: 2rem;
+    					width: 2rem;
+    					min-width: 2rem;
+					}
+					
+					&__text{
+						padding: 0;
+    					font-weight: bold;
+    					font-size: 14px;
+					}
+
+					.material-design-icon{
+						&.image-multiple-outline-icon {
+							position: relative;
+							display: inline-block;
+							width: 24px;
+							height: 24px;
+
+							svg {
+									display: none;
+							}
+						}
+						&.image-multiple-outline-icon::before {
+							content: "";
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							background-image: var(--icon-albums-dark);
+							background-repeat: no-repeat;
+							background-position: center;
+							background-size: contain;
+						}
+					}
+				}
+			}	
 		}
 
 		.photos-navigation {
@@ -69,19 +151,17 @@
 			&__content-buttons {
 
 				button {
-					border-radius: var(--border-radius-pill);
-					border: 1px solid currentColor;
-
-					border-color: var(--color-border);
+					border-radius: var(--border-radius-rounded);
+					border: none;
+					
 					line-height: 1rem;
 					margin: 0;
 					min-height: unset;
-					min-width: unset;
-					padding-left: 0;
-					padding-right: 0;
+					height: 40px;
+					padding-left: 0.5rem;
+					padding-right: 0.5rem;
 					width: auto !important;
 					
-
 					.button-vue__icon {
 						height: 2rem;
 						min-height: 2rem;
@@ -124,9 +204,12 @@
 
 					.button-vue__text {
 						padding: 0;
-						font-weight: normal;
-						font-size: 14px;
 						padding-right: 0.5rem;
+						font-weight: bold;
+						margin-bottom: 1px;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+						overflow: hidden;
 					}
 
 					&:hover {
@@ -134,8 +217,23 @@
 
 						svg,
 						.button-vue__text {
-							color: var(--color-primary-hover);
+							color: unset;
 						}
+					}
+				}
+				
+				&__buttons {
+					.button-vue {
+						border: 1px solid var(--color-main-text);
+						border-radius: 50%;
+						width: 40px !important;
+						height: 40px !important;
+						min-width: 40px !important;
+						min-height: 40px !important;
+						box-sizing: border-box;
+						display: flex;
+						align-items: center;
+						justify-content: center;
 					}
 				}
 			}
