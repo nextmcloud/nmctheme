@@ -18,6 +18,19 @@
 
 	.v-popper__popper {
 
+		&.action-item__popper {
+			.v-popper__wrapper {
+				.v-popper__inner {
+					&:has(.action-input__form) {
+						padding: 1rem;
+					}
+					.action:hover:has(.action-input__form) {
+						background-color: unset;
+					}
+				}
+			}
+		}
+
 		.v-popper__wrapper {
 			box-shadow: none;
 			border: 1px solid var(--color-border);

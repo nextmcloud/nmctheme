@@ -73,8 +73,8 @@
   --color-primary-pressed: var(--mode-interaction-states-pressed-accent-pressed);
   --color-primary-text: var(--mode-basic-text-on-accent);
 
-  --color-primary-light: var(--mode-shades-neutral-shades-900);
-  --color-primary-light-hover: var(--mode-shades-neutral-shades-800);
+  --color-primary-light: var(--mode-shades-neutral-shades-100);
+  --color-primary-light-hover: var(--mode-shades-neutral-shades-200);
   --color-primary-light-text: var(--mode-basic-text);
 
   --color-primary-element: var(--mode-basic-accent);
@@ -82,8 +82,8 @@
   --color-primary-element-text: var(--mode-basic-text-on-accent);
   --color-primary-element-text-dark: var(--mode-shades-neutral-shades-200);
 
-  --color-primary-element-light: var(--mode-shades-neutral-shades-900);
-  --color-primary-element-light-hover: var(--mode-shades-neutral-shades-800);
+  --color-primary-element-light: var(--mode-shades-neutral-shades-100);
+  --color-primary-element-light-hover: var(--mode-shades-neutral-shades-200);
   --color-primary-element-light-text: var(--mode-basic-text);
 
   --gradient-main-background: var(--color-main-background) 0%, var(--color-main-background-translucent) 85%, transparent 100%;
@@ -151,6 +151,8 @@
   --border-width-input-focused: var(--strokes-2);
   --background-input-hover-focus: var(--mode-shades-neutral-shades-200);
 
+  --nmc-color-main-background-mask: rgb(from var(--color-main-text) r g b / 0.4);
+  --nmc-color-main-background-mask-opaque: rgb(from var(--color-main-text) r g b / 0.9);
   --nmc-color-regular: var(--mode-shades-neutral-shades-500);
   --nmc-color-strong: var(--mode-shades-neutral-shades-700);
   --nmc-color-faint: var(--mode-shades-neutral-shades-300);

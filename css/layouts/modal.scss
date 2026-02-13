@@ -12,107 +12,115 @@
 
 #body-user {
 
-    .modal-wrapper {
+    .modal-mask {
+        background-color: var(--nmc-color-main-background-mask);
 
-        &.modal-wrapper--full {
+        &--opaque {
+            background-color: var(--nmc-color-main-background-mask-opaque);
+        }
+
+        .modal-wrapper {
+
+            &.modal-wrapper--full {
+
+                .modal-container {
+                    box-shadow: none;
+                    padding: 0;
+                    max-height: 100vh;
+                }
+            }
 
             .modal-container {
-                box-shadow: none;
-                padding: 0;
-                max-height: 100vh;
+                box-shadow: unset;
+                padding: 1.5rem;
+                max-height: 80vh;
+                display: flex;
+                flex-direction: column;
+
+                .modal-container__close {
+                    top: 0.5rem;
+                    right: 0.5rem;
+                }
+
+                &__content, .dialog__content {
+                    overflow-y: auto;
+                    padding-inline: 0;
+
+                    @media screen and (max-width: $breakpoint-mobile-small) {
+                        padding-inline: 1rem;
+                    }
+
+                    .button-vue--vue-secondary {
+                        background: var(--nmc-ods-blue-primary);
+                        border-radius: var(--border-radius-pill);
+                        border: none;
+                        color: var(--nmc-color-text-and-icon-black);
+                        margin: 0;
+
+                        &:hover {
+                            background-color: var(--nmc-ods-blue-hover);
+                        }
+
+                        &:active {
+                            background-color: var(--nmc-ods-blue-pressed);
+                        }
+
+                        .button-vue__icon {
+                            justify-content: left;
+                            min-width: 2rem;
+                            width: 2rem;
+
+                            .folder-outline-icon {
+                                background-image: var(--icon-folder-dark);
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                background-size: 18px;
+                                width: 24px;
+                                height: 24px;
+
+                                svg {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                        .button-vue__text {
+                            margin: 0;
+                            padding: 0;
+                        }
+                    }
+
+                    .app-settings-section__name, .app-settings-section__content, .setting-section-subline, .photos-locations {
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+        }
+
+        .modal-wrapper--large > .modal-container {
+            width: 650px;
+
+            @media screen and (max-width: $breakpoint-mobile-medium) {
+                width: 90vw;
+                max-width: 600px;
+            }
+
+            @media screen and (max-width: $breakpoint-mobile-small) {
+                width: 95vw;
+                max-width: none;
             }
         }
 
         .modal-container {
-            box-shadow: 0 0 40px var(--color-border-maxcontrast);
-            padding: 1.5rem;
-            max-height: 80vh;
-            display: flex;
-            flex-direction: column;
-
-            .modal-container__close {
-                top: 0.5rem;
-                right: 0.5rem;
-            }
-
-            &__content, .dialog__content {
-                overflow-y: auto;
-                padding-inline: 0;
-
-                @media screen and (max-width: $breakpoint-mobile-small) {
-                    padding-inline: 1rem;
-                }
-
-                .button-vue--vue-secondary {
-                    background: var(--nmc-ods-blue-primary);
-                    border-radius: var(--border-radius-pill);
-                    border: none;
-                    color: var(--nmc-color-text-and-icon-black);
-                    margin: 0;
-
-                    &:hover {
-                        background-color: var(--nmc-ods-blue-hover);
-                    }
-
-                    &:active {
-                        background-color: var(--nmc-ods-blue-pressed);
-                    }
-
-                    .button-vue__icon {
-                        justify-content: left;
-                        min-width: 2rem;
-                        width: 2rem;
-
-                        .folder-outline-icon {
-                            background-image: var(--icon-folder-dark);
-                            background-repeat: no-repeat;
-                            background-position: center;
-                            background-size: 18px;
-                            width: 24px;
-                            height: 24px;
-
-                            svg {
-                                display: none;
-                            }
-                        }
-                    }
-
-                    .button-vue__text {
-                        margin: 0;
-                        padding: 0;
-                    }
-                }
-
-                .app-settings-section__name, .app-settings-section__content, .setting-section-subline, .photos-locations {
-                    margin-bottom: 0.5rem;
-                }
-            }
-        }
-    }
-
-    .modal-wrapper--large > .modal-container {
-        width: 650px;
-
-        @media screen and (max-width: $breakpoint-mobile-medium) {
-            width: 90vw;
-            max-width: 600px;
-        }
-
-        @media screen and (max-width: $breakpoint-mobile-small) {
-            width: 95vw;
-            max-width: none;
-        }
-    }
-
-    .modal-container {
-        @media screen and (max-width: $breakpoint-mobile-small) {
-            margin: 1rem;
-        }
-
-        .dialog__name {
             @media screen and (max-width: $breakpoint-mobile-small) {
-                font-size: 1.25rem;
-                padding: 1rem 1rem 0.5rem;
+                margin: 1rem;
+            }
+
+            .dialog__name {
+                @media screen and (max-width: $breakpoint-mobile-small) {
+                    font-size: 1.25rem;
+                    padding: 1rem 1rem 0.5rem;
+                }
             }
         }
     }

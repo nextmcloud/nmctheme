@@ -309,27 +309,47 @@ table.files-filestable {
 
 	// files modal search input
 	.modal-mask.dialog__modal {
-		& .modal-wrapper.modal-wrapper--large {
 
-			input,
-			.input-field__main-wrapper .input-field__input {
-				padding-left: 2.5rem;
+		#settings-section_keyboard-shortcuts {
+			display: none;
+		}
+
+		.app-settings-section__content > div[class*='_ncFormBox'],
+		.app-settings-section__content > fieldset[class*='_formGroup'] {
+
+
+			div[class*='_formBoxItem'],
+			div[class*='_ncFormBox__item'] {
+				border-bottom-width: 1px;
+				flex-direction: row-reverse;
 			}
 		}
 
-		& .modal-wrapper.modal-wrapper--small {
-			input .input-field__input.input-field__input--error {
-				padding-left: 2.5rem;
+		& .modal-wrapper {
+
+			.modal-wrapper--large {
+
+				input,
+				.input-field__main-wrapper .input-field__input {
+					padding-left: 2.5rem;
+				}
 			}
 
-			p {
-				margin-top: 1rem;
-			}
+			.modal-wrapper--small {
+				input, 
+				.input-field__input.input-field__input--error {
+					padding-left: 2.5rem;
+				}
 
-			.input-field__icon.input-field__icon--trailing {	
-				top: 0;
-				bottom: 0;
-				right: 0;
+				p {
+					margin-top: 1rem;
+				}
+
+				.input-field__icon.input-field__icon--trailing {	
+					top: 0;
+					bottom: 0;
+					right: 0;
+				}
 			}
 		}
 	}
@@ -775,7 +795,7 @@ table.files-filestable {
 
 				th.files-list__column.files-list__ {
 					&row-checkbox {
-						width: 55px;
+						width: 60px;
 					}
 
 					&row-name {
@@ -808,6 +828,16 @@ table.files-filestable {
 						}
 
 						@include files-table-columns-v28;
+					}
+					
+					&row-mime {
+						min-width: 140px;
+						text-align: left;
+
+						.files-list__column-sort-button {
+							padding: 0;
+							margin: 0;
+						}
 					}
 
 					&row-trashbin-files_trashbin--original-location {
@@ -862,8 +892,8 @@ table.files-filestable {
 
 			.files-list__row-icon {
 				flex: 0 0 3rem;
-				margin-right: 1rem;
-				margin-left: 1rem;
+				margin-right: 0;
+				margin-left: 0;
 				z-index: 100;
 
 				.material-design-icon:not(.play-circle-icon) {
@@ -967,7 +997,7 @@ table.files-filestable {
 						}
 
 						&.files-list__row-checkbox {
-							width: 55px;
+							width: 60px;
 						}
 
 						&.files-list__row-name {
@@ -1008,7 +1038,11 @@ table.files-filestable {
 						}
 
 						&.files-list__row-size {
-							min-width: 90px;
+							min-width: 140px;
+						}
+
+						&.files-list__row-mime {
+							width: 140px;
 						}
 
 						&.files-list__row-actions {
