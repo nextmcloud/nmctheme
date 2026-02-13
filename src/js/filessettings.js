@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	const entrySettings = document.querySelector('.app-navigation-entry__settings')
 	if (!entrySettings) return
 
-	let anchor = document.createElement('div')
+	const anchor = document.createElement('div')
 	anchor.id = 'storage-quota-app'
 	entrySettings.appendChild(anchor)
 
