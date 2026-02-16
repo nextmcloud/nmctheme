@@ -70,8 +70,7 @@ header {
 		}
 	}
 
-	#header-left,
-	.header-left {
+	.header-start {
 		.app-menu {
 			width: 100%;
 			display: flex;
@@ -86,7 +85,7 @@ header {
 			--app-menu-entry-growth: unset;
 
 			&__overflow {
-				margin-right: 1rem;
+				margin-inline: 1rem;
 
 				.button-vue--vue-tertiary {
 					opacity: 1;
@@ -183,10 +182,9 @@ header {
 	.header-end {
 
 		#notifications {
-			order: 1;
+			order: 0;
 
 			button.button-vue {
-				padding: 0 1rem;
 
 				.button-vue__icon {
 					background-image: var(--icon-notification-dark);
@@ -204,6 +202,19 @@ header {
 				background-color: var(--color-main-background);
 				border-radius: var(--border-radius);
         		margin-top: 8px;
+
+				.bell-outline-icon {
+					background-image: var(--icon-notification-dark);
+					background-size: 64px;
+					background-position: center;
+					background-repeat: no-repeat;
+					height: 64px;
+					width: 64px;
+
+					svg {
+						display: none;
+					}
+				}
 			}
 		}
 
@@ -218,25 +229,37 @@ header {
 
 			button.button-vue {
 				width: auto !important;
-				padding-left: 0;
+				padding-inline: 0 1.5rem;
+
 
 				.button-vue__label {
 					color: var(--color-main-text);
 					font-size: 12px;
 					font-weight: normal;
+					margin-inline-start: 8px;
 				}
 
 				.button-vue__wrapper {
-					width: 44px;
 
 					.button-vue__icon {
 						background-size: auto 24px;
 						background-position: center;
 						background-repeat: no-repeat;
+						min-width: 24px;
+						width: 24px;
 
 						svg {
 							display: none;
 						}
+					}
+
+					.button-vue__text {
+						color: var(--color-main-text);
+						font-size: 12px;
+						font-weight: normal;
+						margin-block: 0;
+						margin-inline: 8px 0;
+						padding: 0;
 					}
 				}
 
@@ -247,7 +270,7 @@ header {
 						content: " ";
 						display: block;
 						height: 4px;
-						bottom: 8px;
+						bottom: 1px;
 						width: 100%;
 						position: absolute;
 					}
@@ -265,7 +288,7 @@ header {
 				@media screen and (max-width: $breakpoint-mobile) {
 					padding-right: 0;
 
-					.button-vue__label {
+					.button-vue__label, .button-vue__text {
 						display: none;
 					}
 				}

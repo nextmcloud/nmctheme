@@ -13,6 +13,7 @@
 
 #app-navigation:not(.vue) {
 	background-color: var(--color-main-background);
+	border-right: 1px solid var(--color-border) !important;
 }
 
 /* CONTENT  --------------------------------------------------------- */
@@ -51,13 +52,78 @@
 		}
 	}
 
+	.app-navigation-caption {
+		display: none !important;
+	}
+
 	.app-navigation-personal,
 	.app-navigation-administration {
-		>ul {
-			>li {
+
+		> ul {
+			gap: 0.25rem !important;
+			padding: 4rem 1.5rem 0.5rem !important;
+
+			> li {
 				border-radius: var(--border-radius-pill);
+	
+				&[data-section-type="personal"]
+				{
+					display: none;
+
+					&[data-section-id="account"],
+					&[data-section-id="sessions"],
+					&[data-section-id="appearance"] {
+						display: inline-flex;
+					}
+				}
+
 				> a {
+					font-weight: 700;
 					padding: 0 12px 0 14px;
+
+					img {
+						margin-bottom: -5px;
+						height: 22px;
+						width: 22px;
+					}
+				}
+
+				&:hover {
+
+					> a {
+						background-color: transparent !important;
+						color: var(--color-primary-hover);
+
+						img {
+							filter: var(--nmc-color-icon-hovered);
+						}
+					}
+				}
+
+				&.active {
+					background-color: transparent !important;
+					color: var(--color-main-text);
+
+					> a {
+						background-color: transparent !important;
+						color: var(--color-main-text);
+
+						&:first-child > img {
+							filter: unset;
+						}
+					}
+
+					&::before {
+						content: "";
+						position: absolute;
+						left: 0;
+						top: 50%;
+						transform: translateY(-50%);
+						height: 24px;
+						width: 4px;
+						background-color: var(--color-primary);
+						border-radius: 4px;
+					}
 				}
 			}
 		}

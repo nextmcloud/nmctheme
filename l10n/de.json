@@ -23,7 +23,6 @@
       "Skip to app navigation": "Zur App-Navigation springen",
       "Skip to main content": "Zum Hauptinhalt springen",
       "Keyboard navigation help": "Tastatur-Navigationshilfe",
-
       "Pick": "Auswählen",
       "Pick plain text files": "Textdateien auswählen",
       "a few seconds ago": "gerade hochgeladen"
@@ -181,7 +180,7 @@
       "Upload folder not part of media folder": "Der Upload-Ordner ist nicht Teil des Medienordners",
       "Uploaded items will not appear in the Photos & Videos section.": "Hochgeladene Elemente werden nicht im Bereich Fotos & Videos angezeigt.",
       "Create Albums for your Photos and Videos": "Erstelle Alben für deine Fotos und Videos",
-      "You can organize all your photos in as many albums as you like. You have not created an album yet.": "Sie können Ihre Fotos in beliebig vielen Alben organisieren. Sie haben noch kein Album erstellt.",
+      "You can organize all your photos in as many albums as you like. You haven't created an album yet.": "Sie können Ihre Fotos in beliebig vielen Alben organisieren. Sie haben noch kein Album erstellt.",
       "All that is missing are your photos": "Es fehlen nur noch Ihre Fotos",
       "You can add as many photos and videos as you like. A photo can also belong to more than one album.": "Sie können beliebig viele Fotos und Videos hinzufügen. Ein Foto kann auch zu mehreren Alben gehören.",
       "No photos available yet.": "Noch keine Fotos vorhanden.",
@@ -231,7 +230,8 @@
       "A bright black on white design." : "Ein helles schwarz auf weiß Design.",
       "Dark Design" : "Dunkles Design",
       "Enable dark design" : "Dunkles Design aktivieren",
-      "A dark design to relieve eye strain." : "Ein dunkles Design zur Entlastung der Augen."
+      "A dark design to relieve eye strain." : "Ein dunkles Design zur Entlastung der Augen.",
+      "Notifications": "Benachrichtigungen"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   }

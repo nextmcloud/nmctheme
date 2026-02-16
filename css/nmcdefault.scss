@@ -124,7 +124,7 @@
   --default-grid-baseline: 4px;  
   --default-line-height: 22px;
 
-  --header-height: 73px;
+  --header-height: 72px;
   --navigation-width: 300px;
   --sidebar-min-width: 300px;
   --sidebar-max-width: 500px;
@@ -145,7 +145,8 @@
 
   --body-container-radius: var(--border-radius-container-large);
   --body-container-margin: calc(var(--default-grid-baseline) * 2);
-  --body-height: calc(100% - env(safe-area-inset-bottom) - var(--header-height) - var(--body-container-margin));
+  --footer-height: 46px;
+  --body-height: calc(100% - var(--header-height) - var(--footer-height));
 
   --border-width-input: var(--strokes-1);
   --border-width-input-focused: var(--strokes-2);

@@ -18,7 +18,7 @@
 
 				&__link {
 					width: calc(100% - 4px);
-					height: calc(100% - 4px);
+					height: 100%;
 					color: var(--color-main-text);
 					position: relative;
 					display: flex;
@@ -58,7 +58,7 @@
 						&::before {
 							background-color: var(--color-primary);
 							border-radius: 0;
-							bottom: 6px;
+							bottom: 3px;
 							height: 4px;
 							opacity: 1;
 							width: 100%;

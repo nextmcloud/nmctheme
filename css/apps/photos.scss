@@ -549,14 +549,14 @@
 				&__image {
 
 					&--placeholder {
+						display: block;
 
 						// empty album icon
-						span.image-multiple-icon {
+						.image-multiple-outline-icon {
 							background-image: var(--icon-albums-dark);
 							background-repeat: no-repeat;
 							background-position: center;
 							background-size: 96px;
-							background-color: var(--color-placeholder-light);
 
 							svg {
 								display: none;

@@ -22,6 +22,19 @@ const menuItems = [{
 	target: '_blank',
 }]
 
+function updateNotificationsLabel() {
+	const textEl = document
+		.querySelector('#notifications button')
+		?.querySelector('.button-vue__text')
+
+		console.log(textEl)
+	if (textEl) {
+		textEl.textContent = t(app, 'Notifications')
+		return true
+	}
+	return false
+}
+
 window.addEventListener('DOMContentLoaded', function() {
 	const head = document.querySelector('head')
 	if (head !== null) {
@@ -40,6 +53,21 @@ window.addEventListener('DOMContentLoaded', function() {
 			searchlabel.className = 'button-vue__label'
 			searchlabel.innerText = t(app, 'Search')
 			searchButton.appendChild(searchlabel)
+		}
+
+		const target = document.getElementById('notifications')
+
+		if (target) {
+			const observer = new MutationObserver(() => {
+				if (updateNotificationsLabel()) {
+					observer.disconnect()
+				}
+			})
+
+			observer.observe(target, {
+				childList: true,
+				subtree: true,
+			})
 		}
 
 		const menuElements = document.createElement('div')

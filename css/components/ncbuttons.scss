@@ -12,7 +12,8 @@
 #body-user .button-vue,
 #body-settings .button-vue,
 #body-public .button-vue,
-#body-login .button-vue, #body-login .ods-dialog-button,
+#body-login .button-vue, 
+#body-login .ods-dialog-button,
 #body-status .button-vue,
 #error .button-vue {
     // we keep coloring of the default button as it is for the moment,
@@ -62,7 +63,7 @@
     // Button types
 
     // Primary
-    &--vue-primary, &_primary {
+    &.button-vue--primary, &--vue-primary, &_primary {
         border-radius: var(--border-radius-pill);
         background-color: var(--color-primary);
         color: var(--nmc-color-text-and-icon-white);
@@ -82,27 +83,21 @@
     }
 
     // Secondary
-    &--vue-secondary, &_secondary {
-        background: transparent;
+    &.button-vue--secondary, &--vue-secondary, &_secondary {
+        background: var(--nmc-ods-blue-primary);
         border-radius: var(--border-radius-pill);
-        border: 1px solid currentColor;
-        color: var(--color-main-text);
-        border-color: var(--color-border);
+        color: var(--nmc-color-text-and-icon-black);
 
         &:hover:not(:disabled) {
-            color: var(--color-main-text);
-            background-color: var(--color-background-hover);
-            border-color: var(--color-border-dark);
+            background-color: var(--nmc-ods-blue-hover);
         }
 
         &:active {
-            color: var(--color-main-text);
-            border-color: var(--color-border-maxcontrast);
+            background-color: var(--nmc-ods-blue-pressed);
         }
 
         &:disabled {
-            color: var(--color-text-lighter);
-            background-color: none;
+            background-color: var(--nmc-ods-blue-contrast);
         }
 
         // Icon-only button
