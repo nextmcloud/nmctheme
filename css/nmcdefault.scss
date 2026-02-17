@@ -145,7 +145,7 @@
 
   --body-container-radius: var(--border-radius-container-large);
   --body-container-margin: calc(var(--default-grid-baseline) * 2);
-  --footer-height: 46px;
+  --footer-height: 42px;
   --body-height: calc(100% - var(--header-height) - var(--footer-height));
 
   --border-width-input: var(--strokes-1);
@@ -172,6 +172,7 @@
   --nmc-ods-blue-hover: var(--colours-interaction-states-hover-background-hover);
   --nmc-ods-blue-pressed: var(--colours-interaction-states-pressed-background-pressed);
   --nmc-ods-blue-contrast: var(--colours-shades-accent-shades-accent-extra-recessive);
+  --nmc-ods-blue: var(--colours-basic-background);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -172,7 +172,6 @@ header {
 
 	button.button-vue {
 		border: none;
-		border-radius: 0;
 	}
 
 	.header-menu__caret {
@@ -231,6 +230,9 @@ header {
 				width: auto !important;
 				padding-inline: 0 1.5rem;
 
+				&.header-menu__trigger {
+					border-radius: 0;
+				}
 
 				.button-vue__label {
 					color: var(--color-main-text);
@@ -240,6 +242,7 @@ header {
 				}
 
 				.button-vue__wrapper {
+					width: auto;
 
 					.button-vue__icon {
 						background-size: auto 24px;

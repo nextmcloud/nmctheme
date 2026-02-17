@@ -7,7 +7,6 @@
 	background-size: contain;
 	border: none;
 	height: 44px;
-	margin-top: 0.2rem;
 	max-width: unset;
 	max-height: unset;
 	width: 44px;
@@ -16,9 +15,10 @@
 @mixin header-menu-files {
 	button {
 		border: none;
-		border-radius: 0;
-		filter: var(--nmc-color-icon);
 		padding-right: 0;
+		height: 40px;
+		min-height: 40px;
+		margin-top: 0;
 
 		.button-vue__wrapper {
 			.button-vue__text {
@@ -29,6 +29,7 @@
 				background-repeat: no-repeat;
 				background-position: center;
 				background-size: 1.25rem;
+				margin-inline: 4px -4px;
 
 				svg {
 					display: none;
@@ -86,27 +87,6 @@
 		&:focus,
 		&:focus-visible {
 			outline: none;
-		}
-
-		&:hover {
-			background-color: transparent;
-
-			.button-vue__wrapper {
-				position: relative;
-
-				&::before {
-					background-color: var(--color-primary);
-					position: absolute;
-					content: " ";
-					display: block;
-					height: 4px;
-					opacity: 1;
-					pointer-events: none;
-					bottom: 0;
-					transition: all .1s ease-in-out;
-					width: 100%;
-				}
-			}
 		}
 	}
 
@@ -604,6 +584,51 @@ table.files-filestable {
 			}
 		}
 
+		.files-list__empty {
+
+			.empty-content {
+
+				&[data-cy-files-content-empty="sharingin"] {
+
+					.empty-content__icon {
+						background-image: var(--icon-share-with-me-dark);
+					}
+				}
+
+				&[data-cy-files-content-empty="sharingout"] {
+
+					.empty-content__icon {
+						background-image: var(--icon-share-with-dark);
+					}
+				}
+
+				&[data-cy-files-content-empty="pendingshares"] {
+
+					.empty-content__icon {
+						background-image: var(--icon-share-pending-dark);
+					}
+				}
+
+				&[data-cy-files-content-empty="trashbin"] {
+
+					.empty-content__icon {
+						background-image: var(--icon-delete-dark);
+					}
+				}	
+
+				&[data-cy-files-content-empty="favorites"] {
+
+					.empty-content__icon {
+						background-image: var(--icon-star-dark);
+					}
+				}	
+
+				&__icon svg {
+					display: none;
+				}
+			}
+		}
+
 		// File Grid View for v30
 		&.files-list--grid {
 
@@ -783,6 +808,10 @@ table.files-filestable {
 			}
 		}
 
+		tr:last-child {
+			border-bottom: 0;;
+		}
+
 		// Files table and grid
 		table.files-list__table {
 
@@ -799,11 +828,10 @@ table.files-filestable {
 					}
 
 					&row-name {
-						margin-left: 1rem;
 						width: 100vw;
 
 						.files-list__column-sort-button {
-							padding: 0;
+							padding: 0 0 0 4rem;
 							margin: 0;
 						}
 
@@ -901,13 +929,11 @@ table.files-filestable {
 
 					&.folder-icon,
 					&.folder-open-icon {
-						width: 45px;
-						height: 36px;
 
 						svg {
-							width: 45px;
+							width: 44px;
 							height: 36px;
-							color: var(--nmc-ods-blue-active);
+							color: var(--nmc-ods-blue);
 
 							path {
 								transform: scale(1.5, 1.5);
@@ -919,7 +945,7 @@ table.files-filestable {
 					&.files-list__row-icon-overlay {
 						width: 22px;
 						height: 22px;
-						margin-top: 10px;
+						margin-top: 6px;
 
 						svg {
 							display: none;
@@ -1017,7 +1043,12 @@ table.files-filestable {
 							min-height: 36px;
 							min-width: 0;
 							margin: 0;
-							padding: 8px 14px;
+							padding: 0 1rem;
+
+							.files-list__row-name-text {
+								margin: 0;
+								padding: 0;
+							}
 						}
 
 						&.files-list__row-mtime,

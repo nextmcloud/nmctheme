@@ -222,6 +222,7 @@
 						button.action-button {
 							padding-left: 0px;
 							font-weight: normal;
+							border-radius: var(--border-radius);
 
 							&:hover {
 								outline: none;

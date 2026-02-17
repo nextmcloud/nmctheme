@@ -27,7 +27,6 @@ function updateNotificationsLabel() {
 		.querySelector('#notifications button')
 		?.querySelector('.button-vue__text')
 
-		console.log(textEl)
 	if (textEl) {
 		textEl.textContent = t(app, 'Notifications')
 		return true

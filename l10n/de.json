@@ -231,7 +231,8 @@
       "Dark Design" : "Dunkles Design",
       "Enable dark design" : "Dunkles Design aktivieren",
       "A dark design to relieve eye strain." : "Ein dunkles Design zur Entlastung der Augen.",
-      "Notifications": "Benachrichtigungen"
+      "Notifications": "Benachrichtigungen",
+      "Add": "Hinzufügen"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   }

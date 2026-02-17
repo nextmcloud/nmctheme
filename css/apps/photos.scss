@@ -72,7 +72,8 @@
 					margin: 0;
 					min-height: unset;
 					min-width: unset;
-					padding: 5px 24px;
+					padding-block: 0.25rem;
+					padding-inline: 1rem;
 
 					&__icon {
 						height: 2rem;
@@ -181,7 +182,29 @@
 							background-size: 18px;
 
 							&.view-dashboard-outline-icon {
-								rotate: 90deg;
+								background-image: var(--icon-grid-ratio-dark);
+								background-size: 20px;
+								background-repeat: no-repeat;
+								background-position: center;
+								width: 24px;
+								height: 24px;
+
+								svg {
+									display: none;
+								}
+							}
+
+							&.view-grid-outline-icon {
+								background-image: var(--icon-grid-square-dark);
+								background-size: 20px;
+								background-repeat: no-repeat;
+								background-position: center;
+								width: 24px;
+								height: 24px;
+
+								svg {
+									display: none;
+								}
 							}
 						}
 
@@ -213,7 +236,6 @@
 					}
 
 					&:hover {
-						background-color: initial;
 
 						svg,
 						.button-vue__text {
@@ -817,7 +839,7 @@
 	.album-picker {
 		background-color: var(--color-main-background);
 		height: auto;
-		padding: 1.5rem !important;
+		padding: 0 !important;
 
 		div.form-inputs {
 
@@ -863,7 +885,7 @@
 		h2 {
 			font-size: 1.5rem;
 			height: auto !important;
-			margin-bottom: 1.5rem;
+			margin-block: 0 1.5rem;
 		}
 
 		.albums-container {
@@ -953,14 +975,6 @@
 	button.modal-container__close {
 		border: none;
 		z-index: 20;
-
-		&:hover:not(:disabled) {
-			.close-icon {
-				filter: var(--nmc-color-icon);
-			}
-
-			background-color: initial;
-		}
 
 		.close-icon {
 			background-image: var(--icon-close-x-dark);

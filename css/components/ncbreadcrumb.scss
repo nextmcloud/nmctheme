@@ -109,7 +109,6 @@
 				margin: auto 0;
 				min-height: unset;
 				height: 40px;
-				padding-right: 1rem;
 
 				&:hover:not(:disabled) {
 					background-color: var(--color-primary-hover);
@@ -127,6 +126,9 @@
 					height: 18px;
 					background-position: center;
 					background-repeat: no-repeat;
+					margin-inline: 4px -4px;
+    				min-width: 40px;
+
 					svg {
 						display: none;
 					}
@@ -134,6 +136,7 @@
 
 				.button-vue__text {
 					color:  var(--nmc-color-text-and-icon-white);
+					padding-right: 1rem;
 				}
 			}
 

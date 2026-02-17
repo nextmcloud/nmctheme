@@ -78,3 +78,45 @@ if (sharingStatusAction) {
 	registerFileAction(sharingStatusMenuAction)
 
 }
+
+function updateLabel(selector) {
+	const buttonText = document.querySelector(selector)?.querySelector('.upload-picker')?.querySelector('.button-vue__text')
+
+	if (buttonText) {
+		buttonText.textContent = t('nmctheme', 'Add')
+		return true
+	}
+
+	return false
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+	const breadcrumb = document.querySelector('.breadcrumb')
+	const empty = document.querySelector('.files-list__empty')
+
+	if (breadcrumb) {
+		const observer = new MutationObserver(() => {
+			if (updateLabel('.breadcrumb')) {
+				observer.disconnect()
+			}
+		})
+
+		observer.observe(breadcrumb, {
+			childList: true,
+			subtree: true,
+		})
+	}
+
+	if (empty) {
+		const observerB = new MutationObserver(() => {
+			if (updateLabel('.files-list__empty')) {
+				observerB.disconnect()
+			}
+		})
+
+		observerB.observe(empty, {
+			childList: true,
+			subtree: true,
+		})
+	}
+})

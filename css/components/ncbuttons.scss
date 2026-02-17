@@ -119,5 +119,22 @@
 }
 
 :focus {
-    outline-color: var(--color-primary);
+    outline-color: var(--color-main-text);
+}
+
+#body-user,
+#body-settings,
+#body-public,
+#body-login, 
+#body-login,
+#body-status {
+
+    .button {
+
+        &.primary {
+            line-height: 2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 1.5rem;
+        }
+    }
 }

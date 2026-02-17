@@ -11,13 +11,14 @@
 	.editor {
 
 		.text-menubar {
+			box-sizing: content-box;
 			
 			&__slot {
 				padding-top: 0.5rem;
 			}
 
 			&__entries {
-				padding-top: 0.5rem;
+				padding-block: 0.25rem;
 
 				.button-vue {
 					background: none;
@@ -37,6 +38,11 @@
 					&.button-vue--vue-primary {
 						background-color: unset;
 						outline: 1px solid var(--color-primary);
+					}
+
+					&.button-vue--vue-secondary {
+						background: none;
+						border: none;
 					}
 	
 					&__icon {
