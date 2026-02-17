@@ -1470,4 +1470,46 @@ table.files-filestable {
 			}
 		}
 	}
+
+	.files-list__header--public {
+		&+.files-list{
+			.files-list__filters {
+				display: none;
+			}
+
+			table {
+				thead > tr > th {
+					&.files-list__row-mime {
+						display: none;
+					}
+				}
+				tbody > tr > td {
+					&.files-list__row-actions {
+						.action-item--tertiary {
+							[data-cy-files-list-row-action="sharing-popup"] {
+								display: none !important;
+							}
+						}
+					}
+
+					&.files-list__row-mime {
+						display: none;
+					}
+				}
+			}
+
+			.v-popper__popper {
+				ul {
+					li {
+						&[data-cy-files-list-row-action="sharing-popup-menu"] {
+							display: none;
+						}
+						&[data-cy-files-list-row-action="sharing-manage"] {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
 }
