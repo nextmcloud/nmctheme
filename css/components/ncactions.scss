@@ -234,6 +234,14 @@
 							background-repeat: no-repeat;
 							background-size: 24px;
 
+							&.star-icon {
+								background-image: var(--icon-star-dark);
+
+								svg {
+									display: none;
+								}
+							}
+
 							&.upload-icon {
 								background-image: var(--icon-upload-dark);
 

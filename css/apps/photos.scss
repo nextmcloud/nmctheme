@@ -22,103 +22,130 @@
 
 	#app-content-vue {
 
-		// hide 'Add' button breadcrumbs for all menu pages
-		.timeline {
+		.photos-navigation {
 
-			.photos-navigation {
-
-				&__content .action-item {
-					display: none;
-				}
+			&__content .action-item {
+				display: none;
 			}
 
-			.icon-minus {
-				width: 24px;
-				height: 24px;
-				display: inline-grid;
-				place-items: center;
-				background: #e5007d;
-				border: 0;
-				border-radius: min(30%, 28px);
-				padding: 0;
-				cursor: pointer;
-
-				box-shadow:
-					0 1px 2px rgba(0,0,0,.15),
-					inset 0 0 0 1px rgba(255,255,255,.08);
-			}
-
-			.icon-minus::before{
-				content: "";
-				width: 50%;
-				height: 2px;
-				background: #fff;
-				border-radius: 999px;
-				box-shadow: 0 0 0.5px rgba(0,0,0,.15);
-			}
-
-			&__filters{
-				padding: 0 2rem;
+			&__bulk-operations {
 				display: flex;
-				align-items: center;
-				gap: 1rem;
-				&__count {
-					font-weight: 500;
-					color: var(--color-text-secondary);
+				width: 100%;    
+				margin-top: 1.5rem;
+    			margin-left: -3.5rem;
+
+				.icon-minus {
+					width: 24px;
+					height: 24px;
+					display: inline-grid;
+					place-items: center;
+					background: #e5007d;
+					border: 0;
+					border-radius: min(30%, 28px);
+					padding: 0;
+					cursor: pointer;
+
+					box-shadow:
+						0 1px 2px rgba(0,0,0,.15),
+						inset 0 0 0 1px rgba(255,255,255,.08);
 				}
+
+				.icon-minus::before {
+					content: "";
+					width: 50%;
+					height: 2px;
+					background: #fff;
+					border-radius: 999px;
+					box-shadow: 0 0 0.5px rgba(0,0,0,.15);
+				}
+
 				.button-vue {
 					background-color: var(--nmc-ods-blue-primary);
-    				border-radius: 9999px;
+					border-radius: 9999px;
 					margin: 0;
 					min-height: unset;
 					min-width: unset;
 					padding-block: 0.25rem;
 					padding-inline: 1rem;
 
+					&.action-item__menutoggle {
+						padding-inline: 0;
+						width: 40px !important;
+					}
+
 					&__icon {
 						height: 2rem;
-    					min-height: 2rem;
-    					width: 2rem;
-    					min-width: 2rem;
+						min-height: 2rem;
+						width: 2rem;
+						min-width: 2rem;
+						margin-left: -0.5rem;
 					}
 					
-					&__text{
+					&__text {
 						padding: 0;
-    					font-weight: bold;
-    					font-size: 14px;
+						font-weight: bold;
+						font-size: 14px;
 					}
 
-					.material-design-icon{
+					.material-design-icon {
+						background-size: 20px;
+						background-repeat: no-repeat;
+						background-position: center;
+						width: 24px;
+						height: 24px;
+
+						svg {
+							display: none;
+						}
+
 						&.image-multiple-outline-icon {
-							position: relative;
-							display: inline-block;
-							width: 24px;
-							height: 24px;
+							background-image: var(--icon-albums-dark);
+						}
+
+						&.tray-arrow-down-icon {
+							background-image: var(--icon-download-dark);
+						}
+
+						&.trash-can-outline-icon {
+							background-image: var(--icon-delete-dark);
+						}
+
+						&.close-icon {
+							background-image: var(--icon-close-dark);
+						}
+
+						&.dots-horizontal-icon {
+							margin-left: 0.5rem;
 
 							svg {
-									display: none;
+								display: block;
 							}
-						}
-						&.image-multiple-outline-icon::before {
-							content: "";
-							position: absolute;
-							top: 0;
-							left: 0;
-							width: 100%;
-							height: 100%;
-							background-image: var(--icon-albums-dark);
-							background-repeat: no-repeat;
-							background-position: center;
-							background-size: contain;
 						}
 					}
 				}
-			}	
+
+				&__selected {
+					padding: 0 1rem;
+					display: flex;
+					align-items: center;
+					gap: 0.5rem;
+
+					.selected__count {
+						font-weight: 500;
+						color: var(--color-text-secondary);
+					}
+				}	
+			}
 		}
 
 		.photos-navigation {
+			flex-wrap: wrap;
+			gap: 0;
+			padding-block: 18px 1.5rem;
+			padding-inline: 4rem 1.5rem;
+
 			&__title__main {
-				font-size: 2rem;
+				font-size: 1.75rem;
 			}
 
 			&__content {
@@ -128,9 +155,24 @@
 				}
 			}
 
-			button {
-				padding: 0;
-				width: auto !important;
+			&__back {
+				width: 44px !important;
+				height: 44px !important;
+				min-width: 44px !important;
+				min-height: 44px !important;
+
+				.arrow-left-icon {
+					background-image: var(--icon-left-condensed-dark);
+					background-size: 24px;
+					background-repeat: no-repeat;
+					background-position: center;
+					width: 24px;
+					height: 24px;
+
+					svg {
+						display: none;
+					}
+				}
 			}
 
 			&__content-right {
@@ -162,6 +204,18 @@
 					padding-left: 0.5rem;
 					padding-right: 0.5rem;
 					width: auto !important;
+
+					&[data-cy-header-action="create-album"] {
+						
+						.button-vue__icon {
+							background-image: var(--original-icon-add-white);
+							background-size: 20px;
+							background-repeat: no-repeat;
+							background-position: center;
+							width: 24px;
+							height: 24px;
+						}
+					}
 					
 					.button-vue__icon {
 						height: 2rem;
@@ -280,7 +334,7 @@
 		}
 
 		.files-list-viewer, .photos-picker {
-			padding: 0 2rem;
+			padding: 0 1.5rem;
 
 			@media only screen and (max-width: 640px) {
 				padding: 0 1rem;
@@ -290,7 +344,7 @@
 			.section-header {
 				font-size: 1rem;
 				height: auto !important;
-				margin: 2rem 0 0.5rem;
+				margin: 1rem 0 0.5rem;
 			}
 
 			li {
@@ -559,10 +613,6 @@
 						line-height: 1.5rem;
 					}
 				}
-			}
-
-			.collection__media {
-				padding: 2rem;
 			}
 
 			.collection-cover {
@@ -957,6 +1007,12 @@
 
 		.form-buttons {
 			flex-direction: row;
+			gap: 0.5rem;
+			justify-content: flex-end;
+
+			.left-buttons {
+				flex-grow: unset;
+			}
 		}
 	}
 }
