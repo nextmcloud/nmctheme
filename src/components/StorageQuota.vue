@@ -176,6 +176,10 @@ export default {
 				color: var(--nmc-color-text-and-icon-black);
 			}
 		}
+
+		&:hover {
+			background-color: var(--nmc-ods-blue-hover);;
+		}
 	}
 }
 </style>

@@ -2,8 +2,11 @@
 @import '../variables';
 
 #content-vue .breadcrumb {
+	margin-inline: 1rem;
+
 	nav {
 		height: 44px;
+
 		ul.breadcrumb__crumbs {
 			// Display root as "Start" text
 			li.vue-crumb:first-child {
@@ -21,16 +24,18 @@
 					position: absolute;
 					left: 0;
 				}
-
 			}
 	
 			li.vue-crumb {
+
 				a.button-vue {
 					margin: 0;
-					padding: 0 6px;
+					padding: 0;
+
 					&:hover {
 						background-color: initial;
 					}
+
 					&:focus {
 						outline: none;
 						background-color: initial;
@@ -137,6 +142,15 @@
 				.button-vue__text {
 					color:  var(--nmc-color-text-and-icon-white);
 					padding-right: 1rem;
+				}
+
+				@media only screen and (max-width: 511px) {
+					min-width: unset;
+					width: 40px !important;
+
+					.button-vue__icon {
+						margin-inline: 0;
+					}
 				}
 			}
 

@@ -82,6 +82,16 @@
 		button {
 			padding: 0;
 			width: auto !important;
+
+			.menu-open-icon {
+				background-image: var(--icon-hide-menu-dark);
+				width: 24px;
+				height: 24px;
+				
+				svg {
+					display: none;
+				}
+			}
 		}
 	}
 

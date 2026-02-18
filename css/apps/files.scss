@@ -447,8 +447,8 @@ table.files-filestable {
 		}
 
 		.files-list__filters {
-			margin-bottom: 16px;
-			margin-top: 16px;
+			padding-block: 1rem;
+			padding-inline: 4rem 1rem;
 
 			.file-list-filters {
 				display: flex;
@@ -587,44 +587,63 @@ table.files-filestable {
 		.files-list__empty {
 
 			.empty-content {
+				width: 540px;
+				max-width: 100%;
+
+				&[data-cy-files-content-empty="files"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/mouse.svg');
+					}
+				}
 
 				&[data-cy-files-content-empty="sharingin"] {
 
 					.empty-content__icon {
-						background-image: var(--icon-share-with-me-dark);
+						background-image: url('../img/decorative_images/sad-unicorn.svg');
 					}
 				}
 
 				&[data-cy-files-content-empty="sharingout"] {
 
 					.empty-content__icon {
-						background-image: var(--icon-share-with-dark);
+						background-image: url('../img/decorative_images/cat-family.svg');
 					}
 				}
 
 				&[data-cy-files-content-empty="pendingshares"] {
 
 					.empty-content__icon {
-						background-image: var(--icon-share-pending-dark);
+						background-image: url('../img/decorative_images/pandas.svg');
 					}
 				}
 
 				&[data-cy-files-content-empty="trashbin"] {
 
 					.empty-content__icon {
-						background-image: var(--icon-delete-dark);
+						background-image: url('../img/decorative_images/cat.svg');
 					}
 				}	
 
 				&[data-cy-files-content-empty="favorites"] {
 
 					.empty-content__icon {
-						background-image: var(--icon-star-dark);
+						background-image: url('../img/decorative_images/unicorn.svg');
 					}
 				}	
 
-				&__icon svg {
-					display: none;
+				&__icon {
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+					height: 100%;
+					width: 100%;
+					max-height: 380px;
+					opacity: 1;
+
+					.icon-vue {
+						display: none;
+					}
 				}
 			}
 		}
@@ -817,14 +836,14 @@ table.files-filestable {
 
 			thead {
 				background-color: var(--color-main-background);
-				opacity: 0.95;
+				opacity: 1;
 				top: 0;
 
 				@include files-checkboxes-v28;
 
 				th.files-list__column.files-list__ {
 					&row-checkbox {
-						width: 60px;
+						width: 4rem;
 					}
 
 					&row-name {
@@ -1023,7 +1042,7 @@ table.files-filestable {
 						}
 
 						&.files-list__row-checkbox {
-							width: 60px;
+							width: 4rem;
 						}
 
 						&.files-list__row-name {
@@ -1151,11 +1170,6 @@ table.files-filestable {
 											background-size: 16px 16px;
 											width: 16px;
 											height: 16px;
-											transition: filter 0.15s ease-in-out;
-										}
-
-										.button-vue__text {
-											transition: color 0.15s ease-in-out;
 										}
 
 										// Active/existing share state - when file is shared
@@ -1186,15 +1200,11 @@ table.files-filestable {
 										}
 
 										&:hover {
-											border: none;
-											background-color: var(--nmc-ods-blue-active);
+											border-color: var(--nmc-ods-blue-hover);
+											background-color: var(--nmc-ods-blue-hover);
 
 											.button-vue__icon {
 												filter: brightness(0);
-											}
-
-											[data-themes*=dark] & {
-												background-color: var(--nmc-ods-blue-hover);
 											}
 										}
 
@@ -1283,74 +1293,16 @@ table.files-filestable {
 											color: var(--color-main-text);
 										}
 
-										&:hover {
-											border: none;
-											background-color: var(--nmc-ods-blue-active);
-
-											svg {
-												color: var(--nmc-color-text-and-icon-black);
-											}
-
-											// Dark mode hover
-											[data-themes*=dark] & {
-												background-color: var(--nmc-ods-blue-hover);
-
-												svg {
-													color: var(--nmc-color-text-and-icon-black);
-												}
-											}
-										}
-
-										&:active {
-											border: none;
-											background-color: var(--nmc-ods-blue-pressed);
-
-											svg {
-												color: var(--nmc-color-text-and-icon-black);
-											}
-
-											// Dark mode pressed
-											[data-themes*=dark] & {
-												svg {
-													color: var(--nmc-color-text-and-icon-black);
-												}
-											}
-										}
-
-										// Active/existing state
+										&:hover, 
+										&:active,
 										&.active,
-										&[aria-pressed="true"] {
-											border: none;
-											background-color: var(--nmc-ods-blue-primary);
-
-											svg {
-												color: var(--nmc-color-text-and-icon-black);
-											}
-
-											// Dark mode active
-											[data-themes*=dark] & {
-												svg {
-													color: var(--nmc-color-text-and-icon-black);
-												}
-											}
-										}
-
+										&[aria-pressed="true"],
 										&:focus,
 										&:focus-visible {
-											border: none;
-											background-color: var(--nmc-ods-blue-primary);
-											outline: 2px solid var(--color-main-text);
-											outline-offset: 2px;
+											background-color: var(--color-main-hover);
 
 											svg {
-												color: var(--nmc-color-text-and-icon-black);
-											}
-
-											// Dark mode focus
-											[data-themes*=dark] & {
-												svg {
-													color: var(--nmc-color-text-and-icon-black);
-												}
+												color: var(--color-main-text);
 											}
 										}
 									}

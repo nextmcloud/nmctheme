@@ -193,7 +193,6 @@
 		display: block;
 		height: 100%;
 		width: 100%;
-		filter: brightness(0) invert(1) !important;		
 
 		&.icon-default {
 			background-image: var(--icon-link-dark);
@@ -280,6 +279,7 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 }
 
 #body-user, #body-public, #body-settings {
+
 	.sharingPopup__content, .sharingTab__content, .sharingTabDetailsView {
 
 		// Parent div of the "Create new link" button
@@ -326,31 +326,38 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 		}
 
 		// Border for sharing entry items
-		.sharing-entry.sharing-entry__link.sharing-entry--share:not(:last-child) {
-			border-bottom: 1px solid var(--nmc-color-faint);
-			padding: 0.5rem 0;
+		.sharing-entry {
+
+			&.sharing-entry__link.sharing-entry--share:not(:last-child) {
+				border-bottom: 1px solid var(--nmc-color-faint);
+				padding: 0.5rem 0;
+			}
+
+			.button-vue--vue-secondary {
+
+				&.button-vue--icon-only {
+					background-color: unset;
+					border-radius: 50%;
+					width: 40px !important;
+					height: 40px;
+					min-width: 40px;
+					min-height: 40px;
+					border: 1px solid var(--color-main-text);
+
+					.icon-delete {
+						background-image: var(--icon-close-x-dark);
+					}
+
+					&:hover {
+						background-color: var(--color-main-hover);
+					}
+				}
+			}
 		}
 
 		// Remove margin-bottom from "Link to Copy" heading
 		.sharing-link-list-caption {
 			margin-bottom: 0;
-		}
-
-		.button-vue--vue-secondary {
-
-			&.button-vue--icon-only {
-				background-color: unset;
-				border-radius: 50%;
-				width: 40px !important;
-				height: 40px;
-				min-width: 40px;
-				min-height: 40px;
-				border: 1px solid var(--color-main-text);
-
-				.icon-delete {
-					background-image: var(--icon-close-x-dark);
-				}
-			}
 		}
 	}
 
