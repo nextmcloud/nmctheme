@@ -19,10 +19,13 @@
 		height: 40px;
 		min-height: 40px;
 		margin-top: 0;
+		font-size: 14px;
 
 		.button-vue__wrapper {
+
 			.button-vue__text {
 				padding-right: 1rem;
+				margin: 0;
 			}
 
 			.button-vue__icon {
@@ -30,8 +33,12 @@
 				background-position: center;
 				background-size: 1.25rem;
 				margin-inline: 4px -4px;
+				height: 40px !important;
+				width: 40px !important;
+				min-height: 40px !important;
+				min-width: 40px !important;
 
-				svg {
+				.icon-vue {
 					display: none;
 				}
 			}
@@ -91,15 +98,31 @@
 	}
 
 	.action-item {
-		button .button-vue__icon {
-			background-image: var(--icon-more-dark);
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: 1.25rem;
+		button {
+			background-color: var(--nmc-ods-blue-primary);
+			color: var(--nmc-color-text-and-icon-black);
+			height: 40px !important;
+			width: 40px !important;
+			min-height: 40px !important;
+			min-width: 40px !important;
+			margin-bottom: 4px;
+			padding: 0;
 
-			svg {
-				display: none;
+			&:hover {
+				background-color: var(--nmc-ods-blue-hover);
 			}
+			
+			.button-vue__icon {
+				background-image: var(--icon-more-dark);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 16px;
+				margin: 0;
+
+				svg {
+					display: none;
+				}
+			}		
 		}
 	}
 }
@@ -442,7 +465,8 @@ table.files-filestable {
 		}
 
 		&__thead-overlay {
-			margin-inline-start: 3.25rem;
+			margin-inline-start: 4rem;
+			padding-inline-end: 1rem;
 			top: 0;
 		}
 
