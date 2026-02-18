@@ -6,6 +6,9 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  * Note: Take care of Telekom branding restrictions!
  */
+@import '../_mixins.scss';
+@import '../variables';
+
 #body-public {
 
     #nextcloud {
@@ -56,6 +59,19 @@
         border-top: 1px solid var(--color-border);
         padding: 0.5rem 1.5rem;
         box-sizing: border-box;
+
+        @media screen and (max-width: $breakpoint-mobile) {
+            height: auto;
+            min-height: 46px;
+        }
+
+        @media screen and (max-width: $breakpoint-mobile-small) {
+            border-radius: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            max-width: 100%;
+        }
     }
 
     .app-photos #app-content-vue .files-list-viewer li {
