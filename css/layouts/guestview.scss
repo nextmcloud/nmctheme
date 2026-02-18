@@ -68,7 +68,7 @@
         right: 1rem;
         bottom: 24px;
         height: 46px;
-        max-width: calc(100% - 4rem);
+        max-width: 100%;
         z-index: 998;
         border-top: 1px solid var(--color-border);
         padding: 0.5rem 1rem;
@@ -88,15 +88,23 @@
 
         .footer-content {
             display: flex;
-            justify-content: space-between;
             align-content: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 5rem;
+            line-height: 1.5rem;
+
+            @media screen and (max-width: $breakpoint-mobile) {
+                gap: 1.5rem;
+            }
 
             @media screen and (max-width: $breakpoint-mobile-small) {
-                flex-direction: column;
-                align-content: first baseline;
                 gap: 0.5rem;
+                font-size: 0.875rem;
+            }
+
+            @media screen and (max-width: 400px) {
+                gap: 0.25rem;
+                font-size: 0.75rem;
             }
 
             #notice {
@@ -109,7 +117,19 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
-                gap: 16px;
+                gap: 1.5rem;
+
+                @media screen and (max-width: $breakpoint-mobile-small) {
+                    flex-wrap: nowrap;
+                    gap: 0.25rem;
+                    justify-content: flex-start;
+                    font-size: 0.75rem;
+                }
+
+                @media screen and (max-width: 400px) {
+                    gap: 0.125rem;
+                    font-size: 0.75rem;
+                }
             }
         }
     }
