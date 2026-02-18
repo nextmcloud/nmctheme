@@ -1455,6 +1455,33 @@
 
 		.photos-locations-container, .photos-location {
 
+			> .button-vue--vue-tertiary {
+				background: transparent;
+				border-radius: var(--border-radius-pill);
+				border: 1px solid var(--color-main-text);
+				color: var(--color-main-text);
+				margin: 0;
+
+				&:hover:not(:disabled) {
+					color: var(--color-main-text);
+					background-color: var(--color-background-hover);
+				}
+
+				&:active {
+					border-color: var(--color-border-maxcontrast);
+				}
+
+				&:disabled {
+					color: var(--color-text-lighter);
+				}
+
+				// Icon-only button
+				&--icon-only {
+					padding-left: calc(0.25rem - 1px);
+					padding-right: calc(0.25rem - 1px);
+				}
+			}
+
 			.photos-locations {
 				display: flex;
 				gap: 0.5rem;
