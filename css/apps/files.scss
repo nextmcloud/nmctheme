@@ -56,37 +56,37 @@
 
 		&.files-list__row-actions-batch-move-copy {
 			.button-vue__icon {
-				background-image: var(--icon-external-dark);
+				background-image: var(--original-icon-external-dark);
 			}
 		}
 
 		&.files-list__row-actions-batch-download {
 			.button-vue__icon {
-				background-image: var(--icon-download-dark);
+				background-image: var(--original-icon-download-dark);
 			}
 		}
 
 		&.files-list__row-actions-batch-delete {
 			.button-vue__icon {
-				background-image: var(--icon-delete-dark);
+				background-image: var(--original-icon-delete-dark);
 			}
 		}
 
 		&.files-list__row-actions-batch-restore {
 			.button-vue__icon {
-				background-image: var(--icon-restore-dark);
+				background-image: var(--original-icon-restore-dark);
 			}
 		}
 
 		&.files-list__row-actions-batch-files_zip {
 			.button-vue__icon {
-				background-image: var(--icon-compress-zip-dark);
+				background-image: var(--original-icon-compress-zip-dark);
 			}
 		}
 
 		&.files-list__row-actions-batch-cancel_select {
 			.button-vue__icon {
-				background-image: var(--icon-close-dark);
+				background-image: var(--original-icon-close-dark);
 			}
 		}
 
@@ -113,7 +113,7 @@
 			}
 			
 			.button-vue__icon {
-				background-image: var(--icon-more-dark);
+				background-image: var(--original-icon-more-dark);
 				background-repeat: no-repeat;
 				background-position: center;
 				background-size: 16px;
@@ -175,6 +175,7 @@
 						height: 20px;
 						border: 1px solid var(--color-border-maxcontrast);
 						border-radius: var(--border-radius-small);
+						background: var(--color-main-background);
 
 						svg {
 							display: none;
@@ -465,6 +466,7 @@ table.files-filestable {
 		}
 
 		&__thead-overlay {
+			border: 0;
 			margin-inline-start: 4rem;
 			padding-inline-end: 1rem;
 			top: 0;
@@ -706,15 +708,16 @@ table.files-filestable {
 					}
 
 					td.files-list__row-checkbox {
-						width: 26px;
-						height: 26px;
+						width: 44px;
+						height: 44px;
+						top: 0.75rem;
+						right: 0.5rem;
+						left: unset;
 						@include files-checkboxes-v28;
 
 						span.checkbox-content {
 							padding: 0;
 						}
-						top: 0.75rem;
-    					left: 0.5rem;
 					}
 
 					td.files-list__row-name {

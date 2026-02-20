@@ -24,10 +24,6 @@
 
 		.photos-navigation {
 
-			&__content .action-item {
-				display: none;
-			}
-
 			&__bulk-operations {
 				display: flex;
 				width: 100%;    
@@ -141,7 +137,7 @@
 		.photos-navigation {
 			flex-wrap: wrap;
 			gap: 0;
-			padding-block: 18px 1.5rem;
+			padding-block: 18px 1rem;
 			padding-inline: 4rem 1.5rem;
 
 			&__title__main {
@@ -418,6 +414,7 @@
 
 				.hover-overlay {
 					background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+					border-radius: var(--border-radius-large);
 					height: 50%;
 					min-height: 3rem;
 					justify-content: space-between;
@@ -479,7 +476,7 @@
 
 				.checkbox-radio-switch-checkbox {
 					top: -2px;
-					left: 2px;
+					right: 2px;
 
 					.checkbox-content {
 						background: none;
@@ -885,6 +882,10 @@
 // New album modal window
 #body-user .modal-container {
 
+	.album-creation__heading {
+		margin-top: 0;
+	}
+
 	.album-form,
 	.album-picker {
 		background-color: var(--color-main-background);
@@ -1052,6 +1053,13 @@
 		margin-bottom: 1.5rem;
 		min-height: unset;
 		text-align: left;
+	}
+
+	.dialog__actions {
+
+		.button-vue--tertiary {
+			border: 1px solid var(--color-main-text);
+		}
 	}
 
 	.photos-picker__actions {
@@ -1480,6 +1488,26 @@
 					padding-left: calc(0.25rem - 1px);
 					padding-right: calc(0.25rem - 1px);
 				}
+
+				.plus-icon {
+					margin-inline: -4px 4px;
+
+					svg {
+						height: 24px;
+						width: 24px;
+					}
+				}
+
+				.folder-outline-icon {
+					margin-inline: -4px 4px;
+					background-image: var(--icon-folder-dark);
+					height: 24px;
+					width: 24px;
+
+					svg {
+						display: none;
+					}
+				}
 			}
 
 			.photos-locations {
@@ -1507,7 +1535,7 @@
 						}
 
 						.folder-multiple-outline-icon {
-							background-image: var(--icon-magentacloud-dark);
+							background-image: var(--original-icon-magentacloud-dark);
 							margin-inline: 1rem 0.5rem;
 							height: 24px;
 							width: 24px;
@@ -1518,7 +1546,7 @@
 						}
 
 						.folder-outline-icon {
-							background-image: var(--icon-folder-dark);
+							background-image: var(--original-icon-folder-dark);
 							margin-inline: 1rem 0.5rem;
 							height: 24px;
 							width: 24px;
@@ -1526,6 +1554,10 @@
 							svg {
 								display: none;
 							}
+						}
+
+						.close-icon {
+							color: var(--nmc-color-text-and-icon-black);
 						}
 
 						.button-vue--vue-tertiary {

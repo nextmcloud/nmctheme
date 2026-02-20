@@ -10,13 +10,21 @@
 @import '../_mixins.scss';
 @import '../_variables.scss';
 
-#body-user {
+#body-user,
+#body-settings,
+#body-login,
+#body-status,
+#body-public {
 
     .modal-mask {
         background-color: var(--nmc-color-main-background-mask);
 
         &--opaque {
             background-color: var(--nmc-color-main-background-mask-opaque);
+        }
+
+        &--light {
+            background-color: var(--nmc-color-main-background-mask) !important;
         }
 
         .modal-wrapper {
@@ -30,10 +38,18 @@
                 }
             }
 
+            &.modal-wrapper--normal {
+                .modal-container {
+                    width: 640px;
+                }
+            }
+
             .modal-container {
                 box-shadow: unset;
+                box-sizing: border-box;
                 padding: 1.5rem;
                 max-height: 80vh;
+                max-width: 100vw;
                 display: flex;
                 flex-direction: column;
 
@@ -45,10 +61,6 @@
                 &__content, .dialog__content {
                     overflow-y: auto;
                     padding-inline: 0;
-
-                    @media screen and (max-width: $breakpoint-mobile-small) {
-                        padding-inline: 1rem;
-                    }
 
                     .button-vue--vue-secondary {
                         background: var(--nmc-ods-blue-primary);
@@ -86,6 +98,25 @@
                         .button-vue__text {
                             margin: 0;
                             padding: 0;
+                        }
+                    }
+
+                    .modal__content--file {
+
+                        .modal__left {
+                            margin-block: 1.5rem 0.5rem;
+                            padding-top: calc(2 / 3 * 100%);
+                            position: relative;
+                            overflow: hidden;
+                            width: 100%;
+                        }
+
+                        .modal__image {
+                            position: absolute;
+                            inset: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
                         }
                     }
 

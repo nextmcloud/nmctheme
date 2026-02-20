@@ -57,7 +57,9 @@ export default {
 				return `<b>${usedQuotaByte}</b> ` + t('nmctheme', 'used')
 			}
 
-			return `${usedQuotaByte} <span class="storage-percentage">(${t('nmctheme', 'Storage at {percentage}% used', { percentage: Math.round(this.memoryUsed) })})</span>`
+			const usedQuotaPercent = t('nmctheme', 'Storage at {percentage}% used', { percentage: Math.round(this.memoryUsed) })
+
+			return `${usedQuotaByte} <span class="storage-percentage">(${usedQuotaPercent})</span>`
 		},
 		memoryUsed() {
 			return parseFloat((this.storageStats?.used / this.storageStats?.quota) * 100).toFixed(2)
