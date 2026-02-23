@@ -74,6 +74,7 @@
 
     .dialog__name {
         margin-left: 5px;
+        margin-bottom: 1rem !important;
     }
 }
 
@@ -84,12 +85,14 @@
     }
 
     &__header {
+        align-items: center;
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
-        padding: 0;
+        padding: 0 0 1rem;
+        top: 0;
 
         .input-field {
+
             label.input-field__label {
                 display: block;
                 top: 50%;
@@ -110,7 +113,6 @@
                 &:hover,
                 &:focus,
                 &:active {
-                    background-color: var(--background-input-hover-focus);
                     padding-top: 1rem;
                 }
             }
@@ -118,6 +120,8 @@
 
         div.unified-search-modal__filters {
             gap: 0;
+            padding-left: 4px;
+            padding-top: 8px;
 
             // Hide people and places filter
             > [data-cy-unified-search-filter="people"],

@@ -4,8 +4,8 @@
 		min-height: 0 !important;
 		padding-block: 0.25rem !important;
 		padding-inline: 0.5rem 0.75rem !important;
+		gap: 0.5rem !important;
 
-		
 		&:hover, &:focus, &:active {
 			background-color: var(--color-background-hover) !important;
 		}

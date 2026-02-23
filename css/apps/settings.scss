@@ -575,23 +575,10 @@
 			&.button-vue--vue-warning,
 			&.button-vue--vue-error {
 				background-color: var(--color-primary);
+				color: var(--color-primary-text);
 
 				&:hover:not(:disabled) {
 					background-color: var(--color-primary-hover);
-				}
-			}
-		}
-
-		.notecard.warning {
-			background-color: var(--color-background-dark) !important;
-			border: unset;
-			border-radius: unset;
-			max-width: 800px;
-
-			.checkbox-radio-switch:not(.checkbox-radio-switch--disabled) {
-
-				.checkbox-radio-switch__input:hover+.checkbox-radio-switch__label {
-					background-color: unset;
 				}
 			}
 		}

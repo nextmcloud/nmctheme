@@ -60,7 +60,7 @@
     margin-block-start: 0;
 
     &__main-wrapper {
-        height: 54px !important;
+        height: 66px !important;
         margin-top: 0.25px;
         padding: 0;
     }
@@ -69,7 +69,7 @@
         border: 1px solid var(--color-main-text);
         border-radius: var(--border-radius-large);
         box-shadow: none;
-        height: 44px !important;
+        height: 56px !important;
         margin: 5px;
         padding: 0 0.75rem;
         width: calc(100% - 10px);
@@ -116,11 +116,12 @@
 		}
     }
 
-    &__label {
+    label.input-field__label {
         display: none;
     }
 
     &__icon {
+
         &--leading {
             bottom: 2px;
             left: 4px;

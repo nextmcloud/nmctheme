@@ -31,25 +31,25 @@
 
   --color-scrollbar: rgba(34,34,34, .15);
 
-  --color-error: var(--colours-functional-destructive-standard);
+  --color-error: var(--colours-functional-destructive-subtle);
   --color-error-rgb: rgb(--color-error);
   --color-error-hover: var(--colours-functional-destructive-hovered);
-  --color-error-text: var(--colours-functional-destructive-subtle);
+  --color-error-text: var(--colours-functional-destructive-standard);
 
-  --color-info: var(--colours-functional-informational-standard);
+  --color-info: var(--colours-functional-informational-subtle);
   --color-info-rgb: rgb(--color-info);
   --color-info-hover: var(--colours-functional-informational-hovered);
-  --color-info-text: var(--colours-functional-informational-subtle);
+  --color-info-text: var(--colours-functional-informational-standard);
 
-  --color-success: var(--colours-functional-success-standard);
+  --color-success: var(--colours-functional-success-subtle);
   --color-success-rgb: rgb(--color-success);
   --color-success-hover: var(--colours-functional-success-hovered);
-  --color-success-text: var(--colours-functional-success-subtle);
+  --color-success-text: var(--colours-functional-success-standard);
 
-  --color-warning: var(--colours-functional-warning-standard);
+  --color-warning: var(--colours-functional-warning-subtle);
   --color-warning-rgb: rgb(--color-warning);
   --color-warning-hover: var(--colours-functional-warning-hovered);
-  --color-warning-text: var(--colours-functional-warning-subtle);
+  --color-warning-text: var(--colours-functional-warning-standard);
 
   --color-element-error: var(--color-error);
   --color-element-info: var(--color-info);
