@@ -80,150 +80,145 @@
 
 #unified-search .unified-search-modal {
     
-    &__content {
+    .unified-search-modal__content {
         --dialog-height: min(65vh, 700px);
-    }
 
-    &__header {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        padding: 0 0 1rem;
-        top: 0;
-
-        .input-field {
-
-            label.input-field__label {
-                display: block;
-                top: 50%;
-                transform: translateY(-50%);
-                font-size: var(--default-font-size);
-            }
-
-            &:hover label.input-field__label,
-            &:focus-within label.input-field__label {
-                top: 30%;
-                left: 0;
-                transform: translateY(-50%);
-                background-color: transparent;
-                font-size: var(--font-size-small);
-            }
-
-            .input-field__input {
-                &:hover,
-                &:focus,
-                &:active {
-                    padding-top: 1rem;
-                }
-            }
-        }
-
-        div.unified-search-modal__filters {
-            gap: 0;
-            padding-left: 4px;
-            padding-top: 8px;
-
-            // Hide people and places filter
-            > [data-cy-unified-search-filter="people"],
-            > [data-cy-unified-search-filter="places"] {
-                display: none;
-            }
-
-            button.button-vue {
-                &[title="Dateien"], &[title="Files"], &[data-cy-unified-search-filter="current-view"] {
-                    display: none !important;
-                }
-
-                // Style for filter dropdown buttons (Date, Filter, etc.)
-                &.action-item__menutoggle {
-                    background-color: var(--nmc-ods-blue-primary);
-                    color: var(--nmc-color-text-and-icon-black);
-                    border-radius: var(--border-radius-element);
-                    border: none;
-                    height: 28px;
-                    min-height: 28px;
-                    padding: 0 12px;
-                    font-weight: bold;
-                    display: flex;
-                    align-items: center;
-                    box-sizing: border-box;
-                    margin-top: 0;
-                    margin-left: 5px;
-
-                    &:hover {
-                        background-color: var(--nmc-ods-blue-hover);
-                    }
-
-                    &:active {
-                        background-color: var(--nmc-ods-blue-pressed);
-                    }
-
-                    &[aria-expanded="true"] {
-                        background-color: var(--nmc-ods-blue-active);
-                    }
-
-                    // Hide the left icon
-                    .button-vue__icon {
-                        display: none;
-                    }
-
-                    .button-vue__text {
-                        color: var(--nmc-color-text-and-icon-black);
-                        font-size: 0;
-                        display: inline-flex;
-                        align-items: center;
-
-                        &::before {
-                            content: 'Modified';
-                            font-size: var(--default-font-size);
-                            line-height: 1;
-                        }
-                    }
-
-                    // Add down arrow icon after the wrapper
-                    .button-vue__wrapper {
-                        display: flex;
-                        align-items: center;
-                        gap: 8px;
-
-                        &::after {
-                            content: '';
-                            display: inline-block;
-                            width: 6px;
-                            height: 6px;
-                            border-left: 1.5px solid var(--nmc-color-text-and-icon-black);
-                            border-bottom: 1.5px solid var(--nmc-color-text-and-icon-black);
-                            transform: rotate(-45deg);
-                            margin-top: -2px;
-                            transition: transform 0.2s ease;
-                        }
-                    }
-
-                    // Rotate arrow when dropdown is open
-                    &[aria-expanded="true"] .button-vue__wrapper::after {
-                        transform: rotate(135deg);
-                        margin-top: 2px;
-                    }
-                }
-            }
-        }
-
-        .unified-search-modal__filters-applied {
-            display: flex;
+        .unified-search-modal__header {
             align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 0 1rem;
+            top: 0;
 
-            .chip {
-                .icon {
+            .input-field {
+
+                label.input-field__label {
+                    display: block;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: var(--default-font-size);
+                }
+
+                &:hover label.input-field__label,
+                &:focus-within label.input-field__label {
+                    top: 30%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    background-color: transparent;
+                    font-size: var(--font-size-small);
+                }
+
+                .input-field__input {
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        padding-top: 1rem;
+                    }
+                }
+            }
+
+            .unified-search-modal__filters {
+                gap: 0;
+                padding-left: 4px;
+                padding-top: 8px;
+
+                // Hide people and places filter
+                > [data-cy-unified-search-filter="people"],
+                > [data-cy-unified-search-filter="places"] {
                     display: none;
                 }
 
-                background: var(--color-background-darker);
-                border-radius: var(--border-radius-element);
-                border: 1px solid transparent;
+                button.button-vue {
+                    &[title="Dateien"], &[title="Files"], &[data-cy-unified-search-filter="current-view"] {
+                        display: none !important;
+                    }
+
+                    // Style for filter dropdown buttons (Date, Filter, etc.)
+                    &.action-item__menutoggle {
+                        background-color: var(--nmc-ods-blue-primary);
+                        color: var(--nmc-color-text-and-icon-black);
+                        border-radius: var(--border-radius-element);
+                        border: none;
+                        border-radius: var(--border-radius-small);
+                        height: 28px;
+                        min-height: 28px;
+                        padding: 0 12px;
+                        font-weight: bold;
+                        display: flex;
+                        align-items: center;
+                        box-sizing: border-box;
+                        margin-top: 0;
+                        margin-left: 5px;
+
+                        &:hover {
+                            background-color: var(--nmc-ods-blue-hover);
+                        }
+
+                        &:active {
+                            background-color: var(--nmc-ods-blue-pressed);
+                        }
+
+                        &[aria-expanded="true"] {
+                            background-color: var(--nmc-ods-blue-active);
+                        }
+
+                        // Hide the left icon
+                        .button-vue__icon {
+                            display: none;
+                        }
+
+                        .button-vue__text {
+                            color: var(--nmc-color-text-and-icon-black);
+                        }
+
+                        // Add down arrow icon after the wrapper
+                        .button-vue__wrapper {
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+
+                            &::after {
+                                content: '';
+                                display: inline-block;
+                                width: 6px;
+                                height: 6px;
+                                border-left: 1.5px solid var(--nmc-color-text-and-icon-black);
+                                border-bottom: 1.5px solid var(--nmc-color-text-and-icon-black);
+                                transform: rotate(-45deg);
+                                margin-top: -2px;
+                                transition: transform 0.2s ease;
+                            }
+                        }
+
+                        // Rotate arrow when dropdown is open
+                        &[aria-expanded="true"] .button-vue__wrapper::after {
+                            transform: rotate(135deg);
+                            margin-top: 2px;
+                        }
+                    }
+                }
             }
+
+            .unified-search-modal__filters-applied {
+                align-items: center;
+                display: flex;
+                padding-top: 8px;
+
+                .chip {
+                    background-color: var(--nmc-ods-blue-active);
+                    border-radius: 8px;
+                    border: none;
+                    color: var(--nmc-color-text-and-icon-black);
+                    padding: 0 12px;
+
+                    .icon {
+                        display: none;
+                    }
+                }
+            }
+            
+            background-color: unset !important;
         }
-        
-        background-color: unset !important;
     }
 
     &__results {

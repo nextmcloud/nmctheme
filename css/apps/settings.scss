@@ -155,6 +155,7 @@
 					}
 
 					.settings-hint {
+						color: var(--color-main-text);
 						margin-bottom: 1rem;
 						margin-top: 1.5rem;
 						opacity: unset;
@@ -556,7 +557,7 @@
 	}
 
 	.settings-section {
-		padding: 3rem 3rem 0;
+		padding: 3rem 0 0 3rem;
 		border: none;
 
 		&.theming {
@@ -564,10 +565,11 @@
 		}
 
 		&--limit-width {
+			max-width: 800px;
+		}
 
-			p {
-				max-width: 800px;
-			}
+		p {
+			color: var(--color-main-text);
 		}
 
 		.button-vue {

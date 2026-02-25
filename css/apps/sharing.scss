@@ -14,7 +14,16 @@
 
 		&__desc {
 			padding: 0.5rem 1rem 1.5rem;
-			// hide '...' actions button
+
+			.app-sidebar-header__subname {
+
+				.sidebar__subname-separator:not(:has(~ .sidebar__subname-separator)), 
+				span:has(+ .user-bubble__wrapper),
+				.user-bubble__wrapper {
+					display: none;
+				}
+			}
+
 			.app-sidebar-header__menu {
 				display: none;
 			}
@@ -26,9 +35,11 @@
 
 			button.app-sidebar-header__star {
 				all: unset;
+
 				&:hover:not(:disabled) {
 					background-color: initial;
 				}
+
 				.button-vue__icon {
 					width: 1.5rem;
 					min-width: 1.5rem;
@@ -37,14 +48,17 @@
 						height: 1.5rem;
 					}
 				}
+
 				.star-outline-icon {
 					background-image: var(--icon-star-dark);
+
 					svg {
 						display: none;
 					}
 				}
 				.star-icon {
 					background-image: var(--icon-starred-yellow);
+
 					svg {
 						display: none;
 					}
@@ -54,21 +68,21 @@
 
 		// 'Close' button
 		button.app-sidebar__close {
-			opacity: 1;
 			background-color: var(--color-main-background);
-			top: 1rem;
+			opacity: 1;
 			right: 1rem;
+			top: 1rem;
 			transition: none;
-			&:hover, &:active, &:focus {
-				.button-vue__icon {
-					filter: var(--nmc-color-icon)
-				}
+
+			&:hover:not(:disabled) {
+				background-color: var(--color-background-hover);
 			}
+
 			.button-vue__icon {
-				background-image: var(--icon-close-dark);
+				background-image: var(--icon-close-x-dark);
 				background-position: center;
 				background-repeat: no-repeat;
-				// hide initial icon
+
 				svg {
 					display: none;
 				}
@@ -99,7 +113,9 @@
 			padding-top: 1rem;
 		}
 		.app-sidebar-header__figure {
-			margin: 0.5rem 0 0 1rem;
+			margin: 1rem 0 0 1rem;
+			width: 5rem;
+			height: 5rem;
 		}
 	}
 

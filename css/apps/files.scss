@@ -314,13 +314,20 @@ table.files-filestable {
 	// files modal search input
 	.modal-mask.dialog__modal {
 
+		#settings-section_settings {
+				
+				.app-settings-section__content > div[class*='_ncFormBox'] > div[class*='_formBoxItem']:last-child,
+				.app-settings-section__content > fieldset[class*='_formGroup'] {
+					display: none;
+				}
+		}
+
 		#settings-section_keyboard-shortcuts {
 			display: none;
 		}
 
 		.app-settings-section__content > div[class*='_ncFormBox'],
 		.app-settings-section__content > fieldset[class*='_formGroup'] {
-
 
 			div[class*='_formBoxItem'],
 			div[class*='_ncFormBox__item'] {
@@ -515,8 +522,8 @@ table.files-filestable {
 			.action-item button.action-item__menutoggle {
 				background-color: var(--nmc-ods-blue-primary);
 				color: var(--nmc-color-text-and-icon-black);
-				border-radius: 8px;
 				border: none;
+				border-radius: var(--border-radius-small);
 				height: 28px;
 				min-height: 28px;
 				padding: 0 10px;
@@ -994,9 +1001,9 @@ table.files-filestable {
 					}
 
 					&.files-list__row-icon-overlay {
-						width: 22px;
-						height: 22px;
-						margin-top: 6px;
+						height: 1.5rem;
+						margin-top: 0.25rem;
+						width: 1.5rem;
 
 						svg {
 							display: none;
@@ -1362,7 +1369,7 @@ table.files-filestable {
 			padding: 0;
 
 			.button-vue--vue-primary, .button-vue--vue-secondary, .button-vue--vue-tertiary  {
-				margin-block: 0.5rem;
+				margin-block: 0.5rem !important;
 				margin-inline: 0;
 			}
 		}
