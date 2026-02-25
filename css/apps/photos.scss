@@ -1428,6 +1428,8 @@
 
 							&.file-picker__file-name {
 								padding-left: 0.5rem;
+								overflow: hidden;
+    							text-overflow: ellipsis;
 							}
 
 							svg {

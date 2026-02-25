@@ -71,7 +71,7 @@
         box-shadow: none;
         height: 56px !important;
         margin: 5px;
-        padding: 0 0.75rem;
+        padding:  0 2rem 0 0.75rem;
         width: calc(100% - 10px);
 
         &:active:disabled,
@@ -157,6 +157,35 @@
         &__icon {
             height: 11px;
             width: 11px;
+        }
+    }
+}
+
+#body-user .file-picker {
+    .input-field {
+        &__label {
+            display: block;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: var(--default-font-size);
+        }
+        
+        &:hover label.input-field__label,
+        &:focus-within label.input-field__label {
+            top: 22%;
+            left: -1%;
+            transform: translateY(-50%);
+            background-color: transparent;
+             font-size: var(--font-size-small);
+        }
+        
+        .input-field__input {
+        
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: var(--background-input-hover-focus);
+            }
         }
     }
 }
