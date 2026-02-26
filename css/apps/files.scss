@@ -923,6 +923,9 @@ table.files-filestable {
 						.files-list__column-sort-button {
 							padding: 0;
 							margin: 0;
+							&-text {
+								color: var(--color-main-text);
+							}
 						}
 					}
 
@@ -1132,6 +1135,10 @@ table.files-filestable {
 
 						&.files-list__row-mime {
 							width: 140px;
+							
+							span {
+								color: var(--color-main-text);
+							}
 						}
 
 						&.files-list__row-actions {
