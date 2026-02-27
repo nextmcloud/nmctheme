@@ -458,7 +458,7 @@ table.files-filestable {
 		
 		.files-list__refresh-icon {
 			position: absolute;
-			right: 11rem;
+			right: 13rem;
 		}
 	}
 
@@ -492,7 +492,7 @@ table.files-filestable {
 				display: flex;
 				flex-direction: row;
 				align-items: center;
-				gap: 8px;
+				gap: 15px;
 			}
 
 			// Add separator before active filters
@@ -501,14 +501,24 @@ table.files-filestable {
 				list-style: none;
 				padding: 0;
 				margin: 0;
+				flex-wrap: wrap;
+
+				// Responsive adjustment for chips
+				@media screen and (max-width: $breakpoint-mobile-small) {
+					max-height: 3rem;
+    				overflow-y: auto;
+				}
 
 				&:not(:empty)::before {
-					content: '';
-					display: block;
+					content: "";
+					position: absolute;
+					left: 14.3rem;
+					top: 50%;
+					transform: translateY(-50%);
 					width: 1px;
-					height: 28px;
+					height: 50%;
 					background-color: var(--color-border);
-					margin: 0 4px;
+					margin: 0 8px;
 				}
 			}
 		}
