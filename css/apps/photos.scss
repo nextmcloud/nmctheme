@@ -633,6 +633,12 @@
 						}
 					}
 				}
+				
+				&__details {
+					.material-design-icon{
+						display: none;
+					}
+				}
 			}
 
 			&__title {

@@ -144,6 +144,8 @@
         .modal-container {
             @media screen and (max-width: $breakpoint-mobile-small) {
                 margin: 1rem;
+                flex-direction: unset !important;
+                overflow: auto;
             }
 
             .dialog__name {
