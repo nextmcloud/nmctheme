@@ -1,4 +1,5 @@
 @import '../_mixins.scss';
+@import '../_variables.scss';
 
 #rich-workspace {
 	padding: 0 0 0 2rem !important;
@@ -19,6 +20,10 @@
 
 			&__entries {
 				padding-block: 0.25rem;
+
+				@media screen and (max-width: $breakpoint-mobile-medium) {
+					max-width: 20rem;
+				}
 
 				.button-vue {
 					background: none;
@@ -387,32 +392,38 @@
 				background-size: 24px;
 
 				svg {
-					display: none;
+					display: unset;
 				}
 			}
 			
 			.format-header1-icon {
-				background-image: var(--icon-h1-dark);
+				// background-image: var(--icon-h1-dark);
+				background-image: unset;
 			}
 
 			.format-header2-icon {
-				background-image: var(--icon-h2-dark);
+				// background-image: var(--icon-h2-dark);
+				background-image: unset;
 			}
 
 			.format-header3-icon {
-				background-image: var(--icon-h3-dark);
+				// background-image: var(--icon-h3-dark);
+				background-image: unset;
 			}
 
 			.format-header4-icon {
-				background-image: var(--icon-h4-dark);
+				// background-image: var(--icon-h4-dark);
+				background-image: unset;
 			}
 
 			.format-header5-icon {
-				background-image: var(--icon-h5-dark);
+				// background-image: var(--icon-h5-dark);
+				background-image: unset;
 			}
 
 			.format-header6-icon {
-				background-image: var(--icon-h6-dark);
+				// background-image: var(--icon-h6-dark);
+				background-image: unset;
 			}
 
 			.information-icon {
@@ -420,31 +431,38 @@
 			}
 
 			.checkbox-marked-circle-icon {
-				background-image: var(--icon-success-dark);
+				// background-image: var(--icon-success-dark);
+				background-image: unset;
 			}
 			
 			.alert-icon {
-				background-image: var(--icon-alert-dark);
+				// background-image: var(--icon-alert-dark);
+				background-image: unset;
 			}
 
 			.alert-decagram-icon {
-				background-image: var(--icon-warning-dark);
+				// background-image: var(--icon-warning-dark);
+				background-image: unset;
 			}
 
 			.tray-arrow-up-icon {
-				background-image: var(--icon-upload-dark);
+				// background-image: var(--icon-upload-dark);
+				background-image: unset;
 			}
 
 			.folder-outline-icon {
-				background-image: var(--icon-folder-dark);
+				// background-image: var(--icon-folder-dark);
+				background-image: unset;
 			}
 
 			.web-icon {
-				background-image: var(--icon-text-link-dark);
+				// background-image: var(--icon-text-link-dark);
+				background-image: unset;
 			}
 
 			.file-document-icon {
-				background-image: var(--icon-text-file-dark);
+				// background-image: var(--icon-text-file-dark);
+				background-image: unset;
 			}
 
 			.link-off-icon {
@@ -452,7 +470,8 @@
 			}
 
 			.help-circle-outline-icon {
-				background-image: var(--icon-help-dark);
+				// background-image: var(--icon-help-dark);
+				background-image: unset;
 			}
 
 			[data-text-action-entry=insert-link-picker],

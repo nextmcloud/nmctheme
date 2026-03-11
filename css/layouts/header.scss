@@ -214,6 +214,66 @@ header {
 						display: none;
 					}
 				}
+				
+				.notification-heading {
+					.button-vue {
+						padding: 0;
+						&:hover {
+
+							&::before {
+								background-color: unset;
+								content: " ";
+								display: block;
+								height: 4px;
+								bottom: 1px;
+								width: 100%;
+								position: absolute;
+							}
+						}
+					}
+				}
+
+				.notification-actions {
+					.button-vue {
+						border-radius: 9999px;
+						margin-inline: 0 8px;
+						min-height: unset;
+						min-width: unset;
+						padding-block: 0.75rem;
+						padding-inline: 1rem;
+
+						&__text {
+							color: unset;
+							font-size: 14px;
+							font-weight: bold;
+							margin-block: 0;
+							margin-inline: 8px 0;
+							padding: 0;
+							margin: 0;
+						}
+
+						&:hover {
+
+							&::before {
+								background-color: unset;
+								content: " ";
+								display: block;
+								height: 4px;
+								bottom: 1px;
+								width: 100%;
+								position: absolute;
+							}
+						}
+					}
+
+					@media screen and (max-width: $breakpoint-mobile) {
+						padding-right: 0;
+
+						.button-vue__label, .button-vue__text {
+							display: unset;
+						}
+					}
+				}
 			}
 		}
 
