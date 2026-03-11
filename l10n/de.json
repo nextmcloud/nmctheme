@@ -73,7 +73,8 @@
       "_including %n hidden_::_including %n hidden_": ["davon %n versteckt","davon %n versteckt"],
       "\"{displayName}\" batch action executed successfully" : "Aktion \"{displayName}\" erfolgreich ausgeführt",
       "Delete permanently": "Endgültig löschen",
-      "Unknown error during upload": "Das Hochladen wurde abgebrochen"
+      "Unknown error during upload": "Das Hochladen wurde abgebrochen",
+      "few seconds ago": "Gerade eben"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
