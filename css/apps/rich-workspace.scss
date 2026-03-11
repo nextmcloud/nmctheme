@@ -465,15 +465,8 @@
 			}
 		}
 
-		.link-view-bubble {
-		.folder-icon svg {
-			fill: var(--nmc-ods-blue);;
-		}
-	}
-
 		.tippy-box {
 			max-width: 100% !important;
-			z-index: 9999 !important;
 
 			.menububble {
 
@@ -508,5 +501,13 @@
 				}
 			}
 		}
+	}
+}
+
+// Folder icon color in link bubble — selector is global because the bubble
+// is moved to document.body by the nmcfiles.ts MutationObserver fix.
+.link-view-bubble {
+	.folder-icon svg {
+		fill: var(--nmc-ods-blue);
 	}
 }

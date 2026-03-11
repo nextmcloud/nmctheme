@@ -90,6 +90,35 @@ function updateLabel(selector) {
 	return false
 }
 
+/**
+ * Move the text editor link bubble tooltip to document.body to escape
+ * the CSS stacking context and appear above the app navigation.
+ */
+function setupLinkBubbleFix(): void {
+	const observer = new MutationObserver((mutations: MutationRecord[]) => {
+		for (const mutation of mutations) {
+			for (const node of Array.from(mutation.addedNodes)) {
+				if (!(node instanceof Element)) continue
+				const candidates = node.matches('[data-tippy-root]')
+					? [node]
+					: Array.from(node.querySelectorAll('[data-tippy-root]'))
+				for (const root of candidates) {
+					if (root.parentNode !== document.body && root.querySelector('.link-view-bubble')) {
+						document.body.appendChild(root)
+					}
+				}
+			}
+		}
+	})
+	observer.observe(document.body, { childList: true, subtree: true })
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', setupLinkBubbleFix)
+} else {
+	setupLinkBubbleFix()
+}
+
 window.addEventListener('DOMContentLoaded', function() {
 	const breadcrumb = document.querySelector('.breadcrumb')
 	const empty = document.querySelector('.files-list__empty')
