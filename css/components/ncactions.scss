@@ -1,4 +1,5 @@
 @import '../_mixins.scss';
+@import '../_variables.scss';
 
 // '...' button style
 .action-item .v-popper {
@@ -34,6 +35,10 @@
 		.v-popper__wrapper {
 			box-shadow: none;
 			border: 1px solid var(--color-border);
+			@media screen and (max-width: $breakpoint-mobile-medium) {
+			    overflow-y: auto;
+    			max-height: 65vh;
+			}
 
 			.v-popper__arrow-container {
 				display: none;

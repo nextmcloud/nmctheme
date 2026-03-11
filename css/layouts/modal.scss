@@ -23,7 +23,7 @@
             background-color: var(--nmc-color-main-background-mask-opaque);
         }
 
-        &--light {
+        &--light:not(.viewer) {
             background-color: var(--nmc-color-main-background-mask) !important;
         }
 

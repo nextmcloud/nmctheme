@@ -96,22 +96,27 @@
 
 						&.image-multiple-outline-icon {
 							background-image: var(--icon-albums-dark);
+							filter: brightness(0) saturate(100%);
 						}
 
 						&.tray-arrow-down-icon {
 							background-image: var(--icon-download-dark);
+							filter: brightness(0) saturate(100%);
 						}
 
 						&.trash-can-outline-icon {
 							background-image: var(--icon-delete-dark);
+							filter: brightness(0) saturate(100%);
 						}
 
 						&.close-icon {
 							background-image: var(--icon-close-dark);
+							filter: brightness(0) saturate(100%);
 						}
 
 						&.dots-horizontal-icon {
 							margin-left: 0.5rem;
+							filter: brightness(0) saturate(100%);
 
 							svg {
 								display: block;
