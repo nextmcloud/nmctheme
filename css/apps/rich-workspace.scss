@@ -465,6 +465,12 @@
 			}
 		}
 
+		.link-view-bubble {
+		.folder-icon svg {
+			fill: var(--nmc-ods-blue);;
+		}
+	}
+
 		.tippy-box {
 			max-width: 100% !important;
 
