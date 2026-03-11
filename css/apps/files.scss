@@ -733,8 +733,8 @@ table.files-filestable {
 						width: 44px;
 						height: 44px;
 						top: 0.75rem;
-						right: 0.5rem;
-						left: unset;
+						left: 0.5rem;
+						right: unset;
 						@include files-checkboxes-v28;
 
 						span.checkbox-content {
