@@ -530,3 +530,10 @@
 		fill: var(--nmc-ods-blue);
 	}
 }
+
+// Folder icon color in the rich workspace link preview widget.
+.widget-file {
+	.folder-icon svg {
+		fill: var(--nmc-ods-blue);
+	}
+}
