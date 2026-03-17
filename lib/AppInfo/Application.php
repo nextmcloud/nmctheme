@@ -265,6 +265,10 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function boot(IBootContext $context): void {
-
+		// Ensure nmctheme CSS is loaded for exception error pages (printExceptionErrorPage)
+		// which bypass the BeforeTemplateRenderedEvent and do not trigger the theming
+		// system's CSS injection (ThemeInjectionService::injectHeaders). Without this,
+		// server error pages fall back to bare Nextcloud styling.
+		\OCP\Util::addStyle('nmctheme', 'nmcstyle');
 	}
 }
