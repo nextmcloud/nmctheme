@@ -1517,9 +1517,12 @@ table.files-filestable {
 				.action-item--single {
 					padding-left: 0;
 				}
+
+				button.action-item__menutoggle {
+					display: none !important;
+				}
 			}
 		}
-
 		.vue-recycle-scroller__slot {
 
 			th,
