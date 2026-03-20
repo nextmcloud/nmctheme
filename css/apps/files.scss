@@ -1521,8 +1521,13 @@ table.files-filestable {
 				button.action-item__menutoggle {
 					display: none !important;
 				}
+
+				button.files-list__row-actions-batch-favorite {
+					display: none !important;
+				}
 			}
 		}
+
 		.vue-recycle-scroller__slot {
 
 			th,
