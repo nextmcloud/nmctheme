@@ -1372,6 +1372,13 @@ table.files-filestable {
 	}
 }
 
+// Hide sharing popup button on pending share rows (rows with accept-share action)
+.files-list__row:has(.files-list__row-action-accept-share) {
+	.files-list__row-action-sharing-popup {
+		display: none !important;
+	}
+}
+
 #body-user,
 #body-public {
 
