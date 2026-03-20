@@ -1380,6 +1380,10 @@ table.files-filestable {
 						button.action-item__menutoggle {
 							display: none !important;
 						}
+
+						li.action:not(.files-list__row-action-accept-share):not(.files-list__row-action-reject-share) {
+							display: none !important;
+						}
 					}
 				}
 			}
