@@ -63,8 +63,8 @@ if (sharingStatusAction) {
 		displayName() {
 			return t('files_sharing', 'Sharing')
 		},
-		enabled() {
-			return true
+		enabled(nodes: Node[], view: View) {
+			return view.id !== 'pendingshares' && (sharingStatusAction.enabled?.(nodes, view) ?? true)
 		},
 		async exec(node: Node, view: View, dir: string) {
 			if ((node.permissions & Permission.READ) !== 0) {
