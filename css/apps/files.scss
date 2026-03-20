@@ -1368,6 +1368,21 @@ table.files-filestable {
 					}
 				}
 			}
+
+			// Hide sharing-popup and actions menu for pending share rows
+			tbody tr:has(.files-list__row-action-accept-share) {
+				td.files-list__row-actions {
+					.action-items {
+						button.action-item.files-list__row-action-sharing-popup {
+							display: none !important;
+						}
+
+						button.action-item__menutoggle {
+							display: none !important;
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -1524,11 +1539,6 @@ table.files-filestable {
 				}
 				tbody > tr > td {
 					&.files-list__row-actions {
-						.action-item--tertiary {
-							[data-cy-files-list-row-action="sharing-popup"] {
-								display: none !important;
-							}
-						}
 					}
 
 					&.files-list__row-mime {
