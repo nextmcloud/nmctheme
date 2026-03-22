@@ -74,7 +74,7 @@
       "\"{displayName}\" batch action executed successfully" : "Aktion \"{displayName}\" erfolgreich ausgeführt",
       "Delete permanently": "Endgültig löschen",
       "Unknown error during upload": "Das Hochladen wurde abgebrochen",
-      "few seconds ago": "Gerade eben"
+      "few seconds ago": "vor Sekunden"
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
