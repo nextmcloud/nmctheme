@@ -119,6 +119,67 @@ if (document.readyState === 'loading') {
 	setupLinkBubbleFix()
 }
 
+/**
+ * Prevent row clicks and sidebar opening on pending share rows.
+ * Pending share rows are identified by the presence of the accept-share action button.
+ */
+function blockPendingShareRowClick(row: HTMLElement): void {
+	if (row.dataset.pendingShareBlocked === 'true') return
+
+	const nameLink = row.querySelector<HTMLElement>('.files-list__row-name-link')
+	if (nameLink) {
+		nameLink.addEventListener('click', (event: MouseEvent) => {
+			event.preventDefault()
+			event.stopPropagation()
+		}, true)
+	}
+
+	// Also block row-level clicks (opens sidebar) on non-interactive cells
+	row.addEventListener('click', (event: MouseEvent) => {
+		const target = event.target as HTMLElement
+		const isCheckbox = target.closest('.files-list__row-checkbox')
+		const isActionButton = target.closest('.files-list__row-actions')
+		if (!isCheckbox && !isActionButton) {
+			event.preventDefault()
+			event.stopPropagation()
+		}
+	}, true)
+
+	row.dataset.pendingShareBlocked = 'true'
+}
+
+function setupPendingShareRowClickBlock(): void {
+	const observer = new MutationObserver((mutations: MutationRecord[]) => {
+		for (const mutation of mutations) {
+			for (const node of Array.from(mutation.addedNodes)) {
+				if (!(node instanceof Element)) continue
+				const rows: HTMLElement[] = node.matches('tr[data-cy-files-list-row]')
+					? [node as HTMLElement]
+					: Array.from(node.querySelectorAll<HTMLElement>('tr[data-cy-files-list-row]'))
+				for (const row of rows) {
+					if (row.querySelector('.files-list__row-action-accept-share')) {
+						blockPendingShareRowClick(row)
+					}
+				}
+			}
+		}
+	})
+	observer.observe(document.body, { childList: true, subtree: true })
+
+	// Handle rows already present in the DOM
+	document.querySelectorAll<HTMLElement>('tr[data-cy-files-list-row]').forEach(row => {
+		if (row.querySelector('.files-list__row-action-accept-share')) {
+			blockPendingShareRowClick(row)
+		}
+	})
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', setupPendingShareRowClickBlock)
+} else {
+	setupPendingShareRowClickBlock()
+}
+
 window.addEventListener('DOMContentLoaded', function() {
 	const breadcrumb = document.querySelector('.breadcrumb')
 	const empty = document.querySelector('.files-list__empty')
