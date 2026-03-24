@@ -54,6 +54,15 @@
         }
     }
 
+    .v-popper__popper {
+        ul li {
+            &.files-list__row-action-sharing-popup-menu,
+            &.files-list__row-action-sharing-manage {
+                display: none;
+            }
+        }
+    }
+
     .app-files_sharing + footer {
         --footer-font: var(--default-font-style-bold);
     }
