@@ -103,6 +103,10 @@
             box-shadow: unset!important;
         }
 
+        &--error {
+            border-color: var(--color-error-text) !important;
+        }
+
         &--leading-icon {
             padding-left: 38px;
         }
@@ -153,6 +157,10 @@
         font: var(--default-font--style-small-bold);
         padding: 5px;
         align-items: center;
+
+        &--error {
+            color: var(--color-error-text);
+        }
 
         &__icon {
             height: 11px;
