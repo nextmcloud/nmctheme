@@ -74,7 +74,13 @@
       "\"{displayName}\" batch action executed successfully" : "Aktion \"{displayName}\" erfolgreich ausgeführt",
       "Delete permanently": "Endgültig löschen",
       "Unknown error during upload": "Das Hochladen wurde abgebrochen",
-      "few seconds ago": "vor Sekunden"
+      "few seconds ago": "vor Sekunden",
+      "Document": "Dokument",
+      "Spreadsheet": "Tabelle",
+      "Presentation": "Präsentation",
+      "Slideshow": "Slideshow",
+      "Template": "Vorlage",
+      "Filename must not be empty.": "Bitte gib einen Namen ein."
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"
   },
