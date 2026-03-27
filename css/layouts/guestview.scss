@@ -31,6 +31,12 @@
                 display: none;
             }
         }
+
+        .header-end {
+            .public-page-menu__wrapper:has(> a > span > span > .icon-public) {
+                display: none;
+            }
+        }
     }
 
     .app-files_sharing #app-content {
