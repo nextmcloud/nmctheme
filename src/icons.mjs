@@ -187,6 +187,7 @@ const icons = {
 	video: path.join(__dirname, '../img', 'actions', 'play.svg'),
 	export: path.join(__dirname, '../img', 'actions', 'export.svg'),
 	import: path.join(__dirname, '../img', 'actions', 'import.svg'),
+	refresh: path.join(__dirname, '../img', 'actions', 'refresh.svg'),
 	'folder-overlay-lock': path.join(__dirname, '../img', 'actions', 'lock.svg'),
 	'folder-overlay-share': path.join(__dirname, '../img', 'actions', 'share.svg'),
 	'visibility-on': path.join(__dirname, '../img', 'actions', 'visibility-on.svg'),

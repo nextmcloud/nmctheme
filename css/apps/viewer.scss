@@ -26,8 +26,9 @@
         height: var(--header-height);
 
         .icons-menu {
-            padding: 12px 16px 12px 0;
             gap: 0.25rem;
+            inset-inline-end: 0;
+            position: absolute;
 
             & > button, button[aria-label="Actions"], button[aria-label="Aktionen"], button[aria-label*="Edit"], button[aria-label*="Bearbeiten"] {
                 background-color: var(--nmc-color-regular);

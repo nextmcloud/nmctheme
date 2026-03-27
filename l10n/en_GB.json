@@ -69,6 +69,7 @@
       "\"{displayName}\" batch action executed successfully" : "\"{displayName}\" action executed successfully",
       "Delete permanently": "Delete permanently",
       "Unknown error during upload": "Upload has been cancelled",
+      "{ext} file" : "{ext} file",
       "Filename must not be empty.": "Please enter a name."
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"

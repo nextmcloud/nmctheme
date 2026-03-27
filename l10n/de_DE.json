@@ -80,6 +80,7 @@
       "Presentation": "Präsentation",
       "Slideshow": "Slideshow",
       "Template": "Vorlage",
+      "{ext} file" : "{ext}-Datei",
       "Filename must not be empty.": "Bitte geben Sie einen Namen ein."
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"

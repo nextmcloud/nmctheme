@@ -1410,6 +1410,34 @@ table.files-filestable {
 			}
 		}
 	}
+	
+	.files-list-filter__clear-button {
+		background: var(--nmc-ods-blue-primary);
+		border-radius: var(--border-radius-pill);
+		border: none;
+
+		.action-button {
+			padding: 0;
+		}
+
+		.action-button__icon {
+			display: none;
+		}
+
+		.action-button__longtext-wrapper {
+			width: 100%;
+    		text-align: center;
+		}
+
+		.action-button__text {
+			color: var(--nmc-color-text-and-icon-black);
+			font-weight: bold;
+		}
+
+		&:hover {
+			background-color: var(--nmc-ods-blue-hover);
+		}
+	}
 }
 
 // Hide WebDAV, Warnings, and Keyboard shortcuts sections in Files settings

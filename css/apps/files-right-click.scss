@@ -17,6 +17,14 @@
 							display: none;
 						}
 					}
+
+					&.files-list__row-action--submenu {
+						button {
+							svg {
+								display: inline;
+							}
+						}
+					}
 				}
 	
 				&[data-cy-files-list-row-action="details"],
@@ -94,6 +102,22 @@
 				&[data-cy-files-list-row-action="restore"] {
 					span.icon-vue {
 						background-image: var(--icon-restore-dark);
+					}
+				}
+	
+				&[data-cy-files-list-row-action="convert"] {
+					span.icon-vue {
+						background-image: var(--icon-refresh-dark);
+
+						&.icon-vue--directional {
+							background-image: var(--icon-right-condensed-dark);
+						}
+					}
+				}
+	
+				&[data-cy-files-list-row-action="menu-back"] {
+					span.arrow-left-icon {
+						background-image: var(--icon-left-condensed-dark);
 					}
 				}
 			}
