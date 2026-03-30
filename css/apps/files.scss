@@ -460,6 +460,33 @@ table.files-filestable {
 			position: absolute;
 			right: 13rem;
 		}
+
+		button[data-cy-files-list-action="empty-trash"] {
+			align-items: center;
+			all: unset;
+			background-color: var(--color-primary);
+			border: none;
+			border-radius: var(--border-radius-rounded);
+			cursor: pointer;
+			display: flex;
+			justify-content: center;    
+			margin-inline: 1rem;
+			min-height: unset;
+			height: 40px;
+
+			&:hover:not(:disabled) {
+				background-color: var(--color-primary-hover);
+			}
+
+			&:active:not(:disabled) {
+				background-color: var(--color-primary-pressed);
+			}
+
+			.button-vue__text {
+				color: var(--nmc-color-text-and-icon-white);
+				padding: 0 1rem;
+			}
+		}
 	}
 
 	.files-list {
@@ -492,16 +519,18 @@ table.files-filestable {
 				display: flex;
 				flex-direction: row;
 				align-items: center;
-				gap: 15px;
+				gap: 1rem;
+				height: 2rem;
 			}
 
 			// Add separator before active filters
 			.file-list-filters__active {
-				gap: 8px;
+				gap: 0.5rem;
 				list-style: none;
 				padding: 0;
 				margin: 0;
 				flex-wrap: wrap;
+				position: relative;
 
 				// Responsive adjustment for chips
 				@media screen and (max-width: $breakpoint-mobile-small) {
@@ -512,11 +541,11 @@ table.files-filestable {
 				&:not(:empty)::before {
 					content: "";
 					position: absolute;
-					left: 14.3rem;
+					left: -1rem;
 					top: 50%;
 					transform: translateY(-50%);
 					width: 1px;
-					height: 50%;
+					height: 100%;
 					background-color: var(--color-border);
 					margin: 0 8px;
 				}
