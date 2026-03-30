@@ -216,6 +216,7 @@ header {
 				}
 				
 				.notification-heading {
+
 					.button-vue {
 						padding: 0;
 						&:hover {
@@ -233,7 +234,15 @@ header {
 					}
 				}
 
+				.notification-subject {
+
+					.image {
+						display: none;
+					}
+				}
+
 				.notification-actions {
+
 					.button-vue {
 						border-radius: 9999px;
 						margin-inline: 0 8px;
@@ -271,6 +280,20 @@ header {
 
 						.button-vue__label, .button-vue__text {
 							display: unset;
+						}
+					}
+				}
+
+				.dismiss-all {
+
+					.button-vue {
+						padding-inline: 1rem;
+
+						&:hover {
+
+							&::before {
+								display: none;
+							}
 						}
 					}
 				}
