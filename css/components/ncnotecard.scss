@@ -5,4 +5,15 @@
     border: 0;
     gap: 1rem;
     padding: 1.5rem;
+
+    &.notecard--success,
+    &.notecard--info,
+    &.notecard--error,
+    &.notecard--warning {
+        color: var(--nmc-color-text-and-icon-black) !important
+    }
+
+    .button {
+        margin-left: 1rem;
+    }
 }
