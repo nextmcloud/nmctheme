@@ -515,3 +515,25 @@
 		}
 	}
 }
+
+#body-public {
+	.v-popper__popper {
+		.v-popper__wrapper {
+			.v-popper__inner {
+				ul {
+					li {
+						&.upload-picker__menu-entry {
+							&[data-cy-upload-picker-menu-entry="template-new-richdocuments-1"],
+							&[data-cy-upload-picker-menu-entry="template-new-richdocuments-2"],
+							&[data-cy-upload-picker-menu-entry="template-new-richdocuments-3"],
+							&[data-cy-upload-picker-menu-entry="template-new-richdocuments-4"],
+							&[data-cy-upload-picker-menu-entry="template-new-text-0"] {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
