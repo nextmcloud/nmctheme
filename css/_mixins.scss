@@ -13,6 +13,10 @@
 	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%);
 }
 
+@mixin macaw-icon {
+	filter: brightness(0) saturate(100%) invert(67%) sepia(71%) saturate(1009%) hue-rotate(186deg) brightness(100%) contrast(93%);
+}
+
 // Scale primary button style
 @mixin primary-button {
     border: none;

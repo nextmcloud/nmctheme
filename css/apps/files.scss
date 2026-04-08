@@ -90,6 +90,18 @@
 			}
 		}
 
+		&.files-list__row-actions-batch-accept-share {
+			.button-vue__icon {
+				background-image: var(--original-icon-check-dark);
+			}
+		}
+
+		&.files-list__row-actions-batch-reject-share {
+			.button-vue__icon {
+				background-image: var(--original-icon-close-dark);
+			}
+		}
+
 		&:active,
 		&:focus,
 		&:focus-visible {
@@ -1216,6 +1228,23 @@ table.files-filestable {
 										.button-vue__icon {
 											background-image: var(--icon-restore-dark);
 											@include magenta-icon;
+										}
+									}
+
+									&.files-list__row-action-accept-share {
+
+										.button-vue__icon {
+											background-image: var(--icon-check-dark);
+											@include magenta-icon;
+										}
+									}
+
+									&.files-list__row-action-reject-share {
+										color: var(--nmc-ods-blue);
+
+										.button-vue__icon {
+											background-image: var(--icon-close-dark);
+											@include macaw-icon;
 										}
 									}
 
