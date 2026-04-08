@@ -119,9 +119,12 @@ if (document.readyState === 'loading') {
 	setupLinkBubbleFix()
 }
 
+function isPendingShareRow(row: Element): boolean {
+	return !!row.querySelector('.files-list__row-action-accept-share')
+}
+
 /**
  * Prevent row clicks and sidebar opening on pending share rows.
- * Pending share rows are identified by the presence of the accept-share action button.
  */
 function blockPendingShareRowClick(row: HTMLElement): void {
 	if (row.dataset.pendingShareBlocked === 'true') return
@@ -134,12 +137,9 @@ function blockPendingShareRowClick(row: HTMLElement): void {
 		}, true)
 	}
 
-	// Also block row-level clicks (opens sidebar) on non-interactive cells
 	row.addEventListener('click', (event: MouseEvent) => {
 		const target = event.target as HTMLElement
-		const isCheckbox = target.closest('.files-list__row-checkbox')
-		const isActionButton = target.closest('.files-list__row-actions')
-		if (!isCheckbox && !isActionButton) {
+		if (!target.closest('.files-list__row-checkbox') && !target.closest('.files-list__row-actions')) {
 			event.preventDefault()
 			event.stopPropagation()
 		}
@@ -148,36 +148,77 @@ function blockPendingShareRowClick(row: HTMLElement): void {
 	row.dataset.pendingShareBlocked = 'true'
 }
 
-function setupPendingShareRowClickBlock(): void {
-	const observer = new MutationObserver((mutations: MutationRecord[]) => {
-		for (const mutation of mutations) {
-			for (const node of Array.from(mutation.addedNodes)) {
-				if (!(node instanceof Element)) continue
-				const rows: HTMLElement[] = node.matches('tr[data-cy-files-list-row]')
-					? [node as HTMLElement]
-					: Array.from(node.querySelectorAll<HTMLElement>('tr[data-cy-files-list-row]'))
-				for (const row of rows) {
-					if (row.querySelector('.files-list__row-action-accept-share')) {
-						blockPendingShareRowClick(row)
-					}
-				}
-			}
-		}
-	})
-	observer.observe(document.body, { childList: true, subtree: true })
+/**
+ * Filter menu to show only Accept/Reject share if it belongs to a pending share row.
+ */
+function filterPendingSharePopper(popper: Element): void {
+	const menu = popper.querySelector<HTMLElement>('ul[role="menu"]')
+	if (!menu || !menu.querySelector('.files-list__row-action-accept-share')) return
 
-	// Handle rows already present in the DOM
-	document.querySelectorAll<HTMLElement>('tr[data-cy-files-list-row]').forEach(row => {
-		if (row.querySelector('.files-list__row-action-accept-share')) {
-			blockPendingShareRowClick(row)
-		}
+	menu.querySelectorAll<HTMLElement>('li.action, li.action-separator').forEach(item => {
+		const keep = item.classList.contains('files-list__row-action-accept-share')
+			|| item.classList.contains('files-list__row-action-reject-share')
+		item.style.display = keep ? '' : 'none'
 	})
 }
 
+/**
+ * Set up all pending share behaviours: row click blocking and popper menu filtering.
+ * A single MutationObserver handles both DOM concerns.
+ */
+function setupPendingShare(): void {
+	// Handle rows already in the DOM on init
+	document.querySelectorAll<HTMLElement>('tr[data-cy-files-list-row]').forEach(row => {
+		if (isPendingShareRow(row)) blockPendingShareRowClick(row)
+	})
+
+	// Single observer: watches for new rows (childList) and popper visibility changes (attributes)
+	const observer = new MutationObserver((mutations: MutationRecord[]) => {
+		for (const mutation of mutations) {
+			if (mutation.type === 'childList') {
+				for (const node of Array.from(mutation.addedNodes)) {
+					if (!(node instanceof Element)) continue
+					const rows = node.matches('tr[data-cy-files-list-row]')
+						? [node as HTMLElement]
+						: Array.from(node.querySelectorAll<HTMLElement>('tr[data-cy-files-list-row]'))
+					for (const row of rows) {
+						if (isPendingShareRow(row)) blockPendingShareRowClick(row)
+					}
+				}
+			} else if (
+				mutation.type === 'attributes'
+				&& mutation.target instanceof Element
+				&& mutation.target.classList.contains('v-popper__popper')
+				&& mutation.target.classList.contains('v-popper__popper--shown')
+			) {
+				requestAnimationFrame(() => filterPendingSharePopper(mutation.target as Element))
+			}
+		}
+	})
+	observer.observe(document.body, {
+		childList: true,
+		subtree: true,
+		attributes: true,
+		attributeFilter: ['class'],
+	})
+
+	// Click capture: retry across frames until the popper is open
+	document.addEventListener('click', (event: MouseEvent) => {
+		if (!(event.target as Element).closest('button.action-item__menutoggle')) return
+
+		const tryFilter = (remaining: number): void => {
+			const popper = document.querySelector('.v-popper__popper.v-popper__popper--shown')
+			if (popper) { filterPendingSharePopper(popper); return }
+			if (remaining > 0) requestAnimationFrame(() => tryFilter(remaining - 1))
+		}
+		requestAnimationFrame(() => tryFilter(10))
+	}, true)
+}
+
 if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', setupPendingShareRowClickBlock)
+	document.addEventListener('DOMContentLoaded', setupPendingShare)
 } else {
-	setupPendingShareRowClickBlock()
+	setupPendingShare()
 }
 
 window.addEventListener('DOMContentLoaded', function() {
