@@ -199,7 +199,8 @@ header {
 
 			#header-menu-notifications {
 				background-color: var(--color-main-background);
-				border-radius: var(--border-radius);
+				border: 1px solid var(--color-border);
+				border-radius: var(--border-radius-large);
         		margin-top: 8px;
 
 				.bell-outline-icon {

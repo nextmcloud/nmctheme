@@ -139,7 +139,7 @@ export default {
 	&__title {
 		p {
 			font-size: var(--font-size-small);
-			color: var(--nmc-ods-blue-contrast);
+			color: var(--nmc-ods-blue);
 			margin: 0;
 		}
 
@@ -150,7 +150,7 @@ export default {
 
 	&__total {
 		font-size: var(--font-size-small);
-		color: var(--nmc-ods-blue-contrast);
+		color: var(--nmc-ods-blue);
 		font-weight: 500;
 	}
 
