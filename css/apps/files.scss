@@ -1456,6 +1456,11 @@ body.nmc-pendingshares-view {
 		pointer-events: none;
 		cursor: default;
 	}
+
+	.files-list:not(.files-list--grid) .files-list__row-icon .material-design-icon svg {
+		width: 44px !important;
+		height: 36px !important;
+	}
 }
 
 #body-user,
