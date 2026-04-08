@@ -1427,7 +1427,8 @@ table.files-filestable {
 				}
 			}
 
-			// Hide sharing-popup and actions menu for pending share rows
+			// Pending share rows: disable name link interaction to prevent opening the file
+			// and navigating away from the pending shares view
 			tbody tr:has(.files-list__row-action-accept-share) {
 				td.files-list__row-actions {
 					.action-items {
@@ -1446,6 +1447,14 @@ table.files-filestable {
 				}
 			}
 		}
+	}
+}
+
+// Pending shares page: disable name link so files cannot be opened before accepting the share
+body.nmc-pendingshares-view {
+	.files-list__row-name-link {
+		pointer-events: none;
+		cursor: default;
 	}
 }
 

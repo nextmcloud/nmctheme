@@ -119,8 +119,14 @@ if (document.readyState === 'loading') {
 	setupLinkBubbleFix()
 }
 
-function isPendingShareRow(row: Element): boolean {
-	return !!row.querySelector('.files-list__row-action-accept-share')
+const PENDING_SHARES_BODY_CLASS = 'nmc-pendingshares-view'
+
+function isPendingSharesPage(): boolean {
+	return window.location.pathname.includes('/pendingshares')
+}
+
+function syncPendingSharesBodyClass(): void {
+	document.body.classList.toggle(PENDING_SHARES_BODY_CLASS, isPendingSharesPage())
 }
 
 /**
@@ -128,14 +134,6 @@ function isPendingShareRow(row: Element): boolean {
  */
 function blockPendingShareRowClick(row: HTMLElement): void {
 	if (row.dataset.pendingShareBlocked === 'true') return
-
-	const nameLink = row.querySelector<HTMLElement>('.files-list__row-name-link')
-	if (nameLink) {
-		nameLink.addEventListener('click', (event: MouseEvent) => {
-			event.preventDefault()
-			event.stopPropagation()
-		}, true)
-	}
 
 	row.addEventListener('click', (event: MouseEvent) => {
 		const target = event.target as HTMLElement
@@ -167,22 +165,29 @@ function filterPendingSharePopper(popper: Element): void {
  * A single MutationObserver handles both DOM concerns.
  */
 function setupPendingShare(): void {
+	// Sync body class on init and on SPA navigation
+	syncPendingSharesBodyClass()
+	window.addEventListener('popstate', syncPendingSharesBodyClass)
+
 	// Handle rows already in the DOM on init
-	document.querySelectorAll<HTMLElement>('tr[data-cy-files-list-row]').forEach(row => {
-		if (isPendingShareRow(row)) blockPendingShareRowClick(row)
-	})
+	if (isPendingSharesPage()) {
+		document.querySelectorAll<HTMLElement>('tr[data-cy-files-list-row]').forEach(row => {
+			blockPendingShareRowClick(row)
+		})
+	}
 
 	// Single observer: watches for new rows (childList) and popper visibility changes (attributes)
 	const observer = new MutationObserver((mutations: MutationRecord[]) => {
 		for (const mutation of mutations) {
 			if (mutation.type === 'childList') {
+				if (!isPendingSharesPage()) continue
 				for (const node of Array.from(mutation.addedNodes)) {
 					if (!(node instanceof Element)) continue
 					const rows = node.matches('tr[data-cy-files-list-row]')
 						? [node as HTMLElement]
 						: Array.from(node.querySelectorAll<HTMLElement>('tr[data-cy-files-list-row]'))
 					for (const row of rows) {
-						if (isPendingShareRow(row)) blockPendingShareRowClick(row)
+						blockPendingShareRowClick(row)
 					}
 				}
 			} else if (
