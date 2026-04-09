@@ -161,13 +161,27 @@ function filterPendingSharePopper(popper: Element): void {
 }
 
 /**
+ * Patch history.pushState and history.replaceState to dispatch a custom
+ * 'locationchange' event, enabling detection of SPA navigation.
+ */
+function patchHistoryForNavigation(): void {
+	const dispatch = () => window.dispatchEvent(new Event('locationchange'))
+	const originalPush = history.pushState.bind(history)
+	const originalReplace = history.replaceState.bind(history)
+	history.pushState = (...args) => { originalPush(...args); dispatch() }
+	history.replaceState = (...args) => { originalReplace(...args); dispatch() }
+}
+
+/**
  * Set up all pending share behaviours: row click blocking and popper menu filtering.
  * A single MutationObserver handles both DOM concerns.
  */
 function setupPendingShare(): void {
-	// Sync body class on init and on SPA navigation
+	// Sync body class on init and on SPA navigation (pushState + popstate)
+	patchHistoryForNavigation()
 	syncPendingSharesBodyClass()
 	window.addEventListener('popstate', syncPendingSharesBodyClass)
+	window.addEventListener('locationchange', syncPendingSharesBodyClass)
 
 	// Handle rows already in the DOM on init
 	if (isPendingSharesPage()) {
