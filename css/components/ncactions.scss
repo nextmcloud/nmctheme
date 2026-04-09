@@ -13,6 +13,11 @@
 	}
 }
 
+// Hide text label on action menu toggle buttons that show the three-dot icon
+.action-item__menutoggle:has(.dots-horizontal-icon) .button-vue__text {
+	display: none;
+}
+
 #body-user,
 #body-settings,
 #body-public {
