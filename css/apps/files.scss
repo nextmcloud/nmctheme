@@ -1449,6 +1449,26 @@ table.files-filestable {
 	}
 }
 
+// Pending shares page: disable name link so files cannot be opened before accepting the share
+body.nmc-pendingshares-view {
+	.files-list__row-name-link {
+		pointer-events: none;
+		cursor: default;
+	}
+
+	.files-list:not(.files-list--grid) .files-list__row-icon .material-design-icon svg {
+		width: 44px !important;
+		height: 36px !important;
+	}
+
+	.files-list__row-actions-batch-move-copy,
+	.files-list__row-actions-batch-download,
+	.files-list__row-actions-batch-delete,
+	.files-list__row-actions-batch-cancel_select {
+		display: none;
+	}
+}
+
 #body-user,
 #body-public {
 
