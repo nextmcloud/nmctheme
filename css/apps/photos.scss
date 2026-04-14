@@ -1724,16 +1724,9 @@
 
 			&__public-link {
 				min-height: 2rem;
-    			// justify-content: flex-end;
     			gap: 0.5rem;
 				margin-top: 1rem;
 			}
-			// .button-vue__icon{
-			// 	min-width: 2rem !important;
-    		// 	width: 2rem !important;
-    		// 	min-height: 2rem !important;
-    		// 	height: 2rem !important;
-			// }
 			.button-vue {
 				padding: 0 0.5rem !important;
 				min-height: 2rem !important;
@@ -1751,6 +1744,14 @@
 
 					.icon {
 						background-size: 18px;
+
+						&.icon-clipboard {
+							background-image: var(--original-icon-clipboard-dark);
+						}
+
+						&.icon-delete {
+							background-image: var(--original-icon-delete-dark);
+						}
 					}
 				}
 			}
