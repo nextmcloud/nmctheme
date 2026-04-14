@@ -664,6 +664,15 @@
 				padding: 1.5rem;
 			}
 
+			&.empty-content-with-illustration {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: center;
+				flex-grow: 1;
+				padding: 1.5rem;
+			}
+
 			&__icon {
 				background-color: var(--nmc-color-text-and-icon-white);
 				height: 320px;
