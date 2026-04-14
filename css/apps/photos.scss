@@ -662,6 +662,14 @@
 				justify-content: start;
 				flex-grow: 1;
 				padding: 1.5rem;
+
+				.empty-content__icon {
+					background-color: var(--nmc-color-text-and-icon-white);
+					height: 320px;
+					margin-top: 2.5rem;
+					opacity: 1;
+					width: 420px;
+				}
 			}
 
 			&.empty-content-with-illustration {
@@ -670,15 +678,11 @@
 				flex-direction: column;
 				justify-content: center;
 				flex-grow: 1;
+				height: 100%;
 				padding: 1.5rem;
 			}
 
 			&__icon {
-				background-color: var(--nmc-color-text-and-icon-white);
-				height: 320px;
-				margin-top: 2.5rem;
-				opacity: 1;
-				width: 420px;
 
 				.image-plus-outline-icon {
 					background-image: url(../img/decorative_images/empty-files.svg);
