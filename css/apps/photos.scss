@@ -662,14 +662,27 @@
 				justify-content: start;
 				flex-grow: 1;
 				padding: 1.5rem;
+
+				.empty-content__icon {
+					background-color: var(--nmc-color-text-and-icon-white);
+					height: 320px;
+					margin-top: 2.5rem;
+					opacity: 1;
+					width: 420px;
+				}
+			}
+
+			&.empty-content-with-illustration {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: center;
+				flex-grow: 1;
+				height: 100%;
+				padding: 1.5rem;
 			}
 
 			&__icon {
-				background-color: var(--nmc-color-text-and-icon-white);
-				height: 320px;
-				margin-top: 2.5rem;
-				opacity: 1;
-				width: 420px;
 
 				.image-plus-outline-icon {
 					background-image: url(../img/decorative_images/empty-files.svg);
@@ -1724,16 +1737,9 @@
 
 			&__public-link {
 				min-height: 2rem;
-    			// justify-content: flex-end;
     			gap: 0.5rem;
 				margin-top: 1rem;
 			}
-			// .button-vue__icon{
-			// 	min-width: 2rem !important;
-    		// 	width: 2rem !important;
-    		// 	min-height: 2rem !important;
-    		// 	height: 2rem !important;
-			// }
 			.button-vue {
 				padding: 0 0.5rem !important;
 				min-height: 2rem !important;
@@ -1751,6 +1757,14 @@
 
 					.icon {
 						background-size: 18px;
+
+						&.icon-clipboard {
+							background-image: var(--original-icon-clipboard-dark);
+						}
+
+						&.icon-delete {
+							background-image: var(--original-icon-delete-dark);
+						}
 					}
 				}
 			}
