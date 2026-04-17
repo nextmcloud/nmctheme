@@ -407,7 +407,6 @@ table.files-filestable {
 	}
 }
 
-
 #app-content-vue {
 
 	// Override favorite marker stroke color
@@ -683,6 +682,10 @@ table.files-filestable {
 
 					.empty-content__icon {
 						background-image: url('../img/decorative_images/mouse.svg');
+
+						@media (prefers-color-scheme: dark) {
+							background-image: url('../img/decorative_images/mouse-dark.svg');
+						}
 					}
 				}
 
@@ -690,6 +693,10 @@ table.files-filestable {
 
 					.empty-content__icon {
 						background-image: url('../img/decorative_images/sad-unicorn.svg');
+
+						@media (prefers-color-scheme: dark) {
+							background-image: url('../img/decorative_images/sad-unicorn-dark.svg');
+						}
 					}
 				}
 
@@ -697,6 +704,10 @@ table.files-filestable {
 
 					.empty-content__icon {
 						background-image: url('../img/decorative_images/cat-family.svg');
+
+						@media (prefers-color-scheme: dark) {
+							background-image: url('../img/decorative_images/cat-family-dark.svg');
+						}
 					}
 				}
 
@@ -704,6 +715,10 @@ table.files-filestable {
 
 					.empty-content__icon {
 						background-image: url('../img/decorative_images/pandas.svg');
+
+						@media (prefers-color-scheme: dark) {
+							background-image: url('../img/decorative_images/pandas-dark.svg');
+						}
 					}
 				}
 
@@ -711,6 +726,10 @@ table.files-filestable {
 
 					.empty-content__icon {
 						background-image: url('../img/decorative_images/cat.svg');
+
+						@media (prefers-color-scheme: dark) {
+							background-image: url('../img/decorative_images/cat-dark.svg');
+						}
 					}
 				}	
 
@@ -718,6 +737,10 @@ table.files-filestable {
 
 					.empty-content__icon {
 						background-image: url('../img/decorative_images/unicorn.svg');
+
+						@media (prefers-color-scheme: dark) {
+							background-image: url('../img/decorative_images/unicorn-dark.svg');
+						}
 					}
 				}	
 
@@ -727,7 +750,7 @@ table.files-filestable {
 					background-position: center;
 					height: 100%;
 					width: 100%;
-					max-height: 380px;
+					max-height: 400px;
 					opacity: 1;
 
 					.icon-vue {
@@ -1240,11 +1263,14 @@ table.files-filestable {
 									}
 
 									&.files-list__row-action-reject-share {
-										color: var(--nmc-ods-blue);
 
 										.button-vue__icon {
 											background-image: var(--icon-close-dark);
 											@include macaw-icon;
+										}
+
+										.button-vue__text {
+											color: var(--nmc-ods-blue);
 										}
 									}
 
@@ -1442,6 +1468,63 @@ table.files-filestable {
 						li.action:not(.files-list__row-action-accept-share):not(.files-list__row-action-reject-share) {
 							display: none !important;
 						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+#body-user,
+#body-public {
+
+	&[data-themes*=dark] {
+
+		.files-list__empty {
+
+			.empty-content {
+
+				&[data-cy-files-content-empty="files"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/mouse-dark.svg');
+					}
+				}
+
+				&[data-cy-files-content-empty="sharingin"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/sad-unicorn-dark.svg');
+					}
+				}
+
+				&[data-cy-files-content-empty="sharingout"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/cat-family-dark.svg');
+					}
+				}
+
+				&[data-cy-files-content-empty="pendingshares"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/pandas-dark.svg');
+					}
+				}
+
+				&[data-cy-files-content-empty="trashbin"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/cat-dark.svg');
+					}
+				}	
+
+				&[data-cy-files-content-empty="favorites"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/unicorn-dark.svg');
 					}
 				}
 			}

@@ -124,6 +124,34 @@
                         margin-bottom: 0.5rem;
                     }
                 }
+
+                &:has(.modal__content--exif) {
+                    padding: 0;
+
+                    .modal__content--file {
+
+                        .modal__left {
+                            border-radius: var(--border-radius-container) var(--border-radius-container) 0 0;
+                            margin: 0;
+                            padding-top: 50%;
+
+                            .modal__image {
+                                border-radius: 0;
+                                min-height: auto;
+                            }
+                        }
+
+                        .modal__right { 
+                            padding-block: 1rem;
+                            padding-inline: 1.5rem;
+                        }
+                    }
+
+                    .modal-container__close {
+                        background-color: var(--color-background-hover);
+                        border-radius: var(--border-radius-element);
+                    }
+                }
             }
         }
 

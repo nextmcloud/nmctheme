@@ -126,6 +126,9 @@
       "Link to folder": "Link zum Ordner",
       "Shared with others": "Meine geteilten Inhalte",
       "Shared with you": "Mit mir geteilt",
+      "Public share" : "Freigabe",
+      "Share link ({label})" : "Freigabe Link ({label})",
+      "Share link ({index})" : "Freigabe Link ({index})",
       "No recommendations. Start typing.": "Keine Empfehlungen. Beginnen..."
     },
     "pluralForm": "nplurals=2; plural=(n != 1);"

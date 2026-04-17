@@ -29,9 +29,13 @@
 	
 			li.vue-crumb {
 
-				a.button-vue {
+				.button-vue {
 					margin: 0;
 					padding: 0;
+
+					&__wrapper {
+						justify-content: flex-start;
+					}
 
 					&:hover {
 						background-color: initial;

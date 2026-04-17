@@ -91,6 +91,10 @@
 
         &.guest-box {
             top: unset;
+
+            .footer__simple-sign-up {
+                display: none;
+            }
         }
     }
 }

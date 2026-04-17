@@ -149,13 +149,6 @@
 				font-size: 1.75rem;
 			}
 
-			&__content {
-
-				.upload-picker button {
-					display: none;
-				}
-			}
-
 			&__back {
 				width: 44px !important;
 				height: 44px !important;
@@ -194,6 +187,10 @@
 			&__content-right,
 			&__content-buttons {
 
+				.upload-picker {
+					height: 40px;
+				}
+
 				button {
 					border-radius: var(--border-radius-rounded);
 					border: none;
@@ -205,6 +202,11 @@
 					padding-left: 0.5rem;
 					padding-right: 0.5rem;
 					width: auto !important;
+
+					&.button-vue--icon-only {
+						width: 40px !important;
+						min-width: 40px;
+					}
 
 					&[data-cy-header-action="create-album"] {
 						
@@ -325,6 +327,7 @@
 		}
 
 		.albums-list {
+
 			.photos-navigation {
 
 				// show 'Add' button for "Create a new album"
@@ -665,10 +668,10 @@
 
 				.empty-content__icon {
 					background-color: var(--nmc-color-text-and-icon-white);
-					height: 320px;
+					height: 420px;
 					margin-top: 2.5rem;
 					opacity: 1;
-					width: 420px;
+					width: 480px;
 				}
 			}
 
@@ -692,6 +695,10 @@
 					height: 100%;
 					width: 100%;
 
+					@media (prefers-color-scheme: dark) {
+						background-image: url(../img/decorative_images/empty-files-dark.svg);
+					}
+
 					svg {
 						display: none;
 					}
@@ -709,10 +716,9 @@
 			padding: 1.5rem;
 
 			.empty-content__wrapper {
-				background-color: var(--nmc-color-text-and-icon-white);
 				margin-top: 2.5rem;
-				height: 320px;
-				width: 420px;
+				height: 420px;
+				width: 480px;
 			}
 
 			.empty-content__image {
@@ -730,6 +736,21 @@
 
 			&[data-title="videos"] .empty-content__image {
 				background-image: url(../img/decorative_images/empty-videos.svg);
+			}
+
+			@media (prefers-color-scheme: dark) {
+
+				.empty-content__image {
+					background-image: url(../img/decorative_images/empty-files-dark.svg);
+
+					&.empty-collection-content__image {
+						background-image: url(../img/decorative_images/empty-albums-dark.svg);
+					}
+				}
+
+				&[data-title="videos"] .empty-content__image {
+					background-image: url(../img/decorative_images/empty-videos-dark.svg);
+				}
 			}
 
 			.empty-content__name {
@@ -903,146 +924,269 @@
 	}
 }
 
-// New album modal window
-#body-user .modal-container {
+#body-user,
+#body-public {
 
-	.album-creation__heading {
-		margin-top: 0;
-	}
+	&[data-themes*=dark] {
 
-	.album-form,
-	.album-picker {
-		background-color: var(--color-main-background);
-		height: auto;
-		padding: 0 !important;
+		.app-photos {
 
-		div.form-inputs {
+			#app-content-vue {
 
-			// 'Name of the album' input field
-			.input-field {
-				margin-bottom: 1rem;
+				.empty-collection-content {
+
+					.empty-content__image {
+						background-image: url(../img/decorative_images/empty-files-dark.svg);
+
+						&.empty-collection-content__image {
+							background-image: url(../img/decorative_images/empty-albums-dark.svg);
+						}
+					}
+
+					&[data-title="videos"] .empty-content__image {
+						background-image: url(../img/decorative_images/empty-videos-dark.svg);
+					}
+				}
+
+				.photos-navigation {
+
+					.empty-content {
+
+						.image-plus-outline-icon {
+							background-image: url(../img/decorative_images/empty-files-dark.svg);
+						}
+					}
+				}
+			}
+		}
+
+		.empty-content {
+
+			&__icon {
+
+				.image-plus-outline-icon {
+					background-image: url(../img/decorative_images/empty-files-dark.svg);
+				}
+			}
+		}
+
+		.modal-container {
+
+			.album-form {
+
+				.form-cover {
+					background-image: url(../img/decorative_images/empty-files-dark.svg);
+				}
 			}
 
-			// hide 'Location of the album' input
-			&>label {
+			.empty-collection-content {
+
+				.empty-content__image {
+					background-image: url(../img/decorative_images/empty-files-dark.svg);
+				}
+			}
+		}
+	}
+}
+
+// New album modal window
+#body-user {
+
+	.modal-container {
+
+		.empty-collection-content {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			margin-block: 2rem -12rem;
+
+			.empty-content__wrapper {
+				height: 320px;
+				width: 420px;
+			}
+
+			.empty-content__image {
+				background-image: url(../img/decorative_images/empty-files.svg);
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				height: 100%;
+				width: 100%;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				.empty-content__image {
+					background-image: url(../img/decorative_images/empty-files-dark.svg);
+				}
+			}
+
+			.empty-content__name {
+				font-size: 2rem;
+				margin-block: 1rem;
+				min-height: 2.5rem;
+				line-height: 2.5rem;
+				text-align: center;
+			}
+
+			.empty-content__action, .button-vue  {
 				display: none;
 			}
 		}
 
-		.form-buttons {
+		.album-creation__heading {
+			font-size: 1.5rem;
+			height: unset;
+			line-height: 1.5rem;
+			margin-bottom: 1.5rem;
+			margin-top: 0;
+			min-height: unset;
+			text-align: left;
+		}
 
-			.left-buttons {
+		.album-form,
+		.album-picker {
+			background-color: var(--color-main-background);
+			height: auto;
+			padding: 0 !important;
 
-				// 'Back' button
-				.button-vue--vue-tertiary {
-					border: 1px solid var(--color-border);
+			div.form-inputs {
+
+				// 'Name of the album' input field
+				.input-field {
+					margin-bottom: 1rem;
+				}
+
+				// hide 'Location of the album' input
+				&>label {
+					display: none;
 				}
 			}
 
-			.right-buttons {
+			.form-buttons {
 
-				// Hide 'Add collaborators' button 
-				.button-vue--vue-secondary {
+				.left-buttons {
+
+					// 'Back' button
+					.button-vue--vue-tertiary {
+						border: 1px solid var(--color-border);
+					}
+				}
+
+				.right-buttons {
+
+					// Hide 'Add collaborators' button 
+					.button-vue--vue-secondary {
+						display: none;
+					}
+
+					// 'Create album' button
+					.button-vue--vue-primary {
+						margin: 0 !important;
+
+						.button-vue__icon {
+							display: none;
+						}
+					}
+				}
+			}
+
+			h2 {
+				font-size: 1.5rem;
+				height: auto !important;
+				margin-block: 0 1.5rem;
+			}
+
+			.albums-container {
+				overflow-x: unset !important;
+				overflow-y: auto;
+				margin-bottom: 1.5rem;
+
+				.album {
+
+					.list-item {
+						border-radius: var(--border-radius-large);
+						padding: 0.5rem !important;
+						margin-left: 0;
+						transition: none;
+
+						&:hover {
+							background-color: var(--color-background-hover);
+						}
+					}
+				}
+			}
+
+			.new-album-button {
+				background-color: var(--color-primary);
+				border: 0;
+				color: var(--nmc-color-text-and-icon-white);
+				margin-right: 0;
+				margin-left: 0;
+
+				&:hover:not(:disabled) {
+					background-color: var(--color-primary-hover);
+				}
+
+				.button-vue__icon {
+					margin-left: -1rem;
+				}
+			}
+		}
+
+		.timeline__heading {
+			margin: 0;
+			padding: 0;
+		}
+
+		.album-form {
+			margin: 0;
+			padding: 0 !important;
+
+			.form-cover {
+				text-align: center;
+				padding: 1rem;
+				background-image: url(../img/decorative_images/empty-files.svg);
+				background-position: center;
+				background-repeat: no-repeat;
+				min-height: 320px;
+
+				@media (prefers-color-scheme: dark) {
+					background-image: url(../img/decorative_images/empty-files-dark.svg);
+				}
+
+				&__image {
+					display: none;
+				}
+			}
+
+			.form-inputs {
+				.input-field:nth-child(2) {
 					display: none;
 				}
 
-				// 'Create album' button
-				.button-vue--vue-primary {
-					margin: 0 !important;
-
-					.button-vue__icon {
+				.input-field__main-wrapper {
+					label {
 						display: none;
 					}
 				}
 			}
-		}
 
-		h2 {
-			font-size: 1.5rem;
-			height: auto !important;
-			margin-block: 0 1.5rem;
-		}
+			.form-buttons {
+				flex-direction: row;
+				gap: 0.5rem;
+				justify-content: flex-end;
 
-		.albums-container {
-			overflow-x: unset !important;
-			overflow-y: auto;
-			margin-bottom: 1.5rem;
-
-			.album {
-
-				.list-item {
-					border-radius: var(--border-radius-large);
-					padding: 0.5rem !important;
-					margin-left: 0;
-					transition: none;
-
-					&:hover {
-						background-color: var(--color-background-hover);
-					}
+				.left-buttons {
+					flex-grow: unset;
 				}
-			}
-		}
-
-		.new-album-button {
-			background-color: var(--color-primary);
-			border: 0;
-			color: var(--nmc-color-text-and-icon-white);
-			margin-right: 0;
-			margin-left: 0;
-
-			&:hover:not(:disabled) {
-				background-color: var(--color-primary-hover);
-			}
-
-			.button-vue__icon {
-				margin-left: -1rem;
-			}
-		}
-	}
-
-	.timeline__heading {
-		margin: 0;
-		padding: 0;
-	}
-
-	.album-form {
-		margin: 0;
-		padding: 0 !important;
-
-		.form-cover {
-			text-align: center;
-			padding: 1rem;
-
-			&__image {
-				background-color: var(--nmc-color-text-and-icon-white);
-			}
-		}
-
-		.form-inputs {
-			.input-field:nth-child(2) {
-				display: none;
-			}
-
-			.input-field__main-wrapper {
-				label {
-					display: none;
-				}
-			}
-		}
-
-		.form-buttons {
-			flex-direction: row;
-			gap: 0.5rem;
-			justify-content: flex-end;
-
-			.left-buttons {
-				flex-grow: unset;
 			}
 		}
 	}
 }
 
 #body-user .modal-header {
+
 	h2.modal-title {
 		display: none;
 	}
@@ -1086,13 +1230,6 @@
 
 		.button-vue--tertiary {
 			border: 1px solid var(--color-main-text);
-		}
-	}
-
-	.photos-picker__actions {
-
-		.upload-picker, .button-vue__icon {
-			display: none;
 		}
 	}
 
@@ -1359,6 +1496,14 @@
 			.input-field {
 				max-width: 100%;
 				margin: 0;
+
+				&__input {
+					padding-left: 2.5rem;
+				}
+
+				&__icon--leading {
+					bottom: 8px;
+				}
 			}
 		}
 

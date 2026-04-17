@@ -71,12 +71,13 @@ header {
 	}
 
 	.header-start {
+
 		.app-menu {
 			width: 100%;
 			display: flex;
 			flex-shrink: 1;
 			flex-wrap: wrap;
-			margin-right: 1rem;
+			margin-inline: 4rem 2rem;
 
 			&__list {
 				margin: 0;
