@@ -120,6 +120,11 @@
 
 	.sharingPopup__fileinfo, .sharingTab__fileinfo {
 		font-size: var(--font-size-small);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		max-width: 100%;
+		display: block;
 	}
 }
 
