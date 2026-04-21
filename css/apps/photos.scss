@@ -1942,3 +1942,17 @@
 		}
 	}
 }
+
+
+#body-public {
+
+	&:has(.album-container) {
+
+		.modal-header {
+
+			.header-actions {
+				display: none;
+			}
+		}
+	}
+}
