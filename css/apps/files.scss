@@ -517,9 +517,9 @@ table.files-filestable {
 
 		&__thead-overlay {
 			border: 0;
+    		margin-block: 6px -6px;
 			margin-inline-start: 4rem;
 			padding-inline-end: 1rem;
-			top: 0;
 		}
 
 		.files-list__filters {
@@ -940,8 +940,10 @@ table.files-filestable {
 			}
 		}
 
-		tr:last-child {
-			border-bottom: 0;;
+		tbody {
+			tr:last-child {
+				border-bottom: 0;;
+			}
 		}
 
 		// Files table and grid
@@ -1103,7 +1105,15 @@ table.files-filestable {
 
 			@include files-checkboxes-v28;
 
+			thead {
+
+				tr {
+					height: 56px;
+				}
+			}
+
 			tbody {
+
 				tr {
 					height: 68px;
 
