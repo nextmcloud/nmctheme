@@ -62,11 +62,25 @@
     }
 }
 
-.sharingTabDetailsView {
+.sharingTabDetailsView,
+.sharingPopupDetailsView {
 
     #share-date-picker {
         color-scheme: var(--nmc-color-sceme);
+
+        &::-webkit-calendar-picker-indicator {
+            filter: invert(0);
+            cursor: pointer;
+
+            @media (prefers-color-scheme: dark) {
+                filter: invert(1);
+            }
+        }
     }
+}
+
+.sharingPopupDetailsView {
+    right: 0;
 }
 
 .sharingTabDetailsView, .sharingPopupDetailsView {
