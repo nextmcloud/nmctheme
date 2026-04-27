@@ -428,8 +428,13 @@
 					justify-content: space-between;
 
 					.actions-right{
-						display: flex;
-						gap: 30px;
+						display: grid;
+						gap: 0 30px;
+						grid: auto-flow/3fr 3fr;
+
+						@media screen and (max-width: $breakpoint-mobile) {
+							display: none;
+						}
 					}
 				}
 
