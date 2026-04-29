@@ -36,6 +36,27 @@
             .public-page-menu__wrapper:has(> a > span > span > .icon-public) {
                 display: none;
             }
+
+            #public-page-menu {
+                @media screen and (min-width: 513px) {
+                    display: none;
+                }
+
+                button.header-menu__trigger {
+                    .button-vue__icon svg {
+                        display: block !important;
+                    }
+                }
+
+                .list-item-content__details {
+                    display: none;
+                }
+
+                li:has(#save--link),
+                li:has(#directLink--link) {
+                    display: none;
+                }
+            }
         }
     }
 

@@ -477,7 +477,7 @@ header {
 		line-height: 1.25;
 	}
 	
-	.public-page-user-menu, .header-menu{
+	.public-page-user-menu, .header-menu:not(#public-page-menu) {
 		display: none;
 	}
 }
