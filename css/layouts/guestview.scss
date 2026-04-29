@@ -37,12 +37,7 @@
                 display: none;
             }
 
-            // On mobile, the Download button is moved into NcHeaderMenu by Vue.
-            // The global header rule hides SVGs inside .header-menu icons,
-            // so the trigger (dots icon) becomes invisible — restore it here.
             #public-page-menu {
-                // Hide dots menu on desktop — only needed on mobile where the
-                // primary button is replaced by a dropdown (Vue useIsSmallMobile < 512px)
                 @media screen and (min-width: 513px) {
                     display: none;
                 }
