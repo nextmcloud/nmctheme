@@ -36,6 +36,17 @@
             .public-page-menu__wrapper:has(> a > span > span > .icon-public) {
                 display: none;
             }
+
+            // On mobile, the Download button is moved into NcHeaderMenu by Vue.
+            // The global header rule hides SVGs inside .header-menu icons,
+            // so the trigger (dots icon) becomes invisible — restore it here.
+            #public-page-menu {
+                button.header-menu__trigger {
+                    .button-vue__icon svg {
+                        display: block !important;
+                    }
+                }
+            }
         }
     }
 
