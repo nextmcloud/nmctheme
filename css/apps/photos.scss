@@ -137,6 +137,15 @@
 					}
 				}	
 			}
+
+			&__title {
+				max-width: 65%;
+				.album__details {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space:  nowrap;
+				}
+			}
 		}
 
 		.photos-navigation {
