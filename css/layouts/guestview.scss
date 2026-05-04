@@ -81,6 +81,11 @@
         }
     }
 
+    // file picker folder icon color in text editor guest view
+    .file-picker__name-container .folder-icon {
+        color: var(--nmc-ods-blue);
+    }
+
     button.action-item.files-list__row-action-sharing-popup {
         display: none !important;
     }
