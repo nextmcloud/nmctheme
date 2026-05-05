@@ -1561,6 +1561,12 @@ body.nmc-pendingshares-view {
 	.files-list__row-actions-batch-favorite {
 		display: none;
 	}
+
+	@media screen and (min-width: $breakpoint-desktop) {
+		.files-list__row-actions-batch .action-item__menutoggle {
+			display: none;
+		}
+	}
 }
 
 #body-user,
