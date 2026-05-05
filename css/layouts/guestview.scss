@@ -86,9 +86,7 @@
     }
 
     .dialog__navigation.file-picker__navigation .file-picker__filter-input {
-        max-width: 100% !important;
-        width: 100% !important;
-        flex: 1 !important;
+        max-width: 100%;
     }
 
     button.action-item.files-list__row-action-sharing-popup {
