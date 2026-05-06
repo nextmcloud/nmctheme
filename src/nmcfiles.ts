@@ -130,7 +130,7 @@ function syncPendingSharesBodyClass(): void {
 }
 
 /**
- * Prevent row clicks and sidebar opening on pending share rows.
+ * Prevent row clicks, sidebar opening, and right-click context menu on pending share rows.
  */
 function blockPendingShareRowClick(row: HTMLElement): void {
 	if (row.dataset.pendingShareBlocked === 'true') return
@@ -141,6 +141,11 @@ function blockPendingShareRowClick(row: HTMLElement): void {
 			event.preventDefault()
 			event.stopPropagation()
 		}
+	}, true)
+
+	row.addEventListener('contextmenu', (event: MouseEvent) => {
+		event.preventDefault()
+		event.stopPropagation()
 	}, true)
 
 	row.dataset.pendingShareBlocked = 'true'

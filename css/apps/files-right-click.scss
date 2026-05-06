@@ -120,6 +120,18 @@
 						background-image: var(--icon-left-condensed-dark);
 					}
 				}
+
+				&[data-cy-files-list-row-action="accept-share"] {
+					span.icon-vue {
+						background-image: var(--icon-check-dark);
+					}
+				}
+
+				&[data-cy-files-list-row-action="reject-share"] {
+					span.icon-vue {
+						background-image: var(--icon-close-dark);
+					}
+				}
 			}
 		}
 	}
