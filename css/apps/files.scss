@@ -959,10 +959,10 @@ table.files-filestable {
 				th.files-list__column.files-list__ {
 					&row-checkbox {
 						width: 4rem;
-						
+
 						.checkbox-radio-switch__input:focus-visible + .checkbox-radio-switch__content {
-							border: none !important; /* or your desired style */
-							outline: none !important; /* Remove default focus outline */
+							border: none !important;
+							outline: none !important;
 						}
 					}
 
