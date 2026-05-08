@@ -201,6 +201,7 @@
       "Upload Date" : "Upload Date",
       "You are about to delete {imageName}. Are you sure?" : "You are about to delete {imageName}. Are you sure?",
       "Add photos to this album" : "Add photos and videos to this album",
+      "You can organize all your photos in as many albums as you like. You have not created an album yet." : "You can organize all your photos in as many albums as you like. You have not created an album yet.",
       "Choose the folders from where photos and videos are shown." : "Here you can set whether your media area displays photos and videos from your entire cloud, or only from one or more specific folders.",
       "Choose the folder where photos and albums are uploaded to." : "When you upload photos or videos within the media area, they must be saved. Click here which folder they should be saved in."
     },

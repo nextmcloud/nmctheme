@@ -68,8 +68,8 @@ header {
 			background-image: var(--image-logoheader);
 			position: initial;
 			width: 72px;
-			height:72px;
-			margin:0
+			height: 72px;
+			margin: 0;
 		}
 
 		.title {
@@ -89,7 +89,11 @@ header {
 			display: flex;
 			flex-shrink: 1;
 			flex-wrap: wrap;
-			margin-inline: 4rem 2rem;
+			margin-inline: 4rem 0;
+
+			@media screen and (max-width: $breakpoint-mobile) {
+				margin-inline: 1rem 0;
+			}
 
 			&__list {
 				margin: 0;
@@ -98,7 +102,6 @@ header {
 			--app-menu-entry-growth: unset;
 
 			&__overflow {
-				margin-inline: 1rem;
 
 				.button-vue--vue-tertiary {
 					opacity: 1;
@@ -108,10 +111,10 @@ header {
 			}
 
 			button.action-item__menutoggle {
-				height: 32px;
-				width: 32px !important;
-				min-height: 32px;
-				min-width: 32px;
+				height: 3rem;
+				width: 3rem !important;
+				min-height: 3rem;
+				min-width: 3rem;
 
 				background-image: var(--icon-menu-dark);
 				background-size: auto 24px;
