@@ -17,6 +17,14 @@
     .viewer__content {
         height: calc(100vh - var(--header-height) - var(--footer-height));
     }
+
+    &[data-handler="text"] {
+        --footer-height: 0px;
+
+        .viewer__footer {
+            display: none;
+        }
+    }
     
     .modal-header {
 
