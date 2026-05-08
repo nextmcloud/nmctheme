@@ -1052,6 +1052,14 @@ table.files-filestable {
 		}
 
 
+		thead {
+
+			tr {
+				height: 56px;
+			}
+		}
+
+
 		// Not File Grid View for v30
 		&:not(.files-list--grid) {
 
@@ -1104,13 +1112,6 @@ table.files-filestable {
 			}
 
 			@include files-checkboxes-v28;
-
-			thead {
-
-				tr {
-					height: 56px;
-				}
-			}
 
 			tbody {
 
