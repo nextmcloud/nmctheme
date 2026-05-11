@@ -959,6 +959,11 @@ table.files-filestable {
 				th.files-list__column.files-list__ {
 					&row-checkbox {
 						width: 4rem;
+
+						.checkbox-radio-switch__input:focus-visible + .checkbox-radio-switch__content {
+							border: none !important;
+							outline: none !important;
+						}
 					}
 
 					&row-name {
@@ -1558,15 +1563,8 @@ body.nmc-pendingshares-view {
 	.files-list__row-actions-batch-move-copy,
 	.files-list__row-actions-batch-download,
 	.files-list__row-actions-batch-delete,
-	.files-list__row-actions-batch-cancel_select,
-	.files-list__row-actions-batch-favorite {
+	.files-list__row-actions-batch-cancel_select {
 		display: none;
-	}
-
-	@media screen and (min-width: $breakpoint-desktop) {
-		.files-list__row-actions-batch .action-item__menutoggle {
-			display: none;
-		}
 	}
 }
 
