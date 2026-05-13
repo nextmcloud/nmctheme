@@ -45,8 +45,8 @@ const updateFooterVisibility = () => {
 		return
 	}
 
-	const viewerExists = document.getElementById('viewer') !== null
-	footer.style.display = viewerExists ? 'none' : ''
+	const editorExists = document.querySelector('#viewer, #direct-editor') !== null
+	footer.style.display = editorExists ? 'none' : ''
 }
 
 // Footer erstellen/aktualisieren
