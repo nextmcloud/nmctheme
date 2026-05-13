@@ -18,7 +18,7 @@ footer {
     --footer-font: var(--default-font-style-bold);
 }
 
-#viewer[data-handler] ~ #telekom-minimal-footer {
+#viewer ~ #telekom-minimal-footer {
 	display: none;
 }
 
