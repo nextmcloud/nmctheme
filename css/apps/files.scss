@@ -465,6 +465,10 @@ table.files-filestable {
 		.upload-picker__progress {
 			width: 320px;
 			max-width: 320px;
+			
+			//Adjusting the position of the progress bar to align with the secondary loader
+			margin-right: 6rem;
+    		margin-top: 23px;
 		}
 		
 		.files-list__refresh-icon {
