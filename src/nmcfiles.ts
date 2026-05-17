@@ -245,58 +245,25 @@ if (document.readyState === 'loading') {
 	setupPendingShare()
 }
 
-/**
- * Fix for empty screen when switching between grid and list view.
- *
- * Root cause: the .files-list element is the actual scroll container. When the
- * view class changes (list to grid or vice versa), the virtual scroll does not
- * automatically recalculate visible rows for the new item sizes, leaving a blank
- * screen until the user scrolls. Dispatching a synthetic scroll event on the
- * .files-list element triggers the recalculation without changing scroll position.
- */
+/** Fixes empty file list when switching between grid and list view. */
 function setupGridViewScrollFix(): void {
 	let filesListEl: Element | null = null
 	let classObserver: MutationObserver | null = null
 
-	/**
-	 * Forces the virtual scroll to recalculate after a view switch.
-	 *
-	 * The actual scroll container is the .files-list element itself (scrollTop > 0
-	 * when scrolled, confirmed via DOM inspection). We dispatch a scroll event on it
-	 * so the virtual scroll recalculates visible rows at the current scroll position.
-	 * setTimeout ensures CSS has fully reflowed before the event fires.
-	 * @param scrollContainer The .files-list element to dispatch the scroll event on.
-	 */
-	function forceVirtualScrollUpdate(scrollContainer: Element): void {
-		setTimeout(() => {
-			scrollContainer.dispatchEvent(new Event('scroll', { bubbles: true }))
-		}, 0)
-	}
+	const domObserver = new MutationObserver(() => {
+		const el = document.querySelector('.files-list')
+		if (!el || el === filesListEl) return
+		filesListEl = el
 
-	/**
-	 * Attaches a class mutation observer to the files list element.
-	 * @param el The files list element to observe.
-	 */
-	function attachClassObserver(el: Element): void {
 		let prevIsGrid = el.classList.contains('files-list--grid')
 		classObserver?.disconnect()
 		classObserver = new MutationObserver(() => {
 			const isGrid = el.classList.contains('files-list--grid')
 			if (isGrid === prevIsGrid) return
 			prevIsGrid = isGrid
-
-			// Wait one frame for Vue to finish applying the new layout
-			requestAnimationFrame(() => forceVirtualScrollUpdate(el))
+			setTimeout(() => el.dispatchEvent(new Event('scroll', { bubbles: true })), 0)
 		})
 		classObserver.observe(el, { attributes: true, attributeFilter: ['class'] })
-	}
-
-	const domObserver = new MutationObserver(() => {
-		const el = document.querySelector('.files-list')
-		if (el && el !== filesListEl) {
-			filesListEl = el
-			attachClassObserver(el)
-		}
 	})
 
 	domObserver.observe(document.body, { childList: true, subtree: true })
