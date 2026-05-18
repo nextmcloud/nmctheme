@@ -153,6 +153,10 @@
 							background: none;
 							border: 0;
 						}
+
+						&:last-child {
+							display: none;
+						}
 					}
 
 					.settings-hint {
