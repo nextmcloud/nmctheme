@@ -155,7 +155,14 @@
 						}
 
 						&:last-child {
-							display: none;
+
+							.row-left {
+								display: none;
+							}
+
+							.row-right {
+								width: 438px;
+							}
 						}
 					}
 
