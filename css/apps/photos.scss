@@ -1934,6 +1934,35 @@
 	}
 }
 
+#body-user #album-share .modal-wrapper .modal-container {
+	@media only screen and ((max-width: 512px) or (max-height: 400px)) {
+		height: unset;
+        position: relative;
+        top: unset;
+        border-radius: var(--border-radius-element);
+	}
+}
+
+#body-user #photos-picker .modal-wrapper .modal-container {
+	@media only screen and ((max-width: 512px) or (max-height: 400px)) {
+		padding: 1.5rem 0;
+		.dialog__name {
+			margin-bottom: unset !important;
+        	margin-inline-end: unset;
+		}
+		.dialog{
+			&__actions {
+				.photos-picker__actions__buttons {
+					gap: 10px;
+					button {
+						padding-left: 0.1rem;
+    					padding-right: 1.20rem;
+					}
+				}
+			}
+		}
+	}
+}
 // File Info modal window
 #file-info-exif .modal-container {
 	&__content {
