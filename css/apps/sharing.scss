@@ -397,6 +397,7 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 .sharingPopup__success {
 	padding: 1rem;
 	display: grid;
+	overflow: hidden;
 
 	.check-circle-outline-icon {
 		background-image: var(--icon-popup-success-success);
@@ -416,11 +417,17 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 		text-align: center;
 		font-size: 24px;
 		margin-bottom: 1rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.recipients {
 		text-align: center;
 		color: var(--color-text-maxcontrast);
 		margin-bottom: 3rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 }
