@@ -38,6 +38,23 @@ const footerContent = `
 const footerRole = 'contentinfo'
 const footerId = 'telekom-minimal-footer'
 
+const excludedUserAgents = [
+	'nextcloud-android',
+	'magentacloud-android',
+	'magenta-android',
+	'nextcloud-ios',
+	'magentacloud-ios',
+	'nextcloud ios',
+	'magentacloud ios',
+	'magenta-ios',
+	'(android)',
+	'(ios)',
+]
+
+const shouldSkipFooter = excludedUserAgents.some((ua) =>
+	navigator.userAgent.toLowerCase().includes(ua),
+)
+
 const updateFooterVisibility = () => {
 	const footer = document.getElementById(footerId)
 
@@ -49,27 +66,29 @@ const updateFooterVisibility = () => {
 	footer.style.display = editorExists ? 'none' : ''
 }
 
-// Footer erstellen/aktualisieren
-let footerElement = document.querySelector('body footer')
+if (!shouldSkipFooter) {
+	// Footer erstellen/aktualisieren
+	let footerElement = document.querySelector('body footer')
 
-if (footerElement === null) {
-	footerElement = document.createElement('footer')
-	document.body.appendChild(footerElement)
-}
+	if (footerElement === null) {
+		footerElement = document.createElement('footer')
+		document.body.appendChild(footerElement)
+	}
 
-footerElement.innerHTML = footerContent
-footerElement.setAttribute('role', footerRole)
-footerElement.setAttribute('id', footerId)
+	footerElement.innerHTML = footerContent
+	footerElement.setAttribute('role', footerRole)
+	footerElement.setAttribute('id', footerId)
 
-// Beobachte DOM Änderungen
-const observer = new MutationObserver(() => {
+	// Beobachte DOM Änderungen
+	const observer = new MutationObserver(() => {
+		updateFooterVisibility()
+	})
+
+	observer.observe(document.body, {
+		childList: true,
+		subtree: true,
+	})
+
+	// Initial prüfen
 	updateFooterVisibility()
-})
-
-observer.observe(document.body, {
-	childList: true,
-	subtree: true,
-})
-
-// Initial prüfen
-updateFooterVisibility()
+}
