@@ -245,6 +245,36 @@ if (document.readyState === 'loading') {
 	setupPendingShare()
 }
 
+/** Fixes empty file list when switching between grid and list view. */
+function setupGridViewScrollFix(): void {
+	let filesListEl: Element | null = null
+	let classObserver: MutationObserver | null = null
+
+	const domObserver = new MutationObserver(() => {
+		const el = document.querySelector('.files-list')
+		if (!el || el === filesListEl) return
+		filesListEl = el
+
+		let prevIsGrid = el.classList.contains('files-list--grid')
+		classObserver?.disconnect()
+		classObserver = new MutationObserver(() => {
+			const isGrid = el.classList.contains('files-list--grid')
+			if (isGrid === prevIsGrid) return
+			prevIsGrid = isGrid
+			setTimeout(() => el.dispatchEvent(new Event('scroll', { bubbles: true })), 0)
+		})
+		classObserver.observe(el, { attributes: true, attributeFilter: ['class'] })
+	})
+
+	domObserver.observe(document.body, { childList: true, subtree: true })
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', setupGridViewScrollFix)
+} else {
+	setupGridViewScrollFix()
+}
+
 window.addEventListener('DOMContentLoaded', function() {
 	const breadcrumb = document.querySelector('.breadcrumb')
 	const empty = document.querySelector('.files-list__empty')
