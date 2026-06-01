@@ -252,9 +252,30 @@ header {
 				}
 
 				.notification-subject {
+					overflow: hidden;
+					min-width: 0;
 
 					.image {
 						display: none;
+					}
+
+					.rich-text--wrapper {
+						overflow: hidden;
+						width: 100%;
+						min-width: 0;
+
+						> div {
+							overflow: hidden;
+						}
+					}
+
+					strong.rich-text--component {
+						display: inline-block;
+						max-width: 100%;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						vertical-align: bottom;
 					}
 				}
 
