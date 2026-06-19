@@ -262,6 +262,9 @@
             }
 
             &-item__icon {
+                position: relative;
+                overflow: visible;
+
                 &.icon-folder,
                 &--no-preview {
                     width: 42px;
@@ -270,6 +273,19 @@
                     background-size: contain;
                     background-repeat: no-repeat;
                     background-position: center;
+                }
+
+                .nmc-search-favorite {
+                    position: absolute;
+                    top: 0;
+                    right: -6px;
+                    width: 18px;
+                    height: 18px;
+                    background-image: var(--icon-starred-yellow);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    display: block;
                 }
             }
 
