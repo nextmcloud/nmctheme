@@ -9,6 +9,7 @@ webpackConfig.entry = {
 	filessettings: path.join(__dirname, 'src', 'js', 'filessettings.js'),
 	filelistplugin: path.join(__dirname, 'src', 'js', 'filelistplugin.js'),
 	skipactions: path.join(__dirname, 'src', 'js', 'skipactions.js'),
+	searchfavorites: path.join(__dirname, 'src', 'js', 'searchfavorites.js'),
 	conflictdialog: path.join(__dirname, 'src', 'js', 'conflictdialog.js'),
 	mimetypes: path.join(__dirname, 'src', 'js', 'mimetypes.js'),
 	nmcfooter: path.join(__dirname, 'src', 'nmcfooter.ts'),
