@@ -29,7 +29,7 @@
         .icons-menu {
             gap: 0.25rem;
             inset-inline-end: 0;
-            position: absolute;
+            position: relative;
 
             & > button, button[aria-label="Actions"], button[aria-label="Aktionen"], button[aria-label*="Edit"], button[aria-label*="Bearbeiten"] {
                 background-color: var(--nmc-color-regular);
