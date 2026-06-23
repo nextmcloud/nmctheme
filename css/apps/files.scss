@@ -470,7 +470,30 @@ table.files-filestable {
 			margin-right: 6rem;
     		margin-top: 23px;
 		}
+
+		// Responsive adjustment for upload progress bar
+		@media screen and (max-width: $breakpoint-mobile-small) {
+			.upload-picker__progress {
+				width: 140px !important;
+				max-width: 320px;
+				margin-right: 4rem !important;
+				padding: 1rem;
+				background: var(--color-main-background);
+				z-index: 1;
+				position: absolute;
+			}
+
+			.upload-picker__cancel {
+				z-index: 1;
+				position: absolute;
+				left: 3rem; 
+			}
+		}
 		
+		.files-list__breadcrumbs--with-progress {
+			flex-direction: row !important;
+		}
+
 		.files-list__refresh-icon {
 			position: absolute;
 			right: 13rem;
