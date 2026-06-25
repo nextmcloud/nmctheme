@@ -59,8 +59,7 @@
                     touch-action: manipulation;
                 }
 
-                &__content, .dialog__content {
-                    overflow-y: auto;
+                &__content {
                     padding-inline: 0;
 
                     .button-vue--vue-secondary {
@@ -124,6 +123,11 @@
                     .app-settings-section__name, .app-settings-section__content, .setting-section-subline, .photos-locations {
                         margin-bottom: 0.5rem;
                     }
+                }
+
+                .dialog__content {
+                    overflow-y: auto;
+                    padding-inline: 0;
                 }
 
                 &:has(.modal__content--exif) {
