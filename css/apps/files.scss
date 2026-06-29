@@ -485,8 +485,34 @@ table.files-filestable {
 
 			.upload-picker__cancel {
 				z-index: 1;
-				position: absolute;
-				left: 3rem; 
+				position: relative;
+				left: -148px;
+				float: left;
+				padding: 0;
+				background: var(--color-main-background);
+			}
+			// .upload-picker__cancel {
+			// 	z-index: 1;
+			// 	position: absolute;
+			// 	left: 3rem; 
+			// }
+
+			.files-list__header-upload-button {
+				padding-left: 2rem;
+				background-color: var(--color-main-background);
+				z-index: 1;
+			}
+		}
+
+		@media (min-width: $breakpoint-mobile-small) and (max-width: $breakpoint-mobile-medium) {
+			.upload-picker__progress {
+				width: 310px;
+				max-width: 320px;
+				margin-right: 3rem;
+				margin-top: 23px;
+				padding: 1rem 0 1rem 1rem;
+				background: var(--color-main-background);
+				z-index: 1;
 			}
 		}
 		
