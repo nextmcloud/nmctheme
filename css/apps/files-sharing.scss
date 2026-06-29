@@ -66,6 +66,10 @@
 .sharingPopupDetailsView {
 
     #share-date-picker {
+        -webkit-appearance: none;
+        appearance: none;
+        box-sizing: border-box;
+        height: 56px !important;
         color-scheme: var(--nmc-color-sceme);
 
         &::-webkit-calendar-picker-indicator {
