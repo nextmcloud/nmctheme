@@ -6,6 +6,12 @@
 
 	nav {
 		height: 44px;
+		margin: 0px 10px;
+		@media (min-width: $breakpoint-mobile-medium) and (max-width: $breakpoint-mobile) { 
+			nav {
+				flex-shrink: 0;
+			}
+		}
 
 		ul.breadcrumb__crumbs {
 			// Display root as "Start" text
