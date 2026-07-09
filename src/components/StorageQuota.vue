@@ -13,8 +13,9 @@
 		<a class="storage-quota__link"
 			target="_blank"
 			rel="noopener"
-			href="https://cloud.telekom-dienste.de/tarife">
-			<NcIconSvgWrapper :svg="cloudIconSvg" class="storage-quota__link-icon" />
+			href="https://cloud.telekom-dienste.de/tarife"
+			:aria-label="t('nmctheme', 'Expand storage, opens in new tab')">
+			<NcIconSvgWrapper :svg="cloudIconSvg" class="storage-quota__link-icon" aria-hidden="true" />
 			{{ t('nmctheme', 'Expand storage') }}
 		</a>
 	</div>
