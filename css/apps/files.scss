@@ -463,14 +463,64 @@ table.files-filestable {
 		}
 
 		.upload-picker__progress {
-			width: 320px;
+			width: 300px;
 			max-width: 320px;
 			
 			//Adjusting the position of the progress bar to align with the secondary loader
 			margin-right: 6rem;
     		margin-top: 23px;
 		}
+
+		// Responsive adjustment for upload progress bar
+		@media screen and (max-width: $breakpoint-mobile-small) {
+			.upload-picker__progress {
+				width: 140px !important;
+				max-width: 320px;
+				margin-right: 4rem !important;
+				padding: 1rem;
+				background: var(--color-main-background);
+				z-index: 1;
+				position: absolute;
+			}
+
+			.upload-picker__cancel {
+				z-index: 1;
+				position: relative;
+				left: -148px;
+				float: left;
+				padding: 0;
+				background: var(--color-main-background);
+			}
+
+			.files-list__header-upload-button {
+				padding-left: 2rem;
+				background-color: var(--color-main-background);
+				z-index: 1;
+			}
+		}
+
+		@media (min-width: $breakpoint-mobile-small) and (max-width: $breakpoint-mobile-medium) {
+			.upload-picker__progress {
+				width: 300px;
+				max-width: 320px;
+				margin-right: 3rem;
+				margin-top: 23px;
+				padding: 1rem 0 1rem 1rem;
+				background: var(--color-main-background);
+				z-index: 1;
+			}
+		}
+		@media (min-width: $breakpoint-mobile-medium) and (max-width: $breakpoint-mobile) { 
+			.upload-picker__progress {
+				margin-right: 2rem;
+				width: 260px;
+			}
+		}
 		
+		.files-list__breadcrumbs--with-progress {
+			flex-direction: row !important;
+		}
+
 		.files-list__refresh-icon {
 			position: absolute;
 			right: 13rem;
