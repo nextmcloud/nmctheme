@@ -100,7 +100,8 @@
                 }
 
                 &:hover label.input-field__label,
-                &:focus-within label.input-field__label {
+                &:focus-within label.input-field__label,
+                &:has(.input-field__input:not(:placeholder-shown)) label.input-field__label {
                     top: 30%;
                     left: 0;
                     transform: translateY(-50%);
@@ -109,6 +110,7 @@
                 }
 
                 .input-field__input {
+                    &:not(:placeholder-shown),
                     &:hover,
                     &:focus,
                     &:active {
