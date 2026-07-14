@@ -100,5 +100,6 @@ class BeforeTemplateRenderedListener implements IEventListener {
 		\OCP\Util::addScript("nmctheme", "nmctheme-searchfavorites", "core");
 		\OCP\Util::addScript("nmctheme", "nmctheme-filessettings", "files");
 		\OCP\Util::addScript("nmctheme", "nmctheme-filelistplugin", "files");
+		\OCP\Util::addScript("nmctheme", "nmctheme-trashbinfix", "files");
 	}
 }

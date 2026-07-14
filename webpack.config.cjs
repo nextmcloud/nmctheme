@@ -8,6 +8,7 @@ webpackConfig.entry = {
 	...webpackConfig.entry,
 	filessettings: path.join(__dirname, 'src', 'js', 'filessettings.js'),
 	filelistplugin: path.join(__dirname, 'src', 'js', 'filelistplugin.js'),
+	trashbinfix: path.join(__dirname, 'src', 'js', 'trashbinfix.js'),
 	skipactions: path.join(__dirname, 'src', 'js', 'skipactions.js'),
 	searchfavorites: path.join(__dirname, 'src', 'js', 'searchfavorites.js'),
 	conflictdialog: path.join(__dirname, 'src', 'js', 'conflictdialog.js'),
