@@ -50,6 +50,25 @@ registerFileAction(fileAction)
 
 const FileActions = getFileActions()
 
+const renameAction = FileActions.find(action => action.id === 'rename')
+
+if (renameAction?.enabled) {
+	const originalEnabled = renameAction.enabled
+
+	// Relies on `_action` being a plain field on FileAction (@nextcloud/files
+	// internal detail) - re-verify on @nextcloud/files upgrades.
+	;(renameAction as unknown as { _action: { enabled: typeof originalEnabled } })._action.enabled = (nodes: Node[], view: View) => {
+		if (view.id !== 'favorites') {
+			return originalEnabled(nodes, view)
+		}
+
+		return nodes.every(node =>
+			Boolean(node.permissions & Permission.DELETE)
+			&& Boolean(node.permissions & Permission.UPDATE),
+		)
+	}
+}
+
 const sharingStatusAction = FileActions.find(action => action.id === 'sharing-status')
 
 if (sharingStatusAction) {
