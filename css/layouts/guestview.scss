@@ -57,6 +57,14 @@
                     display: none;
                 }
             }
+
+            #public-page-menu--primary {
+                .button-vue__icon {
+                    .public-page-menu__primary-icon {
+                        filter: var(--background-invert-if-bright);
+                    }
+                }
+            }
         }
     }
 

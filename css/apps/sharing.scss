@@ -274,6 +274,11 @@
 
 }
 
+.sharingPopupDetailsView {
+	overflow-y: auto;
+    max-height: 60vh;
+}
+
 // TODO this should be done by the icon generation script
 body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
     background-image: var(--icon-upload-to-cloud-dark);
