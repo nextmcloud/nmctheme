@@ -17,6 +17,15 @@
 }
 
 /* CONTENT  --------------------------------------------------------- */
+
+// Suppress the separator border/radius that Nextcloud core draws between
+// the app-navigation and the app-content pane on wide viewports.
+.content:not(.content--legacy) .app-navigation:not(.app-navigation--close) ~ .app-content {
+	border-inline-start: none !important;
+	border-start-start-radius: 0 !important;
+	border-end-start-radius: 0 !important;
+}
+
 #content,
 #content-vue {
 	border-radius: 0;
