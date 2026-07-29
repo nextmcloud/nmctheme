@@ -16,6 +16,13 @@
 			padding: 0.5rem 1rem 1.5rem;
 
 			.app-sidebar-header__subname {
+				white-space: normal;
+				overflow: visible;
+				text-overflow: unset;
+
+				.sidebar__subname {
+					flex-wrap: wrap;
+				}
 
 				.sidebar__subname-separator:not(:has(~ .sidebar__subname-separator)), 
 				span:has(+ .user-bubble__wrapper),
