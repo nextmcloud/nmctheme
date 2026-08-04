@@ -1,5 +1,5 @@
 <template>
-	<template>
+	<div>
 		<li v-for="item in items"
 			:id="item.id"
 			:key="item.id"
@@ -10,7 +10,7 @@
 				<span>{{ t('nmcsettings', item.name) }}</span>
 			</a>
 		</li>
-	</template>
+	</div>
 </template>
 
 <script>
