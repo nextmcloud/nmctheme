@@ -121,6 +121,7 @@ class Application extends App implements IBootstrap {
 		$this->getContainer()->getServer()->registerService(JSResourceLocator::class, function (ContainerInterface $c) {
 			return new JSResourceLocatorExtension(
 				$c->get(LoggerInterface::class),
+				$c->get(IConfig::class),
 				$this->getContainer()->getServer()->query(JSCombiner::class),
 				$c->get(IAppManager::class)
 			);
