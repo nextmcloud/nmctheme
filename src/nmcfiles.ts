@@ -294,6 +294,37 @@ if (document.readyState === 'loading') {
 	setupGridViewScrollFix()
 }
 
+/**
+ * NC33 renders the Type/Modified filters inline in the header; move them into the
+ * .files-list__filters row below. Re-runs on Vue re-renders that re-insert them.
+ */
+function setupFilterRelocation(): void {
+	const relocate = (): void => {
+		const target = document.querySelector<HTMLElement>('.files-list__filters')
+		if (!target) return
+
+		const headerFilters = document.querySelector<HTMLElement>(
+			'.files-list__header [data-test-id="files-list-filters"]',
+		)
+		if (!headerFilters) return
+
+		// Drop any stale copy before moving, in case Vue recreated the element.
+		target.querySelectorAll('[data-test-id="files-list-filters"]').forEach(el => el.remove())
+		target.appendChild(headerFilters)
+	}
+
+	relocate()
+
+	const observer = new MutationObserver(() => relocate())
+	observer.observe(document.body, { childList: true, subtree: true })
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', setupFilterRelocation)
+} else {
+	setupFilterRelocation()
+}
+
 window.addEventListener('DOMContentLoaded', function() {
 	const breadcrumb = document.querySelector('.breadcrumb')
 	const empty = document.querySelector('.files-list__empty')
