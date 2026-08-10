@@ -2,34 +2,36 @@
 
 :root {
 	--body-container-margin: calc(var(--default-grid-baseline) * 2);
-	--body-height: calc(100% - 157px - var(--body-container-margin));
+	--body-height: calc(100% - 138px - var(--body-container-margin));
 }
 
 @media screen and (max-width: $breakpoint-mobile-small) {
-:root {
-		--body-height: calc(100% - 152px - var(--body-container-margin));
+	:root {
+		--body-height: calc(100% - 162px - var(--body-container-margin));
 	}
 }
 
 #app-navigation:not(.vue) {
 	background-color: var(--color-main-background);
-}
-
-#body-user,
-#body-settings,
-#body-public {
-	background-image: url('../img/telekom/mcfluffy.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: top center;
+	border-right: 1px solid var(--color-border) !important;
 }
 
 /* CONTENT  --------------------------------------------------------- */
-#content, #content-vue {
+
+// Suppress the separator border/radius that Nextcloud core draws between
+// the app-navigation and the app-content pane on wide viewports.
+.content:not(.content--legacy) .app-navigation:not(.app-navigation--close) ~ .app-content {
+	border-inline-start: none !important;
+	border-start-start-radius: 0 !important;
+	border-end-start-radius: 0 !important;
+}
+
+#content,
+#content-vue {
 	border-radius: 0;
-	margin: 89px 16px 0;
+	margin: 73px 0 0;
 	height: var(--body-height);
-	width: calc(100% - 32px);
+	width: 100%;
 
 	@media screen and (max-width: $breakpoint-mobile-small) {
 		margin: 73px 0 0;
@@ -53,6 +55,83 @@
 						width: 30px;
 						max-height: 30px;
 						max-width: 30px;
+					}
+				}
+			}
+		}
+	}
+
+	.app-navigation-caption {
+		display: none !important;
+	}
+
+	.app-navigation-personal,
+	.app-navigation-administration {
+
+		> ul {
+			gap: 0.25rem !important;
+			padding: 4rem 1.5rem 0.5rem !important;
+
+			> li {
+				border-radius: var(--border-radius-pill);
+	
+				&[data-section-type="personal"]
+				{
+					display: none;
+
+					&[data-section-id="account"],
+					&[data-section-id="sessions"],
+					&[data-section-id="appearance"] {
+						display: inline-flex;
+					}
+				}
+
+				> a {
+					font-weight: 700;
+					padding: 0 12px 0 14px;
+
+					img {
+						margin-bottom: -5px;
+						height: 22px;
+						width: 22px;
+					}
+				}
+
+				&:hover {
+
+					> a {
+						background-color: transparent !important;
+						color: var(--color-primary-hover);
+
+						img {
+							filter: var(--nmc-color-icon-hovered);
+						}
+					}
+				}
+
+				&.active {
+					background-color: transparent !important;
+					color: var(--color-primary);
+
+					> a {
+						background-color: transparent !important;
+						color: var(--color-primary);
+
+						&:first-child > img {
+							filter: var(--nmc-color-icon);
+						}
+					}
+
+					&::before {
+						content: "";
+						position: absolute;
+						left: 0;
+						top: 50%;
+						transform: translateY(-50%);
+						height: 24px;
+						width: 4px;
+						background-color: var(--color-primary);
+						border-radius: 4px;
 					}
 				}
 			}

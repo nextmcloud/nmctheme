@@ -37,6 +37,7 @@ use OCA\Theming\Themes\DefaultTheme;
 use OCA\Theming\Themes\DyslexiaFont;
 use OCA\Theming\Themes\HighContrastTheme;
 use OCA\Theming\Themes\LightTheme;
+use OCP\IAppConfig;
 use OCP\App\IAppManager;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
@@ -185,7 +186,8 @@ class Application extends App implements IBootstrap {
 						$c->get(Coordinator::class),
 						$c->get(ContainerInterface::class),
 						$c->get(IURLGenerator::class),
-						$c->get(LoggerInterface::class)
+						$c->get(LoggerInterface::class),
+						$c->get(IAppConfig::class)
 					),
 					[
 						'contacts', // from apps/dav
@@ -263,6 +265,10 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function boot(IBootContext $context): void {
-
+		// Ensure nmctheme CSS is loaded for exception error pages (printExceptionErrorPage)
+		// which bypass the BeforeTemplateRenderedEvent and do not trigger the theming
+		// system's CSS injection (ThemeInjectionService::injectHeaders). Without this,
+		// server error pages fall back to bare Nextcloud styling.
+		\OCP\Util::addStyle('nmctheme', 'nmcstyle');
 	}
 }

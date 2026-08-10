@@ -14,9 +14,7 @@
 
 header {
 	--shadow: 0px 2px 9px rgba(0, 0, 0, 0.15);
-	--font-size-app-name: var(--telekom-typography-font-size-small);
-	--line-height-app-name: var(--telekom-typography-line-spacing-tight);
-	--font-weight-app-name: var(--telekom-typography-font-weight-extra-bold);
+	--font-size-app-name: var(--font-size-small);
 	--icon-search: var(--original-icon-search-dark);
 	--icon-user: var(--original-icon-user-dark);
 }
@@ -32,13 +30,13 @@ header {
 #body-user #header,
 #body-settings #header,
 #body-public #header {
-	background: var(--telekom-color-background-surface) !important;
-	border-bottom: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-faint);
-	border-radius: 0.5rem 0.5rem 0px 0px;
+	background: var(--color-main-background) !important;
+	border-bottom: 1px solid var(--color-border);
+	border-radius: 0;
 	height: var(--header-height);
-	margin: 1rem 1rem 0;
+	margin: 0;
 	position: fixed;
-	width: calc(100% - 2rem);
+	width: 100%;
 
 	@media screen and (max-width: $breakpoint-mobile-small) {
 		border-radius: 0;
@@ -46,31 +44,97 @@ header {
 		width: 100%;
 	}
 
+	.logo {
+		width: 72px;
+	}
+
 	// brand logo update
 	.brand {
 		display: flex;
 
+		.brand-link {
+			display: flex;
+			align-items: center;
+			text-decoration: none;
+
+			&:focus-visible {
+				outline: 2px solid var(--color-primary);
+				outline-offset: 2px;
+				border-radius: 4px;
+			}
+		}
+
 		.logo.logo-icon {
 			background-image: var(--image-logoheader);
 			position: initial;
-			width: 60px;
-			height: 60px;
-			margin: 6px 0 6px 1.5rem;
+			width: 72px;
+			height: 72px;
+			margin: 0;
 		}
 
 		.title {
-			font-size: 25px;
-			margin: auto 2.5rem auto 1rem;
-			width: 167px;
+			font-weight: bold;
+			font-style: normal;
+			font-size: 1.25rem;
+			color: var(--color-primary);
+			margin: auto 3rem;
+			width: 130px;
 		}
 	}
 
-	#header-left,
-	.header-left {
+	.header-start {
+
 		.app-menu {
-			&-entry {
-				&--label {
-					font-weight: 800;
+			width: 100%;
+			display: flex;
+			flex-shrink: 1;
+			flex-wrap: wrap;
+			margin-inline: 4rem 0;
+
+			@media screen and (max-width: $breakpoint-mobile) {
+				margin-inline: 1rem 0;
+			}
+
+			&__list {
+				margin: 0;
+			}
+
+			--app-menu-entry-growth: unset;
+
+			&__overflow {
+
+				.button-vue--vue-tertiary {
+					opacity: 1;
+					margin: 0;
+					filter: unset;
+				}
+			}
+
+			button.action-item__menutoggle {
+				height: 4rem;
+				width: 3rem !important;
+				min-height: 4rem;
+				min-width: 3rem;
+
+				background-image: var(--icon-menu-dark);
+				background-size: auto 24px;
+				background-position: center;
+				background-repeat: no-repeat;
+
+				margin: unset !important;
+				filter: unset !important;
+				opacity: unset !important;
+
+				svg {
+					display: none;
+				}
+
+				.button-vue__wrapper {
+					display: none;
+				}
+
+				&[aria-expanded="true"] {
+					background-image: var(--icon-close-dark);
 				}
 			}
 		}
@@ -79,10 +143,15 @@ header {
 	// logo and application name
 	#nextcloud {
 		height: 100%;
-		margin: 0 var(--telekom-spacing-baseline-space-10) 0 0;
+		margin: 0;
 		overflow: visible;
-		padding: 0;
-		padding-left: 60px; // logo width
+		padding: 0 0 0 72px;
+
+		.logo {
+			inset-inline-start: 0;
+			bottom: 0;
+			top: 0;
+		}
 	}
 
 	// hide logo and application name in mobile view - show logolayer instead
@@ -100,11 +169,12 @@ header {
 			order: 3;
 		}
 
-		#header-right,
-		.header-right {
+		#header-end,
+		.header-end {
 			flex-grow: 1;
 			flex-shrink: unset;
 			order: 2;
+			margin: 0;
 		}
 
 		.brand .title {
@@ -113,57 +183,227 @@ header {
 	}
 }
 
-#notifications {
-	display: none;
-}
 
 #header {
-    box-shadow: 0 2px 9px var(--color-box-shadow);
-	.header-right {
-		// hide 'Search contacts' button
-		#contactsmenu {
-			display: none;
-		}
 
-		// general styling for buttons in the header
-		.header-menu {
-			width: auto;
+	button.button-vue {
+		border: none;
+	}
+
+	.header-menu__caret {
+        display: none;
+	}
+
+	.header-end {
+
+		#notifications {
+			order: 0;
+
 			button.button-vue {
-				width: auto !important;
-				padding-left: 0;
-				.button-vue__label {
-					font-size: 12px;
-					font-weight: normal;
-				}
 
-				.button-vue__wrapper {
-					width: 44px;
-					.button-vue__icon {
-						background-size: auto 24px;
-						background-position: center;
-						background-repeat: no-repeat;
-						svg {
-							display: none;
+				.button-vue__icon {
+					background-image: var(--icon-notification-dark);
+					background-size: auto 24px;
+					background-position: center;
+					background-repeat: no-repeat;
+
+					svg {
+						display: none;
+					}
+				}
+			}
+
+			#header-menu-notifications {
+				background-color: var(--color-main-background);
+				border: 1px solid var(--color-border);
+				border-radius: var(--border-radius-large);
+        		margin-top: 8px;
+
+				.bell-outline-icon {
+					background-image: var(--icon-notification-dark);
+					background-size: 64px;
+					background-position: center;
+					background-repeat: no-repeat;
+					height: 64px;
+					width: 64px;
+
+					svg {
+						display: none;
+					}
+				}
+				
+				.notification-heading {
+
+					.button-vue {
+						padding: 0;
+						&:hover {
+
+							&::before {
+								background-color: unset;
+								content: " ";
+								display: block;
+								height: 4px;
+								bottom: 1px;
+								width: 100%;
+								position: absolute;
+							}
 						}
 					}
 				}
 
+				.notification-subject {
+					overflow: hidden;
+					min-width: 0;
+
+					.image {
+						display: none;
+					}
+
+					.rich-text--wrapper {
+						overflow: hidden;
+						width: 100%;
+						min-width: 0;
+
+						> div {
+							overflow: hidden;
+						}
+					}
+
+					strong.rich-text--component {
+						display: inline-block;
+						max-width: 100%;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						vertical-align: bottom;
+					}
+				}
+
+				.notification-actions {
+
+					.button-vue {
+						border-radius: 9999px;
+						margin-inline: 0 8px;
+						min-height: unset;
+						min-width: unset;
+						padding-block: 0.75rem;
+						padding-inline: 1rem;
+
+						&__text {
+							color: unset;
+							font-size: 14px;
+							font-weight: bold;
+							margin-block: 0;
+							margin-inline: 8px 0;
+							padding: 0;
+							margin: 0;
+						}
+
+						&:hover {
+
+							&::before {
+								background-color: unset;
+								content: " ";
+								display: block;
+								height: 4px;
+								bottom: 1px;
+								width: 100%;
+								position: absolute;
+							}
+						}
+					}
+
+					@media screen and (max-width: $breakpoint-mobile) {
+						padding-right: 0;
+
+						.button-vue__label, .button-vue__text {
+							display: unset;
+						}
+					}
+				}
+
+				.dismiss-all {
+
+					.button-vue {
+						padding-inline: 1rem;
+
+						&:hover {
+
+							&::before {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// Hide 'Contacts' button
+		#contactsmenu {
+			display: none;
+		}
+
+		// Custom styling for buttons in the header
+		.header-menu {
+			width: auto;
+
+			button.button-vue {
+				width: auto !important;
+				padding-inline: 0 1.5rem;
+
+				&.header-menu__trigger {
+					border-radius: 0;
+				}
+
+				.button-vue__label {
+					color: var(--color-main-text);
+					font-size: 12px;
+					font-weight: normal;
+					margin-inline-start: 8px;
+				}
+
+				.button-vue__wrapper {
+					width: auto;
+
+					.button-vue__icon {
+						background-size: auto 24px;
+						background-position: center;
+						background-repeat: no-repeat;
+						min-width: 24px;
+						width: 24px;
+
+						svg {
+							display: none;
+						}
+					}
+
+					.button-vue__text {
+						color: var(--color-main-text);
+						font-size: 12px;
+						font-weight: normal;
+						margin-block: 0;
+						margin-inline: 8px 0;
+						padding: 0;
+					}
+				}
+
 				&:hover {
+
 					&::before {
 						background-color: var(--color-primary);
 						content: " ";
 						display: block;
 						height: 4px;
-						bottom: 8px;
+						bottom: 1px;
 						width: 100%;
 						position: absolute;
 					}
-		
+
 					.button-vue__label {
 						color: var(--color-primary);
 						cursor: pointer;
 					}
-		
+
 					.button-vue__icon {
 						filter: var(--nmc-color-icon) !important;
 					}
@@ -171,51 +411,52 @@ header {
 
 				@media screen and (max-width: $breakpoint-mobile) {
 					padding-right: 0;
-                    .button-vue__label {
-                        display: none;
-                    }
-                }
+
+					.button-vue__label, .button-vue__text {
+						display: none;
+					}
+				}
 			}
 		}
-	}
-}
 
-// Custom styling for the 'Search' button
-#header .header-right .header-menu.unified-search-menu {
-	button {
-		border: none;
-		border-radius: 0;
-		height: 100%;
-		.button-vue__wrapper {
-			.button-vue__icon {
-				background-image: var(--icon-search-dark);
+		// Custom styling for the 'Search' button
+		.unified-search-menu {
+
+			button {
+				height: 100%;
+
+				.button-vue__wrapper {
+					.button-vue__icon {
+						background-image: var(--icon-search-dark);
+					}
+				}
+
 			}
 		}
-		
-	}
-}
 
-// Custom styling for the 'User' button
-#user-menu {
-	@media screen and (max-width: $breakpoint-mobile) {
-		margin-right: var(--telekom-spacing-composition-space-03);
-	}
+		// Custom styling for the 'User' button
+		#user-menu {
+			@media screen and (max-width: $breakpoint-mobile) {
+				margin-right: 0.25rem;
+			}
 
-	button.header-menu__trigger {
-		.button-vue__wrapper {
-			.button-vue__icon {
-				background-image: var(--icon-user-dark);
+			button.header-menu__trigger {
+				.button-vue__wrapper {
+					.button-vue__icon {
+						background-image: var(--icon-user-dark);
+					}
+				}
+			}
+
+			.user-menu__avatar {
+				display: none;
+			}
+
+			//adapted functional menu styles to user menu for uniformity
+			.header-menu__content {
+				width: 350px !important;
 			}
 		}
-	}
-
-	.user-menu__avatar {
-		display: none;
-	}
-
-	//adapted functional menu styles to user menu for uniformity
-	.header-menu__content {
-		width: 350px !important;
 	}
 }
 
@@ -230,9 +471,9 @@ header {
 			display: inline-flex;
 			flex: 1;
 			font-size: var(--font-size-app-name);
-			font-weight: var(--font-weight-app-name);
+			font-weight: bold;
 			justify-content: flex-end;
-			margin-right: var(--telekom-spacing-composition-space-10);
+			margin-right: 2rem;
 			overflow: unset;
 			padding: 0;
 		}
@@ -248,11 +489,19 @@ header {
 				z-index: 0;
 			}
 		}
+				
+		.header-title {
+			display: none;
+		}
 	}
 
 	.header-shared-by {
 		font-size: var(--font-size-app-name);
-		font-weight: var(--font-weight-app-name);
-		line-height: var(--line-height-app-name);
+		font-weight: bold;
+		line-height: 1.25;
+	}
+	
+	.public-page-user-menu, .header-menu:not(#public-page-menu) {
+		display: none;
 	}
 }

@@ -1,0 +1,36 @@
+#body-user .notecard,
+#body-settings .notecard,
+#body-public .notecard,
+#body-login .notecard { 
+    border: 0;
+    gap: 1rem;
+    padding: 1.5rem;
+
+    &.notecard--success,
+    &.notecard--info,
+    &.notecard--error,
+    &.notecard--warning {
+        color: var(--nmc-color-text-and-icon-black) !important;
+
+        .notecard__heading,
+        .checkbox-radio-switch {
+            color: var(--nmc-color-text-and-icon-black) !important;
+        }
+
+		.close-icon {
+			background-image: var(--original-icon-close-x-dark);
+			background-position: center;
+			background-repeat: no-repeat;
+			height: 100%;
+			width: 100%;
+
+			svg {
+				display: none;
+			}
+		}
+    }
+
+    .button {
+        margin-left: 1rem;
+    }
+}

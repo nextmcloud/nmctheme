@@ -7,34 +7,38 @@
 	background-size: contain;
 	border: none;
 	height: 44px;
-	margin-top: 0.2rem;
 	max-width: unset;
 	max-height: unset;
 	width: 44px;
-
-	svg {
-		display: none;
-	}
 }
 
 @mixin header-menu-files {
 	button {
 		border: none;
-		border-radius: 0;
-		filter: var(--nmc-color-icon);
 		padding-right: 0;
+		height: 40px;
+		min-height: 40px;
+		margin-top: 0;
+		font-size: 14px;
 
 		.button-vue__wrapper {
+
 			.button-vue__text {
 				padding-right: 1rem;
+				margin: 0;
 			}
 
 			.button-vue__icon {
 				background-repeat: no-repeat;
 				background-position: center;
 				background-size: 1.25rem;
+				margin-inline: 4px -4px;
+				height: 40px !important;
+				width: 40px !important;
+				min-height: 40px !important;
+				min-width: 40px !important;
 
-				svg {
+				.icon-vue {
 					display: none;
 				}
 			}
@@ -52,37 +56,49 @@
 
 		&.files-list__row-actions-batch-move-copy {
 			.button-vue__icon {
-				background-image: var(--icon-external-dark);
+				background-image: var(--original-icon-external-dark);
 			}
 		}
 
 		&.files-list__row-actions-batch-download {
 			.button-vue__icon {
-				background-image: var(--icon-download-dark);
+				background-image: var(--original-icon-download-dark);
 			}
 		}
 
 		&.files-list__row-actions-batch-delete {
 			.button-vue__icon {
-				background-image: var(--icon-delete-dark);
+				background-image: var(--original-icon-delete-dark);
 			}
 		}
 
 		&.files-list__row-actions-batch-restore {
 			.button-vue__icon {
-				background-image: var(--icon-restore-dark);
+				background-image: var(--original-icon-restore-dark);
 			}
 		}
 
 		&.files-list__row-actions-batch-files_zip {
 			.button-vue__icon {
-				background-image: var(--icon-compress-zip-dark);
+				background-image: var(--original-icon-compress-zip-dark);
 			}
 		}
 
 		&.files-list__row-actions-batch-cancel_select {
 			.button-vue__icon {
-				background-image: var(--icon-close-dark);
+				background-image: var(--original-icon-close-dark);
+			}
+		}
+
+		&.files-list__row-actions-batch-accept-share {
+			.button-vue__icon {
+				background-image: var(--original-icon-check-dark);
+			}
+		}
+
+		&.files-list__row-actions-batch-reject-share {
+			.button-vue__icon {
+				background-image: var(--original-icon-close-dark);
 			}
 		}
 
@@ -91,39 +107,34 @@
 		&:focus-visible {
 			outline: none;
 		}
-
-		&:hover {
-			background-color: transparent;
-
-			.button-vue__wrapper {
-				position: relative;
-
-				&::before {
-					background-color: var(--color-primary);
-					position: absolute;
-					content: " ";
-					display: block;
-					height: 4px;
-					opacity: 1;
-					pointer-events: none;
-					bottom: 0;
-					transition: all .1s ease-in-out;
-					width: 100%;
-				}
-			}
-		}
 	}
 
 	.action-item {
-		button .button-vue__icon {
-			background-image: var(--icon-more-dark);
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: 1.25rem;
+		button {
+			background-color: var(--nmc-ods-blue-primary);
+			color: var(--nmc-color-text-and-icon-black);
+			height: 40px !important;
+			width: 40px !important;
+			min-height: 40px !important;
+			min-width: 40px !important;
+			margin-bottom: 4px;
+			padding: 0;
 
-			svg {
-				display: none;
+			&:hover {
+				background-color: var(--nmc-ods-blue-hover);
 			}
+			
+			.button-vue__icon {
+				background-image: var(--original-icon-more-dark);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 16px;
+				margin: 0;
+
+				svg {
+					display: none;
+				}
+			}		
 		}
 	}
 }
@@ -133,7 +144,7 @@
 	.button-vue__wrapper {
 		&:hover {
 			.files-list__column-sort-button-text {
-				color: var(--telekom-color-text-and-icon-primary-standard);
+				color: var(--color-primary);
 			}
 
 			.button-vue__icon {
@@ -155,7 +166,9 @@
 }
 
 @mixin files-checkboxes-v28 {
+
 	span.checkbox-radio-switch-checkbox {
+
 		span.checkbox-content {
 			background: unset;
 			padding: 0;
@@ -165,38 +178,38 @@
 			}
 
 			span.checkbox-content__icon.checkbox-radio-switch__icon {
+
 				&:not(.checkbox-content__icon--checked) {
 
 					.checkbox-blank-outline-icon,
 					.minus-box-icon {
-						width: 16px;
-						height: 16px;
-						border: 1px solid var(--telekom-color-ui-border-standard);
-						border-radius: var(--telekom-radius-small);
+						width: 20px;
+						height: 20px;
+						border: 1px solid var(--color-border-maxcontrast);
+						border-radius: var(--border-radius-small);
+						background: var(--color-main-background);
 
 						svg {
 							display: none;
 						}
 
 						&:hover {
-							background-color: red;
+							border-color: var(--color-border-dark);
+							background-color: var(--color-background-hover);
 						}
 					}
 				}
 
 				&.checkbox-content__icon--checked {
 					background-image: var(--original-icon-check-white);
-					background-color: var(--telekom-color-functional-success-standard);
+					background-color: var(--color-primary);
 					background-position: center;
 					background-repeat: no-repeat;
-					background-size: 18px;
-					border: none;
-					border-radius: 3rem;
-					height: 1.5rem;
-					margin-left: -2px;
-					margin-right: -2px;
-					margin-top: -2px;
-					width: 1.5rem;
+					background-size: 16px;
+					border: 1px solid var(--color-primary);
+					border-radius: var(--border-radius-small);
+					width: 20px;
+					height: 20px;
 
 					.checkbox-marked-icon {
 						svg {
@@ -309,59 +322,234 @@ table.files-filestable {
 
 /*------------------------------------ v28 - specific styling ------------------------------------*/
 #body-user {
+
 	// files modal search input
 	.modal-mask.dialog__modal {
-		& .modal-wrapper.modal-wrapper--large input {
-			padding-left: 2.5rem;
+
+		#settings-section_settings {
+				
+				.app-settings-section__content > div[class*='_ncFormBox'] > div[class*='_formBoxItem']:last-child,
+				.app-settings-section__content > fieldset[class*='_formGroup'] {
+					display: none;
+				}
+		}
+
+		#settings-section_keyboard-shortcuts {
+			display: none;
+		}
+
+		.app-settings-section__content > div[class*='_ncFormBox'],
+		.app-settings-section__content > fieldset[class*='_formGroup'] {
+
+			div[class*='_formBoxItem'],
+			div[class*='_ncFormBox__item'] {
+				border-bottom-width: 1px;
+				flex-direction: row-reverse;
+			}
+		}
+
+		& .modal-wrapper {
+
+			.modal-wrapper--large {
+
+				input,
+				.input-field__main-wrapper .input-field__input {
+					padding-left: 2.5rem;
+				}
+			}
+
+			.modal-wrapper--small {
+				input, 
+				.input-field__input.input-field__input--error {
+					padding-left: 2.5rem;
+				}
+
+				p {
+					margin-top: 1rem;
+				}
+
+				.input-field__icon.input-field__icon--trailing {	
+					top: 0;
+					bottom: 0;
+					right: 0;
+				}
+			}
 		}
 	}
 
-	// fix table header overlab with tbody in modal
+	// fix table header overlap with tbody in modal
 	.modal-container__content {
 		.dialog__content.file-picker__content {
 			.file-picker__files {
 				thead th {
-					background-color: var(--telekom-color-background-surface);
+					background-color: var(--color-main-background);
+				}
+
+				tbody {
+					td {
+						span.icon-vue {
+							background-image: var(--original-icon-folder-overlay-share-white);
+							width: 16px;
+							height: 16px;
+							background-repeat: no-repeat;
+							background-position: center;
+							background-size: 16px;
+							top: 14px;
+
+							svg {
+								display: none;
+							}
+						}
+					}
 				}
 			}
 		}
 	}
 }
 
-
 #app-content-vue {
+
+	// Override favorite marker stroke color
+	.favorite-marker-icon svg  {
+		color: var(--color-favorite) !important;
+
+		path{
+			stroke: var(--color-favorite) !important;
+		}
+	}
+
 	.files-list__header {
-		margin-block: 1rem;
+		margin-block: 15px;
+		margin-inline: 3rem 1.5rem;
 
-		button.files-list__header-grid-button {
+		.files-list__header-grid-button {
+			border: 1px solid var(--color-main-text);
+			border-radius: 50%;
+			width: 40px !important;
+			height: 40px !important;
+			min-width: 40px !important;
+			min-height: 40px !important;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
-			&:hover:not(:disabled),
-			&:active {
-				background-color: transparent;
-
-				span.material-design-icon {
-					@include magenta-icon;
-				}
-			}
-
-			span.view-grid-icon {
+			span.view-grid-outline-icon {
+				background-image: var(--icon-grid-dark);
+				background-size: 20px;
+				background-repeat: no-repeat;
+				background-position: center;
 				width: 24px;
 				height: 24px;
-				background-image: var(--icon-toggle-pictures-dark);
 
 				svg {
 					display: none;
 				}
 			}
 
-			span.format-list-bulleted-square-icon {
+			span.format-list-bulleted-square-icon {	
+				background-image: var(--icon-list-bulleted-dark);
+				background-size: 20px;
+				background-repeat: no-repeat;
+				background-position: center;
 				width: 24px;
 				height: 24px;
-				background-image: var(--icon-toggle-filelist-dark);
 
 				svg {
 					display: none;
 				}
+			}
+			
+		}
+
+		.upload-picker__progress {
+			width: 300px;
+			max-width: 320px;
+			
+			//Adjusting the position of the progress bar to align with the secondary loader
+			margin-right: 6rem;
+    		margin-top: 23px;
+		}
+
+		// Responsive adjustment for upload progress bar
+		@media screen and (max-width: $breakpoint-mobile-small) {
+			.upload-picker__progress {
+				width: 140px !important;
+				max-width: 320px;
+				margin-right: 4rem !important;
+				padding: 1rem;
+				background: var(--color-main-background);
+				z-index: 1;
+				position: absolute;
+			}
+
+			.upload-picker__cancel {
+				z-index: 1;
+				position: relative;
+				left: -148px;
+				float: left;
+				padding: 0;
+				background: var(--color-main-background);
+			}
+
+			.files-list__header-upload-button {
+				padding-left: 2rem;
+				background-color: var(--color-main-background);
+				z-index: 1;
+			}
+		}
+
+		@media (min-width: $breakpoint-mobile-small) and (max-width: $breakpoint-mobile-medium) {
+			.upload-picker__progress {
+				width: 300px;
+				max-width: 320px;
+				margin-right: 3rem;
+				margin-top: 23px;
+				padding: 1rem 0 1rem 1rem;
+				background: var(--color-main-background);
+				z-index: 1;
+			}
+		}
+		@media (min-width: $breakpoint-mobile-medium) and (max-width: $breakpoint-mobile) { 
+			.upload-picker__progress {
+				margin-right: 2rem;
+				width: 260px;
+			}
+		}
+		
+		.files-list__breadcrumbs--with-progress {
+			flex-direction: row !important;
+		}
+
+		.files-list__refresh-icon {
+			position: absolute;
+			right: 13rem;
+		}
+
+		button[data-cy-files-list-action="empty-trash"] {
+			align-items: center;
+			all: unset;
+			background-color: var(--color-primary);
+			border: none;
+			border-radius: var(--border-radius-rounded);
+			cursor: pointer;
+			display: flex;
+			justify-content: center;    
+			margin-inline: 1rem;
+			min-height: unset;
+			height: 40px;
+
+			&:hover:not(:disabled) {
+				background-color: var(--color-primary-hover);
+			}
+
+			&:active:not(:disabled) {
+				background-color: var(--color-primary-pressed);
+			}
+
+			.button-vue__text {
+				color: var(--nmc-color-text-and-icon-white);
+				padding: 0 1rem;
 			}
 		}
 	}
@@ -377,42 +565,481 @@ table.files-filestable {
 			}
 		}
 
+		.files-list__row-trashbin-deleted-by {
+			display: none;
+		}
+
+		&__thead-overlay {
+			border: 0;
+    		margin-block: 6px -6px;
+			margin-inline-start: 4rem;
+			padding-inline-end: 1rem;
+		}
+
+		.files-list__filters {
+			padding-block: 1rem;
+			padding-inline: 4rem 1rem;
+
+			.file-list-filters {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: 1rem;
+				height: 2rem;
+			}
+
+			// Add separator before active filters
+			.file-list-filters__active {
+				gap: 0.5rem;
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				flex-wrap: wrap;
+				position: relative;
+
+				// Responsive adjustment for chips
+				@media screen and (max-width: $breakpoint-mobile-small) {
+					max-height: 3rem;
+    				overflow-y: auto;
+				}
+
+				&:not(:empty)::before {
+					content: "";
+					position: absolute;
+					left: -1rem;
+					top: 50%;
+					transform: translateY(-50%);
+					width: 1px;
+					height: 100%;
+					background-color: var(--color-border);
+					margin: 0 8px;
+				}
+			}
+		}
+
 		.files-list__filters .file-list-filters__filter {
 			.file-list-filter-accounts {
 				display: none;
+			}
+
+			// Style for filter dropdown buttons (Type, Modified, etc.)
+			.action-item button.action-item__menutoggle {
+				background-color: var(--nmc-ods-blue-primary);
+				color: var(--nmc-color-text-and-icon-black);
+				border: none;
+				border-radius: var(--border-radius-small);
+				height: 28px;
+				min-height: 28px;
+				padding: 0 10px;
+				font-weight: normal;
+				display: flex;
+				align-items: center;
+				box-sizing: border-box;
+				margin: 0;
+
+				&:hover {
+					background-color: var(--nmc-ods-blue-hover);
+				}
+
+				&:active {
+					background-color: var(--nmc-ods-blue-pressed);
+				}
+
+				&[aria-expanded="true"] {
+					background-color: var(--nmc-ods-blue-active);
+				}
+
+				// Hide the left icon
+				.button-vue__icon {
+					display: none;
+				}
+
+				.button-vue__text {
+					color: var(--nmc-color-text-and-icon-black);
+				}
+
+				// Add down arrow icon after the wrapper
+				.button-vue__wrapper::after {
+					content: '';
+					display: inline-block;
+					width: 6px;
+					height: 6px;
+					border-left: 1.5px solid var(--nmc-color-text-and-icon-black);
+					border-bottom: 1.5px solid var(--nmc-color-text-and-icon-black);
+					transform: rotate(-45deg);
+					margin-left: 8px;
+					margin-bottom: 2px;
+					transition: transform 0.2s ease;
+				}
+
+				// Rotate arrow when dropdown is open
+				&[aria-expanded="true"] .button-vue__wrapper::after {
+					transform: rotate(135deg);
+					margin-bottom: -2px;
+				}
+			}
+		}
+
+		// Style for active filter chips
+		.files-list__filters .nc-chip {
+			background-color: var(--nmc-ods-blue-active);
+			color: var(--nmc-color-text-and-icon-black);
+			border-radius: 8px;
+			border: none;
+			height: 28px;
+			padding-left: 8px;
+
+			&:hover {
+				background-color: var(--nmc-ods-blue-hover);
+			}
+
+			&:active {
+				background-color: var(--nmc-ods-blue-pressed);
+			}
+
+			// Hide the leading icon
+			.nc-chip__icon {
+				display: none;
+			}
+
+			// Style the text
+			.nc-chip__text {
+				color: var(--nmc-color-text-and-icon-black);
+				font-weight: bold;
+			}
+
+			// Style the X button
+			button {
+				padding-left: 0;
+				padding-right: 0;
+				margin-left: 0;
+				margin-right: 0;
+				min-width: 16px;
+				width: auto;
+
+
+				svg {
+					color: var(--nmc-color-text-and-icon-black);
+					width: 16px;
+					height: 16px;
+				}
+			}
+		}
+
+		.files-list__empty {
+
+			.empty-content {
+				width: 540px;
+				max-width: 100%;
+
+				&[data-cy-files-content-empty="files"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/mouse.svg');
+
+						@media (prefers-color-scheme: dark) {
+							background-image: url('../img/decorative_images/mouse-dark.svg');
+						}
+					}
+				}
+
+				&[data-cy-files-content-empty="sharingin"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/sad-unicorn.svg');
+
+						@media (prefers-color-scheme: dark) {
+							background-image: url('../img/decorative_images/sad-unicorn-dark.svg');
+						}
+					}
+				}
+
+				&[data-cy-files-content-empty="sharingout"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/cat-family.svg');
+
+						@media (prefers-color-scheme: dark) {
+							background-image: url('../img/decorative_images/cat-family-dark.svg');
+						}
+					}
+				}
+
+				&[data-cy-files-content-empty="pendingshares"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/pandas.svg');
+
+						@media (prefers-color-scheme: dark) {
+							background-image: url('../img/decorative_images/pandas-dark.svg');
+						}
+					}
+				}
+
+				&[data-cy-files-content-empty="trashbin"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/cat.svg');
+
+						@media (prefers-color-scheme: dark) {
+							background-image: url('../img/decorative_images/cat-dark.svg');
+						}
+					}
+				}	
+
+				&[data-cy-files-content-empty="favorites"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/unicorn.svg');
+
+						@media (prefers-color-scheme: dark) {
+							background-image: url('../img/decorative_images/unicorn-dark.svg');
+						}
+					}
+				}	
+
+				&__icon {
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+					height: 100%;
+					width: 100%;
+					max-height: 400px;
+					opacity: 1;
+
+					.icon-vue {
+						display: none;
+					}
+				}
+			}
+		}
+
+		// File Grid View for v30
+		&.files-list--grid {
+
+			tbody.files-list__tbody {
+				--clickable-area: 44px;
+				--half-clickable-area: calc(var(--clickable-area) / 2);
+				--row-width: 200px;
+				--row-height: calc(var(--row-width) - var(--half-clickable-area)) !important;
+				--icon-preview-size: calc(var(--row-width) - 1rem);
+			
+				margin: 1rem 0;
+    			row-gap: 1rem;
+				grid-template-columns: repeat(auto-fill, var(--row-width));
+
+				min-height: unset !important;
+
+				tr {
+					width: var(--row-width);
+					height: calc(var(--row-height) + var(--clickable-area) + 1rem) !important;
+					border: none;
+					border-radius: var(--border-radius);
+					padding: unset;
+
+					&.files-list__row {
+
+						&:hover,
+						&:focus,
+						&:active,
+						&--active {
+							background-color: var(--color-background-hover);
+						}
+					}
+
+					td.files-list__row-checkbox {
+						width: 44px;
+						height: 44px;
+						top: 0.35rem;
+						left: 0.5rem;
+						right: unset;
+						@include files-checkboxes-v28;
+
+						span.checkbox-content {
+							padding: 0;
+						}
+					}
+
+					td.files-list__row-name {
+
+						.files-list__row-icon {
+							width: 100%;
+    						height: 100%;
+    						padding-top: 1rem;
+							margin-right: unset;
+							margin-left: unset;
+							z-index: unset;
+
+							.material-design-icon:not(.play-circle-icon) {
+								@include thumbnail-icons();
+								margin: 0;
+								max-width: calc(100% - 2 * 14px);
+								max-height: calc(100% - 2 * 14px);
+								width: calc(100% - 2 * 14px);
+								height: calc(100% - 2 * 14px);
+								position: absolute;
+
+								&.folder-icon,
+								&.folder-open-icon {
+									width: 150px;
+									height: 120px;
+
+									svg {
+										width: 150px;
+										height: 120px;
+										color: var(--nmc-ods-blue-active);
+
+										path {
+											transform: scale(1.5, 1.5);
+											transform-origin: center;
+										}
+									}
+								}
+
+								&.files-list__row-icon-overlay {
+									max-width: calc(50% - 2 * 14px);
+									max-height: calc(50% - 2 * 14px);
+									width: calc(50% - 2 * 14px);
+									height: calc(50% - 2 * 14px);
+									margin-top: 10px;
+
+									svg {
+										display: none;
+									}
+
+									&.link-icon, &.account-plus-icon {
+										background-image: var(--original-icon-folder-overlay-share-white);
+									}
+
+									&.key-icon {
+										background-image: var(--original-icon-folder-overlay-lock-white);
+									}
+								}
+							}
+						}
+
+						.files-list__row-name-link {
+							padding: 0.5rem;
+							width: calc(100% - 1.75rem);
+							margin: 1.75rem 0 0;
+						}
+
+						.files-list__row-name-text {
+							padding: 0;
+							margin: 0;
+						}
+
+						display: grid;
+						flex-direction: column;
+						justify-content: stretch;
+						width: 100%;
+						height: 100%;
+						grid-auto-rows: var(--row-height) var(--clickable-area) !important;
+					}
+
+					td.files-list__row-actions {
+							width: 1.5rem;
+
+							.action-item__menutoggle {
+								padding: 0;
+								min-width: 1.5rem;
+								width: 1.5rem !important;
+							}
+
+							right: 0.25rem;
+    						bottom: 0;
+					}
+
+					td.files-list__row-mtime {
+						display: none;
+					}
+
+					.files-list__row-icon {
+
+						.files-list__row-icon-favorite {
+    						height: var(--clickable-area) !important;
+							width: var(--clickable-area) !important;
+							top: 4px;
+
+							.icon-vue {
+								width: 24px;
+								height: 24px;
+
+								svg {
+									display: none;
+								}
+							}
+						}
+
+
+						img {
+							    overflow: hidden;
+								width: var(--icon-preview-size) !important;
+								height: var(--icon-preview-size) !important;
+								border-radius: var(--border-radius);
+								object-fit: contain;
+								object-position: center;
+
+								background-color: unset;
+								background-position: center;
+								background-repeat: no-repeat;
+								background-size: contain;
+								border: none;
+								height: 44px;
+								margin-top: 0.5rem;
+								width: 44px;
+						}
+					}
+				}
+			}
+		}
+
+		tbody {
+			tr:last-child {
+				border-bottom: 0;;
 			}
 		}
 
 		// Files table and grid
 		table.files-list__table {
+
 			thead {
 				background-color: var(--color-main-background);
-				opacity: 0.97;
-				top: -2px;
+				opacity: 1;
+				top: 0;
 
 				@include files-checkboxes-v28;
 
 				th.files-list__column.files-list__ {
 					&row-checkbox {
-						width: 55px;
+						width: 4rem;
+
+						.checkbox-radio-switch__input:focus-visible + .checkbox-radio-switch__content {
+							border: none !important;
+							outline: none !important;
+						}
 					}
 
 					&row-name {
-						margin-left: 1rem;
 						width: 100vw;
 
 						.files-list__column-sort-button {
-							padding: 0;
+							padding: 0 0 0 4rem;
 							margin: 0;
 						}
 
 						@include files-table-columns-v28;
 					}
 
+
+					&row-trashbin-files_trashbin--deleted-by {
+						display: none;
+					}
+					
+					&row-size,					
 					&row-mtime,
-					&row-size,
-					&row-trashbin-original-location,
-					&row-trashbin-deleted {
+					&row-trashbin-files_trashbin--original-location,
+					&row-trashbin-files_trashbin--deleted {
 						min-width: 140px;
 						text-align: right;
 
@@ -423,39 +1050,129 @@ table.files-filestable {
 
 						@include files-table-columns-v28;
 					}
-				}
-			}
+					
+					&row-mime {
+						min-width: 140px;
+						text-align: left;
 
-			tbody:not(.files-list__tbody--grid) {
-
-				.files-list__row-icon {
-					flex: 0 0 3rem;
-					margin-right: 1rem;
-					margin-left: 1rem;
-					z-index: 100;
-
-					.material-design-icon:not(.play-circle-icon) {
-						@include thumbnail-icons();
-
-						&.folder-icon {
-							background-image: var(--icon-mime-folder-dark);
+						.files-list__column-sort-button {
+							padding: 0;
+							margin: 0;
+							&-text {
+								color: var(--color-main-text);
+							}
 						}
+					}
 
-						&.link-icon {
-							background-image: var(--icon-mime-folder-shared-dark);
-						}
-
-						&.key-icon {
-							background-image: var(--icon-mime-folder-encrypted-dark);
-						}
+					&row-trashbin-files_trashbin--original-location {
+						min-width: 162px;
 					}
 				}
 
-				&.files-list__tbody--grid {
-					@include files-checkboxes-v28;
-				}
+				th:nth-of-type(7) {
+					span.button-vue__wrapper {
+						padding-bottom: 5px;
 
+						svg {
+							color: var(--color-text-maxcontrast);
+							opacity: 1;
+							display: block;
+							visibility: visible;
+						}
+
+						span.files-list__column-sort-button-text {
+							color: var(--color-main-text);
+						}
+
+						&:hover {
+							svg {
+								color: var(--color-primary);
+							}
+
+							span.files-list__column-sort-button-text {
+								color: var(--color-primary);
+							}
+						}
+					}
+
+				}
+			}
+
+			tfoot {
+
+				.summary {
+					color: var(--color-main-text);
+
+					.filesummary {
+						padding-top: 20px;
+					}
+				}
+			}
+		}
+
+
+		thead {
+
+			tr {
+				height: 56px;
+			}
+		}
+
+
+		// Not File Grid View for v30
+		&:not(.files-list--grid) {
+
+			.files-list__row-icon {
+				flex: 0 0 3rem;
+				margin-right: 0;
+				margin-left: 0;
+				z-index: 100;
+
+				.material-design-icon:not(.play-circle-icon) {
+					@include thumbnail-icons();
+
+					&.folder-icon,
+					&.folder-open-icon {
+
+						svg {
+							width: 44px;
+							height: 36px;
+							color: var(--nmc-ods-blue);
+
+							path {
+								transform: scale(1.5, 1.5);
+								transform-origin: center;
+							}
+						}
+					}
+
+					&.files-list__row-icon-overlay {
+						height: 1.5rem;
+						margin-top: 0.25rem;
+						width: 1.5rem;
+
+						svg {
+							display: none;
+						}
+
+						&.link-icon, &.account-plus-icon {
+							background-image: var(--original-icon-folder-overlay-share-white);
+						}
+
+						&.key-icon {
+							background-image: var(--original-icon-folder-overlay-lock-white);
+						}
+					}
+				}
+			}
+
+			&.files-list__tbody--grid {
 				@include files-checkboxes-v28;
+			}
+
+			@include files-checkboxes-v28;
+
+			tbody {
 
 				tr {
 					height: 68px;
@@ -465,44 +1182,61 @@ table.files-filestable {
 					&:not(.hidden):active,
 					&:not(.hidden):focus,
 					&:not(.hidden).mouseOver td {
-						background-color: var(--nmc-color-row-selected);
+						background-color: var(--color-background-dark);
 					}
 
 					&:not(.hidden):not(.highlighted):not(.selected):hover {
-						background-color: var(--nmc-color-row-hover);
+						background-color: var(--color-background-hover);
 					}
 
 					td {
 						.files-list__row-icon {
 
-							img {
-								background-color: unset;
-								background-position: center;
-								background-repeat: no-repeat;
-								background-size: contain;
-								border: none;
-								height: 44px;
-								margin-top: 0.2rem;
-								width: 44px;
-							}
+							.files-list__row-icon-preview-container {
+								    position: unset;
+									overflow: unset;
+									width: unset;
+									height: unset;
+									border-radius: unset;
 
-							.files-list__row-icon-favorite {
-								bottom: -3px;
-								right: -16px;
-								top: unset;
-								width: 24px;
-								height: 24px;
+								img {
+									background-color: unset;
+									background-position: center;
+									background-repeat: no-repeat;
+									background-size: contain;
+									border: none;
+									height: 44px;
+									margin-top: 0.2rem;
+									width: 44px;
+								}
 
-								.icon-vue {
-									background-size: 24px;
+								.files-list__row-icon-favorite {
 									width: 24px;
 									height: 24px;
 
-									svg {
-										display: none;
+									.icon-vue {
+										background-size: 24px;
+										width: 24px;
+										height: 24px;
+
+										svg {
+											display: none;
+										}
 									}
 								}
 							}
+						}
+
+						&.files-list__row-checkbox {
+							width: 4rem;
+						}
+
+						&.files-list__row-name {
+							overflow: visible;
+						}
+
+						&.files-list__row-trashbin-files_trashbin--deleted-by {
+							display: none;
 						}
 
 						.files-list__row-name-link {
@@ -511,16 +1245,26 @@ table.files-filestable {
 							text-align: start;
 							width: 100%;
 							height: 100%;
-    						min-height: 36px;
+							min-height: 36px;
 							min-width: 0;
 							margin: 0;
-							padding: 8px 14px;
+							padding: 0 1rem;
+							box-shadow: none !important;
+
+							.files-list__row-name-text {
+								margin: 0;
+								padding: 3px;
+
+								span {
+									outline: none;
+								}
+							}
 						}
 
 						&.files-list__row-mtime,
 						&.files-list__row-size,
-						&.files-list__row-trashbin-original-location,
-						&.files-list__row-trashbin-deleted,
+						&.files-list__row-trashbin-files_trashbin--original-location,
+						&.files-list__row-trashbin-files_trashbin--deleted,
 						&.column-last {
 							min-width: 140px;
 							text-align: right;
@@ -530,8 +1274,20 @@ table.files-filestable {
 							}
 						}
 
+						&.files-list__row-trashbin-files_trashbin--original-location {
+							min-width: 162px;
+						}
+
 						&.files-list__row-size {
-							min-width: 90px;
+							min-width: 140px;
+						}
+
+						&.files-list__row-mime {
+							width: 140px;
+							
+							span {
+								color: var(--color-main-text);
+							}
 						}
 
 						&.files-list__row-actions {
@@ -551,6 +1307,7 @@ table.files-filestable {
 
 										.button-vue__text {
 											margin: 0;
+											color: var(--color-primary-element);
 										}
 
 										.button-vue__icon {
@@ -569,6 +1326,26 @@ table.files-filestable {
 										.button-vue__icon {
 											background-image: var(--icon-restore-dark);
 											@include magenta-icon;
+										}
+									}
+
+									&.files-list__row-action-accept-share {
+
+										.button-vue__icon {
+											background-image: var(--icon-check-dark);
+											@include magenta-icon;
+										}
+									}
+
+									&.files-list__row-action-reject-share {
+
+										.button-vue__icon {
+											background-image: var(--icon-close-dark);
+											@include macaw-icon;
+										}
+
+										.button-vue__text {
+											color: var(--nmc-ods-blue);
 										}
 									}
 
@@ -591,16 +1368,106 @@ table.files-filestable {
 									&.files-list__row-action-sharing-popup {
 										direction: rtl;
 										margin: 0;
+										border: 1px solid var(--color-main-text);
+										border-radius: 50%;
+										width: 40px !important;
+										height: 40px !important;
+										min-width: 40px !important;
+										min-height: 40px !important;
+										box-sizing: border-box;
+										display: flex;
+										align-items: center;
+										justify-content: center;
+										transition: all 0.15s ease-in-out;
 
 										.button-vue__icon {
 											background-image: var(--icon-shared-dark);
+											background-size: 16px 16px;
+											width: 16px;
+											height: 16px;
 										}
 
-										&.button-vue--icon-and-text .button-vue__icon {
-											@include magenta-icon;
+										// Active/existing share state - when file is shared
+										&.active,
+										&[aria-pressed="true"],
+										&.button-vue--icon-and-text {
+											border: none;
+											background-color: var(--nmc-ods-blue-primary) !important;
+
+											.button-vue__icon {
+												filter: brightness(0);
+											}
+
+											.button-vue__text {
+												color: var(--nmc-color-text-and-icon-black);
+											}
+
+											[data-themes*=dark] & {
+												.button-vue__icon {
+													filter: brightness(0);
+												}
+											}
 										}
 
-										&.button-vue--icon-and-text[aria-label="Mit mir geteilt"] .button-vue__icon, 
+										&.button-vue--icon-and-text {
+											border-color: var(--nmc-ods-blue-primary);
+											background-color: var(--nmc-ods-blue-primary);
+										}
+
+										&:hover {
+											border-color: var(--nmc-ods-blue-hover);
+											background-color: var(--nmc-ods-blue-hover);
+
+											.button-vue__icon {
+												filter: brightness(0);
+											}
+										}
+
+										// When shared, maintain blue on hover with lighter shade
+										&.active:hover,
+										&[aria-pressed="true"]:hover,
+										&.button-vue--icon-and-text:hover {
+											background-color: var(--nmc-ods-blue-hover) !important;
+										}
+
+										&:active {
+											border: none;
+											background-color: var(--nmc-ods-blue-pressed);
+
+											.button-vue__icon {
+												filter: brightness(0);
+											}
+
+											[data-themes*=dark] & {
+												.button-vue__icon {
+													filter: brightness(0);
+												}
+											}
+										}
+
+										&:focus,
+										&:focus-visible {
+											outline: 2px solid var(--color-main-text);
+											outline-offset: 2px;
+
+											// Only apply blue bg on focus if not already shared
+											&:not(.active):not([aria-pressed="true"]):not(.button-vue--icon-and-text) {
+												border: none;
+												background-color: var(--nmc-ods-blue-primary);
+
+												.button-vue__icon {
+													filter: brightness(0);
+												}
+											}
+
+											[data-themes*=dark] & {
+												.button-vue__icon {
+													filter: brightness(0);
+												}
+											}
+										}
+
+										&.button-vue--icon-and-text[aria-label="Mit mir geteilt"] .button-vue__icon,
 										&.button-vue--icon-and-text[aria-label="Shared with me"] .button-vue__icon {
 											background-image: var(--icon-upload-to-cloud-dark);
 											filter: invert(61%) sepia(98%) saturate(4546%) hue-rotate(181deg) brightness(99%) contrast(109%);
@@ -622,9 +1489,36 @@ table.files-filestable {
 
 								// ... action menu
 								div.action-item {
+
 									button.action-item__menutoggle {
-										&:hover svg {
+										border: 1px solid var(--color-main-text);
+										border-radius: 50%;
+										width: 40px !important;
+										height: 40px !important;
+										min-width: 40px !important;
+										min-height: 40px !important;
+										box-sizing: border-box;
+										display: flex;
+										align-items: center;
+										justify-content: center;
+
+										svg {
+											width: 16px;
+											height: 16px;
 											color: var(--color-main-text);
+										}
+
+										&:hover, 
+										&:active,
+										&.active,
+										&[aria-pressed="true"],
+										&:focus,
+										&:focus-visible {
+											background-color: var(--color-main-hover);
+
+											svg {
+												color: var(--color-main-text);
+											}
 										}
 									}
 								}
@@ -634,104 +1528,167 @@ table.files-filestable {
 				}
 			}
 
-			tbody.files-list__tbody--grid {
-				margin: 15px 0;
-
-				tr {
-					&.files-list__row {
-
-						&:hover,
-						&:focus,
-						&:active,
-						&--active {
-							background-color: var(--nmc-color-row-hover);
-						}
-					}
-
-					td.files-list__row-checkbox {
-						width: 26px;
-						height: 26px;
-						@include files-checkboxes-v28;
-
-						span.checkbox-content {
-							padding: 0;
-						}
-					}
-
-					td.files-list__row-name {
-
-						.files-list__row-name-link {
-							padding: 0.5rem;
-							width: 90%;
+			// Hide sharing-popup and actions menu for pending share rows
+			tbody tr:has(.files-list__row-action-accept-share) {
+				td.files-list__row-actions {
+					.action-items {
+						button.action-item.files-list__row-action-sharing-popup {
+							display: none !important;
 						}
 
-						.files-list__row-name-text {
-							padding: 0;
-						}
-					}
-
-					td.files-list__row-actions {
-							width: 1.5rem;
-
-							.action-item__menutoggle {
-								padding: 0;
-								min-width: 1.5rem;
-								width: 1.5rem !important;
-							}
-					}
-
-					.files-list__row-icon {
-
-						.material-design-icon:not(.play-circle-icon) {
-							@include thumbnail-icons();
-							margin: 0;
-							max-width: calc(100% - 2 * 14px);
-							max-height: calc(100% - 2 * 14px);
-							width: calc(100% - 2 * 14px);
-							height: calc(100% - 2 * 14px);
-							position: absolute;
-
-							&.folder-icon {
-								background-image: var(--icon-mime-folder-dark);
-							}
-
-							&.link-icon {
-								background-image: var(--icon-mime-folder-shared-dark);
-							}
-
-							&.key-icon {
-								background-image: var(--icon-mime-folder-encrypted-dark);
-							}
+						button.action-item__menutoggle {
+							display: none !important;
 						}
 
-						.files-list__row-icon-favorite {
-							top: calc(100% - 25px);
-							left: calc(50% - 22px);
-
-							.icon-vue {
-								width: 24px;
-								height: 24px;
-
-								svg {
-									display: none;
-								}
-							}
+						li.action:not(.files-list__row-action-accept-share):not(.files-list__row-action-reject-share) {
+							display: none !important;
 						}
-					}
-				}
-			}
-
-			tfoot {
-
-				.summary {
-					color: var(--color-main-text);
-
-					.filesummary {
-						padding-top: 20px;
 					}
 				}
 			}
 		}
+	}
+}
+
+
+
+#body-user,
+#body-public {
+
+	&[data-themes*=dark] {
+
+		.files-list__empty {
+
+			.empty-content {
+
+				&[data-cy-files-content-empty="files"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/mouse-dark.svg');
+					}
+				}
+
+				&[data-cy-files-content-empty="sharingin"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/sad-unicorn-dark.svg');
+					}
+				}
+
+				&[data-cy-files-content-empty="sharingout"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/cat-family-dark.svg');
+					}
+				}
+
+				&[data-cy-files-content-empty="pendingshares"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/pandas-dark.svg');
+					}
+				}
+
+				&[data-cy-files-content-empty="trashbin"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/cat-dark.svg');
+					}
+				}	
+
+				&[data-cy-files-content-empty="favorites"] {
+
+					.empty-content__icon {
+						background-image: url('../img/decorative_images/unicorn-dark.svg');
+					}
+				}
+			}
+		}
+	}
+}
+
+// Pending shares page: disable name link so files cannot be opened before accepting the share
+body.nmc-pendingshares-view {
+	.files-list__row-name-link {
+		pointer-events: none;
+		cursor: default;
+	}
+
+	.files-list:not(.files-list--grid) .files-list__row-icon .material-design-icon svg {
+		width: 44px !important;
+		height: 36px !important;
+	}
+
+	.files-list__row-actions-batch-move-copy,
+	.files-list__row-actions-batch-download,
+	.files-list__row-actions-batch-delete,
+	.files-list__row-actions-batch-cancel_select,
+	.files-list__row-actions-batch-favorite {
+		display: none;
+	}
+
+	@media screen and (min-width: $breakpoint-mobile) {
+		.action-items > div.action-item {
+			display: none;
+		}
+	}
+}
+
+#body-user,
+#body-public {
+
+	.conflict-picker {
+
+		.conflict-picker__header, .conflict-picker-description, .conflict-picker__form {
+			padding: 0 0 1.5rem;
+		}
+		
+		.dialog__actions {
+			margin: 0;
+			padding: 0;
+
+			.button-vue--vue-primary, .button-vue--vue-secondary, .button-vue--vue-tertiary  {
+				margin-block: 0.5rem !important;
+				margin-inline: 0;
+			}
+		}
+	}
+	
+	.files-list-filter__clear-button {
+		background: var(--nmc-ods-blue-primary);
+		border-radius: var(--border-radius-pill);
+		border: none;
+
+		.action-button {
+			padding: 0;
+		}
+
+		.action-button__icon {
+			display: none;
+		}
+
+		.action-button__longtext-wrapper {
+			width: 100%;
+    		text-align: center;
+		}
+
+		.action-button__text {
+			color: var(--nmc-color-text-and-icon-black);
+			font-weight: bold;
+		}
+
+		&:hover {
+			background-color: var(--nmc-ods-blue-hover);
+		}
+	}
+}
+
+// Hide WebDAV, Warnings, and Keyboard shortcuts sections in Files settings
+.app-settings__content {
+	#settings-section_webdav,
+	#settings-section_warning,
+	#settings-section_shortcuts {
+		display: none;
 	}
 }
 
@@ -765,12 +1722,12 @@ table.files-filestable {
 
 				label.checkbox-radio-switch__label>span.checkbox-radio-switch__icon {
 					background-image: var(--original-icon-check-white);
-					background-color: var(--telekom-color-functional-success-standard);
+					background-color: var(--color-success);
 					background-position: center;
 					background-repeat: no-repeat;
 					background-size: 18px;
 					border: none;
-					border-radius: var(--telekom-radius-circle);
+					border-radius: var(--border-radius-pill);
 					height: 1.5rem;
 					width: 1.5rem;
 					margin: -2px -2px 0 0;
@@ -791,11 +1748,6 @@ table.files-filestable {
 				margin-right: 16px;
 				margin-left: 24px;
 				z-index: 100;
-
-				.material-design-icon.folder-icon {
-					background-image: var(--icon-mime-folder-dark);
-					@include thumbnail-icons();
-				}
 			}
 		}
 	}
@@ -819,7 +1771,7 @@ table.files-filestable {
 				&:focus,
 				&:focus-visible {
 					background-color: transparent;
-					color: var(--telekom-color-text-and-icon-primary-standard);
+					color: var(--color-primary);
 					outline: none;
 				}
 
@@ -846,12 +1798,40 @@ table.files-filestable {
 				color: var(--color-main-text) !important;
 			}
 		}
+	}
 
-		// 3-dot menu on rows
-		.v-popper__popper--shown .v-popper__wrapper .v-popper__inner {
-			ul[role="menu"] {
-				li.files-list__row-action.files-list__row-action-rename, li.files-list__row-action-sharing-status, li.files-list__row-action-sharing-manage {
-					display: none;
+	.files-list__header--public {
+		&+.files-list{
+			.files-list__filters {
+				display: none;
+			}
+
+			table {
+				thead > tr > th {
+					&.files-list__row-mime {
+						display: none;
+					}
+				}
+				tbody > tr > td {
+					&.files-list__row-actions {
+					}
+
+					&.files-list__row-mime {
+						display: none;
+					}
+				}
+			}
+
+			.v-popper__popper {
+				ul {
+					li {
+						&[data-cy-files-list-row-action="sharing-popup-menu"] {
+							display: none;
+						}
+						&[data-cy-files-list-row-action="sharing-manage"] {
+							display: none;
+						}
+					}
 				}
 			}
 		}

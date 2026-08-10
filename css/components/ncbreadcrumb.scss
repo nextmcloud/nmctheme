@@ -2,37 +2,51 @@
 @import '../variables';
 
 #content-vue .breadcrumb {
+	margin-inline: 1rem;
+
 	nav {
 		height: 44px;
+		margin: 0px 10px;
+		@media (min-width: $breakpoint-mobile-medium) and (max-width: $breakpoint-mobile) { 
+			nav {
+				flex-shrink: 0;
+			}
+		}
+
 		ul.breadcrumb__crumbs {
-			// Display root as a Home icon
+			// Display root as "Start" text
 			li.vue-crumb:first-child {
 				.button-vue__icon {
-					background-image: var(--icon-home-dark);
-					background-position: center;
-					background-repeat: no-repeat;
-					svg {
-						display: none;
-					}
-				}
-				.button-vue__text {
 					display: none;
 				}
-				&:hover {
-					.button-vue__icon {
-						opacity: 0.7;
-					}
+				.button-vue__text {
+					display: block !important;
+					visibility: hidden;
+					position: relative;
+					width: 36px;
 				}
-
+				.button-vue__text::before {
+					content: 'Start';
+					visibility: visible;
+					position: absolute;
+					left: 0;
+				}
 			}
 	
 			li.vue-crumb {
-				a.button-vue {
+
+				.button-vue {
 					margin: 0;
-					padding: 0 6px;
+					padding: 0;
+
+					&__wrapper {
+						justify-content: flex-start;
+					}
+
 					&:hover {
 						background-color: initial;
 					}
+
 					&:focus {
 						outline: none;
 						background-color: initial;
@@ -49,22 +63,47 @@
 					}
 				}
 	
-				// Right arrow change
+				// Dot separator
 				span.chevron-right-icon {
-					display: block;
-					margin-right: 8px;
-					background-image: var(--icon-breadcrumb-arrow-grey);
-					width: 24px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					margin-right: 4px;
+					width: 16px;
 					height: 24px;
 					svg {
 						display: none;
 					}
+					&::before {
+						content: '';
+						width: 4px;
+						height: 4px;
+						border-radius: 50%;
+						background-color: currentColor;
+						opacity: 0.5;
+					}
+				}
+			}
+
+			// Hide dot after last item (no separator after the last breadcrumb)
+			li.vue-crumb:last-child {
+				span.chevron-right-icon {
+					display: none;
 				}
 			}
 		}
 	}
+}
 
+// Override at root level to ensure it applies
+.breadcrumb--collapsed .vue-crumb:last-child {
+	min-width: 60px !important;
+}
+
+#content-vue .breadcrumb {
 	.breadcrumb__actions {
+		margin-left: auto;
+
 		// hide Share button
 		button.files-list__header-share-button {
 			display: none;
@@ -72,41 +111,57 @@
 
 		// 'Add new file/folder' button inside breadcrumb
 		.files-list__header-upload-button {
+			flex-direction: row-reverse;
+
 			button.action-item__menutoggle {
+				align-items: center;
 				all: unset;
+				background-color: var(--color-primary);
+				border: none;
+				border-radius: var(--border-radius-rounded);
+				cursor: pointer;
 				display: flex;
-				background-color: var(--color-main-background);
-				border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
-				border-radius: 50%;
-				min-height: unset;
-				height: 24px;
-				width: 24px;
-				max-width: 24px;
+				justify-content: center;
 				margin: auto 0;
-				margin-left: 6px;
-		
+				min-height: unset;
+				height: 40px;
+
 				&:hover:not(:disabled) {
-					background-color: initial;
-					border-color: var(--telekom-color-text-and-icon-primary-standard);
+					background-color: var(--color-primary-hover);
 				}
-		
+
+				&:active:not(:disabled) {
+					background-color: var(--color-primary-pressed);
+				}
+
 				.button-vue__icon {
-					@include magenta-icon;
-					background-image: var(--icon-add-white);
-					background-size: 16px 16px;
+					background-image: var(--original-icon-add-white);
+					background-size: 18px;
 					opacity: 1;
-					width: 16px;
-					height: 16px;
+					width: 18px;
+					height: 18px;
 					background-position: center;
 					background-repeat: no-repeat;
+					margin-inline: 4px -4px;
+    				min-width: 40px;
+
 					svg {
 						display: none;
 					}
 				}
-		
-				// Do not display text "New" in the button
+
 				.button-vue__text {
-					display: none;
+					color:  var(--nmc-color-text-and-icon-white);
+					padding-right: 1rem;
+				}
+
+				@media only screen and (max-width: 511px) {
+					min-width: unset;
+					width: 40px !important;
+
+					.button-vue__icon {
+						margin-inline: 0;
+					}
 				}
 			}
 

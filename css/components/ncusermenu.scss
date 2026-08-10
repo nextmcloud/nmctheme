@@ -2,41 +2,69 @@
 @import '../_mixins';
 
 #user-menu {
+    .header-menu__carret {
+        display: none;
+    }
 
     .header-menu__wrapper {
+        border: 1px solid var(--color-border);
+        background-color: var(--color-main-background);
+        position: absolute;
+        margin-top: 8px;
+        overflow-x: hidden;
+
+        li:has(a#profile),
+        li:has(a#admin_settings),
+        li:has(a#core_apps),
+        li:has(a#core_users) {
+            order: 2;
+        }
+
+        li#nmc_welcome_popup-about {
+            order: 1;
+        }
+
+        li#profile {
+            display: none;
+        }
 
         ul {
+            width: 100%;
+            padding: 16px;
+            margin: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
 
             li.menu-entry {
-
-                &#profile {
-                    display: none;
-                }
-
-                &:hover span,
-                &:hover a, &:hover button {
-                    // Style user menu colors for Darkmode
-                    @media (prefers-color-scheme: dark) {
-                        color: var(--nmc-color-text-and-icon-primary-standard);
-                        background-color: transparent;
-                        &::after {
-                            filter: var(--nmc-color-icon)
-                        }
-                    }
-
-                }
+                width: 100%;
+                padding: 2px 0;
+                margin: 0;
+                box-sizing: border-box;
 
                 a, button {
-                    padding-left: 48px;
+                    position: relative;
+                    width: 100%;
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                    padding: 14px 16px 14px 48px;
+                    min-height: 52px;
+                    border-radius: 6px;
+                    transition: background-color 0.15s ease;
+
+                    &:hover {
+                        background-color: var(--color-background-hover) !important;
+                    }
 
                     &::after {
                         content: "";
                         display: block;
                         position: absolute;
-                        top: 0px;
+                        top: 50%;
                         left: 2px;
-                        height: 100%;
-                        width: 44px;
+                        transform: translateY(-50%);
+                        height: 40px;
+                        width: 40px;
                         background-repeat: no-repeat;
                         background-position: center;
                         background-size: 24px 24px;
@@ -59,24 +87,79 @@
                     background-image: var(--icon-customercenter-dark);
                 }
 
-                &#admin_settings>a::after {
-                    background-image: var(--icon-admin-dark);
-                }
-
-                &#core_apps>a::after {
-                    background-image: var(--icon-add-dark);
-                }
-
-                &#core_users>a::after {
-                    background-image: var(--icon-users-dark);
-                }
-
-                &#logout>a::after {
-                    background-image: var(--icon-logout-dark);
-                }
-
-                &#nmc_welcome_popup-about>button::after {
+                &#nmc_welcome_popup-about>a::after {
                     background-image: var(--icon-news-dark);
+                }
+            }
+
+            // Account Menu Entry (for Log out)
+            li.account-menu-entry {
+                width: 100%;
+                padding: 2px 0;
+                margin: 0;
+                box-sizing: border-box;
+
+                a, button {
+                    position: relative;
+                    width: 100%;
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                    padding: 14px 16px 14px 48px;
+                    min-height: 52px;
+                    border-radius: 6px;
+                    transition: background-color 0.15s ease;
+
+                    &:hover {
+                        background-color: var(--color-background-hover) !important;
+                    }
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        left: 2px;
+                        transform: translateY(-50%);
+                        height: 40px;
+                        width: 40px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 24px 24px;
+                    }
+
+                    img {
+                        display: none;
+                    }
+                }
+
+                &>.list-item {
+                    --list-item-height: auto;
+                    --list-item-padding: 0px;
+                    min-height: 52px;
+
+                    .list-item-content {
+                        padding-inline-start: 0%;
+
+                        .list-item-content__name{
+                            font-weight: inherit;
+                        }
+                    }
+                    
+                    > a#logout::after {
+                        background-image: var(--icon-logout-dark);
+                    }
+
+                    > a#nmc_welcome_popup-about {
+
+                        .loading-icon {
+                            display: none;
+                        }
+                        
+                        &::after {
+                            background-image: var(--icon-news-dark);
+                        }
+                    }
                 }
             }
         }

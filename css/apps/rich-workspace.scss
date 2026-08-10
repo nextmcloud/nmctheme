@@ -1,7 +1,10 @@
 @import '../_mixins.scss';
+@import '../_variables.scss';
 
 #rich-workspace {
 	padding: 0 0 0 2rem !important;
+	margin-bottom: 2rem !important;
+    border-bottom: 1px solid var(--color-border);
 }
 
 #editor-container {
@@ -9,16 +12,21 @@
 	.editor {
 
 		.text-menubar {
-			padding: 0;
+			box-sizing: content-box;
 			
 			&__slot {
 				padding-top: 0.5rem;
 			}
 
 			&__entries {
-				padding-top: 0.5rem;
+				padding-block: 0.25rem;
+
+				@media screen and (max-width: $breakpoint-mobile-medium) {
+					max-width: 20rem;
+				}
 
 				.button-vue {
+					background: none;
 					border: none;
 					padding: 0;
 					transition: none;
@@ -34,10 +42,16 @@
 
 					&.button-vue--vue-primary {
 						background-color: unset;
-						outline: 1px solid var(--telekom-color-primary-standard);
+						outline: 1px solid var(--color-primary);
+					}
+
+					&.button-vue--vue-secondary {
+						background: none;
+						border: none;
 					}
 	
 					&__icon {
+						justify-content: center !important;
 
 						svg {
 							display: none;
@@ -47,6 +61,15 @@
 							background-position: center;
 							height: 24px;
 							width: 24px;
+						}
+
+						.format-size-icon, 
+						.code-brackets-icon, 
+						.unfold-more-horizontal-icon, 
+						.dots-horizontal-icon {
+							svg {
+								display: block;
+							}
 						}
 
 						.arrow-u-left-top-icon {
@@ -149,8 +172,16 @@
 							background-image: var(--icon-link-dark);
 						}
 
-						.dots-horizontal-icon svg {
-							display: block;
+						.paperclip-icon {
+							background-image: var(--icon-attachment-dark);
+						}
+
+						.upload-icon {
+							background-image: var(--icon-attachment-dark);
+						}
+
+						.tray-arrow-up-icon {
+							background-image: var(--icon-attachment-dark);
 						}
 					}
 				}
@@ -280,7 +311,7 @@
 					}
 
 					&--info {
-						background-color: var(--telekom-color-functional-informational-subtle);
+						background-color: var(--color-info-text);
 
 						.callout__icon {
 							background-image: var(--icon-info-info);
@@ -288,7 +319,7 @@
 					}
 
 					&--success {
-						background-color: var(--telekom-color-functional-success-subtle);
+						background-color: var(--color-success-text);
 
 						.callout__icon {
 							background-image: var(--icon-success-success);
@@ -296,7 +327,7 @@
 					}
 
 					&--warn {
-						background-color: var(--telekom-color-functional-warning-subtle);
+						background-color: var(--color-warning-text);
 		
 						.callout__icon {
 							background-image: var(--icon-warning-warning);
@@ -304,7 +335,7 @@
 					}
 
 					&--error {
-						background-color: var(--telekom-color-functional-danger-subtle);
+						background-color: var(--color-error-text);
 		
 						.callout__icon {
 							background-image: var(--icon-danger-danger);
@@ -353,6 +384,10 @@
 			}
 		}
 
+		.container-suggestions {
+			display: none;
+		}
+
 		.v-popper__popper {
 
 			.material-design-icon {
@@ -361,32 +396,38 @@
 				background-size: 24px;
 
 				svg {
-					display: none;
+					display: unset;
 				}
 			}
 			
 			.format-header1-icon {
-				background-image: var(--icon-h1-dark);
+				// background-image: var(--icon-h1-dark);
+				background-image: unset;
 			}
 
 			.format-header2-icon {
-				background-image: var(--icon-h2-dark);
+				// background-image: var(--icon-h2-dark);
+				background-image: unset;
 			}
 
 			.format-header3-icon {
-				background-image: var(--icon-h3-dark);
+				// background-image: var(--icon-h3-dark);
+				background-image: unset;
 			}
 
 			.format-header4-icon {
-				background-image: var(--icon-h4-dark);
+				// background-image: var(--icon-h4-dark);
+				background-image: unset;
 			}
 
 			.format-header5-icon {
-				background-image: var(--icon-h5-dark);
+				// background-image: var(--icon-h5-dark);
+				background-image: unset;
 			}
 
 			.format-header6-icon {
-				background-image: var(--icon-h6-dark);
+				// background-image: var(--icon-h6-dark);
+				background-image: unset;
 			}
 
 			.information-icon {
@@ -394,44 +435,53 @@
 			}
 
 			.checkbox-marked-circle-icon {
-				background-image: var(--icon-success-dark);
+				// background-image: var(--icon-success-dark);
+				background-image: unset;
 			}
 			
 			.alert-icon {
-				background-image: var(--icon-alert-dark);
+				// background-image: var(--icon-alert-dark);
+				background-image: unset;
 			}
 
 			.alert-decagram-icon {
-				background-image: var(--icon-warning-dark);
+				// background-image: var(--icon-warning-dark);
+				background-image: unset;
 			}
 
-			.upload-icon {
-				background-image: var(--icon-upload-dark);
+			.tray-arrow-up-icon {
+				// background-image: var(--icon-upload-dark);
+				background-image: unset;
 			}
 
-			.folder-icon {
-				background-image: var(--icon-folder-dark);
+			.folder-outline-icon {
+				// background-image: var(--icon-folder-dark);
+				background-image: unset;
 			}
 
 			.web-icon {
-				background-image: var(--icon-text-link-dark);
+				// background-image: var(--icon-text-link-dark);
+				background-image: unset;
 			}
 
 			.file-document-icon {
-				background-image: var(--icon-text-file-dark);
+				// background-image: var(--icon-text-file-dark);
+				background-image: unset;
 			}
 
 			.link-off-icon {
 				background-image: var(--icon-delete-dark);
 			}
 
-			.help-circle-icon {
-				background-image: var(--icon-help-dark);
+			.help-circle-outline-icon {
+				// background-image: var(--icon-help-dark);
+				background-image: unset;
 			}
 
-			[data-text-action-entry=insert-link-picker] { 
+			[data-text-action-entry=insert-link-picker],
+			[data-text-action-entry=insert-attachment-add-text-0] { 
 				display: none;
-			}
+			}			
 			
 			.alphabetical-variant-icon svg {
 				display: block;
@@ -474,5 +524,20 @@
 				}
 			}
 		}
+	}
+}
+
+// Folder icon color in link bubble — selector is global because the bubble
+// is moved to document.body by the nmcfiles.ts MutationObserver fix.
+.link-view-bubble {
+	.folder-icon svg {
+		fill: var(--nmc-ods-blue);
+	}
+}
+
+// Folder icon color in the rich workspace link preview widget.
+.widget-file {
+	.folder-icon svg {
+		fill: var(--nmc-ods-blue);
 	}
 }

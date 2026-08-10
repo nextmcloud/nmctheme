@@ -1,11 +1,36 @@
 @import '../_mixins.scss';
 
 #app-sidebar-vue {
-
+	padding-bottom: 25px;
 	.app-sidebar-header {
+
+		.user-bubble__avatar {
+			display: none;
+		}
+		
+		.user-bubble__name {
+			padding-inline: 0.5rem;
+		}
+
 		&__desc {
-			padding: var(--telekom-spacing-composition-space-04) var(--telekom-spacing-composition-space-06) var(--telekom-spacing-composition-space-08);
-			// hide '...' actions button
+			padding: 0.5rem 1rem 1.5rem;
+
+			.app-sidebar-header__subname {
+				white-space: normal;
+				overflow: visible;
+				text-overflow: unset;
+
+				.sidebar__subname {
+					flex-wrap: wrap;
+				}
+
+				.sidebar__subname-separator:not(:has(~ .sidebar__subname-separator)), 
+				span:has(+ .user-bubble__wrapper),
+				.user-bubble__wrapper {
+					display: none;
+				}
+			}
+
 			.app-sidebar-header__menu {
 				display: none;
 			}
@@ -17,9 +42,11 @@
 
 			button.app-sidebar-header__star {
 				all: unset;
+
 				&:hover:not(:disabled) {
 					background-color: initial;
 				}
+
 				.button-vue__icon {
 					width: 1.5rem;
 					min-width: 1.5rem;
@@ -28,14 +55,17 @@
 						height: 1.5rem;
 					}
 				}
+
 				.star-outline-icon {
 					background-image: var(--icon-star-dark);
+
 					svg {
 						display: none;
 					}
 				}
 				.star-icon {
 					background-image: var(--icon-starred-yellow);
+
 					svg {
 						display: none;
 					}
@@ -45,21 +75,21 @@
 
 		// 'Close' button
 		button.app-sidebar__close {
-			opacity: 1;
 			background-color: var(--color-main-background);
-			top: 1rem;
+			opacity: 1;
 			right: 1rem;
+			top: 1rem;
 			transition: none;
-			&:hover, &:active, &:focus {
-				.button-vue__icon {
-					filter: var(--nmc-color-icon)
-				}
+
+			&:hover:not(:disabled) {
+				background-color: var(--color-background-hover);
 			}
+
 			.button-vue__icon {
-				background-image: var(--icon-close-dark);
+				background-image: var(--icon-close-x-dark);
 				background-position: center;
 				background-repeat: no-repeat;
-				// hide initial icon
+
 				svg {
 					display: none;
 				}
@@ -70,16 +100,13 @@
 			min-height: auto;
 		}
 		&__maintitle {
-			font-size: var(--telekom-typography-font-size-body);
+			font-size: var(--default-font-size);
 			min-height: auto;
 			line-height: 22px;
 		}
 		&__subtitle {
 			font-size: 14px;
 			opacity: 1;
-		}
-		&__figure {
-			background-size: cover;
 		}
 	}
 
@@ -90,16 +117,18 @@
 			position: initial;
 		}
 		.app-sidebar-header__desc {
-			padding-top: var(--telekom-spacing-composition-space-06);
+			padding-top: 1rem;
 		}
 		.app-sidebar-header__figure {
-			margin: var(--telekom-spacing-composition-space-04) 0 0 var(--telekom-spacing-composition-space-06);
+			margin: 1rem 0 0 1rem;
+			width: 5rem;
+			height: 5rem;
 		}
 	}
 
 	.app-sidebar-tabs {
 		min-height: auto;
-		padding: 0 var(--telekom-spacing-composition-space-06);
+		padding: 0 1rem;
 	}
 
 	// remove tab navigation
@@ -155,6 +184,10 @@
 				&.icon-clipboard {
 					background-image: var(--icon-clipboard-dark);
 				}
+
+				&.icon-delete {
+					background-image: var(--original-icon-delete-dark);
+				}
 	
 				&.icon-add:hover {
 					filter: var(--nmc-color-icon)
@@ -175,7 +208,7 @@
 		margin-left: auto;
 		&:hover {
 			svg {
-				color: var(--telekom-color-text-and-icon-primary-standard);
+				color: var(--color-primary);
 			}
 		}
 	}
@@ -225,6 +258,7 @@
 // Sharing details container
 .sharingTabDetailsView {
 	margin: 0 !important;
+	padding: unset !important;
 	
 	&__advanced {
 		.input-field {
@@ -233,8 +267,16 @@
 					display: none;
 				}
 			}
+			
+			margin-bottom: 5px;
 		}
 	}
+
+}
+
+.sharingPopupDetailsView {
+	overflow-y: auto;
+    max-height: 60vh;
 }
 
 // TODO this should be done by the icon generation script
@@ -245,12 +287,14 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 .sharingPopup__content, .sharingTab__content, .sharingTabDetailsView {
 
 	.button-vue {
-		padding: 0 0.5rem !important;
-		min-height: 2rem !important;
+		padding: 0 1rem !important;
+		min-height: 2.5rem !important;
 		margin: 0 !important;
 
 		&__text {
-			font-size: 14px;
+			font-size: 16px !important;
+			margin: 0 !important;
+			padding: 0 !important;
 		}
 
 		&__icon {
@@ -264,14 +308,108 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 			}
 		}
 	}
+}
+
+#body-user, #body-public, #body-settings {
+
+	.sharingPopup__content, .sharingTab__content, .sharingTabDetailsView {
+
+		// Parent div of the "Create new link" button
+		div:has(> #addlink_button) {
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		// Quick share options dropdown button
+		.share-select button.trigger-text {
+			color: var(--nmc-ods-blue);
+			font-weight: 400;
+
+			.eye-circle-outline-icon {
+				width: 16px;
+				height: 16px;
+				display: inline-block;
+				background-color: var(--nmc-ods-blue);
+				mask: var(--icon-visibility-on-dark) no-repeat center;
+				mask-size: contain;
+
+				svg {
+					display: none !important;
+				}
+			}
+
+			.calendar-month-icon {
+				width: 16px;
+				height: 16px;
+				display: inline-block;
+				background-color: var(--nmc-ods-blue);
+				mask: var(--icon-calendar-dark) no-repeat center;
+				mask-size: contain;
+
+				svg {
+					display: none !important;
+				}
+			}
+		}
+
+		.share-select.disabled button.trigger-text {
+			opacity: 0.5;
+			cursor: not-allowed;
+		}
+
+		// Border for sharing entry items
+		.sharing-entry {
+
+			&.sharing-entry__link.sharing-entry--share:not(:last-child) {
+				border-bottom: 1px solid var(--nmc-color-faint);
+				padding: 0.5rem 0;
+			}
+
+			.button-vue--vue-secondary {
+
+				&.button-vue--icon-only {
+					background-color: unset;
+					border-radius: 50%;
+					width: 40px !important;
+					height: 40px;
+					min-width: 40px;
+					min-height: 40px;
+					border: 1px solid var(--color-main-text);
+
+					.icon-delete {
+						background-image: var(--icon-close-x-dark);
+					}
+
+					&:hover {
+						background-color: var(--color-main-hover);
+					}
+				}
+			}
+		}
+
+		// Remove margin-bottom from "Link to Copy" heading
+		.sharing-link-list-caption {
+			margin-bottom: 0;
+		}
+	}
 
 	.sharing-entry {
 		gap: .5rem;
+
+		&__desc {
+			overflow: auto;
+		}
 	}
+}
+
+.sharingPopup__or {
+	background-color:var(--color-main-background) !important;
 }
 
 .sharingPopup__success {
 	padding: 1rem;
+	display: grid;
+	overflow: hidden;
 
 	.check-circle-outline-icon {
 		background-image: var(--icon-popup-success-success);
@@ -291,11 +429,17 @@ body .icon-upload-to-cloud, body .icon-upload-to-cloud-dark {
 		text-align: center;
 		font-size: 24px;
 		margin-bottom: 1rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.recipients {
 		text-align: center;
 		color: var(--color-text-maxcontrast);
 		margin-bottom: 3rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 }

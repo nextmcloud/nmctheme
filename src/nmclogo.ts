@@ -1,3 +1,5 @@
+import { generateUrl } from '@nextcloud/router'
+
 const ncLogoElement = document.getElementById('nextcloud')
 if (ncLogoElement !== null) {
 	ncLogoElement.remove()
@@ -19,6 +21,8 @@ if (headerElement !== null) {
 	brandElement.setAttribute('class', 'brand')
 	headerElement.prepend(brandElement)
 	brandElement.innerHTML = `
-    <div class="logo logo-icon"></div>
-    <div class="title"><strong>MagentaCLOUD</strong></div>`
+    <a href="${generateUrl('/')}" aria-label="MagentaCLOUD – Go to home" class="brand-link">
+      <div class="logo logo-icon"></div>
+      <div class="title">MagentaCLOUD</div>
+    </a>`
 }

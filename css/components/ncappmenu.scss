@@ -3,65 +3,84 @@
 
 	.app-menu {
 
-		.app-menu-main {
-	
+		.app-menu__list {
+			margin: 0 2.5rem;
+
 			// visuals for navigation entries
 			.app-menu-entry {
-				height: 60px;
-				margin-right: var(--telekom-spacing-composition-space-10);
+				height: 74px;
+				margin-right: 2rem;
 				width: auto;
-		
+
 				&::before {
-					background-color: var(--color-primary);
-					border-radius: 0;
-					bottom: 0;
-					content: " ";
-					display: block;
-					height: 2px;
-					left: 50%;
-					opacity: 0;
-					pointer-events: none;
-					position: absolute;
-					transform: translateX(-50%);
-					width: 100%;
-					transition: none;
+					display: none;
 				}
-	
-				.app-menu-entry--label {
-					font-size: 20px;
-					font-weight: bold;
-					letter-spacing: normal;
-					opacity: 1;
+
+				&__link {
+					width: calc(100% - 4px);
+					height: 100%;
+					color: var(--color-main-text);
 					position: relative;
-					top: calc(50% - var(--default-line-height) / 2);
-					transition: none;
-				}
-		
-				&.app-menu-entry__active {
-		
-					.app-menu-entry--label {
-						color: var(--color-primary);
-					}
-				}
-		
-				// hover effect for navigation entries
-				&:hover,
-				&:focus-within {
-		
+					display: flex;
+					justify-content: unset;
+
 					&::before {
 						background-color: var(--color-primary);
 						border-radius: 0;
 						bottom: 0;
-						height: 4px;
-						opacity: 1;
+						content: " ";
+						display: block;
+						height: 2px;
+						left: 50%;
+						opacity: 0;
+						pointer-events: none;
+						position: absolute;
+						transform: translateX(-50%);
 						width: 100%;
+						transition: none;
 					}
-		
-					.app-menu-entry--label {
-						color: var(--color-primary-hover);
+
+					.app-menu-entry__label {
+						font-size: var(--default-font-size);
+						font-weight: bold;
+						letter-spacing: normal;
+						opacity: 1;
+						position: relative;
+						top: calc(50% - var(--default-line-height) / 2);
+						transition: none;
+						max-width: none !important;
+					}
+
+					// hover effect for navigation entries
+					&:hover,
+					&:focus-within {
+
+						&::before {
+							background-color: var(--color-primary);
+							border-radius: 0;
+							bottom: 3px;
+							height: 4px;
+							opacity: 1;
+							width: 100%;
+						}
+
+						.app-menu-entry__label {
+							color: var(--color-primary-hover);
+						}
 					}
 				}
-	
+
+				&--active {
+
+					.app-menu-entry__label {
+						color: var(--color-primary);
+					}
+				}
+
+				&__icon {
+					display: none;
+				}
+
 				// hide navigation menu icons
 				img {
 					display: none;
@@ -72,40 +91,43 @@
 		// mobile menu button
 		.app-menu-more {
 			// increase distance of menu button to screen edge
-			margin-right: var(--telekom-spacing-composition-space-06);
+			margin-right: 1rem;
 
 			.button-vue--vue-tertiary {
 				opacity: 1;
 				margin: 0;
 				filter: unset;
-			
+
 				// decrease size of mobile menu button
 				&.button-vue--icon-only {
 					height: 32px;
 					width: 32px !important;
 					min-height: 32px;
 					min-width: 32px;
-			
+
 					background-image: var(--icon-menu-dark);
 					background-size: auto 24px;
 					background-position: center;
 					background-repeat: no-repeat;
-			
+
 					.button-vue__wrapper {
 						display: none;
 					}
 				}
 			}
-			
+
 			&.action-item--open {
-				
+
 				.action-item__menutoggle {
-				
+
 					&.button-vue--icon-only {
 						background-image: var(--icon-close-dark);
 					}
 				}
 			}
 		}
+	}
+	.account-menu__avatar {
+		display: none;
 	}
 }

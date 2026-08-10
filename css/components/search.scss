@@ -1,3 +1,4 @@
+@import '../_variables.scss';
 @import '../_mixins.scss';
 
 // styling for search popover from header
@@ -34,8 +35,8 @@
 
 .unified-search__form {
     & #unified-search__input {
-        border: 2px solid var(--telekom-color-ui-border-standard);
-        border-radius: 5px;
+        border: 2px solid var(--color-border);
+        border-radius: var(--border-radius-container);
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
         padding-left: 1rem;
@@ -60,88 +61,176 @@
         &:active,
         &:hover,
         &:focus {
-            background-color: var(--nmc-color-background-hover);
+            background-color: var(--color-background-hover);
             border: none;
         }
     }
 }
 
+#unified-search {
+    .modal-container__content {
+        align-items: flex-start;
+    }
+
+    .dialog__name {
+        margin-left: 5px;
+        margin-bottom: 1rem !important;
+    }
+}
+
 #unified-search .unified-search-modal {
-    padding-block: 1rem 0;
     
-    &__header {
-        .input-field {
-            label.input-field__label {
-                display: none;
-            }
-        }
+    .unified-search-modal__content {
+        --dialog-height: min(65dvh, 700px);
 
-        div.unified-search-modal__filters {
-            gap: 0;
+        .unified-search-modal__header {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 0 1rem;
+            top: 0;
 
-            // Hide people and places filter
-            > [data-cy-unified-search-filter="people"],
-            > [data-cy-unified-search-filter="places"] {
-                display: none;
-            }
+            .input-field {
 
-            button.button-vue {
-                all: unset !important;
-
-                &[title="Dateien"], &[title="Files"], &[data-cy-unified-search-filter="current-view"] {
-                    display: none !important;
+                label.input-field__label {
+                    display: block;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: var(--default-font-size);
                 }
 
-                .button-vue__text {
-                    color: var(--color-primary);
+                &:hover label.input-field__label,
+                &:focus-within label.input-field__label,
+                &:has(.input-field__input:not(:placeholder-shown)) label.input-field__label {
+                    top: 30%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    background-color: transparent;
+                    font-size: var(--font-size-small);
                 }
 
-                .button-vue__icon {
-
-                    .material-design-icon {
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        background-size: 24px;
-                        width: 26px;
-                        height: 26px;
-                        filter: var(--nmc-color-icon);
+                .input-field__input {
+                    &:not(:placeholder-shown),
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        padding-top: 1rem;
                     }
-
-                    .filter-icon {
-                        background-image: var(--icon-filter-dark);
-                    }
-
-                    .calendar-range-icon {
-                        background-image: var(--icon-calendar-dark);
-                    }
-
-                    svg {
-                        display: none;
-                    }
-                }
-                svg {
-                    color: var(--color-primary);
                 }
             }
-        }
 
-        .unified-search-modal__filters-applied {
-            .chip {
-                .icon {
+            .unified-search-modal__filters {
+                gap: 0;
+                padding-left: 4px;
+                padding-top: 8px;
+
+                // Hide people and places filter
+                > [data-cy-unified-search-filter="people"],
+                > [data-cy-unified-search-filter="places"] {
                     display: none;
                 }
 
-                background: var(--telekom-color-ui-faint);
-                border-radius: 2px;
-                border: 1px solid transparent;
+                button.button-vue {
+                    &[title="Dateien"], &[title="Files"], &[data-cy-unified-search-filter="current-view"] {
+                        display: none !important;
+                    }
+
+                    // Style for filter dropdown buttons (Date, Filter, etc.)
+                    &.action-item__menutoggle {
+                        background-color: var(--nmc-ods-blue-primary);
+                        color: var(--nmc-color-text-and-icon-black);
+                        border-radius: var(--border-radius-element);
+                        border: none;
+                        border-radius: var(--border-radius-small);
+                        height: 28px;
+                        min-height: 28px;
+                        padding: 0 12px;
+                        font-weight: bold;
+                        display: flex;
+                        align-items: center;
+                        box-sizing: border-box;
+                        margin-top: 0;
+                        margin-left: 5px;
+
+                        &:hover {
+                            background-color: var(--nmc-ods-blue-hover);
+                        }
+
+                        &:active {
+                            background-color: var(--nmc-ods-blue-pressed);
+                        }
+
+                        &[aria-expanded="true"] {
+                            background-color: var(--nmc-ods-blue-active);
+                        }
+
+                        // Hide the left icon
+                        .button-vue__icon {
+                            display: none;
+                        }
+
+                        .button-vue__text {
+                            color: var(--nmc-color-text-and-icon-black);
+                        }
+
+                        // Add down arrow icon after the wrapper
+                        .button-vue__wrapper {
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+
+                            &::after {
+                                content: '';
+                                display: inline-block;
+                                width: 6px;
+                                height: 6px;
+                                border-left: 1.5px solid var(--nmc-color-text-and-icon-black);
+                                border-bottom: 1.5px solid var(--nmc-color-text-and-icon-black);
+                                transform: rotate(-45deg);
+                                margin-top: -2px;
+                                transition: transform 0.2s ease;
+                            }
+                        }
+
+                        // Rotate arrow when dropdown is open
+                        &[aria-expanded="true"] .button-vue__wrapper::after {
+                            transform: rotate(135deg);
+                            margin-top: 2px;
+                        }
+                    }
+                }
             }
+
+            .unified-search-modal__filters-applied {
+                align-items: center;
+                display: flex;
+                padding-top: 8px;
+
+                .chip {
+                    background-color: var(--nmc-ods-blue-active);
+                    border-radius: 8px;
+                    border: none;
+                    color: var(--nmc-color-text-and-icon-black);
+                    padding: 0 12px;
+
+                    .icon {
+                        display: none;
+                    }
+                }
+            }
+            
+            background-color: unset !important;
         }
     }
 
     &__results {
         .result {
             &-title {
-                padding-bottom: 8px;
+                color: var(--nmc-color-text-primary);
+                font-size: var(--font-size-title-large);
+                margin-top: 1rem;
+                margin-bottom: 0px;
+
                 span {
                     color: var(--color-primary-text);
                 }
@@ -155,7 +244,7 @@
                         border-radius: 4px;
 
                         &:hover {
-                            background-color: var(--nmc-color-background-hover);
+                            background-color: var(--color-background-hover);
                         }
 
                         &__anchor {
@@ -174,10 +263,45 @@
                 }
             }
 
+            &-item__icon {
+                position: relative;
+                overflow: visible;
+
+                &.icon-folder,
+                &--no-preview {
+                    width: 42px;
+                    height: 42px;
+                    background-image: var(--icon-mime-folder-blue) !important;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                .nmc-search-favorite {
+                    position: absolute;
+                    top: 0;
+                    right: -6px;
+                    width: 18px;
+                    height: 18px;
+                    background-image: var(--icon-starred-yellow);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    display: block;
+                }
+            }
+
             &-footer {
                 // 'Load more results' button
                 button {
-                    color: var(--color-primary);
+                    background-color: var(--nmc-ods-blue-primary);
+                    color: var(--nmc-color-text-and-icon-black);
+                    margin-left: 6px;
+
+                    &:hover {
+                        background-color: var(--colours-shades-accent-shades-accent-subtle);
+                    }
+
                     .button-vue__icon {
                         display: none;
                     }
@@ -189,16 +313,24 @@
     &__no-content {
 
         .empty-content__icon {
-            height: 128px;
-            width: 128px;
+            height: 318px;
+            width: 411px;
+            max-width: 100%;
             opacity: 1;
 
+            @media screen and (max-width: $breakpoint-mobile-small) {
+                height: 200px;
+                width: 258px;
+            }
+
             .magnify-icon {
-                background-image: var(--icon-search-dark);
-                background-size: 128px;
-                height: 128px;
-                width: 128px;
-    
+                background-image: url('../img/decorative_images/cautious-dog.svg');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                height: 100%;
+                width: 100%;
+
                 svg {
                     display: none;
                 }
@@ -208,6 +340,7 @@
 
         .empty-content__name {
             font-weight: 400;
+            font-size: var(--default-font-size);
         }
     }
 }

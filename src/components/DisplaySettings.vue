@@ -132,7 +132,7 @@ export default {
 			padding: 0 0.5rem !important;
 
 			&:hover {
-				background-color: var(--nmc-color-background-hover) !important;
+				background-color: var(--color-background-hover) !important;
 			}
 		}
 	}

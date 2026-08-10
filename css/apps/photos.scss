@@ -22,26 +22,159 @@
 
 	#app-content-vue {
 
-		// hide 'Add' button breadcrumbs for all menu pages
-		.timeline {
+		.photos-navigation {
 
-			.photos-navigation {
+			&__bulk-operations {
+				display: flex;
+				width: 100%;    
+				margin-top: 1.5rem;
+    			margin-left: -3.5rem;
 
-				&__content .action-item {
-					display: none;
+				.icon-minus {
+					width: 24px;
+					height: 24px;
+					display: inline-grid;
+					place-items: center;
+					background: #e5007d;
+					border: 0;
+					border-radius: min(30%, 28px);
+					padding: 0;
+					cursor: pointer;
+
+					box-shadow:
+						0 1px 2px rgba(0,0,0,.15),
+						inset 0 0 0 1px rgba(255,255,255,.08);
+				}
+
+				.icon-minus::before {
+					content: "";
+					width: 50%;
+					height: 2px;
+					background: #fff;
+					border-radius: 999px;
+					box-shadow: 0 0 0.5px rgba(0,0,0,.15);
+				}
+
+				.button-vue {
+					background-color: var(--nmc-ods-blue-primary);
+					border-radius: 9999px;
+					margin: 0;
+					min-height: unset;
+					min-width: unset;
+					padding-block: 0.25rem;
+					padding-inline: 1rem;
+
+					&.action-item__menutoggle {
+						padding-inline: 0;
+						width: 40px !important;
+					}
+
+					&__icon {
+						height: 2rem;
+						min-height: 2rem;
+						width: 2rem;
+						min-width: 2rem;
+						margin-left: -0.5rem;
+					}
+					
+					&__text {
+						padding: 0;
+						font-weight: bold;
+						font-size: 14px;
+					}
+
+					.material-design-icon {
+						background-size: 20px;
+						background-repeat: no-repeat;
+						background-position: center;
+						width: 24px;
+						height: 24px;
+
+						svg {
+							display: none;
+						}
+
+						&.image-multiple-outline-icon {
+							background-image: var(--icon-albums-dark);
+							filter: brightness(0) saturate(100%);
+						}
+
+						&.tray-arrow-down-icon {
+							background-image: var(--icon-download-dark);
+							filter: brightness(0) saturate(100%);
+						}
+
+						&.trash-can-outline-icon {
+							background-image: var(--icon-delete-dark);
+							filter: brightness(0) saturate(100%);
+						}
+
+						&.close-icon {
+							background-image: var(--icon-close-dark);
+							filter: brightness(0) saturate(100%);
+						}
+
+						&.dots-horizontal-icon {
+							margin-left: 0.5rem;
+							filter: brightness(0) saturate(100%);
+
+							svg {
+								display: block;
+							}
+						}
+					}
+				}
+
+				&__selected {
+					padding: 0 1rem;
+					display: flex;
+					align-items: center;
+					gap: 0.5rem;
+
+					.selected__count {
+						font-weight: 500;
+						color: var(--color-text-secondary);
+					}
+				}	
+			}
+
+			&__title {
+				max-width: 65%;
+				.album__details {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space:  nowrap;
 				}
 			}
 		}
 
 		.photos-navigation {
+			flex-wrap: wrap;
+			gap: 0;
+			padding-block: 18px 1rem;
+			padding-inline: 4rem 1.5rem;
+
 			&__title__main {
-				font-size: 2rem;
+				font-size: 1.75rem;
 			}
 
-			&__content {
+			&__back {
+				width: 44px !important;
+				height: 44px !important;
+				min-width: 44px !important;
+				min-height: 44px !important;
 
-				.upload-picker button {
-					display: none;
+				.arrow-left-icon {
+					background-image: var(--icon-left-condensed-dark);
+					background-size: 24px;
+					background-repeat: no-repeat;
+					background-position: center;
+					width: 24px;
+					height: 24px;
+
+					svg {
+						display: none;
+					}
 				}
 			}
 
@@ -63,15 +196,39 @@
 			&__content-right,
 			&__content-buttons {
 
-				button {
-					line-height: 1rem;
-					min-height: unset;
-					min-width: unset;
-					padding-left: 0;
-					padding-right: 0;
-					margin: 0;
-					
+				.upload-picker {
+					height: 40px;
+				}
 
+				button {
+					border-radius: var(--border-radius-rounded);
+					border: none;
+					
+					line-height: 1rem;
+					margin: 0;
+					min-height: unset;
+					height: 40px;
+					padding-left: 0.5rem;
+					padding-right: 0.5rem;
+					width: auto !important;
+
+					&.button-vue--icon-only {
+						width: 40px !important;
+						min-width: 40px;
+					}
+
+					&[data-cy-header-action="create-album"] {
+						
+						.button-vue__icon {
+							background-image: var(--original-icon-add-white);
+							background-size: 20px;
+							background-repeat: no-repeat;
+							background-position: center;
+							width: 24px;
+							height: 24px;
+						}
+					}
+					
 					.button-vue__icon {
 						height: 2rem;
 						min-height: 2rem;
@@ -91,11 +248,33 @@
 							background-size: 18px;
 
 							&.view-dashboard-outline-icon {
-								rotate: 90deg;
+								background-image: var(--icon-grid-ratio-dark);
+								background-size: 20px;
+								background-repeat: no-repeat;
+								background-position: center;
+								width: 24px;
+								height: 24px;
+
+								svg {
+									display: none;
+								}
+							}
+
+							&.view-grid-outline-icon {
+								background-image: var(--icon-grid-square-dark);
+								background-size: 20px;
+								background-repeat: no-repeat;
+								background-position: center;
+								width: 24px;
+								height: 24px;
+
+								svg {
+									display: none;
+								}
 							}
 						}
 
-						.delete-icon {
+						.trash-can-outline-icon {
 							background-image: var(--icon-delete-dark);
 
 							svg {
@@ -114,18 +293,35 @@
 
 					.button-vue__text {
 						padding: 0;
-						font-weight: normal;
-						font-size: 14px;
 						padding-right: 0.5rem;
+						font-weight: bold;
+						margin-bottom: 1px;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+						overflow: hidden;
 					}
 
 					&:hover {
-						background-color: initial;
 
 						svg,
 						.button-vue__text {
-							color: var(--telekom-color-text-and-icon-primary-hovered);
+							color: unset;
 						}
+					}
+				}
+				
+				&__buttons {
+					.button-vue {
+						border: 1px solid var(--color-main-text);
+						border-radius: 50%;
+						width: 40px !important;
+						height: 40px !important;
+						min-width: 40px !important;
+						min-height: 40px !important;
+						box-sizing: border-box;
+						display: flex;
+						align-items: center;
+						justify-content: center;
 					}
 				}
 			}
@@ -140,6 +336,7 @@
 		}
 
 		.albums-list {
+
 			.photos-navigation {
 
 				// show 'Add' button for "Create a new album"
@@ -150,7 +347,7 @@
 		}
 
 		.files-list-viewer, .photos-picker {
-			padding: 0 2rem;
+			padding: 0 1.5rem;
 
 			@media only screen and (max-width: 640px) {
 				padding: 0 1rem;
@@ -160,12 +357,40 @@
 			.section-header {
 				font-size: 1rem;
 				height: auto !important;
-				margin: 2rem 0 0.5rem;
+				margin: 1rem 0 0.5rem;
 			}
 
 			li {
 				// prevent stretching a low number of photos in line to fill it
 				flex-grow: 0;
+
+				.file__images img {
+    				border-radius: var(--border-radius-large);
+				}
+
+				.file-container {
+    				background: none;
+
+					&.selected:after, &:focus-within:after, &:has(:focus):after {
+						border-radius: var(--border-radius-large);
+						outline: var(--color-primary-element) solid 2px;
+						outline-offset: -2px;
+					}
+
+					&.selected:before, &:focus-within:before, &:has(:focus):before {
+						border-radius: var(--border-radius-large);
+						position: absolute;
+						top: 0;
+						inset-inline-start: 0;
+						z-index: 2;
+						width: 100%;
+						height: 100%;
+						content: "";
+						outline: var(--color-main-background) solid 2px;
+						outline-offset: -4px;
+						pointer-events: none;
+					}
+				}
 
 				// new play icon for videos
 				span.video-icon {
@@ -184,48 +409,16 @@
 					&.icon-vue {
 						width: 3rem;
 						height: 3rem;
-						background-size: 1.5rem;
+						background-size: 20px;
 						bottom: 0;
 						left: 0;
 						right: unset;
 						top: unset;
+						z-index: 999;
 
 						svg {
 							display: none;
 						}
-					}
-				}
-
-				.hover-overlay {
-					height: 3rem;
-					background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-				}
-
-				.delete-icon {
-					background-image: var(--icon-delete-white);
-					width: 3rem;
-					height: 3rem;
-
-					svg {
-						display: none;
-					}
-
-					&:active {
-						background-size: 2rem;
-					}
-				}
-
-				.star-icon {
-					background-image: var(--icon-star-white);
-					width: 3rem;
-					height: 3rem;
-
-					svg {
-						display: none;
-					}
-
-					&:active {
-						background-size: 2rem;
 					}
 				}
 
@@ -236,44 +429,121 @@
 					}
 				}
 
-				.checkbox-radio-switch.selection-checkbox {
-					top: 2px;
-					right: 2px;
-		
-					.checkbox-content {
-						background: transparent;
-		
-						.material-design-icon {
-							background-color: var(--color-main-background);
-							border: 1px solid var(--color-primary-element);
-							border-radius: var(--telekom-radius-small);
-							height: 18px;
-							width: 18px;
-							margin: 0;
-		
-							&.checkbox-marked-icon {
-								background-image: var(--original-icon-check-white);
-								background-color: var(--color-primary-element);
-								background-position: center;
-								background-repeat: no-repeat;
-								background-size: 18px;
-							}
+				.hover-overlay {
+					background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+					border-radius: var(--border-radius-large);
+					height: 50%;
+					min-height: 3rem;
+					justify-content: space-between;
+
+					.actions-right{
+						display: grid;
+						gap: 0 30px;
+						grid: auto-flow/3fr 3fr;
+
+						@media screen and (max-width: $breakpoint-mobile) {
+							display: none;
 						}
-		
+					}
+				}
+
+				.delete-icon {
+					background-image: var(--original-icon-delete-white);
+					width: 2rem;
+					height: 3rem;
+					background-size: 20px;
+
+					svg {
+						display: none;
+					}
+
+					&:active {
+						background-size: 24px;
+					}
+				}
+
+				.star-icon {
+					background-image: var(--original-icon-star-white);
+					width: 3rem;
+					height: 3rem;
+					background-size: 20px;
+
+					svg {
+						display: none;
+					}
+
+					&:active {
+						background-size: 24px;
+					}
+				}
+				
+				.information-icon {
+					background-image: var(--icon-details-white);
+					filter: brightness(0) invert(1);
+					width: 2rem;
+					height: 3rem;
+					background-size: 20px;
+					position: absolute;
+					z-index: 1001;
+					bottom: 0;
+
+					svg {
+						display: none;
+					}
+
+					&:active {
+						background-size: 24px;
+					}
+				}
+
+				.checkbox-radio-switch-checkbox {
+					top: -2px;
+					right: 2px;
+
+					.checkbox-content {
+						background: none;
+
 						&:hover {
-		
-							.material-design-icon {
-								background-color: var(--color-background-hover);
-								border: 1px solid var(--color-primary-element-hover);
-			
-								&.checkbox-marked-icon {
-									background-color: var(--color-primary-element-hover);
+							background: none;
+						}
+
+						&__icon {
+
+							&:not(.checkbox-content__icon--checked) {
+
+								.checkbox-blank-outline-icon {
+									background-color: var(--nmc-color-text-and-icon-white);
+									border: 1px solid var(--nmc-color-text-and-icon-black);
+									border-radius: var(--border-radius-small);
+									width: 20px;
+									height: 20px;
+
+									svg {
+										display: none;
+									}
+
+									&:hover {
+										border-color: var(--color-border-dark);
+										background-color: var(--color-background-hover);
+									}
 								}
 							}
-						}
-		
-						svg {
-							display: none;
+
+							&.checkbox-content__icon--checked {
+								background-image: var(--original-icon-check-white);
+								background-color: var(--color-primary);
+								background-position: center;
+								background-repeat: no-repeat;
+								background-size: 16px;
+								border: 1px solid var(--color-primary);
+								border-radius: var(--border-radius-small);
+								width: 20px;
+								height: 20px;
+
+								.checkbox-marked-icon {
+									display: none;
+								}
+							}
 						}
 					}
 				}
@@ -302,12 +572,12 @@
 
 							// replace standart folder icon
 							span.icon-folder {
-								background-image: var(--icon-mime-folder-dark);
+								background-image: var(--icon-mime-folder-blue);
 								opacity: 1;
 							}
 
 							&__name {
-								color: var(--color-text-light);
+								color: var(--color-text-lighter);
 								font-weight: bold;
 								text-shadow: none;
 							}
@@ -364,24 +634,20 @@
 				}
 			}
 
-			.collection__media {
-				padding: 2rem 3rem;
-			}
-
 			.collection-cover {
-				background-color: var(--telekom-color-background-surface);
+				background-color: var(--color-main-background);
 
 				&__image {
 
 					&--placeholder {
+						display: block;
 
 						// empty album icon
-						span.image-multiple-icon {
+						.image-multiple-outline-icon {
 							background-image: var(--icon-albums-dark);
 							background-repeat: no-repeat;
 							background-position: center;
 							background-size: 96px;
-							background-color: #f2f2f2;
 
 							svg {
 								display: none;
@@ -389,25 +655,10 @@
 						}
 					}
 				}
-			}
-
-			// 'No albums' page
-			.empty-content {
-				&__icon {
-					width: 120px;
-					height: 120px;
-
-					span.folder-multiple-image-icon {
-						svg {
-							display: none;
-						}
-
-						background-image: var(--icon-albums-dark);
-						width: 100%;
-						height: 100%;
-						background-size: 120px;
-						background-repeat: no-repeat;
-						background-position: center;
+				
+				&__details {
+					.material-design-icon{
+						display: none;
 					}
 				}
 			}
@@ -418,41 +669,114 @@
 			}
 		}
 
-		// 'Albums' - empty album page
 		.empty-content {
-			&__icon {
-				opacity: 1;
-				width: 120px;
-				height: 120px;
-				margin-bottom: 0;
+			display: none;
 
-				span.image-plus-icon {
+			&.album__empty {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: start;
+				flex-grow: 1;
+				padding: 1.5rem;
+
+				.empty-content__icon {
+					background-color: var(--nmc-color-text-and-icon-white);
+					height: 420px;
+					margin-top: 2.5rem;
+					opacity: 1;
+					width: 480px;
+				}
+			}
+
+			&.empty-content-with-illustration {
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: center;
+				flex-grow: 1;
+				height: 100%;
+				padding: 1.5rem;
+			}
+
+			&__icon {
+
+				.image-plus-outline-icon {
+					background-image: url(../img/decorative_images/empty-files.svg);
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+					height: 100%;
+					width: 100%;
+
+					@media (prefers-color-scheme: dark) {
+						background-image: url(../img/decorative_images/empty-files-dark.svg);
+					}
+
 					svg {
 						display: none;
 					}
+				}
+			}
+		}
 
-					background-image: var(--icon-all-media-dark);
-					width: 100%;
-					height: 100%;
-					background-size: 120px;
-					background-repeat: no-repeat;
-					background-position: center;
+		// 'Albums' - empty album page
+		.empty-collection-content {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			flex-grow: 1;
+			padding: 1.5rem;
 
+			.empty-content__wrapper {
+				margin-top: 2.5rem;
+				height: 420px;
+				width: 480px;
+			}
+
+			.empty-content__image {
+				background-image: url(../img/decorative_images/empty-files.svg);
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				height: 100%;
+				width: 100%;
+
+				&.empty-collection-content__image {
+					background-image: url(../img/decorative_images/empty-albums.svg);
 				}
 			}
 
-			&__title {
-				line-height: normal;
-				margin-top: 24px;
-				margin-bottom: 32px;
+			&[data-title="videos"] .empty-content__image {
+				background-image: url(../img/decorative_images/empty-videos.svg);
 			}
 
-			&__action {
-				margin: 0;
+			@media (prefers-color-scheme: dark) {
 
-				button.album__empty__button {
-					margin: 0;
+				.empty-content__image {
+					background-image: url(../img/decorative_images/empty-files-dark.svg);
+
+					&.empty-collection-content__image {
+						background-image: url(../img/decorative_images/empty-albums-dark.svg);
+					}
 				}
+
+				&[data-title="videos"] .empty-content__image {
+					background-image: url(../img/decorative_images/empty-videos-dark.svg);
+				}
+			}
+
+			.empty-content__name {
+				font-size: 2rem;
+				margin-block: 1rem;
+				min-height: 2.5rem;
+				line-height: 2.5rem;
+				text-align: center;
+			}
+
+			.empty-content__action {
+				margin-bottom: 1rem;
 			}
 		}
 
@@ -483,6 +807,7 @@
 		}
 
 		&.app-navigation__content {
+
 			ul.app-navigation__list {
 				padding: 4rem 1.5rem 1.5rem;
 
@@ -490,12 +815,14 @@
 					order: 2;
 
 					&[data-id-app-nav-item="shared-albums"],
+					&[data-id-app-nav-item="sharedalbums"],
 					&[data-id-app-nav-item="faces"],
 					&[data-id-app-nav-item="this-day"],
 					&[data-id-app-nav-item="shared"],
 					&[data-id-app-nav-item="maps"],
 					&[data-id-app-nav-item="places"],
-					&[data-id-app-nav-item="tags"] {
+					&[data-id-app-nav-item="tags"],
+					&[data-id-app-nav-item="folders"] {
 						display: none;
 					}
 
@@ -520,44 +847,89 @@
 								display: none;
 							}
 
-							&.star-icon {
+							// Star icons (Favorites)
+							&.star-icon,
+							&.star-outline-icon {
 								background-image: var(--icon-star-dark);
 							}
 
-							&.folder-icon {
+							// Folder icons (Folders)
+							&.folder-icon,
+							&.folder-outline-icon {
 								background-image: var(--icon-folder-dark);
 							}
 
-							&.camera-icon {
-								background-image: var(--icon-photo-camera-dark);
+							// Camera icons (Photos)
+							&.camera-icon,
+							&.camera-outline-icon {
+								background-image: var(--icon-photo-camera-media-dark);
 							}
 
-							&.video-icon {
-								background-image: var(--icon-camera-dark);
+							// Video icons (Videos)
+							&.video-icon,
+							&.video-outline-icon {
+								background-image: var(--icon-video-camera-media-dark);
 							}
 
-							&.folder-multiple-image-icon {
+							// Image Multiple icons (Albums)
+							&.folder-multiple-image-icon,
+							&.image-multiple-icon,
+							&.image-multiple-outline-icon {
 								background-image: var(--icon-albums-dark);
 							}
 
-							&.image-icon {
-								background-image: var(--icon-photos-videos-dark);
+							// Image icons (All media)
+							&.image-icon,
+							&.image-outline-icon {
+								background-image: var(--icon-all-media-dark);
 							}
 
-							&.share-variant-icon {
-								background-image: var(--icon-attachment-dark);
-							}
-
-							&.account-group-icon {
+							// Share/Account Group icons (Collaborative albums)
+							&.share-variant-icon,
+							&.account-group-icon,
+							&.account-group-outline-icon {
 								background-image: var(--icon-shared-dark);
 							}
+
+							// Calendar icons (On this day)
+							&.calendar-today-icon,
+							&.calendar-today-outline-icon {
+								background-image: var(--icon-calendar-dark);
+							}
+
+							// Account Box Multiple icons (People/Faces)
+							&.account-box-multiple-icon,
+							&.account-box-multiple-outline-icon {
+								background-image: var(--icon-people-dark);
+							}
+						}
+					}
+
+					button {
+						margin: 0;
+						padding: 0;
+
+						.button-vue__icon {
+							width: 48px;
+							height: 48px;
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: 24px;
+
+							svg {
+								width: 24px;
+								height: 24px;
+							}
+						}
+
+						&:hover:not(:disabled) {
+							background-color: transparent;
 						}
 					}
 				}
 
 			}
 
-			// contains 'Photos settings' button
 			.app-navigation__footer {
 				display: none;
 			}
@@ -566,121 +938,269 @@
 	}
 }
 
-// New album modal window
-#body-user .modal-container {
+#body-user,
+#body-public {
 
-	.album-form,
-	.album-picker {
-		background-color: var(--telekom-color-background-surface);
-		height: auto;
-		padding: 1.5rem !important;
+	&[data-themes*=dark] {
 
-		div.form-inputs {
+		.app-photos {
 
-			// 'Name of the album' input field
-			.input-field {
-				margin-bottom: 1rem;
+			#app-content-vue {
+
+				.empty-collection-content {
+
+					.empty-content__image {
+						background-image: url(../img/decorative_images/empty-files-dark.svg);
+
+						&.empty-collection-content__image {
+							background-image: url(../img/decorative_images/empty-albums-dark.svg);
+						}
+					}
+
+					&[data-title="videos"] .empty-content__image {
+						background-image: url(../img/decorative_images/empty-videos-dark.svg);
+					}
+				}
+
+				.photos-navigation {
+
+					.empty-content {
+
+						.image-plus-outline-icon {
+							background-image: url(../img/decorative_images/empty-files-dark.svg);
+						}
+					}
+				}
+			}
+		}
+
+		.empty-content {
+
+			&__icon {
+
+				.image-plus-outline-icon {
+					background-image: url(../img/decorative_images/empty-files-dark.svg);
+				}
+			}
+		}
+
+		.modal-container {
+
+			.album-form {
+
+				.form-cover {
+					background-image: url(../img/decorative_images/empty-files-dark.svg);
+				}
 			}
 
-			// hide 'Location of the album' input
-			&>label {
+			.empty-collection-content {
+
+				.empty-content__image {
+					background-image: url(../img/decorative_images/empty-files-dark.svg);
+				}
+			}
+		}
+	}
+}
+
+// New album modal window
+#body-user {
+
+	.modal-container {
+
+		.empty-collection-content {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			margin-block: 2rem -12rem;
+
+			.empty-content__wrapper {
+				height: 320px;
+				width: 420px;
+			}
+
+			.empty-content__image {
+				background-image: url(../img/decorative_images/empty-files.svg);
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				height: 100%;
+				width: 100%;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				.empty-content__image {
+					background-image: url(../img/decorative_images/empty-files-dark.svg);
+				}
+			}
+
+			.empty-content__name {
+				font-size: 2rem;
+				margin-block: 1rem;
+				min-height: 2.5rem;
+				line-height: 2.5rem;
+				text-align: center;
+			}
+
+			.empty-content__action, .button-vue  {
 				display: none;
 			}
 		}
 
-		.form-buttons {
+		.album-creation__heading {
+			font-size: 1.5rem;
+			height: unset;
+			line-height: 1.5rem;
+			margin-bottom: 1.5rem;
+			margin-top: 0;
+			min-height: unset;
+			text-align: left;
+		}
 
-			.left-buttons {
+		.album-form,
+		.album-picker {
+			background-color: var(--color-main-background);
+			height: auto;
+			padding: 0 !important;
 
-				// 'Back' button
-				.button-vue--vue-tertiary {
-					border: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-border-standard);
+			div.form-inputs {
+
+				// 'Name of the album' input field
+				.input-field {
+					margin-bottom: 1rem;
+				}
+
+				// hide 'Location of the album' input
+				&>label {
+					display: none;
 				}
 			}
 
-			.right-buttons {
+			.form-buttons {
 
-				// Hide 'Add collaborators' button 
-				.button-vue--vue-secondary {
+				.left-buttons {
+
+					// 'Back' button
+					.button-vue--vue-tertiary {
+						border: 1px solid var(--color-border);
+					}
+				}
+
+				.right-buttons {
+
+					// Hide 'Add collaborators' button 
+					.button-vue--vue-secondary {
+						display: none;
+					}
+
+					// 'Create album' button
+					.button-vue--vue-primary {
+						margin: 0 !important;
+
+						.button-vue__icon {
+							display: none;
+						}
+					}
+				}
+			}
+
+			h2 {
+				font-size: 1.5rem;
+				height: auto !important;
+				margin-block: 0 1.5rem;
+			}
+
+			.albums-container {
+				overflow-x: unset !important;
+				overflow-y: auto;
+				margin-bottom: 1.5rem;
+
+				.album {
+
+					.list-item {
+						border-radius: var(--border-radius-large);
+						padding: 0.5rem !important;
+						margin-left: 0;
+						transition: none;
+
+						&:hover {
+							background-color: var(--color-background-hover);
+						}
+					}
+				}
+			}
+
+			.new-album-button {
+				background-color: var(--color-primary);
+				border: 0;
+				color: var(--nmc-color-text-and-icon-white);
+				margin-right: 0;
+				margin-left: 0;
+
+				&:hover:not(:disabled) {
+					background-color: var(--color-primary-hover);
+				}
+
+				.button-vue__icon {
+					margin-left: -1rem;
+				}
+			}
+		}
+
+		.timeline__heading {
+			margin: 0;
+			padding: 0;
+		}
+
+		.album-form {
+			margin: 0;
+			padding: 0 !important;
+
+			.form-cover {
+				text-align: center;
+				padding: 1rem;
+				background-image: url(../img/decorative_images/empty-files.svg);
+				background-position: center;
+				background-repeat: no-repeat;
+				min-height: 320px;
+
+				@media (prefers-color-scheme: dark) {
+					background-image: url(../img/decorative_images/empty-files-dark.svg);
+				}
+
+				&__image {
+					display: none;
+				}
+			}
+
+			.form-inputs {
+				.input-field:nth-child(2) {
 					display: none;
 				}
 
-				// 'Create album' button
-				.button-vue--vue-primary {
-					margin: 0 !important;
-
-					.button-vue__icon {
+				.input-field__main-wrapper {
+					label {
 						display: none;
 					}
 				}
 			}
-		}
 
-		h2 {
-			font-size: 1.5rem;
-			height: auto !important;
-			margin-bottom: 1.5rem;
-		}
+			.form-buttons {
+				flex-direction: row;
+				gap: 0.5rem;
+				justify-content: flex-end;
 
-		.albums-container {
-			overflow-x: unset !important;
-			overflow-y: auto;
-			margin-bottom: 1.5rem;
-
-			.album {
-
-				.list-item {
-					border-radius: var(--telekom-radius-standard);
-					padding: 0.5rem !important;
-					margin-left: 0;
-					transition: none;
-
-					&:hover {
-						background-color: var(--nmc-color-row-hover);
-					}
+				.left-buttons {
+					flex-grow: unset;
 				}
 			}
-		}
-
-		.new-album-button {
-			background-color: var(--telekom-color-primary-standard);
-			border: 0;
-			color: var(--telekom-color-text-and-icon-white-standard);
-			margin-right: 0;
-			margin-left: 0;
-
-			&:hover:not(:disabled) {
-				background-color: var(--telekom-color-primary-hovered);
-			}
-
-			.button-vue__icon {
-				margin-left: -1rem;
-			}
-		}
-	}
-
-	.album-form {
-		padding-top: 3rem !important;
-
-		.form-inputs {
-			.input-field:nth-child(2) {
-				display: none;
-			}
-
-			.input-field__main-wrapper {
-				label {
-					display: none;
-				}
-			}
-		}
-
-		.form-buttons {
-			flex-direction: row;
 		}
 	}
 }
 
 #body-user .modal-header {
+
 	h2.modal-title {
 		display: none;
 	}
@@ -689,22 +1209,14 @@
 // Add Photos to the album modal window
 #body-user .modal-container,
 #body-settings .modal-container {
-	background-color: var(--telekom-color-background-surface);
+	background-color: var(--color-main-background);
 
 	button.modal-container__close {
 		border: none;
 		z-index: 20;
 
-		&:hover:not(:disabled) {
-			.close-icon {
-				filter: var(--nmc-color-icon)
-			}
-
-			background-color: initial;
-		}
-
 		.close-icon {
-			background-image: var(--icon-close-dark);
+			background-image: var(--icon-close-x-dark);
 			background-position: center;
 			background-repeat: no-repeat;
 			height: 100%;
@@ -719,15 +1231,19 @@
 	.dialog__name {
 		font-size: 1.5rem;
 		height: unset;
-		line-height: unset;
-		margin-block: 1.5rem 1rem;
+		line-height: 1.5rem;
+		margin-bottom: 1.5rem;
 		min-height: unset;
+		text-align: left;
 	}
 
-	.photos-picker__actions {
+	.dialog__actions {
+		padding: 0;
+		margin-bottom: 0;
+		margin-top: 1rem;
 
-		.button-vue__icon {
-			display: none;
+		.button-vue--tertiary {
+			border: 1px solid var(--color-main-text);
 		}
 	}
 
@@ -756,7 +1272,7 @@
 				.material-design-icon {
 					background-color: var(--color-main-background);
 					border: 1px solid var(--color-primary-element);
-					border-radius: var(--telekom-radius-small);
+					border-radius: var(-border-radius);
 					height: 1rem;
 					width: 1rem;
 					margin: 0;
@@ -792,13 +1308,72 @@
 	.file-picker {
 
 		.dialog__wrapper {
-			margin-inline: 1.5rem;
 			margin-block: 0 1.5rem;
+			padding-inline: 0;
+			overflow: visible;
+
+			.dialog__content {
+				margin-top: 1rem;
+				padding: 0;
+			}
+		}
+
+		.dialog__actions {
+			margin-block: 0;
+			padding-inline: 0;
+
+			.button-vue--tertiary {
+				border: 1px solid var(--color-main-text);
+			}
 		}
 
 		&+button.modal-container__close {
 			margin-right: 0.75rem;
 			margin-top: 0.75rem;
+		}
+
+		&__breadcrumbs {
+			flex-grow: unset;
+
+			.button-vue--secondary {
+				background: var(--nmc-ods-blue-primary);
+				border-radius: var(--border-radius-pill);
+				border: none;
+				color: var(--nmc-color-text-and-icon-black);
+				margin: 0;
+
+				&:hover {
+					background-color: var(--nmc-ods-blue-hover);
+				}
+
+				&:active {
+					background-color: var(--nmc-ods-blue-pressed);
+				}
+
+				.button-vue__icon {
+					justify-content: left;
+					min-width: 2rem;
+					width: 2rem;
+
+					.folder-outline-icon {
+						background-image: var(--icon-folder-dark);
+						background-repeat: no-repeat;
+						background-position: center;
+						background-size: 18px;
+						width: 24px;
+						height: 24px;
+
+						svg {
+							display: none;
+						}
+					}
+				}
+
+				.button-vue__text {
+					margin: 0;
+					padding: 0;
+				}
+			}
 		}
 
 		&__actions {
@@ -833,7 +1408,7 @@
 		// Tiled Photos view
 		&__file-list.files-list-viewer {
 			.files-list-viewer__section-header {
-				background-color: var(--telekom-color-background-surface);
+				background-color: var(--color-main-background);
 			}
 
 			div.file-container {
@@ -864,12 +1439,12 @@
 						.checkbox-radio-switch__label:before {
 							content: "";
 							background-image: var(--original-icon-check-white);
-							background-color: var(--telekom-color-text-and-icon-functional-success);
+							background-color: var(--color-success);
 							background-position: center;
 							background-repeat: no-repeat;
 							background-size: 18px;
 							border: none;
-							border-radius: var(--telekom-radius-circle);
+							border-radius: var(--border-radius-pill);
 							height: 1.5rem;
 							width: 1.5rem;
 							margin: -2px -2px 0 0;
@@ -911,9 +1486,11 @@
 
 		&__navigation {
 			display: block;
+			padding: 0;
+			overflow: visible;
 
 			&__month {
-				border-radius: var(--telekom-radius-standard);
+				border-radius: var(--border-radius-large);
 				height: 44px;
 				text-align: left;
 				display: flex;
@@ -921,7 +1498,7 @@
 
 				&.selected,
 				&:not(.selected):hover {
-					background-color: var(--nmc-color-background-hover);
+					background-color: var(--color-background-hover);
 					color: var(--color-primary);
 				}
 			}
@@ -932,95 +1509,41 @@
 
 			.input-field {
 				max-width: 100%;
-			}
-		}
+				margin: 0;
 
-		&__breadcrumbs {
-
-			nav {
-				display: inline-flex;
-				flex-grow: 0;
-				min-width: unset;
-
-				.vue-crumb {
-
-					&>a {
-						min-width: unset;
-
-						&:hover {
-							background-color: unset;
-						}
-					}
-
-					&:last-child {
-						min-width: unset;
-					}
+				&__input {
+					padding-left: 2.5rem;
 				}
 
-				span.home-icon {
-					background-image: var(--icon-home-dark);
-					background-repeat: no-repeat;
-					background-position: center;
-					background-size: 24px;
-					width: 24px;
-					height: 24px;
-
-					svg {
-						display: none;
-					}
-				}
-
-				span.vue-crumb__separator {
-					display: flex;
-					background-image: var(--icon-breadcrumb-arrow-grey);
-					background-repeat: no-repeat;
-					background-position: center;
-					background-size: 24px;
-					width: 24px;
-					height: 24px;
-
-					svg {
-						display: none;
-					}
-				}
-			}
-
-			.breadcrumb__actions {
-
-				button {
-					border: none;
-					margin: 0;
-					padding: 0;
-
-					.plus-icon {
-						border: 1px solid var(--telekom-color-text-and-icon-primary-standard);
-						border-radius: 50%;
-					}
-
-					svg {
-						color: var(--telekom-color-text-and-icon-primary-standard);
-					}
-
-					.button-vue__text {
-						display: none;
-					}
-
-					&:hover {
-						background-color: unset;
-					}
+				&__icon--leading {
+					bottom: 8px;
 				}
 			}
 		}
+
 
 		&__files {
 			overflow: auto;
+			margin: 0;
 
 			table {
 				width: 100%;
+
+				tbody {
+
+					tr {
+						height: 60px;
+					}
+
+					tr:not(.group-header):hover, tbody tr:not(.group-header):focus, tbody tr:not(.group-header):active {
+						background-color: var(--color-background-hover);
+					}
+				}
 			}
 
 			th {
-				background-color: var(--telekom-color-background-surface);
+				background-color: var(--color-main-background);
+				border-bottom: 1px solid var(--color-border) !important;
 
 				.button-vue {
 					border: none;
@@ -1048,7 +1571,7 @@
 				&.row-name {
 
 					.file-picker__header-preview {
-						width: 30px;
+						width: 52px;
 					}
 
 					.button-vue__wrapper {
@@ -1070,39 +1593,42 @@
 			}
 
 			td {
-				.file-picker__file-icon {
-					width: 20px;
-					height: 20px;
-					min-width: 20px;
-					min-height: 20px;
-				}
-
-				.material-design-icon {
-					background-position: center;
-					background-repeat: no-repeat;
-
-					svg {
-						display: none;
-					}
-
-					&.folder-icon {
-						background-image: var(--icon-mime-folder-dark);
-						@include thumbnail-icons();
-					}
-
-					&.file-icon {
-						background-image: var(--icon-text-file-dark);
-					}
-				}
+				border-bottom: 1px solid var(--color-border) !important;
+				cursor: pointer;
 
 				&.row-name {
-					padding-left: 0.5rem;
+					padding: 0;
+
+					.file-picker__name-container {
+						cursor: pointer;
+						display: flex;
+
+						div {
+							cursor: pointer;
+							min-height: 44px;
+							min-width: 44px;
+							line-height: 44px;
+
+							&.file-picker__file-name {
+								padding-left: 0.5rem;
+								overflow: hidden;
+    							text-overflow: ellipsis;
+							}
+
+							svg {
+								color: var(--nmc-ods-blue-active);
+								height: 44px;
+								width: 44px;
+							}
+						}
+					}
 				}
 
-				&.row-modified {
+				&.row-modified, &.row-size {
 					text-align: right;
 
 					span {
+						cursor: pointer;
 						padding-right: 8px;
 					}
 				}
@@ -1118,6 +1644,358 @@
 
 		img {
 			cursor: default;
+		}
+	}
+
+	.app-settings-section {
+
+		.photos-locations-container, .photos-location {
+
+			> .button-vue--vue-tertiary {
+				background: transparent;
+				border-radius: var(--border-radius-pill);
+				border: 1px solid var(--color-main-text);
+				color: var(--color-main-text);
+				margin: 0;
+
+				&:hover:not(:disabled) {
+					color: var(--color-main-text);
+					background-color: var(--color-background-hover);
+				}
+
+				&:active {
+					border-color: var(--color-border-maxcontrast);
+				}
+
+				&:disabled {
+					color: var(--color-text-lighter);
+				}
+
+				// Icon-only button
+				&--icon-only {
+					padding-left: calc(0.25rem - 1px);
+					padding-right: calc(0.25rem - 1px);
+				}
+
+				.plus-icon {
+					margin-inline: -4px 4px;
+
+					svg {
+						height: 24px;
+						width: 24px;
+					}
+				}
+
+				.folder-outline-icon {
+					margin-inline: -4px 4px;
+					background-image: var(--icon-folder-dark);
+					height: 24px;
+					width: 24px;
+
+					svg {
+						display: none;
+					}
+				}
+			}
+
+			.photos-locations {
+				display: flex;
+				gap: 0.5rem;
+
+				li {
+					display: inline-flex;
+					margin-bottom: 0.5rem;
+
+					.folder {    
+						background-color: var(--nmc-ods-blue-primary);
+    					border-radius: var(--border-radius-pill);
+    					border-width: 0;
+						color: var(--nmc-color-text-and-icon-black);
+						cursor: pointer;
+						display: inline-flex;
+						gap: 0;
+						min-height: 3rem;
+						min-width: 0;
+						padding-right: 0;
+
+						.folder__info:last-child {
+							margin-right: 1rem;
+						}
+
+						.folder-multiple-outline-icon {
+							background-image: var(--original-icon-magentacloud-dark);
+							margin-inline: 1rem 0.5rem;
+							height: 24px;
+							width: 24px;
+
+							svg {
+								display: none;
+							}
+						}
+
+						.folder-outline-icon {
+							background-image: var(--original-icon-folder-dark);
+							margin-inline: 1rem 0.5rem;
+							height: 24px;
+							width: 24px;
+
+							svg {
+								display: none;
+							}
+						}
+
+						.close-icon {
+							color: var(--nmc-color-text-and-icon-black);
+						}
+
+						.button-vue--vue-tertiary {
+
+							&:hover:not(:disabled) {
+								background-color: transparent;
+							}
+						}
+					}
+				}
+			}
+
+			.button-vue--vue-secondary {
+				background: transparent;
+				border-radius: var(--border-radius-pill);
+				border: 1px solid currentColor;
+				color: var(--color-main-text);
+				border-color: var(--color-border);
+				margin: 0;
+
+				&:hover:not(:disabled) {
+					color: var(--color-main-text);
+					background-color: var(--color-background-hover);
+					border-color: var(--color-border-dark);
+				}
+
+				&:active {
+					color: var(--color-main-text);
+					border-color: var(--color-border-maxcontrast);
+				}
+
+				&:disabled {
+					color: var(--color-text-lighter);
+					background-color: none;
+				}
+
+				// Icon-only button
+				&--icon-only {
+					padding-left: calc(0.25rem - 1px);
+					padding-right: calc(0.25rem - 1px);
+				}
+			}
+		}
+	}
+
+	.app-settings-section:not(:last-child) {
+		margin-bottom: 1.5rem;
+	}
+	
+	#settings-section_layout-settings,
+	.app-settings__navigation {
+		display: none;
+	}
+}
+
+// Device Sessions modal window
+#body-settings .modal-wrapper--small > .modal-container {
+	width: 550px;
+
+	@media screen and (max-width: $breakpoint-mobile-medium) {
+		width: 90vw;
+		max-width: 500px;
+	}
+
+	@media screen and (max-width: $breakpoint-mobile-small) {
+		width: 95vw;
+		max-width: none;
+	}
+}
+
+// Share Album modal window
+#body-user .modal-container {
+
+	.sharingAlbum{
+		&__divider {
+			border-bottom: 1px solid var(--color-border);
+			margin-bottom: 1rem;
+			text-align: center;
+		}
+
+		&__or {
+			background-color: var(--color-main-background);
+			bottom: -0.75rem;
+			font-size: 14px;
+			padding: 0.75rem;
+			position: relative;
+		}
+	}
+
+	.manage-collaborators{
+		height: 130px;
+
+		.actions {
+			display: block;
+
+			.sharing-link {
+				position: relative;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				font-size: 14px;
+				gap: 2px;
+				color: var(--color-text-lighter);
+				font-weight: bold;
+			}
+		}
+
+		&__title {
+			margin: unset;
+			font-size: 20px;
+			line-height: initial;
+		}
+
+		.album-sharing-search form {
+			min-width: auto;
+    		width: 100%;
+    		margin: 0.75rem 0;
+			.vs__dropdown-toggle {
+				margin: 0.75rem 0;
+			}
+		}
+
+		.actions {
+			h2 {
+				margin: unset;
+				font-size: 20px;
+				line-height: initial;
+				display: flex;
+				align-items: center;
+				min-height: 2rem;
+				margin-bottom: unset;
+			}
+			
+			&__sharing-entry {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				padding: 0.5rem;
+				line-height: 1rem;
+				margin-right: auto;
+				overflow: auto;
+
+				.share-select {
+					margin-top: unset;
+				}
+			}
+
+			&__public-link {
+				min-height: 2rem;
+    			gap: 0.5rem;
+				margin-top: 1rem;
+			}
+			.button-vue {
+				padding: 0 0.5rem !important;
+				min-height: 2rem !important;
+				margin: 0 !important;
+
+				&__text {
+					font-size: 14px;
+				}
+
+				&__icon {
+					min-width: 2rem !important;
+					width: 2rem !important;
+					min-height: 2rem !important;
+					height: 2rem !important;
+
+					.icon {
+						background-size: 18px;
+
+						&.icon-clipboard {
+							background-image: var(--original-icon-clipboard-dark);
+						}
+
+						&.icon-delete {
+							background-image: var(--original-icon-delete-dark);
+						}
+					}
+				}
+			}
+
+			&__slot{
+				display:none;
+			}
+		}
+	}
+}
+
+#body-user #album-share .modal-wrapper .modal-container {
+	@media only screen and ((max-width: 512px) or (max-height: 400px)) {
+		height: unset;
+        position: relative;
+        top: unset;
+        border-radius: var(--border-radius-element);
+	}
+}
+
+#body-user #photos-picker .modal-wrapper .modal-container {
+	@media only screen and ((max-width: 512px) or (max-height: 400px)) {
+		padding: 1.5rem 0;
+		.dialog__name {
+			margin-bottom: unset !important;
+        	margin-inline-end: unset;
+		}
+		.dialog{
+			&__actions {
+				.photos-picker__actions__buttons {
+					gap: 10px;
+					button {
+						padding-left: 0.1rem;
+    					padding-right: 1.20rem;
+					}
+				}
+			}
+		}
+	}
+}
+// File Info modal window
+#file-info-exif .modal-container {
+	&__content {
+		overflow: unset;
+	}
+
+	.modal__content--file {
+		.modal__right{
+			max-height: 35vh;
+			overflow: auto;
+			padding: 5px 20px;
+		}
+	}
+
+	button.modal-container__close {
+		background: white;
+
+		&:hover:not(:disabled) {
+			background: white;
+		}
+	}
+}
+
+
+#body-public {
+
+	&:has(.album-container) {
+
+		.modal-header {
+
+			.header-actions {
+				display: none;
+			}
 		}
 	}
 }

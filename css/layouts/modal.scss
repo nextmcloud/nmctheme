@@ -8,10 +8,184 @@
  */
 
 @import '../_mixins.scss';
-#body-user .dialog__modal {
+@import '../_variables.scss';
 
-    .modal-wrapper .modal-container {
-        padding-block: 8px;
+#body-user,
+#body-settings,
+#body-login,
+#body-status,
+#body-public {
+
+    .modal-mask {
+        background-color: var(--nmc-color-main-background-mask);
+
+        &--opaque {
+            background-color: var(--nmc-color-main-background-mask-opaque);
+        }
+
+        &--light:not(.viewer) {
+            background-color: var(--nmc-color-main-background-mask) !important;
+        }
+
+        .modal-wrapper {
+
+            &.modal-wrapper--full {
+
+                .modal-container {
+                    box-shadow: none;
+                    padding: 0;
+                    max-height: 100dvh;
+                }
+            }
+
+            &.modal-wrapper--normal {
+                .modal-container {
+                    width: 640px;
+                }
+            }
+
+            .modal-container {
+                box-shadow: unset;
+                box-sizing: border-box;
+                padding: 1.5rem;
+                max-height: 80dvh;
+                max-width: 100vw;
+                display: flex;
+                flex-direction: column;
+
+                .modal-container__close {
+                    top: 0.5rem;
+                    right: 0.5rem;
+                    touch-action: manipulation;
+                }
+
+                &__content {
+                    padding-inline: 0;
+
+                    .button-vue--vue-secondary {
+                        background: var(--nmc-ods-blue-primary);
+                        border-radius: var(--border-radius-pill);
+                        border: none;
+                        color: var(--nmc-color-text-and-icon-black);
+                        margin: 0;
+
+                        &:hover {
+                            background-color: var(--nmc-ods-blue-hover);
+                        }
+
+                        &:active {
+                            background-color: var(--nmc-ods-blue-pressed);
+                        }
+
+                        .button-vue__icon {
+                            min-width: 2rem;
+                            width: 2rem;
+
+                            .folder-outline-icon {
+                                background-image: var(--icon-folder-dark);
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                background-size: 18px;
+                                width: 24px;
+                                height: 24px;
+
+                                svg {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                        .button-vue__text {
+                            margin: 0;
+                            padding: 0;
+                        }
+                    }
+
+                    .modal__content--file {
+
+                        .modal__left {
+                            margin-block: 1.5rem 0.5rem;
+                            padding-top: calc(2 / 3 * 100%);
+                            position: relative;
+                            overflow: hidden;
+                            width: 100%;
+                        }
+
+                        .modal__image {
+                            position: absolute;
+                            inset: 0;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .app-settings-section__name, .app-settings-section__content, .setting-section-subline, .photos-locations {
+                        margin-bottom: 0.5rem;
+                    }
+                }
+
+                .dialog__content {
+                    overflow-y: auto;
+                    padding-inline: 0;
+                }
+
+                &:has(.modal__content--exif) {
+                    padding: 0;
+
+                    .modal__content--file {
+
+                        .modal__left {
+                            border-radius: var(--border-radius-container) var(--border-radius-container) 0 0;
+                            margin: 0;
+                            padding-top: 50%;
+
+                            .modal__image {
+                                border-radius: 0;
+                                min-height: auto;
+                            }
+                        }
+
+                        .modal__right { 
+                            padding-block: 1rem;
+                            padding-inline: 1.5rem;
+                        }
+                    }
+
+                    .modal-container__close {
+                        background-color: var(--color-background-hover);
+                        border-radius: var(--border-radius-element);
+                    }
+                }
+            }
+        }
+
+        .modal-wrapper--large > .modal-container {
+            width: 650px;
+
+            @media screen and (max-width: $breakpoint-mobile-medium) {
+                width: 90vw;
+                max-width: 600px;
+            }
+
+            @media screen and (max-width: $breakpoint-mobile-small) {
+                width: 95vw;
+                max-width: none;
+            }
+        }
+
+        .modal-container {
+            @media screen and (max-width: $breakpoint-mobile-small) {
+                margin: 1rem;
+            }
+
+            .dialog__name {
+                @media screen and (max-width: $breakpoint-mobile-small) {
+                    font-size: 1.25rem;
+                    padding: 1rem 1rem 0.5rem;
+                }
+            }
+        }
     }
 }
 
@@ -23,7 +197,7 @@
 }
 
 #oc-dialog-filepicker-content {
-    background-color: var(--telekom-color-background-surface);
+    background-color: var(--color-main-background);
 
     .actions.creatable {
         background: unset;
@@ -33,7 +207,7 @@
 
         .icon.icon-add.button.button-add {
             background-color: unset;
-            border-color: var(--telekom-color-primary-standard);
+            border-color: var(--color-primary);
             height: 24px;
             opacity: 1;
             width: 24px;
@@ -69,7 +243,7 @@
                     }
 
                     &.date {
-                        color: var(--telekom-color-text-and-icon-standard);
+                        color: var(--color-main-text);
                     }
                 }
             }
@@ -87,4 +261,8 @@
             filter: var(--nmc-color-icon)
         }
     }
+}
+
+#body-public .modal-container {
+	background-color: var(--color-main-background);
 }

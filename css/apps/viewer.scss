@@ -1,10 +1,11 @@
 #viewer {
     --header-height: 64px;
+    --footer-height: 64px;
 
     button.next, button.prev {
 
         svg {
-            color: var(--telekom-color-text-and-icon-standard);
+            color: var(--color-main-text);
         }
     }
 
@@ -12,53 +13,61 @@
     .text-editor__session-list .session-list {
         display: none;
     }
+
+    .viewer__content {
+        height: calc(100vh - var(--header-height) - var(--footer-height));
+    }
     
     .modal-header {
 
         &__name {
-            color: var(--telekom-color-ui-regular);
+            color: var(--nmc-color-regular);
         }
 
         height: var(--header-height);
 
         .icons-menu {
-            padding: 12px 16px 12px 0;
-            gap: var(--telekom-spacing-composition-space-03);
+            gap: 0.25rem;
+            inset-inline-end: 0;
+            position: relative;
 
             & > button, button[aria-label="Actions"], button[aria-label="Aktionen"], button[aria-label*="Edit"], button[aria-label*="Bearbeiten"] {
-                background-color: var(--telekom-color-ui-regular);
-                border-radius: var(--telekom-radius-circle);
+                background-color: var(--nmc-color-regular);
+                border-radius: var(--border-radius-pill);
                 display: flex;
-                width: 44px;
-                height: 44px;
+                align-items: center;
+                justify-content: center;
+                width: 48px;
+                height: 48px;
 
                 svg {
-                    color: var(--telekom-color-text-and-icon-standard);
+                    color: var(--color-main-text);
                 }
 
                 &:hover, &:focus {
-                    background-color: var(--telekom-color-ui-strong) !important;
+                    background-color: var(--nmc-color-strong) !important;
 
                     svg {
-                        color: var(--telekom-color-text-and-icon-inverted-standard);
+                        color: var(--nmc-color-text-and-icon-inverted);
                     }
                 }
             }
 
             button.play-pause-icons {
+                margin: calc((var(--header-height) - var(--clickable-area-large)) / 2);
 
                 & > span.material-design-icon {
                     margin: 0;
                 }
 
                 svg.progress-ring {
-                    width: 44px;
-                    height: 44px;
-                    circle {
-                        cx: 22;
-                        cy: 22;
-                    }
+                    width: 48px;
+                    height: 48px;
                 }
+            }
+
+            div.action-items {
+                gap: 0.25rem;
             }
         }
     }
@@ -89,46 +98,44 @@
         }
 
         .FIE_topbar-save-button  {
-            border-radius: var(--telekom-radius-standard);
-            background-color: var(--telekom-color-primary-standard);
-            color: var(--telekom-color-text-and-icon-white-standard);
+            background-color: var(--color-primary);
+            color: var(--nmc-color-text-and-icon-white);
             border: 0;
-            border-radius: var(--telekom-radius-standard);
-            font: var(--telekom-text-style-body);
-            font-weight: var(--telekom-typography-font-weight-bold);
+            border-radius: var(--border-radius-pill);
+            font: var(--default-font-style-bold);
             line-height: 1.125rem;
             margin-left: 1rem;
-            min-height: var(--telekom-spacing-composition-space-13);
-            min-width: var(--telekom-spacing-composition-space-13);
-            padding-left: var(--telekom-spacing-composition-space-07);
-            padding-right: var(--telekom-spacing-composition-space-07);
-            transition: all var(--telekom-motion-duration-transition) var(--telekom-motion-easing-standard);
+            min-height: var(--default-clickable-area);
+            min-width: var(--default-clickable-area);
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+            transition: all var(--animation-slow) var(---animation-slow);
 
             &:after {
                 top: 0;
                 left: 0;
                 width: 100%;
-                border: var(--telekom-spacing-composition-space-01) solid transparent;
+                border: 1px solid transparent;
                 height: 100%;
                 content: '';
                 display: block;
                 position: absolute;
                 box-sizing: border-box;
                 pointer-events: none;
-                border-radius: var(--telekom-radius-standard);
+                border-radius: var(--border-radius-pill);
             }
     
             &:hover:not(:disabled) {
-                background-color: var(--telekom-color-primary-hovered);
+                background-color: var(--color-primary-hover);
             }
     
             &:active {
-                background-color: var(--telekom-color-primary-pressed);
+                background-color: var(--color-primary-pressed);
             }
     
             &:disabled {
-                background-color: var(--telekom-color-ui-disabled);
-                color: var(--telekom-color-text-and-icon-disabled);
+                background-color: var(--color-background-dark);
+                color: var(--color-text-lighter);
             }
         }
     }

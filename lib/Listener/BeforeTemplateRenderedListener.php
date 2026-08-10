@@ -91,17 +91,15 @@ class BeforeTemplateRenderedListener implements IEventListener {
 
 
 		// you can add additional styles, links and scripts before rendering
-		// keep src for future use:   \OCP\Util::addScript("nmctheme", "../dist/l10nappender");
 		\OCP\Util::addScript("nmctheme", "nmctheme-nmclogo", "core");
 		\OCP\Util::addScript('nmctheme', 'nmctheme-nmcheader', "core");
 		\OCP\Util::addScript('nmctheme', 'nmctheme-nmcfooter', "core");
 		\OCP\Util::addScript('nmctheme', 'nmctheme-nmcfiles', "core");
 		\OCP\Util::addScript("nmctheme", "nmctheme-mimetypes", "core");
 		\OCP\Util::addScript("nmctheme", "nmctheme-skipactions", "core");
+		\OCP\Util::addScript("nmctheme", "nmctheme-searchfavorites", "core");
 		\OCP\Util::addScript("nmctheme", "nmctheme-filessettings", "files");
 		\OCP\Util::addScript("nmctheme", "nmctheme-filelistplugin", "files");
-		// \OCP\Util::addScript("nmctheme", "nmctheme-conflictdialog");
-		// \OCP\Util::addScript("nmctheme", "nmctheme-tooltip");
-		// \OCP\Util::addScript("nmctheme", "nmctheme-shareicons");
+		\OCP\Util::addScript("nmctheme", "nmctheme-trashbinfix", "files");
 	}
 }

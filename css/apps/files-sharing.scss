@@ -17,7 +17,7 @@
         }
 
         #displayavatar .icon-folder {
-            background-image: var(--icon-mime-folder-dark);
+            background-image: var(--icon-mime-folder-blue);
             background-size: 192px;
             height: 128px;
             width: 128px;
@@ -48,10 +48,11 @@
     padding-left: 0.5rem;
 
     .material-design-icon.share-circle-icon {
-        background-image: var(--icon-shared-dark);
+        background-image: var(--original-icon-shared-dark);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 24px;
+        background-size: 18px;
+        margin-inline: -4px 4px;
         width: 100%;
         height: 100%;
         
@@ -61,20 +62,33 @@
     }
 }
 
-.sharingTabDetailsView {
+.sharingTabDetailsView,
+.sharingPopupDetailsView {
 
     #share-date-picker {
+        -webkit-appearance: none;
+        appearance: none;
+        box-sizing: border-box;
+        height: 56px !important;
         color-scheme: var(--nmc-color-sceme);
+
+        &::-webkit-calendar-picker-indicator {
+            filter: invert(0);
+            cursor: pointer;
+
+            @media (prefers-color-scheme: dark) {
+                filter: invert(1);
+            }
+        }
     }
 }
 
-#app-sidebar-vue.app-sidebar--full {
-    width: 0%;
+.sharingPopupDetailsView {
+    right: 0;
 }
 
 .sharingTabDetailsView, .sharingPopupDetailsView {
 
-    
     .material-design-icon.back-button {
         background-image: var(--icon-arrow-previous-dark);
         background-repeat: no-repeat;
@@ -92,15 +106,57 @@
 
     .sharingTabDetailsView__quick-permissions {
 
-        .checkbox-radio-switch {
-    
-            &__label {
-                padding-left: 0 !important;
-            }
-        }
-
         .sharing_permission-desc {
             margin-top: 0.5rem;
+        }
+    }
+
+    .header-permissions {
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: unset;
+            margin-top: unset;
+        }
+    }
+}
+
+.sharingPopup__content, .sharingTab__content {
+    h2 {
+        font-size: 20px;
+        margin: unset;
+
+        strong {
+            font-weight: 600;
+        }
+    }
+
+    .sharingPopup__header, .sharingTab__header {
+        font-weight: 600;
+        margin-bottom: 16px !important;
+    }
+
+	.sharingPopup__fileinfo, .sharingTab__fileinfo {
+		font-size: var(--font-size-small);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		max-width: 100%;
+		display: block;
+	}
+}
+
+#files-public-content:has(.plyr) {
+
+    #preview {
+        
+        .plyr__video-wrapper {
+
+            height: 890px;
+
+            video {
+                width: auto;
+            }
         }
     }
 }

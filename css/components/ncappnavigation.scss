@@ -12,11 +12,18 @@
 }
 
 #content-vue .app-navigation {
-	border-right: 1px solid var(--telekom-color-ui-faint) !important;
+	border-right: 1px solid var(--color-border) !important;
+
+	.app-navigation__search {
+		display: none;
+	}
+	.files-navigation__list {
+			height: unset;
+	}
 
 	// remove gaps between navigation items
-	#app-navigation-vue .app-navigation__body ul.app-navigation__list {
-		gap: var(--telekom-spacing-composition-space-03) !important;
+	#app-navigation-vue .app-navigation__body ul.app-navigation-list {
+		gap: 0.25rem !important;
 		padding: 4rem 1.5rem 1.5rem !important;
 
 		[data-cy-files-navigation-item="recent"],
@@ -26,6 +33,9 @@
 
 		[data-cy-files-navigation-item="favorites"] {
 			order: 1;
+			div > button {
+				display: none;
+			}
 		}
 
 		[data-cy-files-navigation-item="files"] {
@@ -34,16 +44,63 @@
 
 		[data-cy-files-navigation-item="shareoverview"] {
 			order: 3;
+
+			[data-cy-files-navigation-item ="sharinglinks"],
+			[data-cy-files-navigation-item="filerequest"],
+			[data-cy-files-navigation-item="deletedshares"] {
+				display: none;
+			}
+		}
+
+
+		[data-cy-files-navigation-item="sharingout"] {
+			order: 3;
+		}
+		
+		[data-cy-files-navigation-item="sharingin"] {
+			order: 4;
+		}
+		
+		[data-cy-files-navigation-item="pendingshares"] {
+			order: 5;
 		}
 
 		[data-cy-files-navigation-item="trashbin"] {
-			order: 4;
+			order: 5;
+		}
+
+		[data-cy-files-navigation-settings-button] {
+			display: flex;
+			order: 6;
 		}
 	}
 
 	.app-navigation-toggle-wrapper {
 		top: 1rem !important;
-		right: calc(0px - 1rem) !important;
+		right: -0.75rem !important;
+
+		button {
+			padding: 0;
+			width: auto !important;
+
+			.menu-open-icon {
+				background-image: var(--icon-hide-menu-dark);
+				width: 24px;
+				height: 24px;
+				
+				svg {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.app-navigation-entry__settings {
+		padding: 0 0 1rem;
+
+		> li {
+			display: none;
+		}
 	}
 
 	&__content &-entry__settings {
@@ -56,15 +113,17 @@
 }
 
 // default navbar link styling
-li[id^="app-navigation-item-"] {
+#app-navigation-vue .app-navigation-entry-wrapper {
+
 	.app-navigation-entry {
-		border-radius: var(--telekom-radius-standard);
-		font: var(--telekom-text-style-ui-bold);
+		position: relative;
+		border-radius: var(--border-radius-large);
+		font: var(--default-font-style-bold);
 		transition: none;
 
 		.app-navigation-entry-link {
-			border-radius: var(--telekom-radius-standard);
-			padding: 0.25rem;
+			border-radius: var(--border-radius-large);
+			background-color: transparent !important;
 
 			.app-navigation-entry-icon {
 				background-size: 24px;
@@ -74,8 +133,10 @@ li[id^="app-navigation-item-"] {
 
 		&:hover,
 		&.active,
-		&.active:hover {
-			background-color: var(--nmc-color-background-hover) !important;
+		&.active:hover,
+		&:focus,
+		&:focus-within {
+			background-color: transparent !important;
 		}
 
 		// do not pin app navigation entries to the bottom
@@ -87,11 +148,19 @@ li[id^="app-navigation-item-"] {
 		// active link styling
 		&.active {
 			&::before {
-				background-color: var(--telekom-color-primary-standard);
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				height: 24px;
+				width: 4px;
+				background-color: var(--color-primary);
+				border-radius: 4px;
 			}
 
 			span {
-				color: var(--telekom-color-text-and-icon-primary-standard);
+				color: var(--color-primary);
 			}
 
 			.app-navigation-entry-icon {
@@ -102,11 +171,11 @@ li[id^="app-navigation-item-"] {
 		// on hover link styling
 		&:hover {
 			span {
-				color: var(--telekom-color-text-and-icon-primary-standard);
+				color: var(--color-primary-hover);
 			}
 
 			.app-navigation-entry-icon {
-				filter: var(--nmc-color-icon)
+				filter: var(--nmc-color-icon-hovered);
 			}
 		}
 
@@ -136,16 +205,37 @@ li[id^="app-navigation-item-"] {
 			}
 		}
 
-		&--collapsible[data-cy-files-navigation-item=favorites] {
+		// Hide all the SVGs
+		span.icon-vue {
+			display: none;
+		}
+	}
 
-			// hide every subentry
-			ul.app-navigation-entry__children {
-				display: none !important;
+	&[data-cy-files-navigation-item=shareoverview] {
+		> ul.app-navigation-entry__children {
+			padding-inline-start: 0 !important;
+
+			li {
+				.app-navigation-entry__name {
+					color: var(--nmc-color-strong) !important;
+					margin-left: 48px;
+				}
 			}
 		}
 
-		// Hide all the SVGs
-		span.icon-vue {
+		.button-vue.icon-collapse {
+			background-color: transparent !important;
+		}
+	}
+
+	&[data-cy-files-navigation-item=favorites] {
+
+		// hide every subentry
+		ul.app-navigation-entry__children {
+			display: none !important;
+		}
+
+		> button {
 			display: none;
 		}
 	}
@@ -180,8 +270,27 @@ li[id^="app-navigation-item-"] {
 		background-image: var(--icon-share-dark);
 	}
 
+	&[data-cy-files-navigation-item=sharingin] .app-navigation-entry-icon {
+		background-image: var(--icon-share-with-me-dark);
+		display: none;
+	}
+
+	&[data-cy-files-navigation-item=sharingout] .app-navigation-entry-icon {
+		display: none;
+	}
+
+	&[data-cy-files-navigation-item=pendingshares] .app-navigation-entry-icon {
+		background-image: var(--icon-share-pending-dark);
+		display: none;
+	}
+
 	&[data-cy-files-navigation-item=trashbin] .app-navigation-entry-icon {
 		background-image: var(--icon-delete-dark);
 	}
 
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section, main {
+	scrollbar-color: var(--color-border-dark) transparent !important;
+	scrollbar-width: thin;
 }

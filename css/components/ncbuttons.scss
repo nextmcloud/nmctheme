@@ -12,49 +12,48 @@
 #body-user .button-vue,
 #body-settings .button-vue,
 #body-public .button-vue,
-#body-login .button-vue, #body-login .ods-dialog-button,
+#body-login .button-vue, 
+#body-login .ods-dialog-button,
 #body-status .button-vue,
 #error .button-vue {
     // we keep coloring of the default button as it is for the moment,
-    // but us ethe Telekom roundings instead of Nextcloud full-round sides
-
+    // but use the Telekom roundings instead of Nextcloud full-round sides
     border: 0;
     padding: 0;
-    border-radius: var(--telekom-radius-standard);
-    font: var(--telekom-text-style-body);
-    font-weight: var(--telekom-typography-font-weight-bold);
+    border-radius: var(--border-radius-pill);
+    font: var(--default-font-style);
+    font-weight: bold;
     line-height: 1.125rem;
-    min-height: var(--telekom-spacing-composition-space-13);
-    min-width: var(--telekom-spacing-composition-space-13);
-    padding-left: var(--telekom-spacing-composition-space-07);
-    padding-right: var(--telekom-spacing-composition-space-07);
+    min-height: var(--default-clickable-area);
+    min-width: var(--default-clickable-area);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
 
     &:after {
-        top: 0;
-        left: 0;
-        width: 100%;
-        border: var(--telekom-spacing-composition-space-01) solid transparent;
-        height: 100%;
+        border: 1px solid transparent;
+        box-sizing: border-box;
         content: '';
         display: block;
-        position: absolute;
-        box-sizing: border-box;
+        height: 100%;
+        left: 0;
         pointer-events: none;
-        border-radius: var(--telekom-radius-standard);
+        position: absolute;
+        top: 0;
+        width: 100%;
     }
 
     // Icon-only button
     &--icon-only {
-        padding-left: var(--telekom-spacing-composition-space-05);
-        padding-right: var(--telekom-spacing-composition-space-05);
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
     }
 
     // Icon and text button
     &--icon-and-text {
-        margin-right: var(--telekom-spacing-composition-space-04);
-        margin-left: calc(var(--telekom-spacing-composition-space-03) * -1);
-        margin-top: var(--telekom-spacing-composition-space-04);
-        margin-bottom: var(--telekom-spacing-composition-space-03);
+        margin-right: 0.5rem;
+        margin-left: calc(0.25rem * -1);
+        margin-top: 0.5rem;
+        margin-bottom: 0.25rem;
     }
 
     &_left {
@@ -64,55 +63,47 @@
     // Button types
 
     // Primary
-    &--vue-primary, &_primary {
-        border-radius: var(--telekom-radius-standard);
-        background-color: var(--telekom-color-primary-standard);
-        color: var(--telekom-color-text-and-icon-white-standard);
+    &.button-vue--primary, &--vue-primary, &_primary {
+        border-radius: var(--border-radius-pill);
+        background-color: var(--color-primary);
+        color: var(--nmc-color-text-and-icon-white);
 
         &:hover:not(:disabled) {
-            background-color: var(--telekom-color-primary-hovered);
+            background-color: var(--color-primary-hover);
         }
 
         &:active {
-            background-color: var(--telekom-color-primary-pressed);
+            background-color: var(--color-primary-pressed);
         }
 
         &:disabled {
-            background-color: var(--telekom-color-ui-disabled);
-            color: var(--telekom-color-text-and-icon-disabled);
+            background-color: var(--color-background-dark);
+            color: var(--color-text-lighter);
         }
     }
 
     // Secondary
-    &--vue-secondary, &_secondary {
-        background: transparent;
-        border-radius: var(--telekom-radius-standard);
-        border: var(--telekom-spacing-composition-space-01) solid currentColor;
-        color: var(--telekom-color-text-and-icon-standard);
-        background-color: var(--telekom-color-ui-state-fill-standard);
-        border-color: var(--telekom-color-ui-border-standard);
+    &.button-vue--secondary, &--vue-secondary, &_secondary {
+        background: var(--nmc-ods-blue-primary);
+        border-radius: var(--border-radius-pill);
+        color: var(--nmc-color-text-and-icon-black);
 
         &:hover:not(:disabled) {
-            color: var(--telekom-color-text-and-icon-standard);
-            background-color: var(--nmc-color-background-hover);
-            border-color: var(--telekom-color-ui-border-hovered);
+            background-color: var(--nmc-ods-blue-hover);
         }
 
         &:active {
-            color: var(--telekom-color-text-and-icon-standard);
-            background-color: var(--telekom-color-ui-state-fill-pressed);
-            border-color: var(--telekom-color-ui-border-pressed);
+            background-color: var(--nmc-ods-blue-pressed);
         }
 
         &:disabled {
-            color: var(--telekom-color-text-and-icon-disabled);
-            background-color: none;
+            background-color: var(--nmc-ods-blue-contrast);
         }
 
         // Icon-only button
         &--icon-only {
-            padding-left: calc(var(--telekom-spacing-composition-space-03) - 1px);
-            padding-right: calc(var(--telekom-spacing-composition-space-03) - 1px);
+            padding-left: calc(0.25rem - 1px);
+            padding-right: calc(0.25rem - 1px);
         }
     }
 
@@ -128,5 +119,22 @@
 }
 
 :focus {
-    outline-color: var(--telekom-color-primary-standard);
+    outline-color: var(--color-main-text);
+}
+
+#body-user,
+#body-settings,
+#body-public,
+#body-login, 
+#body-login,
+#body-status {
+
+    .button {
+
+        &.primary {
+            line-height: 2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 1.5rem;
+        }
+    }
 }

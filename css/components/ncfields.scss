@@ -7,43 +7,104 @@
  */
 
 // there should be no inputs on status/error pages
-#body-user .input-field,
-#body-settings .input-field,
-#body-public .input-field,
-#body-login .input-field {
-    border-radius: var(--telekom-radius-small);
-    margin-block-start: 0;
-
-    &__main-wrapper {
-        height: 44px;
-    }
-
-    &__input {
-        padding: 0 var(--telekom-spacing-composition-space-05);
-        border: var(--telekom-spacing-composition-space-01) solid var(--telekom-color-ui-border-standard);
-        height: 44px !important;
+#body-user textarea,
+#body-settings textarea,
+#body-public textarea,
+#body-login textarea {
+        border: 1px solid var(--color-main-text);
+        border-radius: var(--border-radius-large);
+        box-shadow: none;
+        margin: 5px;
+        padding: 0.75rem;
+        width: calc(100% - 10px);
 
         &:active:disabled,
         &:hover:disabled,
         &:focus:disabled {
             background: none;
-            color: var(--telekom-color-text-and-icon-disabled);
-            border-color: var(--telekom-color-ui-border-disabled);
+            color: var(--color-text-lighter);
+            border-color: var(--color-background-dark);
         }
 
         &:active:not([disabled]) {
-            color: var(--telekom-color-text-and-icon-disabled);
-            border-color: var(--telekom-color-ui-border-hovered);
-
+            color: var(--color-text-lighter);
+            border-color: var(--color-border-dark);
+            background-color: var(--color-background-hover);
         }
 
         &:hover:not([disabled]) {
             cursor: text;
-            border-color: var(--telekom-color-ui-border-hovered);
+            border-color: var(--color-border-dark);
+            background-color: var(--color-background-hover);
         }
 
         &:focus:not([disabled]) {
-            border: var(--telekom-line-weight-highlight) solid var(--telekom-color-functional-focus-standard);
+            border: 1px solid var(--color-border-dark) !important;
+            border-color: var(--color-border-dark) !important;
+            background-color: var(--color-background-hover);
+            outline: 2px solid var(--color-main-text);
+            outline-offset: 3px;
+            box-shadow: unset!important;
+        }
+}
+
+#body-user .input-field,
+#body-settings .input-field,
+#body-public .input-field,
+#body-login .input-field, 
+#body-user .native-datetime-picker, 
+#body-settings .native-datetime-picker, 
+#body-public .native-datetime-picker, 
+#body-login .native-datetime-picker {
+    border-radius: var(--border-radius-container);
+    margin-block-start: 0;
+
+    &__main-wrapper {
+        height: 66px !important;
+        margin-top: 0.25px;
+        padding: 0;
+    }
+
+    &__input, &--input {
+        border: 1px solid var(--color-main-text);
+        border-radius: var(--border-radius-large);
+        box-shadow: none;
+        height: 56px !important;
+        margin: 5px;
+        padding:  0 2rem 0 0.75rem;
+        width: calc(100% - 10px);
+
+        &:active:disabled,
+        &:hover:disabled,
+        &:focus:disabled {
+            background: none;
+            color: var(--color-text-lighter);
+            border-color: var(--color-background-dark);
+        }
+
+        &:active:not([disabled]) {
+            color: var(--color-text-lighter);
+            border-color: var(--color-border-dark);
+            background-color: var(--color-background-hover);
+        }
+
+        &:hover:not([disabled]) {
+            cursor: text;
+            border-color: var(--color-border-dark);
+            background-color: var(--color-background-hover);
+        }
+
+        &:focus:not([disabled]) {
+            border: 1px solid var(--color-border-dark) !important;
+            border-color: var(--color-border-dark) !important;
+            background-color: var(--color-background-hover);
+            outline: 2px solid var(--color-main-text);
+            outline-offset: 3px;
+            box-shadow: unset!important;
+        }
+
+        &--error {
+            border-color: var(--color-error-text) !important;
         }
 
         &--leading-icon {
@@ -59,14 +120,15 @@
 		}
     }
 
-    &__label {
+    label.input-field__label {
         display: none;
     }
 
     &__icon {
+
         &--leading {
-            bottom: -2px;
-            left: -2px;
+            bottom: 2px;
+            left: 4px;
 
             svg {
                 height: 20px;
@@ -80,20 +142,58 @@
         }
     }
 
+    &__trailing-button.button-vue {
+            right: 2px;
+            top: 10px;
+    }
+
 	&__clear-button.button-vue {
-		border-radius: var(--telekom-radius-standard);
+		border-radius: var(--border-radius-pill);
         height: 100%;
-		top: 0;
+		top: 2px;
 	}
 
     &__helper-text-message {
-        font: var(--telekom-text-style-small-bold);
-        padding: 0;
+        font: var(--default-font--style-small-bold);
+        padding: 5px;
         align-items: center;
+
+        &--error {
+            color: var(--color-error-text);
+        }
 
         &__icon {
             height: 11px;
             width: 11px;
+        }
+    }
+}
+
+#body-user .file-picker {
+    .input-field {
+        &__label {
+            display: block;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: var(--default-font-size);
+        }
+        
+        &:hover label.input-field__label,
+        &:focus-within label.input-field__label {
+            top: 22%;
+            left: -1%;
+            transform: translateY(-50%);
+            background-color: transparent;
+             font-size: var(--font-size-small);
+        }
+        
+        .input-field__input {
+        
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: var(--background-input-hover-focus);
+            }
         }
     }
 }

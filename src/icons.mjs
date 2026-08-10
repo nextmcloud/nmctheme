@@ -20,23 +20,32 @@ const colors = {
 	success: '00b367',
 	danger: 'e82010',
 	warning: 'f97012',
+	blue: '84B0F5',
 }
 
+const COLOR_VALUE_RE = '(?:#[0-9a-f]{3,6}|black|white)'
+
 const colorSvg = function(svg = '', color = '000') {
-	if (!color.match(/^[0-9a-f]{3,6}$/i)) {
-		// Prevent not-sane colors from being written into the SVG
+	if (!/^[0-9a-f]{3,6}$/i.test(color)) {
 		console.warn(color, 'does not match the required format')
 		color = '000'
 	}
 
-	// add fill (fill is not present on black elements)
-	const fillRe = /<((circle|rect|path|polygon)((?!fill)[a-z0-9 =".\-#():;,])+)\/>/gmi
+	// add fill if missing
+	const fillRe = /<((circle|rect|path|polygon)((?!fill)[^/>])*)\/>/gmi
 	svg = svg.replace(fillRe, '<$1 fill="#' + color + '"/>')
 
-	// replace any fill or stroke colors
-	svg = svg.replace(/stroke="#([a-z0-9]{3,6})"/gmi, 'stroke="#' + color + '"')
-	svg = svg.replace(/fill="#([a-z0-9]{3,6})"/gmi, 'fill="#' + color + '"')
-	svg = svg.replace(/fill:#([a-z0-9]{3,6})/gmi, 'fill:#' + color)
+	// replace fill/stroke attributes (hex + named colors)
+	svg = svg.replace(
+		new RegExp(`(fill|stroke)="(${COLOR_VALUE_RE})"`, 'gmi'),
+		(_, attr) => `${attr}="#${color}"`,
+	)
+
+	// replace inline styles
+	svg = svg.replace(
+		new RegExp(`(fill|stroke):(${COLOR_VALUE_RE})`, 'gmi'),
+		(_, attr) => `${attr}:#${color}`,
+	)
 
 	return svg
 }
@@ -63,23 +72,27 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const variables = {}
 
 const icons = {
+	magentacloud: path.join(__dirname, '../img', 'magentacloud.svg'),
 	add: path.join(__dirname, '../img', 'actions', 'add.svg'),
 	address: path.join(__dirname, '../img', 'actions', 'address.svg'),
 	'arrow-left': path.join(__dirname, '../img', 'actions', 'arrow-left.svg'),
 	download: path.join(__dirname, '../img', 'actions', 'download.svg'),
 	logout: path.join(__dirname, '../img', 'actions', 'logout.svg'),
 	menu: path.join(__dirname, '../img', 'actions', 'menu.svg'),
+	notification: path.join(__dirname, '../img', 'actions', 'notification.svg'),
 	search: path.join(__dirname, '../img', 'actions', 'search.svg'),
 	share: path.join(__dirname, '../img', 'actions', 'share.svg'),
 	shared: path.join(__dirname, '../img', 'actions', 'share.svg'),
 	public: path.join(__dirname, '../img', 'actions', 'share.svg'),
+	'share-pending': path.join(__dirname, '../img', 'actions', 'share-pending.svg'),
+	'share-with-me': path.join(__dirname, '../img', 'actions', 'share-with-me.svg'),
+	'share-with': path.join(__dirname, '../img', 'actions', 'share-with.svg'),
 	star: path.join(__dirname, '../img', 'actions', 'star.svg'),
 	starred: path.join(__dirname, '../img', 'actions', 'starred.svg'),
 	upload: path.join(__dirname, '../img', 'actions', 'upload.svg'),
 	user: path.join(__dirname, '../img', 'actions', 'user.svg'),
 	folder: path.join(__dirname, '../img', 'actions', 'folder.svg'),
 	'folder-description': path.join(__dirname, '../img', 'actions', 'folder-description.svg'),
-	'mime-folder': path.join(__dirname, '../img', 'filetypes', 'folder.svg'),
 	'mime-folder-audio': path.join(__dirname, '../img', 'filetypes', 'folder-audio.svg'),
 	'mime-folder-encrypted': path.join(__dirname, '../img', 'filetypes', 'folder-encrypted.svg'),
 	'mime-folder-photo': path.join(__dirname, '../img', 'filetypes', 'folder-photo.svg'),
@@ -100,6 +113,7 @@ const icons = {
 	admin: path.join(__dirname, '../img', 'settings', 'apps.svg'),
 	apps: path.join(__dirname, '../img', 'actions', 'add.svg'),
 	link: path.join(__dirname, '../img', 'actions', 'link.svg'),
+	lock: path.join(__dirname, '../img', 'actions', 'lock.svg'),
 	'upload-to-cloud': path.join(__dirname, '../img', 'actions', 'upload-to-cloud.svg'),
 	clipboard: path.join(__dirname, '../img', 'actions', 'clipboard.svg'),
 	mail: path.join(__dirname, '../img', 'actions', 'mail.svg'),
@@ -118,6 +132,10 @@ const icons = {
 	check: path.join(__dirname, '../img', 'checkmarktick.svg'),
 	'toggle-filelist': path.join(__dirname, '../img', 'actions', 'toggle-filelist.svg'),
 	'toggle-pictures': path.join(__dirname, '../img', 'actions', 'toggle-pictures.svg'),
+	grid: path.join(__dirname, '../img', 'actions', 'grid.svg'),
+	'grid-square': path.join(__dirname, '../img', 'actions', 'grid-square.svg'),
+	'grid-ratio': path.join(__dirname, '../img', 'actions', 'grid-ratio.svg'),
+	'list-bulleted': path.join(__dirname, '../img', 'actions', 'list-bulleted.svg'),
 	restore: path.join(__dirname, '../img', 'actions', 'restore.svg'),
 	'cut-paste': path.join(__dirname, '../img', 'actions', 'cut-paste.svg'),
 	'compress-zip': path.join(__dirname, '../img', 'actions', 'compress-zip.svg'),
@@ -152,6 +170,8 @@ const icons = {
 	'all-media': path.join(__dirname, '../img', 'media', 'all-media.svg'),
 	camera: path.join(__dirname, '../img', 'device', 'camera.svg'),
 	'photo-camera': path.join(__dirname, '../img', 'device', 'photo-camera.svg'),
+	'photo-camera-media': path.join(__dirname, '../img', 'media', 'photo-camera-media.svg'),
+	'video-camera-media': path.join(__dirname, '../img', 'media', 'video-camera.svg'),
 	'hide-menu': path.join(__dirname, '../img', 'actions', 'hide-menu.svg'),
 	'photos-videos': path.join(__dirname, '../img', 'media', 'photos-videos.svg'),
 	appearance: path.join(__dirname, '../img', 'settings', 'appearance.svg'),
@@ -167,6 +187,13 @@ const icons = {
 	video: path.join(__dirname, '../img', 'actions', 'play.svg'),
 	export: path.join(__dirname, '../img', 'actions', 'export.svg'),
 	import: path.join(__dirname, '../img', 'actions', 'import.svg'),
+	refresh: path.join(__dirname, '../img', 'actions', 'refresh.svg'),
+	'folder-overlay-lock': path.join(__dirname, '../img', 'actions', 'lock.svg'),
+	'folder-overlay-share': path.join(__dirname, '../img', 'actions', 'share.svg'),
+	'visibility-on': path.join(__dirname, '../img', 'actions', 'visibility-on.svg'),
+	'create-folder': path.join(__dirname, '../img', 'actions', 'create-folder.svg'),
+	'left-condensed': path.join(__dirname, '../img', 'actions', 'left-condensed.svg'),
+	'right-condensed': path.join(__dirname, '../img', 'actions', 'right-condensed.svg'),
 }
 
 const iconsColor = {
@@ -209,6 +236,10 @@ const iconsColor = {
 	danger: {
 		path: path.join(__dirname, '../img', 'rich-workspace', 'danger.svg'),
 		color: 'danger',
+	},
+	'mime-folder': {
+		path: path.join(__dirname, '../img', 'filetypes', 'folder.svg'),
+		color: 'blue',
 	},
 }
 
@@ -255,6 +286,6 @@ css += '[data-themes*=dark] {'
 css += generateVariablesAliases(variables, true)
 css += '}'
 
-const distFolder = path.join(__dirname, '../dist')
+const distFolder = path.join(__dirname, '../css')
 fs.mkdirSync(distFolder, { recursive: true })
 fs.writeFileSync(path.join(distFolder, 'icons.css'), sass.compileString(css).css)

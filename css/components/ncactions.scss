@@ -1,4 +1,5 @@
 @import '../_mixins.scss';
+@import '../_variables.scss';
 
 // '...' button style
 .action-item .v-popper {
@@ -8,12 +9,13 @@
 
 		&:hover:not(:disabled) {
 			background-color: initial;
-
-			svg {
-				color: var(--telekom-color-text-and-icon-primary-standard);
-			}
 		}
 	}
+}
+
+// Hide text label on action menu toggle buttons that show the three-dot icon
+.action-item__menutoggle:has(.dots-horizontal-icon) .button-vue__text {
+	display: none;
 }
 
 #body-user,
@@ -22,37 +24,118 @@
 
 	.v-popper__popper {
 
+		&.action-item__popper {
+			.v-popper__wrapper {
+				.v-popper__inner {
+					&:has(.action-input__form) {
+						padding: 1rem;
+					}
+					.action:hover:has(.action-input__form) {
+						background-color: unset;
+					}
+				}
+			}
+		}
+
 		.v-popper__wrapper {
+			border: 1px solid var(--color-border);
+			filter: drop-shadow(0 1px 5px var(--color-box-shadow));
+
+			@media screen and (max-width: $breakpoint-mobile-medium) {
+			    overflow-y: auto;
+    			max-height: 65vh;
+			}
+
+			.v-popper__arrow-container {
+				display: none;
+			}
 
 			.v-popper__inner {
 
-				background-color: var(--telekom-color-background-surface);
+				background-color: var(--color-main-background);
 				padding: 0.5rem;
+
+				@media screen and (max-width: $breakpoint-mobile) {
+					padding: 1rem;
+				}
 
 				ul {
 					display: flex;
 					flex-direction: column;
 
-					li.action-separator, li.app-navigation-caption {
+					li {
+						&:hover {
+							cursor: pointer;
+						}
+
+						.icon-vue {
+							svg path {
+								fill: var(--color-main-text);
+							}
+						}
+					}
+
+					li.action-separator,
+					li.app-navigation-caption {
 						display: none;
 					}
 
 					li.action {
 
+						a {
+							span.action-link__icon {
+								background-position: center;
+								background-size: 24px;
+								filter: var(--background-invert-if-dark) !important;
+							}
+						}
+
+						&:last-child > .action-input {
+							margin: 0;
+							padding: 0;
+
+							.action-input__form {
+								margin: 0;
+								padding: 0;
+							}
+
+							.action-input__icon-wrapper {
+
+								.folder-icon {
+									background-image: var(--icon-create-folder-dark);
+									background-size: 36px;
+
+									svg {
+										display: none;
+									}
+								}
+							}
+						}
+
+						.action-input__text-label {
+							display: none;
+						}
+
 						.icon-vue {
 							background-size: 24px;
 						}
-						
-						&.active {
-							background-color: initial;
+
+
+						&[data-cy-upload-picker-menu-entry="upload-folder"] {
+							display: none;
 						}
-						
+
+
+						&:has(span.delete-icon) {
+							display: none;
+						} 
+
 						&.upload-picker__menu-entry {
 
 							.icon-vue {
 								background-size: 24px;
 							}
-								
+
 							svg {
 								display: none;
 							}
@@ -61,7 +144,8 @@
 								display: none;
 							}
 
-							&[data-cy-upload-picker-menu-entry="newFolder"] , &[data-cy-upload-picker-menu-entry="template-picker"] {
+							&[data-cy-upload-picker-menu-entry="newFolder"],
+							&[data-cy-upload-picker-menu-entry="template-picker"] {
 								.icon-vue {
 									background-image: var(--icon-folder-dark);
 								}
@@ -79,7 +163,7 @@
 								.icon-vue {
 									background-image: var(--icon-filetype-document-dark);
 								}
-		
+
 								&:hover {
 									.icon-vue {
 										filter: none;
@@ -93,7 +177,7 @@
 								.icon-vue {
 									background-image: var(--icon-filetype-spreadsheet-dark);
 								}
-		
+
 								&:hover {
 									.icon-vue {
 										filter: none;
@@ -107,7 +191,7 @@
 								.icon-vue {
 									background-image: var(--icon-filetype-presentation-dark);
 								}
-		
+
 								&:hover {
 									.icon-vue {
 										filter: none;
@@ -121,7 +205,7 @@
 								.icon-vue {
 									background-image: var(--icon-filetype-diagram-dark);
 								}
-		
+
 								&:hover {
 									.icon-vue {
 										filter: none;
@@ -131,11 +215,11 @@
 
 							&[data-cy-upload-picker-menu-entry="template-new-text-0"] {
 								order: 5;
-								
+
 								.icon-vue {
 									background-image: var(--icon-file-grey);
 								}
-		
+
 								&:hover {
 									.icon-vue {
 										filter: none;
@@ -145,11 +229,11 @@
 
 							&[data-cy-upload-picker-menu-entry="album-add"] {
 								order: 9;
-								
+
 								.icon-vue {
 									background-image: var(--icon-import-dark);
 								}
-		
+
 								&:hover {
 									.icon-vue {
 										filter: none;
@@ -161,6 +245,7 @@
 						button.action-button {
 							padding-left: 0px;
 							font-weight: normal;
+							border-radius: var(--border-radius);
 
 							&:hover {
 								outline: none;
@@ -172,9 +257,17 @@
 							background-repeat: no-repeat;
 							background-size: 24px;
 
+							&.star-icon {
+								background-image: var(--icon-star-dark);
+
+								svg {
+									display: none;
+								}
+							}
+
 							&.upload-icon {
 								background-image: var(--icon-upload-dark);
-							
+
 								svg {
 									display: none;
 								}
@@ -182,29 +275,29 @@
 
 							&.fullscreen-icon {
 								background-image: var(--icon-fullscreen-dark);
-							
+
 								svg {
 									display: none;
 								}
 							}
-							
+
 							&.download-icon {
 								background-image: var(--icon-download-dark);
-							
+
 								svg {
 									display: none;
 								}
 							}
-							
+
 							&.icon-menu-sidebar {
 								background-image: var(--icon-share-dark);
-							
+
 								svg {
 									display: none;
 								}
-							} 
-			
-							&.delete-icon {
+							}
+
+							&.delete-icon, &.trash-can-icon {
 								background-image: var(--icon-delete-dark);
 
 								svg {
@@ -212,7 +305,7 @@
 								}
 							}
 						}
-    
+
 						&.files-list__row-actions-batch-delete .icon-vue {
 							background-image: var(--icon-delete-dark);
 
@@ -220,15 +313,15 @@
 								display: none;
 							}
 						}
-				
+
 						&.files-list__row-actions-batch-favorite .icon-vue {
-							background-image: var(--original-icon-star-dark);
+							background-image: var(--icon-star-dark);
 
 							svg {
 								display: none;
 							}
 						}
-				
+
 						&.files-list__row-actions-batch-move-copy .icon-vue {
 							background-image: var(--icon-external-dark);
 
@@ -236,7 +329,7 @@
 								display: none;
 							}
 						}
-				
+
 						&.files-list__row-actions-batch-download .icon-vue {
 							background-image: var(--icon-download-dark);
 
@@ -244,7 +337,7 @@
 								display: none;
 							}
 						}
-				
+
 						&.files-list__row-actions-batch-files_zip .icon-vue {
 							background-image: var(--icon-compress-zip-dark);
 
@@ -252,7 +345,7 @@
 								display: none;
 							}
 						}
-				
+
 						&.files-list__row-actions-batch-cancel_select .icon-vue {
 							background-image: var(--icon-close-dark);
 
@@ -277,10 +370,16 @@
 	&.v-popper__popper {
 
 		.v-popper__wrapper {
-	
+			box-shadow: none;
+			border: 1px solid var(--nmc-color-text-and-icon-black);
+
+			.v-popper__arrow-container {
+				display: none;
+			}
+
 			.v-popper__inner {
-				background-color: var(--telekom-color-background-surface);
-	
+				background-color: var(--color-main-background);
+
 				.material-design-icon {
 
 					&.information-icon {
@@ -314,7 +413,7 @@
 							display: none;
 						}
 					}
-			
+
 					&.pencil-icon {
 						background-image: var(--icon-edit-dark);
 
@@ -322,7 +421,7 @@
 							display: none;
 						}
 					}
-	
+
 					&.download-multiple-icon {
 						background-image: var(--icon-download-dark);
 
@@ -330,7 +429,7 @@
 							display: none;
 						}
 					}
-	
+
 					&.star-icon {
 						background-image: var(--icon-star-dark);
 
@@ -338,7 +437,7 @@
 							display: none;
 						}
 					}
-	
+
 					&.close-icon {
 						background-image: var(--icon-close-dark);
 
@@ -346,7 +445,7 @@
 							display: none;
 						}
 					}
-	
+
 					&.folder-icon {
 						background-image: var(--icon-folder-dark);
 
@@ -355,50 +454,57 @@
 						}
 					}
 				}
-			
+
 				li.action {
-	
+
 					.action-button__icon {
 						background-size: 24px;
 						background-position: center;
 					}
-			
+
 					&.action-separator.action--disabled {
-						border-bottom: 1px solid var(--telekom-color-ui-border-pressed);
+						border-bottom: 1px solid var(--color-border-maxcontrast);
 					}
-			
+
 					&.active {
 						background-color: initial;
-				
+
 						// do not set Delete icon to red when hovered
 						.icon-delete:hover {
 							background-image: var(--icon-delete-dark);
 						}
 					}
-			
+
 					&:hover {
-						.action-button__icon, .material-design-icon, .icon-vue {
+
+						.action-button__icon,
+						.material-design-icon,
+						.icon-vue {
 							filter: var(--nmc-color-icon);
 						}
-				
-						.action-button__text, .action-button__longtext, .action-link__text, .action-link__longtext {
-							color: var(--telekom-color-primary-standard);
+
+						.action-button__text,
+						.action-button__longtext,
+						.action-link__text,
+						.action-link__longtext {
+							cursor: pointer;
+							color: var(--color-primary);
 						}
 					}
 				}
-			
+
 				// hide upload file menu item in Photos Album
-				li[data-upload-picker-add=""]{
+				li[data-upload-picker-add=""] {
 					display: none;
 				}
-	
-				li:last-child > .action-input  {
+
+				li:last-child>.action-input {
 					padding-bottom: 0;
-	
+
 					.action-input__form {
 						padding-right: 0;
 					}
-	
+
 					label {
 						display: none;
 					}
@@ -411,17 +517,40 @@
 			.v-popper__wrapper {
 
 				.v-popper__arrow-container {
-					border-top-color: var(--telekom-color-background-surface);
+					border-top-color: var(--color-main-background);
 				}
 			}
 		}
 
 		&[data-popper-placement^=bottom] {
-			
+
 			.v-popper__wrapper {
 
 				.v-popper__arrow-container {
-					border-bottom-color: var(--telekom-color-background-surface);
+					border-bottom-color: var(--color-main-background);
+				}
+			}
+		}
+	}
+}
+
+#body-public {
+	.v-popper__popper {
+		.v-popper__wrapper {
+			.v-popper__inner {
+				ul {
+					li {
+						&.upload-picker__menu-entry {
+							&[data-cy-upload-picker-menu-entry="template-new-richdocuments-1"],
+							&[data-cy-upload-picker-menu-entry="template-new-richdocuments-2"],
+							&[data-cy-upload-picker-menu-entry="template-new-richdocuments-3"],
+							&[data-cy-upload-picker-menu-entry="template-new-richdocuments-4"],
+							&[data-cy-upload-picker-menu-entry="template-new-text-0"],
+							&[data-cy-upload-picker-menu-entry="rich-workspace-init"] {
+								display: none;
+							}
+						}
+					}
 				}
 			}
 		}

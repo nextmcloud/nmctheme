@@ -1,5 +1,5 @@
 @mixin darkmode-modal {
-    background-color: var(--telekom-color-background-surface);
+    background-color: var(--color-main-background);
 }
 
 @mixin color-icon-red {
@@ -13,23 +13,27 @@
 	filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(6096%) hue-rotate(321deg) brightness(75%) contrast(104%);
 }
 
+@mixin macaw-icon {
+	filter: brightness(0) saturate(100%) invert(67%) sepia(71%) saturate(1009%) hue-rotate(186deg) brightness(100%) contrast(93%);
+}
+
 // Scale primary button style
 @mixin primary-button {
     border: none;
-    border-radius: var(--telekom-radius-standard);
-    background-color: var(--telekom-color-primary-standard);
-    color: var(--telekom-color-text-and-icon-white-standard);
+    border-radius: var(--border-radius-pill);
+    background-color: var(--color-primary);
+    color: var(--nmc-color-text-and-icon-white);
 
     &:hover:not(:disabled) {
-        background-color: var(--telekom-color-primary-hovered);
+        background-color: var(--color-primary-hover);
     }
 
     &:active {
-        background-color: var(--telekom-color-primary-pressed);
+        background-color: var(--color-primary-pressed);
     }
 
     &:disabled {
-        background-color: var(--telekom-color-ui-disabled);
-        color: var(--telekom-color-text-and-icon-disabled);
+        background-color: var(--color-background-dark);
+        color: var(--color-text-lighter);
     }
 }

@@ -15,8 +15,8 @@
     justify-content: space-between;
 
     // this is needed as background for the scrollbar
-    background-color: var(--telekom-color-additional-teal-500);
-    scrollbar-color: var(--telekom-color-additional-teal-900) var(--telekom-color-additional-teal-500);
+    background-color: var(--nmc-color-regular);
+    scrollbar-color: var(--color-primary-light) var(--nmc-color-regular);
 
     // this is the dedicated background image for login
     background-image: url('../img/telekom/consent.svg');
@@ -61,7 +61,7 @@
         }
 
         main .update {
-            background-color: var(--telekom-color-background-surface);
+            background-color: var(--color-main-background);
             border-radius: 1rem;
             margin: 0 auto;
             padding: 1rem;
@@ -73,40 +73,32 @@
 
             .buttons .primary {
                 border: 0;
-                border-radius: var(--telekom-radius-standard);
-                background-color: var(--telekom-color-primary-standard);
-                color: var(--telekom-color-text-and-icon-white-standard);
-                font: var(--telekom-text-style-body);
-                font-weight: var(--telekom-typography-font-weight-bold);
+                border-radius: var(--border-radius-pill);
+                background-color: var(--color-primary);
+                color: var(--nmc-color-text-and-icon-white);
+                font: var(--default-font-style);
+                font-weight: bold;
                 line-height: 1.125rem;
-                min-height: var(--telekom-spacing-composition-space-13);
-                min-width: var(--telekom-spacing-composition-space-13);
-                padding-left: var(--telekom-spacing-composition-space-07);
-                padding-right: var(--telekom-spacing-composition-space-07);
+                min-height: var(--default-clickable-area);
+                min-width: var(--default-clickable-area);
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
             }
         }
-
-        // default logo is disabled
-        // and takes no space
     }
 }
 
 #body-login footer[role="contentinfo"] {
-    //opacity: var(--telekom-opacity-transparent);
-    // this overrides nextcloud properties in versions 25 and 26 that affect our custom footer
     border: none;
     border-radius: 0.5rem;
     min-height: auto;
     z-index: 400;
-    color: var(--telekom-color-ui-strong);
+    color: var(--nmc-color-strong);
 }
 
 @media (prefers-color-scheme: dark) {
     #body-login {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-                rgba(0, 0, 0, 0.5)),
-            url('../img/telekom/consent.svg');
-        // don't switch text color
-        color: var(--telekom-color-ui-regular);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/telekom/consent.svg');
+        color: var(--nmc-color-regular);
     }
 }

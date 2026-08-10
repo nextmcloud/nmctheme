@@ -72,6 +72,14 @@ class URLGeneratorDecorator implements IURLGenerator {
 	 * All other requests go to the standard URLGenerator
 	 */
 	public function imagePath(string $appName, string $file): string {
+		if ($file === 'photos.svg' && $appName === 'photos') {
+			return $this->decorated->linkTo('nmctheme', 'img/media/all-media.svg');
+		}
+
+		if ($file === 'files.svg' && $appName === 'files') {
+			return $this->decorated->linkTo('nmctheme', 'img/actions/folder.svg');
+		}
+
 		if ($file === 'favicon.ico') {
 			return $this->decorated->linkTo('nmctheme', 'img/favicon.ico');
 		}

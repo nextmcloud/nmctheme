@@ -7,11 +7,13 @@
  * Note: Take care of Telekom branding restrictions!
  */
 
+@import '../variables';
+
 #error,
 #body-status {
     // this is needed as background for the scrollbar
-    background-color: var(--telekom-color-primary-standard);
-    scrollbar-color: var(--telekom-color-primary-pressed) var(--telekom-color-text-and-icon-primary-standard);
+    background-color: var(--color-primary);
+    scrollbar-color: var(--color-primary-pressed) var(--color-primary);
 
     // this is the dedicated background image for login
     background-image: url('../img/telekom/consent.svg');
@@ -30,12 +32,128 @@
         // default logo is disabled
         // and takes no space
     }
-}
 
-#error #body-status footer[role="contentinfo"],
-#body-status footer[role="contentinfo"] {
-    opacity: var(--telekom-opacity-semi-transparent);
-    color: var(--telekom-color-text-and-icon-white-standard);
+    footer {
+        --footnav-items-bottom-margin: 1.5rem;
+        --radius: var(-border-radius);
+        --border-radius: 0px;
+        --footer-font: var(--default-font-style-bold);
+    }
+
+    footer[role="contentinfo"] {
+        background-color: var(--color-main-background);
+        display: block;
+        font: var(--footer-font);
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 42px;
+        width: 100%;
+        z-index: 998;
+        border-top: 1px solid var(--color-border);
+        padding: 0.5rem 1.5rem;
+        box-sizing: border-box;
+        opacity: 0.5;
+        top: unset;
+        margin: 0;
+        border-radius: 0;
+
+        @media screen and (max-width: $breakpoint-mobile) {
+            height: auto;
+            min-height: 46px;
+        }
+
+        @media screen and (max-width: $breakpoint-mobile-small) {
+            padding: 0.5rem 1rem;
+        }
+
+        @media screen and (max-width: 400px) {
+            padding: 0.25rem 0.5rem;
+        }
+
+        .footer-content {
+            align-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5rem;
+            line-height: 1.5rem;
+
+            @media screen and (max-width: $breakpoint-mobile) {
+                gap: 1.5rem;
+            }
+
+            @media screen and (max-width: $breakpoint-mobile-small) {
+                gap: 0.5rem;
+                font-size: 0.875rem;
+            }
+
+            @media screen and (max-width: 400px) {
+                gap: 0.25rem;
+                font-size: 0.75rem;
+            }
+
+            #notice {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+            }
+
+            #navigation {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 1.5rem;
+
+                @media screen and (max-width: $breakpoint-mobile-small) {
+                    flex-wrap: nowrap;
+                    gap: 0.25rem;
+                    justify-content: flex-start;
+                    font-size: 0.75rem;
+                }
+
+                @media screen and (max-width: 400px) {
+                    gap: 0.125rem;
+                    font-size: 0.75rem;
+                }
+            }
+
+            li a {
+                font: var(--footer-font); // override NC guest.scss
+                padding: 0.5rem;
+                margin: calc(-1 * 0.5rem) 0;
+
+                @media screen and (max-width: $breakpoint-mobile-small) {
+                    padding: 0.25rem;
+                    margin: calc(-1 * 0.25rem) 0;
+                }
+
+                @media screen and (max-width: 400px) {
+                    padding: 0.125rem;
+                    margin: calc(-1 * 0.125rem) 0;
+                    font-size: 0.75rem;
+                }
+            }
+
+            li a:hover {
+                color: var(--color-primary-hover);
+                text-decoration: none;
+            }
+
+            li a:active:focus {
+                color: var(--color-primary-pressed-pressed);
+                box-shadow: none;
+                text-decoration: none;
+            }
+
+            li a:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px var(--color-element-info);
+                border-radius: var(--radius);
+                text-decoration: none;
+            }
+        }
+    }
 }
 
 @media (prefers-color-scheme: dark) {

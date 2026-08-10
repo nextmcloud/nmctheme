@@ -1,7 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>icon/action/success/default@svg</title>
-    <g id="icon/action/success/default" stroke="none" stroke-width="1" fill="#ffffff" fill-rule="evenodd">
-        <path d="M22.4,5.04999997 C22.1,4.74999997 21.65,4.74999997 21.35,5.04999997 L8.99999999,17.4 L3.09999996,11.5 C2.79999996,11.2 2.34999996,11.2 2.04999996,11.5 C1.74999996,11.8 1.74999996,12.25 2.04999996,12.55 L8.99999999,19.5 L22.4,6.09999998 C22.7,5.79999997 22.7,5.34999997 22.4,5.04999997 Z" id="Combined-Shape" fill="#262626"></path>
-    </g>
-</svg>
+<svg class="ODSIcon ODSCheckboxIcon-Checkmark ODSCheckboxIcon-Checkmark--selected-selected" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><g fill="#000"><g><path clip-rule="evenodd" fill-rule="evenodd" d="M21.384 5.616a1.25 1.25 0 0 1 0 1.768l-11 11a1.25 1.25 0 0 1-1.768 0l-5-5a1.25 1.25 0 0 1 1.768-1.768L9.5 15.732 19.616 5.616a1.25 1.25 0 0 1 1.768 0"></path></g></g></svg>

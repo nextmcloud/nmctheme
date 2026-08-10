@@ -4,7 +4,9 @@
 			:id="item.id"
 			:key="item.id"
 			class="menu-entry">
-			<a :href="item.url" :target="item.target">
+			<a :href="item.url"
+				:target="item.target"
+				:aria-label="item.target === '_blank' ? t('nmcsettings', item.name) + ', ' + t('nmctheme', 'opens in new tab') : null">
 				<span>{{ t('nmcsettings', item.name) }}</span>
 			</a>
 		</li>
