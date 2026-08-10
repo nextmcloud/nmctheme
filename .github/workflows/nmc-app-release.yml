@@ -27,6 +27,8 @@ on:
           - stable30
           - stable30-versions
           - stable32
+          - stable33
+          - stable34
       increment:
         description: 'Release increment'
         required: true
