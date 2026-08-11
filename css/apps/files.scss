@@ -589,7 +589,7 @@ table.files-filestable {
 		[data-test-id="files-list-filters"] {
 			display: flex;
 			align-items: center;
-			gap: 1rem;
+			gap: 0.5rem;
 
 			// Hide the People filter (absent in the legacy layout).
 			> div:nth-child(3) {
@@ -648,6 +648,44 @@ table.files-filestable {
 		.files-list__filters {
 			padding-block: 1rem;
 			padding-inline: 4rem 1rem;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 0.5rem;
+
+			// NC33 renders the toggles after the chips; show them first (left) and
+			// cap their container so it can't stretch and push the chips off-screen.
+			> [data-test-id="files-list-filters"] {
+				order: -1;
+				flex: 0 0 auto;
+				width: max-content;
+				max-width: max-content;
+			}
+
+			> ul[aria-label="Active filters"] {
+				flex: 0 0 auto;
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			// Divider anchored as the toggles' last flex item so it sits a fixed gap
+			// after "Modified"; only shown when filters are active.
+			&:has(> ul[aria-label="Active filters"] li) {
+				gap: 0.25rem;
+
+				> [data-test-id="files-list-filters"]::after {
+					content: "";
+					flex: 0 0 auto;
+					width: 1px;
+					height: 1.5rem;
+					margin-inline-start: -0.25rem;
+					background-color: var(--color-border);
+				}
+			}
 
 			.file-list-filters {
 				display: flex;
