@@ -67,7 +67,7 @@
 
 				&:has(files-file-list-filter-type) {
 					width: fit-content;
-					min-width: 12rem;
+					min-width: 213px;
 					max-height: min(312px, 60vh);
 					overflow-y: auto;
 
@@ -94,18 +94,42 @@
 					.button-vue {
 						margin: 0;
 						border-radius: var(--border-radius);
-						padding-inline: 4px 8px;
+						padding-inline: 4px 16px;
 
-						// Grey on hover / keyboard focus / selected, but not on the
-						// programmatic focus the first item gets when the menu opens.
+						// Grey on hover only, not the first item's focus-on-open.
 						&:hover,
-						&:focus-visible,
-						&[aria-pressed="true"] {
+						&:focus-visible {
 							background-color: var(--color-background-hover);
 						}
 
 						.button-vue__text {
 							font-weight: normal;
+						}
+
+						// Selected: strip NcButton's magenta pressed fill, keep a dark
+						// label and add a checkmark like the legacy menu.
+						&[aria-pressed="true"] {
+							color: var(--color-main-text);
+
+							&:not(:hover):not(:focus-visible) {
+								background-color: transparent;
+							}
+
+							.button-vue__text {
+								color: var(--color-main-text);
+							}
+
+							.button-vue__wrapper::after {
+								content: "";
+								display: inline-block;
+								flex: 0 0 auto;
+								width: 16px;
+								height: 16px;
+								margin-inline-start: auto;
+								background-color: currentColor;
+								-webkit-mask: var(--icon-check-dark) no-repeat center / contain;
+								mask: var(--icon-check-dark) no-repeat center / contain;
+							}
 						}
 					}
 				}
