@@ -15,7 +15,6 @@ namespace OCA\NMCTheme;
 
 use OC\Template\JSCombiner;
 use OC\Template\JSResourceLocator;
-use OCP\IConfig;
 use OCP\App\IAppManager;
 use OCP\IConfig;
 use Psr\Log\LoggerInterface;
