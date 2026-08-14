@@ -421,8 +421,17 @@ table.files-filestable {
 	.files-list__header {
 		margin-block: 15px;
 		margin-inline: 3rem 1.5rem;
+		display: flex;
+		align-items: center;
+
+		// NC33 renders "New" as a direct header child; push it to the right.
+		> div:has(> .files-list__header-upload-button) {
+			order: 2;
+			margin-left: auto;
+		}
 
 		.files-list__header-grid-button {
+			order: 3;
 			border: 1px solid var(--color-main-text);
 			border-radius: 50%;
 			width: 40px !important;
@@ -576,9 +585,107 @@ table.files-filestable {
 			padding-inline-end: 1rem;
 		}
 
+		// Chip styling for the NC33 filters; nmcfiles.ts relocates them here.
+		[data-test-id="files-list-filters"] {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+
+			// Hide the People filter (absent in the legacy layout).
+			> div:nth-child(3) {
+				display: none;
+			}
+
+			button.button-vue {
+				background-color: var(--nmc-ods-blue-primary);
+				color: var(--nmc-color-text-and-icon-black);
+				border: none;
+				border-radius: var(--border-radius-small);
+				height: 28px;
+				min-height: 28px;
+				min-width: unset;
+				padding: 0 10px;
+				font-weight: normal;
+
+				&:hover {
+					background-color: var(--nmc-ods-blue-hover);
+				}
+
+				&:active,
+				&[aria-expanded="true"] {
+					background-color: var(--nmc-ods-blue-active);
+				}
+
+				// Hide the leading icon; replace with a trailing caret like the chips.
+				.button-vue__icon {
+					display: none;
+				}
+
+				.button-vue__text {
+					color: var(--nmc-color-text-and-icon-black);
+				}
+
+				.button-vue__wrapper::after {
+					content: '';
+					display: inline-block;
+					width: 6px;
+					height: 6px;
+					border-left: 1.5px solid var(--nmc-color-text-and-icon-black);
+					border-bottom: 1.5px solid var(--nmc-color-text-and-icon-black);
+					transform: rotate(-45deg);
+					margin-left: 8px;
+					margin-bottom: 2px;
+					transition: transform 0.2s ease;
+				}
+
+				&[aria-expanded="true"] .button-vue__wrapper::after {
+					transform: rotate(135deg);
+					margin-bottom: -2px;
+				}
+			}
+		}
+
 		.files-list__filters {
 			padding-block: 1rem;
 			padding-inline: 4rem 1rem;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 0.5rem;
+
+			// NC33 renders the toggles after the chips; show them first (left) and
+			// cap their container so it can't stretch and push the chips off-screen.
+			> [data-test-id="files-list-filters"] {
+				order: -1;
+				flex: 0 0 auto;
+				width: max-content;
+				max-width: max-content;
+			}
+
+			> ul[aria-label="Active filters"] {
+				flex: 0 0 auto;
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			// Divider anchored as the toggles' last flex item so it sits a fixed gap
+			// after "Modified"; only shown when filters are active.
+			&:has(> ul[aria-label="Active filters"] li) {
+				gap: 0.25rem;
+
+				> [data-test-id="files-list-filters"]::after {
+					content: "";
+					flex: 0 0 auto;
+					width: 1px;
+					height: 1.5rem;
+					margin-inline-start: -0.25rem;
+					background-color: var(--color-border);
+				}
+			}
 
 			.file-list-filters {
 				display: flex;

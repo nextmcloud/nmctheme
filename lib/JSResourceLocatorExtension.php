@@ -17,6 +17,7 @@ use OC\Template\JSCombiner;
 use OC\Template\JSResourceLocator;
 use OCP\IConfig;
 use OCP\App\IAppManager;
+use OCP\IConfig;
 use Psr\Log\LoggerInterface;
 
 class JSResourceLocatorExtension extends JSResourceLocator {
@@ -29,13 +30,16 @@ class JSResourceLocatorExtension extends JSResourceLocator {
 	 * so we try to handle different backports in this constructor.
 	 *
 	 */
-	public function __construct(
-		LoggerInterface $logger,
-		IConfig $config,
-		protected JSCombiner $jsCombiner,
-		protected IAppManager $appManager,
-	) {
+	public function __construct(LoggerInterface $logger, IConfig $config, JSCombiner $jsCombiner, IAppManager $appManager) {
 		$this->ownAppManager = $appManager;
+
+		// V33
+		try {
+			parent::__construct($logger, $config, $jsCombiner, $appManager);
+			return;
+		} catch (\Throwable $eWrongConstructNC33) {
+			// ignore the exception, try another constructor
+		}
 
 		// later
 		try {

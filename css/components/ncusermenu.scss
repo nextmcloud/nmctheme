@@ -24,7 +24,11 @@
             order: 1;
         }
 
-        li#profile {
+        li:has(a#logout) {
+            order: 3;
+        }
+
+        li:has(a#profile) {
             display: none;
         }
 
@@ -148,6 +152,18 @@
                     
                     > a#logout::after {
                         background-image: var(--icon-logout-dark);
+                    }
+
+                    > a#admin_settings::after {
+                        background-image: var(--icon-admin-dark);
+                    }
+
+                    > a#core_apps::after {
+                        background-image: var(--icon-apps-dark);
+                    }
+
+                    > a#core_users::after {
+                        background-image: var(--icon-users-dark);
                     }
 
                     > a#nmc_welcome_popup-about {

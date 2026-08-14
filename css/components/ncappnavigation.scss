@@ -115,6 +115,11 @@
 // default navbar link styling
 #app-navigation-vue .app-navigation-entry-wrapper {
 
+	// Cancel the framework's margin-top:auto so "Deleted files" isn't pinned to the bottom.
+	&.app-navigation-entry--pinned {
+		margin-top: 0;
+	}
+
 	.app-navigation-entry {
 		position: relative;
 		border-radius: var(--border-radius-large);

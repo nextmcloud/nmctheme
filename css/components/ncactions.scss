@@ -59,6 +59,81 @@
 					padding: 1rem;
 				}
 
+				// NC33 file-type filter uses NcButton items (no ul/li); reshape the
+				// popover to match the legacy action menu below.
+				files-file-list-filter-type .icon-vue svg path {
+					fill: var(--color-main-text);
+				}
+
+				&:has(files-file-list-filter-type) {
+					width: fit-content;
+					min-width: 213px;
+					max-height: min(312px, 60vh);
+					overflow-y: auto;
+
+					> div,
+					> div > div,
+					files-file-list-filter-type,
+					files-file-list-filter-type > div,
+					.button-vue {
+						min-width: 0;
+					}
+
+					> div,
+					> div > div {
+						padding: 0;
+					}
+
+					files-file-list-filter-type > div {
+						display: flex;
+						flex-direction: column;
+						gap: 0;
+						padding: 0;
+					}
+
+					.button-vue {
+						margin: 0;
+						border-radius: var(--border-radius);
+						padding-inline: 4px 16px;
+
+						// Grey on hover only, not the first item's focus-on-open.
+						&:hover,
+						&:focus-visible {
+							background-color: var(--color-background-hover);
+						}
+
+						.button-vue__text {
+							font-weight: normal;
+						}
+
+						// Selected: strip NcButton's magenta pressed fill, keep a dark
+						// label and add a checkmark like the legacy menu.
+						&[aria-pressed="true"] {
+							color: var(--color-main-text);
+
+							&:not(:hover):not(:focus-visible) {
+								background-color: transparent;
+							}
+
+							.button-vue__text {
+								color: var(--color-main-text);
+							}
+
+							.button-vue__wrapper::after {
+								content: "";
+								display: inline-block;
+								flex: 0 0 auto;
+								width: 16px;
+								height: 16px;
+								margin-inline-start: auto;
+								background-color: currentColor;
+								-webkit-mask: var(--icon-check-dark) no-repeat center / contain;
+								mask: var(--icon-check-dark) no-repeat center / contain;
+							}
+						}
+					}
+				}
+
 				ul {
 					display: flex;
 					flex-direction: column;
