@@ -15,6 +15,7 @@ namespace OCA\NMCTheme;
 
 use OC\Template\JSCombiner;
 use OC\Template\JSResourceLocator;
+use OCP\IConfig;
 use OCP\App\IAppManager;
 use OCP\IConfig;
 use Psr\Log\LoggerInterface;
@@ -42,7 +43,7 @@ class JSResourceLocatorExtension extends JSResourceLocator {
 
 		// later
 		try {
-			parent::__construct($logger, $jsCombiner, $appManager);
+			parent::__construct($logger, $config, $jsCombiner, $appManager);
 			return;
 		} catch (\Throwable $eWrongConstruct1) {
 			// ignore the exception, try another constructor
