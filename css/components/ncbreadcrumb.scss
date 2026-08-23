@@ -85,9 +85,20 @@
 				}
 			}
 
-			// Hide dot after last item (no separator after the last breadcrumb)
+			// Present the current directory as a plain label: no separator, no
+			// actions menu (pointer-events), no dropdown chevron.
 			li.vue-crumb:last-child {
+				cursor: pointer;
+
 				span.chevron-right-icon {
+					display: none;
+				}
+
+				.action-item {
+					pointer-events: none;
+				}
+
+				.action-item__menutoggle .button-vue__icon {
 					display: none;
 				}
 			}
