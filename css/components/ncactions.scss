@@ -59,13 +59,14 @@
 					padding: 1rem;
 				}
 
-				// NC33 file-type filter uses NcButton items (no ul/li); reshape the
-				// popover to match the legacy action menu below.
+				// NC33 file-type / modified filters use NcButton items (no ul/li);
+				// reshape the popover to match the legacy action menu below.
 				files-file-list-filter-type .icon-vue svg path {
 					fill: var(--color-main-text);
 				}
 
-				&:has(files-file-list-filter-type) {
+				&:has(files-file-list-filter-type),
+				&:has(files-file-list-filter-modified) {
 					width: fit-content;
 					min-width: 213px;
 					max-height: min(312px, 60vh);
@@ -75,6 +76,8 @@
 					> div > div,
 					files-file-list-filter-type,
 					files-file-list-filter-type > div,
+					files-file-list-filter-modified,
+					files-file-list-filter-modified > div,
 					.button-vue {
 						min-width: 0;
 					}
@@ -84,7 +87,8 @@
 						padding: 0;
 					}
 
-					files-file-list-filter-type > div {
+					files-file-list-filter-type > div,
+					files-file-list-filter-modified > div {
 						display: flex;
 						flex-direction: column;
 						gap: 0;
