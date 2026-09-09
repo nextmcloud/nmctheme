@@ -144,6 +144,12 @@
   --image-background: none;
   --image-logoheader-custom: var(--image-logoheader);
 
+  /* Modal sizing, retuned per viewport tier in layouts/modal.scss.
+     --nmc-modal-inset is the vertical space a modal cannot use: top offset plus margins. */
+  --nmc-modal-inset: calc(var(--header-height) + 2rem);
+  --nmc-modal-padding: 1.5rem;
+  --nmc-modal-margin: 1rem;
+
   --body-container-radius: var(--border-radius-container-large);
   --body-container-margin: calc(var(--default-grid-baseline) * 2);
   --footer-height: 42px;
