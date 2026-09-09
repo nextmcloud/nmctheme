@@ -70,6 +70,11 @@
 #unified-search {
     .modal-container__content {
         align-items: flex-start;
+        // NcModal ships this as `flex: 0 1 auto; min-height: 52px`, so squeezing the
+        // container collapses it to 52px, .dialog's `height: 100%` resolves against that,
+        // and the results list ends up zero-height. It has to grow, and to shrink freely.
+        flex: 1 1 auto;
+        min-height: 0;
     }
 
     .dialog__name {
@@ -78,10 +83,60 @@
     }
 }
 
+// Short viewports (keyboard up): reclaim fixed chrome so the result list keeps a usable
+// height and the 'Load more results' footer stays reachable.
+html[data-nmc-viewport="tight"],
+html[data-nmc-viewport="minimal"] {
+
+    #unified-search {
+
+        // Hidden visually only - never display: none, the heading is the dialog's
+        // accessible name via aria-labelledby.
+        .dialog__name {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+
+        .unified-search-modal__header {
+            padding-block-end: 8px;
+        }
+
+        .result-title {
+            margin-top: 0.5rem;
+        }
+
+        .result-items__item .list-item {
+            padding: 0.25rem 0.5rem;
+        }
+    }
+}
+
+html[data-nmc-viewport="minimal"] {
+
+    #unified-search {
+
+        // Core pins this at top: var(--header-height) - a third of the visible height here.
+        .modal-container {
+            top: 0;
+        }
+
+        // No room for both the filter row and a usable result list. Returns as soon as the
+        // keyboard closes or the device rotates.
+        .unified-search-modal__filters {
+            display: none;
+        }
+    }
+}
+
 #unified-search .unified-search-modal {
-    
+
     .unified-search-modal__content {
-        --dialog-height: min(65dvh, 700px);
 
         .unified-search-modal__header {
             align-items: center;
@@ -224,6 +279,13 @@
     }
 
     &__results {
+        // Explicit, rather than relying on `min-height: auto` happening to resolve to 0 on
+        // an overflow != visible flex item.
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: hidden auto;
+        overscroll-behavior: contain;
+
         .result {
             &-title {
                 color: var(--nmc-color-text-primary);
@@ -342,5 +404,14 @@
             font-weight: 400;
             font-size: var(--default-font-size);
         }
+    }
+}
+
+// Core sets `overflow: unset` here under 400px of viewport height (UnifiedSearchModal.vue),
+// removing the only way to reach 'Load more results' exactly where room is tightest.
+@media only screen and (max-height: 400px) {
+
+    #unified-search .unified-search-modal__results {
+        overflow: hidden auto;
     }
 }

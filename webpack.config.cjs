@@ -11,6 +11,7 @@ webpackConfig.entry = {
 	trashbinfix: path.join(__dirname, 'src', 'js', 'trashbinfix.js'),
 	skipactions: path.join(__dirname, 'src', 'js', 'skipactions.js'),
 	searchfavorites: path.join(__dirname, 'src', 'js', 'searchfavorites.js'),
+	viewportmetrics: path.join(__dirname, 'src', 'js', 'viewportmetrics.js'),
 	conflictdialog: path.join(__dirname, 'src', 'js', 'conflictdialog.js'),
 	mimetypes: path.join(__dirname, 'src', 'js', 'mimetypes.js'),
 	nmcfooter: path.join(__dirname, 'src', 'nmcfooter.ts'),

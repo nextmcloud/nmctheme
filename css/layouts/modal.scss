@@ -10,6 +10,26 @@
 @import '../_mixins.scss';
 @import '../_variables.scss';
 
+/**
+ * Viewport tiers set by src/js/viewportmetrics.js, reclaiming the modal's fixed chrome as
+ * the keyboard eats the visible area. Retuned through inherited custom properties so the
+ * tiers never have to out-specify the base rules below.
+ */
+html[data-nmc-viewport="tight"] {
+    // Portrait, keyboard up: 300-560px visible.
+    --nmc-modal-inset: var(--header-height);
+    --nmc-modal-padding: 0.75rem;
+    --nmc-modal-margin: 0px;
+}
+
+html[data-nmc-viewport="minimal"] {
+    // Landscape, keyboard up: under 300px visible, of which the header offset alone would
+    // take a quarter - so the dialog takes the whole visible area.
+    --nmc-modal-inset: 0px;
+    --nmc-modal-padding: 0.5rem;
+    --nmc-modal-margin: 0px;
+}
+
 #body-user,
 #body-settings,
 #body-login,
@@ -18,6 +38,10 @@
 
     .modal-mask {
         background-color: var(--nmc-color-main-background-mask);
+        // Track the visible region, not the layout viewport, so an on-screen keyboard
+        // shrinks the dialog instead of stranding its lower half behind the keyboard.
+        top: var(--nmc-viewport-offset-top, 0px);
+        height: var(--nmc-viewport-height, 100%);
 
         &--opaque {
             background-color: var(--nmc-color-main-background-mask-opaque);
@@ -34,7 +58,7 @@
                 .modal-container {
                     box-shadow: none;
                     padding: 0;
-                    max-height: 100dvh;
+                    max-height: min(100dvh, var(--nmc-viewport-height, 100dvh));
                 }
             }
 
@@ -47,8 +71,10 @@
             .modal-container {
                 box-shadow: unset;
                 box-sizing: border-box;
-                padding: 1.5rem;
-                max-height: 80dvh;
+                padding: var(--nmc-modal-padding);
+                // Subtract the inset: the container's own top offset and margins would
+                // otherwise push it past the bottom of the shrunken mask.
+                max-height: min(80dvh, calc(var(--nmc-viewport-height, 100dvh) - var(--nmc-modal-inset)));
                 max-width: 100vw;
                 display: flex;
                 flex-direction: column;
@@ -176,7 +202,7 @@
 
         .modal-container {
             @media screen and (max-width: $breakpoint-mobile-small) {
-                margin: 1rem;
+                margin: var(--nmc-modal-margin);
             }
 
             .dialog__name {
