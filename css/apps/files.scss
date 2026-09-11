@@ -510,7 +510,7 @@ table.files-filestable {
 
 		@media (min-width: $breakpoint-mobile-small) and (max-width: $breakpoint-mobile-medium) {
 			.upload-picker__progress {
-				width: 300px;
+				width: 280px;
 				max-width: 320px;
 				margin-right: 3rem;
 				margin-top: 23px;
@@ -522,7 +522,7 @@ table.files-filestable {
 		@media (min-width: $breakpoint-mobile-medium) and (max-width: $breakpoint-mobile) { 
 			.upload-picker__progress {
 				margin-right: 2rem;
-				width: 260px;
+				width: 190px;
 			}
 		}
 		
@@ -1029,11 +1029,16 @@ table.files-filestable {
 							padding: 0.5rem;
 							width: calc(100% - 1.75rem);
 							margin: 1.75rem 0 0;
+							box-shadow: none !important;
 						}
 
 						.files-list__row-name-text {
-							padding: 0;
 							margin: 0;
+							padding: 3px;
+
+								span {
+									outline: none;
+								}
 						}
 
 						display: grid;
