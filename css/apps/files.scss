@@ -407,6 +407,30 @@ table.files-filestable {
 	}
 }
 
+// Below 512px NC Teleports this to <body> as a bottom-corner FAB.
+// Selector must out-specify NC's `.--narrow[data-v-<hash>]` without using the hash.
+form.upload-picker.files-list__header-upload-button--narrow {
+	inset-block-start: 86px; // grid button y=90, less the 4px form inset
+	inset-block-end: auto;
+	inset-inline-end: 80px; // 24px header margin + 40px grid button + 16px gap
+
+	// NC sets `width: var(--button-size) !important` on icon-only buttons
+	button.action-item__menutoggle {
+		--button-size: 40px;
+
+		width: 40px !important;
+		height: 40px !important;
+		min-width: 40px !important;
+		min-height: 40px !important;
+
+		.button-vue__icon {
+			width: 40px;
+			min-width: 40px;
+			height: 40px;
+		}
+	}
+}
+
 #app-content-vue {
 
 	// Override favorite marker stroke color
@@ -469,6 +493,55 @@ table.files-filestable {
 				}
 			}
 			
+		}
+
+		.files-list__header-upload-button {
+			button.action-item__menutoggle {
+				all: unset;
+				align-items: center;
+				background-color: var(--color-primary);
+				border-radius: var(--border-radius-rounded);
+				cursor: pointer;
+				display: flex;
+				justify-content: center;
+				height: 40px;
+				margin-inline-end: 1rem;
+
+				&:hover:not(:disabled) {
+					background-color: var(--color-primary-hover);
+				}
+
+				&:active:not(:disabled) {
+					background-color: var(--color-primary-pressed);
+				}
+
+				// all: unset strips the button-vue focus ring
+				&:focus-visible {
+					outline: 2px solid var(--color-main-text);
+					outline-offset: 2px;
+				}
+
+				.button-vue__icon {
+					background-image: var(--original-icon-add-white);
+					background-size: 18px;
+					opacity: 1;
+					width: 18px;
+					height: 18px;
+					background-position: center;
+					background-repeat: no-repeat;
+					margin-inline: 4px -4px;
+					min-width: 40px;
+
+					svg {
+						display: none;
+					}
+				}
+
+				.button-vue__text {
+					color: var(--nmc-color-text-and-icon-white);
+					padding-right: 1rem;
+				}
+			}
 		}
 
 		.upload-picker__progress {

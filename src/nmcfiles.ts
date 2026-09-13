@@ -98,15 +98,35 @@ if (sharingStatusAction) {
 
 }
 
-function updateLabel(selector) {
-	const buttonText = document.querySelector(selector)?.querySelector('.upload-picker')?.querySelector('.button-vue__text')
+/**
+ * NC33 labels the upload button "New"; production calls it "Add".
+ */
+function fixUploadButton(container: Element): void {
+	const buttonText = container.querySelector('.button-vue__text')
 
-	if (buttonText) {
+	if (buttonText && buttonText.textContent !== t('nmctheme', 'Add')) {
 		buttonText.textContent = t('nmctheme', 'Add')
-		return true
+	}
+}
+
+/**
+ * Watches the document because Vue re-renders the button on navigation.
+ */
+function setupUploadButtonFix(): void {
+	const apply = (): void => {
+		document.querySelectorAll('.files-list__header-upload-button').forEach(fixUploadButton)
 	}
 
-	return false
+	apply()
+
+	const observer = new MutationObserver(() => apply())
+	observer.observe(document.body, { childList: true, subtree: true })
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', setupUploadButtonFix)
+} else {
+	setupUploadButtonFix()
 }
 
 /**
@@ -325,33 +345,4 @@ if (document.readyState === 'loading') {
 	setupFilterRelocation()
 }
 
-window.addEventListener('DOMContentLoaded', function() {
-	const breadcrumb = document.querySelector('.breadcrumb')
-	const empty = document.querySelector('.files-list__empty')
 
-	if (breadcrumb) {
-		const observer = new MutationObserver(() => {
-			if (updateLabel('.breadcrumb')) {
-				observer.disconnect()
-			}
-		})
-
-		observer.observe(breadcrumb, {
-			childList: true,
-			subtree: true,
-		})
-	}
-
-	if (empty) {
-		const observerB = new MutationObserver(() => {
-			if (updateLabel('.files-list__empty')) {
-				observerB.disconnect()
-			}
-		})
-
-		observerB.observe(empty, {
-			childList: true,
-			subtree: true,
-		})
-	}
-})
