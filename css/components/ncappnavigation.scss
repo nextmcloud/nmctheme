@@ -75,6 +75,26 @@
 		}
 	}
 
+	&.app-navigation--close {
+
+		.app-navigation-toggle-wrapper {
+
+			button {
+
+				.menu-icon, 
+				.dock-left-icon {
+					background-image: var(--icon-menu-dark);
+					width: 24px;
+					height: 24px;
+					
+					svg {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
 	.app-navigation-toggle-wrapper {
 		top: 1rem !important;
 		right: -0.75rem !important;
