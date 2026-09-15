@@ -83,7 +83,8 @@
 			padding: 0;
 			width: auto !important;
 
-			.menu-open-icon {
+			.menu-open-icon, 
+			.dock-left-icon {
 				background-image: var(--icon-hide-menu-dark);
 				width: 24px;
 				height: 24px;
@@ -129,6 +130,10 @@
 		.app-navigation-entry-link {
 			border-radius: var(--border-radius-large);
 			background-color: transparent !important;
+
+			.app-navigation-entry__name {
+				font-weight: 700 !important;
+			}
 
 			.app-navigation-entry-icon {
 				background-size: 24px;
