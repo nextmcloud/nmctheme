@@ -637,6 +637,10 @@ form.upload-picker.files-list__header-upload-button--narrow {
 	}
 
 	.files-list {
+		// NC33 derives the sticky offsets of the table header and the selection
+		// overlay from this, so it has to equal the filters row's real height.
+		--fixed-block-start-position: 32px;
+
 		div[role="thead"] {
 			.files-list__row-trashbin-original-location {
 				width: 150px !important;
@@ -651,11 +655,19 @@ form.upload-picker.files-list__header-upload-button--narrow {
 			display: none;
 		}
 
+		// Sized to the thead row height below, so selecting files covers the header
+		// instead of leaving a sliver of it showing.
 		&__thead-overlay {
 			border: 0;
-    		margin-block: 6px -6px;
+			height: 56px;
+			flex-basis: 56px;
+			margin-block: 0;
 			margin-inline-start: 4rem;
 			padding-inline-end: 1rem;
+		}
+
+		table.files-list__table--with-thead-overlay {
+			margin-block-start: -56px;
 		}
 
 		// Chip styling for the NC33 filters; nmcfiles.ts relocates them here.
@@ -719,7 +731,8 @@ form.upload-picker.files-list__header-upload-button--narrow {
 		}
 
 		.files-list__filters {
-			padding-block: 1rem;
+			// NC33 fixes the height; shrinking it would open a gap above the header.
+			flex: 0 0 auto;
 			padding-inline: 4rem 1rem;
 			display: flex;
 			align-items: center;
@@ -1191,7 +1204,6 @@ form.upload-picker.files-list__header-upload-button--narrow {
 			thead {
 				background-color: var(--color-main-background);
 				opacity: 1;
-				top: 0;
 
 				@include files-checkboxes-v28;
 
@@ -1987,6 +1999,9 @@ body.nmc-pendingshares-view {
 
 	.files-list__header--public {
 		&+.files-list{
+			// No filters row here, so the header pins to the very top.
+			--fixed-block-start-position: 0px;
+
 			.files-list__filters {
 				display: none;
 			}

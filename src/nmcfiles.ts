@@ -345,4 +345,132 @@ if (document.readyState === 'loading') {
 	setupFilterRelocation()
 }
 
+/**
+ * NC33's "Custom range" calendar is appended to <body>, where it paints below the filter
+ * popover and every click in it reads as "outside", closing the menu. Adopt it instead.
+ */
+function setupModifiedFilterCalendar(): void {
+	const MIN_CALENDAR_POPOVER_HEIGHT = 200
+	const ISO_DATE = /\d{4}-\d{2}-\d{2}/g
+
+	const startOfToday = (): number => new Date().setHours(0, 0, 0, 0)
+
+	// Local midnight; `new Date(iso)` would parse "YYYY-MM-DD" as UTC.
+	const parseIsoDate = (iso: string): number => {
+		const [year, month, day] = iso.split('-').map(Number)
+		return new Date(year, month - 1, day).getTime()
+	}
+
+	// A data attribute, not a class: Vue overwrites the cells' class on re-render.
+	const markFutureCells = (panel: HTMLElement): void => {
+		const today = startOfToday()
+		panel.querySelectorAll<HTMLElement>('td.cell[title]').forEach(cell => {
+			const future = parseIsoDate(cell.title) > today
+			cell.toggleAttribute('data-nmc-future', future)
+			if (future) {
+				cell.setAttribute('aria-disabled', 'true')
+			} else {
+				cell.removeAttribute('aria-disabled')
+			}
+		})
+	}
+
+	let cellObserver: MutationObserver | null = null
+
+	const watchCells = (panel: HTMLElement): void => {
+		cellObserver?.disconnect()
+		markFutureCells(panel)
+
+		// Month navigation patches cells in place, so childList alone would miss it;
+		// filtering to class also stops our own writes re-triggering this.
+		cellObserver = new MutationObserver(() => markFutureCells(panel))
+		cellObserver.observe(panel, {
+			childList: true,
+			subtree: true,
+			characterData: true,
+			attributes: true,
+			attributeFilter: ['class'],
+		})
+	}
+
+	const adopt = (panel: HTMLElement): void => {
+		const target = document.querySelector<HTMLElement>(
+			'.v-popper__popper--shown:has(files-file-list-filter-modified) .v-popper__inner',
+		)
+		if (!target || panel.parentElement === target) return
+
+		target.appendChild(panel)
+		watchCells(panel)
+
+		// Shrink before measuring: an oversized popper is already shifted up, so its
+		// position would over-report the room left below the trigger.
+		target.style.maxHeight = `${MIN_CALENDAR_POPOVER_HEIGHT}px`
+
+		requestAnimationFrame(() => {
+			const popper = target.closest<HTMLElement>('.v-popper__popper')
+			if (popper) {
+				const bounds = document.getElementById('app-content-vue')?.getBoundingClientRect()
+				const bottom = Math.min(bounds?.bottom ?? window.innerHeight, window.innerHeight)
+				const room = bottom - popper.getBoundingClientRect().top - 16
+				target.style.maxHeight = `${Math.max(MIN_CALENDAR_POPOVER_HEIGHT, room)}px`
+			}
+			requestAnimationFrame(() => { target.scrollTop = target.scrollHeight })
+		})
+	}
+
+	const observer = new MutationObserver((mutations: MutationRecord[]) => {
+		for (const mutation of mutations) {
+			for (const node of Array.from(mutation.addedNodes)) {
+				if (node instanceof HTMLElement && node.classList.contains('mx-datepicker-main')) {
+					adopt(node)
+				}
+			}
+		}
+	})
+	observer.observe(document.body, { childList: true })
+
+	// The field is typable, so it needs its own guard. Capture on document runs
+	// before vue2-datepicker's own listeners on the input.
+	let lastCommitted = ''
+
+	const rangeInput = (event: Event): HTMLInputElement | null => {
+		const target = event.target
+		if (!(target instanceof HTMLInputElement) || !target.matches('.mx-input')) return null
+		return target.closest('.v-popper__popper:has(files-file-list-filter-modified)')
+			? target
+			: null
+	}
+
+	document.addEventListener('focus', (event: Event) => {
+		const input = rangeInput(event)
+		if (input) lastCommitted = input.value
+	}, true)
+
+	const rejectFutureInput = (event: Event): void => {
+		const input = rangeInput(event)
+		if (!input) return
+
+		const today = startOfToday()
+		const dates = input.value.match(ISO_DATE) ?? []
+		if (!dates.some(iso => parseIsoDate(iso) > today)) return
+
+		event.stopPropagation()
+		event.preventDefault()
+		input.value = lastCommitted
+		// Resync vue2-datepicker's own draft, or its next render restores the rejection.
+		input.dispatchEvent(new Event('input', { bubbles: true }))
+	}
+
+	document.addEventListener('change', rejectFutureInput, true)
+	document.addEventListener('keydown', (event: KeyboardEvent) => {
+		if (event.key === 'Enter') rejectFutureInput(event)
+	}, true)
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', setupModifiedFilterCalendar)
+} else {
+	setupModifiedFilterCalendar()
+}
+
 
