@@ -77,6 +77,14 @@
 						max-width: calc(100vw - 2rem);
 					}
 
+					// .mx-datepicker-range is hardcoded to 320px, which widens the whole
+					// menu. 232px is what "YYYY-MM-DD ~ YYYY-MM-DD" needs next to the
+					// calendar icon before it truncates.
+					.mx-datepicker {
+						width: 100%;
+						min-width: 232px;
+					}
+
 					// vue2-datepicker rewrites position/top/left inline on scroll.
 					> .mx-datepicker-main {
 						position: static !important;
