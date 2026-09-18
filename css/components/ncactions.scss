@@ -85,6 +85,13 @@
 						min-width: 232px;
 					}
 
+					// Future days, flagged by nmcfiles.ts. pointer-events also suppresses
+					// the hover range preview.
+					td.cell[data-nmc-future] {
+						pointer-events: none;
+						opacity: 0.35;
+					}
+
 					// vue2-datepicker rewrites position/top/left inline on scroll.
 					> .mx-datepicker-main {
 						position: static !important;
