@@ -345,4 +345,53 @@ if (document.readyState === 'loading') {
 	setupFilterRelocation()
 }
 
+/**
+ * NC33's "Custom range" calendar is appended to <body>, where it paints below the filter
+ * popover and every click in it reads as "outside", closing the menu. Adopt it instead.
+ */
+function setupModifiedFilterCalendar(): void {
+	const MIN_CALENDAR_POPOVER_HEIGHT = 200
+
+	const adopt = (panel: HTMLElement): void => {
+		const target = document.querySelector<HTMLElement>(
+			'.v-popper__popper--shown:has(files-file-list-filter-modified) .v-popper__inner',
+		)
+		if (!target || panel.parentElement === target) return
+
+		target.appendChild(panel)
+
+		// Shrink before measuring: an oversized popper is already shifted up, so its
+		// position would over-report the room left below the trigger.
+		target.style.maxHeight = `${MIN_CALENDAR_POPOVER_HEIGHT}px`
+
+		requestAnimationFrame(() => {
+			const popper = target.closest<HTMLElement>('.v-popper__popper')
+			if (popper) {
+				const bounds = document.getElementById('app-content-vue')?.getBoundingClientRect()
+				const bottom = Math.min(bounds?.bottom ?? window.innerHeight, window.innerHeight)
+				const room = bottom - popper.getBoundingClientRect().top - 16
+				target.style.maxHeight = `${Math.max(MIN_CALENDAR_POPOVER_HEIGHT, room)}px`
+			}
+			requestAnimationFrame(() => { target.scrollTop = target.scrollHeight })
+		})
+	}
+
+	const observer = new MutationObserver((mutations: MutationRecord[]) => {
+		for (const mutation of mutations) {
+			for (const node of Array.from(mutation.addedNodes)) {
+				if (node instanceof HTMLElement && node.classList.contains('mx-datepicker-main')) {
+					adopt(node)
+				}
+			}
+		}
+	})
+	observer.observe(document.body, { childList: true })
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', setupModifiedFilterCalendar)
+} else {
+	setupModifiedFilterCalendar()
+}
+
 

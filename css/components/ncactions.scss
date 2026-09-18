@@ -72,6 +72,22 @@
 					max-height: min(312px, 60vh);
 					overflow-y: auto;
 
+					// Calendar adopted here by nmcfiles.ts, which also sets its max-height.
+					&:has(.mx-datepicker-main) {
+						max-width: calc(100vw - 2rem);
+					}
+
+					// vue2-datepicker rewrites position/top/left inline on scroll.
+					> .mx-datepicker-main {
+						position: static !important;
+						inset: auto !important;
+						width: max-content;
+						max-width: 100%;
+						margin-block-start: 0.5rem;
+						border: 0;
+						background-color: transparent;
+					}
+
 					> div,
 					> div > div,
 					files-file-list-filter-type,
