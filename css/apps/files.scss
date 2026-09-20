@@ -1831,6 +1831,13 @@ body.nmc-pendingshares-view {
 	}
 }
 
+// Read-only public share with hidden downloads: every row action is filtered out, so the menu opens empty
+body.nmc-public-nodownload {
+	td.files-list__row-actions button.action-item__menutoggle {
+		display: none !important;
+	}
+}
+
 #body-user,
 #body-public {
 
@@ -2013,9 +2020,6 @@ body.nmc-pendingshares-view {
 					}
 				}
 				tbody > tr > td {
-					&.files-list__row-actions {
-					}
-
 					&.files-list__row-mime {
 						display: none;
 					}

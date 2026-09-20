@@ -1,4 +1,6 @@
 import { getFileActions, registerFileAction, FileAction, Node, Permission, View, getNavigation } from '@nextcloud/files'
+import { subscribe } from '@nextcloud/event-bus'
+import { loadState } from '@nextcloud/initial-state'
 import { translate as t } from '@nextcloud/l10n'
 import { sidebarAction } from './utils/sidebar.js'
 
@@ -473,4 +475,58 @@ if (document.readyState === 'loading') {
 	setupModifiedFilterCalendar()
 }
 
+const PUBLIC_NO_DOWNLOAD_BODY_CLASS = 'nmc-public-nodownload'
+const WRITE_PERMISSIONS = Permission.CREATE | Permission.UPDATE | Permission.DELETE
 
+interface ShareAttribute {
+	scope: string
+	key: string
+	value: unknown
+}
+
+/** Mirrors the download checks of the server's `isDownloadable()`. */
+function isDownloadHidden(node: Node): boolean {
+	const hideDownload = node.attributes['hide-download']
+	if (hideDownload === true || hideDownload === 'true') {
+		return true
+	}
+
+	const shareAttributes = node.attributes['share-attributes']
+	if (!shareAttributes) {
+		return false
+	}
+
+	try {
+		return (JSON.parse(shareAttributes) as ShareAttribute[])
+			.some(({ scope, key, value }) => scope === 'permissions' && key === 'download' && value === false)
+	} catch {
+		return false
+	}
+}
+
+/**
+ * A public share that hides downloads can be left with every row action filtered out, so the
+ * actions menu opens empty. Flag the page so the toggles can be hidden.
+ */
+function setupPublicHideDownload(): void {
+	if (!loadState('files_sharing', 'isPublic', false)) {
+		return
+	}
+
+	// The single-file share view registers no write actions, so only the folder view keeps a
+	// usable menu when the share is writable: there Rename, Move and Delete remain.
+	const isSingleFileShare = loadState<string>('files_sharing', 'view', '') === 'public-file-share'
+
+	// Judged per row: the single-file share view emits a synthetic root folder that carries
+	// neither the share attributes nor the share permissions.
+	subscribe('files:list:updated', (event) => {
+		const { contents } = event as { contents: Node[] }
+		const menuIsEmpty = contents.length > 0 && contents.every(node =>
+			isDownloadHidden(node)
+			&& (isSingleFileShare || (node.permissions & WRITE_PERMISSIONS) === 0),
+		)
+		document.body.classList.toggle(PUBLIC_NO_DOWNLOAD_BODY_CLASS, menuIsEmpty)
+	})
+}
+
+setupPublicHideDownload()
