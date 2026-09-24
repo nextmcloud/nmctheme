@@ -646,17 +646,44 @@
 	#monthly-notifications-settings {
 		border: none;
 		display: block;
-		padding: 1.5rem 3rem 0;
+		padding: 0;
 	
-		&.section {
-	
-			h2 {
-				margin-bottom: 1rem;
+		.settings-section {
+			padding: 3rem 3rem 0;
+
+			@media screen and (max-width: $breakpoint-mobile) {
+				padding: 3rem 1.5rem 0;
 			}
 	
-			.settings-hint {
-				margin: 0 0 1rem;
-				opacity: unset;
+			h2 {
+				color: var(--color-main-text);
+				font-size: 1.25rem;
+				font-weight: bold;
+				margin-bottom: 1rem;
+				margin-top: 0;
+				justify-content: start;
+			}
+
+			p {
+				margin-bottom: .5rem;
+			}
+	
+			.checkbox-radio-switch__input {
+				margin: 0.25rem;
+				height: 2rem;
+				min-height: 2rem;
+				width: 1rem;
+			}
+
+			.checkbox-content__icon {
+				display: none;
+			}
+
+			.checkbox-radio-switch__content {
+				margin: 0.25rem;
+				line-height: 2rem;
+				display: inline-block;
+				vertical-align: top;
 			}
 		}
 	}
