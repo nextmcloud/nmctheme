@@ -99,7 +99,7 @@
 	.app-navigation-entry__settings {
 		padding: 0 0 1rem;
 
-		> li {
+		> li[data-cy-files-navigation-settings-quota] {
 			display: none;
 		}
 	}

@@ -530,3 +530,110 @@ function setupPublicHideDownload(): void {
 }
 
 setupPublicHideDownload()
+
+/**
+ * Keep the narrow filter area looking like the wide layout while reusing the
+ * mobile filter menu for the actual filter controls.
+ */
+function setupNarrowFilterChips(): void {
+	const suppressLegacyFilterPopover = (): void => {
+		document.querySelectorAll<HTMLElement>('.v-popper__popper').forEach(popover => {
+			const legacyMenu = popover.querySelector('[role="menu"][aria-labelledby="file-list-filters-menu-trigger"]')
+			if (legacyMenu) {
+				popover.style.visibility = 'hidden'
+			} else if (popover.querySelector('[class*="popoverFilterView"]')) {
+				popover.style.visibility = 'visible'
+			}
+		})
+	}
+
+	const openFilter = (label: string): void => {
+		const trigger = document.querySelector<HTMLElement>('#file-list-filters-menu-trigger')
+		if (!trigger) return
+
+		trigger.click()
+		const filterPopover = document.querySelector<HTMLElement>('.v-popper__popper--shown')
+		if (filterPopover) {
+			filterPopover.style.visibility = 'hidden'
+		}
+		let attempts = 0
+		const selectFilter = (): void => {
+			const menu = document.querySelector<HTMLElement>('#file-list-filters-menu-trigger ~ [role="menu"], [role="menu"][aria-labelledby="file-list-filters-menu-trigger"]')
+			const option = Array.from(menu?.querySelectorAll<HTMLElement>('button') ?? [])
+				.find(button => button.textContent?.trim() === label)
+
+			if (option) {
+				option.click()
+				requestAnimationFrame(() => {
+					const selectedFilterPopover = document.querySelector<HTMLElement>('.v-popper__popper--shown')
+					if (selectedFilterPopover) {
+						selectedFilterPopover.style.visibility = 'visible'
+					}
+				})
+			} else if (attempts++ < 10) {
+				requestAnimationFrame(selectFilter)
+			}
+		}
+		requestAnimationFrame(selectFilter)
+	}
+
+	const createChip = (label: string): HTMLButtonElement => {
+		const chip = document.createElement('button')
+		chip.type = 'button'
+		chip.className = 'button-vue'
+		chip.setAttribute('aria-label', label)
+		chip.dataset.nmcFilterChip = label
+		chip.innerHTML = `<span class="button-vue__wrapper"><span class="button-vue__text">${label}</span></span>`
+		chip.querySelector<HTMLElement>('.button-vue__text')!.style.fontWeight = 'bold'
+		chip.addEventListener('click', () => openFilter(label))
+		return chip
+	}
+
+	const update = (): void => {
+		const trigger = document.querySelector<HTMLElement>('#file-list-filters-menu-trigger')
+		const container = trigger?.closest<HTMLElement>('[data-test-id="files-list-filters"]')
+		if (!trigger || !container) {
+			document.querySelectorAll('[data-nmc-filter-chip]').forEach(chip => chip.remove())
+			return
+		}
+
+		trigger.style.visibility = 'hidden'
+		trigger.style.position = 'absolute'
+		trigger.style.pointerEvents = 'none'
+		const backLabel = t('files', 'Back to filters')
+		document.querySelectorAll<HTMLElement>('[role="dialog"] button').forEach(button => {
+			if (button.textContent?.trim() === backLabel) {
+				button.remove()
+			}
+		})
+		for (const label of [t('files', 'Type'), t('files', 'Modified')]) {
+			if (!container.querySelector(`[data-nmc-filter-chip="${label}"]`)) {
+				container.appendChild(createChip(label))
+			}
+		}
+		const backButton = document.querySelector<HTMLElement>('[class*="popoverFilterView"] > button')
+		if (backButton) {
+			backButton.style.display = 'none'
+		}
+	}
+
+	update()
+	suppressLegacyFilterPopover()
+
+	const observer = new MutationObserver(() => {
+		suppressLegacyFilterPopover()
+		update()
+	})
+	observer.observe(document.body, {
+		childList: true,
+		subtree: true,
+		attributes: true,
+		attributeFilter: ['class'],
+	})
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', setupNarrowFilterChips)
+} else {
+	setupNarrowFilterChips()
+}
