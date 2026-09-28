@@ -81,6 +81,10 @@
         margin-left: 5px;
         margin-bottom: 1rem !important;
     }
+
+    .list-item__anchor:hover {
+        border: none !important;
+    }
 }
 
 // Short viewports (keyboard up): reclaim fixed chrome so the result list keeps a usable
