@@ -14,22 +14,27 @@
 		}
 
 		ul.breadcrumb__crumbs {
-			// Display root as "Start" text
+			// Label on the wrapper, not the text node: the root crumb renders
+			// icon-only (no text node) below the force-icon-text breakpoint.
 			li.vue-crumb:first-child {
-				.button-vue__icon {
+				.button-vue {
+					width: auto !important;
+					min-width: 0;
+					padding-inline: 0 4px;
+				}
+
+				.button-vue__icon,
+				.button-vue__text {
 					display: none;
 				}
-				.button-vue__text {
-					display: block !important;
-					visibility: hidden;
-					position: relative;
-					width: 36px;
-				}
-				.button-vue__text::before {
+
+				.button-vue__wrapper::before {
 					content: 'Start';
-					visibility: visible;
-					position: absolute;
-					left: 0;
+					white-space: nowrap;
+				}
+
+				&:not(:last-child) .button-vue__wrapper::before {
+					font-weight: normal;
 				}
 			}
 	
