@@ -125,10 +125,37 @@ function setupUploadButtonFix(): void {
 	observer.observe(document.body, { childList: true, subtree: true })
 }
 
+/**
+ * Move Files settings from the fixed footer into the main navigation list.
+ */
+function setupFilesSettingsNavigationPosition(): void {
+	const move = (): void => {
+		const settingsItem = document.querySelector<HTMLElement>('[data-cy-files-navigation-settings-button]')
+		const deletedFilesItem = document.querySelector<HTMLElement>('[data-cy-files-navigation-item="trashbin"]')
+		const navigationList = deletedFilesItem?.closest('ul.app-navigation-list')
+
+		if (!settingsItem || !deletedFilesItem || !navigationList) return
+		if (settingsItem.parentElement === navigationList && deletedFilesItem.nextElementSibling === settingsItem) return
+
+		deletedFilesItem.after(settingsItem)
+	}
+
+	move()
+
+	const observer = new MutationObserver(move)
+	observer.observe(document.body, { childList: true, subtree: true })
+}
+
 if (document.readyState === 'loading') {
 	document.addEventListener('DOMContentLoaded', setupUploadButtonFix)
 } else {
 	setupUploadButtonFix()
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', setupFilesSettingsNavigationPosition)
+} else {
+	setupFilesSettingsNavigationPosition()
 }
 
 /**
