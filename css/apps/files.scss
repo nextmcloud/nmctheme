@@ -500,6 +500,10 @@ form.upload-picker.files-list__header-upload-button--narrow {
 			margin-left: auto;
 		}
 
+		> div:empty {
+			display: none;
+		}
+
 		.files-list__header-grid-button {
 			order: 3;
 			border: 1px solid var(--color-main-text);
@@ -542,6 +546,8 @@ form.upload-picker.files-list__header-upload-button--narrow {
 		}
 
 		.files-list__header-upload-button {
+			height: 40px;
+
 			button.action-item__menutoggle {
 				all: unset;
 				align-items: center;
