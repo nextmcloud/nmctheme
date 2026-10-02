@@ -413,6 +413,34 @@ form.upload-picker.files-list__header-upload-button--narrow {
 	inset-block-start: 86px; // grid button y=90, less the 4px form inset
 	inset-block-end: auto;
 	inset-inline-end: 80px; // 24px header margin + 40px grid button + 16px gap
+	--upload-progress-width: min(160px, calc(100vw - 120px));
+	--upload-progress-gap: 0px;
+
+	.upload-picker__progress {
+		position: absolute;
+		inset-block-start: 50%;
+		inset-inline-end: calc(100% + var(--upload-progress-gap));
+		transform: translateY(-50%);
+		width: var(--upload-progress-width) !important;
+		max-width: none;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 1.5rem;
+		background: var(--color-main-background);
+		z-index: 1;
+	}
+
+	.upload-picker__cancel {
+		position: absolute;
+		inset-block-start: 50%;
+		inset-inline-end: calc(100% + var(--upload-progress-width) + var(--upload-progress-gap) + var(--upload-progress-gap));
+		transform: translateY(-50%);
+		float: none;
+		inset-inline-start: auto;
+		padding: 0;
+		background: var(--color-main-background);
+		z-index: 1;
+	}
 
 	// NC sets `width: var(--button-size) !important` on icon-only buttons
 	button.action-item__menutoggle {
@@ -427,6 +455,24 @@ form.upload-picker.files-list__header-upload-button--narrow {
 			width: 40px;
 			min-width: 40px;
 			height: 40px;
+		}
+	}
+}
+
+#content-vue .app-navigation[data-cy-files-navigation] {
+	z-index: 1801;
+}
+
+@media screen and (max-width: $breakpoint-mobile-small) {
+	#content-vue:has([data-cy-files-navigation] .app-navigation-toggle[aria-expanded="true"]) {
+		z-index: 1801;
+	}
+
+	#content-vue:has([data-cy-sidebar]:not([style*="display: none"])) {
+		z-index: 2026;
+
+		[data-cy-files-navigation] .app-navigation-toggle-wrapper {
+			display: none;
 		}
 	}
 }
@@ -545,58 +591,9 @@ form.upload-picker.files-list__header-upload-button--narrow {
 		}
 
 		.upload-picker__progress {
-			width: 300px;
-			max-width: 320px;
-			
-			//Adjusting the position of the progress bar to align with the secondary loader
-			margin-right: 6rem;
-    		margin-top: 23px;
-		}
-
-		// Responsive adjustment for upload progress bar
-		@media screen and (max-width: $breakpoint-mobile-small) {
-			.upload-picker__progress {
-				width: 140px !important;
-				max-width: 320px;
-				margin-right: 4rem !important;
-				padding: 1rem;
-				background: var(--color-main-background);
-				z-index: 1;
-				position: absolute;
-			}
-
-			.upload-picker__cancel {
-				z-index: 1;
-				position: relative;
-				left: -148px;
-				float: left;
-				padding: 0;
-				background: var(--color-main-background);
-			}
-
-			.files-list__header-upload-button {
-				padding-left: 2rem;
-				background-color: var(--color-main-background);
-				z-index: 1;
-			}
-		}
-
-		@media (min-width: $breakpoint-mobile-small) and (max-width: $breakpoint-mobile-medium) {
-			.upload-picker__progress {
-				width: 280px;
-				max-width: 320px;
-				margin-right: 3rem;
-				margin-top: 23px;
-				padding: 1rem 0 1rem 1rem;
-				background: var(--color-main-background);
-				z-index: 1;
-			}
-		}
-		@media (min-width: $breakpoint-mobile-medium) and (max-width: $breakpoint-mobile) { 
-			.upload-picker__progress {
-				margin-right: 2rem;
-				width: 190px;
-			}
+			width: clamp(140px, 24vw, 300px);
+			max-width: min(320px, calc(100vw - 12rem));
+			margin-right: 20px;
 		}
 		
 		.files-list__breadcrumbs--with-progress {
