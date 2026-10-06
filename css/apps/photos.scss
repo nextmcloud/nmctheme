@@ -20,6 +20,10 @@
 
 .app-photos {
 
+	#content-vue.app-photos {
+		margin: 0;
+	}
+
 	#app-content-vue {
 
 		.photos-navigation {
@@ -364,12 +368,9 @@
 				// prevent stretching a low number of photos in line to fill it
 				flex-grow: 0;
 
-				.file__images img {
-    				border-radius: var(--border-radius-large);
-				}
-
 				.file-container {
     				background: none;
+    				border-radius: var(--border-radius-large);
 
 					&.selected:after, &:focus-within:after, &:has(:focus):after {
 						border-radius: var(--border-radius-large);
@@ -1649,58 +1650,20 @@
 
 	.app-settings-section {
 
-		.photos-locations-container, .photos-location {
+		&__name {
+			padding: 0;
+		}
 
-			> .button-vue--vue-tertiary {
-				background: transparent;
-				border-radius: var(--border-radius-pill);
-				border: 1px solid var(--color-main-text);
-				color: var(--color-main-text);
-				margin: 0;
+		.photos-locations {
 
-				&:hover:not(:disabled) {
-					color: var(--color-main-text);
-					background-color: var(--color-background-hover);
-				}
-
-				&:active {
-					border-color: var(--color-border-maxcontrast);
-				}
-
-				&:disabled {
-					color: var(--color-text-lighter);
-				}
-
-				// Icon-only button
-				&--icon-only {
-					padding-left: calc(0.25rem - 1px);
-					padding-right: calc(0.25rem - 1px);
-				}
-
-				.plus-icon {
-					margin-inline: -4px 4px;
-
-					svg {
-						height: 24px;
-						width: 24px;
-					}
-				}
-
-				.folder-outline-icon {
-					margin-inline: -4px 4px;
-					background-image: var(--icon-folder-dark);
-					height: 24px;
-					width: 24px;
-
-					svg {
-						display: none;
-					}
-				}
+			&__description {
+				padding: 0;
 			}
 
-			.photos-locations {
+			&__list  {
 				display: flex;
 				gap: 0.5rem;
+				padding: 0;
 
 				li {
 					display: inline-flex;
@@ -1708,8 +1671,8 @@
 
 					.folder {    
 						background-color: var(--nmc-ods-blue-primary);
-    					border-radius: var(--border-radius-pill);
-    					border-width: 0;
+						border-radius: var(--border-radius-pill);
+						border-width: 0;
 						color: var(--nmc-color-text-and-icon-black);
 						cursor: pointer;
 						display: inline-flex;
@@ -1748,12 +1711,70 @@
 							color: var(--nmc-color-text-and-icon-black);
 						}
 
-						.button-vue--vue-tertiary {
+						.button-vue--tertiary {
 
 							&:hover:not(:disabled) {
 								background-color: transparent;
 							}
 						}
+					}
+				}
+			}
+
+			.folder-open-outline-icon {
+				background-image: var(--original-icon-folder-dark);
+				margin-left: -0.5rem;
+				height: 24px;
+				width: 24px;
+
+				svg {
+					display: none;
+				}
+			}
+
+			> .button-vue--tertiary  {
+				background: transparent;
+				border-radius: var(--border-radius-pill);
+				border: 1px solid var(--color-main-text);
+				color: var(--color-main-text);
+				margin: 0.5rem 0 0;
+
+				&:hover:not(:disabled) {
+					color: var(--color-main-text);
+					background-color: var(--color-background-hover);
+				}
+
+				&:active {
+					border-color: var(--color-border-maxcontrast);
+				}
+
+				&:disabled {
+					color: var(--color-text-lighter);
+				}
+
+				// Icon-only button
+				&--icon-only {
+					padding-left: calc(0.25rem - 1px);
+					padding-right: calc(0.25rem - 1px);
+				}
+
+				.plus-icon {
+					margin-inline: -4px 4px;
+
+					svg {
+						height: 24px;
+						width: 24px;
+					}
+				}
+
+				.folder-outline-icon {
+					margin-inline: -4px 4px;
+					background-image: var(--icon-folder-dark);
+					height: 24px;
+					width: 24px;
+
+					svg {
+						display: none;
 					}
 				}
 			}
