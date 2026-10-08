@@ -31,8 +31,9 @@
 			&__bulk-operations {
 				display: flex;
 				width: 100%;    
-				margin-top: 1.5rem;
+				margin-top: 0;
     			margin-left: -3.5rem;
+				justify-content: flex-end;
 
 				.icon-minus {
 					width: 24px;
@@ -155,7 +156,7 @@
 		.photos-navigation {
 			flex-wrap: wrap;
 			gap: 0;
-			padding-block: 18px 1rem;
+			padding-block: 1rem;
 			padding-inline: 4rem 1.5rem;
 
 			&__title__main {
@@ -200,7 +201,7 @@
 			&__content-right,
 			&__content-buttons {
 
-				.upload-picker {
+				form {
 					height: 40px;
 				}
 
@@ -230,6 +231,10 @@
 							background-position: center;
 							width: 24px;
 							height: 24px;
+
+							svg {
+								display: none;
+							}
 						}
 					}
 					
@@ -314,8 +319,9 @@
 					}
 				}
 				
-				&__buttons {
-					.button-vue {
+				&__buttons, &__left, &__right {
+
+					.button-vue--tertiary {
 						border: 1px solid var(--color-main-text);
 						border-radius: 50%;
 						width: 40px !important;
@@ -350,8 +356,13 @@
 			}
 		}
 
+		.date-scrubber {
+			inset-block: 188px 60px;
+			z-index: 999;
+		}
+
 		.files-list-viewer, .photos-picker {
-			padding: 0 1.5rem;
+			padding: 0 2rem;
 
 			@media only screen and (max-width: 640px) {
 				padding: 0 1rem;
