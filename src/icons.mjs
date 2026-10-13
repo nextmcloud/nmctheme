@@ -194,6 +194,9 @@ const icons = {
 	'create-folder': path.join(__dirname, '../img', 'actions', 'create-folder.svg'),
 	'left-condensed': path.join(__dirname, '../img', 'actions', 'left-condensed.svg'),
 	'right-condensed': path.join(__dirname, '../img', 'actions', 'right-condensed.svg'),
+	'edit': path.join(__dirname, '../img', 'actions', 'edit.svg'),
+	'zoom-in': path.join(__dirname, '../img', 'actions', 'zoom-in.svg'),
+	'zoom-out': path.join(__dirname, '../img', 'actions', 'zoom-out.svg'),
 }
 
 const iconsColor = {

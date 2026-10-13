@@ -1,18 +1,6 @@
 @import '../_mixins.scss';
 @import '../_variables.scss';
 
-// '...' button style
-.action-item .v-popper {
-	--open-background-color: initial;
-
-	.button-vue {
-
-		&:hover:not(:disabled) {
-			background-color: initial;
-		}
-	}
-}
-
 // Hide text label on action menu toggle buttons that show the three-dot icon
 .action-item__menutoggle:has(.dots-horizontal-icon) .button-vue__text {
 	display: none;
