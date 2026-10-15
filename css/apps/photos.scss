@@ -427,6 +427,10 @@
 						outline-offset: -4px;
 						pointer-events: none;
 					}
+
+					.action-item.action-item--open .action-item__menutoggle {
+						background-color: #0006;
+					}
 				}
 
 				// new play icon for videos
@@ -815,6 +819,26 @@
 			.empty-content__action {
 				margin-bottom: 1rem;
 			}
+
+			button {
+
+				.material-design-icon {
+					background-size: 24px;
+					background-position: center;
+					background-repeat: no-repeat;
+					height: 100%;
+					width: 100%;
+					margin-left: -0.75rem;
+
+					svg {
+						display: none;
+					}
+
+					&.plus-box-multiple-outline-icon {
+						background-image: var(--original-icon-add-white);
+					}
+				}
+			}
 		}
 
 		.album__location {
@@ -919,6 +943,11 @@
 							&.image-icon,
 							&.image-outline-icon {
 								background-image: var(--icon-all-media-dark);
+							}
+
+							&.timelapse-icon,
+							&.timelapse-outline-icon {
+								background-image: var(--icon-memories-dark);
 							}
 
 							// Share/Account Group icons (Collaborative albums)
@@ -1282,6 +1311,33 @@
 		.button-vue--tertiary {
 			border: 1px solid var(--color-main-text);
 		}
+
+		button {
+
+			.material-design-icon {
+    			background-size: 24px;
+				background-position: center;
+				background-repeat: no-repeat;
+				height: 100%;
+				width: 100%;
+
+				svg {
+					display: none;
+				}
+
+				&.image-album-icon, &.image-album-ouline-icon {
+					background-image: var(--icon-albums-dark);
+				}
+
+				&.image-plus-icon, &.image-plus-outline-icon {
+					background-image: var(--icon-addto-album-dark);
+				}
+			}
+		}
+	}
+
+	.photo-metadata__empty {
+		text-align: center;
 	}
 
 	.photos-picker {

@@ -355,15 +355,30 @@
 							background-repeat: no-repeat;
 							background-size: 24px;
 
-							&.star-icon {
+							&.star-icon, &.star-outline-icon {
 								background-image: var(--icon-star-dark);
 
 								svg {
 									display: none;
 								}
 							}
+							&.pencil-outline-icon, &.pencil-icon {
+								background-image: var(--icon-edit-dark);
 
-							&.upload-icon {
+								svg {
+									display: none;
+								}
+							}
+
+							&.information-outline-icon, &.information-icon {
+								background-image: var(--icon-details-dark);
+
+								svg {
+									display: none;
+								}
+							}
+
+							&.upload-icon, &.upload-outline-icon {
 								background-image: var(--icon-upload-dark);
 
 								svg {
@@ -371,7 +386,15 @@
 								}
 							}
 
-							&.fullscreen-icon {
+							&.share-variant-icon, &.share-variant-outline-icon {
+								background-image: var(--icon-shared-dark);
+
+								svg {
+									display: none;
+								}
+							}
+
+							&.fullscreen-icon, &.fullscreen-outline-icon {
 								background-image: var(--icon-fullscreen-dark);
 
 								svg {
@@ -379,7 +402,7 @@
 								}
 							}
 
-							&.download-icon {
+							&.download-icon, &.download-outline-icon {
 								background-image: var(--icon-download-dark);
 
 								svg {
@@ -387,7 +410,7 @@
 								}
 							}
 
-							&.icon-menu-sidebar {
+							&.icon-menu-sidebar, &.icon-menu-sidebar-outline {
 								background-image: var(--icon-share-dark);
 
 								svg {
@@ -395,7 +418,7 @@
 								}
 							}
 
-							&.delete-icon, &.trash-can-icon {
+							&.delete-icon, &.trash-can-icon, &.trash-can-outline-icon {
 								background-image: var(--icon-delete-dark);
 
 								svg {
