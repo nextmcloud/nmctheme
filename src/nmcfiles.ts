@@ -22,6 +22,33 @@ if (filesView) {
 	Navigation.register(filesView)
 }
 
+type FilesNavigation = {
+	active: View | null
+	addEventListener(type: 'updateActive', listener: (event: CustomEvent<View | null>) => void): void
+}
+
+const syncFilesViewAttribute = (view: View | null) => {
+	if (view) {
+		document.body.dataset.nmcFilesView = view.id
+	}
+}
+
+// The bundled @nextcloud/files v3 getNavigation() is not the instance NC33 uses
+const setupFilesViewAttribute = () => {
+	const navigation = (window as unknown as { _nc_files_scope?: { v4_0?: { navigation?: FilesNavigation } } })
+		._nc_files_scope?.v4_0?.navigation
+	if (!navigation) return
+
+	syncFilesViewAttribute(navigation.active)
+	navigation.addEventListener('updateActive', (event) => syncFilesViewAttribute(event.detail))
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', setupFilesViewAttribute)
+} else {
+	setupFilesViewAttribute()
+}
+
 const handleCancel = async () => {
 	return true
 }
