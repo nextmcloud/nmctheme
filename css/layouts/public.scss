@@ -45,35 +45,6 @@
         line-height: var(--line-height-app-name);
     }
 
-    footer[role=contentinfo] {
-        background-color: var(--color-main-background);
-        display: block;
-        font: var(--footer-font);
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 42px;
-        width: 100%;
-        z-index: 998;
-        border-top: 1px solid var(--color-border);
-        padding: 0.5rem 1.5rem;
-        box-sizing: border-box;
-
-        @media screen and (max-width: $breakpoint-mobile) {
-            height: auto;
-            min-height: 46px;
-        }
-
-        @media screen and (max-width: $breakpoint-mobile-small) {
-            border-radius: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            max-width: 100%;
-        }
-    }
-
     .app-photos #app-content-vue .files-list-viewer li {
 
         .hover-overlay, .checkbox-radio-switch.selection-checkbox {
@@ -85,16 +56,7 @@
         padding: 1.5rem 2rem !important;
     }
 
-    footer {
-        transform: unset;
-        width: 100%;
-
-        &.guest-box {
-            top: unset;
-
-            .footer__simple-sign-up {
-                display: none;
-            }
-        }
+    > footer {
+        display: none;
     }
 }
