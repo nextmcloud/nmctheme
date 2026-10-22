@@ -88,14 +88,6 @@
     }
 }
 
-#body-login footer[role="contentinfo"] {
-    border: none;
-    border-radius: 0.5rem;
-    min-height: auto;
-    z-index: 400;
-    color: var(--nmc-color-strong);
-}
-
 @media (prefers-color-scheme: dark) {
     #body-login {
         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/telekom/consent.svg');

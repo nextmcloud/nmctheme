@@ -2,13 +2,6 @@
 
 :root {
 	--body-container-margin: calc(var(--default-grid-baseline) * 2);
-	--body-height: calc(100% - 138px - var(--body-container-margin));
-}
-
-@media screen and (max-width: $breakpoint-mobile-small) {
-	:root {
-		--body-height: calc(100% - 162px - var(--body-container-margin));
-	}
 }
 
 #app-navigation:not(.vue) {

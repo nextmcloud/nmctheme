@@ -13,6 +13,8 @@ namespace OCA\NMCTheme\Listener;
 
 use OC\Security\CSP\ContentSecurityPolicyNonceManager;
 use OCA\Theming\Util;
+use OCP\AppFramework\Http\Template\PublicTemplateResponse;
+use OCP\AppFramework\Http\Template\SimpleMenuAction;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
@@ -21,6 +23,13 @@ use OCP\INavigationManager;
 use OCP\IURLGenerator;
 
 class BeforeTemplateRenderedListener implements IEventListener {
+	private const OPEN_SOURCE_URL = 'https://static.magentacloud.de/licences/webui.htm';
+	private const DATA_PRIVACY_URL = 'https://static.magentacloud.de/Datenschutz';
+	private const IMPRINT_URL = 'https://www.telekom.de/impressum';
+
+	// keeps Download as the primary button
+	private const LEGAL_ACTION_PRIORITY = 1000;
+
 	private IURLGenerator $urlGenerator;
 	private ContentSecurityPolicyNonceManager $nonceManager;
 	private Util $themingUtil;
@@ -61,6 +70,14 @@ class BeforeTemplateRenderedListener implements IEventListener {
 		}
 	}
 
+	protected function addLegalLinksToPublicMenu(PublicTemplateResponse $response): void {
+		$response->setHeaderActions([
+			new SimpleMenuAction('nmc-open-source', $this->l->t('Open Source information'), 'icon-nmc-open-source', self::OPEN_SOURCE_URL, self::LEGAL_ACTION_PRIORITY),
+			new SimpleMenuAction('nmc-data-privacy', $this->l->t('Data privacy'), 'icon-nmc-data-privacy', self::DATA_PRIVACY_URL, self::LEGAL_ACTION_PRIORITY + 1),
+			new SimpleMenuAction('nmc-imprint', $this->l->t('Imprint'), 'icon-nmc-imprint', self::IMPRINT_URL, self::LEGAL_ACTION_PRIORITY + 2),
+		]);
+	}
+
 	/**
 	 * The registration of Magenta themes is only done
 	 * if rendering in browser takes place. (and not in
@@ -73,6 +90,10 @@ class BeforeTemplateRenderedListener implements IEventListener {
 		if ($response->getRenderAs() === TemplateResponse::RENDER_AS_USER ||
 			 $response->getRenderAs() === TemplateResponse::RENDER_AS_PUBLIC) {
 			$this->fixPhotosAppName();
+		}
+
+		if ($response instanceof PublicTemplateResponse) {
+			$this->addLegalLinksToPublicMenu($response);
 		}
 
 		if (($response->getStatus() >= 400) && ($response->getStatus() < 600)) {
@@ -93,7 +114,7 @@ class BeforeTemplateRenderedListener implements IEventListener {
 		// you can add additional styles, links and scripts before rendering
 		\OCP\Util::addScript("nmctheme", "nmctheme-nmclogo", "core");
 		\OCP\Util::addScript('nmctheme', 'nmctheme-nmcheader', "core");
-		\OCP\Util::addScript('nmctheme', 'nmctheme-nmcfooter', "core");
+		\OCP\Util::addScript('nmctheme', 'nmctheme-nmclegal', "core");
 		\OCP\Util::addScript('nmctheme', 'nmctheme-nmcfiles', "core");
 		\OCP\Util::addScript("nmctheme", "nmctheme-mimetypes", "core");
 		\OCP\Util::addScript("nmctheme", "nmctheme-skipactions", "core");

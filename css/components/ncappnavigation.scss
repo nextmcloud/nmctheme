@@ -113,6 +113,15 @@
 	}
 }
 
+.nmc-navigation-copyright {
+	flex-shrink: 0;
+	margin: auto 0 0;
+	padding: 0 1rem 1rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	color: var(--color-main-text);
+}
+
 // default navbar link styling
 #app-navigation-vue .app-navigation-entry-wrapper {
 

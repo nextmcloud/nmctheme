@@ -20,6 +20,21 @@ const menuItems = [{
 	name: t(app, 'Customer center'),
 	url: 'https://www.telekom.de/mein-kundencenter',
 	target: '_blank',
+}, {
+	id: 'open_source',
+	name: t(app, 'Open Source information'),
+	url: 'https://static.magentacloud.de/licences/webui.htm',
+	target: '_blank',
+}, {
+	id: 'data_privacy',
+	name: t(app, 'Data privacy'),
+	url: 'https://static.magentacloud.de/Datenschutz',
+	target: '_blank',
+}, {
+	id: 'imprint',
+	name: t(app, 'Imprint'),
+	url: 'https://www.telekom.de/impressum',
+	target: '_blank',
 }]
 
 function updateNotificationsLabel() {
