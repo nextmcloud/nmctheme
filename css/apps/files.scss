@@ -1,6 +1,16 @@
 @import '../_mixins.scss';
 @import '../variables';
 
+$files-empty-illustrations: (
+	files: mouse,
+	personal: mouse,
+	favorites: unicorn,
+	sharingin: sad-unicorn,
+	sharingout: cat-family,
+	pendingshares: pandas,
+	trashbin: cat,
+);
+
 @mixin thumbnail-icons {
 	background-position: center;
 	background-repeat: no-repeat;
@@ -928,71 +938,16 @@ form.upload-picker.files-list__header-upload-button--narrow {
 				width: 540px;
 				max-width: 100%;
 
-				&[data-cy-files-content-empty="files"] {
+				@each $view, $image in $files-empty-illustrations {
 
-					.empty-content__icon {
-						background-image: url('../img/decorative_images/mouse.svg');
+					[data-nmc-files-view="#{$view}"] & .empty-content__icon {
+						background-image: url('../img/decorative_images/#{$image}.svg');
 
 						@media (prefers-color-scheme: dark) {
-							background-image: url('../img/decorative_images/mouse-dark.svg');
+							background-image: url('../img/decorative_images/#{$image}-dark.svg');
 						}
 					}
 				}
-
-				&[data-cy-files-content-empty="sharingin"] {
-
-					.empty-content__icon {
-						background-image: url('../img/decorative_images/sad-unicorn.svg');
-
-						@media (prefers-color-scheme: dark) {
-							background-image: url('../img/decorative_images/sad-unicorn-dark.svg');
-						}
-					}
-				}
-
-				&[data-cy-files-content-empty="sharingout"] {
-
-					.empty-content__icon {
-						background-image: url('../img/decorative_images/cat-family.svg');
-
-						@media (prefers-color-scheme: dark) {
-							background-image: url('../img/decorative_images/cat-family-dark.svg');
-						}
-					}
-				}
-
-				&[data-cy-files-content-empty="pendingshares"] {
-
-					.empty-content__icon {
-						background-image: url('../img/decorative_images/pandas.svg');
-
-						@media (prefers-color-scheme: dark) {
-							background-image: url('../img/decorative_images/pandas-dark.svg');
-						}
-					}
-				}
-
-				&[data-cy-files-content-empty="trashbin"] {
-
-					.empty-content__icon {
-						background-image: url('../img/decorative_images/cat.svg');
-
-						@media (prefers-color-scheme: dark) {
-							background-image: url('../img/decorative_images/cat-dark.svg');
-						}
-					}
-				}	
-
-				&[data-cy-files-content-empty="favorites"] {
-
-					.empty-content__icon {
-						background-image: url('../img/decorative_images/unicorn.svg');
-
-						@media (prefers-color-scheme: dark) {
-							background-image: url('../img/decorative_images/unicorn-dark.svg');
-						}
-					}
-				}	
 
 				&__icon {
 					background-size: contain;
@@ -1755,54 +1710,10 @@ form.upload-picker.files-list__header-upload-button--narrow {
 #body-user,
 #body-public {
 
-	&[data-themes*=dark] {
+	@each $view, $image in $files-empty-illustrations {
 
-		.files-list__empty {
-
-			.empty-content {
-
-				&[data-cy-files-content-empty="files"] {
-
-					.empty-content__icon {
-						background-image: url('../img/decorative_images/mouse-dark.svg');
-					}
-				}
-
-				&[data-cy-files-content-empty="sharingin"] {
-
-					.empty-content__icon {
-						background-image: url('../img/decorative_images/sad-unicorn-dark.svg');
-					}
-				}
-
-				&[data-cy-files-content-empty="sharingout"] {
-
-					.empty-content__icon {
-						background-image: url('../img/decorative_images/cat-family-dark.svg');
-					}
-				}
-
-				&[data-cy-files-content-empty="pendingshares"] {
-
-					.empty-content__icon {
-						background-image: url('../img/decorative_images/pandas-dark.svg');
-					}
-				}
-
-				&[data-cy-files-content-empty="trashbin"] {
-
-					.empty-content__icon {
-						background-image: url('../img/decorative_images/cat-dark.svg');
-					}
-				}	
-
-				&[data-cy-files-content-empty="favorites"] {
-
-					.empty-content__icon {
-						background-image: url('../img/decorative_images/unicorn-dark.svg');
-					}
-				}
-			}
+		&[data-themes*=dark][data-nmc-files-view="#{$view}"] .files-list__empty .empty-content .empty-content__icon {
+			background-image: url('../img/decorative_images/#{$image}-dark.svg');
 		}
 	}
 }
