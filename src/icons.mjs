@@ -170,6 +170,7 @@ const icons = {
 	'addto-album': path.join(__dirname, '../img', 'media', 'addto-album.svg'),
 	'all-media': path.join(__dirname, '../img', 'media', 'all-media.svg'),
 	memories: path.join(__dirname, '../img', 'media', 'memories.svg'),
+	metadata: path.join(__dirname, '../img', 'media', 'metadata.svg'),
 	camera: path.join(__dirname, '../img', 'device', 'camera.svg'),
 	'photo-camera': path.join(__dirname, '../img', 'device', 'photo-camera.svg'),
 	'photo-camera-media': path.join(__dirname, '../img', 'media', 'photo-camera-media.svg'),

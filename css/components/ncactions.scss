@@ -425,6 +425,22 @@
 									display: none;
 								}
 							}
+
+							&.database-icon {
+								background-image: var(--icon-metadata-dark);
+
+								svg {
+									display: none;
+								}
+							}
+
+							&.image-multiple-outline-icon {
+								background-image: var(--icon-albums-dark);
+
+								svg {
+									display: none;
+								}
+							}
 						}
 
 						&.files-list__row-actions-batch-delete .icon-vue {

@@ -1,3 +1,23 @@
+.viewer__modal {
+
+    .modal-header {
+
+        .icons-menu {
+
+            button {
+                color: rgb(255,255,255)
+            }
+
+            .action-items {
+
+                button:has(.dock-right-icon) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
 #viewer {
     --header-height: 64px;
     --footer-height: 64px;
