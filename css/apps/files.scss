@@ -1918,6 +1918,31 @@ body.nmc-public-nodownload {
 		}
 	}
 
+	.files-list {
+		&__table {
+			.files-list__thead .files-list__row-head--selected .files-list__row-checkbox {
+				padding: 1.3rem !important;
+			}
+	
+			.files-list__row-actions>[data-cy-files-list-row-action="sharing-status"] {
+				display: none;
+				user-select: none;
+				pointer-events: none;
+			}
+	
+			.files-list__column {
+				.files-list__selected, span {
+					overflow: unset !important;
+				}
+	
+				&.files-list__row-actions-batch {
+					display: flex;
+					justify-content: flex-end;
+				}
+			}
+		}
+	}
+
 	.files-list__header--public {
 		&+.files-list{
 			// No filters row here, so the header pins to the very top.
