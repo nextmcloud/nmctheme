@@ -853,12 +853,10 @@
 		&.app-navigation {
 			button.app-navigation-toggle {
 				span.menu-open-icon {
-					background-image: var(--icon-hide-menu-dark);
 					width: 100%;
 					height: 100%;
-					background-position: center;
-					background-repeat: no-repeat;
-					background-size: 24px;
+					background-color: currentColor;
+					mask: var(--icon-dock-left-dark) center / 20px no-repeat;
 
 					svg {
 						display: none;

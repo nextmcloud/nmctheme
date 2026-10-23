@@ -175,6 +175,7 @@ const icons = {
 	'photo-camera-media': path.join(__dirname, '../img', 'media', 'photo-camera-media.svg'),
 	'video-camera-media': path.join(__dirname, '../img', 'media', 'video-camera.svg'),
 	'hide-menu': path.join(__dirname, '../img', 'actions', 'hide-menu.svg'),
+	'dock-left': path.join(__dirname, '../img', 'actions', 'dock-left.svg'),
 	'photos-videos': path.join(__dirname, '../img', 'media', 'photos-videos.svg'),
 	appearance: path.join(__dirname, '../img', 'settings', 'appearance.svg'),
 	'arrow-previous': path.join(__dirname, '../img', 'back-nav.svg'),
