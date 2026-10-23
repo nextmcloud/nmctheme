@@ -14,7 +14,7 @@ webpackConfig.entry = {
 	viewportmetrics: path.join(__dirname, 'src', 'js', 'viewportmetrics.js'),
 	conflictdialog: path.join(__dirname, 'src', 'js', 'conflictdialog.js'),
 	mimetypes: path.join(__dirname, 'src', 'js', 'mimetypes.js'),
-	nmcfooter: path.join(__dirname, 'src', 'nmcfooter.ts'),
+	nmclegal: path.join(__dirname, 'src', 'nmclegal.ts'),
 	nmcheader: path.join(__dirname, 'src', 'nmcheader.ts'),
 	nmclogo: path.join(__dirname, 'src', 'nmclogo.ts'),
 	nmcfiles: path.join(__dirname, 'src', 'nmcfiles.ts'),
