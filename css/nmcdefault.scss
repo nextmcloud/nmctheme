@@ -152,8 +152,8 @@
 
   --body-container-radius: var(--border-radius-container-large);
   --body-container-margin: calc(var(--default-grid-baseline) * 2);
-  --footer-height: 42px;
-  --body-height: calc(100% - var(--header-height) - var(--footer-height));
+  // the header's 1px bottom border sits outside --header-height
+  --body-height: calc(100% - var(--header-height) - 1px);
 
   --border-width-input: var(--strokes-1);
   --border-width-input-focused: var(--strokes-2);

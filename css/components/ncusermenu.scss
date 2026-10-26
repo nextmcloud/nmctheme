@@ -1,7 +1,8 @@
 @import '../variables';
 @import '../_mixins';
 
-#user-menu {
+#user-menu,
+#public-page-menu {
     .header-menu__carret {
         display: none;
     }
@@ -34,7 +35,7 @@
 
         ul {
             width: 100%;
-            padding: 16px;
+            padding: 16px 24px;
             margin: 0;
             box-sizing: border-box;
             overflow-x: hidden;
@@ -51,8 +52,8 @@
                     box-sizing: border-box;
                     display: flex;
                     align-items: center;
-                    padding: 14px 16px 14px 48px;
-                    min-height: 52px;
+                    padding: 11px 16px 11px 44px;
+                    min-height: 44px;
                     border-radius: 6px;
                     transition: background-color 0.15s ease;
 
@@ -91,13 +92,25 @@
                     background-image: var(--icon-customercenter-dark);
                 }
 
+                &#open_source>a::after {
+                    background-image: var(--icon-open-source-dark);
+                }
+
+                &#data_privacy>a::after {
+                    background-image: var(--icon-data-privacy-dark);
+                }
+
+                &#imprint>a::after {
+                    background-image: var(--icon-imprint-dark);
+                }
+
                 &#nmc_welcome_popup-about>a::after {
                     background-image: var(--icon-news-dark);
                 }
             }
 
-            // Account Menu Entry (for Log out)
-            li.account-menu-entry {
+            li.account-menu-entry,
+            li.list-item__wrapper {
                 width: 100%;
                 padding: 2px 0;
                 margin: 0;
@@ -109,8 +122,8 @@
                     box-sizing: border-box;
                     display: flex;
                     align-items: center;
-                    padding: 14px 16px 14px 48px;
-                    min-height: 52px;
+                    padding: 11px 16px 11px 44px;
+                    min-height: 44px;
                     border-radius: 6px;
                     transition: background-color 0.15s ease;
 
@@ -140,7 +153,16 @@
                 &>.list-item {
                     --list-item-height: auto;
                     --list-item-padding: 0px;
-                    min-height: 52px;
+                    min-height: 44px;
+
+                    // the menu focuses its first entry even when opened by mouse
+                    &:focus-within {
+                        background-color: transparent;
+                    }
+
+                    &:has(:focus-visible) {
+                        background-color: var(--color-background-hover);
+                    }
 
                     .list-item-content {
                         padding-inline-start: 0%;
