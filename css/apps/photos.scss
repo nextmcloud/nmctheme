@@ -1810,14 +1810,16 @@
 
 			&__list  {
 				display: flex;
-				gap: 0.5rem;
+				flex-wrap: wrap;
+				gap: 0 0.5rem;
 				padding: 0;
 
 				li {
 					display: inline-flex;
 					margin-bottom: 0.5rem;
+					max-width: 100%;
 
-					.folder {    
+					.folder {
 						background-color: var(--nmc-ods-blue-primary);
 						border-radius: var(--border-radius-pill);
 						border-width: 0;
@@ -1825,12 +1827,28 @@
 						cursor: pointer;
 						display: inline-flex;
 						gap: 0;
+						max-width: 100%;
 						min-height: 3rem;
 						min-width: 0;
 						padding-right: 0;
 
-						.folder__info:last-child {
-							margin-right: 1rem;
+						.folder__info {
+							min-width: 0;
+
+							&:last-child {
+								margin-right: 1rem;
+							}
+						}
+
+						.folder__path {
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+
+						.material-design-icon,
+						.button-vue {
+							flex-shrink: 0;
 						}
 
 						.folder-multiple-outline-icon {
