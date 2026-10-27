@@ -504,6 +504,10 @@ form.upload-picker.files-list__header-upload-button--narrow {
 		display: flex;
 		align-items: center;
 
+		[data-test-id='files-list-filters'] {
+			display: none !important;
+		}
+
 		// NC33 renders "New" as a direct header child; push it to the right.
 		> div:has(> .files-list__header-upload-button) {
 			order: 2;
@@ -606,6 +610,14 @@ form.upload-picker.files-list__header-upload-button--narrow {
 			}
 		}
 
+		.upload-picker--uploading {
+			flex-direction: row-reverse;
+
+			.action-item {
+				order: 0;
+			}
+		}
+
 		.upload-picker__progress {
 			width: clamp(140px, 24vw, 300px);
 			max-width: min(320px, calc(100vw - 12rem));
@@ -616,10 +628,6 @@ form.upload-picker.files-list__header-upload-button--narrow {
 			flex-direction: row !important;
 		}
 
-		.files-list__refresh-icon {
-			position: absolute;
-			right: 13rem;
-		}
 
 		button[data-cy-files-list-action="empty-trash"] {
 			align-items: center;
@@ -1764,6 +1772,10 @@ body.nmc-public-nodownload {
 		.dialog__actions {
 			margin: 0;
 			padding: 0;
+
+			button[data-cy-conflict-picker-submit] .arrow-right-icon svg {
+				display: inline-block;
+			}
 
 			.button-vue--vue-primary, .button-vue--vue-secondary, .button-vue--vue-tertiary  {
 				margin-block: 0.5rem !important;
