@@ -136,12 +136,7 @@
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(5px);
     position: relative;
-    top: 18vh;
     padding-bottom: 2.5rem;
-
-    @media screen and (max-width: $breakpoint-mobile-small) {
-        top: 10vh;
-    }
 
     form fieldset .warning-info {
         font-size: 20px;
@@ -165,6 +160,38 @@
 
     // hide request password link
     #request-password-button-not-talk {
+        display: none;
+    }
+}
+
+#guest-content-vue.guest-box:not(.login-box) {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    position: relative;
+    padding-bottom: 2.5rem;
+
+    form fieldset .warning-info {
+        font-size: 20px;
+        font-weight: bold;
+        padding-top: 0.5rem;
+        padding-bottom: 1rem;
+    }
+
+    // this is the password entry field
+    #password {
+        background: rgba(255, 255, 255, 0.4);
+        border: solid black 1px;
+        border-radius: 10px;
+        color: var(--color-text);
+    }
+
+    // form submit button icon
+    #password-submit {
+        opacity: 1;
+    }
+
+    // hide request password link
+    >.button-vue--vue-secondary, #request-password-button-not-talk {
         display: none;
     }
 }
