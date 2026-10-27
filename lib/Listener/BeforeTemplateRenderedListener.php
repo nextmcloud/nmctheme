@@ -110,6 +110,28 @@ class BeforeTemplateRenderedListener implements IEventListener {
 				'src' => $mimetypelist . '?nmcv=' . $this->themingUtil->getCacheBuster() ],
 			''); // the empty text is needed to generate HTML5 valid tags
 
+		$cacheBuster = $this->themingUtil->getCacheBuster();
+
+		$styles = [
+			'telekom-design-tokens.ods.css',
+			'nmcdefault.css',
+			'nmcstyle.css',
+			'icons.css',
+		];
+
+		foreach ($styles as $style) {
+			\OCP\Util::addHeader(
+				'link',
+				[
+					'rel' => 'stylesheet',
+					'href' => $this->urlGenerator->linkTo(
+						'nmctheme',
+						'css/' . $style
+					) . '?nmcv=' . $cacheBuster,
+				],
+				''
+			);
+		}
 
 		// you can add additional styles, links and scripts before rendering
 		\OCP\Util::addScript("nmctheme", "nmctheme-nmclogo", "core");

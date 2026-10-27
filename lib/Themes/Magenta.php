@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /**
  * @copyright Copyright (c) 2023 T-Systems International
  *
@@ -8,29 +9,18 @@ declare(strict_types=1);
  *
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
+
 namespace OCA\NMCTheme\Themes;
 
 use OCA\Theming\ITheme;
-use OCA\Theming\Util;
-use OCP\App\IAppManager;
 use OCP\IL10N;
 use OCP\IURLGenerator;
 
 class Magenta implements ITheme {
-	protected Util $themingUtil;
-	protected IAppManager $appManager;
-	protected IURLGenerator $urlGenerator;
-	protected IL10N $l;
-
 	public function __construct(
-		Util $themingUtil,
-		IAppManager $appManager,
-		IURLGenerator $urlGenerator,
-		IL10N $l) {
-		$this->themingUtil = $themingUtil;
-		$this->appManager = $appManager;
-		$this->urlGenerator = $urlGenerator;
-		$this->l = $l;
+		protected IURLGenerator $urlGenerator,
+		protected IL10N $l,
+	) {
 	}
 
 	public function getId(): string {
@@ -58,39 +48,20 @@ class Magenta implements ITheme {
 	}
 
 	public function getCSSVariables(): array {
-		$favIconPath = $this->urlGenerator->imagePath('nmctheme', 'favicon.svg');
+		$faviconPath = $this->urlGenerator->imagePath('nmctheme', 'favicon.svg');
 		$logoPath = $this->urlGenerator->imagePath('nmctheme', 'telekom/tlogocarrier.svg');
+
 		return [
-			'--image-favicon' => "url('" . $favIconPath . "')",
-			'--image-logoheader' => "url('" . $logoPath . "')"
+			'--image-favicon' => "url('$faviconPath')",
+			'--image-logoheader' => "url('$logoPath')",
 		];
 	}
 
 	public function getCustomCss(): string {
-		$telekomOdsVariables = $this->urlGenerator->linkTo('nmctheme', 'css/telekom-design-tokens.ods.css');
-		$themeVariables = $this->urlGenerator->linkTo('nmctheme', 'css/nmcdefault.css');
-		$iconsVariables = $this->urlGenerator->linkTo('nmctheme', 'css/icons.css');
-		$themeStyle = $this->urlGenerator->linkTo('nmctheme', 'css/nmcstyle.css');
-
-		$cacheBuster = $this->themingUtil->getCacheBuster();
-
-		$telekomOdsVariables .= '?nmcv=' . $cacheBuster;
-		$themeVariables .= '?nmcv=' . $cacheBuster;
-		$iconsVariables .= '?nmcv=' . $cacheBuster;
-		$themeStyle .= '?nmcv=' . $cacheBuster;
-
-		return "
-			@import url('{$telekomOdsVariables}');
-			@import url('{$themeVariables}');
-			@import url('{$iconsVariables}');
-			@import url('{$themeStyle}');
-		";
+		return '';
 	}
 
 	public function getMeta(): array {
-		return [[
-			'name' => '',
-			'content' => '',
-		]];
+		return [];
 	}
 }

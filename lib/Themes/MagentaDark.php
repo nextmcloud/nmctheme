@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 /**
  * @copyright Copyright (c) 2023 T-Systems International
  *
@@ -11,22 +12,7 @@ declare(strict_types=1);
 
 namespace OCA\NMCTheme\Themes;
 
-use OCA\Theming\ITheme;
-use OCA\Theming\Util;
-use OCP\App\IAppManager;
-use OCP\IL10N;
-use OCP\IURLGenerator;
-
-class MagentaDark extends Magenta implements ITheme {
-	public function __construct(
-		Util $themingUtil,
-		IAppManager $appManager,
-		IURLGenerator $urlGenerator,
-		IL10N $l
-	) {
-		parent::__construct($themingUtil, $appManager, $urlGenerator, $l);
-	}
-
+class MagentaDark extends Magenta {
 	public function getId(): string {
 		return 'dark-magenta';
 	}
@@ -40,17 +26,10 @@ class MagentaDark extends Magenta implements ITheme {
 	}
 
 	public function getDescription(): string {
-		return $this->l->t('A dark design to relieve eye strain.');
+		return $this->l->t('A dark design.');
 	}
 
 	public function getMediaQuery(): string {
 		return '(prefers-color-scheme: dark)';
-	}
-
-	public function getMeta(): array {
-		return [[
-			'name' => '',
-			'content' => '',
-		]];
 	}
 }

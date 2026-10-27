@@ -726,7 +726,6 @@
 				padding: 1.5rem;
 
 				.empty-content__icon {
-					background-color: var(--nmc-color-text-and-icon-white);
 					height: 420px;
 					margin-top: 2.5rem;
 					opacity: 1;
@@ -754,17 +753,13 @@
 				}
 
 				.photos-illustration {
-					background-image: url(../img/decorative_images/empty-albums.svg);
+					background-image: url(../img/decorative_images/cat-memories.png);
 					background-size: contain;
 					background-repeat: no-repeat;
 					background-position: center;
 					max-width: 480px;
 					height: 100%;
 					width: 100%;
-
-					@media (prefers-color-scheme: dark) {
-						background-image: url(../img/decorative_images/empty-albums-dark.svg);
-					}
 
 					svg {
 						display: none;
@@ -799,7 +794,7 @@
 				width: 100%;
 
 				&.empty-collection-content__image {
-					background-image: url(../img/decorative_images/empty-albums.svg);
+					background-image: url(../img/decorative_images/cat-memories.png);
 				}
 			}
 
@@ -813,7 +808,7 @@
 					background-image: url(../img/decorative_images/empty-files-dark.svg);
 
 					&.empty-collection-content__image {
-						background-image: url(../img/decorative_images/empty-albums-dark.svg);
+						background-image: url(../img/decorative_images/cat-memories.png);
 					}
 				}
 
@@ -1039,7 +1034,7 @@
 						background-image: url(../img/decorative_images/empty-files-dark.svg);
 
 						&.empty-collection-content__image {
-							background-image: url(../img/decorative_images/empty-albums-dark.svg);
+							background-image: url(../img/decorative_images/cat-memories.png);
 						}
 					}
 

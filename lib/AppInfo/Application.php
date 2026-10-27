@@ -20,6 +20,7 @@ use OC\Template\JSResourceLocator;
 use OC\URLGenerator;
 use OCA\NMCTheme\JSResourceLocatorExtension;
 use OCA\NMCTheme\L10N\FactoryDecorator;
+use OCA\NMCTheme\Listener\BeforeLoginTemplateRenderedListener;
 use OCA\NMCTheme\Listener\BeforeTemplateRenderedListener;
 use OCA\NMCTheme\MimeIconProviderDecorator;
 use OCA\NMCTheme\NavigationManagerDecorator;
@@ -43,6 +44,7 @@ use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
+use OCP\AppFramework\Http\Events\BeforeLoginTemplateRenderedEvent;
 use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\AppFramework\QueryException;
 use OCP\Files\IMimeTypeDetector;
@@ -262,14 +264,14 @@ class Application extends App implements IBootstrap {
 		 */
 
 		// the listener is helpful to enforce theme constraints and inject additional parts
+		$context->registerEventListener(BeforeLoginTemplateRenderedEvent::class, BeforeLoginTemplateRenderedListener::class);
 		$context->registerEventListener(BeforeTemplateRenderedEvent::class, BeforeTemplateRenderedListener::class);
 	}
 
 	public function boot(IBootContext $context): void {
-		// Ensure nmctheme CSS is loaded for exception error pages (printExceptionErrorPage)
-		// which bypass the BeforeTemplateRenderedEvent and do not trigger the theming
-		// system's CSS injection (ThemeInjectionService::injectHeaders). Without this,
-		// server error pages fall back to bare Nextcloud styling.
-		\OCP\Util::addStyle('nmctheme', 'nmcstyle');
+		// Load a minimal NMC fallback stylesheet for exception error pages.
+		// printExceptionErrorPage() bypasses the regular template rendering events
+		// and therefore does not receive the normal NMC theme assets.
+		\OCP\Util::addStyle('nmctheme', 'error');
 	}
 }

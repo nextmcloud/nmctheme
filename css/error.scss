@@ -1,0 +1,37 @@
+#body-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--nmc-color-regular);
+    scrollbar-color: var(--color-primary-light) var(--nmc-color-regular);
+    background-image: url(../img/telekom/consent.svg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    .wrapper {
+        border-top: 0px;
+        margin-top: 0px;
+        background-image: url(../img/telekom/mcbubble-text.svg);
+        background-size: 80%;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-clip: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        z-index: 500;
+
+        header {
+            display: none;
+        }
+    }
+
+    .guest-box:not(.login-box) {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(5px);
+        position: relative;
+        padding-bottom: 2.5rem;
+    }
+}
