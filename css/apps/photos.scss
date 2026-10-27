@@ -717,7 +717,7 @@
 
 		.empty-content {
 
-			&.album__empty {
+			&.album__empty, &.memories__empty-content  {
 				display: flex;
 				align-items: center;
 				flex-direction: column;
@@ -734,16 +734,6 @@
 				}
 			}
 
-			&.empty-content-with-illustration {
-				display: flex;
-				align-items: center;
-				flex-direction: column;
-				justify-content: center;
-				flex-grow: 1;
-				height: 100%;
-				padding: 1.5rem;
-			}
-
 			&__icon {
 
 				.image-plus-outline-icon, .folder-plus-outline-icon {
@@ -756,6 +746,24 @@
 
 					@media (prefers-color-scheme: dark) {
 						background-image: url(../img/decorative_images/empty-files-dark.svg);
+					}
+
+					svg {
+						display: none;
+					}
+				}
+
+				.photos-illustration {
+					background-image: url(../img/decorative_images/empty-albums.svg);
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+					max-width: 480px;
+					height: 100%;
+					width: 100%;
+
+					@media (prefers-color-scheme: dark) {
+						background-image: url(../img/decorative_images/empty-albums-dark.svg);
 					}
 
 					svg {
