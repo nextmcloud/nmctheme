@@ -103,14 +103,15 @@ class BeforeTemplateRenderedListener implements IEventListener {
 			$response->setParams($tmplparams);
 		}
 
+		$cacheBuster = $this->themingUtil->getCacheBuster();
+
 		// add own mimetypelist from the dynamic service endpoint
 		$mimetypelist = $this->urlGenerator->linkToRoute('nmctheme.MimeIcon.getMimeTypeList');
 		\OCP\Util::addHeader("script",
-			[ 'nonce' => $this->nonceManager->getNonce(),
-				'src' => $mimetypelist . '?nmcv=' . $this->themingUtil->getCacheBuster() ],
-			''); // the empty text is needed to generate HTML5 valid tags
-
-		$cacheBuster = $this->themingUtil->getCacheBuster();
+			[
+				'nonce' => $this->nonceManager->getNonce(),
+				'src' => $mimetypelist . '?nmcv=' . $cacheBuster ],
+			'');
 
 		$styles = [
 			'telekom-design-tokens.ods.css',
@@ -120,24 +121,23 @@ class BeforeTemplateRenderedListener implements IEventListener {
 		];
 
 		foreach ($styles as $style) {
-			\OCP\Util::addHeader(
-				'link',
-				[
+			\OCP\Util::addHeader("link",
+				[ 
 					'rel' => 'stylesheet',
 					'href' => $this->urlGenerator->linkTo(
 						'nmctheme',
-						'css/' . $style
+						'css/' . $style,
 					) . '?nmcv=' . $cacheBuster,
 				],
-				''
+				'',
 			);
 		}
 
 		// you can add additional styles, links and scripts before rendering
 		\OCP\Util::addScript("nmctheme", "nmctheme-nmclogo", "core");
-		\OCP\Util::addScript('nmctheme', 'nmctheme-nmcheader', "core");
-		\OCP\Util::addScript('nmctheme', 'nmctheme-nmclegal', "core");
-		\OCP\Util::addScript('nmctheme', 'nmctheme-nmcfiles', "core");
+		\OCP\Util::addScript("nmctheme", 'nmctheme-nmcheader', "core");
+		\OCP\Util::addScript("nmctheme", 'nmctheme-nmclegal', "core");
+		\OCP\Util::addScript("nmctheme", 'nmctheme-nmcfiles', "core");
 		\OCP\Util::addScript("nmctheme", "nmctheme-mimetypes", "core");
 		\OCP\Util::addScript("nmctheme", "nmctheme-skipactions", "core");
 		\OCP\Util::addScript("nmctheme", "nmctheme-searchfavorites", "core");
