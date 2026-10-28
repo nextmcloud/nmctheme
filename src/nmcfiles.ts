@@ -4,6 +4,52 @@ import { loadState } from '@nextcloud/initial-state'
 import { translate as t } from '@nextcloud/l10n'
 import { sidebarAction } from './utils/sidebar.js'
 
+const setupConflictIcons = (): void => {
+	const picker = '[data-cy-conflict-picker]'
+	const icons = [
+		['[data-cy-conflict-picker-cancel], [data-cy-conflict-picker-skip]', require('../img/actions/close.svg')],
+		['[data-cy-conflict-picker-keep-both]', require('../img/actions/copy-paste.svg')],
+		['[data-cy-conflict-picker-submit]', require('../img/actions/arrow-right.svg')],
+	].map(([selector, source]) => {
+		const svg = new DOMParser().parseFromString(source, 'image/svg+xml').documentElement
+		svg.setAttribute('width', '20')
+		svg.setAttribute('height', '20')
+		svg.setAttribute('focusable', 'false')
+		svg.querySelectorAll('title').forEach(title => title.remove())
+		svg.querySelectorAll('[fill]:not([fill="none"])').forEach(element => element.setAttribute('fill', 'currentColor'))
+		const icon = document.createElement('span')
+		icon.className = 'button-vue__icon'
+		icon.setAttribute('aria-hidden', 'true')
+		icon.appendChild(document.importNode(svg, true))
+		return { selector, icon }
+	})
+	const apply = (): void => {
+		icons.forEach(({ selector, icon }) => {
+			document.querySelectorAll(`${picker} .dialog__actions :is(${selector})`).forEach(button => {
+				const text = button.querySelector('.button-vue__wrapper > .button-vue__text')
+				if (!text) return
+				if (!button.querySelector('.button-vue__icon')) text.before(icon.cloneNode(true))
+				button.classList.remove('button-vue--text-only')
+				button.classList.add('button-vue--icon-and-text')
+			})
+		})
+	}
+	apply()
+	new MutationObserver(mutations => {
+		if (mutations.some(({ target, addedNodes }) =>
+			(target instanceof Element && target.closest(picker))
+			|| Array.from(addedNodes).some(node => node instanceof Element
+				&& (node.matches(picker) || node.querySelector(picker))),
+		)) apply()
+	}).observe(document.body, { childList: true, subtree: true })
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', setupConflictIcons)
+} else {
+	setupConflictIcons()
+}
+
 const Navigation = getNavigation()
 
 const sharinginView = Navigation.views.find(view => view.id === 'sharingin')
@@ -138,17 +184,64 @@ function fixUploadButton(container: Element): void {
 	}
 }
 
+function relocateRefreshIcon(): void {
+	document.querySelectorAll('.files-list__header').forEach(header => {
+		const picker = header.querySelector('[data-cy-upload-picker].files-list__header-upload-button')
+			?? document.querySelector('[data-cy-upload-picker].files-list__header-upload-button--narrow')
+		const icon = header.querySelector('.files-list__refresh-icon')
+			?? picker?.querySelector('.files-list__refresh-icon')
+		const buttonWrapper = picker?.querySelector(':scope > .action-item')
+		const progress = picker?.querySelector(':scope > .upload-picker__progress')
+
+		if (!icon || !buttonWrapper || !progress) return
+		if (buttonWrapper.nextElementSibling === icon && icon.nextElementSibling === progress) return
+
+		progress.before(icon)
+	})
+}
+
+/**
+ * Vue still owns the loader and expects it in the header. Switching between the narrow
+ * and wide layouts re-creates the upload picker and would destroy the loader inside it,
+ * so hand it back to the header before it gets relocated into the new picker.
+ */
+function rescueRefreshIcon(mutations: MutationRecord[]): void {
+	const header = document.querySelector('.files-list__header')
+	if (!header) return
+
+	mutations.forEach(({ removedNodes }) => {
+		removedNodes.forEach(node => {
+			if (!(node instanceof Element) || node.matches('.files-list__header') || node.querySelector('.files-list__header')) return
+
+			const picker = node.matches('[data-cy-upload-picker]') ? node : node.querySelector('[data-cy-upload-picker]')
+			const icon = picker?.querySelector(':scope > .files-list__refresh-icon')
+			if (!icon) return
+
+			const breadcrumbs = header.querySelector('.files-list__breadcrumbs')
+			if (breadcrumbs) {
+				breadcrumbs.after(icon)
+			} else {
+				header.append(icon)
+			}
+		})
+	})
+}
+
 /**
  * Watches the document because Vue re-renders the button on navigation.
  */
 function setupUploadButtonFix(): void {
 	const apply = (): void => {
 		document.querySelectorAll('.files-list__header-upload-button').forEach(fixUploadButton)
+		relocateRefreshIcon()
 	}
 
 	apply()
 
-	const observer = new MutationObserver(() => apply())
+	const observer = new MutationObserver((mutations: MutationRecord[]) => {
+		rescueRefreshIcon(mutations)
+		apply()
+	})
 	observer.observe(document.body, { childList: true, subtree: true })
 }
 
