@@ -402,7 +402,7 @@
 								}
 							}
 
-							&.download-icon, &.download-outline-icon {
+							&.download-icon, &.download-outline-icon, &.tray-arrow-down-icon {
 								background-image: var(--icon-download-dark);
 
 								svg {
@@ -410,7 +410,7 @@
 								}
 							}
 
-							&.icon-menu-sidebar, &.icon-menu-sidebar-outline {
+							&.icon-menu-sidebar, &.icon-menu-sidebar-outline, &.dock-right-icon {
 								background-image: var(--icon-share-dark);
 
 								svg {
