@@ -197,3 +197,28 @@
         }
     }
 }
+
+// @nextcloud/vue 9 NcActionInput still passes the removed "arrowRight" icon, which NcTextField renders as a close icon
+#body-user,
+#body-settings,
+#body-public {
+    .action-input .input-field__trailing-button .icon-vue {
+        svg {
+            display: none;
+        }
+
+        &::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: currentColor;
+            -webkit-mask: var(--icon-arrow-left-dark) no-repeat center / contain;
+            mask: var(--icon-arrow-left-dark) no-repeat center / contain;
+            transform: scaleX(-1);
+        }
+
+        &:dir(rtl)::before {
+            transform: none;
+        }
+    }
+}
