@@ -1777,6 +1777,10 @@ body.nmc-public-nodownload {
 				display: inline-block;
 			}
 
+			button svg {
+				display: inline-block;
+			}
+
 			.button-vue--vue-primary, .button-vue--vue-secondary, .button-vue--vue-tertiary  {
 				margin-block: 0.5rem !important;
 				margin-inline: 0;
