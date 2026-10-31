@@ -1,7 +1,7 @@
 import { getFileActions, registerFileAction, FileAction, Node, Permission, View, getNavigation } from '@nextcloud/files'
 import { subscribe } from '@nextcloud/event-bus'
 import { loadState } from '@nextcloud/initial-state'
-import { translate as t } from '@nextcloud/l10n'
+import { getLanguage, translate as t } from '@nextcloud/l10n'
 import { sidebarAction } from './utils/sidebar.js'
 
 const setupConflictIcons = (): void => {
@@ -502,7 +502,24 @@ function setupModifiedFilterCalendar(): void {
 	const MIN_CALENDAR_POPOVER_HEIGHT = 200
 	const ISO_DATE = /\d{4}-\d{2}-\d{2}/g
 
+	const language = getLanguage() ?? ''
+	const [dateSeparator, rangeSeparator] = /^de/i.test(language) ? ['.', ' – '] : /^en/i.test(language) ? ['-', ' ~ '] : []
+
 	const startOfToday = (): number => new Date().setHours(0, 0, 0, 0)
+
+	const toDisplayRange = (value: string): string | null => {
+		const match = dateSeparator && value.match(/^(\d{4})-(\d\d)-(\d\d) ~ (\d{4})-(\d\d)-(\d\d)$/)
+		if (!match) return null
+		const [, y1, m1, d1, y2, m2, d2] = match
+		return [d1, m1, y1].join(dateSeparator) + rangeSeparator + [d2, m2, y2].join(dateSeparator)
+	}
+
+	const toIsoRange = (value: string): string | null => {
+		const match = dateSeparator && value.match(/^(\d\d)\D(\d\d)\D(\d{4})\D+(\d\d)\D(\d\d)\D(\d{4})$/)
+		if (!match) return null
+		const [, d1, m1, y1, d2, m2, y2] = match
+		return `${y1}-${m1}-${d1} ~ ${y2}-${m2}-${d2}`
+	}
 
 	// Local midnight; `new Date(iso)` would parse "YYYY-MM-DD" as UTC.
 	const parseIsoDate = (iso: string): number => {
@@ -582,37 +599,69 @@ function setupModifiedFilterCalendar(): void {
 	// before vue2-datepicker's own listeners on the input.
 	let lastCommitted = ''
 
-	const rangeInput = (event: Event): HTMLInputElement | null => {
-		const target = event.target
-		if (!(target instanceof HTMLInputElement) || !target.matches('.mx-input')) return null
-		return target.closest('.v-popper__popper:has(files-file-list-filter-modified)')
-			? target
-			: null
+	const isRangeInput = (el: unknown): el is HTMLInputElement =>
+		el instanceof HTMLInputElement && el.matches('.mx-input') && !!el.closest('.v-popper__popper:has(files-file-list-filter-modified)')
+
+	const rangeInput = (event: Event): HTMLInputElement | null => isRangeInput(event.target) ? event.target : null
+
+	// The picker only understands ISO and Vue re-assigns the ISO text on every render, so the
+	// field is localized by a `value` setter on the input itself (also while focused); typed
+	// text is turned back into ISO when committed.
+	const nativeValue = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')!
+	const reapply = (input: HTMLInputElement): void => {
+		const { value } = input
+		input.value = value
+	}
+
+	const localized = new WeakSet<HTMLInputElement>()
+	const localizeInputs = (): void => {
+		if (!dateSeparator) return
+		document.querySelectorAll<HTMLInputElement>('.mx-input').forEach((input) => {
+			if (localized.has(input) || !isRangeInput(input)) return
+			localized.add(input)
+			Object.defineProperty(input, 'value', {
+				configurable: true,
+				get: () => nativeValue.get!.call(input),
+				set: (value: string) => nativeValue.set!.call(input, toDisplayRange(value) ?? value),
+			})
+			reapply(input)
+		})
+	}
+
+	new MutationObserver(localizeInputs).observe(document.body, { childList: true, subtree: true })
+	localizeInputs()
+
+	// Resync vue2-datepicker's own draft, or its next render restores the previous text.
+	const setDraft = (input: HTMLInputElement, iso: string): void => {
+		nativeValue.set!.call(input, iso)
+		input.dispatchEvent(new Event('input', { bubbles: true }))
+	}
+
+	const commitInput = (event: Event): void => {
+		const input = rangeInput(event)
+		if (!input) return
+
+		const typedIso = toIsoRange(input.value)
+		if (typedIso) setDraft(input, typedIso)
+
+		if ((input.value.match(ISO_DATE) ?? []).some(iso => parseIsoDate(iso) > startOfToday())) {
+			event.stopPropagation()
+			event.preventDefault()
+			setDraft(input, lastCommitted)
+		}
+
+		// The picker keeps the ISO text when it rejects the input.
+		setTimeout(() => reapply(input))
 	}
 
 	document.addEventListener('focus', (event: Event) => {
 		const input = rangeInput(event)
-		if (input) lastCommitted = input.value
+		if (input) lastCommitted = toIsoRange(input.value) ?? input.value
 	}, true)
 
-	const rejectFutureInput = (event: Event): void => {
-		const input = rangeInput(event)
-		if (!input) return
-
-		const today = startOfToday()
-		const dates = input.value.match(ISO_DATE) ?? []
-		if (!dates.some(iso => parseIsoDate(iso) > today)) return
-
-		event.stopPropagation()
-		event.preventDefault()
-		input.value = lastCommitted
-		// Resync vue2-datepicker's own draft, or its next render restores the rejection.
-		input.dispatchEvent(new Event('input', { bubbles: true }))
-	}
-
-	document.addEventListener('change', rejectFutureInput, true)
+	document.addEventListener('change', commitInput, true)
 	document.addEventListener('keydown', (event: KeyboardEvent) => {
-		if (event.key === 'Enter') rejectFutureInput(event)
+		if (event.key === 'Enter') commitInput(event)
 	}, true)
 }
 
