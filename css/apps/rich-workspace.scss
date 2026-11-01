@@ -399,7 +399,12 @@
 					display: unset;
 				}
 			}
-			
+
+			// NcIconSvgWrapper icons, e.g. the Office templates in the attachment menu
+			.icon-vue svg {
+				display: unset;
+			}
+
 			.format-header1-icon {
 				// background-image: var(--icon-h1-dark);
 				background-image: unset;
