@@ -23,6 +23,7 @@ use OCP\INavigationManager;
 use OCP\IURLGenerator;
 
 class BeforeTemplateRenderedListener implements IEventListener {
+	private const HELP_URL = 'https://cloud.telekom-dienste.de/hilfe';
 	private const OPEN_SOURCE_URL = 'https://static.magentacloud.de/licences/webui.htm';
 	private const DATA_PRIVACY_URL = 'https://static.magentacloud.de/Datenschutz';
 	private const IMPRINT_URL = 'https://www.telekom.de/impressum';
@@ -71,10 +72,19 @@ class BeforeTemplateRenderedListener implements IEventListener {
 	}
 
 	protected function addLegalLinksToPublicMenu(PublicTemplateResponse $response): void {
+		// core always promotes the first action to the primary button, so pages without
+		// their own actions (e.g. public photo albums) get a hidden placeholder in that slot
+		if ($response->getActionCount() === 0) {
+			$response->setHeaderActions([
+				new SimpleMenuAction('nmc-primary-placeholder', '', 'icon-nmc-primary-placeholder', '#', 0),
+			]);
+		}
+
 		$response->setHeaderActions([
-			new SimpleMenuAction('nmc-open-source', $this->l->t('Open Source information'), 'icon-nmc-open-source', self::OPEN_SOURCE_URL, self::LEGAL_ACTION_PRIORITY),
-			new SimpleMenuAction('nmc-data-privacy', $this->l->t('Data privacy'), 'icon-nmc-data-privacy', self::DATA_PRIVACY_URL, self::LEGAL_ACTION_PRIORITY + 1),
-			new SimpleMenuAction('nmc-imprint', $this->l->t('Imprint'), 'icon-nmc-imprint', self::IMPRINT_URL, self::LEGAL_ACTION_PRIORITY + 2),
+			new SimpleMenuAction('nmc-help', $this->l->t('Faq'), 'icon-nmc-help', self::HELP_URL, self::LEGAL_ACTION_PRIORITY),
+			new SimpleMenuAction('nmc-open-source', $this->l->t('Open Source information'), 'icon-nmc-open-source', self::OPEN_SOURCE_URL, self::LEGAL_ACTION_PRIORITY + 1),
+			new SimpleMenuAction('nmc-data-privacy', $this->l->t('Data privacy'), 'icon-nmc-data-privacy', self::DATA_PRIVACY_URL, self::LEGAL_ACTION_PRIORITY + 2),
+			new SimpleMenuAction('nmc-imprint', $this->l->t('Imprint'), 'icon-nmc-imprint', self::IMPRINT_URL, self::LEGAL_ACTION_PRIORITY + 3),
 		]);
 	}
 

@@ -33,7 +33,8 @@
         }
 
         .header-end {
-            #public-page-menu--primary:has(.icon-public) {
+            #public-page-menu--primary:has(.icon-public),
+            #public-page-menu--primary:has(.icon-nmc-primary-placeholder) {
                 display: none;
             }
 
@@ -49,7 +50,8 @@
                 }
 
                 li:has(#save--link),
-                li:has(#directLink--link) {
+                li:has(#directLink--link),
+                li:has(#nmc-primary-placeholder--link) {
                     display: none;
                 }
 
@@ -64,6 +66,10 @@
                     background-size: 24px 24px;
                 }
 
+                .icon-nmc-help {
+                    background-image: var(--icon-help-dark);
+                }
+
                 .icon-nmc-open-source {
                     background-image: var(--icon-open-source-dark);
                 }
@@ -74,6 +80,15 @@
 
                 .icon-nmc-imprint {
                     background-image: var(--icon-imprint-dark);
+                }
+
+                .nmc-public-menu-copyright {
+                    margin: 0 24px;
+                    padding: 12px 0 16px;
+                    border-top: 1px solid var(--color-border);
+                    font-size: 0.875rem;
+                    line-height: 1.25rem;
+                    color: var(--color-main-text);
                 }
             }
 
