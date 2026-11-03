@@ -158,13 +158,17 @@
         padding: 5px;
         align-items: center;
 
-        &--error {
-            color: var(--color-error-text);
-        }
-
         &__icon {
             height: 11px;
             width: 11px;
+        }
+    }
+
+    // --color-text-error maps to the subtle (background) token, unreadable as text
+    &--error {
+        .input-field__helper-text-message,
+        .input-field__icon--trailing {
+            color: var(--mode-functional-destructive-standard);
         }
     }
 }
