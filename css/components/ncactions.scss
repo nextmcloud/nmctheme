@@ -167,7 +167,7 @@
 						}
 
 						.icon-vue {
-							svg path {
+							svg path:not([fill="none"]) {
 								fill: var(--color-main-text);
 							}
 						}
