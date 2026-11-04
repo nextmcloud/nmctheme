@@ -212,6 +212,16 @@ html[data-nmc-viewport="minimal"] {
                 }
             }
         }
+
+        &.conflict-picker {
+
+            .dialog__actions {
+                
+                .button-vue__icon {
+                    display: none;
+                }
+            }
+        }
     }
 }
 
