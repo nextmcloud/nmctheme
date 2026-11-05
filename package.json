@@ -19,7 +19,7 @@
         "vue": "^2.7.14"
     },
     "devDependencies": {
-        "@nextcloud/babel-config": "^1.0.0",
+        "@nextcloud/babel-config": "^2.0.0",
         "@nextcloud/browserslist-config": "^3.0.0",
         "@nextcloud/eslint-config": "^v8.3.0",
         "@nextcloud/sharing": "^0.1.0",
