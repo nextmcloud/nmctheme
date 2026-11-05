@@ -12,7 +12,7 @@
         "@nextcloud/initial-state": "^2.0.0",
         "@nextcloud/l10n": "^2.1.0",
         "@nextcloud/router": "^2.1.2",
-        "@nextcloud/typings": "^1.7.0",
+        "@nextcloud/typings": "^1.10.0",
         "@nextcloud/vue": "^8.17.0",
         "@telekom-ods/react-ui-kit": "^2.4.0",
         "pinia": "^2.1.6",
