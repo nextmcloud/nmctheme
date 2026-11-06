@@ -1409,6 +1409,15 @@
 					display: none;
 				}
 			}
+
+			// The star shares the checkbox's corner, so hand it over on hover.
+			&:hover,
+			&.selected,
+			&:focus-within {
+				.favorite-state {
+					display: none;
+				}
+			}
 		}
 
 		.checkbox-radio-switch.selection-checkbox {
