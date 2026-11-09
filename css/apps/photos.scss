@@ -1386,7 +1386,17 @@
 				}
 
 				&.image-plus-icon, &.image-plus-outline-icon {
-					background-image: var(--icon-addto-album-dark);
+					background-image: var(--original-icon-addto-album-white);
+				}
+			}
+
+			&:disabled {
+
+				.material-design-icon {
+
+					&.image-plus-icon, &.image-plus-outline-icon {
+						background-image: var(--icon-addto-album-dark);
+					}
 				}
 			}
 		}
@@ -1428,19 +1438,22 @@
 				background: transparent;
 
 				.material-design-icon {
-					background-color: var(--color-main-background);
-					border: 1px solid var(--color-primary-element);
-					border-radius: var(-border-radius);
-					height: 1rem;
-					width: 1rem;
-					margin: 0;
+					background-color: var(--nmc-color-text-and-icon-white);
+					border: 1px solid var(--nmc-color-text-and-icon-black);
+					border-radius: var(--border-radius-small);
+					width: 20px;
+					height: 20px;
 
 					&.checkbox-marked-icon {
 						background-image: var(--original-icon-check-white);
-						background-color: var(--color-primary-element);
+						background-color: var(--color-primary);
 						background-position: center;
 						background-repeat: no-repeat;
-						background-size: 18px;
+						background-size: 16px;
+						border: 1px solid var(--color-primary);
+						border-radius: var(--border-radius-small);
+						width: 20px;
+						height: 20px;
 					}
 				}
 
