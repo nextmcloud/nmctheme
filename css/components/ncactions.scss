@@ -238,7 +238,8 @@
 								display: none;
 							}
 
-							&[data-cy-upload-picker-menu-entry="file-request"] {
+							&[data-cy-upload-picker-menu-entry="file-request"],
+							&[data-cy-upload-picker-menu-entry="end_to_end_encryption:new-encrypted-folder"] {
 								display: none;
 							}
 
