@@ -337,10 +337,14 @@ html[data-nmc-viewport="minimal"] {
                 &--no-preview {
                     width: 42px;
                     height: 42px;
-                    background-image: var(--icon-mime-folder-blue) !important;
                     background-size: contain;
                     background-repeat: no-repeat;
                     background-position: center;
+                }
+
+                // Files without preview keep their mimetype icon (inline style from core)
+                &.icon-folder {
+                    background-image: var(--icon-mime-folder-blue) !important;
                 }
 
                 .nmc-search-favorite {
