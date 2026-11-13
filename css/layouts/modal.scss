@@ -14,12 +14,17 @@
  * Viewport tiers set by src/js/viewportmetrics.js, reclaiming the modal's fixed chrome as
  * the keyboard eats the visible area. Retuned through inherited custom properties so the
  * tiers never have to out-specify the base rules below.
+ *
+ * --nmc-modal-close-band is the row left free beside the close button, which is absolutely
+ * positioned 8px from the corner and 48px square: the first content row must clear its bottom
+ * edge (56px) from the container's top, i.e. 56px minus the padding.
  */
 html[data-nmc-viewport="tight"] {
     // Portrait, keyboard up: 300-560px visible.
     --nmc-modal-inset: var(--header-height);
     --nmc-modal-padding: 0.75rem;
     --nmc-modal-margin: 0px;
+    --nmc-modal-close-band: calc(56px - var(--nmc-modal-padding));
 }
 
 html[data-nmc-viewport="minimal"] {
@@ -28,6 +33,7 @@ html[data-nmc-viewport="minimal"] {
     --nmc-modal-inset: 0px;
     --nmc-modal-padding: 0.5rem;
     --nmc-modal-margin: 0px;
+    --nmc-modal-close-band: calc(56px - var(--nmc-modal-padding));
 }
 
 #body-user,
@@ -154,6 +160,38 @@ html[data-nmc-viewport="minimal"] {
                 .dialog__content {
                     overflow-y: auto;
                     padding-inline: 0;
+                }
+
+                // Same breakpoint as core's full-height mobile modal, which stays pinned below the
+                // header. With under 300px visible that offset is lost space, so use all of it.
+                @media only screen and ((max-width: 512px) or (max-height: 400px)) {
+                    html[data-nmc-viewport="minimal"] & {
+                        top: 0;
+                        height: 100%;
+                    }
+                }
+
+                // File picker: its list is sized from whatever height is left over, which a keyboard
+                // reduces to nothing, leaving the rows in a 0px box nobody can scroll. Give the list a
+                // floor and trim the spacing so the dialog content scrolls instead; the footer buttons
+                // and the close band stay where they are.
+                html[data-nmc-viewport="tight"] &,
+                html[data-nmc-viewport="minimal"] & {
+
+                    .file-picker {
+
+                        .dialog__wrapper {
+                            margin-block-end: 0.5rem;
+                        }
+
+                        .dialog__content {
+                            margin-block-start: 0.25rem;
+                        }
+
+                        .file-picker__files {
+                            min-height: 8rem;
+                        }
+                    }
                 }
 
                 &:has(.modal__content--exif) {

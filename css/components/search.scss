@@ -94,16 +94,23 @@ html[data-nmc-viewport="minimal"] {
 
     #unified-search {
 
-        // Hidden visually only - never display: none, the heading is the dialog's
-        // accessible name via aria-labelledby.
+        // Compact, not hidden: the heading is the dialog's accessible name via aria-labelledby
+        // and, sitting in the band beside the absolutely positioned close button, it is what
+        // keeps the search field and the scroll bar from running underneath that button.
         .dialog__name {
-            position: absolute !important;
-            width: 1px !important;
-            height: 1px !important;
+            box-sizing: border-box;
+            // the dialog is a column flexbox: don't let a long result list squash the band
+            flex: none;
+            height: var(--nmc-modal-close-band, 44px) !important;
+            min-height: 0 !important;
+            line-height: var(--nmc-modal-close-band, 44px) !important;
             margin: 0 !important;
-            padding: 0 !important;
+            // keep the text clear of the close button, which is 56px wide counting its margin
+            padding-block: 0 !important;
+            padding-inline: 0.5rem 56px !important;
+            font-size: 1.125rem;
             overflow: hidden;
-            clip-path: inset(50%);
+            text-overflow: ellipsis;
             white-space: nowrap;
         }
 
