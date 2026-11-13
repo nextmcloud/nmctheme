@@ -833,3 +833,108 @@ if (document.readyState === 'loading') {
 } else {
 	setupNarrowFilterChips()
 }
+
+/**
+ * Keeps the "new folder / new file" dialog above the on-screen keyboard.
+ *
+ * Mobile browsers only shrink the visual viewport for the keyboard, so the modal mask
+ * (`height: 100%`) keeps its full height and the centered dialog, including its action
+ * button, ends up behind the keyboard. While the dialog is open the visual viewport is
+ * tracked and the mask and container are fitted to the visible area; the dialog content
+ * scrolls on its own and the focused field is scrolled into view.
+ */
+const NEW_NODE_DIALOG = '[data-cy-files-new-node-dialog]'
+// Smallest height loss treated as a keyboard
+const KEYBOARD_MIN_HEIGHT = 120
+// Above this scale the viewport shrinks because of pinch zoom, not a keyboard
+const MAX_TRACKED_SCALE = 1.01
+
+function setupNewNodeDialogKeyboardFix(): void {
+	const viewport = window.visualViewport
+	if (!viewport) {
+		return
+	}
+
+	let mask: HTMLElement | null = null
+	let frame: number | null = null
+
+	const container = (): HTMLElement | null => mask?.querySelector('.modal-container') ?? null
+
+	const reset = (): void => {
+		mask?.style.removeProperty('top')
+		mask?.style.removeProperty('height')
+		container()?.style.removeProperty('max-height')
+	}
+
+	const revealFocusedField = (): void => {
+		const field = document.activeElement
+		if (mask && field instanceof HTMLElement && mask.contains(field) && field.matches('input, textarea, select')) {
+			field.scrollIntoView({ block: 'nearest', inline: 'nearest' })
+		}
+	}
+
+	const update = (): void => {
+		frame = null
+		if (!mask) {
+			return
+		}
+
+		if (viewport.scale > MAX_TRACKED_SCALE || window.innerHeight - viewport.height < KEYBOARD_MIN_HEIGHT) {
+			reset()
+			return
+		}
+
+		mask.style.setProperty('top', `${Math.round(viewport.offsetTop)}px`)
+		mask.style.setProperty('height', `${Math.round(viewport.height)}px`)
+		container()?.style.setProperty('max-height', `${Math.round(viewport.height) - 8}px`)
+		revealFocusedField()
+	}
+
+	const schedule = (): void => {
+		if (frame === null) {
+			frame = window.requestAnimationFrame(update)
+		}
+	}
+
+	const attach = (element: HTMLElement): void => {
+		mask = element
+		viewport.addEventListener('resize', schedule)
+		viewport.addEventListener('scroll', schedule)
+		window.addEventListener('orientationchange', schedule)
+		element.addEventListener('focusin', schedule)
+		schedule()
+	}
+
+	const detach = (): void => {
+		viewport.removeEventListener('resize', schedule)
+		viewport.removeEventListener('scroll', schedule)
+		window.removeEventListener('orientationchange', schedule)
+		mask?.removeEventListener('focusin', schedule)
+		if (frame !== null) {
+			window.cancelAnimationFrame(frame)
+			frame = null
+		}
+		mask = null
+	}
+
+	// The modal is teleported straight to <body>, so direct children are enough
+	new MutationObserver(() => {
+		const dialog = document.body.querySelector<HTMLElement>(`:scope > ${NEW_NODE_DIALOG}`)
+		if (dialog === mask) {
+			return
+		}
+		if (mask) {
+			reset()
+			detach()
+		}
+		if (dialog) {
+			attach(dialog)
+		}
+	}).observe(document.body, { childList: true })
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', setupNewNodeDialogKeyboardFix)
+} else {
+	setupNewNodeDialogKeyboardFix()
+}
