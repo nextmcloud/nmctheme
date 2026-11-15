@@ -1773,12 +1773,12 @@ body.nmc-public-nodownload {
 			margin: 0;
 			padding: 0;
 
-			button[data-cy-conflict-picker-submit] .arrow-right-icon svg {
-				display: inline-block;
+			.button-vue__icon {
+				display: none;
 			}
 
-			button svg {
-				display: inline-block;
+			.button-vue__wrapper {
+				justify-content: center;
 			}
 
 			.button-vue--vue-primary, .button-vue--vue-secondary, .button-vue--vue-tertiary  {
