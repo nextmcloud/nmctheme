@@ -4,52 +4,6 @@ import { loadState } from '@nextcloud/initial-state'
 import { getLanguage, translate as t } from '@nextcloud/l10n'
 import { sidebarAction } from './utils/sidebar.js'
 
-const setupConflictIcons = (): void => {
-	const picker = '[data-cy-conflict-picker]'
-	const icons = [
-		['[data-cy-conflict-picker-cancel], [data-cy-conflict-picker-skip]', require('../img/actions/close.svg')],
-		['[data-cy-conflict-picker-keep-both]', require('../img/actions/copy-paste.svg')],
-		['[data-cy-conflict-picker-submit]', require('../img/actions/arrow-right.svg')],
-	].map(([selector, source]) => {
-		const svg = new DOMParser().parseFromString(source, 'image/svg+xml').documentElement
-		svg.setAttribute('width', '20')
-		svg.setAttribute('height', '20')
-		svg.setAttribute('focusable', 'false')
-		svg.querySelectorAll('title').forEach(title => title.remove())
-		svg.querySelectorAll('[fill]:not([fill="none"])').forEach(element => element.setAttribute('fill', 'currentColor'))
-		const icon = document.createElement('span')
-		icon.className = 'button-vue__icon'
-		icon.setAttribute('aria-hidden', 'true')
-		icon.appendChild(document.importNode(svg, true))
-		return { selector, icon }
-	})
-	const apply = (): void => {
-		icons.forEach(({ selector, icon }) => {
-			document.querySelectorAll(`${picker} .dialog__actions :is(${selector})`).forEach(button => {
-				const text = button.querySelector('.button-vue__wrapper > .button-vue__text')
-				if (!text) return
-				if (!button.querySelector('.button-vue__icon')) text.before(icon.cloneNode(true))
-				button.classList.remove('button-vue--text-only')
-				button.classList.add('button-vue--icon-and-text')
-			})
-		})
-	}
-	apply()
-	new MutationObserver(mutations => {
-		if (mutations.some(({ target, addedNodes }) =>
-			(target instanceof Element && target.closest(picker))
-			|| Array.from(addedNodes).some(node => node instanceof Element
-				&& (node.matches(picker) || node.querySelector(picker))),
-		)) apply()
-	}).observe(document.body, { childList: true, subtree: true })
-}
-
-if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', setupConflictIcons)
-} else {
-	setupConflictIcons()
-}
-
 const Navigation = getNavigation()
 
 const sharinginView = Navigation.views.find(view => view.id === 'sharingin')
