@@ -397,6 +397,14 @@ html[data-nmc-viewport="minimal"] {
                 height: 100%;
                 width: 100%;
 
+                @media (prefers-color-scheme: dark) {
+                    background-image: url('../img/decorative_images/cautious-dog-dark.svg');
+                }
+
+                [data-themes*=dark] & {
+                    background-image: url('../img/decorative_images/cautious-dog-dark.svg');
+                }
+
                 svg {
                     display: none;
                 }
