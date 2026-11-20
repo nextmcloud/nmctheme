@@ -509,3 +509,141 @@ header {
 		display: none;
 	}
 }
+// NC 34+ header: the search sits in .header-center and core shows a waffle app menu.
+// Restore the NC 33 look: app tabs (NmcAppMenu) and a "Search" header button at rest.
+#body-user #header,
+#body-settings #header {
+
+	// guarded by .header-center so NC 33 (no such slot) keeps core's own app menu
+	&:has(.header-center) {
+
+		.header-start {
+			flex: 1 1 auto;
+		}
+
+		.header-center,
+		.header-end {
+			flex: 0 0 auto;
+		}
+
+		// core waffle only below the tab breakpoint, styled as the NC 33 menu button
+		.header-start .app-menu:not(.nmc-app-menu) {
+			display: none;
+
+			@media screen and (max-width: $breakpoint-mobile-medium) {
+				display: flex;
+			}
+
+			.app-menu__current-app {
+				display: none;
+			}
+
+			.app-menu__waffle .button-vue__icon {
+				background-image: var(--icon-menu-dark);
+				background-size: auto 24px;
+				background-position: center;
+				background-repeat: no-repeat;
+
+				svg {
+					display: none;
+				}
+			}
+		}
+
+		// base layout core's scoped NC 33 AppMenu styles provided
+		.nmc-app-menu {
+			.app-menu__list {
+				display: flex;
+				flex-wrap: nowrap;
+			}
+
+			.app-menu-entry {
+				position: relative;
+			}
+
+			@media screen and (max-width: $breakpoint-mobile-medium) {
+				display: none !important;
+			}
+		}
+	}
+
+	.header-center {
+
+		.magnify-icon {
+			background-image: var(--icon-search-dark);
+			background-size: auto 24px;
+			background-position: center;
+			background-repeat: no-repeat;
+			min-width: 24px;
+			height: 24px;
+
+			svg {
+				display: none;
+			}
+		}
+
+		.unified-search-input:not(.unified-search-input--mobile):not(:has(.unified-search-input__field--active)) {
+			width: auto;
+		}
+
+		// at rest: a plain header button with icon and label
+		.unified-search-input__field:not(.unified-search-input__field--active) {
+			container-type: normal;
+			width: auto;
+			height: var(--header-height);
+			padding-inline: 0 1.5rem;
+			border-radius: 0;
+			background-color: transparent;
+			box-shadow: none;
+			backdrop-filter: none;
+
+			.unified-search-input__resting {
+				position: static;
+				transform: none;
+				max-width: none;
+				color: var(--color-main-text);
+			}
+
+			.unified-search-input__label {
+				font-size: 12px;
+
+				@media screen and (max-width: $breakpoint-mobile) {
+					display: none;
+				}
+			}
+
+			.unified-search-input__input {
+				position: absolute;
+				inset: 0;
+				padding: 0;
+				cursor: pointer;
+			}
+
+			.unified-search-input__shortcut {
+				display: none;
+			}
+
+			&:hover {
+
+				&::before {
+					background-color: var(--color-primary);
+					content: " ";
+					display: block;
+					height: 4px;
+					bottom: 1px;
+					width: 100%;
+					position: absolute;
+				}
+
+				.unified-search-input__label {
+					color: var(--color-primary);
+				}
+			}
+		}
+
+		// active: a real input field
+		.unified-search-input__field--active {
+			border: 2px solid var(--color-border);
+		}
+	}
+}

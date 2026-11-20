@@ -130,4 +130,18 @@ class URLGeneratorDecorator implements IURLGenerator {
 	public function getWebroot(): string {
 		return $this->decorated->getWebroot();
 	}
+
+	/**
+	 * No decoration, only delegate.
+	 */
+	public function linkToRemote(string $service): string {
+		return $this->decorated->linkToRemote($service);
+	}
+
+	/**
+	 * No decoration, only delegate.
+	 */
+	public function getLogoutUrl(): string {
+		return $this->decorated->getLogoutUrl();
+	}
 }
