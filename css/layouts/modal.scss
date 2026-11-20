@@ -156,6 +156,38 @@ html[data-nmc-viewport="minimal"] {
                     padding-inline: 0;
                 }
 
+                // Same breakpoint as core's full-height mobile modal, which stays pinned below the
+                // header. With under 300px visible that offset is lost space, so use all of it.
+                @media only screen and ((max-width: 512px) or (max-height: 400px)) {
+                    html[data-nmc-viewport="minimal"] & {
+                        top: 0;
+                        height: 100%;
+                    }
+                }
+
+                // File picker: its list is sized from whatever height is left over, which a keyboard
+                // reduces to nothing, leaving the rows in a 0px box nobody can scroll. Give the list a
+                // floor and trim the spacing so the dialog content scrolls instead; the footer buttons
+                // and the close band stay where they are.
+                html[data-nmc-viewport="tight"] &,
+                html[data-nmc-viewport="minimal"] & {
+
+                    .file-picker {
+
+                        .dialog__wrapper {
+                            margin-block-end: 0.5rem;
+                        }
+
+                        .dialog__content {
+                            margin-block-start: 0.25rem;
+                        }
+
+                        .file-picker__files {
+                            min-height: 8rem;
+                        }
+                    }   
+                }
+
                 &:has(.modal__content--exif) {
                     padding: 0;
 
@@ -209,6 +241,16 @@ html[data-nmc-viewport="minimal"] {
                 @media screen and (max-width: $breakpoint-mobile-small) {
                     font-size: 1.25rem;
                     padding: 1rem 1rem 0.5rem;
+                }
+            }
+        }
+    }
+
+    .reference-picker-modal {
+        .modal-container {
+            button.modal-container__close {
+                .close-icon {
+                    background-image: unset !important;
                 }
             }
         }
