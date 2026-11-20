@@ -28,21 +28,21 @@ class NavigationManagerDecorator implements INavigationManager {
 	/**
 	 * No decoration, only delegate.
 	 */
-	public function add($entry) {
+	public function add($entry): void {
 		$this->decorated->add($entry);
 	}
 
 	/**
 	 * No decoration, only delegate.
 	 */
-	public function setActiveEntry($appId) {
-		return $this->decorated->setActiveEntry($appId);
+	public function setActiveEntry($appId): void {
+		$this->decorated->setActiveEntry($appId);
 	}
 
 	/**
 	 * No decoration, only delegate.
 	 */
-	public function getActiveEntry() {
+	public function getActiveEntry(): ?string {
 		return $this->decorated->getActiveEntry();
 	}
 

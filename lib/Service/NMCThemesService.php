@@ -69,9 +69,15 @@ class NMCThemesService extends ThemesService {
 		DarkTheme $darkTheme,
 		HighContrastTheme $highContrastTheme,
 		DarkHighContrastTheme $darkHighContrastTheme,
-		DyslexiaFont $dyslexiaFont) {
-		parent::__construct($userSession, $config, $logger, $defaultTheme, $lightTheme,
-			$darkTheme, $highContrastTheme, $darkHighContrastTheme, $dyslexiaFont);
+		DyslexiaFont $dyslexiaFont,
+		?ITheme $reducedMotion = null) {
+		// NC 35 added ReducedMotion as a required parent argument; NC 33 does not have it
+		$parentArgs = [$userSession, $config, $logger, $defaultTheme, $lightTheme,
+			$darkTheme, $highContrastTheme, $darkHighContrastTheme, $dyslexiaFont];
+		if ($reducedMotion !== null) {
+			$parentArgs[] = $reducedMotion;
+		}
+		parent::__construct(...$parentArgs);
 
 		$this->userSession = $userSession;
 		$this->config = $config;

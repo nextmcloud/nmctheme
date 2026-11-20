@@ -38,6 +38,7 @@ use OCA\Theming\Themes\DefaultTheme;
 use OCA\Theming\Themes\DyslexiaFont;
 use OCA\Theming\Themes\HighContrastTheme;
 use OCA\Theming\Themes\LightTheme;
+use OCA\Theming\Themes\ReducedMotion;
 use OCP\IAppConfig;
 use OCP\App\IAppManager;
 use OCP\AppFramework\App;
@@ -234,7 +235,8 @@ class Application extends App implements IBootstrap {
 				$c->get(DarkTheme::class),
 				$c->get(HighContrastTheme::class),
 				$c->get(DarkHighContrastTheme::class),
-				$c->get(DyslexiaFont::class)
+				$c->get(DyslexiaFont::class),
+				class_exists(ReducedMotion::class) ? $c->get(ReducedMotion::class) : null
 			);
 		});
 
