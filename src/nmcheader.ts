@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import NmcAppMenu from './components/NmcAppMenu.vue'
 import UserMenu from './components/UserMenu.vue'
 import { translate as t } from '@nextcloud/l10n'
 import { generateUrl } from '@nextcloud/router'
@@ -49,7 +50,41 @@ function updateNotificationsLabel() {
 	return false
 }
 
+function updateSearchLabel() {
+	const labelEl = document.querySelector('#header .header-center .unified-search-input__label')
+
+	if (labelEl) {
+		labelEl.textContent = t(app, 'Search')
+		return true
+	}
+	return false
+}
+
+// NC 34+ layout: the search moved into .header-center and the app list became a waffle popover
+function adaptHeaderSince34(headerCenter: Element) {
+	const headerStart = document.querySelector('#header .header-start')
+	if (headerStart !== null) {
+		const appMenu = document.createElement('div')
+		headerStart.appendChild(appMenu)
+		new (Vue.extend(NmcAppMenu))().$mount(appMenu)
+	}
+
+	if (!updateSearchLabel()) {
+		const observer = new MutationObserver(() => {
+			if (updateSearchLabel()) {
+				observer.disconnect()
+			}
+		})
+		observer.observe(headerCenter, { childList: true, subtree: true })
+	}
+}
+
 window.addEventListener('DOMContentLoaded', function() {
+	const headerCenter = document.querySelector('#header .header-center')
+	if (headerCenter !== null) {
+		adaptHeaderSince34(headerCenter)
+	}
+
 	const head = document.querySelector('head')
 	if (head !== null) {
 		const user = head.attributes['data-user-displayname'].value

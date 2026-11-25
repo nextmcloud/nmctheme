@@ -215,6 +215,34 @@ html[data-nmc-viewport="minimal"] {
     }
 }
 
+// NC 35 NcAppSettingsDialog drops the start padding and moves the title into the
+// navigation, which nmctheme hides
+#body-user,
+#body-settings {
+
+    .app-settings:not(.app-settings--legacy) {
+
+        .modal-wrapper .modal-container {
+            padding-block-start: var(--nmc-modal-padding) !important;
+            padding-inline-start: var(--nmc-modal-padding) !important;
+        }
+
+        .dialog__name {
+            position: static;
+            width: auto;
+            margin: 0 0 1.5rem;
+            overflow: visible;
+            clip-path: none;
+        }
+
+        .app-settings__content {
+            padding-block: 0;
+            border-inline-start: none;
+            border-radius: 0;
+        }
+    }
+}
+
 .dialog__modal[name="Pick plain text files"] {
 
     .dialog__name {

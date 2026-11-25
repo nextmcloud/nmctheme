@@ -16,7 +16,9 @@
 
         li:has(a#profile),
         li:has(a#admin_settings),
+        li:has(a#settings_administration),
         li:has(a#core_apps),
+        li:has(a#appstore),
         li:has(a#core_users) {
             order: 2;
         }
@@ -176,11 +178,13 @@
                         background-image: var(--icon-logout-dark);
                     }
 
-                    > a#admin_settings::after {
+                    > a#admin_settings::after,
+                    > a#settings_administration::after {
                         background-image: var(--icon-admin-dark);
                     }
 
-                    > a#core_apps::after {
+                    > a#core_apps::after,
+                    > a#appstore::after {
                         background-image: var(--icon-apps-dark);
                     }
 

@@ -138,6 +138,109 @@ html[data-nmc-viewport="minimal"] {
     }
 }
 
+// Filter chips of the unified search, shared by the NC 33 modal and the NC 34+ popover
+@mixin nmc-search-filters {
+    .unified-search-modal__filters {
+        gap: 0;
+        padding-left: 4px;
+        padding-top: 8px;
+
+        // Hide people and places filter
+        > [data-cy-unified-search-filter="people"],
+        > [data-cy-unified-search-filter="places"] {
+            display: none;
+        }
+
+        button.button-vue {
+            &[title="Dateien"], &[title="Files"], &[data-cy-unified-search-filter="current-view"] {
+                display: none !important;
+            }
+
+            // Style for filter dropdown buttons (Date, Filter, etc.)
+            &.action-item__menutoggle {
+                background-color: var(--nmc-ods-blue-primary);
+                color: var(--nmc-color-text-and-icon-black);
+                border-radius: var(--border-radius-element);
+                border: none;
+                border-radius: var(--border-radius-small);
+                height: 28px;
+                min-height: 28px;
+                padding: 0 12px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                box-sizing: border-box;
+                margin-top: 0;
+                margin-left: 5px;
+
+                &:hover {
+                    background-color: var(--nmc-ods-blue-hover);
+                }
+
+                &:active {
+                    background-color: var(--nmc-ods-blue-pressed);
+                }
+
+                &[aria-expanded="true"] {
+                    background-color: var(--nmc-ods-blue-active);
+                }
+
+                // Hide the left icon
+                .button-vue__icon {
+                    display: none;
+                }
+
+                .button-vue__text {
+                    color: var(--nmc-color-text-and-icon-black);
+                }
+
+                // Add down arrow icon after the wrapper
+                .button-vue__wrapper {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    &::after {
+                        content: '';
+                        display: inline-block;
+                        width: 6px;
+                        height: 6px;
+                        border-left: 1.5px solid var(--nmc-color-text-and-icon-black);
+                        border-bottom: 1.5px solid var(--nmc-color-text-and-icon-black);
+                        transform: rotate(-45deg);
+                        margin-top: -2px;
+                        transition: transform 0.2s ease;
+                    }
+                }
+
+                // Rotate arrow when dropdown is open
+                &[aria-expanded="true"] .button-vue__wrapper::after {
+                    transform: rotate(135deg);
+                    margin-top: 2px;
+                }
+            }
+        }
+    }
+
+    .unified-search-modal__filters-applied {
+        align-items: center;
+        display: flex;
+        padding-top: 8px;
+
+        .chip {
+            background-color: var(--nmc-ods-blue-active);
+            border-radius: 8px;
+            border: none;
+            color: var(--nmc-color-text-and-icon-black);
+            padding: 0 12px;
+
+            .icon {
+                display: none;
+            }
+        }
+    }
+}
+
 #unified-search .unified-search-modal {
 
     .unified-search-modal__content {
@@ -178,105 +281,7 @@ html[data-nmc-viewport="minimal"] {
                 }
             }
 
-            .unified-search-modal__filters {
-                gap: 0;
-                padding-left: 4px;
-                padding-top: 8px;
-
-                // Hide people and places filter
-                > [data-cy-unified-search-filter="people"],
-                > [data-cy-unified-search-filter="places"] {
-                    display: none;
-                }
-
-                button.button-vue {
-                    &[title="Dateien"], &[title="Files"], &[data-cy-unified-search-filter="current-view"] {
-                        display: none !important;
-                    }
-
-                    // Style for filter dropdown buttons (Date, Filter, etc.)
-                    &.action-item__menutoggle {
-                        background-color: var(--nmc-ods-blue-primary);
-                        color: var(--nmc-color-text-and-icon-black);
-                        border-radius: var(--border-radius-element);
-                        border: none;
-                        border-radius: var(--border-radius-small);
-                        height: 28px;
-                        min-height: 28px;
-                        padding: 0 12px;
-                        font-weight: bold;
-                        display: flex;
-                        align-items: center;
-                        box-sizing: border-box;
-                        margin-top: 0;
-                        margin-left: 5px;
-
-                        &:hover {
-                            background-color: var(--nmc-ods-blue-hover);
-                        }
-
-                        &:active {
-                            background-color: var(--nmc-ods-blue-pressed);
-                        }
-
-                        &[aria-expanded="true"] {
-                            background-color: var(--nmc-ods-blue-active);
-                        }
-
-                        // Hide the left icon
-                        .button-vue__icon {
-                            display: none;
-                        }
-
-                        .button-vue__text {
-                            color: var(--nmc-color-text-and-icon-black);
-                        }
-
-                        // Add down arrow icon after the wrapper
-                        .button-vue__wrapper {
-                            display: flex;
-                            align-items: center;
-                            gap: 8px;
-
-                            &::after {
-                                content: '';
-                                display: inline-block;
-                                width: 6px;
-                                height: 6px;
-                                border-left: 1.5px solid var(--nmc-color-text-and-icon-black);
-                                border-bottom: 1.5px solid var(--nmc-color-text-and-icon-black);
-                                transform: rotate(-45deg);
-                                margin-top: -2px;
-                                transition: transform 0.2s ease;
-                            }
-                        }
-
-                        // Rotate arrow when dropdown is open
-                        &[aria-expanded="true"] .button-vue__wrapper::after {
-                            transform: rotate(135deg);
-                            margin-top: 2px;
-                        }
-                    }
-                }
-            }
-
-            .unified-search-modal__filters-applied {
-                align-items: center;
-                display: flex;
-                padding-top: 8px;
-
-                .chip {
-                    background-color: var(--nmc-ods-blue-active);
-                    border-radius: 8px;
-                    border: none;
-                    color: var(--nmc-color-text-and-icon-black);
-                    padding: 0 12px;
-
-                    .icon {
-                        display: none;
-                    }
-                }
-            }
+            @include nmc-search-filters;
             
             background-color: unset !important;
         }
@@ -417,5 +422,34 @@ html[data-nmc-viewport="minimal"] {
 
     #unified-search .unified-search-modal__results {
         overflow: hidden auto;
+    }
+}
+
+
+// NC 34+: results open in a popover under the header input, outside #unified-search.
+// The ID keeps these rules above the global #body-user .button-vue rules, as on NC 33.
+#body-user .unified-search-modal-root,
+#body-settings .unified-search-modal-root {
+
+    .unified-search-modal__header {
+        @include nmc-search-filters;
+
+        .unified-search-modal__filters {
+            justify-content: flex-start;
+
+            > * {
+                flex: 0 0 auto;
+            }
+
+            // core stretches the chips to equal columns
+            .button-vue {
+                width: auto;
+            }
+
+            // core paints its dropdown chevron as ::after; the mixin draws its own on the wrapper
+            .button-vue::after {
+                content: none;
+            }
+        }
     }
 }

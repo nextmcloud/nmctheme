@@ -20,7 +20,7 @@
 	<category>customization</category>
 	<bugs>https://github.com/nextcloud/server/issues</bugs>
 	<dependencies>
-		<nextcloud min-version="32" max-version="34"/>
+		<nextcloud min-version="32" max-version="35"/>
 	</dependencies>
     <commands>
 		<command>OCA\NMCTheme\Command\CacheBuster</command>

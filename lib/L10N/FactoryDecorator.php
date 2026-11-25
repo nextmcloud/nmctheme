@@ -253,7 +253,7 @@ class FactoryDecorator implements IFactory {
 		return $this->filterLocale($this->decoratedFactory->findLanguage($appId));
 	}
 
-	public function findGenericLanguage(string $appId = null): string {
+	public function findGenericLanguage(?string $appId = null): string {
 		return $this->filterLocale($this->decoratedFactory->findGenericLanguage($appId));
 	}
 
@@ -261,7 +261,7 @@ class FactoryDecorator implements IFactory {
 		return $this->filterLocale($this->decoratedFactory->findLocale($lang));
 	}
 
-	public function findLanguageFromLocale(string $app = 'core', string $locale = null) {
+	public function findLanguageFromLocale(string $app = 'core', ?string $locale = null) {
 		return $this->filterLocale($this->decoratedFactory->findLanguageFromLocale($app, $locale));
 	}
 
@@ -287,7 +287,7 @@ class FactoryDecorator implements IFactory {
 		return $this->decoratedFactory->getLanguageDirection($language);
 	}
 
-	public function localeExists($locale) {
+	public function localeExists($locale): bool {
 		if (!$this->isSupportedLocale((string)$locale)) {
 			return false;
 		}
@@ -295,7 +295,7 @@ class FactoryDecorator implements IFactory {
 		return $this->decoratedFactory->localeExists($locale);
 	}
 
-	public function getLanguageIterator(IUser $user = null): ILanguageIterator {
+	public function getLanguageIterator(?IUser $user = null): ILanguageIterator {
 		return new LanguageIteratorDecorator(
 			$this->decoratedFactory->getLanguageIterator($user),
 			$this->supported_locales
@@ -322,7 +322,7 @@ class FactoryDecorator implements IFactory {
 		];
 	}
 
-	public function getUserLanguage(IUser $user = null): string {
+	public function getUserLanguage(?IUser $user = null): string {
 		return $this->filterLocale($this->decoratedFactory->getUserLanguage($user));
 	}
 }
